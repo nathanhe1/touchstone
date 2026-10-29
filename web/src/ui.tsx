@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { animate } from 'animejs'
-import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 import { REQUEST_FORM_URL } from './data'
+
+const Shader = lazy(() => import('./Shader'))
 
 export const reduced = typeof window !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -22,7 +23,7 @@ export const Brand = () => (
   <svg viewBox="0 0 42 42" aria-hidden="true">
     <defs><linearGradient id="stone" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#8a8f96" /><stop offset=".5" stopColor="#3a3f45" /><stop offset="1" stopColor="#16191c" /></linearGradient></defs>
     <path d="M5 13 14 5l13 2 10 10-3 15-12 6L8 32 3 22z" fill="url(#stone)" stroke="#c9cdd2" strokeWidth="1.2" />
-    <path d="m24 8 3 10-4 5 5 3-3 9" fill="none" stroke="#8f9bff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" />
+    <path d="m24 8 3 10-4 5 5 3-3 9" fill="none" stroke="#e2b45a" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" />
   </svg>
 )
 
@@ -89,17 +90,10 @@ export function Gradient({ tone = 'hero' }: { tone?: 'hero' | 'close' }) {
     if (ref.current) io.observe(ref.current)
     return () => io.disconnect()
   }, [])
-  const colors = tone === 'hero' ? ['#1b2150', '#8f9bff', '#0b0d10'] : ['#2a2f6a', '#ffb020', '#0b0d10']
+  const colors = tone === 'hero' ? ['#2b2414', '#e2b45a', '#0b0d10'] : ['#1e2126', '#c4a35a', '#0b0d10']
   return (
     <div ref={ref} className={tone === 'hero' ? 'hero-bg' : 'close-bg'} aria-hidden="true">
-      {on && !reduced && (
-        <ShaderGradientCanvas style={{ position: 'absolute', inset: 0 }} pixelDensity={1} fov={45} lazyLoad={false}>
-          <ShaderGradient type="waterPlane" animate="on" uSpeed={0.12} uStrength={1.6} uDensity={1.1} uFrequency={3.2} uAmplitude={0}
-            color1={colors[0]} color2={colors[1]} color3={colors[2]} brightness={0.9} lightType="3d" grain="on"
-            cAzimuthAngle={170} cPolarAngle={70} cDistance={4.2} cameraZoom={1} positionX={0} positionY={0.9} positionZ={-0.3}
-            rotationX={45} rotationY={0} rotationZ={0} reflection={0.1} />
-        </ShaderGradientCanvas>
-      )}
+      {on && !reduced && <Suspense fallback={null}><Shader colors={colors as [string, string, string]} /></Suspense>}
     </div>
   )
 }

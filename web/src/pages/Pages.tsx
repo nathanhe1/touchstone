@@ -187,7 +187,7 @@ export function Forecast() {
           </Panel>
         </Reveal>
         <Reveal delay={.1}>
-          <div className="big-figure num"><Count value={signed(v.spearman_forecast_vs_actual, 2)} /></div>
+          <div className="big-figure"><Count value={signed(v.spearman_forecast_vs_actual, 2)} /></div>
           <p className="lede" style={{ marginTop: 16 }}>Rank match between forecast and measured results. 1 means the same order, 0 means no match.</p>
           <p className="lede">In this demo the forecast didn't rank the six environments well. With tiny models and six sets that is a warning, not a verdict. The average miss was <b className="num">{v.mean_abs_error_pts.toFixed(1)} pts</b>.</p>
           <p className="lede">The research says small runs can predict big ones. Every Touchstone report will show how well its forecast held up, so you can judge it yourself.</p>
@@ -227,10 +227,10 @@ export function Market() {
                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px)', backgroundSize: '25% 25%', opacity: .7 }} />
                 <span className="map-axis" style={{ left: 8, top: 8 }}>independent ↑</span><span className="map-axis" style={{ right: 8, bottom: 8 }}>measures training value →</span>
                 {players.map(([name, x, y], i) => (
-                  <motion.div key={name} className={`map-dot${name === 'Touchstone' ? ' us' : ''}${x > 60 ? ' left' : ''}`} style={{ left: `${x}%`, bottom: `${y}%` }}
-                    initial={{ opacity: 0, scale: .5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: .2 + i * .15, type: 'spring', stiffness: 220, damping: 14 }}>
-                    <i /><span>{name}</span>
-                  </motion.div>
+                  <div key={name} className={`map-dot${name === 'Touchstone' ? ' us' : ''}${x > 60 ? ' left' : ''}`} style={{ left: `${x}%`, bottom: `${y}%` }}>
+                    <motion.i initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: .2 + i * .15, type: 'spring', stiffness: 260, damping: 12 }} />
+                    <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: .35 + i * .15 }}>{name}</motion.span>
+                  </div>
                 ))}
               </div>
             </Panel>
@@ -242,7 +242,7 @@ export function Market() {
           <div className="section-head"><Reveal><h2>Close neighbours, different job.</h2></Reveal></div>
           <div className="rows-table">
             {players.map(([name, , , what, gap], i) => (
-              <Reveal key={name} delay={i * .05}><div className={name === 'Touchstone' ? 'us' : ''}><b>{name}</b><p>{what}</p><p>{gap}</p></div></Reveal>
+              <Reveal key={name} delay={i * .05}><div className={`row${name === 'Touchstone' ? ' us' : ''}`}><b>{name}</b><p>{what}</p><p>{gap}</p></div></Reveal>
             ))}
           </div>
         </div>
@@ -297,7 +297,7 @@ export function Pricing() {
             <ul className="list" style={{ marginTop: 0 }}>{['Side-by-side comparison of environments', 'Re-tests as environments change', 'Vendor ratings over time'].map(t => <li key={t}><Check />{t}</li>)}</ul>
             <div><RequestButton label="Talk to us" /></div></div></Panel></Reveal>
       </section>
-      <p className="wrap note">Planned pilot pricing. Each appraisal uses roughly $1k–$5k of small-model compute.</p>
+      <div className="wrap"><p className="note">Planned pilot pricing. Each appraisal uses roughly $1k–$5k of small-model compute.</p></div>
       <section className="section">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>What's at stake on your purchase.</h2></Reveal><Reveal delay={.1}><p>Move the sliders to match a purchase you're considering. Illustrative, using a $25k appraisal.</p></Reveal></div>

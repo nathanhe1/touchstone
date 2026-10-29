@@ -9,6 +9,8 @@ import LiquidGlass from 'liquid-glass-react'
 import { data, vendors, base, truth, signed, pct, money, params, gradeClass, type Env } from '../data'
 import { Alert, Check, Close, Count, Gradient, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
 import { Caught, Evidence, Exploits, Paradox, Section } from './Sections'
+import { FluidTabs } from '../components/Watermelon'
+import { AppraiseBox } from '../components/AppraiseBox'
 
 gsap.registerPlugin(ScrollTrigger)
 const ease = [.16, 1, .3, 1] as const
@@ -330,16 +332,7 @@ export function ReportSample() {
   const stages = ['Seal', 'Train', 'Measure', 'Price']
   return (
     <Panel title="appraisal report" meta="pick an environment to run it">
-      <LayoutGroup id="report-tabs">
-        <div className="tabs" role="tablist" aria-label="Sample environment">
-          {envs.map(e => (
-            <button key={e.id} className="tab" role="tab" aria-selected={e.id === id} onClick={() => pick(e.id)}>
-              {e.id === id && <motion.span layoutId="tab-pill" className="tab-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
-              <span>{e.name.replace(' (free)', '')}</span>
-            </button>
-          ))}
-        </div>
-      </LayoutGroup>
+      <div className="tabs"><FluidTabs id="report-tabs" label="Sample environment" items={envs.map(e => ({ id: e.id, label: e.name.replace(' (free)', '') }))} value={id} onChange={pick} /></div>
       <div className="runbar" aria-live="polite">
         {stages.map((st, i) => (
           <span key={st} className={phase > i ? 'done' : phase === i ? 'active' : ''}>
@@ -454,16 +447,7 @@ function Compare() {
   const max = rows[0][k]
   return (
     <div>
-      <LayoutGroup id="seg">
-        <div className="seg" role="tablist" aria-label="Rank environments by">
-          {KEYS.map(([key, label]) => (
-            <button key={key} role="tab" aria-selected={k === key} onClick={() => setK(key)}>
-              {k === key && <motion.span layoutId="seg-pill" className="seg-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-      </LayoutGroup>
+      <FluidTabs id="rank-tabs" label="Rank environments by" items={KEYS.map(([key, label]) => ({ id: key, label }))} value={k} onChange={setK} />
       <div className="cmp">
         {rows.map((r, i) => (
           <motion.div layout key={r.name} className={`cmp-row${i === 0 ? ' top' : ''}`} transition={{ type: 'spring', stiffness: 260, damping: 28 }}>
@@ -506,6 +490,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <section className="section abox-section"><div className="wrap"><Reveal><AppraiseBox /></Reveal></div></section>
 
       <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Six RL environments, each hiding a different failure. Touchstone found every one.">
         <Caught />

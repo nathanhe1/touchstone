@@ -14,7 +14,7 @@ colors:
   line-strong: "#2e343c"
   ink: "#eef0f3"
   ink-muted: "#a9b0b9"
-  ink-faint: "#6e7681"
+  ink-faint: "#7f8792"
 typography:
   display:
     fontFamily: "Bodoni Moda Variable, Bodoni 72, Didot, Georgia, serif"
@@ -167,7 +167,7 @@ A near-monochrome graphite field where colour is reserved for meaning, led by a 
 - **Strong Hairline** (`line-strong`): secondary-button stroke, slider track, inactive timeline node.
 - **Ink** (`ink`): headlines and primary text.
 - **Muted Ink** (`ink-muted`): body copy under headlines, ledes, nav links, legends.
-- **Faint Ink** (`ink-faint`): axes, panel meta, captions, footnotes. It measures 4.2:1 on ground and 4.0:1 on panel, short of 4.5:1. Do not move essential small text onto it.
+- **Faint Ink** (`ink-faint`): axes, panel meta, captions, footnotes. It measures 5.4:1 on ground, 5.1:1 on panel and 4.8:1 on raised panels, so it passes AA for small text.
 
 Translucent tints are derived from these hexes by alpha, never new hues: gold at 12–20% for selected rows, tab pills and halos; red and green at 10–12% for grade tiles; white at 3–5% for hover rows and empty tracks.
 
@@ -281,7 +281,7 @@ Glossy gold spheres, area-proportional to model size, lit from the upper left (c
 
 ### Do:
 - **Do** keep silver for reward and gold for transfer in every chart, readout and legend.
-- **Do** make "Request an appraisal" the only gold button on a screen, paired with a secondary "See a sample report".
+- **Do** reserve the gold button for "Request an appraisal", paired with a secondary "See a sample report" where there is room.
 - **Do** open every data container with a mono run header and mark demo results as "demo data".
 - **Do** set h1, h2 and big figures in Bodoni Moda, with one gold italic accent per headline at most.
 - **Do** separate with 1px hairlines in `line` and let tone carry depth.

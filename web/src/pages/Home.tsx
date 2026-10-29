@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import LiquidGlass from 'liquid-glass-react'
 import { data, vendors, base, truth, signed, pct, money, params, gradeClass, type Env } from '../data'
 import { Alert, Check, Close, Count, Gradient, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
+import { Caught, Evidence, Exploits, Paradox, Section } from './Sections'
 
 gsap.registerPlugin(ScrollTrigger)
 const ease = [.16, 1, .3, 1] as const
@@ -485,7 +486,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <Section title={<>Our prototype already catches <span className="transfer">what sellers won't tell you.</span></>} text="A demo run on six fictional RL environments, each built to fail in a common way. The pipeline is real.">
+        <Caught />
+      </Section>
+
+      <section className="section flush">
         <div className="wrap">
           <div className="section-head">
             <Reveal><h2>Training data is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
@@ -494,9 +499,11 @@ export default function Home() {
           <Reveal><RunChart /></Reveal>
           <div style={{ height: 24 }} />
           <Reveal><Proof /></Reveal>
-          <Reveal className="facts"><span>RL tasks sell for up to <b><Count value="$2,000" /></b> each</span><span>Vendors usually grade their own data</span><span>A full training run takes <b>weeks</b> to tell you</span></Reveal>
+          <Reveal className="facts"><span>RL tasks sell for up to <b><Count value="$2,000" /></b> each</span><span>Exclusive deals cost <b>4–5×</b> more</span><span>Vendors usually grade their own data</span><span>A full training run takes <b>weeks</b> to tell you</span></Reveal>
         </div>
       </section>
+
+      <section className="section"><div className="wrap"><Paradox /></div></section>
 
       <section className="section flush">
         <div className="wrap">
@@ -505,7 +512,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <Section title={<>We try to break the grader <span className="transfer">before your model does.</span></>} text="A model will find any shortcut a grader allows, and learn the shortcut instead of the skill. These are the answers we feed every grader. Open one to see what the demo graders paid for it.">
+        <Exploits />
+      </Section>
+
+      <section className="section flush">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>One report. Every number you need to decide.</h2></Reveal><Reveal delay={.1}><p>Pick a sample environment. These are real results from our demo run on six fictional vendors.</p></Reveal></div>
           <Reveal><ReportSample /></Reveal>
@@ -534,6 +545,10 @@ export default function Home() {
             <ul className="list">{['A neutral rating buyers trust more than self-reported results', 'Find grader exploits before a customer does', 'Back your price with measured value'].map(t => <li key={t}><Check />{t}</li>)}</ul></Reveal>
         </div>
       </section>
+
+      <Section title={<>Built on what the research <span className="transfer">already shows.</span></>} text="Data value varies enormously, small runs can rank it, and today the evidence buyers see comes from the people selling.">
+        <Evidence />
+      </Section>
 
       <Close title="Know before you train." text="Send us the environment you're considering. We'll scope a pilot appraisal with you." />
     </>

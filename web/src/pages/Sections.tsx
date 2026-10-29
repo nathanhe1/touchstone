@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion, LayoutGroup } from 'motion/react'
 import { vendors, pct } from '../data'
-import { Alert, Check, Panel, Reveal, reduced } from '../ui'
+import { Alert, Arrow, Check, Panel, Reveal, reduced } from '../ui'
 
 const ease = [.16, 1, .3, 1] as const
 
@@ -124,7 +124,7 @@ export function Evidence() {
     <div className="evidence">
       {items.map(([title, text, cite, url], i) => (
         <motion.a key={title} className="ev" href={url} target="_blank" rel="noopener" initial={reduced ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08, duration: .7, ease }} whileHover={{ y: -4 }}>
-          <b>{title}</b><p>{text}</p><small>{cite} ↗</small>
+          <b>{title}</b><p>{text}</p><small>{cite}<Arrow /></small>
         </motion.a>
       ))}
     </div>

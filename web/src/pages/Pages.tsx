@@ -4,6 +4,7 @@ import { data, vendors, base, truth, signed, pct, money, params, ROADMAP, FOUNDE
 import NumberFlow from '@number-flow/react'
 import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
 import { ReportSample } from './Home'
+import { AdaptiveSlider, AppraisalCard, PlanPicker } from '../components/Watermelon'
 
 const ease = [.16, 1, .3, 1] as const
 
@@ -24,16 +25,16 @@ export function Product() {
       <Head title="One sealed test. Six answers." text="Every appraisal ends in one report. It tells you what an environment teaches, whether it can be gamed, what you already have, and what it is worth at your model size." />
       <section className="wrap"><Reveal><ReportSample /></Reveal></section>
       <section className="section">
-        <div className="wrap two">
-          <Reveal><h2>From upload to verdict.</h2><p className="lede">The vendor never shows you its tasks, and you never have to take its word for the results.</p></Reveal>
-          <Reveal delay={.1}>
-            <ol className="steps-list">
+        <div className="wrap two" style={{ alignItems: 'start' }}>
+          <Reveal><h2>From upload to verdict.</h2><p className="lede">The vendor never shows you its tasks, and you never have to take its word for the results.</p>
+            <ol className="steps-list" style={{ marginTop: 32 }}>
               <li><div><b>Sealed intake</b><p>The seller uploads tasks, tools and grader. They are fingerprinted and never leave the sandbox.</p></div></li>
               <li><div><b>Standard training</b><p>A fixed family of small open models, such as 0.5B, 1.5B and 3B, trained with one published recipe.</p></div></li>
               <li><div><b>Private tests</b><p>The trained models face a held-out suite no vendor has seen, and adversarial probes try to game the grader.</p></div></li>
               <li><div><b>Forecast and price</b><p>We fit how the gain grows with model size, project it to yours, and price each task against free alternatives.</p></div></li>
             </ol>
           </Reveal>
+          <Reveal delay={.1}><LiveAppraisal /></Reveal>
         </div>
       </section>
       <section className="section flush">
@@ -50,6 +51,20 @@ export function Product() {
       <Close title="See it on your environment." text="We're running a small number of pilot appraisals." />
     </>
   )
+}
+
+/* The deployment-style card, running the first appraised environment step by step. */
+function LiveAppraisal() {
+  const e = vendors[0]
+  const steps = [
+    { name: 'Seal', detail: `${e.redundancy.n_tasks.toLocaleString('en-US')} tasks fingerprinted`, seconds: 1, result: 'sealed' },
+    ...Object.entries(e.rungs).map(([k, r]) => ({ name: `Train ${k}`, detail: `${params(r.params)} parameters, fixed recipe`, seconds: 6, result: `reward ${pct(r.env_reward_after)}` })),
+    { name: 'Probe the grader', detail: '7 exploit probes', seconds: 2, result: e.hackability.score >= .2 ? `${pct(e.hackability.score)} paid out` : 'held', tone: (e.hackability.score >= .2 ? 'bad' : 'good') as 'bad' | 'good' },
+    { name: 'Check overlap', detail: 'against free public sets', seconds: 1, result: `${pct(e.redundancy.public_overlap)} already free` },
+    { name: 'Test new problems', detail: 'private held-out suite', seconds: 2, result: `${signed(e.actual_at_truth)} pts`, tone: (e.actual_at_truth < 0 ? 'bad' : 'good') as 'bad' | 'good' },
+    { name: 'Price', detail: 'compared with free practice data', seconds: 1, result: `${money(e.fair_value_per_task)} / task` },
+  ]
+  return <AppraisalCard name={e.name} hash={e.sha256.slice(0, 10)} steps={steps} grade={e.grade} verdict={<>Worth buying at up to <b>{money(e.fair_value_per_task)}</b> a task.</>} />
 }
 
 /* ---------------- Sample report: sortable table plus detail ---------------- */
@@ -202,7 +217,6 @@ export function Market() {
 export function Pricing() {
   const [tasks, setTasks] = useState(5000), [price, setPrice] = useState(800), [waste, setWaste] = useState(30)
   const spend = tasks * price, risk = spend * waste / 100, cost = 25000
-  const fill = (v: number, min: number, max: number) => ({ '--fill': `${(v - min) / (max - min) * 100}%` } as React.CSSProperties)
   const tiers: [string, string, string, string, string[], boolean][] = [
     ['Grader audit', 'Find the exploits', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving', 'Fix list for the vendor'], false],
     ['Full appraisal', 'Know what it\'s worth', '$10k–$50k', 'per environment', ['Sealed training at several model sizes', 'Transfer to private problems, overlap, exploits', 'Forecast at your size and fair price per task'], true],
@@ -211,18 +225,8 @@ export function Pricing() {
   return (
     <>
       <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the material it checks." />
-      <section className="wrap tiers">
-        {tiers.map(([name, sub, amount, per, items, featured], i) => (
-          <Reveal key={name} delay={i * .08}>
-            <Panel className={`tier${featured ? ' featured' : ''}`} title={name.toLowerCase()} meta={featured ? 'most teams start here' : undefined}>
-              <div className="tier-body">
-                <h3 style={{ fontSize: 24 }}>{sub}</h3><div className="amount">{amount} <small>{per}</small></div>
-                <ul className="list" style={{ marginTop: 0 }}>{items.map(t => <li key={t}><Check />{t}</li>)}</ul>
-                <div><RequestButton label={featured ? 'Request an appraisal' : 'Talk to us'} /></div>
-              </div>
-            </Panel>
-          </Reveal>
-        ))}
+      <section className="wrap plans-wrap">
+        <Reveal><PlanPicker defaultId="full" href={REQUEST_FORM_URL || '#request'} cta="Request an appraisal" plans={tiers.map(([name, sub, amount, per, items, featured]) => ({ id: featured ? 'full' : name.toLowerCase().replace(/\s+/g, '-'), name, description: sub, price: amount, per, badge: featured ? 'Most teams start here' : undefined, features: items }))} /></Reveal>
       </section>
       <section className="section">
         <div className="wrap">
@@ -240,9 +244,9 @@ export function Pricing() {
           <Reveal><Panel title="purchase at risk" meta="calculator">
             <div className="calc">
               <div>
-                <div className="field"><label htmlFor="tasks">Tasks you're buying <output>{tasks.toLocaleString('en-US')}</output></label><input id="tasks" type="range" min={100} max={20000} step={100} value={tasks} style={fill(tasks, 100, 20000)} onChange={e => setTasks(+e.target.value)} /></div>
-                <div className="field"><label htmlFor="price">Price per task <output>{money(price)}</output></label><input id="price" type="range" min={200} max={2000} step={50} value={price} style={fill(price, 200, 2000)} onChange={e => setPrice(+e.target.value)} /></div>
-                <div className="field" style={{ marginBottom: 0 }}><label htmlFor="waste">Share that won't help your model <output>{waste}%</output></label><input id="waste" type="range" min={0} max={80} step={5} value={waste} style={fill(waste, 0, 80)} onChange={e => setWaste(+e.target.value)} /></div>
+                <AdaptiveSlider id="tasks" label="Tasks you're buying" value={tasks} min={100} max={20000} step={100} format={v => v.toLocaleString('en-US')} onChange={setTasks} />
+                <AdaptiveSlider id="price" label="Price per task" value={price} min={200} max={2000} step={50} format={money} onChange={setPrice} />
+                <AdaptiveSlider id="waste" label="Share that won't help your model" value={waste} min={0} max={80} step={5} format={v => `${v}%`} onChange={setWaste} tone="risk" />
               </div>
               <div aria-live="polite">
                 <div className="out"><small>total spend</small><b className="num"><NumberFlow value={spend} format={{ style: 'currency', currency: 'USD', maximumFractionDigits: 0 }} /></b></div>

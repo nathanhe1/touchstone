@@ -81,19 +81,23 @@ export function Panel({ title, meta, children, className = '' }: { title: ReactN
   )
 }
 
-/** The animated mesh gradient behind the hero and the close; only mounted when on screen. */
+/** The animated mesh gradient behind the hero and the close. It mounts the first time it nears the screen and then
+    stays mounted: unmounting tears down the WebGL context, which froze the page for seconds. Off screen it only pauses. */
 export function Gradient({ tone = 'hero' }: { tone?: 'hero' | 'close' }) {
+  // The close uses a CSS glow: a second WebGL scene compiling mid-scroll stalled the page for about a second.
+  if (tone === 'close') return <div className="close-bg css-glow" aria-hidden="true"><i /><i /></div>
   const ref = useRef<HTMLDivElement>(null)
-  const [on, setOn] = useState(false)
+  const [seen, setSeen] = useState(false)
+  const [visible, setVisible] = useState(false)
   useEffect(() => {
-    const io = new IntersectionObserver(([entry]) => setOn(entry.isIntersecting), { rootMargin: '200px' })
+    const io = new IntersectionObserver(([entry]) => { setVisible(entry.isIntersecting); if (entry.isIntersecting) setSeen(true) }, { rootMargin: '200px' })
     if (ref.current) io.observe(ref.current)
     return () => io.disconnect()
   }, [])
   const colors = tone === 'hero' ? ['#2b2414', '#e2b45a', '#0b0d10'] : ['#1e2126', '#c4a35a', '#0b0d10']
   return (
     <div ref={ref} className={tone === 'hero' ? 'hero-bg' : 'close-bg'} aria-hidden="true">
-      {on && !reduced && <Suspense fallback={null}><Shader colors={colors as [string, string, string]} /></Suspense>}
+      {seen && !reduced && <Suspense fallback={null}><Shader colors={colors as [string, string, string]} active={visible} /></Suspense>}
     </div>
   )
 }

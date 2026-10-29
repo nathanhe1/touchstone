@@ -2,18 +2,19 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react'
 import { data, vendors, base, truth, signed, pct, money, params, ROADMAP, FOUNDERS, REQUEST_FORM_URL, type Env } from '../data'
 import NumberFlow from '@number-flow/react'
-import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
+import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced, PageHead } from '../ui'
 import { ReportSample } from './Home'
+import { Exploits, Section } from './Sections'
 
-const ease = [.16, 1, .3, 1] as const
+const ease = [.22, 1, .36, 1] as const
 
 function Head({ title, text, children }: { title: ReactNode; text: string; children?: ReactNode }) {
   return (
-    <header className="page-head wrap">
+    <PageHead>
       <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>{title}</motion.h1>
       <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .1, ease }}>{text}</motion.p>
       {children}
-    </header>
+    </PageHead>
   )
 }
 
@@ -22,7 +23,7 @@ export function Product() {
   return (
     <>
       <Head title="One sealed test. Six answers." text="Every appraisal ends in one report. It tells you what an environment teaches, whether it can be gamed, what you already have, and what it is worth at your model size." />
-      <section className="wrap"><Reveal><ReportSample /></Reveal></section>
+      <section className="wrap" style={{ marginTop: 40 }}><Reveal><ReportSample /></Reveal></section>
       <section className="section">
         <div className="wrap two">
           <Reveal><h2>From upload to verdict.</h2><p className="lede">The vendor never shows you its tasks, and you never have to take its word for the results.</p></Reveal>
@@ -36,6 +37,9 @@ export function Product() {
           </Reveal>
         </div>
       </section>
+      <Section title={<>We break the grader <span className="transfer">before your model does.</span></>} text="A model learns any shortcut a grader allows. These are the answers we feed every grader. Open one to see what it paid." flush>
+        <Exploits />
+      </Section>
       <section className="section flush">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>The technical details.</h2></Reveal><Reveal delay={.1}><p>Fixed models, a fixed recipe and a private test suite. The method is the same for every vendor.</p></Reveal></div>

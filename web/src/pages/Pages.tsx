@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react'
-import { data, vendors, base, truth, signed, pct, money, params, gradeClass, ROADMAP, FOUNDERS, REQUEST_FORM_URL, type Env } from '../data'
-import { Alert, Check, Close, Count, Faq, Panel, Reveal, RequestButton, reduced } from '../ui'
+import { data, vendors, base, truth, signed, pct, money, params, ROADMAP, FOUNDERS, REQUEST_FORM_URL, type Env } from '../data'
+import NumberFlow from '@number-flow/react'
+import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
 import { ReportSample } from './Home'
 
 const ease = [.16, 1, .3, 1] as const
@@ -76,7 +77,7 @@ export function Report() {
                   {rows.map(e => (
                     <motion.tr layout key={e.id} className={e.id === sel ? 'sel' : ''} onClick={() => setSel(e.id)} transition={{ type: 'spring', stiffness: 300, damping: 30 }}>
                       <td style={{ fontWeight: 500 }}>{e.name}</td>
-                      <td><span className={`chip grade ${gradeClass(e.grade)}`} style={{ width: 'auto', height: 28, fontSize: 14, borderRadius: 8 }}>{e.grade}</span></td>
+                      <td><Rating grade={e.grade} compact /></td>
                       <td><div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                         <div className="mini diverge" style={{ flex: 1 }}><i style={{ left: e.actual_at_truth < 0 ? `${50 + (e.actual_at_truth / 8) * 50}%` : '50%', width: `${Math.min(Math.abs(e.actual_at_truth) / 8, 1) * 50}%`, background: e.actual_at_truth < 0 ? 'var(--bad)' : 'var(--good)' }} /></div>
                         <span className={`num ${e.actual_at_truth < 0 ? 'bad' : 'good'}`}>{signed(e.actual_at_truth)}</span></div></td>
@@ -110,6 +111,9 @@ function Detail({ env }: { env: Env }) {
   const top = Math.max(...rungs.flatMap(([, r]) => [r.heldout_before, r.heldout_after]))
   return (
     <Panel title={<>certificate · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={`sealed ${env.sha256.slice(0, 12)}`}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap', padding: '20px 24px', borderBottom: '1px solid var(--line)' }}>
+        <Rating grade={env.grade} layoutId="detail-rating" /><h3 style={{ fontSize: 26 }}>{env.name}</h3>
+      </div>
       <div className="detail">
         <div>
           <h3>Accuracy on new problems, before → after training</h3>
@@ -278,10 +282,6 @@ export function Pricing() {
   const [tasks, setTasks] = useState(5000), [price, setPrice] = useState(800), [waste, setWaste] = useState(30)
   const spend = tasks * price, risk = spend * waste / 100, cost = 25000
   const fill = (v: number, min: number, max: number) => ({ '--fill': `${(v - min) / (max - min) * 100}%` } as React.CSSProperties)
-  const riskSpring = useSpring(risk, { stiffness: 120, damping: 20 })
-  const riskRef = useRef<HTMLElement>(null)
-  useEffect(() => { riskSpring.set(risk) }, [risk])
-  useEffect(() => riskSpring.on('change', v => { if (riskRef.current) riskRef.current.textContent = money(v) }), [])
   return (
     <>
       <Head title="Costs less than one bad run." text="Pay per appraisal when you're evaluating a purchase, or subscribe to test every environment you train on." />
@@ -309,9 +309,9 @@ export function Pricing() {
                 <div className="field" style={{ marginBottom: 0 }}><label htmlFor="waste">Share that won't help your model <output>{waste}%</output></label><input id="waste" type="range" min={0} max={80} step={5} value={waste} style={fill(waste, 0, 80)} onChange={e => setWaste(+e.target.value)} /></div>
               </div>
               <div aria-live="polite">
-                <div className="out"><small>total spend</small><b className="num">{money(spend)}</b></div>
-                <div className="out"><small>money at risk</small><b ref={riskRef} className="num bad">{money(risk)}</b></div>
-                <div className="out"><small>at risk per dollar of appraisal</small><b className="num transfer">{(risk / cost).toFixed(1)}×</b></div>
+                <div className="out"><small>total spend</small><b className="num"><NumberFlow value={spend} format={{ style: 'currency', currency: 'USD', maximumFractionDigits: 0 }} /></b></div>
+                <div className="out"><small>money at risk</small><b className="num bad"><NumberFlow value={risk} format={{ style: 'currency', currency: 'USD', maximumFractionDigits: 0 }} /></b></div>
+                <div className="out"><small>at risk per dollar of appraisal</small><b className="num transfer"><NumberFlow value={risk / cost} format={{ minimumFractionDigits: 1, maximumFractionDigits: 1 }} suffix="×" /></b></div>
               </div>
             </div>
           </Panel></Reveal>

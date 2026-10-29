@@ -1516,7 +1516,7 @@ CSS += r"""
 :root{--sans:"Mona Sans","Helvetica Neue",Arial,sans-serif;--text:"Mona Sans","Helvetica Neue",Arial,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace;--display:"Instrument Serif",Georgia,serif}
 body{font-family:var(--sans);letter-spacing:-.005em}
 h1 em,h2 em,.h2 em{font-family:var(--display);font-style:italic;font-weight:400;letter-spacing:-.01em}
-.is-home{--paper:#0a0c0f;--surface:#12151a;--ink:#eef0f3;--muted:#8d949e;--line:#242a33;--blue:#e3bf68;--blue-soft:#221d12;--lime:#e3bf68;--band:#0a0c0f;--band-ink:#eef0f3;--band-muted:#9aa1aa;--gain:#d9b45a;--loss:#5a92d6;--risk:#ef8466;background:var(--paper);color:var(--ink)}
+:root,.is-home{--paper:#0a0c0f;--surface:#12151a;--ink:#eef0f3;--muted:#8d949e;--line:#242a33;--blue:#e3bf68;--blue-soft:#221d12;--lime:#e3bf68;--band:#0a0c0f;--band-ink:#eef0f3;--band-muted:#9aa1aa;--gain:#d9b45a;--loss:#5a92d6;--risk:#ef8466;background:var(--paper);color:var(--ink)}
 .is-home .site-nav{border-bottom-color:#ffffff12;background:color-mix(in srgb,var(--paper),transparent 20%)}
 .is-home .wordmark{color:var(--ink)}
 .is-home .nav-search{background:#ffffff0a;border-color:#ffffff1f}
@@ -1710,6 +1710,64 @@ h1 em,h2 em,.h2 em{font-family:var(--display);font-style:italic;font-weight:400;
 @media(prefers-reduced-motion:reduce){.t-pill i:after,.b-rise path,.b-rise circle,.b-exploit i,.b-venn i,.b-scale i,.b-price s:after,.q-point.is-us i,.roadmap .rm-now:before{animation:none}.b-rise path{stroke-dashoffset:0}}
 """
 
+# Calm finish: Bricolage and Newsreader, flat cards, quiet tooltips and tags, one dark palette on every page.
+CSS += r"""
+:root{--sans:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--text:"Newsreader",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--display:"Instrument Serif",Georgia,serif;--card:#12151a;--card-hover:#161a20;--navy:#12151a;--good-soft:#16241b;--good:#8fcfa4;--bad-soft:#2a1a17;--bad:#ef8466}
+body{background:var(--paper);color:var(--ink)}
+.site-nav{border-bottom-color:#ffffff12;background:color-mix(in srgb,var(--paper),transparent 15%)}
+.wordmark,.footer .wordmark{color:var(--ink)}
+.nav-search{background:#ffffff0a;border-color:#ffffff1f}
+.is-home h1,.is-home h2,.is-home h3,.page-title,.section-heading h2,.panel h2,.detail-hero h1,.t-hero h1,.cta-band h2{font-family:var(--sans);font-variation-settings:"opsz" 96,"wdth" 90}
+.t-hero h1{font-weight:700;letter-spacing:-.018em;line-height:1.02}
+.is-home h2,.page-title,.section-heading h2{font-weight:680;letter-spacing:-.016em}
+.page-title span:not(.kinetic-word),.section-heading h2 span:not(.kinetic-word),.detail-hero h1 em{font-family:var(--display);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--lime)}
+.t-lede,.t-card p,.bento-tile p,.t-head-split>p,.why-card p,.market-figure p,.moat-card p,.faq-a p,.roadmap p,.t-plan>p:not(.t-kicker),.ticks li,.metric p,.t-scrub,.page-intro,.section-heading>p,.panel-intro,.result-card p,.scrolly-step p{font-family:var(--text)}
+.t-lede{font-size:20px}.t-card p,.bento-tile p,.why-card p{font-size:17px}.moat-card p,.roadmap p{font-size:15.5px}.faq-a p{font-size:18px}.is-home .ticks li{font-size:19px}
+.t-scrub{font-weight:400;font-size:clamp(30px,3.4vw,50px);line-height:1.22;letter-spacing:-.01em}
+.scrolly-step b,.bento-tile h3,.t-plan h3,.moat-card b,.roadmap b,.faq summary,.why-card b,.t-card b,.market-figure b{font-family:var(--sans);font-variation-settings:"opsz" 96,"wdth" 90}
+.t-card,.bento-tile,.t-plan,.glass-panel,.glass-light,.t-console,.cert,.metric,.is-home .ticks,.why-card,.moat-card,.panel,.result-card,.chart-frame,.audience-grid article,.research-card{border:1px solid var(--line)!important;border-radius:10px!important;background:var(--card)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.t-card:after,.bento-tile:after,.t-plan:after,.glass-light:after,.cert:after,.result-card:before{display:none!important}
+.t-card:hover,.bento-tile:hover,.t-plan:hover,.result-card:hover{border-color:#e3bf6866!important;background:var(--card-hover)!important}
+.why-card{border-top:2px solid var(--lime)!important}
+.moat-card{border-left:2px solid var(--lime)!important}
+.t-plan.is-featured{border-color:#e3bf6866!important}
+.t-console{background:#0e1115!important}
+.t-pill{padding:0;border:0;border-radius:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;color:var(--lime)}
+.t-pill i:after{animation-play-state:paused}.t-pill.is-live i:after{animation-play-state:running}
+.t-console-bar em{padding:0;border:0;border-radius:0;color:#6f7782}
+.b-exploit b{padding:0;border:0;border-radius:0;font-weight:600}
+.roadmap em{padding:0;border:0;border-radius:0}
+.roadmap em:before{content:"● ";font-size:8px;vertical-align:2px}
+.roadmap .rm-next em,.roadmap .rm-later em{color:var(--muted)}
+.c-verdict{border-width:1.5px;border-radius:3px}
+.seg-list,.seg-list.glass,.is-home .seg-list.glass{display:flex;gap:24px;padding:0;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0;background:none!important;box-shadow:none!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+.seg-tab,.is-home .seg-tab{padding:12px 0 14px;border-radius:0;color:var(--muted);font:600 15px var(--sans)}
+.seg-tab[aria-selected=true],.is-home .seg-tab[aria-selected=true]{color:var(--ink)}
+.seg-ink,.is-home .seg-ink{top:auto;bottom:-1px;height:2px;border-radius:0;background:var(--lime)}
+.viz-tip{padding:8px 12px;border:1px solid #ffffff1f;border-radius:8px;background:#1a1e25;color:#e8ebef;font:400 14px/1.4 var(--text);box-shadow:0 10px 30px #00000080;transform:translate(14px,18px)}
+.viz-tip.is-left{transform:translate(calc(-100% - 14px),18px)}
+.chart-tooltip{border:1px solid var(--line);border-radius:8px;background:#1a1e25;box-shadow:0 10px 30px #00000080}
+.bento-tile .b-art *{animation-play-state:paused}
+.bento-tile.is-live .b-art,.bento-tile.is-live .b-art *{animation-play-state:running}
+.roadmap .rm-now:before{animation-play-state:paused}.roadmap.is-live .rm-now:before{animation-play-state:running}
+.cta-band{background:radial-gradient(60% 80% at 80% 40%,#e3bf681f,transparent 70%),radial-gradient(50% 70% at 10% 90%,#2a4a6e2e,transparent 70%),var(--band)}
+.detail-hero{border:1px solid var(--line);background:linear-gradient(160deg,#171b21,#0e1115)}
+.detail-hero:after{border-color:#e3bf6826}
+.page-title>span:not(.kinetic-word),.section-heading h2>span:not(.kinetic-word){color:var(--lime)}
+.filter{background:transparent;border-color:var(--line);color:var(--muted)}
+.search{background:transparent;border-color:var(--line)}
+.table-wrap,th{border-color:var(--line)}th{background:#0e1115}
+.hash-box{background:#0e1115;border-color:var(--line)}
+.copy-button{background:transparent;border-color:var(--line);color:var(--ink)}
+.integrity-note.clean{background:var(--good-soft);color:var(--good)}
+.result-card:nth-child(3n+2){background:var(--card)!important}
+.result-card .spec-list>div,.spec-list>div{border-color:var(--line)}
+.chart-frame .chart-legend .legend-item{border-color:var(--line)}
+.peek-button{border-color:var(--ink);background:transparent;color:var(--ink);box-shadow:3px 3px 0 var(--lime)}
+.peek-button:hover{background:var(--lime);color:#0a0c0f}
+.process-card h3{color:var(--ink)}
+"""
+
 # Wider than a phone means the desktop layout, scaled to fit; only phones reflow.
 CSS = CSS.replace("@media(max-width:900px)", "@media(max-width:680px)").replace("@media(max-width:850px)", "@media(max-width:680px)")
 CSS = CSS.replace("@media(min-width:851px)", "@media(min-width:681px)")
@@ -1719,8 +1777,7 @@ CSS = re.sub(r":root\[data-theme=dark\]\{[^}]*\}", "", CSS) + ":root{color-schem
 CSS += r"""
 .site-nav{top:env(safe-area-inset-top,0px)}
 body{font-variant-emoji:text}
-html.is-scaled .scale-frame{overflow:clip}
-html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-scale));transform-origin:0 0}
+html.is-scaled .scale-page{zoom:var(--page-scale)}
 .icon{display:block;flex:none}
 .detail-hero{color:#f4f1e9}
 .nav-action{color:var(--ink)}
@@ -1880,7 +1937,6 @@ SCRIPT += r"""
     root.style.setProperty('--design-width', `${designWidth}px`);
     root.style.setProperty('--page-scale', String(scale));
     root.dataset.scale = String(scale);
-    frame.style.height = scaled ? `${page.offsetHeight * scale}px` : '';
   };
   fitPage();
   addEventListener('resize', fitPage);
@@ -2438,7 +2494,7 @@ SCRIPT += r"""
     gl.attachShader(program, compile(gl.FRAGMENT_SHADER, `precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;
       float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
       float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
-      float fbm(vec2 p){float v=0.,a=.5;for(int k=0;k<5;k++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
+      float fbm(vec2 p){float v=0.,a=.5;for(int k=0;k<3;k++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
       void main(){vec2 uv=gl_FragCoord.xy/r;vec2 q=uv*vec2(r.x/r.y,1.);
         float a=fbm(q*1.1+vec2(t*.03,-t*.018));float b=fbm(q*1.6+a*1.4+vec2(-t*.02,t*.025));
         float glow=smoothstep(.75,0.,distance(uv,m));
@@ -2459,8 +2515,8 @@ SCRIPT += r"""
     const state = {canvas, gl, visible: true, mouse: [.7, .6], target: [.7, .6]};
     const size = () => {
       const ratio = Math.min(devicePixelRatio || 1, 1.5);
-      canvas.width = Math.max(1, canvas.clientWidth * ratio * .6);
-      canvas.height = Math.max(1, canvas.clientHeight * ratio * .6);
+      canvas.width = Math.max(1, canvas.clientWidth * ratio * .35);
+      canvas.height = Math.max(1, canvas.clientHeight * ratio * .35);
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
     size();
@@ -2484,7 +2540,14 @@ SCRIPT += r"""
     // Hidden tabs pause the loop; redraw at once on return so the gradient never shows a stale or blank frame.
     document.addEventListener('visibilitychange', () => { if (!document.hidden) shaders.forEach(state => state.draw(performance.now())); });
     if (reduced) shaders.forEach(state => state.draw(8000));
-    else { const loop = time => { shaders.forEach(state => state.visible && state.draw(time)); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+    else {
+      let last = 0;
+      const loop = time => {
+        if (time - last > 33) { last = time; shaders.forEach(state => state.visible && !document.hidden && state.draw(time)); }
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
   }
 
   // Tabs: a sliding pill under the active tab; the new panel springs in.
@@ -2533,9 +2596,9 @@ SCRIPT += r"""
         const x = (event.clientX - bounds.left) / bounds.width, y = (event.clientY - bounds.top) / bounds.height;
         card.style.setProperty('--gx', `${x * 100}%`);
         card.style.setProperty('--gy', `${y * 100}%`);
-        Motion.animate(card, {rotateX: (.5 - y) * 7, rotateY: (x - .5) * 9, scale: 1.015}, spring);
+        Motion.animate(card, {rotateX: (.5 - y) * 3, rotateY: (x - .5) * 4}, spring);
       });
-      card.addEventListener('pointerleave', () => Motion.animate(card, {rotateX: 0, rotateY: 0, scale: 1}, spring));
+      card.addEventListener('pointerleave', () => Motion.animate(card, {rotateX: 0, rotateY: 0}, spring));
     });
     document.querySelectorAll('.button-lime, .nav-cta').forEach(button => {
       button.addEventListener('pointermove', event => {
@@ -2610,7 +2673,13 @@ SCRIPT += r"""
   };
   if (steps.length) {
     setStep(0);
-    ScrollTrigger.create({trigger: steps[0].parentElement, start: 'top bottom', end: 'bottom top', onUpdate: syncStep, onRefresh: syncStep});
+    let queued = false;
+    addEventListener('scroll', () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; syncStep(); });
+    }, {passive: true});
+    syncStep();
   }
   if (reduced) return;
 
@@ -2625,12 +2694,12 @@ SCRIPT += r"""
     }), {rootMargin: '0px 0px -8% 0px'});
     elements.forEach(element => watcher.observe(element));
   };
-  reveal(document.querySelectorAll('[data-split]'), heading => {
+  reveal(document.querySelectorAll('[data-split], .page-title, .section-heading h2, .panel h2, .detail-hero h1'), heading => {
     if (!window.SplitText) return;
     const split = SplitText.create(heading, {type: 'lines', mask: 'lines', linesClass: 'split-line'});
     gsap.fromTo(split.lines, {yPercent: 105}, {yPercent: 0, duration: .9, ease: 'expo.out', stagger: .08});
   });
-  reveal(document.querySelectorAll('[data-rise], .t-card, .bento-tile, .t-plan, .faq details, .why-card, .moat-card'), element =>
+  reveal(document.querySelectorAll('[data-rise], .t-card, .bento-tile, .t-plan, .faq details, .why-card, .moat-card, .result-card, .panel, .process-card, .pilot-notes p, .chart-note-rail p, .detail-ledger p, .detail-forecast, .baseline-aside'), element =>
     gsap.fromTo(element, {y: 26, opacity: 0}, {y: 0, opacity: 1, duration: .7, ease: 'power3.out', clearProps: 'transform,opacity'}));
   gsap.from('.cert', {y: 60, rotateX: 18, opacity: 0, duration: 1.2, ease: 'expo.out', delay: .2});
   gsap.from('.cert-row', {x: 24, opacity: 0, stagger: .08, duration: .6, ease: 'power3.out', delay: .6});
@@ -2640,12 +2709,13 @@ SCRIPT += r"""
   if (track) {
     const loop = gsap.to(track, {xPercent: -50, ease: 'none', duration: 38, repeat: -1});
     const lean = gsap.quickTo(track, 'skewX', {duration: .5, ease: 'power3'});
+    const settle = gsap.delayedCall(.15, () => lean(0)).pause();
     ScrollTrigger.create({onUpdate: self => {
       const velocity = self.getVelocity();
       loop.timeScale(self.direction * (1 + Math.min(Math.abs(velocity) / 250, 5)));
       gsap.to(loop, {timeScale: self.direction, duration: 1.4, ease: 'power2.out', overwrite: true});
       lean(gsap.utils.clamp(-8, 8, velocity / -220));
-      gsap.delayedCall(.15, () => lean(0));
+      settle.restart(true);
     }});
   }
 
@@ -2774,6 +2844,12 @@ SCRIPT += r"""
     once('.roadmap', () => gsap.fromTo('.roadmap li', {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: .7, ease: 'power3.out', stagger: .12, clearProps: 'transform,opacity'}));
   }
 
+  // Looping tile animations run only while their tile is on screen.
+  if ('IntersectionObserver' in window) {
+    const live = new IntersectionObserver(entries => entries.forEach(entry => entry.target.classList.toggle('is-live', entry.isIntersecting)));
+    document.querySelectorAll('.bento-tile, .t-pill, .roadmap').forEach(element => live.observe(element));
+  }
+
   // FAQ: answers spring open and closed.
   document.querySelectorAll('.faq details').forEach(item => {
     const summary = item.querySelector('summary'), answer = item.querySelector('.faq-a');
@@ -2800,7 +2876,7 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <meta name="theme-color" content="#171819"><meta name="description" content="{esc(description)}">
 <title>{'Touchstone' if active == 'home' else esc(title) + ' · Touchstone'}</title><script>{SCALE_BOOT}</script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>{CSS}</style><noscript><style>.reveal{{opacity:1;transform:none}}.dbar i,.meter i,.mini-bars i:after,.db-after,.range-band,.range-actual,.ladder-dot,.suite-split span{{transform:none}}.db-line{{stroke-dashoffset:0}}.board-row{{opacity:1;transform:none}}.range-forecast{{opacity:1}}.slope svg{{clip-path:none}}.rho-marker{{left:var(--at)}}.nav-search,.info-chip,.peek-button{{display:none}}</style></noscript></head><body class="{body_class}" data-root="{prefix}">
 <div class="scale-frame"><div class="scale-page">
 <nav class="site-nav"><a class="wordmark" href="{links['home']}" aria-label="Touchstone home">{brand_mark()}<span>touchstone</span></a>
@@ -3074,7 +3150,7 @@ def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
 <article class="t-plan tilt is-featured" data-rise><p class="t-kicker">Subscription</p><h3>Every environment, always</h3><p>For teams training continuously.</p><ul class="ticks"><li>Side-by-side comparison</li><li>Re-tests as environments change</li><li>Vendor ratings over time</li></ul>{request_action("Talk to us")}</article></div></section>
 {team}<section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap" data-rise>{roadmap}</ol></section>
 <section class="container t-section faq"><div class="t-head"><p class="t-kicker">Questions</p><h2 data-split>Fair questions, <em>short answers.</em></h2></div>{faq}</section>
-<section class="cta-band" id="request"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container cta-inner"><div>
+<section class="cta-band" id="request"><div class="container cta-inner"><div>
 <p class="t-kicker">Pilot appraisals</p><h2 data-split>Know before <em>you train.</em></h2>{request_note}</div>
 <div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div></div></section>
 </main>{"".join([

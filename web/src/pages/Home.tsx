@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, LayoutGroup } from 'motion/react'
 import { useSprings, animated } from '@react-spring/web'
-import { animate } from 'animejs'
+import { animate, createTimeline, stagger } from 'animejs'
+import NumberFlow from '@number-flow/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import LiquidGlass from 'liquid-glass-react'
 import { data, vendors, base, truth, signed, pct, money, params, gradeClass, type Env } from '../data'
-import { Alert, Check, Close, Count, Gradient, Panel, Reveal, RequestButton, reduced } from '../ui'
+import { Alert, Check, Close, Count, Gradient, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
 
 gsap.registerPlugin(ScrollTrigger)
 const ease = [.16, 1, .3, 1] as const
@@ -15,7 +16,7 @@ const ease = [.16, 1, .3, 1] as const
 function RunChart() {
   const env = vendors.find(e => e.id === 'quickgrade_arith') ?? vendors[0]
   const rung = env.rungs[truth]
-  const W = 600, H = 300, L = 36, B = 26
+  const W = 960, H = 300, L = 36, B = 26
   const x = (i: number, n: number) => L + (i / (n - 1)) * (W - L - 8)
   const y = (pctv: number) => 8 + (1 - pctv / 100) * (H - B - 8)
   const reward = rung.curve.map(v => v * 100)
@@ -27,6 +28,13 @@ function RunChart() {
   const accRef = useRef<HTMLElement>(null)
   const [done, setDone] = useState(reduced)
   const box = useRef<HTMLDivElement>(null)
+  const [hover, setHover] = useState<{ x: number; i: number } | null>(null)
+  const onMove = (e: React.PointerEvent) => {
+    const r = box.current!.getBoundingClientRect()
+    const fx = ((e.clientX - r.left) / r.width * W - L) / (W - L - 8)
+    if (fx < 0 || fx > 1) return setHover(null)
+    setHover({ x: e.clientX - r.left, i: Math.round(fx * (reward.length - 1)) })
+  }
 
   useEffect(() => {
     if (reduced) return
@@ -51,7 +59,14 @@ function RunChart() {
   const draw = (delay: number) => (reduced ? {} : { initial: { pathLength: 0 }, animate: { pathLength: 1 }, transition: { duration: 2.6, delay, ease: 'easeInOut' as const } })
   return (
     <Panel className="run" title={<>run · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={<span className="live">demo data</span>}>
-      <div className="run-chart panel-body" ref={box}>
+      <div className="run-chart panel-body" ref={box} onPointerMove={onMove} onPointerLeave={() => setHover(null)}>
+        {hover && (<>
+          <span className="xhair" style={{ left: hover.x }} />
+          <span className="xtip" style={{ left: Math.min(hover.x + 12, (box.current?.clientWidth ?? 600) - 170) }}>
+            step {Math.round(hover.i / (reward.length - 1) * 1000)}
+            <b className="reward">reward {reward[hover.i].toFixed(1)}%</b><b className="transfer">new problems {accuracy[hover.i].toFixed(1)}%</b>
+          </span>
+        </>)}
         <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Training reward climbs from ${reward[0].toFixed(0)}% to ${reward[reward.length - 1].toFixed(0)}% while accuracy on new problems falls from ${accuracy[0].toFixed(1)}% to ${accuracy[accuracy.length - 1].toFixed(1)}%`}>
           {grid.map(g => (<g key={g}><line className="grid-line" x1={L} x2={W - 8} y1={y(g)} y2={y(g)} /><text className="axis-text" x={L - 8} y={y(g) + 4} textAnchor="end">{g}</text></g>))}
           <text className="axis-text" x={L} y={H - 6}>step 0</text><text className="axis-text" x={W - 8} y={H - 6} textAnchor="end">1,000</text>
@@ -83,6 +98,43 @@ function RunChart() {
         <div><small>step</small><b ref={stepRef} className="num">{reduced ? '1,000' : '0'}</b></div>
         <div><small>reward</small><b ref={rewardRef} className="num reward">{reduced ? `${reward[reward.length - 1].toFixed(1)}%` : `${reward[0].toFixed(1)}%`}</b></div>
         <div><small>new problems</small><b ref={accRef} className="num transfer">{reduced ? `${accuracy[accuracy.length - 1].toFixed(1)}%` : `${accuracy[0].toFixed(1)}%`}</b></div>
+      </div>
+    </Panel>
+  )
+}
+
+const RUNS = [
+  { name: 'coding-agent-v3', exploit: '2 exploits found', overlap: '31% already free', gain: '−0.4 pts', verdict: 'Not worth full price', tone: 'bad' },
+  { name: 'math-reasoning-v1', exploit: 'no exploits', overlap: '6% already free', gain: '+4.1 pts', verdict: 'Worth buying', tone: 'good' },
+]
+function Console() {
+  const [run, setRun] = useState(0)
+  const body = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = body.current
+    if (!el || reduced) return
+    const lines = el.querySelectorAll('[data-l]'), bars = el.querySelectorAll('.cbar i')
+    let timer = 0
+    const tl = createTimeline({ onComplete: () => { timer = window.setTimeout(() => setRun(r => (r + 1) % RUNS.length), 2600) } })
+    tl.set(lines, { opacity: 0, translateY: 6 }).set(bars, { scaleX: 0 })
+    lines.forEach((line, i) => {
+      tl.add(line, { opacity: 1, translateY: 0, duration: 320, ease: 'outQuad' }, i ? '+=330' : 400)
+      if (line.classList.contains('cbars')) tl.add(bars, { scaleX: 1, duration: 800, delay: stagger(120), ease: 'outQuad' })
+    })
+    tl.add(el.querySelector('.stamp')!, { scale: [1.7, 1], rotate: [-12, -2], duration: 600, ease: 'outBack(2.2)' }, '-=300')
+    return () => { tl.pause(); clearTimeout(timer) }
+  }, [run])
+  const r = RUNS[run]
+  return (
+    <Panel title="touchstone · appraisal" meta="illustrative" className="console">
+      <div className="console-body" ref={body} key={run}>
+        <p className="cl" data-l><span className="p">›</span>seal <b>{r.name}</b><span className="r good">sealed</span></p>
+        <p className="cl" data-l><span className="p">›</span>train 4 small models</p>
+        <div className="cbars" data-l>{[['S', 38], ['M', 56], ['L', 74], ['XL', 92]].map(([s, w]) => <div key={s}><span>{s}</span><i style={{ width: `${w}%` }} /></div>)}</div>
+        <p className="cl" data-l><span className="p">›</span>probe the grader<span className={`r ${r.tone}`}>{r.exploit}</span></p>
+        <p className="cl" data-l><span className="p">›</span>check overlap<span className="r">{r.overlap}</span></p>
+        <p className="cl" data-l><span className="p">›</span>forecast at your scale<span className={`r ${r.tone}`}>{r.gain}</span></p>
+        <span className={`stamp ${r.tone}`} data-l>{r.verdict}</span>
       </div>
     </Panel>
   )
@@ -245,51 +297,117 @@ function HowItWorks() {
 export function ReportSample() {
   const envs = [...vendors, base]
   const [id, setId] = useState(envs[0].id)
+  const [phase, setPhase] = useState(4)
+  const [runId, setRunId] = useState(0)
   const env = envs.find(e => e.id === id)!
   const rung = env.rungs[truth]
-  const rows: [string, string, string, string][] = [
-    ['Learns the environment', 'Reward on its own tasks, before → after', `${pct(rung.env_reward_before)} → ${pct(rung.env_reward_after)}`, ''],
-    ['Better on new problems', 'The number that matters', `${signed(env.actual_at_truth)} pts`, env.actual_at_truth < 0 ? 'bad' : 'good'],
-    ['Reward won by exploits', 'Non-answers that still scored', pct(env.hackability.score), env.hackability.score >= .2 ? 'bad' : ''],
-    ['Already in free data', 'Overlap with public sets', pct(env.redundancy.public_overlap), env.redundancy.public_overlap >= .5 ? 'bad' : ''],
-    ['Forecast at the largest size', `90% range ${signed(env.forecast.lo)} to ${signed(env.forecast.hi)}`, `${signed(env.forecast.forecast)} pts`, ''],
-    ['Fair value per task', 'Compared with free practice', money(env.fair_value_per_task), 'transfer'],
+  useEffect(() => {
+    if (reduced || runId === 0) return
+    setPhase(0)
+    const timers = [1, 2, 3, 4].map(k => window.setTimeout(() => setPhase(k), k * 520))
+    return () => timers.forEach(clearTimeout)
+  }, [runId])
+  const pick = (next: string) => { setId(next); setRunId(n => n + 1) }
+  const pctF = { style: 'percent', maximumFractionDigits: 0 } as const
+  const ptsF = { signDisplay: 'always', minimumFractionDigits: 1, maximumFractionDigits: 1 } as const
+  const usd = { style: 'currency', currency: 'USD', maximumFractionDigits: 0 } as const
+  const rows: [string, string, number, React.ReactNode, string][] = [
+    ['Learns the environment', 'Reward on its own tasks, before → after', 1, <><NumberFlow value={rung.env_reward_before} format={pctF} /> → <NumberFlow value={rung.env_reward_after} format={pctF} /></>, ''],
+    ['Better on new problems', 'The number that matters', 2, <NumberFlow value={env.actual_at_truth} format={ptsF} suffix=" pts" />, env.actual_at_truth < 0 ? 'bad' : 'good'],
+    ['Reward won by exploits', 'Non-answers that still scored', 2, <NumberFlow value={env.hackability.score} format={pctF} />, env.hackability.score >= .2 ? 'bad' : ''],
+    ['Already in free data', 'Overlap with public sets', 2, <NumberFlow value={env.redundancy.public_overlap} format={pctF} />, env.redundancy.public_overlap >= .5 ? 'bad' : ''],
+    ['Forecast at the largest size', `90% range ${signed(env.forecast.lo)} to ${signed(env.forecast.hi)}`, 3, <NumberFlow value={env.forecast.forecast} format={ptsF} suffix=" pts" />, ''],
+    ['Fair value per task', 'Compared with free practice', 4, <NumberFlow value={env.fair_value_per_task} format={usd} />, 'transfer'],
   ]
+  const stages = ['Seal', 'Train', 'Measure', 'Price']
   return (
-    <Panel title="appraisal report" meta="sample · demo data">
+    <Panel title="appraisal report" meta="demo data · pick an environment to run it">
       <LayoutGroup id="report-tabs">
         <div className="tabs" role="tablist" aria-label="Sample environment">
           {envs.map(e => (
-            <button key={e.id} className="tab" role="tab" aria-selected={e.id === id} onClick={() => setId(e.id)}>
+            <button key={e.id} className="tab" role="tab" aria-selected={e.id === id} onClick={() => pick(e.id)}>
               {e.id === id && <motion.span layoutId="tab-pill" className="tab-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
               <span>{e.name.replace(' (free)', '')}</span>
             </button>
           ))}
         </div>
       </LayoutGroup>
+      <div className="runbar" aria-live="polite">
+        {stages.map((st, i) => (
+          <span key={st} className={phase > i ? 'done' : phase === i ? 'active' : ''}>
+            {phase > i ? <Check /> : <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>}{st}
+          </span>
+        ))}
+      </div>
       <div className="report">
         <div className="metrics">
-          {rows.map(([label, sub, value, tone]) => (
+          {rows.map(([label, sub, stage, value, tone]) => (
             <div className="metric" key={label}>
               <span>{label}</span><small>{sub}</small>
-              <AnimatePresence mode="popLayout"><motion.b key={id + value} className={`num ${tone}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: .3 }}>{value}</motion.b></AnimatePresence>
+              <b className={`num ${tone}`}>{phase >= stage ? value : <span className="pending" />}</b>
             </div>
           ))}
         </div>
         <div className="report-side">
           <div>
-            <AnimatePresence mode="wait"><motion.div key={id} initial={{ scale: .7, opacity: 0, rotate: -8 }} animate={{ scale: 1, opacity: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 16 }} className={`grade ${gradeClass(env.grade)}`}>{env.grade}</motion.div></AnimatePresence>
-            <h3 style={{ marginTop: 20 }}>{env.name}</h3>
+            <LayoutGroup id="rating"><Rating grade={phase >= 4 ? env.grade : '—'} layoutId="rating-hl" /></LayoutGroup>
+            <span className="rating-cap">{env.grade === '—' ? 'free comparison set, not graded' : phase >= 4 ? `grade ${env.grade}` : 'grading…'}</span>
+            <h3 style={{ marginTop: 22 }}>{env.name}</h3>
             <p className="dim" style={{ margin: '6px 0 0', fontSize: 14 }}>{env.redundancy.n_tasks.toLocaleString('en-US')} tasks · sealed {env.sha256.slice(0, 10)}</p>
           </div>
-          <ul className="flags">
-            {(env.flags.length ? env.flags : ['No appraisal flags']).map(f => (
-              <li key={f}>{env.flags.length ? <span className="bad"><Alert /></span> : <span className="good"><Check /></span>}{f}</li>
-            ))}
-          </ul>
+          <AnimatePresence mode="wait">
+            {phase >= 4 && (
+              <motion.ul key={id} className="flags" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+                {(env.flags.length ? env.flags : ['No appraisal flags']).map((f, i) => (
+                  <motion.li key={f} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * .08 }}>{env.flags.length ? <span className="bad"><Alert /></span> : <span className="good"><Check /></span>}{f}</motion.li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </Panel>
+  )
+}
+
+/* ---------- Neutral by design: tasks flow in, only numbers flow out ---------- */
+function Beam() {
+  const [narrow, setNarrow] = useState(typeof window !== 'undefined' && innerWidth < 900)
+  const [hot, setHot] = useState<string | null>(null)
+  useEffect(() => { const on = () => setNarrow(innerWidth < 900); addEventListener('resize', on); return () => removeEventListener('resize', on) }, [])
+  const pos = narrow ? { vendor: [50, 12], core: [50, 50], buyer: [50, 88] } : { vendor: [13, 50], core: [50, 50], buyer: [87, 50] }
+  const line = (a: number[], b: number[]) => `M${a[0] * 10} ${a[1] * (narrow ? 5.2 : 3.4)} L${b[0] * 10} ${b[1] * (narrow ? 5.2 : 3.4)}`
+  const node = (key: 'vendor' | 'core' | 'buyer', title: string, sub: string) => (
+    <div className={`node${key === 'core' ? ' core' : ''}`} style={{ left: `${pos[key][0]}%`, top: `${pos[key][1]}%` }}
+      onPointerEnter={() => setHot(key)} onPointerLeave={() => setHot(null)}>
+      <motion.div style={{ display: 'grid', gap: 4 }} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 200, damping: 16, delay: key === 'core' ? 0 : .2 }}>
+        <b>{title}</b><small>{sub}</small>
+      </motion.div>
+    </div>
+  )
+  const H = narrow ? 520 : 340
+  return (
+    <div className="beam" aria-label="The vendor's tasks go into Touchstone's sealed sandbox; only results reach the buyer">
+      <svg viewBox={`0 0 1000 ${H}`} preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="pulse" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={narrow ? 0 : 1000} y2={narrow ? H : 0}>
+            <stop offset="0" stopColor="#e2b45a" stopOpacity="0" /><stop offset=".5" stopColor="#e2b45a" /><stop offset="1" stopColor="#e2b45a" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {[[pos.vendor, pos.core, 'vendor'], [pos.core, pos.buyer, 'buyer']].map(([a, b, k]) => (
+          <g key={k as string}>
+            <path d={line(a as number[], b as number[])} stroke="var(--line-2)" strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+            <motion.path d={line(a as number[], b as number[])} stroke={k === 'vendor' ? 'var(--reward)' : 'var(--transfer)'} strokeWidth={hot === k || hot === 'core' ? 3 : 2} fill="none" vectorEffect="non-scaling-stroke" strokeLinecap="round"
+              initial={{ pathLength: .18, pathOffset: 0 }} animate={reduced ? { pathOffset: .4 } : { pathOffset: [0, 1] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'linear', delay: k === 'buyer' ? 1.1 : 0 }} />
+          </g>
+        ))}
+      </svg>
+      {node('vendor', 'Vendor', 'uploads tasks')}
+      {node('core', 'Touchstone', 'sealed sandbox')}
+      {node('buyer', 'You', 'see results only')}
+      <span className="beam-tag" style={{ left: `${(pos.vendor[0] + pos.core[0]) / 2}%`, top: `calc(${(pos.vendor[1] + pos.core[1]) / 2}% - ${narrow ? 0 : 22}px)` }}>tasks · grader</span>
+      <span className="beam-tag" style={{ left: `${(pos.core[0] + pos.buyer[0]) / 2}%`, top: `calc(${(pos.core[1] + pos.buyer[1]) / 2}% - ${narrow ? 0 : 22}px)` }}>+4.1 pts · $640/task</span>
+    </div>
   )
 }
 
@@ -345,9 +463,12 @@ export default function Home() {
         <Gradient />
         <div className="wrap">
           <div>
-            <motion.h1 initial={reduced ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
-              Don't buy training data <span className="transfer">blind.</span>
-            </motion.h1>
+            <h1 aria-label="Don't buy training data blind.">
+              {["Don't", 'buy', 'training', 'data'].map((w, i) => (
+                <motion.span key={w} aria-hidden="true" style={{ display: 'inline-block', marginRight: '.25em' }} initial={reduced ? false : { opacity: 0, y: 40, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: .9, delay: i * .08, ease }}>{w}</motion.span>
+              ))}
+              <motion.span aria-hidden="true" className="transfer" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, scale: .6, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .45, type: 'spring', stiffness: 220, damping: 12 }}>blind.</motion.span>
+            </h1>
             <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>
               Touchstone tests an RL environment or dataset on small models before you pay, and tells you whether it will make your model better.
             </motion.p>
@@ -359,7 +480,7 @@ export default function Home() {
             </motion.div>
           </div>
           <motion.div initial={reduced ? false : { opacity: 0, y: 40, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1.1, delay: .15, ease }}>
-            <RunChart />
+            <Console />
           </motion.div>
         </div>
       </section>
@@ -370,6 +491,8 @@ export default function Home() {
             <Reveal><h2>Training data is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
             <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our demo run, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
           </div>
+          <Reveal><RunChart /></Reveal>
+          <div style={{ height: 24 }} />
           <Reveal><Proof /></Reveal>
           <Reveal className="facts"><span>RL tasks sell for up to <b><Count value="$2,000" /></b> each</span><span>Vendors usually grade their own data</span><span>A full training run takes <b>weeks</b> to tell you</span></Reveal>
         </div>
@@ -393,6 +516,13 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head"><Reveal><h2>The highest reward isn't the best buy.</h2></Reveal><Reveal delay={.1}><p>Switch what you rank by and watch the order change.</p></Reveal></div>
           <Reveal><Compare /></Reveal>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>Neutral by design.</h2></Reveal><Reveal delay={.1}><p>The vendor's tasks stay sealed. You get the numbers, never the data, and we never sell data ourselves.</p></Reveal></div>
+          <Beam />
         </div>
       </section>
 

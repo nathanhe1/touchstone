@@ -1,5 +1,5 @@
-import { useEffect, useRef, type ReactNode } from 'react'
-import { motion } from 'motion/react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { animate } from 'animejs'
 import { REQUEST_FORM_URL } from './data'
 
@@ -34,12 +34,58 @@ export function RequestButton({ label = 'Request an appraisal' }: { label?: stri
   )
 }
 
+/** Aside-style split button: the main action, plus a caret that opens a menu of ways to start. */
+export function SplitRequest() {
+  const [open, setOpen] = useState(false)
+  const box = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!open) return
+    const off = (e: PointerEvent) => { if (!box.current?.contains(e.target as Node)) setOpen(false) }
+    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    addEventListener('pointerdown', off); addEventListener('keydown', esc)
+    return () => { removeEventListener('pointerdown', off); removeEventListener('keydown', esc) }
+  }, [open])
+  const items: [string, string, string][] = [
+    ['#request', 'Pilot appraisal', 'One environment, scoped with you'],
+    ['#pricing', 'Grader audit', 'Find exploits before a buyer does'],
+    ['#report', 'Sample report', 'See every number an appraisal returns'],
+  ]
+  return (
+    <div className="split" ref={box}>
+      <RequestButton />
+      <button className="btn caret" aria-label="More ways to start" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4" /></svg>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div className="menu-pop" role="menu" initial={{ opacity: 0, scale: .96, y: -4 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: .97, transition: { duration: .12 } }} transition={{ type: 'spring', stiffness: 550, damping: 36 }}>
+            {items.map(([href, title, sub]) => <a key={title} role="menuitem" href={href} onClick={() => setOpen(false)}><b>{title}</b><small>{sub}</small></a>)}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+/** A dark popover that springs up above its target on hover or focus. */
+export function Pop({ tip, children, className = '', ...rest }: { tip: ReactNode; children: ReactNode; className?: string } & React.HTMLAttributes<HTMLDivElement>) {
+  const [on, setOn] = useState(false)
+  return (
+    <div className={`pop-wrap ${className}`} tabIndex={0} onPointerEnter={() => setOn(true)} onPointerLeave={() => setOn(false)} onFocus={() => setOn(true)} onBlur={() => setOn(false)} {...rest}>
+      {children}
+      <AnimatePresence>
+        {on && <motion.span className="popover" role="tooltip" initial={{ opacity: 0, y: 6, x: '-50%', scale: .96 }} animate={{ opacity: 1, y: 0, x: '-50%', scale: 1 }} exit={{ opacity: 0, y: 4, x: '-50%', transition: { duration: .1 } }} transition={{ type: 'spring', stiffness: 550, damping: 34 }}>{tip}</motion.span>}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 /** Fades content up once it reaches the screen; it is visible by default if motion is off. */
 export function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
   if (reduced) return <div className={className}>{children}</div>
   return (
-    <motion.div className={className} initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '0px 0px -10% 0px' }} transition={{ duration: .9, delay, ease: [.16, 1, .3, 1] }}>
+    <motion.div className={className} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '0px 0px -10% 0px' }} transition={{ duration: .7, delay, ease: [.22, 1, .36, 1] }}>
       {children}
     </motion.div>
   )
@@ -79,8 +125,8 @@ export function Panel({ title, meta, children, className = '' }: { title: ReactN
   )
 }
 
-/** The sky behind the hero, page heads and the close: CSS gradients with slow drifting clouds. */
-export const Sky = () => <div className="sky" aria-hidden="true"><i /><i /><i /><i /><i /></div>
+/** The light behind stone slabs: slow-drifting gold and silver glows over a faint dot grid, all CSS. */
+export const Glow = () => <div className="glow" aria-hidden="true"><i /><i /><i /></div>
 
 export function Faq({ items }: { items: [string, string][] }) {
   return (
@@ -94,14 +140,19 @@ export function Faq({ items }: { items: [string, string][] }) {
 
 export function Close({ title, text }: { title: ReactNode; text: string }) {
   return (
-    <section className="close">
-      <Sky />
+    <section className="close slab stone">
+      <Glow />
       <div className="wrap">
         <Reveal><h2>{title}</h2><p className="lede">{text}</p>
           <div className="actions"><RequestButton /><a className="btn secondary" href="#report">See a sample report</a></div></Reveal>
       </div>
     </section>
   )
+}
+
+/** A stone page head: dark band with the gold glow, used at the top of every inner page. */
+export function PageHead({ children }: { children: ReactNode }) {
+  return <header className="page-head slab stone"><Glow /><div className="wrap">{children}</div></header>
 }
 
 /** Grade as a credit-style A–F scale; the highlight slides between letters when a layoutId is given. */

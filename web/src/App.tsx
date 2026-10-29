@@ -77,7 +77,7 @@ export default function App() {
       </AnimatePresence>
       <footer className="footer">
         <div className="wrap">
-          <div><a className="brand" href="#"><Brand />touchstone</a><p>Independent appraisal for AI training data. We test it before you buy it.</p></div>
+          <div><a className="brand" href="#"><Brand />touchstone</a><p>Independent appraisal for AI training material. We test it before you buy it.</p></div>
           <div><h4>product</h4><a className="f" href="#product">How it works</a><a className="f" href="#report">Sample report</a><a className="f" href="#forecast">Forecast check</a><a className="f" href="#research">Research and sources</a></div>
           <div><h4>company</h4><a className="f" href="#market">Market</a><a className="f" href="#pricing">Pricing</a><a className="f" href="#company">About and roadmap</a></div>
           <div><h4>start</h4><a className="f" href="#request">Request an appraisal</a></div>

@@ -12,12 +12,12 @@ React + Vite (TypeScript), built to static files in `web/dist` and published to 
 
 ## Users
 
-Primary: AI teams buying RL environments and post-training data (frontier labs, neolabs, AI product companies doing RL for coding agents, legal, finance, support). Their question: "Will training on this environment improve my model enough to justify the cost?"
+Primary: AI teams buying RL environments and post-training material (frontier labs, neolabs, AI product companies doing RL for coding agents, legal, finance, support). Their question: "Will training on this environment improve my model enough to justify the cost?"
 Secondary: environment and data vendors who want a neutral rating to win contracts and justify prices. Also read by YC partners during the founder's application.
 
 ## Product Purpose
 
-Touchstone helps AI companies decide which training data and RL environments are worth paying for. It runs small, cheap experiments before a company commits to full-scale training, so they spend less on ineffective training and get more useful learning from their compute budget.
+Touchstone helps AI companies decide which training material and RL environments are worth paying for. It runs small, cheap experiments before a company commits to full-scale training, so they spend less on ineffective training and get more useful learning from their compute budget.
 
 ## Positioning
 

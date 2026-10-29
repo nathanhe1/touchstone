@@ -37,7 +37,7 @@ export function Paradox() {
     <div className="paradox">
       <div className="paradox-copy">
         <h2>The buyer can't judge it without seeing it. <span className="transfer">The seller can't show it without giving it away.</span></h2>
-        <p className="lede">Economists call this Arrow's information paradox. It is why training data is bought on trust today, and why it takes a neutral third party to fix it. Neither side can solve it alone.</p>
+        <p className="lede">Economists call this Arrow's information paradox. It is why training material is bought on trust today, and why it takes a neutral third party to fix it. Neither side can solve it alone.</p>
         <LayoutGroup id="paradox">
           <div className="seg" role="tablist" aria-label="Show the conversation">
             {(['without', 'with'] as const).map(k => (
@@ -49,7 +49,7 @@ export function Paradox() {
           </div>
         </LayoutGroup>
       </div>
-      <Panel title={side === 'without' ? 'a data purchase today' : 'a data purchase with touchstone'} meta={side === 'without' ? 'stuck' : 'resolved'}>
+      <Panel title={side === 'without' ? 'a purchase today' : 'a purchase with touchstone'} meta={side === 'without' ? 'stuck' : 'resolved'}>
         <div className="chat">
           <AnimatePresence mode="popLayout">
             {lines.map(([who, text], i) => (

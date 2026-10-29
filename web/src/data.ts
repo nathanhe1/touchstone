@@ -3,11 +3,11 @@ import raw from '../../out/appraisals.json'
 // Edit these as things happen; the whole site reads them.
 export const REQUEST_FORM_URL = ''
 export const ROADMAP: [stage: 'Done' | 'Now' | 'Next' | 'Later', title: string, detail: string][] = [
-  ['Done', 'Prototype pipeline', 'Seal, train four model sizes, test transfer, probe the grader, forecast and price. Runs end to end.'],
-  ['Now', 'Customer conversations', 'Reaching out to RL environment vendors and AI teams about pilot appraisals.'],
-  ['Next', 'A real open-source environment', 'Run a public RL environment through the full pipeline.'],
-  ['Next', 'Compare environments', 'Rank several environments side by side by value per dollar.'],
-  ['Later', 'Beyond RL', 'Training decisions across model types, and forecasting behaviour before a model ships.'],
+  ['Done', 'Working prototype', 'Seals, probes, trains four model sizes, measures transfer, forecasts and prices. Caught all three broken graders and the copied dataset in the demo.'],
+  ['Now', 'Talking to 10 people', '5 environment vendors and 5 teams doing RL post-training: would a neutral report change what they buy or sell, and would they pay $10k–$50k for it?'],
+  ['Next', 'Audit public environments', 'Probe the graders on the Prime Intellect Environments Hub. Nearly free, and any real bugs found are a strong public result.'],
+  ['Next', 'The real-model test', '0.5B, 1.5B and 3B models checked against 7B on 10+ environments. Keep the forecast at rank match 0.7+, drop it below 0.6.'],
+  ['Later', 'Compare environments, then beyond RL', 'A side-by-side comparison view, a real GPU trainer, and other kinds of training data.'],
 ]
 // [name, role, one line on why you, profile link or '']
 export const FOUNDERS: [string, string, string, string][] = []

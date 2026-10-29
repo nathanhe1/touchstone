@@ -24,7 +24,8 @@ export default function App() {
   // Smooth scrolling (Lenis) driven by GSAP's ticker so ScrollTrigger stays in sync.
   useEffect(() => {
     if (reduced) return
-    const lenis = new Lenis({ lerp: .11 })
+    // Light smoothing: heavier values feel like input lag.
+    const lenis = new Lenis({ lerp: .2 })
     lenis.on('scroll', ScrollTrigger.update)
     const tick = (t: number) => lenis.raf(t * 1000)
     gsap.ticker.add(tick); gsap.ticker.lagSmoothing(0)
@@ -33,14 +34,18 @@ export default function App() {
   }, [])
   // A soft gold spotlight follows the cursor across whichever panel it is over.
   useEffect(() => {
-    const move = (e: PointerEvent) => {
-      const panel = (e.target as HTMLElement).closest?.('.panel') as HTMLElement | null
+    // At most one update per frame, however fast the pointer moves.
+    let frame = 0, last: PointerEvent | null = null
+    const apply = () => {
+      frame = 0
+      const e = last!, panel = (e.target as HTMLElement).closest?.('.panel') as HTMLElement | null
       if (!panel) return
       const r = panel.getBoundingClientRect()
       panel.style.setProperty('--mx', `${e.clientX - r.left}px`); panel.style.setProperty('--my', `${e.clientY - r.top}px`)
     }
+    const move = (e: PointerEvent) => { last = e; if (!frame) frame = requestAnimationFrame(apply) }
     addEventListener('pointermove', move, { passive: true })
-    return () => removeEventListener('pointermove', move)
+    return () => { removeEventListener('pointermove', move); cancelAnimationFrame(frame) }
   }, [])
   useEffect(() => {
     const onHash = () => { setRoute(read()); setOpen(false); const l = (window as any).__lenis; if (l) l.scrollTo(0, { immediate: true }); else window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }) }

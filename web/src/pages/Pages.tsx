@@ -277,7 +277,7 @@ export function Market() {
         <div className="wrap two">
           <Reveal><h2>A moat that grows <span className="transfer">with every report.</span></h2></Reveal>
           <Reveal delay={.1}><ol className="steps-list">
-            <li><div><b>Neutral by design</b><p>We never sell data or environments, so we can rate every vendor, Scale included.</p></div></li>
+            <li><div><b>Neutral by design</b><p>We never sell training material, so we can rate every vendor, Scale included.</p></div></li>
             <li><div><b>A private test suite</b><p>No vendor can train on it. It becomes more valuable the longer it stays clean.</p></div></li>
             <li><div><b>Every appraisal teaches us</b><p>After a few hundred, our forecasts of what transfers beat anyone's guesswork.</p></div></li>
             <li><div><b>The first standard sticks</b><p>In ratings and audits, the first credible standard tends to win.</p></div></li>
@@ -374,7 +374,7 @@ export function Company() {
           <div className="section-head"><Reveal><h2>What we've decided.</h2></Reveal></div>
           <div className="cols">
             <Reveal><div><b style={{ fontSize: 26 }}>Appraisal, not cleaning</b><p>We check data before purchase. We don't curate or clean your own data; that is a different business.</p></div></Reveal>
-            <Reveal delay={.08}><div><b style={{ fontSize: 26 }}>Neutral, always</b><p>We never sell data or environments, so we can rate every vendor, including the biggest.</p></div></Reveal>
+            <Reveal delay={.08}><div><b style={{ fontSize: 26 }}>Neutral, always</b><p>We never sell training material, so we can rate every vendor, including the biggest.</p></div></Reveal>
             <Reveal delay={.16}><div><b style={{ fontSize: 26 }}>GPU time is the saving</b><p>The value is in the training runs you don't waste, not in cheaper compute.</p></div></Reveal>
           </div>
         </div>
@@ -408,7 +408,7 @@ export function Company() {
         ['Do you ever see the vendor\'s tasks?', 'They stay in a sealed sandbox. Buyers get results, never the tasks.'],
         ['Why trust small models?', 'Published research shows small runs predict which data wins at scale. For RL environments it is unproven, and our first test checks it. Every report shows how well the forecast held up.'],
         ['What can you test today?', 'RL environments with automatic graders. Post-training datasets and other data types come next.'],
-        ['Are you independent?', 'Yes. We never sell data or environments, and we publish our method.'],
+        ['Are you independent?', 'Yes. We never sell training material, and we publish our method.'],
       ]} /></Reveal></div></section>
       <Close title="Building the neutral standard for training material." text="Talk to us about a pilot." />
     </>

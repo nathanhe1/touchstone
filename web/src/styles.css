@@ -545,3 +545,10 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 .legal h2 { margin: 40px 0 10px; font-size: 22px; line-height: 1.3; letter-spacing: -.02em; }
 .legal p { margin: 0; color: var(--ink-2); line-height: 1.65; }
 .legal p + p { margin-top: 14px; }
+
+/* Close glow: the same soft gold light as the hero, drawn in CSS so it costs nothing to show */
+.css-glow { overflow: hidden; }
+.css-glow i { position: absolute; border-radius: 50%; filter: blur(60px); will-change: transform; animation: glow-drift 18s ease-in-out infinite alternate; }
+.css-glow i:nth-child(1) { width: 60%; height: 120%; left: 20%; top: 10%; background: radial-gradient(closest-side, #c4a35a, #c4a35a00); opacity: .55; }
+.css-glow i:nth-child(2) { width: 45%; height: 90%; left: 45%; top: -20%; background: radial-gradient(closest-side, #8a6b2c, #8a6b2c00); opacity: .5; animation-duration: 24s; animation-delay: -8s; }
+@keyframes glow-drift { from { transform: translate(-6%, 4%) scale(1); } to { transform: translate(6%, -4%) scale(1.12); } }

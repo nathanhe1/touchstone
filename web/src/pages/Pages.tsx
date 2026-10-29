@@ -206,10 +206,10 @@ export function Forecast() {
 /* ---------------- Market ---------------- */
 export function Market() {
   const players: [string, number, number, string, string][] = [
-    ['Scale, Surge, Mercor', 30, 14, 'Build and sell training data and RL environments.', 'A seller can\'t neutrally grade its own product.'],
-    ['Patronus AI', 22, 74, 'AI evaluation and testing tools.', 'Evaluates models and apps, not the value of training data.'],
+    ['Scale, Surge, Mercor', 30, 14, 'Build and sell training material and RL environments.', 'A seller can\'t neutrally grade its own product.'],
+    ['Patronus AI', 22, 74, 'AI evaluation and testing tools.', 'Evaluates models and apps, not the value of training material.'],
     ['In-house ML teams', 74, 44, 'Run their own trial training.', 'Can\'t test before the vendor hands over data, or compare vendors.'],
-    ['Touchstone', 84, 86, 'Independently appraises training data before purchase.', 'Neutral, before you buy, at small-model cost.'],
+    ['Touchstone', 84, 86, 'Independently appraises training material before purchase.', 'Neutral, before you buy, at small-model cost.'],
   ]
   const others: [string, string, string][] = [
     ['RL List', 'Ranks 42 environment vendors', 'Desk research on funding and press. Runs no training.'],
@@ -221,7 +221,7 @@ export function Market() {
   ]
   return (
     <>
-      <Head title={<>Training data is the new <span className="transfer">compute bill.</span></>} text="The money in AI training is moving from compute to data and RL environments. Nobody can check what they're buying." />
+      <Head title={<>Training material is the new <span className="transfer">compute bill.</span></>} text="The money in AI training is moving from compute to data and RL environments. Nobody can check what they're buying." />
       <section className="wrap">
         <Reveal className="cols">
           <div><b><Count value="$1B" /></b><p>a year reportedly spent on human-curated data by each leading lab</p><small>TechCrunch, Pebblous</small></div>
@@ -301,7 +301,7 @@ export function Pricing() {
   ]
   return (
     <>
-      <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the data it checks." />
+      <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the material it checks." />
       <section className="wrap tiers">
         {tiers.map(([name, sub, amount, per, items, featured], i) => (
           <Reveal key={name} delay={i * .08}>
@@ -366,7 +366,7 @@ export function Company() {
       <section className="section flush">
         <div className="wrap two" style={{ alignItems: 'center' }}>
           <Reveal><h2>Why <span className="transfer">Touchstone.</span></h2></Reveal>
-          <Reveal delay={.1}><p className="lede" style={{ marginTop: 0 }}>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training data.</p></Reveal>
+          <Reveal delay={.1}><p className="lede" style={{ marginTop: 0 }}>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training material.</p></Reveal>
         </div>
       </section>
       <section className="section">
@@ -410,7 +410,7 @@ export function Company() {
         ['What can you test today?', 'RL environments with automatic graders. Post-training datasets and other data types come next.'],
         ['Are you independent?', 'Yes. We never sell data or environments, and we publish our method.'],
       ]} /></Reveal></div></section>
-      <Close title="Building the neutral standard for training data." text="Talk to us about a pilot." />
+      <Close title="Building the neutral standard for training material." text="Talk to us about a pilot." />
     </>
   )
 }
@@ -428,7 +428,7 @@ export function Request() {
         </ol></Reveal>
         <Reveal delay={.1}><Panel title="pilot appraisals" meta="limited">
           <div style={{ padding: 28, display: 'grid', gap: 16 }}>
-            <h3>For AI teams buying RL environments or post-training data, and for vendors who want a neutral rating.</h3>
+            <h3>For AI teams buying RL environments or post-training material, and for vendors who want a neutral rating.</h3>
             {REQUEST_FORM_URL ? <div><RequestButton label="Open the request form" /></div> : <p className="dim" style={{ margin: 0 }}>The request form opens shortly. Check back here for the link.</p>}
           </div>
         </Panel></Reveal>

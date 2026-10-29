@@ -1,9 +1,7 @@
-import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { animate } from 'animejs'
 import { REQUEST_FORM_URL } from './data'
-
-const Shader = lazy(() => import('./Shader'))
 
 export const reduced = typeof window !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -22,7 +20,7 @@ export const Plus = () => (
 export const Brand = () => (
   <svg viewBox="0 0 42 42" aria-hidden="true">
     <defs><linearGradient id="stone" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#8a8f96" /><stop offset=".5" stopColor="#3a3f45" /><stop offset="1" stopColor="#16191c" /></linearGradient></defs>
-    <path d="M5 13 14 5l13 2 10 10-3 15-12 6L8 32 3 22z" fill="url(#stone)" stroke="#c9cdd2" strokeWidth="1.2" />
+    <path d="M5 13 14 5l13 2 10 10-3 15-12 6L8 32 3 22z" fill="url(#stone)"  />
     <path d="m24 8 3 10-4 5 5 3-3 9" fill="none" stroke="#e2b45a" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" />
   </svg>
 )
@@ -81,22 +79,8 @@ export function Panel({ title, meta, children, className = '' }: { title: ReactN
   )
 }
 
-/** The animated mesh gradient behind the hero and the close; only mounted when on screen. */
-export function Gradient({ tone = 'hero' }: { tone?: 'hero' | 'close' }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [on, setOn] = useState(false)
-  useEffect(() => {
-    const io = new IntersectionObserver(([entry]) => setOn(entry.isIntersecting), { rootMargin: '200px' })
-    if (ref.current) io.observe(ref.current)
-    return () => io.disconnect()
-  }, [])
-  const colors = tone === 'hero' ? ['#2b2414', '#e2b45a', '#0b0d10'] : ['#1e2126', '#c4a35a', '#0b0d10']
-  return (
-    <div ref={ref} className={tone === 'hero' ? 'hero-bg' : 'close-bg'} aria-hidden="true">
-      {on && !reduced && <Suspense fallback={null}><Shader colors={colors as [string, string, string]} /></Suspense>}
-    </div>
-  )
-}
+/** The sky behind the hero, page heads and the close: CSS gradients with slow drifting clouds. */
+export const Sky = () => <div className="sky" aria-hidden="true"><i /><i /><i /><i /><i /></div>
 
 export function Faq({ items }: { items: [string, string][] }) {
   return (
@@ -111,7 +95,7 @@ export function Faq({ items }: { items: [string, string][] }) {
 export function Close({ title, text }: { title: ReactNode; text: string }) {
   return (
     <section className="close">
-      <Gradient tone="close" />
+      <Sky />
       <div className="wrap">
         <Reveal><h2>{title}</h2><p className="lede">{text}</p>
           <div className="actions"><RequestButton /><a className="btn secondary" href="#report">See a sample report</a></div></Reveal>

@@ -48,9 +48,9 @@ export function AdaptiveSlider({ id, label, value, min, max, step, format, onCha
       <label htmlFor={id}><span>{label}</span><b><Rolling text={format(value)} /></b></label>
       <div className="wm-track">
         <div className="wm-dots">{Array.from({ length: 6 }, (_, i) => <i key={i} />)}</div>
-        <motion.div className="wm-fill" animate={{ width: `calc(${p * 100}% * (1 - 0px) - ${p * 36}px + 36px)`, background: fill }} transition={spring} />
+        <motion.div className="wm-fill" animate={{ width: `calc(${p} * (100% - 36px) + 36px)`, background: fill }} transition={spring} />
         <input id={id} type="range" min={min} max={max} step={step} value={value} onChange={e => onChange(+e.target.value)} />
-        <motion.div className="wm-thumb" animate={{ left: `calc(${p * 100}% - ${p * 36}px)` }} transition={spring}><i /></motion.div>
+        <motion.div className="wm-thumb" animate={{ left: `calc(${p} * (100% - 36px))` }} transition={spring}><i /></motion.div>
       </div>
     </div>
   )

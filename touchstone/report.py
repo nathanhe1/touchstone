@@ -19,6 +19,9 @@ ROADMAP = [
     ("Later", "Beyond RL", "Training decisions across model types, and forecasting behaviour before a model ships."),
 ]
 
+# The team, shown on the home page once filled in: (name, role, one line on why you, link or "").
+FOUNDERS = []
+
 GRADE_CLASS = {"A": "g-a", "B": "g-b", "C": "g-c", "D": "g-d", "F": "g-f", "—": "g-base"}
 
 
@@ -1372,7 +1375,7 @@ main+.footer,.cta-band+.footer{margin-top:0}
 @media(max-width:680px){.hero-inner{grid-template-columns:1fr;gap:36px;padding-top:52px;padding-bottom:56px}.fact-row,.steps,.audience-grid,.research-grid,.cta-inner{grid-template-columns:1fr}.measures dl>div,.status-list li{grid-template-columns:1fr;gap:4px}.cta-actions{justify-content:flex-start}.cert{padding:18px}.research-card p{font-size:19px}}
 """
 
-# Motion layer: shader gradient, liquid glass, scroll-driven steps, tabs, flow diagram, marquee, curtain.
+# Motion layer: shader gradient, liquid glass, scroll-driven steps, tabs, flow diagram, marquee.
 CSS += r"""
 .hero{position:relative;isolation:isolate}
 .shader{position:absolute;inset:0;z-index:-1;width:100%;height:100%;display:block}
@@ -1483,9 +1486,6 @@ CSS += r"""
 .timeline b{font:650 20px var(--sans)}.timeline p{margin:0;max-width:640px;color:color-mix(in srgb,var(--ink),var(--muted) 45%);font:400 17px/1.5 var(--text)}
 .cta-band{position:relative;isolation:isolate;overflow:hidden;padding:110px 0}
 .cta-inner{position:relative;z-index:1}
-.curtain{position:fixed;inset:0;z-index:200;background:var(--band);transform:translateY(100%);pointer-events:none}
-.curtain:before{position:absolute;top:0;right:0;left:0;height:3px;background:var(--lime);content:""}
-.curtain.is-covering{transform:none}
 .hero h1{max-width:none;font-size:clamp(44px,4.7vw,70px)}
 .hero-copy{max-width:600px}
 .h2{font-size:clamp(28px,2.9vw,40px)}.h2.is-large{font-size:clamp(34px,4vw,56px)}
@@ -1650,6 +1650,54 @@ h1 em,h2 em,.h2 em{font-family:var(--display);font-style:italic;font-weight:400;
 .is-home .cta-band h2{font-size:clamp(46px,6vw,96px);color:#fff}
 .is-home .cta-band .cta-note{margin-top:22px}
 .is-home .cta-band p.t-kicker{max-width:none;margin:0 0 18px;color:var(--lime);font:500 11px var(--mono);letter-spacing:.14em}
+.t-hero{background:radial-gradient(60% 70% at 78% 30%,#e3bf6822,transparent 70%),radial-gradient(50% 60% at 15% 80%,#2a4a6e33,transparent 70%),var(--paper)}
+.is-home .marquee{padding:12px 0}
+.is-home .marquee-track{gap:22px}
+.is-home .marquee-track span{font:650 15px/1 var(--sans);font-variation-settings:"wdth" 100;letter-spacing:.01em}
+.is-home .marquee-track i{font-size:10px}
+.t-statement{padding-top:110px;padding-bottom:10px}
+.t-section{padding-top:90px}
+.is-home .scrolly{padding:90px 0 30px}
+.is-home .scrolly-step{min-height:30vh}
+.is-home .scrolly-step:last-child{min-height:22vh}
+.bento{grid-auto-rows:minmax(210px,auto)}
+.bento-tile.is-wide .b-rise{height:110px}
+.is-home .cta-band{margin-top:90px;padding:110px 0}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.why-card{position:relative;display:grid;align-content:start;gap:6px;padding:30px;border-top:2px solid var(--lime);background:linear-gradient(180deg,#e3bf6812,transparent 70%)}
+.why-card b{color:#fff;font:800 clamp(52px,5vw,76px)/1 var(--sans);font-variation-settings:"wdth" 100;letter-spacing:-.04em}
+.why-card span{color:var(--lime);font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.why-card p{margin:10px 0 0;color:var(--muted);font:400 15px/1.45 var(--sans)}
+.market{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+.market-figure{display:grid;gap:14px;padding:34px}
+.market-figure small{color:var(--lime);font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.market-figure b{font:800 clamp(52px,6vw,92px)/1 var(--sans);font-variation-settings:"wdth" 96;letter-spacing:-.045em;background:linear-gradient(90deg,#fff,#ebca78);-webkit-background-clip:text;background-clip:text;color:transparent}
+.market-figure p{margin:0;max-width:560px;color:var(--muted);font:400 16px/1.5 var(--sans)}
+.market-bar{display:grid;gap:10px;margin-top:10px}
+.market-bar i{position:relative;display:block;width:var(--w);min-width:8px;height:30px;border-radius:6px;background:#ffffff14}
+.market-bar i.is-us{background:var(--lime);box-shadow:0 0 20px #e3bf6888}
+.market-bar span{position:absolute;top:50%;left:12px;color:var(--ink);font:500 11px var(--mono);white-space:nowrap;transform:translateY(-50%)}
+.market-bar i.is-us span{left:calc(100% + 12px);color:var(--lime)}
+.moat{display:grid;gap:12px}
+.moat-card{padding:18px 20px;border:1px solid #ffffff17;border-left:3px solid var(--lime);border-radius:10px;background:#ffffff06;transition:transform .25s var(--out),background .25s}
+.moat-card:hover{transform:translateX(6px);background:#e3bf6810}
+.moat-card b{display:block;font:700 17px var(--sans)}
+.moat-card p{margin:4px 0 0;color:var(--muted);font:400 14px/1.45 var(--sans)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px;font:650 clamp(18px,1.8vw,22px)/1.3 var(--sans);cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{position:relative;flex:none;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;transition:transform .35s var(--spring),background .2s}
+.faq summary i:before,.faq summary i:after{position:absolute;top:50%;left:50%;width:11px;height:1.5px;margin:-.75px 0 0 -5.5px;background:var(--ink);content:""}
+.faq summary i:after{transform:rotate(90deg)}
+.faq details[open] summary i{background:var(--lime);border-color:var(--lime);transform:rotate(45deg)}
+.faq details[open] summary i:before,.faq details[open] summary i:after{background:#0a0c0f}
+.faq summary:hover{color:var(--lime)}
+.faq-a{overflow:hidden}
+.faq-a p{margin:0;max-width:720px;padding:0 4px 24px;color:var(--muted);font:400 17px/1.55 var(--sans)}
+.person small{color:var(--lime);font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.person a{color:var(--lime);font:500 12px var(--mono);text-decoration:none}
+@media(max-width:680px){.why-grid,.market{grid-template-columns:1fr}.is-home .scrolly-step{min-height:26vh}}
 @keyframes pill-ping{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(1.8)}}
 @keyframes draw-loop{0%{stroke-dashoffset:1}45%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-1}}
 @keyframes dot-pop{0%,40%{opacity:0;transform:scale(0)}50%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
@@ -2383,6 +2431,7 @@ SCRIPT += r"""
   document.querySelectorAll('[data-shader]').forEach(canvas => {
     const gl = canvas.getContext('webgl', {antialias: false, premultipliedAlpha: false});
     if (!gl) return;
+    canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); canvas.style.display = 'none'; });
     const compile = (type, source) => { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader; };
     const program = gl.createProgram();
     gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'));
@@ -2432,6 +2481,8 @@ SCRIPT += r"""
     shaders.push(state);
   });
   if (shaders.length) {
+    // Hidden tabs pause the loop; redraw at once on return so the gradient never shows a stale or blank frame.
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) shaders.forEach(state => state.draw(performance.now())); });
     if (reduced) shaders.forEach(state => state.draw(8000));
     else { const loop = time => { shaders.forEach(state => state.visible && state.draw(time)); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
   }
@@ -2563,17 +2614,24 @@ SCRIPT += r"""
   }
   if (reduced) return;
 
-  // Headlines rise out of a mask line by line; supporting copy and cards follow.
-  document.querySelectorAll('[data-split]').forEach(heading => {
+  // Reveals run when an element reaches the screen. Nothing is hidden beforehand, so a missed trigger
+  // can never leave a gap; elements already on screen at load simply animate in place.
+  const reveal = (elements, animate) => {
+    if (!('IntersectionObserver' in window)) return;
+    const watcher = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      watcher.unobserve(entry.target);
+      animate(entry.target);
+    }), {rootMargin: '0px 0px -8% 0px'});
+    elements.forEach(element => watcher.observe(element));
+  };
+  reveal(document.querySelectorAll('[data-split]'), heading => {
     if (!window.SplitText) return;
     const split = SplitText.create(heading, {type: 'lines', mask: 'lines', linesClass: 'split-line'});
-    gsap.from(split.lines, {yPercent: 110, duration: 1, ease: 'expo.out', stagger: .09,
-      scrollTrigger: {trigger: heading, start: 'top 88%', once: true}});
+    gsap.fromTo(split.lines, {yPercent: 105}, {yPercent: 0, duration: .9, ease: 'expo.out', stagger: .08});
   });
-  ScrollTrigger.batch('[data-rise], .fact, .research-card, .cmp-row, .timeline li, .metric, .ticks', {
-    start: 'top 90%', once: true,
-    onEnter: items => gsap.from(items, {y: 34, opacity: 0, scale: .97, duration: .8, ease: 'power3.out', stagger: .08})
-  });
+  reveal(document.querySelectorAll('[data-rise], .t-card, .bento-tile, .t-plan, .faq details, .why-card, .moat-card'), element =>
+    gsap.fromTo(element, {y: 26, opacity: 0}, {y: 0, opacity: 1, duration: .7, ease: 'power3.out', clearProps: 'transform,opacity'}));
   gsap.from('.cert', {y: 60, rotateX: 18, opacity: 0, duration: 1.2, ease: 'expo.out', delay: .2});
   gsap.from('.cert-row', {x: 24, opacity: 0, stagger: .08, duration: .6, ease: 'power3.out', delay: .6});
 
@@ -2615,25 +2673,6 @@ SCRIPT += r"""
       if (Motion) Motion.animate(notice, {x: [120, 0], opacity: [0, 1], scale: [.92, 1]}, spring);
     }));
   }});
-})();
-
-// Curtain between pages: covers on the way out, lifts on the way in.
-(() => {
-  const curtain = document.querySelector('.curtain');
-  if (!curtain || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let arrived = false;
-  try { arrived = sessionStorage.getItem('touchstone-curtain') === '1'; sessionStorage.removeItem('touchstone-curtain'); } catch (error) { arrived = false; }
-  if (arrived) gsap.fromTo(curtain, {yPercent: 0}, {yPercent: -100, duration: .7, ease: 'expo.inOut', delay: .05});
-  document.addEventListener('click', event => {
-    const link = event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target) return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.pathname === location.pathname) return;
-    event.preventDefault();
-    try { sessionStorage.setItem('touchstone-curtain', '1'); } catch (error) { /* the next page simply loads without the lift */ }
-    gsap.fromTo(curtain, {yPercent: 100}, {yPercent: 0, duration: .55, ease: 'expo.inOut', onComplete: () => { location.href = url.href; }});
-  });
-  addEventListener('pageshow', event => { if (event.persisted) gsap.set(curtain, {yPercent: 100}); });
 })();
 """
 
@@ -2724,12 +2763,27 @@ SCRIPT += r"""
   });
 
   // Positioning chart: the points drop in, Touchstone last.
-  if (gsap && window.ScrollTrigger && !reduced) {
-    gsap.from('.q-point', {scale: 0, opacity: 0, duration: .7, ease: 'back.out(2)', stagger: .18,
-      scrollTrigger: {trigger: '.quad', start: 'top 80%', once: true}});
-    gsap.from('.roadmap li', {y: 30, opacity: 0, duration: .7, ease: 'power3.out', stagger: .12,
-      scrollTrigger: {trigger: '.roadmap', start: 'top 85%', once: true}});
+  if (gsap && !reduced && 'IntersectionObserver' in window) {
+    const once = (selector, animate) => {
+      const target = document.querySelector(selector);
+      if (!target) return;
+      const watcher = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { watcher.disconnect(); animate(); } });
+      watcher.observe(target);
+    };
+    once('.quad', () => gsap.fromTo('.q-point', {scale: 0, opacity: 0}, {scale: 1, opacity: 1, duration: .7, ease: 'back.out(2)', stagger: .18, clearProps: 'transform,opacity'}));
+    once('.roadmap', () => gsap.fromTo('.roadmap li', {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: .7, ease: 'power3.out', stagger: .12, clearProps: 'transform,opacity'}));
   }
+
+  // FAQ: answers spring open and closed.
+  document.querySelectorAll('.faq details').forEach(item => {
+    const summary = item.querySelector('summary'), answer = item.querySelector('.faq-a');
+    summary.addEventListener('click', event => {
+      if (!Motion || reduced) return;
+      event.preventDefault();
+      if (item.open) Motion.animate(answer, {height: [answer.offsetHeight + 'px', '0px'], opacity: [1, 0]}, {duration: .3}).finished.then(() => { item.open = false; answer.style.height = ''; });
+      else { item.open = true; Motion.animate(answer, {height: ['0px', answer.scrollHeight + 'px'], opacity: [0, 1]}, spring).finished.then(() => { answer.style.height = ''; }); }
+    });
+  });
 })();
 """
 
@@ -2761,8 +2815,7 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <dialog class="palette" id="palette" aria-label="Search Touchstone"><label class="palette-input"><span aria-hidden="true">⌕</span>
 <input type="search" placeholder="Jump to a practice set or page…" aria-label="Search pages and appraisals" autocomplete="off"></label>
 <ul class="palette-list" role="list"></ul><div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div></dialog>
-<div class="toast" role="status" aria-live="polite"></div><div class="curtain" aria-hidden="true"></div>
-<script src="{prefix}search-index.js"></script>{LIBRARIES}<script>{SCRIPT}</script></body></html>"""
+<div class="toast" role="status" aria-live="polite"></div><script src="{prefix}search-index.js"></script>{LIBRARIES}<script>{SCRIPT}</script></body></html>"""
 
 
 def result_card(environment: dict, prefix: str, delay: int = 0) -> str:
@@ -2959,6 +3012,19 @@ def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
                    f'<i></i><span>{esc(name)}</span></button>' for name, x, y, note in players)
     roadmap = "".join(f'<li class="rm-{stage.lower()}"><em>{esc(stage)}</em><b>{esc(title)}</b><p>{esc(text)}</p></li>' for stage, title, text in ROADMAP)
     request_note = "" if REQUEST_FORM_URL else '<p class="cta-note">Request form opens shortly</p>'
+    faq = "".join(f'<details><summary>{q}<i aria-hidden="true"></i></summary><div class="faq-a"><p>{a}</p></div></details>' for q, a in (
+        ("Do you see the vendor's tasks?", "They stay in a sealed sandbox. Buyers get results, never the tasks."),
+        ("Why trust small models?", "Published work shows small runs predict which data wins at scale. Every report also shows how well our forecast held up."),
+        ("Which models do you train?", "A fixed family of small open models, for example 0.5B, 1.5B and 3B, with one published recipe."),
+        ("What can you test today?", "RL environments with automatic graders. Post-training datasets and other data types come next."),
+        ("What does it cost?", "Pilot appraisals are priced per environment. Subscriptions cover continuous testing and comparison."),
+    ))
+    team = ""
+    if FOUNDERS:
+        people = "".join(f'<article class="t-card tilt person"><b>{esc(name)}</b><small>{esc(role)}</small><p>{esc(why)}</p>'
+                         + (f'<a href="{esc(link)}" target="_blank" rel="noopener">Profile ↗</a>' if link else "") + "</article>"
+                         for name, role, why, link in FOUNDERS)
+        team = f'<section class="container t-section"><div class="t-head"><p class="t-kicker">Team</p><h2 data-split>Who is <em>building this.</em></h2></div><div class="t-problems">{people}</div></section>'
     statement = ("Touchstone helps AI companies decide which training data and RL environments are worth paying for, "
                  "before they commit to full-scale training.")
     content = f"""<header class="t-hero"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container t-hero-inner">
@@ -2976,6 +3042,12 @@ def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
 <article class="t-card tilt" data-rise><span class="t-icon">$</span><b data-count>$2,000</b><p>Top price of one RL environment task</p>{info_chip("pop-price", "What RL tasks cost")}</article>
 <article class="t-card tilt" data-rise><span class="t-icon">≠</span><b>Rewards mislead</b><p>High reward does not mean the model learned a real skill</p>{info_chip("pop-hack", "Reward hacking")}</article>
 <article class="t-card tilt" data-rise><span class="t-icon">⧗</span><b>Weeks of GPU</b><p>Full training runs are how most teams find out today</p>{info_chip("pop-self", "How teams check today")}</article></div></section>
+<section class="container t-section"><div class="t-head t-head-split"><div><p class="t-kicker">Why now</p><h2 data-split>The money is moving <em>to training data.</em></h2></div>
+<p data-rise>Reported figures from public sources. Spend is rising faster than anyone's ability to check it.</p></div>
+<div class="why-grid">
+<article class="why-card tilt"><b data-count>$1B</b><span>a year</span><p>Reported spend on human-curated data by each leading lab</p></article>
+<article class="why-card tilt"><b data-count>55%</b><span>of AI cloud spend</span><p>Inference share Gartner expects in 2026, driven by fine-tuned models in production</p></article>
+<article class="why-card tilt"><b>0</b><span>neutral auditors</span><p>Independent checks of training value in current market maps</p></article></div></section>
 <section class="scrolly" id="how"><div class="container scrolly-inner"><div class="scrolly-copy"><p class="t-kicker">How it works</p>
 <h2 data-split class="h2 is-large">Small experiments, <em>before the big spend.</em></h2><ol class="scrolly-steps">{step_list}</ol></div>
 <div class="scrolly-stage-wrap"><div class="scrolly-stage glass-panel">{stage}<div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
@@ -2985,13 +3057,23 @@ def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
 <section class="container t-section t-two"><div><p class="t-kicker">Who it's for</p><h2 data-split class="h2">Both sides <em>of the deal.</em></h2>{audience}</div>
 <div><p class="t-kicker">Where we fit</p><h2 data-split class="h2">Independent, <em>and cheap to run.</em></h2>
 <div class="quad" data-rise><span class="q-axis q-x">Measures training value →</span><span class="q-axis q-y">Independent →</span>{quad}</div><p class="q-hint">Hover a name for detail</p></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">The opportunity</p><h2 data-split>A verification layer <em>for a new market.</em></h2></div>
+<div class="market"><div class="market-figure glass-panel" data-rise><small>Revenue opportunity · our estimate</small><b>$30M–$100M+</b>
+<p>If environment and post-training data spend reaches a few billion dollars a year by 2027–28, a verification layer taking 1–3% is a $30M–$100M+ business, before any marketplace.</p>
+<div class="market-bar" aria-hidden="true"><i style="--w:100%"><span>Data and environment spend · $ billions</span></i><i class="is-us" style="--w:3%"><span>Touchstone · 1–3%</span></i></div></div>
+<div class="moat"><p class="t-kicker">Why it compounds</p>
+<article class="moat-card"><b>Neutral by design</b><p>We never sell data or environments.</p></article>
+<article class="moat-card"><b>A private test suite</b><p>No vendor can train on it. Its value grows the longer it stays clean.</p></article>
+<article class="moat-card"><b>Every appraisal teaches us</b><p>Each run sharpens which environment features actually transfer.</p></article>
+<article class="moat-card"><b>The first standard sticks</b><p>In ratings and audits, the first credible standard tends to win.</p></article></div></div></section>
 <section class="container t-section"><div class="t-head"><p class="t-kicker">The science</p><h2 data-split>Small runs <em>predict big ones.</em></h2></div><div class="t-research">
 <a class="t-card tilt research" href="https://proceedings.mlr.press/v235/xia24c.html" target="_blank" rel="noopener" data-rise><b>5%</b><p>of well-chosen data can beat training on all of it</p><small>Xia et al. · LESS · ICML 2024 ↗</small></a>
 <a class="t-card tilt research" href="https://proceedings.mlr.press/v267/magnusson25a.html" target="_blank" rel="noopener" data-rise><b>Small → large</b><p>Small experiments predict which data wins at scale</p><small>Magnusson et al. · DataDecide · ICML 2025 ↗</small></a></div></section>
 <section class="container t-section"><div class="t-head"><p class="t-kicker">Pricing</p><h2 data-split>Pay per appraisal, <em>or subscribe.</em></h2></div><div class="t-plans">
 <article class="t-plan tilt" data-rise><p class="t-kicker">Per appraisal</p><h3>Check one environment</h3><p>Before you buy or train on it.</p><ul class="ticks"><li>Sealed test</li><li>Full report</li><li>Fair-value estimate</li></ul>{request_action("Request an appraisal")}</article>
 <article class="t-plan tilt is-featured" data-rise><p class="t-kicker">Subscription</p><h3>Every environment, always</h3><p>For teams training continuously.</p><ul class="ticks"><li>Side-by-side comparison</li><li>Re-tests as environments change</li><li>Vendor ratings over time</li></ul>{request_action("Talk to us")}</article></div></section>
-<section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap" data-rise>{roadmap}</ol></section>
+{team}<section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap" data-rise>{roadmap}</ol></section>
+<section class="container t-section faq"><div class="t-head"><p class="t-kicker">Questions</p><h2 data-split>Fair questions, <em>short answers.</em></h2></div>{faq}</section>
 <section class="cta-band" id="request"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container cta-inner"><div>
 <p class="t-kicker">Pilot appraisals</p><h2 data-split>Know before <em>you train.</em></h2>{request_note}</div>
 <div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div></div></section>

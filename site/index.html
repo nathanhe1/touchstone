@@ -1037,9 +1037,6 @@ main+.footer,.cta-band+.footer{margin-top:0}
 .timeline b{font:650 20px var(--sans)}.timeline p{margin:0;max-width:640px;color:color-mix(in srgb,var(--ink),var(--muted) 45%);font:400 17px/1.5 var(--text)}
 .cta-band{position:relative;isolation:isolate;overflow:hidden;padding:110px 0}
 .cta-inner{position:relative;z-index:1}
-.curtain{position:fixed;inset:0;z-index:200;background:var(--band);transform:translateY(100%);pointer-events:none}
-.curtain:before{position:absolute;top:0;right:0;left:0;height:3px;background:var(--lime);content:""}
-.curtain.is-covering{transform:none}
 .hero h1{max-width:none;font-size:clamp(44px,4.7vw,70px)}
 .hero-copy{max-width:600px}
 .h2{font-size:clamp(28px,2.9vw,40px)}.h2.is-large{font-size:clamp(34px,4vw,56px)}
@@ -1201,6 +1198,54 @@ h1 em,h2 em,.h2 em{font-family:var(--display);font-style:italic;font-weight:400;
 .is-home .cta-band h2{font-size:clamp(46px,6vw,96px);color:#fff}
 .is-home .cta-band .cta-note{margin-top:22px}
 .is-home .cta-band p.t-kicker{max-width:none;margin:0 0 18px;color:var(--lime);font:500 11px var(--mono);letter-spacing:.14em}
+.t-hero{background:radial-gradient(60% 70% at 78% 30%,#e3bf6822,transparent 70%),radial-gradient(50% 60% at 15% 80%,#2a4a6e33,transparent 70%),var(--paper)}
+.is-home .marquee{padding:12px 0}
+.is-home .marquee-track{gap:22px}
+.is-home .marquee-track span{font:650 15px/1 var(--sans);font-variation-settings:"wdth" 100;letter-spacing:.01em}
+.is-home .marquee-track i{font-size:10px}
+.t-statement{padding-top:110px;padding-bottom:10px}
+.t-section{padding-top:90px}
+.is-home .scrolly{padding:90px 0 30px}
+.is-home .scrolly-step{min-height:30vh}
+.is-home .scrolly-step:last-child{min-height:22vh}
+.bento{grid-auto-rows:minmax(210px,auto)}
+.bento-tile.is-wide .b-rise{height:110px}
+.is-home .cta-band{margin-top:90px;padding:110px 0}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.why-card{position:relative;display:grid;align-content:start;gap:6px;padding:30px;border-top:2px solid var(--lime);background:linear-gradient(180deg,#e3bf6812,transparent 70%)}
+.why-card b{color:#fff;font:800 clamp(52px,5vw,76px)/1 var(--sans);font-variation-settings:"wdth" 100;letter-spacing:-.04em}
+.why-card span{color:var(--lime);font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.why-card p{margin:10px 0 0;color:var(--muted);font:400 15px/1.45 var(--sans)}
+.market{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+.market-figure{display:grid;gap:14px;padding:34px}
+.market-figure small{color:var(--lime);font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.market-figure b{font:800 clamp(52px,6vw,92px)/1 var(--sans);font-variation-settings:"wdth" 96;letter-spacing:-.045em;background:linear-gradient(90deg,#fff,#ebca78);-webkit-background-clip:text;background-clip:text;color:transparent}
+.market-figure p{margin:0;max-width:560px;color:var(--muted);font:400 16px/1.5 var(--sans)}
+.market-bar{display:grid;gap:10px;margin-top:10px}
+.market-bar i{position:relative;display:block;width:var(--w);min-width:8px;height:30px;border-radius:6px;background:#ffffff14}
+.market-bar i.is-us{background:var(--lime);box-shadow:0 0 20px #e3bf6888}
+.market-bar span{position:absolute;top:50%;left:12px;color:var(--ink);font:500 11px var(--mono);white-space:nowrap;transform:translateY(-50%)}
+.market-bar i.is-us span{left:calc(100% + 12px);color:var(--lime)}
+.moat{display:grid;gap:12px}
+.moat-card{padding:18px 20px;border:1px solid #ffffff17;border-left:3px solid var(--lime);border-radius:10px;background:#ffffff06;transition:transform .25s var(--out),background .25s}
+.moat-card:hover{transform:translateX(6px);background:#e3bf6810}
+.moat-card b{display:block;font:700 17px var(--sans)}
+.moat-card p{margin:4px 0 0;color:var(--muted);font:400 14px/1.45 var(--sans)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px;font:650 clamp(18px,1.8vw,22px)/1.3 var(--sans);cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{position:relative;flex:none;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;transition:transform .35s var(--spring),background .2s}
+.faq summary i:before,.faq summary i:after{position:absolute;top:50%;left:50%;width:11px;height:1.5px;margin:-.75px 0 0 -5.5px;background:var(--ink);content:""}
+.faq summary i:after{transform:rotate(90deg)}
+.faq details[open] summary i{background:var(--lime);border-color:var(--lime);transform:rotate(45deg)}
+.faq details[open] summary i:before,.faq details[open] summary i:after{background:#0a0c0f}
+.faq summary:hover{color:var(--lime)}
+.faq-a{overflow:hidden}
+.faq-a p{margin:0;max-width:720px;padding:0 4px 24px;color:var(--muted);font:400 17px/1.55 var(--sans)}
+.person small{color:var(--lime);font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.person a{color:var(--lime);font:500 12px var(--mono);text-decoration:none}
+@media(max-width:680px){.why-grid,.market{grid-template-columns:1fr}.is-home .scrolly-step{min-height:26vh}}
 @keyframes pill-ping{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(1.8)}}
 @keyframes draw-loop{0%{stroke-dashoffset:1}45%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-1}}
 @keyframes dot-pop{0%,40%{opacity:0;transform:scale(0)}50%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
@@ -1274,6 +1319,12 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 <article class="t-card tilt" data-rise><span class="t-icon">$</span><b data-count>$2,000</b><p>Top price of one RL environment task</p><button class="info-chip" type="button" data-pop-open="pop-price" aria-haspopup="dialog" aria-expanded="false" aria-label="What RL tasks cost"></button></article>
 <article class="t-card tilt" data-rise><span class="t-icon">≠</span><b>Rewards mislead</b><p>High reward does not mean the model learned a real skill</p><button class="info-chip" type="button" data-pop-open="pop-hack" aria-haspopup="dialog" aria-expanded="false" aria-label="Reward hacking"></button></article>
 <article class="t-card tilt" data-rise><span class="t-icon">⧗</span><b>Weeks of GPU</b><p>Full training runs are how most teams find out today</p><button class="info-chip" type="button" data-pop-open="pop-self" aria-haspopup="dialog" aria-expanded="false" aria-label="How teams check today"></button></article></div></section>
+<section class="container t-section"><div class="t-head t-head-split"><div><p class="t-kicker">Why now</p><h2 data-split>The money is moving <em>to training data.</em></h2></div>
+<p data-rise>Reported figures from public sources. Spend is rising faster than anyone's ability to check it.</p></div>
+<div class="why-grid">
+<article class="why-card tilt"><b data-count>$1B</b><span>a year</span><p>Reported spend on human-curated data by each leading lab</p></article>
+<article class="why-card tilt"><b data-count>55%</b><span>of AI cloud spend</span><p>Inference share Gartner expects in 2026, driven by fine-tuned models in production</p></article>
+<article class="why-card tilt"><b>0</b><span>neutral auditors</span><p>Independent checks of training value in current market maps</p></article></div></section>
 <section class="scrolly" id="how"><div class="container scrolly-inner"><div class="scrolly-copy"><p class="t-kicker">How it works</p>
 <h2 data-split class="h2 is-large">Small experiments, <em>before the big spend.</em></h2><ol class="scrolly-steps"><li class="scrolly-step is-active" data-step="0"><button type="button"><span class="step-no">01</span><b>Seal</b><p>The vendor's tasks go into a sealed sandbox. You only ever see results.</p></button></li><li class="scrolly-step" data-step="1"><button type="button"><span class="step-no">02</span><b>Train small</b><p>Small open models train on it with one fixed recipe, at four sizes.</p></button></li><li class="scrolly-step" data-step="2"><button type="button"><span class="step-no">03</span><b>Measure</b><p>We test on private problems and try to fool the grader.</p></button></li><li class="scrolly-step" data-step="3"><button type="button"><span class="step-no">04</span><b>Forecast and price</b><p>We predict the gain at your model size and price each task.</p></button></li></ol></div>
 <div class="scrolly-stage-wrap"><div class="scrolly-stage glass-panel"><div class="stage-panel is-active" data-stage="0"><div class="vis-seal"><div class="vault"><span class="vault-lid"></span><i class="task-chip">task 001</i><i class="task-chip">task 002</i><i class="task-chip">task 003</i><i class="task-chip">task 004</i></div><code class="hash">sealed · sha256 7f3a9c04e1b2…</code></div></div><div class="stage-panel" data-stage="1"><div class="vis-train"><figure class="ladder-rung" style="--d:16.8px;--n:0"><span class="ladder-dot"></span><figcaption><b>S</b>29K</figcaption></figure><figure class="ladder-rung" style="--d:32.2px;--n:1"><span class="ladder-dot"></span><figcaption><b>M</b>108K</figcaption></figure><figure class="ladder-rung" style="--d:57.8px;--n:2"><span class="ladder-dot"></span><figcaption><b>L</b>347K</figcaption></figure><figure class="ladder-rung" style="--d:110.0px;--n:3"><span class="ladder-dot"></span><figcaption><b>XL</b>1.26M</figcaption></figure><svg class="train-curve" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 55 C 60 50, 90 30, 150 22 S 250 8, 300 6"/></svg></div></div><div class="stage-panel" data-stage="2"><div class="vis-measure viz"><div><span>Better on new problems</span><b>+4.1</b><span class="dbar" aria-hidden="true"><i class="gain" style="--share:34.2%"></i></span></div><div><span>Reward won by exploits</span><b>0%</b><span class="meter" aria-hidden="true"><i style="--share:0.0%;--delay:0ms"></i></span></div><div><span>Already free</span><b>6%</b><span class="meter" aria-hidden="true"><i style="--share:6.0%;--delay:0ms"></i></span></div></div></div><div class="stage-panel" data-stage="3"><div class="vis-price"><svg viewBox="0 0 320 120" aria-hidden="true"><line class="pr-axis" x1="20" y1="100" x2="310" y2="100"/><polygon class="pr-band" points="180,58 290,22 290,62 180,74"/><path class="pr-fit" pathLength="1" d="M40 88 L110 76 L180 66"/><path class="pr-forecast" pathLength="1" d="M180 66 L290 42"/><circle class="pr-dot" cx="40" cy="88" r="4"/><circle class="pr-dot" cx="110" cy="76" r="4"/><circle class="pr-dot" cx="180" cy="66" r="4"/><circle class="pr-target" cx="290" cy="42" r="6"/><text x="290" y="116" text-anchor="middle">your scale</text></svg><div class="price-tag"><b>$640</b><span>fair value per task</span></div></div></div><div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
@@ -1283,6 +1334,15 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 <section class="container t-section t-two"><div><p class="t-kicker">Who it's for</p><h2 data-split class="h2">Both sides <em>of the deal.</em></h2><div class="seg" data-tabs><div class="seg-list glass" role="tablist" aria-label="Who it&#x27;s for"><button class="seg-tab" type="button" role="tab" id="audience-tab-0" aria-controls="audience-panel-0" aria-selected="true" tabindex="0">AI teams buying data</button><button class="seg-tab" type="button" role="tab" id="audience-tab-1" aria-controls="audience-panel-1" aria-selected="false" tabindex="-1">Vendors selling it</button><span class="seg-ink" aria-hidden="true"></span></div><div class="seg-panels"><div class="seg-panel is-active" role="tabpanel" id="audience-panel-0" aria-labelledby="audience-tab-0"><ul class="ticks"><li>Test an environment before you sign</li><li>Compare vendors on one private test</li><li>Stop paying for tasks your model can game</li></ul></div><div class="seg-panel" role="tabpanel" id="audience-panel-1" aria-labelledby="audience-tab-1" hidden><ul class="ticks"><li>A neutral rating buyers trust</li><li>Find grader exploits before customers do</li><li>Back your price with measured value</li></ul></div></div></div></div>
 <div><p class="t-kicker">Where we fit</p><h2 data-split class="h2">Independent, <em>and cheap to run.</em></h2>
 <div class="quad" data-rise><span class="q-axis q-x">Measures training value →</span><span class="q-axis q-y">Independent →</span><button class="q-point" type="button" style="--x:30%;--y:16%" data-tip="Sells training data and infrastructure, and grades its own product."><i></i><span>Scale AI</span></button><button class="q-point" type="button" style="--x:20%;--y:74%" data-tip="Independent, but tests finished models, not the data that trains them."><i></i><span>Patronus AI</span></button><button class="q-point is-left" type="button" style="--x:76%;--y:44%" data-tip="Measure real value, but only after buying, with full-size training runs."><i></i><span>In-house teams</span></button><button class="q-point is-us is-left" type="button" style="--x:84%;--y:86%" data-tip="Independent, and measures training value before you buy, with small runs."><i></i><span>Touchstone</span></button></div><p class="q-hint">Hover a name for detail</p></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">The opportunity</p><h2 data-split>A verification layer <em>for a new market.</em></h2></div>
+<div class="market"><div class="market-figure glass-panel" data-rise><small>Revenue opportunity · our estimate</small><b>$30M–$100M+</b>
+<p>If environment and post-training data spend reaches a few billion dollars a year by 2027–28, a verification layer taking 1–3% is a $30M–$100M+ business, before any marketplace.</p>
+<div class="market-bar" aria-hidden="true"><i style="--w:100%"><span>Data and environment spend · $ billions</span></i><i class="is-us" style="--w:3%"><span>Touchstone · 1–3%</span></i></div></div>
+<div class="moat"><p class="t-kicker">Why it compounds</p>
+<article class="moat-card"><b>Neutral by design</b><p>We never sell data or environments.</p></article>
+<article class="moat-card"><b>A private test suite</b><p>No vendor can train on it. Its value grows the longer it stays clean.</p></article>
+<article class="moat-card"><b>Every appraisal teaches us</b><p>Each run sharpens which environment features actually transfer.</p></article>
+<article class="moat-card"><b>The first standard sticks</b><p>In ratings and audits, the first credible standard tends to win.</p></article></div></div></section>
 <section class="container t-section"><div class="t-head"><p class="t-kicker">The science</p><h2 data-split>Small runs <em>predict big ones.</em></h2></div><div class="t-research">
 <a class="t-card tilt research" href="https://proceedings.mlr.press/v235/xia24c.html" target="_blank" rel="noopener" data-rise><b>5%</b><p>of well-chosen data can beat training on all of it</p><small>Xia et al. · LESS · ICML 2024 ↗︎</small></a>
 <a class="t-card tilt research" href="https://proceedings.mlr.press/v267/magnusson25a.html" target="_blank" rel="noopener" data-rise><b>Small → large</b><p>Small experiments predict which data wins at scale</p><small>Magnusson et al. · DataDecide · ICML 2025 ↗︎</small></a></div></section>
@@ -1290,6 +1350,7 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 <article class="t-plan tilt" data-rise><p class="t-kicker">Per appraisal</p><h3>Check one environment</h3><p>Before you buy or train on it.</p><ul class="ticks"><li>Sealed test</li><li>Full report</li><li>Fair-value estimate</li></ul><a class="button button-lime" href="index.html#request">Request an appraisal <span class="button-arrow" aria-hidden="true">↓</span></a></article>
 <article class="t-plan tilt is-featured" data-rise><p class="t-kicker">Subscription</p><h3>Every environment, always</h3><p>For teams training continuously.</p><ul class="ticks"><li>Side-by-side comparison</li><li>Re-tests as environments change</li><li>Vendor ratings over time</li></ul><a class="button button-lime" href="index.html#request">Talk to us <span class="button-arrow" aria-hidden="true">↓</span></a></article></div></section>
 <section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap" data-rise><li class="rm-done"><em>Done</em><b>Prototype pipeline</b><p>Seal, train four model sizes, test transfer, probe the grader, forecast and price. Runs end to end.</p></li><li class="rm-now"><em>Now</em><b>Customer conversations</b><p>Reaching out to RL environment vendors and AI teams about pilot appraisals.</p></li><li class="rm-next"><em>Next</em><b>A real open-source environment</b><p>Run a public RL environment through the full pipeline.</p></li><li class="rm-next"><em>Next</em><b>Compare environments</b><p>Rank several environments side by side by value per dollar.</p></li><li class="rm-later"><em>Later</em><b>Beyond RL</b><p>Training decisions across model types, and forecasting behaviour before a model ships.</p></li></ol></section>
+<section class="container t-section faq"><div class="t-head"><p class="t-kicker">Questions</p><h2 data-split>Fair questions, <em>short answers.</em></h2></div><details><summary>Do you see the vendor's tasks?<i aria-hidden="true"></i></summary><div class="faq-a"><p>They stay in a sealed sandbox. Buyers get results, never the tasks.</p></div></details><details><summary>Why trust small models?<i aria-hidden="true"></i></summary><div class="faq-a"><p>Published work shows small runs predict which data wins at scale. Every report also shows how well our forecast held up.</p></div></details><details><summary>Which models do you train?<i aria-hidden="true"></i></summary><div class="faq-a"><p>A fixed family of small open models, for example 0.5B, 1.5B and 3B, with one published recipe.</p></div></details><details><summary>What can you test today?<i aria-hidden="true"></i></summary><div class="faq-a"><p>RL environments with automatic graders. Post-training datasets and other data types come next.</p></div></details><details><summary>What does it cost?<i aria-hidden="true"></i></summary><div class="faq-a"><p>Pilot appraisals are priced per environment. Subscriptions cover continuous testing and comparison.</p></div></details></section>
 <section class="cta-band" id="request"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container cta-inner"><div>
 <p class="t-kicker">Pilot appraisals</p><h2 data-split>Know before <em>you train.</em></h2><p class="cta-note">Request form opens shortly</p></div>
 <div class="cta-actions"><a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗︎</span></a></div></div></section>
@@ -1306,8 +1367,7 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 <dialog class="palette" id="palette" aria-label="Search Touchstone"><label class="palette-input"><span aria-hidden="true">⌕</span>
 <input type="search" placeholder="Jump to a practice set or page…" aria-label="Search pages and appraisals" autocomplete="off"></label>
 <ul class="palette-list" role="list"></ul><div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div></dialog>
-<div class="toast" role="status" aria-live="polite"></div><div class="curtain" aria-hidden="true"></div>
-<script>window.TOUCHSTONE_INDEX = [{"group": "Pages", "title": "Home", "meta": "What Touchstone does", "href": "index.html", "mark": "⌂"}, {"group": "Pages", "title": "How it works", "meta": "Seal, train, measure, forecast and price", "href": "methodology/index.html", "mark": "◆"}, {"group": "Pages", "title": "Sample report", "meta": "6 demo certificates", "href": "appraisals/index.html", "mark": "≡"}, {"group": "Pages", "title": "Forecast check", "meta": "Do small runs predict larger models?", "href": "forecast/index.html", "mark": "↗"}, {"group": "Sample environments", "title": "Northwind Arithmetic Pro", "href": "appraisals/northwind_arith/index.html", "mark": "A", "meta": "Grade A · +3.6 pts on new questions"}, {"group": "Sample environments", "title": "HintLeak Tutor Set", "href": "appraisals/hintleak_arith/index.html", "mark": "D", "meta": "Grade D · −6.4 pts on new questions"}, {"group": "Sample environments", "title": "Clone Premium Addition", "href": "appraisals/clone_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Sample environments", "title": "ShapeOnly Numeracy", "href": "appraisals/shapeonly_arith/index.html", "mark": "D", "meta": "Grade D · −3.6 pts on new questions"}, {"group": "Sample environments", "title": "QuickGrade Math Pack", "href": "appraisals/quickgrade_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Sample environments", "title": "Mirror String Ops", "href": "appraisals/mirror_strings/index.html", "mark": "D", "meta": "Grade D · −2.2 pts on new questions"}];</script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script><script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script><script>
+<div class="toast" role="status" aria-live="polite"></div><script>window.TOUCHSTONE_INDEX = [{"group": "Pages", "title": "Home", "meta": "What Touchstone does", "href": "index.html", "mark": "⌂"}, {"group": "Pages", "title": "How it works", "meta": "Seal, train, measure, forecast and price", "href": "methodology/index.html", "mark": "◆"}, {"group": "Pages", "title": "Sample report", "meta": "6 demo certificates", "href": "appraisals/index.html", "mark": "≡"}, {"group": "Pages", "title": "Forecast check", "meta": "Do small runs predict larger models?", "href": "forecast/index.html", "mark": "↗"}, {"group": "Sample environments", "title": "Northwind Arithmetic Pro", "href": "appraisals/northwind_arith/index.html", "mark": "A", "meta": "Grade A · +3.6 pts on new questions"}, {"group": "Sample environments", "title": "HintLeak Tutor Set", "href": "appraisals/hintleak_arith/index.html", "mark": "D", "meta": "Grade D · −6.4 pts on new questions"}, {"group": "Sample environments", "title": "Clone Premium Addition", "href": "appraisals/clone_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Sample environments", "title": "ShapeOnly Numeracy", "href": "appraisals/shapeonly_arith/index.html", "mark": "D", "meta": "Grade D · −3.6 pts on new questions"}, {"group": "Sample environments", "title": "QuickGrade Math Pack", "href": "appraisals/quickgrade_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Sample environments", "title": "Mirror String Ops", "href": "appraisals/mirror_strings/index.html", "mark": "D", "meta": "Grade D · −2.2 pts on new questions"}];</script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script><script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script><script>
 (() => {
   const root = document.documentElement;
   const toast = document.querySelector('.toast');
@@ -1983,6 +2043,7 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
   document.querySelectorAll('[data-shader]').forEach(canvas => {
     const gl = canvas.getContext('webgl', {antialias: false, premultipliedAlpha: false});
     if (!gl) return;
+    canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); canvas.style.display = 'none'; });
     const compile = (type, source) => { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader; };
     const program = gl.createProgram();
     gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'));
@@ -2032,6 +2093,8 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
     shaders.push(state);
   });
   if (shaders.length) {
+    // Hidden tabs pause the loop; redraw at once on return so the gradient never shows a stale or blank frame.
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) shaders.forEach(state => state.draw(performance.now())); });
     if (reduced) shaders.forEach(state => state.draw(8000));
     else { const loop = time => { shaders.forEach(state => state.visible && state.draw(time)); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
   }
@@ -2163,17 +2226,24 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
   }
   if (reduced) return;
 
-  // Headlines rise out of a mask line by line; supporting copy and cards follow.
-  document.querySelectorAll('[data-split]').forEach(heading => {
+  // Reveals run when an element reaches the screen. Nothing is hidden beforehand, so a missed trigger
+  // can never leave a gap; elements already on screen at load simply animate in place.
+  const reveal = (elements, animate) => {
+    if (!('IntersectionObserver' in window)) return;
+    const watcher = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      watcher.unobserve(entry.target);
+      animate(entry.target);
+    }), {rootMargin: '0px 0px -8% 0px'});
+    elements.forEach(element => watcher.observe(element));
+  };
+  reveal(document.querySelectorAll('[data-split]'), heading => {
     if (!window.SplitText) return;
     const split = SplitText.create(heading, {type: 'lines', mask: 'lines', linesClass: 'split-line'});
-    gsap.from(split.lines, {yPercent: 110, duration: 1, ease: 'expo.out', stagger: .09,
-      scrollTrigger: {trigger: heading, start: 'top 88%', once: true}});
+    gsap.fromTo(split.lines, {yPercent: 105}, {yPercent: 0, duration: .9, ease: 'expo.out', stagger: .08});
   });
-  ScrollTrigger.batch('[data-rise], .fact, .research-card, .cmp-row, .timeline li, .metric, .ticks', {
-    start: 'top 90%', once: true,
-    onEnter: items => gsap.from(items, {y: 34, opacity: 0, scale: .97, duration: .8, ease: 'power3.out', stagger: .08})
-  });
+  reveal(document.querySelectorAll('[data-rise], .t-card, .bento-tile, .t-plan, .faq details, .why-card, .moat-card'), element =>
+    gsap.fromTo(element, {y: 26, opacity: 0}, {y: 0, opacity: 1, duration: .7, ease: 'power3.out', clearProps: 'transform,opacity'}));
   gsap.from('.cert', {y: 60, rotateX: 18, opacity: 0, duration: 1.2, ease: 'expo.out', delay: .2});
   gsap.from('.cert-row', {x: 24, opacity: 0, stagger: .08, duration: .6, ease: 'power3.out', delay: .6});
 
@@ -2215,25 +2285,6 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
       if (Motion) Motion.animate(notice, {x: [120, 0], opacity: [0, 1], scale: [.92, 1]}, spring);
     }));
   }});
-})();
-
-// Curtain between pages: covers on the way out, lifts on the way in.
-(() => {
-  const curtain = document.querySelector('.curtain');
-  if (!curtain || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let arrived = false;
-  try { arrived = sessionStorage.getItem('touchstone-curtain') === '1'; sessionStorage.removeItem('touchstone-curtain'); } catch (error) { arrived = false; }
-  if (arrived) gsap.fromTo(curtain, {yPercent: 0}, {yPercent: -100, duration: .7, ease: 'expo.inOut', delay: .05});
-  document.addEventListener('click', event => {
-    const link = event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target) return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.pathname === location.pathname) return;
-    event.preventDefault();
-    try { sessionStorage.setItem('touchstone-curtain', '1'); } catch (error) { /* the next page simply loads without the lift */ }
-    gsap.fromTo(curtain, {yPercent: 100}, {yPercent: 0, duration: .55, ease: 'expo.inOut', onComplete: () => { location.href = url.href; }});
-  });
-  addEventListener('pageshow', event => { if (event.persisted) gsap.set(curtain, {yPercent: 100}); });
 })();
 
 (() => {
@@ -2321,11 +2372,26 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
   });
 
   // Positioning chart: the points drop in, Touchstone last.
-  if (gsap && window.ScrollTrigger && !reduced) {
-    gsap.from('.q-point', {scale: 0, opacity: 0, duration: .7, ease: 'back.out(2)', stagger: .18,
-      scrollTrigger: {trigger: '.quad', start: 'top 80%', once: true}});
-    gsap.from('.roadmap li', {y: 30, opacity: 0, duration: .7, ease: 'power3.out', stagger: .12,
-      scrollTrigger: {trigger: '.roadmap', start: 'top 85%', once: true}});
+  if (gsap && !reduced && 'IntersectionObserver' in window) {
+    const once = (selector, animate) => {
+      const target = document.querySelector(selector);
+      if (!target) return;
+      const watcher = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { watcher.disconnect(); animate(); } });
+      watcher.observe(target);
+    };
+    once('.quad', () => gsap.fromTo('.q-point', {scale: 0, opacity: 0}, {scale: 1, opacity: 1, duration: .7, ease: 'back.out(2)', stagger: .18, clearProps: 'transform,opacity'}));
+    once('.roadmap', () => gsap.fromTo('.roadmap li', {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: .7, ease: 'power3.out', stagger: .12, clearProps: 'transform,opacity'}));
   }
+
+  // FAQ: answers spring open and closed.
+  document.querySelectorAll('.faq details').forEach(item => {
+    const summary = item.querySelector('summary'), answer = item.querySelector('.faq-a');
+    summary.addEventListener('click', event => {
+      if (!Motion || reduced) return;
+      event.preventDefault();
+      if (item.open) Motion.animate(answer, {height: [answer.offsetHeight + 'px', '0px'], opacity: [1, 0]}, {duration: .3}).finished.then(() => { item.open = false; answer.style.height = ''; });
+      else { item.open = true; Motion.animate(answer, {height: ['0px', answer.scrollHeight + 'px'], opacity: [0, 1]}, spring).finished.then(() => { answer.style.height = ''; }); }
+    });
+  });
 })();
 </script></body></html>

@@ -1,10 +1,7 @@
 /* World: an experiment dashboard in touchstone colours. Black ground, silver is training reward (the tempting number),
    gold is transfer (the true number, and Touchstone's own colour), red marks exploits, green marks a pass. */
-@import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
-@import "@fontsource-variable/bricolage-grotesque/standard.css";
-@import "@fontsource-variable/newsreader/opsz.css";
-@import "@fontsource-variable/newsreader/opsz-italic.css";
+@import "@fontsource-variable/inter/opsz.css";
 
 :root {
   --ground: #0b0d10;
@@ -19,10 +16,10 @@
   --transfer: #e2b45a;
   --bad: #ff6b5b;
   --good: #45d483;
-  --sans: "Bricolage Grotesque Variable", "Helvetica Neue", Arial, sans-serif;
-  --text: "Newsreader Variable", Georgia, serif;
+  --sans: "Inter Variable", "Helvetica Neue", Arial, sans-serif;
+  --text: "Inter Variable", "Helvetica Neue", Arial, sans-serif;
   --mono: "Geist Mono Variable", ui-monospace, Menlo, monospace;
-  --display: "Bricolage Grotesque Variable", "Helvetica Neue", Arial, sans-serif;
+  --display: "Inter Variable", "Helvetica Neue", Arial, sans-serif;
   --out: cubic-bezier(.16, 1, .3, 1);
   --gutter: max(20px, env(safe-area-inset-left, 0px));
   color-scheme: dark;
@@ -34,9 +31,10 @@ body {
   margin: 0;
   background: var(--ground);
   color: var(--ink);
-  font: 400 17px/1.6 var(--sans);
+  font: 400 16px/1.6 var(--sans);
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: "ss01", "cv11";
+  font-optical-sizing: auto;
+  font-feature-settings: "cv11", "ss03", "cv05";
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--ground); }
 ::selection { background: var(--transfer); color: #0b0d10; }
@@ -53,20 +51,20 @@ button { font: inherit; color: inherit; }
 
 /* Type */
 h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.035em; text-wrap: balance; }
-/* Display voice: Bricolage Grotesque for headlines, figures and UI; the accent phrase in Newsreader italic, gold. */
-h1, h2, h3, .big-figure, .cols b, .close h2, .tier .amount, .tag b { font-family: var(--display); font-weight: 700; font-variation-settings: "opsz" 96, "wdth" 100; letter-spacing: -.018em; }
-h3 { font-weight: 650; letter-spacing: -.02em; }
-h1 .transfer, h2 .transfer { font-family: var(--text); font-style: italic; font-weight: 400; letter-spacing: -.02em; }
+/* One family: Inter, with its Display optical size taking over at headline sizes; the accent phrase in gold. */
+h1, h2, h3, .big-figure, .cols b, .close h2, .tier .amount, .tag b { font-family: var(--display); font-weight: 600; font-optical-sizing: auto; letter-spacing: -.035em; }
+h3 { font-weight: 600; letter-spacing: -.02em; }
+h1 .transfer, h2 .transfer { font-weight: 600; letter-spacing: inherit; }
 h1 { line-height: 1; } h2 { line-height: 1.04; }
 /* Reading text in Newsreader */
 .lede, .section-head p, .story-step p, .list li, .steps-list p, .faq details p, .timeline p, .rows-table p, .cols p, .metric small, .footer p, .cmp-note, .note, .tile p, .verdict-inline { font-family: var(--text); }
-.lede, .section-head p { font-size: clamp(19px, 1.6vw, 22px); line-height: 1.55; }
-.list li, .steps-list p, .faq details p, .timeline p, .rows-table p, .cols p { font-size: 18px; }
+.lede, .section-head p { font-size: clamp(17px, 1.35vw, 19.5px); line-height: 1.6; color: var(--ink-2); }
+.list li, .steps-list p, .faq details p, .timeline p, .rows-table p, .cols p { font-size: 16px; line-height: 1.6; }
 /* Figures: the display face with tabular digits, not monospace */
-.num { font-family: var(--display); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.02em; font-variation-settings: "wdth" 92; }
+.num { font-family: var(--display); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
 .run-foot b, .metric b, .out b, .cmp-row .num, .proof-row .num { font-family: var(--display); }
-h1 { font-size: clamp(44px, 5.2vw, 76px); line-height: 1; }
-h2 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.02; }
+h1 { font-size: clamp(42px, 5.4vw, 80px); line-height: 1.02; }
+h2 { font-size: clamp(32px, 3.9vw, 54px); line-height: 1.06; }
 h3 { font-size: 22px; line-height: 1.25; letter-spacing: -.02em; }
 .dim { color: var(--ink-3); }
 .lede { max-width: 58ch; margin: 24px 0 0; color: var(--ink-2); font-size: clamp(18px, 1.5vw, 20px); line-height: 1.55; }
@@ -151,8 +149,8 @@ h3 { font-size: 22px; line-height: 1.25; letter-spacing: -.02em; }
 .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 40px; border-top: 1px solid var(--line); }
 .facts > div { padding: 24px 24px 0 0; }
 .facts > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
-.facts b { display: block; font: 700 clamp(30px, 3vw, 42px)/1 var(--display); letter-spacing: -.03em; color: var(--transfer); font-variant-numeric: tabular-nums; }
-.facts p { margin: 10px 0 0; color: var(--ink-2); font: 400 16px/1.45 var(--text); }
+.facts b { display: block; font: 600 clamp(30px, 3vw, 42px)/1 var(--display); letter-spacing: -.03em; color: var(--transfer); font-variant-numeric: tabular-nums; }
+.facts p { margin: 10px 0 0; color: var(--ink-2); font: 400 15px/1.5 var(--text); }
 @media (max-width: 900px) { .facts { grid-template-columns: 1fr 1fr; } .facts > div:nth-child(3) { padding-left: 0; border-left: 0; } .facts > div:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 24px; } }
 .by-size { display: grid; gap: 9px; }
 .by-size small { color: var(--ink-3); font: 500 12px var(--mono); margin-bottom: 4px; }
@@ -437,7 +435,7 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 .cbars { display: grid; gap: 8px; margin: -2px 0 16px 20px; }
 .cbars div { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: center; color: var(--ink-3); font-size: 11px; }
 .cbars i { display: block; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #8a6420, #f1d08a); transform-origin: left; }
-.stamp { display: inline-block; margin-top: 10px; padding: 10px 18px; border: 1.5px solid currentColor; border-radius: 8px; font: 700 17px var(--display); letter-spacing: .04em; text-transform: uppercase; transform: rotate(-2deg); }
+.stamp { display: inline-block; margin-top: 10px; padding: 10px 18px; border: 1.5px solid currentColor; border-radius: 8px; font: 600 17px var(--display); letter-spacing: .04em; text-transform: uppercase; transform: rotate(-2deg); }
 .stamp.bad { color: var(--bad); } .stamp.good { color: var(--good); }
 @media (max-width: 560px) { .console-body { min-height: 340px; padding: 18px; font-size: 12.5px; } }
 
@@ -461,15 +459,15 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 /* Caught strip */
 .caught { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .caught-item { display: grid; align-content: start; gap: 6px; padding: 28px; background: var(--panel); }
-.caught-item b { font: 700 clamp(40px, 4.2vw, 56px)/1 var(--display); letter-spacing: -.03em; color: var(--transfer); }
+.caught-item b { font: 600 clamp(40px, 4.2vw, 56px)/1 var(--display); letter-spacing: -.03em; color: var(--transfer); }
 .caught-item span { font: 600 17px var(--sans); }
-.caught-item p { margin: 4px 0 0; color: var(--ink-2); font: 400 17px/1.5 var(--text); }
+.caught-item p { margin: 4px 0 0; color: var(--ink-2); font: 400 15.5px/1.55 var(--text); }
 
 /* Paradox */
 .paradox { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .paradox .seg { margin-top: 28px; }
 .chat { display: grid; gap: 12px; padding: 22px; min-height: 380px; align-content: start; }
-.bubble { max-width: 84%; padding: 12px 16px; border-radius: 14px; background: var(--panel-2); box-shadow: inset 0 0 0 1px var(--line-2); font: 400 17px/1.45 var(--text); }
+.bubble { max-width: 84%; padding: 12px 16px; border-radius: 14px; background: var(--panel-2); box-shadow: inset 0 0 0 1px var(--line-2); font: 400 15.5px/1.45 var(--text); }
 .bubble small { display: block; margin-bottom: 2px; color: var(--ink-3); font: 500 11px var(--mono); }
 .bubble.buyer { justify-self: end; border-bottom-right-radius: 4px; }
 .bubble.vendor { justify-self: start; border-bottom-left-radius: 4px; }
@@ -487,7 +485,7 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 .exploit-head > span { display: inline-flex; align-items: center; gap: 6px; font: 500 12px var(--mono); }
 .exploit-head svg { width: 14px; height: 14px; }
 .exploit code { display: block; padding: 10px 12px; border-radius: 8px; background: #0b0d10; color: #e4e7eb; font: 500 13px var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.exploit-more { display: block; overflow: hidden; color: var(--ink-2); font: 400 16px/1.5 var(--text); }
+.exploit-more { display: block; overflow: hidden; color: var(--ink-2); font: 400 15px/1.55 var(--text); }
 .exploit-more b { font-family: var(--display); }
 .exploit.planned { cursor: default; border-style: dashed; }
 .exploit.planned code { color: var(--ink-2); }
@@ -497,20 +495,20 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 .ev { display: grid; align-content: start; gap: 10px; padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); text-decoration: none; transition: border-color .25s; }
 .ev:hover { border-color: var(--transfer); }
 .ev b { font: 650 19px/1.25 var(--sans); letter-spacing: -.01em; }
-.ev p { margin: 0; color: var(--ink-2); font: 400 16.5px/1.5 var(--text); }
+.ev p { margin: 0; color: var(--ink-2); font: 400 15px/1.55 var(--text); }
 .ev small { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; color: var(--transfer); font: 500 12px var(--mono); }
 .ev small svg { width: 12px; height: 12px; }
 
 /* Source lists and sizing */
 .sources { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 40px; }
-.sources li { break-inside: avoid; padding: 10px 0; border-top: 1px solid var(--line); font: 400 16px/1.5 var(--text); color: var(--ink-2); }
+.sources li { break-inside: avoid; padding: 10px 0; border-top: 1px solid var(--line); font: 400 15px/1.55 var(--text); color: var(--ink-2); }
 .sources a { color: var(--ink); text-decoration-color: var(--line-2); text-underline-offset: 4px; }
 .sources a:hover { text-decoration-color: var(--transfer); }
 .scenario { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .scenario > div { padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
-.scenario b { display: block; font: 700 clamp(36px, 4vw, 52px)/1 var(--display); letter-spacing: -.03em; }
+.scenario b { display: block; font: 600 clamp(36px, 4vw, 52px)/1 var(--display); letter-spacing: -.03em; }
 .scenario span { display: block; margin-top: 8px; font: 600 16px var(--sans); }
-.scenario p { margin: 10px 0 0; color: var(--ink-2); font: 400 17px/1.5 var(--text); }
+.scenario p { margin: 10px 0 0; color: var(--ink-2); font: 400 15.5px/1.55 var(--text); }
 .scenario > div.up { border-color: #e2b45a55; } .scenario > div.up b { color: var(--transfer); }
 @media (max-width: 900px) { .caught, .paradox, .exploits, .evidence, .scenario { grid-template-columns: 1fr; } .sources { columns: 1; } }
 
@@ -533,8 +531,8 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 .plan li { position: relative; display: grid; align-content: start; gap: 6px; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
 .plan small { color: var(--transfer); font: 600 14px var(--mono); }
 .plan b { font: 650 19px var(--sans); }
-.plan span { font: 700 22px/1.15 var(--display); letter-spacing: -.02em; color: var(--transfer); }
-.plan p { margin: 4px 0 0; color: var(--ink-2); font: 400 16.5px/1.5 var(--text); }
+.plan span { font: 600 22px/1.15 var(--display); letter-spacing: -.02em; color: var(--transfer); }
+.plan p { margin: 4px 0 0; color: var(--ink-2); font: 400 15px/1.55 var(--text); }
 @media (max-width: 900px) { .plan { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .plan { grid-template-columns: 1fr; } }
 .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }

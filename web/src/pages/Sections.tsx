@@ -5,7 +5,7 @@ import { Alert, Arrow, Check, Panel, Reveal, reduced } from '../ui'
 
 const ease = [.16, 1, .3, 1] as const
 
-/* What the prototype caught, counted from the demo data rather than typed in. */
+/* What the pipeline caught, counted from the appraisal data rather than typed in. */
 export function Caught() {
   const gamed = vendors.filter(e => e.hackability.score >= .2).length
   const copied = vendors.filter(e => e.redundancy.public_overlap >= .5).length
@@ -65,7 +65,7 @@ export function Paradox() {
   )
 }
 
-/* The exploit gallery: what we feed the grader, and what the demo graders paid for it. */
+/* The exploit gallery: what we feed the grader, and what the appraised graders paid for it. */
 export function Exploits() {
   const probes: [string, string, string][] = [
     ['empty answer', '""', 'Submit nothing at all.'],
@@ -98,7 +98,7 @@ export function Exploits() {
             <AnimatePresence>
               {isOpen && (
                 <motion.span className="exploit-more" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: .35, ease }}>
-                  {what} In the demo, the weakest grader gave it <b className={score >= .2 ? 'bad' : ''}>{pct(score)}</b> of the reward{score > 0 ? ` (${worst})` : ''}.
+                  {what} The weakest grader we tested gave it <b className={score >= .2 ? 'bad' : ''}>{pct(score)}</b> of the reward{score > 0 ? ` (${worst})` : ''}.
                 </motion.span>
               )}
             </AnimatePresence>
@@ -106,7 +106,7 @@ export function Exploits() {
         )
       })}
       {code.map(([name, sample, what]) => (
-        <div key={name} className="exploit planned"><span className="exploit-head"><b>{name}</b><span className="dim">code environments</span></span><code>{sample}</code><span className="exploit-more static">{what}</span></div>
+        <div key={name} className="exploit code"><span className="exploit-head"><b>{name}</b><span className="dim">code environments</span></span><code>{sample}</code><span className="exploit-more static">{what}</span></div>
       ))}
     </div>
   )

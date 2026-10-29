@@ -1,16 +1,17 @@
-import { useMemo, useState, type ReactNode } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react'
 import { data, vendors, base, truth, signed, pct, money, params, ROADMAP, FOUNDERS, REQUEST_FORM_URL, type Env } from '../data'
 import NumberFlow from '@number-flow/react'
-import { Close, Count, DUR, Faq, Panel, Rating, Reveal, RequestButton, ease, reduced } from '../ui'
+import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
 import { ReportSample } from './Home'
 
+const ease = [.16, 1, .3, 1] as const
 
 function Head({ title, text, children }: { title: ReactNode; text: string; children?: ReactNode }) {
   return (
     <header className="page-head wrap">
-      <motion.h1 initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: DUR.standard, ease }}>{title}</motion.h1>
-      <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: DUR.standard, delay: .05, ease }}>{text}</motion.p>
+      <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>{title}</motion.h1>
+      <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .1, ease }}>{text}</motion.p>
       {children}
     </header>
   )
@@ -68,18 +69,18 @@ export function Report() {
       <Head title="Six environments. One test." text="Six RL environments, each hiding a different failure. Touchstone appraised all six and priced the one worth buying." />
       <section className="wrap">
         <Reveal>
-          <Panel title="sample report · largest model" meta="select a row · sort by any column">
+          <Panel title="sample report · largest model" meta="click a row · click a column to sort">
             <div className="scroll-x">
-              <table className="table click">
+              <table className="table">
                 <thead><tr><th>environment</th>{th('grade', 'grade')}{th('change', 'change on new problems')}{th('hack', 'exploit reward', true)}{th('overlap', 'already free', true)}{th('value', 'value / task', true)}</tr></thead>
                 <motion.tbody layout>
                   {rows.map(e => (
-                    <motion.tr layout key={e.id} className={e.id === sel ? 'sel' : ''} onClick={() => setSel(e.id)} transition={{ duration: DUR.standard, ease }}>
-                      <td>{e.name}</td>
+                    <motion.tr layout key={e.id} className={e.id === sel ? 'sel' : ''} onClick={() => setSel(e.id)} transition={{ type: 'spring', stiffness: 300, damping: 30 }}>
+                      <td style={{ fontWeight: 500 }}>{e.name}</td>
                       <td><Rating grade={e.grade} compact /></td>
-                      <td><div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                        <div className="mini diverge" style={{ flex: 1 }}><i style={{ left: e.actual_at_truth < 0 ? `${50 + (e.actual_at_truth / 8) * 50}%` : '50%', width: `${Math.min(Math.abs(e.actual_at_truth) / 8, 1) * 50}%`, background: e.actual_at_truth < 0 ? 'var(--bad)' : 'var(--transfer)' }} /></div>
-                        <span className={`num ${e.actual_at_truth < 0 ? 'bad' : 'transfer'}`}>{signed(e.actual_at_truth)}</span></div></td>
+                      <td><div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                        <div className="mini diverge" style={{ flex: 1 }}><i style={{ left: e.actual_at_truth < 0 ? `${50 + (e.actual_at_truth / 8) * 50}%` : '50%', width: `${Math.min(Math.abs(e.actual_at_truth) / 8, 1) * 50}%`, background: e.actual_at_truth < 0 ? 'var(--bad)' : 'var(--good)' }} /></div>
+                        <span className={`num ${e.actual_at_truth < 0 ? 'bad' : 'good'}`}>{signed(e.actual_at_truth)}</span></div></td>
                       <td className={`r num ${e.hackability.score >= .2 ? 'bad' : ''}`}>{pct(e.hackability.score)}</td>
                       <td className={`r num ${e.redundancy.public_overlap >= .5 ? 'bad' : ''}`}>{pct(e.redundancy.public_overlap)}</td>
                       <td className="r num">{money(e.fair_value_per_task)}</td>
@@ -94,7 +95,7 @@ export function Report() {
       <section className="section">
         <div className="wrap">
           <AnimatePresence mode="wait">
-            <motion.div key={sel} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: DUR.standard, ease }}>
+            <motion.div key={sel} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: .4, ease }}>
               <Detail env={env} />
             </motion.div>
           </AnimatePresence>
@@ -109,44 +110,44 @@ function Detail({ env }: { env: Env }) {
   const rungs = Object.entries(env.rungs)
   const top = Math.max(...rungs.flatMap(([, r]) => [r.heldout_before, r.heldout_after]))
   return (
-    <Panel title={`certificate · ${env.name}`} meta={`sealed ${env.sha256.slice(0, 12)}`}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap', padding: 24, borderBottom: '1px solid var(--line)' }}>
-        <Rating grade={env.grade} /><h3>{env.name}</h3>
+    <Panel title={<>certificate · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={`sealed ${env.sha256.slice(0, 12)}`}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap', padding: '20px 24px', borderBottom: '1px solid var(--line)' }}>
+        <Rating grade={env.grade} layoutId="detail-rating" /><h3 style={{ fontSize: 26 }}>{env.name}</h3>
       </div>
       <div className="detail">
         <div>
-          <span className="label">accuracy on new problems, before and after training</span>
-          <div style={{ display: 'grid', gap: 16, marginTop: 24 }}>
+          <h3>Accuracy on new problems, before → after training</h3>
+          <div style={{ display: 'grid', gap: 18, marginTop: 24 }}>
             {rungs.map(([size, r], i) => {
               const from = r.heldout_before / top * 100, to = r.heldout_after / top * 100, up = to >= from
               return (
-                <div key={size} style={{ display: 'grid', gridTemplateColumns: '96px minmax(0,1fr) 64px', gap: 16, alignItems: 'center' }}>
-                  <span className="num dim" style={{ fontSize: 12, fontFamily: 'var(--mono)' }}>{size} · {params(r.params)}</span>
+                <div key={size} style={{ display: 'grid', gridTemplateColumns: '64px minmax(0,1fr) 64px', gap: 14, alignItems: 'center' }}>
+                  <span className="num dim" style={{ fontSize: 13 }}>{size} · {params(r.params)}</span>
                   <div style={{ position: 'relative', height: 14 }}>
-                    <div style={{ position: 'absolute', inset: '7px 0', height: 1, background: 'var(--line-2)' }} />
-                    <motion.div style={{ position: 'absolute', top: 6, height: 2, left: `${Math.min(from, to)}%`, width: `${Math.abs(to - from)}%`, background: up ? 'var(--transfer)' : 'var(--bad)', transformOrigin: up ? 'left' : 'right' }}
-                      initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: i * .05, duration: DUR.slow, ease }} />
-                    <span style={{ position: 'absolute', top: 3, left: `calc(${from}% - 4px)`, width: 8, height: 8, borderRadius: '50%', border: '1px solid var(--ink-2)', background: 'var(--panel)' }} />
-                    <span style={{ position: 'absolute', top: 3, left: `calc(${to}% - 4px)`, width: 8, height: 8, borderRadius: '50%', background: up ? 'var(--transfer)' : 'var(--bad)' }} />
+                    <div style={{ position: 'absolute', inset: '6px 0', background: 'var(--line)', borderRadius: 1 }} />
+                    <motion.div style={{ position: 'absolute', top: 5, height: 4, borderRadius: 2, left: `${Math.min(from, to)}%`, width: `${Math.abs(to - from)}%`, background: up ? 'var(--good)' : 'var(--bad)', transformOrigin: up ? 'left' : 'right' }}
+                      initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: .1 + i * .1, duration: .8, ease }} />
+                    <span style={{ position: 'absolute', top: 2, left: `calc(${from}% - 5px)`, width: 10, height: 10, borderRadius: '50%', border: '2px solid var(--ink-2)', background: 'var(--ground)' }} />
+                    <motion.span style={{ position: 'absolute', top: 1, left: `calc(${to}% - 6px)`, width: 12, height: 12, borderRadius: '50%', background: up ? 'var(--good)' : 'var(--bad)' }} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: .7 + i * .1, type: 'spring' }} />
                   </div>
-                  <span className={`num ${up ? 'transfer' : 'bad'}`} style={{ textAlign: 'right', fontSize: 14 }}>{signed(r.heldout_after - r.heldout_before)}</span>
+                  <span className={`num ${up ? 'good' : 'bad'}`} style={{ textAlign: 'right', fontSize: 14 }}>{signed(r.heldout_after - r.heldout_before)}</span>
                 </div>
               )
             })}
           </div>
-          <p className="note">Open dot: before training. Filled dot: after.</p>
+          <p className="note">Hollow dot: before training. Filled: after.</p>
         </div>
         <div>
-          <span className="label">reward paid for each exploit probe</span>
-          <div style={{ marginTop: 16 }}>
+          <h3>Would the grader reward a shortcut?</h3>
+          <div style={{ marginTop: 18 }}>
             {Object.entries(env.hackability.per_exploit).map(([name, v], i) => (
               <div className="probe" key={name}><span>{name}</span>
-                <div className="mini"><motion.i style={{ left: 0, background: v >= .2 ? 'var(--bad)' : 'var(--ink-3)', width: `${Math.max(v * 100, 1)}%`, transformOrigin: 'left' }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: i * .04, duration: DUR.slow, ease }} /></div>
+                <div className="mini"><motion.i style={{ left: 0, background: v >= .2 ? 'var(--bad)' : 'var(--ink-3)', width: `${Math.max(v * 100, 1)}%`, transformOrigin: 'left' }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: .1 + i * .06, duration: .7, ease }} /></div>
                 <span className={`num ${v >= .2 ? 'bad' : ''}`} style={{ textAlign: 'right' }}>{pct(v)}</span></div>
             ))}
           </div>
-          <ul className="flags" style={{ marginTop: 24 }}>
-            {(env.flags.length ? env.flags : ['No appraisal flags']).map(f => <li key={f} className={env.flags.length ? 'bad' : ''}>{f}</li>)}
+          <ul className="flags" style={{ marginTop: 22 }}>
+            {(env.flags.length ? env.flags : ['No appraisal flags']).map(f => <li key={f}>{env.flags.length ? <span className="bad"><Alert /></span> : <span className="good"><Check /></span>}{f}</li>)}
           </ul>
         </div>
       </div>
@@ -159,11 +160,16 @@ export function Market() {
   return (
     <>
       <Head title={<>Training material is the new <span className="transfer">compute bill.</span></>} text="The money in AI training is moving from compute to data and RL environments. Nobody can check what they're buying." />
-      <section className="wrap" style={{ paddingBottom: 96 }}>
-        <Reveal className="rows">
-          {([['$1B', 'a year spent on human-curated training material by each leading lab', 'TechCrunch, Pebblous'], ['$2B', 'annualized revenue at Mercor; AfterQuery reached about $100M in a year', 'Pebblous market map'], ['$20k', 'for a single RL task at the high end; most sell for $200 to $2,000', 'Epoch AI price summary'], ['$1B+', 'on RL environments in a single year at one frontier lab', 'TechCrunch'], ['55%', 'of AI cloud spend goes to inference in 2026, driven by fine-tuned models in production', 'Gartner, via TechTimes'], ['0', 'independent auditors of training value in the market today', 'DataGravity, Future Stack']] as const).map(([big, text, src]) => (
-            <div key={big}><span className="big">{/^[$\d]/.test(big) && big !== '0' ? <Count value={big} /> : big}</span><p>{text}</p><span>{src}</span></div>
-          ))}
+      <section className="wrap">
+        <Reveal className="cols">
+          <div><b><Count value="$1B" /></b><p>a year spent on human-curated training material by each leading lab</p><small>TechCrunch, Pebblous</small></div>
+          <div><b><Count value="$2B" /></b><p>annualized revenue at Mercor; AfterQuery reached about $100M in a year</p><small>Pebblous market map</small></div>
+          <div><b><Count value="$20k" /></b><p>for a single RL task at the high end; most sell for $200 to $2,000</p><small>Price summary citing Epoch AI</small></div>
+        </Reveal>
+        <Reveal className="cols" delay={.1}>
+          <div><b>$1B+</b><p>on RL environments in a single year at one frontier lab</p><small>TechCrunch</small></div>
+          <div><b><Count value="55%" /></b><p>of AI cloud spend goes to inference in 2026, driven by fine-tuned models in production</p><small>Gartner, via TechTimes</small></div>
+          <div><b>0</b><p>independent auditors of training value in the market today. Touchstone is the first.</p><small>DataGravity, Future Stack</small></div>
         </Reveal>
       </section>
       <section className="section">
@@ -197,35 +203,34 @@ export function Pricing() {
   const [tasks, setTasks] = useState(5000), [price, setPrice] = useState(800), [waste, setWaste] = useState(30)
   const spend = tasks * price, risk = spend * waste / 100, cost = 25000
   const fill = (v: number, min: number, max: number) => ({ '--fill': `${(v - min) / (max - min) * 100}%` } as React.CSSProperties)
-  const offers: [string, string, string, string[], string][] = [
-    ['Grader audit', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving the task', 'A fix list the vendor can act on'], 'Talk to us'],
-    ['Full appraisal', '$10k–$50k', 'per environment', ['Sealed training at four model sizes', 'Transfer to private problems, overlap with free data, exploits', 'Forecast at your model size and a fair price per task'], 'Request an appraisal'],
+  const tiers: [string, string, string, string, string[], boolean][] = [
+    ['Grader audit', 'Find the exploits', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving', 'Fix list for the vendor'], false],
+    ['Full appraisal', 'Know what it\'s worth', '$10k–$50k', 'per environment', ['Sealed training at several model sizes', 'Transfer to private problems, overlap, exploits', 'Forecast at your size and fair price per task'], true],
+    ['Subscription', 'Every environment, always', '$100k–$250k', 'per year', ['Side-by-side comparison of environments', 'Re-tests as environments change', 'Vendor ratings over time'], false],
   ]
   return (
     <>
       <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the material it checks." />
-      <section className="wrap" style={{ paddingBottom: 96 }}>
-        <Reveal>
-          <div className="offers">
-            {offers.map(([name, amount, per, items, cta]) => (
-              <div className="offer" key={name}>
-                <span className="label">{name}</span>
-                <div className="amount">{amount}<small>{per}</small></div>
-                <ul className="list">{items.map(t => <li key={t}>{t}</li>)}</ul>
-                <RequestButton label={cta} secondary={cta === 'Talk to us'} />
+      <section className="wrap tiers">
+        {tiers.map(([name, sub, amount, per, items, featured], i) => (
+          <Reveal key={name} delay={i * .08}>
+            <Panel className={`tier${featured ? ' featured' : ''}`} title={name.toLowerCase()} meta={featured ? 'most teams start here' : undefined}>
+              <div className="tier-body">
+                <h3 style={{ fontSize: 24 }}>{sub}</h3><div className="amount">{amount} <small>{per}</small></div>
+                <ul className="list" style={{ marginTop: 0 }}>{items.map(t => <li key={t}><Check />{t}</li>)}</ul>
+                <div><RequestButton label={featured ? 'Request an appraisal' : 'Talk to us'} /></div>
               </div>
-            ))}
-          </div>
-          <div className="subscription"><span><b>Rating every environment you use.</b> A subscription re-tests environments as they change and tracks vendors over time.</span><span className="num">$100k–$250k a year</span></div>
-        </Reveal>
+            </Panel>
+          </Reveal>
+        ))}
       </section>
       <section className="section">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>The unit economics.</h2></Reveal><Reveal delay={.1}><p>Small models keep compute cheap, which is the whole point.</p></Reveal></div>
-          <Reveal className="rows">
-            <div><span className="big">$300–$2k</span><p>of GPU per appraisal on small open models</p><span>compute cost</span></div>
-            <div><span className="big">80–90%</span><p>gross margin on a full appraisal</p><span>margin</span></div>
-            <div><span className="big">1–3%</span><p>fee on purchases once Touchstone is the standard rating</p><span>at scale</span></div>
+          <Reveal className="cols">
+            <div><b>$300–$2k</b><p>of GPU per appraisal on small open models</p><small>compute cost</small></div>
+            <div><b><Count value="80%" />–90%</b><p>gross margin on a full appraisal</p><small>margin</small></div>
+            <div><b>1–3%</b><p>fee on purchases once Touchstone is the standard rating</p><small>at scale</small></div>
           </Reveal>
         </div>
       </section>
@@ -260,35 +265,39 @@ export function Pricing() {
 
 /* ---------------- Company ---------------- */
 export function Company() {
+  const ref = useRef<HTMLOListElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 70%', 'end 50%'] })
+  const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 24 })
   return (
     <>
       <Head title={<>Less wasted training. <span className="transfer">More real learning.</span></>} text="We help AI companies spend less on ineffective training and get more useful learning from their compute. We start with RL environments and expand to every kind of training material." />
       <section className="section flush">
         <div className="wrap two" style={{ alignItems: 'center' }}>
           <Reveal><h2>Why <span className="transfer">Touchstone.</span></h2></Reveal>
-          <Reveal delay={.05}><p className="lede" style={{ marginTop: 0 }}>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training material.</p></Reveal>
+          <Reveal delay={.1}><p className="lede" style={{ marginTop: 0 }}>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training material.</p></Reveal>
         </div>
       </section>
       <section className="section">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>What we've decided.</h2></Reveal></div>
-          <Reveal className="rows">
-            <div><b>Appraisal only</b><p>We value training material before purchase. We do not clean, label or sell it.</p></div>
-            <div><b>Neutral</b><p>We never sell training material, so we can rate every vendor, including the largest.</p></div>
-            <div><b>GPU time is the saving</b><p>The saving is the training runs a lab no longer wastes on material that does not transfer.</p></div>
-          </Reveal>
+          <div className="cols">
+            <Reveal><div><b style={{ fontSize: 26 }}>Appraisal, not cleaning</b><p>We value training material before purchase. One clear job, done better than anyone.</p></div></Reveal>
+            <Reveal delay={.08}><div><b style={{ fontSize: 26 }}>Neutral, always</b><p>We never sell training material, so we can rate every vendor, including the biggest.</p></div></Reveal>
+            <Reveal delay={.16}><div><b style={{ fontSize: 26 }}>GPU time is the saving</b><p>The value is in the training runs you don't waste, not in cheaper compute.</p></div></Reveal>
+          </div>
         </div>
       </section>
       {FOUNDERS.length > 0 && (
         <section className="section flush"><div className="wrap"><h2>Who is building this.</h2>
-          <div className="rows" style={{ marginTop: 48 }}>{FOUNDERS.map(([n, r, w, l]) => <div key={n}><b>{n}<br /><span className="dim">{r}</span></b><p>{w}</p>{l ? <a className="textlink" href={l} target="_blank" rel="noopener">Profile</a> : <span />}</div>)}</div></div></section>
+          <div className="cols" style={{ marginTop: 40 }}>{FOUNDERS.map(([n, r, w, l]) => <div key={n}><b style={{ fontSize: 28 }}>{n}</b><p className="dim">{r}</p><p>{w}</p>{l && <a className="textlink" href={l} target="_blank" rel="noopener">Profile</a>}</div>)}</div></div></section>
       )}
       <section className="section flush">
         <div className="wrap two" style={{ alignItems: 'start' }}>
           <Reveal><h2>Where we are, <span className="transfer">and what's next.</span></h2><p className="lede">A working pipeline today, and a clear path to the standard rating for training material.</p></Reveal>
-          <ol className="timeline">
-            {ROADMAP.map(([stage, title, text]) => (
-              <li key={title} className={stage.toLowerCase()}><span className="stage-name">{stage}</span><div><h3>{title}</h3><p>{text}</p></div></li>
+          <ol className="timeline" ref={ref}>
+            <motion.span className="timeline-fill" style={{ scaleY: fill, height: 'calc(100% - 12px)' }} />
+            {ROADMAP.map(([stage, title, text], i) => (
+              <Reveal key={title} delay={i * .05}><li className={stage.toLowerCase()}><span className="stage-name">{stage}</span><h3>{title}</h3><p>{text}</p></li></Reveal>
             ))}
           </ol>
         </div>
@@ -319,14 +328,14 @@ export function Request() {
   return (
     <>
       <Head title="Tell us what you're about to buy." text="We're running a small number of pilot appraisals. Here's what helps us scope one." />
-      <section className="wrap two" style={{ alignItems: 'start', paddingBottom: 96 }}>
+      <section className="wrap two" style={{ alignItems: 'start', paddingBottom: 140 }}>
         <Reveal><ol className="steps-list">
           <li><div><b>The environment or dataset</b><p>What it trains, how big it is and who sells it.</p></div></li>
           <li><div><b>The decision</b><p>What you'd pay, and what you need to know before you do.</p></div></li>
           <li><div><b>Your model</b><p>Rough size and what you're training it to do, so we forecast at your scale.</p></div></li>
         </ol></Reveal>
         <Reveal delay={.1}><Panel title="pilot appraisals" meta="limited">
-          <div style={{ padding: 24, display: 'grid', gap: 16 }}>
+          <div style={{ padding: 28, display: 'grid', gap: 16 }}>
             <h3>For AI teams buying RL environments or post-training material, and for vendors who want a neutral rating.</h3>
             {REQUEST_FORM_URL ? <div><RequestButton label="Open the request form" /></div> : <p className="dim" style={{ margin: 0 }}>The request form opens shortly. Check back here for the link.</p>}
           </div>

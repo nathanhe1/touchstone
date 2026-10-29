@@ -295,6 +295,13 @@ function HowItWorks() {
 }
 
 /* ---------- One report: switch environment, every number re-reads ---------- */
+const verdict = (e: Env) =>
+  e.is_public_baseline ? 'The free baseline every purchase is compared against.'
+  : e.hackability.score >= .2 ? 'Fix the grader before anyone buys this.'
+  : e.redundancy.public_overlap >= .5 ? 'Mostly already free. Not worth the asking price.'
+  : e.actual_at_truth < 0 ? 'Don\'t buy: the model gets worse at new problems.'
+  : `Worth buying at up to ${money(e.fair_value_per_task)} a task.`
+
 export function ReportSample() {
   const envs = [...vendors, base]
   const [id, setId] = useState(envs[0].id)
@@ -356,6 +363,21 @@ export function ReportSample() {
             <h3 style={{ marginTop: 22 }}>{env.name}</h3>
             <p className="dim" style={{ margin: '6px 0 0', fontSize: 14 }}>{env.redundancy.n_tasks.toLocaleString('en-US')} tasks · sealed {env.sha256.slice(0, 10)}</p>
           </div>
+          <div className="by-size" aria-label="Change on new problems at each model size">
+            <small>change on new problems, by model size</small>
+            {Object.keys(data.ladder).map((k, i) => {
+              const g = env.rungs[k].heldout_after - env.rungs[k].heldout_before
+              const w = phase >= 2 ? Math.min(Math.abs(g) / 12, 1) * 50 : 0
+              return (
+                <div className="bs-row" key={k}>
+                  <span>{k}</span>
+                  <div className="bs-track"><motion.i className={g < 0 ? 'neg' : 'pos'} animate={{ width: `${w}%` }} transition={{ type: 'spring', stiffness: 140, damping: 20, delay: i * .06 }} /></div>
+                  <b className={`num ${g < 0 ? 'bad' : 'good'}`}>{phase >= 2 ? signed(g) : '·'}</b>
+                </div>
+              )
+            })}
+          </div>
+          {phase >= 4 && <motion.p key={id + 'v'} className="verdict-line" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>{verdict(env)}</motion.p>}
           <AnimatePresence mode="wait">
             {phase >= 4 && (
               <motion.ul key={id} className="flags" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
@@ -499,7 +521,13 @@ export default function Home() {
           <Reveal><RunChart /></Reveal>
           <div style={{ height: 24 }} />
           <Reveal><Proof /></Reveal>
-          <Reveal className="facts"><span>RL tasks sell for up to <b><Count value="$2,000" /></b> each</span><span>Exclusive deals cost <b>4–5×</b> more</span><span>Vendors usually grade their own data</span><span>A full training run takes <b>weeks</b> to tell you</span></Reveal>
+          <div className="facts">
+            {([['$2,000', 'what a single RL task can sell for, and up to $20k at the high end'], ['4–5×', 'more for an exclusive deal, so a bad buy costs even more'], ['Weeks', 'of GPU time before a full training run tells you it failed'], ['0', 'independent checks between the vendor\'s claim and your purchase']] as const).map(([big, text], i) => (
+              <motion.div key={big} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08, duration: .7, ease: [.16, 1, .3, 1] }}>
+                <b>{big.startsWith('$') ? <Count value={big} /> : big}</b><p>{text}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -532,7 +560,7 @@ export default function Home() {
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head"><Reveal><h2>Neutral by design.</h2></Reveal><Reveal delay={.1}><p>The vendor's tasks stay sealed. You get the numbers, never the material, and we never sell data ourselves.</p></Reveal></div>
+          <div className="section-head"><Reveal><h2>Neutral by design.</h2></Reveal><Reveal delay={.1}><p>The vendor's tasks stay sealed. You get the numbers, never the material, and we never sell training material ourselves.</p></Reveal></div>
           <Beam />
         </div>
       </section>

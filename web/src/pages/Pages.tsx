@@ -263,7 +263,7 @@ export function Market() {
           </Reveal>
         </div>
       </section>
-      <section className="section">
+      <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap">
           <div className="rows-table">
             {[...players.map(([n, , , w, g]) => [n, w, g] as [string, string, string]), ...others].map(([name, what, gap], i) => (
@@ -350,7 +350,7 @@ export function Pricing() {
         ['Why start with a grader audit?', 'It is the cheapest test and catches the most common failure. A broken grader makes the rest of the appraisal moot.'],
         ['Can we pilot first?', 'Yes. Pilot appraisals are how we are starting.'],
       ]} /></Reveal></div></section>
-      <Close title="Costs less than one bad run." text="Tell us what you're about to buy." />
+      <Close title="Price the risk before you pay." text="Tell us what you're about to buy, and we'll scope the appraisal." />
     </>
   )
 }

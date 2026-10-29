@@ -1370,13 +1370,151 @@ main+.footer,.cta-band+.footer{margin-top:0}
 @media(max-width:680px){.hero-inner{grid-template-columns:1fr;gap:36px;padding-top:52px;padding-bottom:56px}.fact-row,.steps,.audience-grid,.research-grid,.cta-inner{grid-template-columns:1fr}.measures dl>div,.status-list li{grid-template-columns:1fr;gap:4px}.cta-actions{justify-content:flex-start}.cert{padding:18px}.research-card p{font-size:19px}}
 """
 
+# Motion layer: shader gradient, liquid glass, scroll-driven steps, tabs, flow diagram, marquee, curtain.
+CSS += r"""
+.hero{position:relative;isolation:isolate}
+.shader{position:absolute;inset:0;z-index:-1;width:100%;height:100%;display:block}
+.hero:before{z-index:0;opacity:.08}
+.hero-inner{position:relative;z-index:1}
+.hero-copy{position:relative}
+.hero h1 .split-line,.section-heading h2 .split-line,.h2 .split-line,.cta-band h2 .split-line{padding-bottom:.06em}
+.hero-visual{perspective:1200px}
+.glass{background:linear-gradient(135deg,#ffffff24,#ffffff08 60%);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);border:1px solid #ffffff33;box-shadow:inset 0 1px 0 #ffffff55,inset 0 -1px 0 #ffffff12,0 30px 70px #0000004d}
+.glass-light{position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--surface),transparent 15%),color-mix(in srgb,var(--surface),transparent 45%));-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border:1px solid color-mix(in srgb,var(--line),transparent 20%);box-shadow:inset 0 1px 0 #ffffff80,0 20px 50px #0000001a}
+.glass-light:after,.cert:after{position:absolute;inset:0;background:radial-gradient(360px circle at var(--gx,20%) var(--gy,0%),#ffffff40,transparent 50%);content:"";opacity:.7;pointer-events:none;mix-blend-mode:soft-light}
+.cert{position:relative;overflow:hidden;background:linear-gradient(140deg,#ffffff1c,#ffffff06 55%,#00000030);-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);border:1px solid #ffffff38;box-shadow:inset 0 1px 0 #ffffff59,inset 0 -1px 0 #ffffff14,0 40px 90px #0009;transform-style:preserve-3d;will-change:transform}
+.cert-title,.cert-rows,.cert-foot,.cert-head,.cert-link{position:relative;z-index:1}
+.tilt{transform-style:preserve-3d;will-change:transform}
+.marquee{overflow:hidden;padding:16px 0;background:var(--lime);color:#141618}
+.marquee-track{display:flex;width:max-content;align-items:center;gap:28px;will-change:transform}
+.marquee-track span{font:700 22px/1 var(--sans);font-variation-settings:"wdth" 88;letter-spacing:-.01em;white-space:nowrap}
+.marquee-track i{font-style:normal;font-size:14px}
+.fact{display:grid;align-content:start;gap:10px;min-height:170px;padding:24px;border-top:0}
+.fact .info-chip{position:absolute;top:16px;right:16px}
+.fact p{font:400 17px/1.4 var(--text)}
+.scrolly{padding:40px 0 80px}
+.scrolly-inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.scrolly-copy h2{margin:0 0 28px;font-size:clamp(34px,4.2vw,58px)}
+.scrolly-steps{margin:0;padding:0;list-style:none}
+.scrolly-step{min-height:44vh;display:flex;align-items:flex-start}
+.scrolly-step:last-child{min-height:30vh}
+.scrolly-step button{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 14px;width:100%;padding:18px 0;border:0;border-top:1px solid var(--line);background:none;color:var(--muted);text-align:left;cursor:pointer;transition:color .3s}
+.scrolly-step .step-no{grid-row:span 2;color:inherit;font:600 11px var(--mono);letter-spacing:.1em;padding-top:6px}
+.scrolly-step b{font:680 28px/1.1 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.scrolly-step p{margin:0;font:400 17px/1.45 var(--text);opacity:.55;transition:opacity .3s}
+.scrolly-step.is-active button{border-top-color:var(--ink);color:var(--ink)}
+.scrolly-step.is-active .step-no{color:var(--blue)}
+.scrolly-step.is-active p{opacity:1}
+.scrolly-stage-wrap{position:sticky;top:calc(110px + env(safe-area-inset-top,0px))}
+.scrolly-stage{min-height:380px;padding:32px}
+.stage-panel{position:absolute;inset:32px 32px 44px;display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.stage-panel.is-active{position:relative;inset:auto;min-height:300px;opacity:1;visibility:visible}
+.stage-progress{position:absolute;right:32px;bottom:20px;left:32px;height:2px;background:var(--line)}
+.stage-progress i{display:block;height:100%;background:var(--blue);transform:scaleX(var(--p,.25));transform-origin:left;transition:transform .4s var(--out)}
+.vis-seal{display:grid;justify-items:center;gap:18px;width:100%}
+.vault{position:relative;display:grid;gap:6px;width:min(260px,100%);padding:22px 18px 18px;border:2px solid var(--ink);border-radius:6px}
+.vault-lid{position:absolute;top:-2px;right:-2px;left:-2px;height:10px;border:2px solid var(--ink);border-bottom:0;border-radius:6px 6px 0 0;background:var(--blue);transform-origin:left bottom}
+.task-chip{display:block;padding:6px 10px;border:1px solid var(--line);background:var(--surface);font:500 11px var(--mono);font-style:normal}
+.hash{color:var(--blue);font:500 11px var(--mono)}
+.vis-train{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:22px;width:100%;padding-bottom:10px}
+.vis-train .ladder-dot{transform:none}
+.train-curve{position:absolute;right:0;bottom:-6px;left:0;width:100%;height:60px;overflow:visible;pointer-events:none}
+.train-curve path{fill:none;stroke:var(--blue);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
+.vis-measure{display:grid;gap:18px;width:100%}
+.vis-measure>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;align-items:baseline}
+.vis-measure span{font:500 14px var(--sans)}
+.vis-measure b{font:600 15px var(--mono)}
+.vis-measure .dbar,.vis-measure .meter{grid-column:1/-1}
+.vis-price{position:relative;width:100%}
+.vis-price svg{width:100%;height:auto;overflow:visible}
+.pr-axis{stroke:var(--ink)}.pr-band{fill:color-mix(in srgb,var(--gain),transparent 78%)}
+.pr-fit{fill:none;stroke:var(--ink);stroke-width:2}.pr-forecast{fill:none;stroke:var(--gain);stroke-width:2;stroke-dasharray:5 4}
+.pr-dot{fill:var(--ink)}.pr-target{fill:var(--gain);stroke:var(--surface);stroke-width:3}
+.vis-price text{fill:var(--muted);font:500 10px var(--mono)}
+.price-tag{position:absolute;top:0;right:0;padding:10px 14px;border:1px solid var(--ink);background:var(--surface);box-shadow:4px 4px 0 var(--ink)}
+.price-tag b{display:block;font:700 28px/1 var(--sans);font-variation-settings:"wdth" 88}
+.price-tag span{color:var(--muted);font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.split-section{padding-top:40px}
+.split-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start}
+.h2{margin:0 0 22px;font:680 clamp(30px,3.4vw,46px)/1.02 var(--sans);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.022em}
+.h2>span{color:var(--blue)}
+.seg-list{position:relative;display:inline-flex;flex-wrap:wrap;gap:2px;padding:4px;border-radius:999px}
+.seg-list.glass{background:color-mix(in srgb,var(--surface),transparent 30%);border-color:var(--line);box-shadow:inset 0 1px 0 #ffffff70,0 8px 24px #0000000f}
+.seg-tab{position:relative;z-index:1;padding:9px 16px;border:0;border-radius:999px;background:none;color:var(--muted);font:600 13px var(--sans);cursor:pointer;transition:color .25s}
+.seg-tab[aria-selected=true]{color:var(--paper)}
+.seg-ink{position:absolute;top:4px;left:0;z-index:0;width:var(--w,0);height:calc(100% - 8px);border-radius:999px;background:var(--ink);transform:translateX(var(--x,0))}
+.seg-panels{margin-top:22px}
+.metric{display:grid;gap:10px;padding:26px;border:1px solid var(--line);background:var(--surface)}
+.metric-value{font:700 clamp(46px,5vw,72px)/1 var(--sans);font-variation-settings:"opsz" 96,"wdth" 86;letter-spacing:-.03em;color:var(--blue)}
+.metric p{margin:0;font:400 19px/1.4 var(--text)}
+.metric small{color:var(--muted);font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.ticks{display:grid;gap:14px;margin:0;padding:26px;border:1px solid var(--line);background:var(--surface);list-style:none}
+.ticks li{position:relative;padding-left:30px;font:400 20px/1.35 var(--text)}
+.ticks li:before{position:absolute;top:.25em;left:0;width:18px;height:18px;border-radius:50%;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141618' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5 10 16.5 18 8'/%3E%3C/svg%3E") center/12px no-repeat;content:""}
+.flow{display:grid;grid-template-columns:1fr 1.2fr 1.1fr 1.2fr 1fr;align-items:center;gap:0;margin:10px 0 40px}
+.flow-node{position:relative;display:grid;justify-items:center;gap:4px;padding:22px 12px;border:1px solid var(--line);background:var(--surface);text-align:center}
+.flow-node b{font:650 17px var(--sans)}.flow-node small{color:var(--muted);font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.vault-node{aspect-ratio:1;align-content:center;border-radius:50%;border-color:var(--ink);background:var(--band);color:var(--band-ink)}
+.vault-node small{color:var(--lime)}
+.orbit{position:absolute;inset:-14px;border:1px dashed color-mix(in srgb,var(--blue),transparent 30%);border-radius:50%;animation:orbit-spin 18s linear infinite}
+.orbit:after{position:absolute;top:8%;left:12%;width:8px;height:8px;border-radius:50%;background:var(--lime);content:""}
+.orbit.is-outer{inset:-30px;border-style:solid;border-color:color-mix(in srgb,var(--line),transparent 10%);animation-duration:30s;animation-direction:reverse}
+.flow-pipe{position:relative;height:2px;margin:0 6px;background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 11px)}
+.flow-pipe i{position:absolute;top:50%;left:0;padding:2px 6px;border:1px solid var(--ink);background:var(--surface);font:600 9.5px var(--mono);font-style:normal;transform:translate(-50%,-50%);animation:flow-move 3.6s linear infinite;animation-delay:calc(var(--n,0)*-1.2s)}
+.flow-pipe i:nth-child(2){--n:1}.flow-pipe i:nth-child(3){--n:2}
+.flow-pipe.is-out i{border-color:var(--blue);color:var(--blue)}
+.cmp{border-top:2px solid var(--ink)}
+.cmp-row{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));align-items:center;gap:12px;padding:14px 6px;border-bottom:1px solid var(--line)}
+.cmp-row>*:not(b){justify-self:center}
+.cmp-head{color:var(--muted);font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cmp-row b{font:600 15px var(--sans)}
+.cmp-row.is-us{background:var(--blue-soft)}
+.mark.is-yes{color:var(--gain)}.mark.is-no{color:color-mix(in srgb,var(--muted),transparent 40%)}
+.research-card{display:grid;gap:12px;padding:28px}
+.research-card>b{font:700 44px/1 var(--sans);font-variation-settings:"opsz" 96,"wdth" 86;letter-spacing:-.03em;color:var(--blue)}
+.research-card p{position:relative;z-index:1;margin:0;font:400 20px/1.35 var(--text)}
+.timeline{position:relative;margin:0;padding:0 0 0 28px;list-style:none}
+.timeline:before{position:absolute;top:6px;bottom:6px;left:6px;width:2px;background:var(--line);content:""}
+.timeline:after{position:absolute;top:6px;left:6px;width:2px;height:calc(var(--line-p,1)*(100% - 12px));background:var(--blue);content:""}
+.timeline li{position:relative;display:grid;gap:4px;padding:0 0 26px}
+.timeline li:before{position:absolute;top:6px;left:-27px;width:12px;height:12px;border:2px solid var(--blue);border-radius:50%;background:var(--paper);content:""}
+.timeline b{font:650 20px var(--sans)}.timeline p{margin:0;max-width:640px;color:color-mix(in srgb,var(--ink),var(--muted) 45%);font:400 17px/1.5 var(--text)}
+.cta-band{position:relative;isolation:isolate;overflow:hidden;padding:110px 0}
+.cta-inner{position:relative;z-index:1}
+.curtain{position:fixed;inset:0;z-index:200;background:var(--band);transform:translateY(100%);pointer-events:none}
+.curtain:before{position:absolute;top:0;right:0;left:0;height:3px;background:var(--lime);content:""}
+.curtain.is-covering{transform:none}
+.hero h1{max-width:none;font-size:clamp(44px,4.7vw,70px)}
+.hero-copy{max-width:600px}
+.h2{font-size:clamp(28px,2.9vw,40px)}.h2.is-large{font-size:clamp(34px,4vw,56px)}
+.scrolly-copy h2{font-family:var(--sans)}
+.detail-hero h1{font:680 clamp(44px,5.4vw,76px)/1 var(--sans);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.022em}
+.fact{min-height:0;padding:26px 26px 30px}
+.cta-band .cta-note{margin-top:20px;color:var(--lime);font:600 10px var(--mono)!important;letter-spacing:.1em;text-transform:uppercase}
+.button{min-height:54px;padding:0 8px 0 24px;gap:16px;border-radius:999px;font:650 14.5px var(--sans);letter-spacing:-.005em}
+.button-lime{border:0;background:linear-gradient(180deg,#ebca78,#cfa646);color:#141618;box-shadow:inset 0 1px 0 #ffffff80,inset 0 -2px 0 #00000014,0 1px 0 #8a6a23,0 12px 28px #c9a24a4d}
+.button-lime:hover{background:linear-gradient(180deg,#f1d388,#d6ae50);box-shadow:inset 0 1px 0 #ffffff80,0 1px 0 #8a6a23,0 18px 36px #c9a24a73}
+.button-lime .button-arrow,.button-ring .button-arrow{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;font-size:15px;transition:transform .35s var(--spring)}
+.button-lime .button-arrow{background:#141618;color:#ebca78}
+.button-lime:hover .button-arrow{transform:rotate(-45deg)}
+.button-ring{border:1px solid #ffffff47;background:#ffffff12;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#f6f7ed}
+.button-ring .button-arrow{border:1px solid currentColor}
+.button-ring:hover{border-color:var(--lime);background:#ffffff1f;color:#fff}
+.button-outline{border:1.5px solid var(--ink)}
+.nav-cta{padding:12px 20px;border:0;background:linear-gradient(180deg,#ebca78,#cfa646);color:#141618;font-size:12.5px;font-weight:700;box-shadow:inset 0 1px 0 #ffffff80,0 1px 0 #8a6a23,0 8px 18px #c9a24a40}
+.nav-cta:hover{background:linear-gradient(180deg,#f1d388,#d6ae50);color:#141618}
+@keyframes orbit-spin{to{transform:rotate(360deg)}}
+@keyframes flow-move{from{left:0}to{left:100%}}
+@media(max-width:680px){.scrolly-inner,.split-grid{grid-template-columns:1fr;gap:28px}.scrolly-stage-wrap{position:sticky;top:calc(70px + env(safe-area-inset-top,0px));z-index:2;order:-1}.scrolly-step{min-height:32vh}.scrolly-stage{min-height:0;padding:14px 16px 24px;background:var(--surface)}.stage-panel.is-active{min-height:190px}.stage-panel{inset:14px 16px 24px}.vis-train .ladder-rung{transform:scale(.8)}.price-tag b{font-size:20px}.flow{grid-template-columns:1fr;gap:26px;justify-items:center}.flow-node{width:100%}.vault-node{width:160px}.flow-pipe{width:2px;height:40px;margin:0;background:repeating-linear-gradient(180deg,var(--ink) 0 6px,transparent 6px 11px)}.flow-pipe i{display:none}.cmp-row{grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:6px;font-size:13px}.cmp-head{font-size:8px}.marquee-track span{font-size:18px}.fact{min-height:0}}
+@media(prefers-reduced-motion:reduce){.orbit,.flow-pipe i{animation:none}}
+"""
+
 # Wider than a phone means the desktop layout, scaled to fit; only phones reflow.
 CSS = CSS.replace("@media(max-width:900px)", "@media(max-width:680px)").replace("@media(max-width:850px)", "@media(max-width:680px)")
 CSS = CSS.replace("@media(min-width:851px)", "@media(min-width:681px)")
 
-# Follow the viewer's system theme until they pick one: the dark token blocks, merged in order.
-_dark_tokens = ";".join(block.strip().rstrip(";") for block in re.findall(r":root\[data-theme=dark\]\{([^}]*)\}", CSS))
-CSS += f'@media(prefers-color-scheme:dark){{:root:not([data-theme="light"]){{{_dark_tokens}}}}}\n'
+# One committed light look: drop every dark token block so no host or system setting can flip it.
+CSS = re.sub(r":root\[data-theme=dark\]\{[^}]*\}", "", CSS) + ":root{color-scheme:light}\n"
 CSS += r"""
 .site-nav{top:env(safe-area-inset-top,0px)}
 body{font-variant-emoji:text}
@@ -1400,6 +1538,13 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 .toast{bottom:calc(24px + env(safe-area-inset-bottom,0px))}
 @media(max-width:680px){.notice-stack{bottom:calc(12px + env(safe-area-inset-bottom,0px))}.pop-window,.pop-window.is-wide{bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
 """
+
+LIBRARIES = "".join(f'<script src="{url}"></script>' for url in (
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js",
+    "https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js",
+))
 
 DESIGN_WIDTH = 1280
 SCALE_BOOT = f"""(function(){{var r=document.documentElement,w=r.clientWidth||innerWidth;if(w>680&&w<{DESIGN_WIDTH}){{r.classList.add('is-scaled');r.style.setProperty('--design-width','{DESIGN_WIDTH}px');r.style.setProperty('--page-scale',w/{DESIGN_WIDTH});r.dataset.scale=w/{DESIGN_WIDTH}}}}})()"""
@@ -2073,12 +2218,279 @@ SCRIPT += r"""
 """
 
 
+SCRIPT += r"""
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const gsap = window.gsap, Motion = window.Motion;
+  const spring = {type: 'spring', stiffness: 260, damping: 22, mass: .6};
+
+  // Shader gradient: flowing ink, gold and blue; the light leans toward the pointer.
+  const shaders = [];
+  document.querySelectorAll('[data-shader]').forEach(canvas => {
+    const gl = canvas.getContext('webgl', {antialias: false, premultipliedAlpha: false});
+    if (!gl) return;
+    const compile = (type, source) => { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader; };
+    const program = gl.createProgram();
+    gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'));
+    gl.attachShader(program, compile(gl.FRAGMENT_SHADER, `precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;
+      float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+      float fbm(vec2 p){float v=0.,a=.5;for(int k=0;k<5;k++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
+      void main(){vec2 uv=gl_FragCoord.xy/r;vec2 q=uv*vec2(r.x/r.y,1.);
+        float a=fbm(q*1.1+vec2(t*.03,-t*.018));float b=fbm(q*1.6+a*1.4+vec2(-t*.02,t*.025));
+        float glow=smoothstep(.75,0.,distance(uv,m));
+        vec3 col=vec3(.075,.082,.09);
+        col=mix(col,vec3(.12,.2,.3),smoothstep(.4,.95,b)*.7);
+        col=mix(col,vec3(.84,.69,.35),smoothstep(.66,1.05,a+glow*.2)*.45);
+        col+=vec3(.84,.69,.35)*glow*.12;
+        col+=(h(gl_FragCoord.xy+t)-.5)*.03;
+        gl_FragColor=vec4(col,1.);}`));
+    gl.linkProgram(program);
+    gl.useProgram(program);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(program, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const uR = gl.getUniformLocation(program, 'r'), uT = gl.getUniformLocation(program, 't'), uM = gl.getUniformLocation(program, 'm');
+    const state = {canvas, gl, visible: true, mouse: [.7, .6], target: [.7, .6]};
+    const size = () => {
+      const ratio = Math.min(devicePixelRatio || 1, 1.5);
+      canvas.width = Math.max(1, canvas.clientWidth * ratio * .6);
+      canvas.height = Math.max(1, canvas.clientHeight * ratio * .6);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    size();
+    if ('ResizeObserver' in window) new ResizeObserver(size).observe(canvas);
+    const host = canvas.parentElement;
+    host.addEventListener('pointermove', event => {
+      const bounds = canvas.getBoundingClientRect();
+      state.target = [(event.clientX - bounds.left) / bounds.width, 1 - (event.clientY - bounds.top) / bounds.height];
+    });
+    state.draw = time => {
+      state.mouse = state.mouse.map((v, i) => v + (state.target[i] - v) * .06);
+      gl.uniform2f(uR, canvas.width, canvas.height);
+      gl.uniform1f(uT, time / 1000);
+      gl.uniform2f(uM, state.mouse[0], state.mouse[1]);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => { state.visible = entry.isIntersecting; }).observe(canvas);
+    shaders.push(state);
+  });
+  if (shaders.length) {
+    if (reduced) shaders.forEach(state => state.draw(8000));
+    else { const loop = time => { shaders.forEach(state => state.visible && state.draw(time)); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+  }
+
+  // Tabs: a sliding pill under the active tab; the new panel springs in.
+  document.querySelectorAll('[data-tabs]').forEach(group => {
+    const list = group.querySelector('[role=tablist]'), ink = group.querySelector('.seg-ink');
+    const buttons = [...list.querySelectorAll('[role=tab]')];
+    const place = button => { ink.style.setProperty('--x', `${button.offsetLeft}px`); ink.style.setProperty('--w', `${button.offsetWidth}px`); };
+    const select = (button, focus) => {
+      buttons.forEach(other => {
+        const on = other === button;
+        other.setAttribute('aria-selected', String(on));
+        other.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(other.getAttribute('aria-controls'));
+        panel.hidden = !on;
+        panel.classList.toggle('is-active', on);
+        if (on && Motion && !reduced) {
+          Motion.animate(panel, {opacity: [0, 1], y: [14, 0]}, spring);
+          const value = panel.querySelector('.metric-value, .ticks');
+          if (value) Motion.animate(value, {scale: [.9, 1]}, {...spring, stiffness: 320});
+          panel.querySelectorAll('.viz').forEach(viz => { viz.classList.remove('viz-on'); void viz.offsetWidth; viz.classList.add('viz-on'); });
+        }
+      });
+      if (ink.dataset.ready && Motion && !reduced) {
+        Motion.animate(ink, {'--x': `${button.offsetLeft}px`, '--w': `${button.offsetWidth}px`}, spring);
+      } else place(button);
+      ink.dataset.ready = '1';
+      if (focus) button.focus();
+    };
+    buttons.forEach(button => button.addEventListener('click', () => select(button)));
+    list.addEventListener('keydown', event => {
+      const index = buttons.indexOf(document.activeElement);
+      const next = {ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: buttons.length - 1}[event.key];
+      if (next === undefined || index < 0) return;
+      event.preventDefault();
+      select(buttons[(next + buttons.length) % buttons.length], true);
+    });
+    select(buttons.find(button => button.getAttribute('aria-selected') === 'true') || buttons[0]);
+    addEventListener('resize', () => place(buttons.find(button => button.getAttribute('aria-selected') === 'true')));
+  });
+
+  // Spring tilt with a glass highlight that tracks the pointer; magnetic primary buttons; ripples.
+  if (fine && !reduced && Motion) {
+    document.querySelectorAll('.cert, .tilt').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const bounds = card.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width, y = (event.clientY - bounds.top) / bounds.height;
+        card.style.setProperty('--gx', `${x * 100}%`);
+        card.style.setProperty('--gy', `${y * 100}%`);
+        Motion.animate(card, {rotateX: (.5 - y) * 7, rotateY: (x - .5) * 9, scale: 1.015}, spring);
+      });
+      card.addEventListener('pointerleave', () => Motion.animate(card, {rotateX: 0, rotateY: 0, scale: 1}, spring));
+    });
+    document.querySelectorAll('.button-lime, .nav-cta').forEach(button => {
+      button.addEventListener('pointermove', event => {
+        const bounds = button.getBoundingClientRect();
+        Motion.animate(button, {x: (event.clientX - bounds.left - bounds.width / 2) * .22, y: (event.clientY - bounds.top - bounds.height / 2) * .35}, spring);
+      });
+      button.addEventListener('pointerleave', () => Motion.animate(button, {x: 0, y: 0}, spring));
+    });
+  }
+  document.addEventListener('pointerdown', event => {
+    const host = event.target.closest('.button,.seg-tab,.pop-tab,.filter,.nav-search,.nav-cta');
+    if (!host || reduced) return;
+    const bounds = host.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.cssText = `left:${event.clientX - bounds.left}px;top:${event.clientY - bounds.top}px;--size:${Math.max(bounds.width, bounds.height) * 2.2}px`;
+    host.append(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+
+  // Scroll-driven steps: the active step lights up and its illustration plays.
+  const steps = [...document.querySelectorAll('.scrolly-step')];
+  const panels = [...document.querySelectorAll('.stage-panel')];
+  const progress = document.querySelector('.stage-progress');
+  const playStage = index => {
+    const panel = panels[index];
+    if (!panel || !gsap || reduced) return;
+    gsap.killTweensOf(panel.querySelectorAll('*'));
+    if (index === 0) {
+      gsap.timeline()
+        .fromTo(panel.querySelectorAll('.task-chip'), {x: -60, opacity: 0}, {x: 0, opacity: 1, stagger: .12, duration: .5, ease: 'back.out(1.6)'})
+        .fromTo(panel.querySelector('.vault-lid'), {rotate: -28}, {rotate: 0, duration: .45, ease: 'bounce.out'}, '-=.1')
+        .fromTo(panel.querySelector('.hash'), {clipPath: 'inset(0 100% 0 0)'}, {clipPath: 'inset(0 0% 0 0)', duration: .9, ease: 'steps(24)'});
+    } else if (index === 1) {
+      gsap.timeline()
+        .fromTo(panel.querySelectorAll('.ladder-dot'), {scale: 0}, {scale: 1, stagger: .14, duration: .7, ease: 'elastic.out(1, .55)'})
+        .fromTo(panel.querySelector('.train-curve path'), {strokeDashoffset: 1}, {strokeDashoffset: 0, duration: 1, ease: 'power2.out'}, '-=.4');
+    } else if (index === 2) {
+      panel.querySelectorAll('.viz').forEach(viz => { viz.classList.remove('viz-on'); void viz.offsetWidth; viz.classList.add('viz-on'); });
+      gsap.fromTo(panel.querySelectorAll('.vis-measure > div'), {y: 18, opacity: 0}, {y: 0, opacity: 1, stagger: .12, duration: .5, ease: 'power3.out'});
+    } else {
+      gsap.timeline()
+        .fromTo(panel.querySelectorAll('.pr-dot'), {scale: 0, transformOrigin: 'center'}, {scale: 1, stagger: .12, duration: .4, ease: 'back.out(2)'})
+        .fromTo(panel.querySelector('.pr-fit'), {strokeDasharray: 1, strokeDashoffset: 1}, {strokeDashoffset: 0, duration: .6}, '-=.2')
+        .fromTo(panel.querySelector('.pr-band'), {opacity: 0}, {opacity: 1, duration: .4})
+        .fromTo(panel.querySelector('.pr-target'), {scale: 0, transformOrigin: 'center'}, {scale: 1, duration: .5, ease: 'elastic.out(1, .5)'})
+        .fromTo(panel.querySelector('.price-tag'), {y: -20, opacity: 0, rotate: -6}, {y: 0, opacity: 1, rotate: 0, duration: .6, ease: 'back.out(2)'}, '-=.2');
+    }
+  };
+  let activeStep = -1;
+  const setStep = index => {
+    if (index === activeStep) return;
+    activeStep = index;
+    steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+    panels.forEach((panel, i) => panel.classList.toggle('is-active', i === index));
+    progress?.style.setProperty('--p', String((index + 1) / panels.length));
+    playStage(index);
+  };
+  steps.forEach((step, index) => step.querySelector('button').addEventListener('click', () => {
+    setStep(index);
+    step.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block: 'center'});
+  }));
+
+  if (!gsap || !window.ScrollTrigger) { if (steps.length) setStep(0); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  if (window.SplitText) gsap.registerPlugin(SplitText);
+  // The active step is the last one whose top has passed 60% of the viewport, however fast the page moved.
+  const syncStep = () => {
+    const line = innerHeight * .6;
+    const passed = steps.filter(step => step.getBoundingClientRect().top < line);
+    setStep(Math.max(0, passed.length - 1));
+  };
+  if (steps.length) {
+    setStep(0);
+    ScrollTrigger.create({trigger: steps[0].parentElement, start: 'top bottom', end: 'bottom top', onUpdate: syncStep, onRefresh: syncStep});
+  }
+  if (reduced) return;
+
+  // Headlines rise out of a mask line by line; supporting copy and cards follow.
+  document.querySelectorAll('[data-split]').forEach(heading => {
+    if (!window.SplitText) return;
+    const split = SplitText.create(heading, {type: 'lines', mask: 'lines', linesClass: 'split-line'});
+    gsap.from(split.lines, {yPercent: 110, duration: 1, ease: 'expo.out', stagger: .09,
+      scrollTrigger: {trigger: heading, start: 'top 88%', once: true}});
+  });
+  ScrollTrigger.batch('[data-rise], .fact, .research-card, .cmp-row, .timeline li, .metric, .ticks', {
+    start: 'top 90%', once: true,
+    onEnter: items => gsap.from(items, {y: 34, opacity: 0, scale: .97, duration: .8, ease: 'power3.out', stagger: .08})
+  });
+  gsap.from('.cert', {y: 60, rotateX: 18, opacity: 0, duration: 1.2, ease: 'expo.out', delay: .2});
+  gsap.from('.cert-row', {x: 24, opacity: 0, stagger: .08, duration: .6, ease: 'power3.out', delay: .6});
+
+  // Marquee that speeds up and leans with scroll velocity.
+  const track = document.querySelector('.marquee-track');
+  if (track) {
+    const loop = gsap.to(track, {xPercent: -50, ease: 'none', duration: 38, repeat: -1});
+    const lean = gsap.quickTo(track, 'skewX', {duration: .5, ease: 'power3'});
+    ScrollTrigger.create({onUpdate: self => {
+      const velocity = self.getVelocity();
+      loop.timeScale(self.direction * (1 + Math.min(Math.abs(velocity) / 250, 5)));
+      gsap.to(loop, {timeScale: self.direction, duration: 1.4, ease: 'power2.out', overwrite: true});
+      lean(gsap.utils.clamp(-8, 8, velocity / -220));
+      gsap.delayedCall(.15, () => lean(0));
+    }});
+  }
+
+  // The timeline line fills as you scroll past it.
+  const timeline = document.querySelector('.timeline');
+  if (timeline) ScrollTrigger.create({trigger: timeline, start: 'top 80%', end: 'bottom 60%', scrub: true,
+    onUpdate: self => timeline.style.setProperty('--line-p', self.progress.toFixed(3))});
+
+  // Findings pop in once the sample report is on screen.
+  const notices = [...document.querySelectorAll('[data-notice]')];
+  const dismiss = notice => {
+    if (!notice.isConnected) return;
+    if (Motion) Motion.animate(notice, {x: 80, opacity: 0}, {duration: .3}).finished.then(() => notice.remove());
+    else notice.remove();
+  };
+  notices.forEach(notice => {
+    notice.querySelector('.notice-close').addEventListener('click', () => dismiss(notice));
+    notice.querySelector('.notice-timer').addEventListener('animationend', () => dismiss(notice));
+    notice.querySelector('.notice-open')?.addEventListener('click', () => dismiss(notice));
+  });
+  const sample = document.querySelector('#sample');
+  if (sample && notices.length) ScrollTrigger.create({trigger: sample, start: 'top 55%', once: true, onEnter: () => {
+    notices.forEach((notice, index) => gsap.delayedCall(.5 + index * 1.2, () => {
+      notice.hidden = false;
+      if (Motion) Motion.animate(notice, {x: [120, 0], opacity: [0, 1], scale: [.92, 1]}, spring);
+    }));
+  }});
+})();
+
+// Curtain between pages: covers on the way out, lifts on the way in.
+(() => {
+  const curtain = document.querySelector('.curtain');
+  if (!curtain || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let arrived = false;
+  try { arrived = sessionStorage.getItem('touchstone-curtain') === '1'; sessionStorage.removeItem('touchstone-curtain'); } catch (error) { arrived = false; }
+  if (arrived) gsap.fromTo(curtain, {yPercent: 0}, {yPercent: -100, duration: .7, ease: 'expo.inOut', delay: .05});
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || url.pathname === location.pathname) return;
+    event.preventDefault();
+    try { sessionStorage.setItem('touchstone-curtain', '1'); } catch (error) { /* the next page simply loads without the lift */ }
+    gsap.fromTo(curtain, {yPercent: 100}, {yPercent: 0, duration: .55, ease: 'expo.inOut', onComplete: () => { location.href = url.href; }});
+  });
+  addEventListener('pageshow', event => { if (event.persisted) gsap.set(curtain, {yPercent: 100}); });
+})();
+"""
+
+
 def app_shell(content: str, title: str, description: str, prefix: str, active: str) -> str:
     links = {"home": prefix + "index.html", "appraisals": prefix + "appraisals/index.html",
              "forecast": prefix + "forecast/index.html", "methodology": prefix + "methodology/index.html"}
     nav = "".join(
         f'<a class="{"active" if key == active else ""}" href="{url}">{label}</a>'
-        for key, label in (("methodology", "How it works"), ("appraisals", "Sample report"), ("forecast", "Forecast check"))
+        for key, label in (("home", "Home"), ("methodology", "How it works"), ("appraisals", "Sample report"), ("forecast", "Forecast check"))
         for url in (links[key],)
     )
     return f"""<!doctype html>
@@ -2091,8 +2503,6 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <div class="scale-frame"><div class="scale-page">
 <nav class="site-nav"><a class="wordmark" href="{links['home']}" aria-label="Touchstone home">{brand_mark()}<span>touchstone</span></a>
 <div class="nav-links">{nav}</div><div class="nav-actions"><button class="nav-search" type="button" data-palette-open aria-label="Search pages and appraisals">{icon('search')}<span>Search</span><kbd>⌘K</kbd></button>
-<button class="nav-action" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Toggle theme">{icon('theme')}</button>
-<button class="nav-action nav-print" type="button" data-print aria-label="Print or save this page" title="Print">{icon('print')}</button>
 <a class="nav-cta" href="{esc(REQUEST_FORM_URL) if REQUEST_FORM_URL else links['home'] + '#request'}"{' target="_blank" rel="noopener"' if REQUEST_FORM_URL else ''}>Request an appraisal</a>
 <button class="nav-action menu-toggle" type="button" data-menu aria-label="Open navigation" aria-expanded="false">{icon('menu')}</button></div>
 <span class="scroll-progress" aria-hidden="true"></span></nav>
@@ -2103,7 +2513,8 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <dialog class="palette" id="palette" aria-label="Search Touchstone"><label class="palette-input"><span aria-hidden="true">⌕</span>
 <input type="search" placeholder="Jump to a practice set or page…" aria-label="Search pages and appraisals" autocomplete="off"></label>
 <ul class="palette-list" role="list"></ul><div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div></dialog>
-<div class="toast" role="status" aria-live="polite"></div><script src="{prefix}search-index.js"></script><script>{SCRIPT}</script></body></html>"""
+<div class="toast" role="status" aria-live="polite"></div><div class="curtain" aria-hidden="true"></div>
+<script src="{prefix}search-index.js"></script>{LIBRARIES}<script>{SCRIPT}</script></body></html>"""
 
 
 def result_card(environment: dict, prefix: str, delay: int = 0) -> str:
@@ -2169,85 +2580,161 @@ def sample_certificate(environment: dict, truth: str) -> str:
 <a class="cert-link" href="appraisals/{esc(environment['id'])}/index.html">Open the full sample certificate <span aria-hidden="true">↗</span></a></article>"""
 
 
+def check_icon(yes: bool) -> str:
+    path = '<path d="M5 12.5 10 17 19 7"/>' if yes else '<path d="M7 7l10 10M17 7 7 17"/>'
+    return (f'<svg class="mark {"is-yes" if yes else "is-no"}" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+            f'stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" '
+            f'role="img" aria-label="{"Yes" if yes else "No"}">{path}</svg>')
+
+
+def tabs(group: str, items: list[tuple[str, str]], label: str) -> str:
+    """An in-page tab set: a sliding indicator over the active tab, one panel at a time."""
+    buttons = "".join(
+        f'<button class="seg-tab" type="button" role="tab" id="{group}-tab-{index}" aria-controls="{group}-panel-{index}" '
+        f'aria-selected="{"true" if index == 0 else "false"}" tabindex="{0 if index == 0 else -1}">{esc(name)}</button>'
+        for index, (name, _) in enumerate(items))
+    panels = "".join(
+        f'<div class="seg-panel{" is-active" if index == 0 else ""}" role="tabpanel" id="{group}-panel-{index}" '
+        f'aria-labelledby="{group}-tab-{index}"{"" if index == 0 else " hidden"}>{body}</div>'
+        for index, (_, body) in enumerate(items))
+    return (f'<div class="seg" data-tabs><div class="seg-list glass" role="tablist" aria-label="{esc(label)}">{buttons}'
+            f'<span class="seg-ink" aria-hidden="true"></span></div><div class="seg-panels">{panels}</div></div>')
+
+
+def step_visuals(environment: dict, ladder: dict, truth: str) -> list[str]:
+    """One small animated illustration per appraisal step."""
+    biggest = max(ladder.values())
+    seal = ('<div class="vis-seal"><div class="vault"><span class="vault-lid"></span>'
+            + "".join(f'<i class="task-chip" style="--n:{index}">task {index + 1:03d}</i>' for index in range(4))
+            + f'</div><code class="hash" data-hash="sha256 {esc(environment["sha256"][:24])}">sha256 {esc(environment["sha256"][:24])}</code></div>')
+    train = ('<div class="vis-train">' + "".join(
+        f'<figure class="ladder-rung" style="--d:{(params / biggest) ** .5 * 120:.1f}px;--n:{index}"><span class="ladder-dot"></span>'
+        f'<figcaption><b>{esc(size)}</b>{fmt_params(params)}</figcaption></figure>'
+        for index, (size, params) in enumerate(ladder.items()))
+        + '<svg class="train-curve" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 55 C 60 50, 90 30, 150 22 S 250 8, 300 6"/></svg></div>')
+    change = environment["actual_at_truth"]
+    hack = environment["hackability"]["score"]
+    overlap = environment["redundancy"]["public_overlap"]
+    measure = ('<div class="vis-measure viz">'
+               f'<div><span>Transfer to new questions</span><b>{pts(change)}</b>{signed_bar(change, axis_limit([change], 4))}</div>'
+               f'<div><span>Reward won by shortcuts</span><b>{hack:.0%}</b>{meter(hack, hack >= .2)}</div>'
+               f'<div><span>Copied from free data</span><b>{overlap:.0%}</b>{meter(overlap, overlap >= .5)}</div></div>')
+    gains = environment["forecast"]["gains_by_rung"]
+    xs = [40, 110, 180]
+    ys = [70 - g * 3 for g in gains]
+    price = ('<div class="vis-price"><svg viewBox="0 0 320 120" aria-hidden="true">'
+             '<line class="pr-axis" x1="20" y1="100" x2="310" y2="100"/>'
+             '<polygon class="pr-band" points="180,72 290,30 290,74 180,86"/>'
+             f'<path class="pr-fit" pathLength="1" d="M{xs[0]} {ys[0]:.1f} L{xs[1]} {ys[1]:.1f} L{xs[2]} {ys[2]:.1f}"/>'
+             f'<path class="pr-forecast" pathLength="1" d="M{xs[2]} {ys[2]:.1f} L290 52"/>'
+             + "".join(f'<circle class="pr-dot" cx="{x}" cy="{y:.1f}" r="4" style="--n:{index}"/>' for index, (x, y) in enumerate(zip(xs, ys)))
+             + f'<circle class="pr-target" cx="290" cy="52" r="6"/><text x="290" y="116" text-anchor="middle">{esc(truth)}</text></svg>'
+             f'<div class="price-tag"><b>${environment["fair_value_per_task"]:,.0f}</b><span>fair value per task</span></div></div>')
+    return [seal, train, measure, price]
+
+
 def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
     truth = data["truth_rung"]
-    measures = (
-        ("Learnability", "Does the model get better at the environment's own tasks?"),
-        ("Transfer", "Does that improvement carry over to new questions it never trained on? This is the number that matters."),
-        ("Hackability", "How much reward can a model win without actually solving the task?"),
-        ("Redundancy", "How much does it add beyond free public data and the data you already own?"),
-        ("Forecast and fair value", "What gain should you expect at your model size, and what is each task worth?"),
-    )
     steps = (
-        ("Seal", "The seller uploads the environment or dataset to a sealed sandbox. The buyer never sees the tasks, only the results."),
-        ("Train small models", "We train a fixed family of small open models on it with one published recipe, at several sizes."),
-        ("Measure", "We test the trained models on private questions no vendor has seen, and try to game the grader."),
-        ("Forecast and price", "We fit how gains grow with model size, forecast the gain at your scale and estimate a fair price per task."),
+        ("Seal", "The vendor's tasks go into a sealed sandbox. Buyers only ever see results."),
+        ("Train small", "Small open models train on it with one fixed recipe, at four sizes."),
+        ("Measure", "We test on private questions and try to game the grader."),
+        ("Price", "We forecast the gain at your model size and price each task."),
     )
-    compare = (
-        ("Data and environment vendors", "Their own data only", "No", "Yes"),
-        ("Model evaluation tools", "No, they test finished models", "Yes", "Not their focus"),
-        ("In-house training runs", "Yes", "Yes", "No, after buying and at full cost"),
-        ("Touchstone", "Yes", "Yes", "Yes, at small-model cost"),
-    )
-    research = (
-        ("Training on a well-chosen 5% of a dataset can beat training on all of it.", "Xia et al., LESS, ICML 2024",
-         "https://proceedings.mlr.press/v235/xia24c.html"),
-        ("Small, cheap experiments can predict which data wins at larger scale.", "Magnusson et al., DataDecide, ICML 2025",
-         "https://proceedings.mlr.press/v267/magnusson25a.html"),
-    )
-    steps_html = "".join(f"<li><i>{index}</i><h3>{title}</h3><p>{text}</p></li>" for index, (title, text) in enumerate(steps, 1))
-    measures_html = "".join(f"<div><dt>{name}</dt><dd>{text}</dd></div>" for name, text in measures)
-    compare_html = "".join(
-        f'<tr class="{"is-us" if who == "Touchstone" else ""}"><th scope="row">{who}</th><td>{value}</td><td>{neutral}</td><td>{before}</td></tr>'
+    visuals = step_visuals(best, data["ladder"], truth)
+    step_list = "".join(
+        f'<li class="scrolly-step{" is-active" if index == 0 else ""}" data-step="{index}"><button type="button">'
+        f'<span class="step-no">0{index + 1}</span><b>{title}</b><p>{text}</p></button></li>'
+        for index, (title, text) in enumerate(steps))
+    stage = "".join(f'<div class="stage-panel{" is-active" if index == 0 else ""}" data-stage="{index}">{visual}</div>'
+                    for index, visual in enumerate(visuals))
+    top = best["rungs"][truth]
+    report = tabs("report", [
+        (name, f'<div class="metric"><b class="metric-value">{value}</b><p>{question}</p><small>Sample: {esc(best["name"])}</small></div>')
+        for name, value, question in (
+            ("Learnability", f'{top["env_reward_before"]:.0%} → {top["env_reward_after"]:.0%}', "Does the model get better at the environment's own tasks?"),
+            ("Transfer", f'{pts(best["actual_at_truth"])} pts', "Does it get better at new questions? The number that matters."),
+            ("Hackability", f'{best["hackability"]["score"]:.0%}', "How much reward can be won without solving the task?"),
+            ("Redundancy", f'{best["redundancy"]["public_overlap"]:.0%}', "How much of it is already free?"),
+            ("Fair value", f'${best["fair_value_per_task"]:,.0f}', "What is each task worth at your model size?"),
+        )], "What the report measures")
+    audience = tabs("audience", [
+        ("I'm buying data", '<ul class="ticks"><li>Test before you sign</li><li>Compare vendors on one private test</li><li>Skip data your model can game</li></ul>'),
+        ("I'm selling data", '<ul class="ticks"><li>A neutral rating buyers trust</li><li>Find grader exploits first</li><li>Price backed by measured value</li></ul>'),
+    ], "Who it's for")
+    compare = (("Data vendors", False, False, True), ("Eval tools", False, True, False),
+               ("In-house runs", True, True, False), ("Touchstone", True, True, True))
+    compare_rows = "".join(
+        f'<div class="cmp-row{" is-us" if who == "Touchstone" else ""}"><b>{who}</b>{check_icon(value)}{check_icon(neutral)}{check_icon(before)}</div>'
         for who, value, neutral, before in compare)
-    research_html = "".join(f'<a class="research-card" href="{url}" target="_blank" rel="noopener"><p>{finding}</p><small>{cite} ↗</small></a>'
-                            for finding, cite, url in research)
-    status_html = "".join(f"<li><b>{esc(title)}</b><p>{esc(text)}</p></li>" for title, text in STATUS)
+    gamed = max(ranked, key=lambda env: env["hackability"]["score"])
+    copied = max(ranked, key=lambda env: env["redundancy"]["public_overlap"])
+    notices = (("!", "Shortcut caught", f"{gamed['name']}: non-answers won {gamed['hackability']['score']:.0%} of the reward.", gamed),
+               ("≈", "Mostly copied", f"{copied['name']}: {copied['redundancy']['public_overlap']:.0%} of tasks are already free.", copied),
+               ("↗", "Worth buying", f"{best['name']}: {pts(best['actual_at_truth'])} pts on new questions.", best))
+    notice_html = "".join(
+        f'<div class="notice" data-notice hidden><span class="notice-icon" aria-hidden="true">{icon}</span><div><b>{esc(title)}</b><p>{esc(body)}</p>'
+        f'<button class="notice-open" type="button" data-pop-open="peek-{esc(env["id"])}">Quick look ↗</button></div>'
+        '<button class="notice-close" type="button" aria-label="Dismiss notice">×</button><span class="notice-timer" aria-hidden="true"></span></div>'
+        for icon, title, body, env in notices)
+    research = "".join(
+        f'<a class="research-card glass-light tilt" href="{url}" target="_blank" rel="noopener"><b>{stat}</b><p>{finding}</p><small>{cite} ↗</small></a>'
+        for stat, finding, cite, url in (
+            ("5%", "of well-chosen data can beat training on all of it.", "Xia et al., LESS · ICML 2024", "https://proceedings.mlr.press/v235/xia24c.html"),
+            ("Small → large", "Small experiments predict which data wins at scale.", "Magnusson et al., DataDecide · ICML 2025", "https://proceedings.mlr.press/v267/magnusson25a.html")))
+    status = "".join(f'<li><b>{esc(title)}</b><p>{esc(text)}</p></li>' for title, text in STATUS)
     peeks = "".join(peek_window(env, "appraisals/" + env["id"] + "/index.html") for env in ranked) + peek_window(base, "")
-    request_note = ("" if REQUEST_FORM_URL else
-                    '<p class="cta-note">The request form opens shortly. Check back here for the link.</p>')
-    content = f"""<header class="hero"><div class="container hero-inner"><div class="hero-copy">
-<p class="eyebrow">Independent appraisal for AI training data</p>
-<h1>Know what training data is worth <span>before you buy it.</span></h1>
-<p class="hero-lede">Touchstone tests RL environments and post-training datasets on small models in a sealed sandbox. You see whether they will improve your model, and by how much, before you spend money and compute on a full training run.</p>
-<div class="hero-buttons">{request_action()}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div>
-<p class="hero-meta">For AI teams buying training data, and for the vendors selling it.</p></div>
-{sample_certificate(best, truth)}</div></header>
+    fact_pops = "".join([
+        pop_window("pop-price", "What RL tasks cost", [("", '<div class="pop-copy"><p>Single RL environment tasks typically sell for <strong>$200 to $2,000</strong>, sometimes $20k. Exclusive deals cost 4 to 5 times more.</p></div><p class="fine-print">Price summary citing Epoch AI</p>')]),
+        pop_window("pop-self", "Who checks the data today", [("", '<div class="pop-copy"><p>Buyers usually test a small sample, or rely on transfer results the vendor ran on its own setup. There is no neutral standard for task validity or reward correctness.</p></div>')]),
+        pop_window("pop-hack", "Reward hacking", [("", '<div class="pop-copy"><p>Weak graders, leaked answers and tasks passed without being solved are the most reported failure. A model can score high and learn nothing it can use elsewhere.</p></div>')]),
+    ])
+    marquee_items = "".join(f"<span>{phrase}</span><i>✦</i>" for phrase in ("Does it teach?", "Can it be gamed?", "Is it new?", "Will it scale?", "What is it worth?") * 4)
+    request_note = "" if REQUEST_FORM_URL else '<p class="cta-note">Request form opens shortly</p>'
+    content = f"""<header class="hero"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container hero-inner"><div class="hero-copy">
+<p class="eyebrow" data-rise>Independent appraisal for AI training data</p>
+<h1 data-split>Know what training data is worth <span>before you buy it.</span></h1>
+<p class="hero-lede" data-rise>We test RL environments and datasets on small models, so you never pay for data that doesn't help.</p>
+<div class="hero-buttons" data-rise>{request_action()}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div></div>
+<div class="hero-visual">{sample_certificate(best, truth)}</div></div></header>
+<div class="marquee" aria-hidden="true"><div class="marquee-track">{marquee_items}</div></div>
 <main>
-<section class="container section problem"><div class="section-heading"><div><p class="eyebrow">The problem</p><h2>Training data is expensive. <span>Its value is a guess.</span></h2></div></div>
+<section class="container section problem"><div class="section-heading"><div><p class="eyebrow">The problem</p><h2 data-split>Buying training data <span>is a blind bet.</span></h2></div></div>
 <div class="fact-row">
-<article><b>$200–$2,000</b><p>Typical price of a single RL environment task. Exclusive deals cost several times more.</p><small>Source: Epoch AI, via market price summaries</small></article>
-<article><b>Self-graded</b><p>The evidence buyers see is usually run by the seller, on the seller's own setup, for a product the seller is selling.</p><small>Example: vendor-published transfer results</small></article>
-<article><b>Gameable</b><p>A model can max out an environment's reward by exploiting a weak grader, and learn nothing it can use elsewhere.</p><small>Reward hacking is the most reported failure</small></article>
+<article class="fact glass-light tilt" data-rise><b data-count>$2,000</b><p>per RL task, at the high end</p>{info_chip("pop-price", "What RL tasks cost")}</article>
+<article class="fact glass-light tilt" data-rise><b>Self-graded</b><p>Vendors test their own data</p>{info_chip("pop-self", "Who checks the data today")}</article>
+<article class="fact glass-light tilt" data-rise><b>Gameable</b><p>High reward can hide a shortcut</p>{info_chip("pop-hack", "Reward hacking")}</article>
 </div></section>
-<section class="container section" id="how"><div class="section-heading"><div><p class="eyebrow">How it works</p><h2>Small experiments, <span>before the big spend.</span></h2></div>
-<p>An appraisal costs a small fraction of a full training run, and finishes before you sign.</p></div>
-<ol class="steps">{steps_html}</ol>
-<div class="measures"><p class="eyebrow">What the report tells you</p><dl>{measures_html}</dl></div></section>
-<section class="container section audience"><div class="audience-grid">
-<article><p class="eyebrow">For teams buying data</p><h3>Check it before you sign.</h3><ul><li>Test an environment before you pay for it</li><li>Compare vendors on the same private test</li><li>Avoid data your model can game or already has</li></ul></article>
-<article><p class="eyebrow">For vendors selling it</p><h3>Prove it with a neutral number.</h3><ul><li>Get a rating buyers trust more than self-reported results</li><li>Find grader exploits before a customer does</li><li>Justify your price with measured value</li></ul></article>
+<section class="scrolly" id="how"><div class="container scrolly-inner">
+<div class="scrolly-copy"><p class="eyebrow">How it works</p><h2 data-split class="h2 is-large">Four steps. <span>A fraction of the compute.</span></h2>
+<ol class="scrolly-steps">{step_list}</ol></div>
+<div class="scrolly-stage-wrap"><div class="scrolly-stage glass-light">{stage}<div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
+<section class="container section split-section"><div class="split-grid">
+<div><p class="eyebrow">The report</p><h2 data-split class="h2">Five numbers <span>to act on.</span></h2>{report}</div>
+<div><p class="eyebrow">Who it's for</p><h2 data-split class="h2">Both sides <span>of the deal.</span></h2>{audience}</div>
 </div></section>
-<section class="container section board-section" id="sample"><div class="section-heading"><div><p class="eyebrow">Sample report</p><h2>What a report <span>looks like.</span></h2></div>
-<p>A demo run on six fictional RL environments with tiny models. The pipeline is real; the vendors and numbers are examples. Select a row for a quick look.</p></div>
+<section class="container section board-section" id="sample"><div class="section-heading"><div><p class="eyebrow">Sample report</p><h2 data-split>See a <span>real report.</span></h2></div>
+<p data-rise>Demo data: six fictional environments, tiny models. Select a row.</p></div>
 {scoreboard(ranked, base)}
-<div class="board-legend"><span><i class="k-gain"></i>Better on new questions</span><span><i class="k-loss"></i>Worse on new questions</span><span><i class="k-risk"></i>Flagged: 20%+ shortcut reward or mostly copied</span><span><i class="k-base"></i>Free comparison set</span></div>
-<p class="board-hint">Move across the change column to set a threshold · click a column title to sort</p>
+<div class="board-legend"><span><i class="k-gain"></i>Better on new questions</span><span><i class="k-loss"></i>Worse</span><span><i class="k-risk"></i>Flagged</span><span><i class="k-base"></i>Free comparison set</span></div>
 <a class="section-link" href="appraisals/index.html">Open the full sample report ↗</a></section>
-<section class="container section neutral"><div class="section-heading"><div><p class="eyebrow">Why independent</p><h2>Only a neutral party <span>can run this test.</span></h2></div>
-<p>A buyer can't judge training data without seeing it, and once they've seen it the seller has given it away. Touchstone tests it in a sealed sandbox and shares only the results. We never sell data or environments ourselves.</p></div>
-<div class="table-wrap compare"><table><thead><tr><th></th><th>Measures training value</th><th>Neutral</th><th>Before purchase</th></tr></thead>
-<tbody>{compare_html}</tbody></table></div></section>
-<section class="container section research"><div class="section-heading"><div><p class="eyebrow">Built on published research</p><h2>Small runs <span>predict big ones.</span></h2></div></div>
-<div class="research-grid">{research_html}</div></section>
-<section class="container section status" id="status"><div class="section-heading"><div><p class="eyebrow">Where we are</p><h2>Early, and <span>building in the open.</span></h2></div></div>
-<ol class="status-list">{status_html}</ol></section>
-<section class="cta-band" id="request"><div class="container cta-inner"><div><p class="eyebrow">Pilot appraisals</p>
-<h2>Appraise an environment <span>before you buy it.</span></h2>
-<p>We're starting with RL environments and post-training datasets. Tell us what you're evaluating and we'll scope a pilot appraisal with you.</p>{request_note}</div>
+<section class="container section neutral"><div class="section-heading"><div><p class="eyebrow">Why independent</p><h2 data-split>Neutral <span>by design.</span></h2></div>
+<p data-rise>Tasks stay sealed. Only numbers come out. We never sell data ourselves.</p></div>
+<div class="flow" aria-label="Vendor tasks go into the sealed sandbox; only results reach the buyer">
+<div class="flow-node"><b>Vendor</b><small>uploads tasks</small></div>
+<div class="flow-pipe"><i>task</i><i>task</i><i>task</i></div>
+<div class="flow-node vault-node"><span class="orbit"></span><span class="orbit is-outer"></span><b>Sealed sandbox</b><small>Touchstone</small></div>
+<div class="flow-pipe is-out"><i>+3.6</i><i>0%</i><i>$771</i></div>
+<div class="flow-node"><b>Buyer</b><small>sees numbers only</small></div></div>
+<div class="cmp" data-rise><div class="cmp-row cmp-head"><span></span><span>Measures training value</span><span>Neutral</span><span>Before you buy</span></div>{compare_rows}</div></section>
+<section class="container section research"><div class="section-heading"><div><p class="eyebrow">The science</p><h2 data-split>Small runs <span>predict big ones.</span></h2></div></div>
+<div class="research-grid">{research}</div></section>
+<section class="container section status" id="status"><div class="section-heading"><div><p class="eyebrow">Where we are</p><h2 data-split>Early, <span>and moving.</span></h2></div></div>
+<ol class="timeline">{status}</ol></section>
+<section class="cta-band" id="request"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container cta-inner"><div>
+<p class="eyebrow">Pilot appraisals</p><h2 data-split>Appraise it <span>before you buy it.</span></h2>{request_note}</div>
 <div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="methodology/index.html">Read the method <span class="button-arrow">↗</span></a></div></div></section>
-</main>{peeks}"""
+</main>{peeks}{fact_pops}<div class="notice-stack" aria-live="polite">{notice_html}</div>"""
     return app_shell(content, "Touchstone", "Touchstone tests RL environments and post-training datasets on small models, so AI teams know what training data is worth before they buy it.", "", "home")
 
 

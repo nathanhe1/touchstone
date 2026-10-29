@@ -401,3 +401,12 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border: 0; bo
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Fixes from the review pass */
+.close .actions { grid-column: 8 / span 5; flex-wrap: nowrap; }
+.footer .wrap > div.legalline { grid-column: 1 / -1; }
+.seg { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.seg button { flex: none; white-space: nowrap; }
+.scroll-x .table { min-width: 720px; }
+@media (max-width: 900px) { .close .actions { grid-column: 1 / -1; flex-wrap: wrap; } }
+@media (max-width: 720px) { .proof-row.head > :nth-child(2) { display: none; } }

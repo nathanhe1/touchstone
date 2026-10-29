@@ -442,3 +442,59 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
 .nav .btn { height: 40px; padding: 0 5px 0 14px; gap: 10px; border-radius: 10px; font-size: 14px; }
 .nav .btn svg { width: 30px; height: 30px; padding: 8px; border-radius: 7px; }
 .actions { gap: 10px; margin-top: 32px; }
+
+/* Caught strip */
+.caught { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.caught-item { display: grid; align-content: start; gap: 6px; padding: 28px; background: var(--panel); }
+.caught-item b { font: 700 clamp(40px, 4.2vw, 56px)/1 var(--display); letter-spacing: -.03em; color: var(--transfer); }
+.caught-item span { font: 600 17px var(--sans); }
+.caught-item p { margin: 4px 0 0; color: var(--ink-2); font: 400 17px/1.5 var(--text); }
+
+/* Paradox */
+.paradox { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.paradox .seg { margin-top: 28px; }
+.chat { display: grid; gap: 12px; padding: 22px; min-height: 380px; align-content: start; }
+.bubble { max-width: 84%; padding: 12px 16px; border-radius: 14px; background: var(--panel-2); box-shadow: inset 0 0 0 1px var(--line-2); font: 400 17px/1.45 var(--text); }
+.bubble small { display: block; margin-bottom: 2px; color: var(--ink-3); font: 500 11px var(--mono); }
+.bubble.buyer { justify-self: end; border-bottom-right-radius: 4px; }
+.bubble.vendor { justify-self: start; border-bottom-left-radius: 4px; }
+.bubble.touchstone { justify-self: center; max-width: 92%; background: #e2b45a14; box-shadow: inset 0 0 0 1px #e2b45a55; }
+.bubble.touchstone small { color: var(--transfer); }
+
+/* Exploit gallery */
+.exploits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.exploit { display: grid; gap: 12px; width: 100%; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); color: var(--ink); text-align: left; cursor: pointer; transition: border-color .25s, background .25s; }
+.exploit:hover { border-color: var(--line-2); background: var(--panel-2); }
+.exploit.hit { border-color: #ff6b5b40; }
+.exploit.open { border-color: var(--transfer); }
+.exploit-head { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.exploit-head b { font: 600 17px var(--sans); }
+.exploit-head > span { display: inline-flex; align-items: center; gap: 6px; font: 500 12px var(--mono); }
+.exploit-head svg { width: 14px; height: 14px; }
+.exploit code { display: block; padding: 10px 12px; border-radius: 8px; background: #0b0d10; color: #e4e7eb; font: 500 13px var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.exploit-more { display: block; overflow: hidden; color: var(--ink-2); font: 400 16px/1.5 var(--text); }
+.exploit-more b { font-family: var(--display); }
+.exploit.planned { cursor: default; border-style: dashed; }
+.exploit.planned code { color: var(--ink-2); }
+
+/* Evidence */
+.evidence { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ev { display: grid; align-content: start; gap: 10px; padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); text-decoration: none; transition: border-color .25s; }
+.ev:hover { border-color: var(--transfer); }
+.ev b { font: 650 19px/1.25 var(--sans); letter-spacing: -.01em; }
+.ev p { margin: 0; color: var(--ink-2); font: 400 16.5px/1.5 var(--text); }
+.ev small { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; color: var(--transfer); font: 500 12px var(--mono); }
+.ev small svg { width: 12px; height: 12px; }
+
+/* Source lists and sizing */
+.sources { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 40px; }
+.sources li { break-inside: avoid; padding: 10px 0; border-top: 1px solid var(--line); font: 400 16px/1.5 var(--text); color: var(--ink-2); }
+.sources a { color: var(--ink); text-decoration-color: var(--line-2); text-underline-offset: 4px; }
+.sources a:hover { text-decoration-color: var(--transfer); }
+.scenario { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.scenario > div { padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+.scenario b { display: block; font: 700 clamp(36px, 4vw, 52px)/1 var(--display); letter-spacing: -.03em; }
+.scenario span { display: block; margin-top: 8px; font: 600 16px var(--sans); }
+.scenario p { margin: 10px 0 0; color: var(--ink-2); font: 400 17px/1.5 var(--text); }
+.scenario > div.up { border-color: #e2b45a55; } .scenario > div.up b { color: var(--transfer); }
+@media (max-width: 900px) { .caught, .paradox, .exploits, .evidence, .scenario { grid-template-columns: 1fr; } .sources { columns: 1; } }

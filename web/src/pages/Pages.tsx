@@ -206,30 +206,52 @@ export function Forecast() {
 /* ---------------- Market ---------------- */
 export function Market() {
   const players: [string, number, number, string, string][] = [
-    ['Scale AI', 30, 18, 'Provides training data and AI infrastructure.', 'Sells the data it would be grading.'],
-    ['Patronus AI', 22, 74, 'Develops AI evaluation and testing tools.', 'Tests finished models, not the data that trains them.'],
-    ['In-house ML teams', 74, 44, 'Run their own training experiments.', 'Learn the answer after buying, at full cost.'],
-    ['Touchstone', 84, 86, 'Independently evaluates the value of training resources.', 'Before you buy, at small-model cost.'],
+    ['Scale, Surge, Mercor', 30, 14, 'Build and sell training data and RL environments.', 'A seller can\'t neutrally grade its own product.'],
+    ['Patronus AI', 22, 74, 'AI evaluation and testing tools.', 'Evaluates models and apps, not the value of training data.'],
+    ['In-house ML teams', 74, 44, 'Run their own trial training.', 'Can\'t test before the vendor hands over data, or compare vendors.'],
+    ['Touchstone', 84, 86, 'Independently appraises training data before purchase.', 'Neutral, before you buy, at small-model cost.'],
+  ]
+  const others: [string, string, string][] = [
+    ['RL List', 'Ranks 42 environment vendors', 'Desk research on funding and press. Runs no training.'],
+    ['CodeSOTA', 'Ranks environments as evals', 'Measures how well they separate models, not training gains. Also sells environments.'],
+    ['Delphik (posttrain.dev)', 'Calls for independent environment audits', 'A position paper with no product yet. The closest one to watch.'],
+    ['DatologyAI, Cleanlab', 'Data curation and cleaning', 'Preprocessing for your own data, not a neutral check before purchase.'],
+    ['Human Native, Troveo', 'Data licensing marketplaces', 'Check rights, not training value.'],
+    ['Prime Intellect Hub', 'Open hub of environments', 'Distribution, not valuation. A source of environments for our first tests.'],
   ]
   return (
     <>
-      <Head title="Training data is the new compute bill." text="AI companies are spending more on specialized data, RL and agent environments every year, with no neutral way to check what they are buying." />
+      <Head title={<>Training data is the new <span className="transfer">compute bill.</span></>} text="The money in AI training is moving from compute to data and RL environments. Nobody can check what they're buying." />
       <section className="wrap">
         <Reveal className="cols">
-          <div><b><Count value="$1B" /></b><p>a year reportedly spent on human-curated data by each leading lab</p><small>TechCrunch, market maps</small></div>
-          <div><b><Count value="55%" /></b><p>of AI cloud spend goes to inference in 2026, driven by fine-tuned models</p><small>Gartner forecast</small></div>
-          <div><b>0</b><p>independent auditors of training value in current market maps</p><small>Market maps</small></div>
+          <div><b><Count value="$1B" /></b><p>a year reportedly spent on human-curated data by each leading lab</p><small>TechCrunch, Pebblous</small></div>
+          <div><b><Count value="$2B" /></b><p>annualized revenue at Mercor; AfterQuery reached about $100M in a year</p><small>Pebblous market map</small></div>
+          <div><b><Count value="$20k" /></b><p>for a single RL task at the high end; most sell for $200 to $2,000</p><small>Price summary citing Epoch AI</small></div>
+        </Reveal>
+        <Reveal className="cols" delay={.1}>
+          <div><b>$1B+</b><p>on RL environments over a year, reportedly discussed by Anthropic</p><small>TechCrunch</small></div>
+          <div><b><Count value="55%" /></b><p>of AI cloud spend goes to inference in 2026, driven by fine-tuned models in production</p><small>Gartner, via TechTimes</small></div>
+          <div><b>0</b><p>independent auditors of training value in current market maps</p><small>DataGravity, Future Stack</small></div>
         </Reveal>
       </section>
       <section className="section">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>Two honest sizes.</h2></Reveal><Reveal delay={.1}><p>A useful business either way. A venture-scale one only if Touchstone becomes the rating labs require.</p></Reveal></div>
+          <Reveal className="scenario">
+            <div><b>$5M–$10M</b><span>a year, near term</span><p>About 50 environment vendors and 15 to 20 serious buyers, paying per appraisal and by subscription.</p></div>
+            <div className="up"><b>$30M–$100M+</b><span>a year, as the standard</span><p>If environment and post-training spend reaches a few billion dollars a year by 2027–28, a verification layer taking 1–3% of it. Before any marketplace.</p></div>
+          </Reveal>
+          <p className="note">Our estimates. Lab data spend is forecast to pass $100B a year by 2030; that is a forecast, not a transaction.</p>
+        </div>
+      </section>
+      <section className="section flush">
         <div className="wrap two" style={{ alignItems: 'center' }}>
-          <Reveal><div className="big-figure">$30M–$100M+</div>
-            <p className="lede">If environment and post-training data spend reaches a few billion dollars a year by 2027–28, a verification layer taking 1–3% is a $30M–$100M+ business, before any marketplace.</p><p className="note">Our estimate.</p></Reveal>
+          <Reveal><h2>Close neighbours, <span className="transfer">different job.</span></h2><p className="lede">Sellers can't referee. Evaluators test models, not data. In-house teams find out after they've paid. Nobody sells an independent, training-based valuation of RL environments.</p></Reveal>
           <Reveal delay={.1}>
             <Panel title="where each player sits" meta="illustrative">
               <div className="map panel-body" style={{ margin: 20 }}>
                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px)', backgroundSize: '25% 25%', opacity: .7 }} />
-                <span className="map-axis" style={{ left: 8, top: 8 }}>independent ↑</span><span className="map-axis" style={{ right: 8, bottom: 8 }}>measures training value →</span>
+                <span className="map-axis" style={{ left: 8, top: 8 }}>independent</span><span className="map-axis" style={{ right: 8, bottom: 8 }}>measures training value</span>
                 {players.map(([name, x, y], i) => (
                   <div key={name} className={`map-dot${name === 'Touchstone' ? ' us' : ''}${x > 60 ? ' left' : ''}`} style={{ left: `${x}%`, bottom: `${y}%` }}>
                     <motion.i initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: .2 + i * .15, type: 'spring', stiffness: 260, damping: 12 }} />
@@ -241,38 +263,28 @@ export function Market() {
           </Reveal>
         </div>
       </section>
-      <section className="section flush">
+      <section className="section">
         <div className="wrap">
-          <div className="section-head"><Reveal><h2>Close neighbours, different job.</h2></Reveal></div>
           <div className="rows-table">
-            {players.map(([name, , , what, gap], i) => (
-              <Reveal key={name} delay={i * .05}><div className={`row${name === 'Touchstone' ? ' us' : ''}`}><b>{name}</b><p>{what}</p><p>{gap}</p></div></Reveal>
+            {[...players.map(([n, , , w, g]) => [n, w, g] as [string, string, string]), ...others].map(([name, what, gap], i) => (
+              <Reveal key={name} delay={Math.min(i * .04, .3)}><div className={`row${name === 'Touchstone' ? ' us' : ''}`}><b>{name}</b><p>{what}</p><p>{gap}</p></div></Reveal>
             ))}
           </div>
+          <p className="note">A web scan, not a patent search. A lab could be doing this privately in-house.</p>
         </div>
       </section>
-      <section className="section">
+      <section className="section flush">
         <div className="wrap two">
-          <Reveal><h2>A moat that grows with every report.</h2></Reveal>
+          <Reveal><h2>A moat that grows <span className="transfer">with every report.</span></h2></Reveal>
           <Reveal delay={.1}><ol className="steps-list">
-            <li><div><b>Neutral by design</b><p>We never sell data or environments, and we publish our method.</p></div></li>
+            <li><div><b>Neutral by design</b><p>We never sell data or environments, so we can rate every vendor, Scale included.</p></div></li>
             <li><div><b>A private test suite</b><p>No vendor can train on it. It becomes more valuable the longer it stays clean.</p></div></li>
-            <li><div><b>Every appraisal teaches us</b><p>Each run sharpens which environment features actually transfer.</p></div></li>
+            <li><div><b>Every appraisal teaches us</b><p>After a few hundred, our forecasts of what transfers beat anyone's guesswork.</p></div></li>
             <li><div><b>The first standard sticks</b><p>In ratings and audits, the first credible standard tends to win.</p></div></li>
           </ol></Reveal>
         </div>
       </section>
-      <section className="section flush">
-        <div className="wrap">
-          <div className="section-head"><Reveal><h2>Small runs predict big ones.</h2></Reveal></div>
-          <div className="cols">
-            <Reveal><div><b>5%</b><p>Training on a well-chosen 5% of data can beat training on all of it.</p><a className="textlink" href="https://proceedings.mlr.press/v235/xia24c.html" target="_blank" rel="noopener">Xia et al., LESS · ICML 2024</a></div></Reveal>
-            <Reveal delay={.1}><div><b>Small → large</b><p>Small, cheap experiments predict which data wins at larger scale.</p><a className="textlink" href="https://proceedings.mlr.press/v267/magnusson25a.html" target="_blank" rel="noopener">Magnusson et al., DataDecide · ICML 2025</a></div></Reveal>
-            <Reveal delay={.2}><div><b>RL</b><p>How the leading data company thinks about RL environments.</p><a className="textlink" href="https://scale.com/blog/rl-environments" target="_blank" rel="noopener">Scale AI on RL environments</a></div></Reveal>
-          </div>
-        </div>
-      </section>
-      <Close title="A verification layer for a new market." text="Talk to us about a pilot." />
+      <Close title="A verification layer for a new market." text="Talk to us about a pilot appraisal." />
     </>
   )
 }
@@ -282,23 +294,38 @@ export function Pricing() {
   const [tasks, setTasks] = useState(5000), [price, setPrice] = useState(800), [waste, setWaste] = useState(30)
   const spend = tasks * price, risk = spend * waste / 100, cost = 25000
   const fill = (v: number, min: number, max: number) => ({ '--fill': `${(v - min) / (max - min) * 100}%` } as React.CSSProperties)
+  const tiers: [string, string, string, string, string[], boolean][] = [
+    ['Grader audit', 'Find the exploits', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving', 'Fix list for the vendor'], false],
+    ['Full appraisal', 'Know what it\'s worth', '$10k–$50k', 'per environment', ['Sealed training at several model sizes', 'Transfer to private problems, overlap, exploits', 'Forecast at your size and fair price per task'], true],
+    ['Subscription', 'Every environment, always', '$100k–$250k', 'per year', ['Side-by-side comparison of environments', 'Re-tests as environments change', 'Vendor ratings over time'], false],
+  ]
   return (
     <>
-      <Head title="Costs less than one bad run." text="Pay per appraisal when you're evaluating a purchase, or subscribe to test every environment you train on." />
-      <section className="wrap plans">
-        <Reveal><Panel className="plan" title="per appraisal">
-          <div style={{ padding: 32, display: 'grid', gap: 16 }}>
-            <h3 style={{ fontSize: 28 }}>Check one environment</h3><div className="amount">$10k–$50k <small>per appraisal</small></div>
-            <ul className="list" style={{ marginTop: 0 }}>{['Sealed test of one environment', 'The full report', 'Forecast and fair value per task'].map(t => <li key={t}><Check />{t}</li>)}</ul>
-            <div><RequestButton /></div></div></Panel></Reveal>
-        <Reveal delay={.1}><Panel className="plan featured" title="subscription">
-          <div style={{ padding: 32, display: 'grid', gap: 16 }}>
-            <h3 style={{ fontSize: 28 }}>Every environment, always</h3><div className="amount">$50k–$250k <small>per year</small></div>
-            <ul className="list" style={{ marginTop: 0 }}>{['Side-by-side comparison of environments', 'Re-tests as environments change', 'Vendor ratings over time'].map(t => <li key={t}><Check />{t}</li>)}</ul>
-            <div><RequestButton label="Talk to us" /></div></div></Panel></Reveal>
+      <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the data it checks." />
+      <section className="wrap tiers">
+        {tiers.map(([name, sub, amount, per, items, featured], i) => (
+          <Reveal key={name} delay={i * .08}>
+            <Panel className={`tier${featured ? ' featured' : ''}`} title={name.toLowerCase()} meta={featured ? 'most teams start here' : undefined}>
+              <div className="tier-body">
+                <h3 style={{ fontSize: 24 }}>{sub}</h3><div className="amount">{amount} <small>{per}</small></div>
+                <ul className="list" style={{ marginTop: 0 }}>{items.map(t => <li key={t}><Check />{t}</li>)}</ul>
+                <div><RequestButton label={featured ? 'Request an appraisal' : 'Talk to us'} /></div>
+              </div>
+            </Panel>
+          </Reveal>
+        ))}
       </section>
-      <div className="wrap"><p className="note">Planned pilot pricing. Each appraisal uses roughly $1k–$5k of small-model compute.</p></div>
       <section className="section">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>The unit economics.</h2></Reveal><Reveal delay={.1}><p>Small models keep compute cheap, which is the whole point.</p></Reveal></div>
+          <Reveal className="cols">
+            <div><b>$300–$2k</b><p>of GPU per appraisal on small open models</p><small>our estimate</small></div>
+            <div><b><Count value="80%" />–90%</b><p>gross margin on a full appraisal</p><small>our estimate</small></div>
+            <div><b>1–3%</b><p>fee on purchases later, if Touchstone becomes the standard rating</p><small>phase 3</small></div>
+          </Reveal>
+        </div>
+      </section>
+      <section className="section flush">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>What's at stake on your purchase.</h2></Reveal><Reveal delay={.1}><p>Move the sliders to match a purchase you're considering. Illustrative, using a $25k appraisal.</p></Reveal></div>
           <Reveal><Panel title="purchase at risk" meta="illustrative calculator">
@@ -317,9 +344,10 @@ export function Pricing() {
           </Panel></Reveal>
         </div>
       </section>
-      <section className="section flush"><div className="wrap"><Reveal><Faq items={[
-        ['Who pays, the buyer or the vendor?', 'Either. Buyers appraise before purchase; vendors commission a neutral rating to win contracts.'],
-        ['Why does an appraisal cost this much?', 'It covers compute, the private test suite and a full report. It is still a small fraction of a single purchase.'],
+      <section className="section"><div className="wrap"><Reveal><Faq items={[
+        ['Who pays, the buyer or the vendor?', 'Either. Buyers appraise before purchase. Vendors commission a neutral rating to win contracts and justify their price; small vendors can\'t afford their own transfer studies.'],
+        ['Doesn\'t a vendor paying create a conflict?', 'It can, the same way it does for ratings agencies. We publish and pre-register the method, fix the training recipe, and sell buyer-side subscriptions so both sides pay.'],
+        ['Why start with a grader audit?', 'It is the cheapest test and catches the most common failure. A broken grader makes the rest of the appraisal moot.'],
         ['Can we pilot first?', 'Yes. Pilot appraisals are how we are starting.'],
       ]} /></Reveal></div></section>
       <Close title="Costs less than one bad run." text="Tell us what you're about to buy." />
@@ -334,14 +362,30 @@ export function Company() {
   const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 24 })
   return (
     <>
-      <Head title="Less wasted training. More real learning." text="Our goal is to help AI companies spend less on ineffective training and get more useful learning from their compute. We're starting with RL environments, and will support training decisions across every type of AI model." />
+      <Head title={<>Less wasted training. <span className="transfer">More real learning.</span></>} text="We help AI companies spend less on ineffective training and get more useful learning from their compute. We're starting with RL environments, and will support training decisions across every type of AI model." />
+      <section className="section flush">
+        <div className="wrap two" style={{ alignItems: 'center' }}>
+          <Reveal><h2>Why <span className="transfer">Touchstone.</span></h2></Reveal>
+          <Reveal delay={.1}><p className="lede" style={{ marginTop: 0 }}>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training data.</p></Reveal>
+        </div>
+      </section>
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>What we've decided.</h2></Reveal></div>
+          <div className="cols">
+            <Reveal><div><b style={{ fontSize: 26 }}>Appraisal, not cleaning</b><p>We check data before purchase. We don't curate or clean your own data; that is a different business.</p></div></Reveal>
+            <Reveal delay={.08}><div><b style={{ fontSize: 26 }}>Neutral, always</b><p>We never sell data or environments, so we can rate every vendor, including the biggest.</p></div></Reveal>
+            <Reveal delay={.16}><div><b style={{ fontSize: 26 }}>GPU time is the saving</b><p>The value is in the training runs you don't waste, not in cheaper compute.</p></div></Reveal>
+          </div>
+        </div>
+      </section>
       {FOUNDERS.length > 0 && (
         <section className="section flush"><div className="wrap"><h2>Who is building this.</h2>
           <div className="cols" style={{ marginTop: 40 }}>{FOUNDERS.map(([n, r, w, l]) => <div key={n}><b style={{ fontSize: 28 }}>{n}</b><p className="dim">{r}</p><p>{w}</p>{l && <a className="textlink" href={l} target="_blank" rel="noopener">Profile</a>}</div>)}</div></div></section>
       )}
       <section className="section flush">
         <div className="wrap two" style={{ alignItems: 'start' }}>
-          <Reveal><h2>Where we are, and where we're going.</h2><p className="lede">We'll keep this current as pilots start.</p></Reveal>
+          <Reveal><h2>Where we are, <span className="transfer">and what's next.</span></h2><p className="lede">The order matters: cheap proof first, expensive proof only once people say they'd pay.</p></Reveal>
           <ol className="timeline" ref={ref}>
             <motion.span className="timeline-fill" style={{ scaleY: fill, height: 'calc(100% - 12px)' }} />
             {ROADMAP.map(([stage, title, text], i) => (
@@ -352,16 +396,18 @@ export function Company() {
       </section>
       <section className="section">
         <div className="wrap two">
-          <Reveal><h2>Where this could lead.</h2></Reveal>
+          <Reveal><h2>Where this <span className="transfer">could lead.</span></h2></Reveal>
           <Reveal delay={.1}><ol className="steps-list">
-            <li><div><b>Forecasting behaviour before deployment</b><p>The same small-to-large method, applied to predicting how a model will behave before it ships.</p></div></li>
-            <li><div><b>Accessible ML infrastructure</b><p>Making it possible for anyone to practice and experiment with machine learning.</p></div></li>
+            <li><div><b>Forecasting post-training runs</b><p>Before a $20k–$500k fine-tuning or RL run, predict from cheap pilots whether it will pay off.</p></div></li>
+            <li><div><b>Forecasting behaviour before deployment</b><p>The same small-to-large method, applied to how a model will behave before it ships.</p></div></li>
+            <li><div><b>A marketplace priced by appraised value</b><p>Escrowed purchases where the price follows the measured value.</p></div></li>
           </ol></Reveal>
         </div>
       </section>
       <section className="section flush"><div className="wrap"><div className="section-head"><Reveal><h2>Fair questions.</h2></Reveal></div><Reveal><Faq items={[
         ['Do you ever see the vendor\'s tasks?', 'They stay in a sealed sandbox. Buyers get results, never the tasks.'],
-        ['Why trust small models?', 'Published research shows small runs predict which data wins at scale. Every report also shows how well our forecast held up.'],
+        ['Why trust small models?', 'Published research shows small runs predict which data wins at scale. For RL environments it is unproven, and our first test checks it. Every report shows how well the forecast held up.'],
+        ['What can you test today?', 'RL environments with automatic graders. Post-training datasets and other data types come next.'],
         ['Are you independent?', 'Yes. We never sell data or environments, and we publish our method.'],
       ]} /></Reveal></div></section>
       <Close title="Building the neutral standard for training data." text="Talk to us about a pilot." />

@@ -464,8 +464,8 @@ export default function Home() {
         <Gradient />
         <div className="wrap">
           <div>
-            <h1 aria-label="Don't buy training data blind.">
-              {["Don't", 'buy', 'training', 'data'].map((w, i) => (
+            <h1 aria-label="Don't buy training material blind.">
+              {["Don't", 'buy', 'training', 'material'].map((w, i) => (
                 <motion.span key={w} aria-hidden="true" style={{ display: 'inline-block', marginRight: '.25em' }} initial={reduced ? false : { opacity: 0, y: 40, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: .9, delay: i * .08, ease }}>{w}</motion.span>
               ))}
               <motion.span aria-hidden="true" className="transfer" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, scale: .6, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .45, type: 'spring', stiffness: 220, damping: 12 }}>blind.</motion.span>
@@ -477,7 +477,7 @@ export default function Home() {
               <RequestButton /><a className="btn secondary" href="#report">See a sample report</a>
             </motion.div>
             <motion.div className="hero-note" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .5 }}>
-              <span><Check />Sealed: you never see vendor tasks</span><span><Check />Independent: we sell no data</span>
+              <span><Check />Sealed: you never see vendor tasks</span><span><Check />Independent: we sell no training material</span>
             </motion.div>
           </div>
           <motion.div initial={reduced ? false : { opacity: 0, y: 40, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1.1, delay: .15, ease }}>
@@ -493,7 +493,7 @@ export default function Home() {
       <section className="section flush">
         <div className="wrap">
           <div className="section-head">
-            <Reveal><h2>Training data is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
+            <Reveal><h2>Training material is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
             <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our demo run, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
           </div>
           <Reveal><RunChart /></Reveal>
@@ -532,14 +532,14 @@ export default function Home() {
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head"><Reveal><h2>Neutral by design.</h2></Reveal><Reveal delay={.1}><p>The vendor's tasks stay sealed. You get the numbers, never the data, and we never sell data ourselves.</p></Reveal></div>
+          <div className="section-head"><Reveal><h2>Neutral by design.</h2></Reveal><Reveal delay={.1}><p>The vendor's tasks stay sealed. You get the numbers, never the material, and we never sell data ourselves.</p></Reveal></div>
           <Beam />
         </div>
       </section>
 
       <section className="section flush">
         <div className="wrap two">
-          <Reveal><h2 style={{ fontSize: 'clamp(30px,3.2vw,44px)' }}>For AI teams buying data</h2>
+          <Reveal><h2 style={{ fontSize: 'clamp(30px,3.2vw,44px)' }}>For AI teams buying training material</h2>
             <ul className="list">{['Test an environment before you pay for it', 'Compare vendors on one private test', 'Stop paying for tasks your model can game'].map(t => <li key={t}><Check />{t}</li>)}</ul></Reveal>
           <Reveal delay={.1}><h2 style={{ fontSize: 'clamp(30px,3.2vw,44px)' }}>For vendors selling it</h2>
             <ul className="list">{['A neutral rating buyers trust more than self-reported results', 'Find grader exploits before a customer does', 'Back your price with measured value'].map(t => <li key={t}><Check />{t}</li>)}</ul></Reveal>

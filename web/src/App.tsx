@@ -20,6 +20,8 @@ export default function App() {
   const [route, setRoute] = useState<Route>(read)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [deep, setDeep] = useState(false)
+  const [dismissed, setDismissed] = useState(false)
   // Smooth scrolling (Lenis) driven by GSAP's ticker so ScrollTrigger stays in sync.
   useEffect(() => {
     if (reduced) return
@@ -43,7 +45,7 @@ export default function App() {
   }, [])
   useEffect(() => {
     const onHash = () => { setRoute(read()); setOpen(false); const l = (window as any).__lenis; if (l) l.scrollTo(0, { immediate: true }); else window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }) }
-    const onScroll = () => setScrolled(scrollY > 8)
+    const onScroll = () => { setScrolled(scrollY > 40); setDeep(scrollY > 900) }
     addEventListener('hashchange', onHash); addEventListener('scroll', onScroll, { passive: true })
     return () => { removeEventListener('hashchange', onHash); removeEventListener('scroll', onScroll) }
   }, [])
@@ -55,25 +57,47 @@ export default function App() {
         <div className="wrap">
           <a className="brand" href="#" aria-label="Touchstone home"><Brand />touchstone</a>
           <LayoutGroup id="nav">
-            <nav className={`nav-links${open ? ' open' : ''}`} aria-label="Main">
+            <nav className="nav-links" aria-label="Main">
               {NAV.map(([key, label]) => (
                 <a key={key} href={`#${key}`} aria-current={route === key ? 'page' : undefined}>
-                  {route === key && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
+                  {route === key && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: 'spring', stiffness: 500, damping: 38 }} />}
                   {label}
                 </a>
               ))}
             </nav>
           </LayoutGroup>
           <RequestButton />
-          <button className="menu" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+          <button className="menu" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(true)}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M3 6h12M3 12h12" /></svg>
           </button>
         </div>
       </header>
+      {/* Mobile menu: a bottom sheet on the iOS sheet curve, dragged or tapped away */}
+      <AnimatePresence>
+        {open && (<>
+          <motion.div key="scrim" className="sheet-scrim" onClick={() => setOpen(false)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .3 }} />
+          <motion.nav key="sheet" className="sheet" aria-label="Menu" initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }} transition={{ duration: .5, ease: [.32, .72, 0, 1] }}
+            drag="y" dragConstraints={{ top: 0, bottom: 0 }} dragElastic={{ top: 0, bottom: .6 }} onDragEnd={(_, i) => { if (i.offset.y > 80 || i.velocity.y > 400) setOpen(false) }}>
+            <a href="#" aria-current={route === '' ? 'page' : undefined}>Home</a>
+            {NAV.map(([key, label]) => <a key={key} href={`#${key}`} aria-current={route === key ? 'page' : undefined}>{label}</a>)}
+            <RequestButton />
+          </motion.nav>
+        </>)}
+      </AnimatePresence>
       <AnimatePresence mode="wait">
-        <motion.main key={route} initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={reduced ? undefined : { opacity: 0, y: -8 }} transition={{ duration: .35, ease: [.16, 1, .3, 1] }}>
+        <motion.main key={route} initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={reduced ? undefined : { opacity: 0, y: -8 }} transition={{ duration: .3, ease: [.22, 1, .36, 1] }}>
           <Page />
         </motion.main>
+      </AnimatePresence>
+      {/* Floating CTA: slides in once the hero is behind you, the way Cluely's does */}
+      <AnimatePresence>
+        {deep && !dismissed && route !== 'request' && (
+          <motion.div className="float-cta" initial={{ opacity: 0, y: 40, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 30, transition: { duration: .2 } }} transition={{ type: 'spring', stiffness: 420, damping: 32 }}>
+            <span><b>Buying an RL environment?</b> Appraise it first.</span>
+            <RequestButton />
+            <button className="x" aria-label="Dismiss" onClick={() => setDismissed(true)}><svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8" /></svg></button>
+          </motion.div>
+        )}
       </AnimatePresence>
       <footer className="footer">
         <div className="wrap">

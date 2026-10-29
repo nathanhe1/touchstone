@@ -1768,6 +1768,100 @@ body{background:var(--paper);color:var(--ink)}
 .process-card h3{color:var(--ink)}
 """
 
+# Open layout: no boxed cards anywhere. Hairlines, whitespace and type carry the structure; headlines get real size.
+CSS += r"""
+.t-hero h1{font-size:clamp(56px,6.6vw,108px);font-weight:720;font-variation-settings:"opsz" 96,"wdth" 82;line-height:.95;letter-spacing:-.02em}
+.t-hero h1 em{display:block;font-size:.98em;line-height:1.02}
+.t-hero-inner{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}
+.t-pill{font-size:11px}
+.t-lede{max-width:560px;font-size:21px;line-height:1.5}
+.is-home h2,.page-title,.section-heading h2{font-size:clamp(44px,5.2vw,84px);font-weight:700;font-variation-settings:"opsz" 96,"wdth" 84;line-height:.98;letter-spacing:-.018em}
+.is-home .h2,.is-home .h2.is-large{font-size:clamp(36px,3.8vw,60px)}
+.t-head{margin-bottom:56px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));grid-auto-flow:column;gap:0}
+.stat{display:grid;align-content:start;gap:10px;padding:6px 40px 0;border-left:1px solid var(--line)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat b{color:#fff;font:740 clamp(64px,7vw,116px)/.88 var(--sans);font-variation-settings:"opsz" 96,"wdth" 78;letter-spacing:-.03em}
+.stat:first-child b{color:var(--lime)}
+.stat span{color:var(--lime);font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.stat p{max-width:320px;margin:6px 0 0;color:var(--muted);font:400 19px/1.45 var(--text)}
+.stat p a{color:var(--ink);text-decoration:underline;text-decoration-color:#e3bf6880;text-underline-offset:3px}
+.stat-more{justify-self:start;margin-top:6px;padding:0;border:0;background:none;color:var(--ink);font:500 12px var(--mono);letter-spacing:.04em;text-decoration:underline;text-decoration-color:#e3bf6880;text-underline-offset:4px;cursor:pointer}
+.stat-more:hover{color:var(--lime)}
+.scrolly-stage,.is-home .scrolly-stage{border:0!important;background:none!important;padding:20px 0!important}
+.stage-progress{right:0;left:0}
+.answers{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.answer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) 240px;align-items:center;gap:40px;min-height:0;padding:34px 0!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;transition:padding .35s var(--out)}
+.answer:hover{padding-left:14px!important;background:none!important}
+.answer h3{margin:0;font:700 clamp(30px,3vw,46px)/1 var(--sans);font-variation-settings:"opsz" 96,"wdth" 84;letter-spacing:-.015em;transition:color .25s}
+.answer:hover h3{color:var(--lime)}
+.answer p{margin:0;max-width:440px;color:var(--muted);font:400 20px/1.4 var(--text)}
+.answer .b-art{justify-self:end;align-self:center}
+.answer .b-rise{width:220px;height:70px}
+.compare{padding:0!important;border:0!important;background:none!important}
+.cmp-bars{gap:22px;margin-top:36px}
+.cmp-bar{grid-template-columns:260px minmax(0,1fr) 100px}
+.cmp-bar span{font:600 17px var(--sans)}
+.cmp-bar i{height:10px;border-radius:5px}
+.is-home .ticks,.ticks{padding:0!important;border:0!important;background:none!important;margin-top:28px}
+.market{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:72px}
+.market-figure{padding:0!important;border:0!important;background:none!important}
+.market-figure b{font:760 clamp(64px,8vw,132px)/.9 var(--sans);font-variation-settings:"opsz" 96,"wdth" 76;letter-spacing:-.03em}
+.market-unit{color:var(--lime);font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.market-figure p{max-width:620px;font:400 20px/1.5 var(--text)}
+.market-strip{position:relative;height:6px;margin-top:18px;border-radius:3px;background:#ffffff14}
+.market-strip i{position:absolute;inset:0 auto 0 0;width:3%;border-radius:3px;background:var(--lime);box-shadow:0 0 18px var(--lime)}
+.market-strip span{position:absolute;top:16px;left:0;color:var(--lime);font:500 11px var(--mono)}
+.moat ul{margin:0;padding:0;border-top:1px solid var(--line);list-style:none}
+.moat li{padding:20px 0;border-bottom:1px solid var(--line);transition:padding .3s var(--out)}
+.moat li:hover{padding-left:10px}
+.moat li b{display:block;font:700 20px var(--sans);font-variation-settings:"wdth" 90}
+.moat li p{margin:6px 0 0;color:var(--muted);font:400 17px/1.45 var(--text)}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.plan{display:grid;align-content:start;gap:14px;padding:6px 48px 0}
+.plan:first-child{padding-left:0}
+.plan+.plan{border-left:1px solid var(--line)}
+.plan h3{margin:0;font:700 clamp(30px,3vw,44px)/1.05 var(--sans);font-variation-settings:"opsz" 96,"wdth" 84}
+.plan>p:not(.t-kicker){margin:0;color:var(--muted);font:400 19px var(--text)}
+.plan .ticks{margin-top:10px}
+.plan .ticks li{font-size:18px}
+.plan .button{justify-self:start;margin-top:14px}
+.plan.is-featured h3{color:var(--lime)}
+.faq summary{font-size:clamp(20px,2vw,26px)}
+.is-home .cta-band h2{font-size:clamp(56px,7vw,120px)}
+.panel,.chart-frame,.result-card,.audience-grid article,.research-card,.ladder-panel,.slope-panel,.evidence-grid .panel{padding:48px 0 0!important;border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+.chart-panel{padding-top:48px!important}
+.chart-frame{padding:0!important;border-top:0!important}
+.crop:before{display:none}
+.evidence-grid{gap:64px;margin-top:24px}
+.detail-hero{margin-top:12px;padding:40px 0 0!important;border:0!important;border-radius:0!important;background:none!important;color:var(--ink)}
+.detail-hero:after{display:none}
+.detail-hero h1{font-size:clamp(52px,6.6vw,104px)}
+.detail-signals{padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.report-board{margin-top:10px}
+.page-head{padding-top:96px}
+.page-intro{font-size:21px;line-height:1.5}
+.panel h2,.chart-copy h2,.slope-panel h2,.ladder-panel h3{font:700 clamp(30px,3vw,46px)/1 var(--sans)!important;font-variation-settings:"opsz" 96,"wdth" 84!important;letter-spacing:-.015em!important}
+.t-hero-copy{max-width:none}
+.t-hero h1{font-size:clamp(52px,5.9vw,92px);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.012em}
+.is-home h2,.page-title,.section-heading h2,.answer h3,.plan h3,.detail-hero h1{font-variation-settings:"opsz" 96,"wdth" 92!important;letter-spacing:-.01em}
+.stat b,.market-figure b{font-variation-settings:"opsz" 96,"wdth" 88;letter-spacing:-.015em}
+.answer{min-height:130px}
+.answer .b-venn{width:200px;height:76px}
+.answer .b-scale{height:70px}
+.answer .b-price b{font-size:40px}
+.process-mark{display:none!important}
+.process-journey{counter-reset:step}
+.process-card{counter-increment:step;justify-content:flex-start!important;gap:18px;padding-top:22px!important}
+.process-card:before{position:static!important;inset:auto!important;display:block!important;width:auto!important;height:auto!important;background:none!important;opacity:1!important;color:var(--lime);font:500 12px var(--mono);letter-spacing:.12em;content:"0" counter(step)}
+.process-card h3{margin-top:0!important}
+.table-wrap{border:0!important;border-top:1px solid var(--ink)!important;border-radius:0!important}
+.table-wrap th{background:none}
+.db-band{fill:transparent}
+@media(max-width:680px){.t-hero-inner{grid-template-columns:1fr}.t-pill{align-items:flex-start}.scoreboard:after{display:none}.t-hero h1{font-size:clamp(46px,12.5vw,60px)}.t-lede{font-size:18px}}
+@media(max-width:680px){.stats,.plans{grid-auto-flow:row;grid-template-columns:1fr;gap:40px}.stat,.plan{padding:0;border-left:0}.plan+.plan{padding-top:40px;border-top:1px solid var(--line)}.answer{grid-template-columns:1fr;gap:12px}.answer .b-art{justify-self:start}.market{grid-template-columns:1fr;gap:48px}.cmp-bar{grid-template-columns:1fr 70px}.t-hero h1{font-size:clamp(46px,13vw,64px)}}
+"""
+
 # Wider than a phone means the desktop layout, scaled to fit; only phones reflow.
 CSS = CSS.replace("@media(max-width:900px)", "@media(max-width:680px)").replace("@media(max-width:850px)", "@media(max-width:680px)")
 CSS = CSS.replace("@media(min-width:851px)", "@media(min-width:681px)")
@@ -3030,6 +3124,15 @@ def console_runs() -> str:
     return "".join(blocks)
 
 
+def stat_columns(items: list[tuple[str, str, str, str]]) -> str:
+    """Big figures in open columns divided by hairlines: (figure, unit, sentence, detail pop id or "")."""
+    cells = []
+    for figure, unit, sentence, pop in items:
+        more = (f'<button class="stat-more" type="button" data-pop-open="{pop}" aria-haspopup="dialog">Source and detail ↗</button>' if pop else "")
+        cells.append(f'<div class="stat" data-rise><b>{figure}</b><span>{unit}</span><p>{sentence}</p>{more}</div>')
+    return f'<div class="stats">{"".join(cells)}</div>'
+
+
 def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
     ladder = data["ladder"]
     biggest = max(ladder.values())
@@ -3054,22 +3157,21 @@ def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
     step_list = "".join(f'<li class="scrolly-step{" is-active" if i == 0 else ""}" data-step="{i}"><button type="button"><span class="step-no">0{i + 1}</span>'
                         f'<b>{t}</b><p>{x}</p></button></li>' for i, (t, x) in enumerate(steps))
     stage = "".join(f'<div class="stage-panel{" is-active" if i == 0 else ""}" data-stage="{i}">{v}</div>' for i, v in enumerate(visuals))
-    bento = (
-        ("is-wide", "Transfer", "Does it make your model better at problems it never saw?", '<svg class="b-art b-rise" viewBox="0 0 200 80" aria-hidden="true"><path pathLength="1" d="M0 70 C40 66 60 50 90 44 S150 18 200 10"/><circle cx="200" cy="10" r="5"/></svg>'),
-        ("", "Reward exploits", "Can a model score without solving the task?", '<div class="b-art b-exploit" aria-hidden="true"><i></i><i></i><i></i><b>2 found</b></div>'),
-        ("", "Redundant tasks", "How much of it is already free?", '<div class="b-art b-venn" aria-hidden="true"><i></i><i></i><b>31%</b></div>'),
-        ("", "Forecast", "What gain should you expect at your model size?", '<div class="b-art b-scale" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'),
-        ("", "Fair value", "What is each task actually worth?", '<div class="b-art b-price" aria-hidden="true"><b>$640</b><s>$2,000</s></div>'),
+    answers = (
+        ("Transfer", "Does it make your model better at problems it never saw?", '<svg class="b-art b-rise" viewBox="0 0 200 80" aria-hidden="true"><path pathLength="1" d="M0 70 C40 66 60 50 90 44 S150 18 200 10"/><circle cx="200" cy="10" r="5"/></svg>'),
+        ("Reward exploits", "Can a model score without solving the task?", '<div class="b-art b-exploit" aria-hidden="true"><i></i><i></i><i></i><b>2 found</b></div>'),
+        ("Redundancy", "How much of it is already free?", '<div class="b-art b-venn" aria-hidden="true"><i></i><i></i><b>31%</b></div>'),
+        ("Forecast", "What gain should you expect at your model size?", '<div class="b-art b-scale" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'),
+        ("Fair value", "What is each task actually worth?", '<div class="b-art b-price" aria-hidden="true"><b>$640</b><s>$2,000</s></div>'),
     )
-    bento_html = "".join(f'<article class="bento-tile tilt {cls}" data-rise><div class="b-copy"><h3>{title}</h3><p>{text}</p></div>{art}</article>'
-                         for cls, title, text, art in bento)
+    answers_html = "".join(f'<li class="answer bento-tile" data-rise><h3>{title}</h3><p>{question}</p>{art}</li>' for title, question, art in answers)
     compare_envs = (("Env A · coding agent", 92, 2.0, .4), ("Env B · math reasoning", 81, 9.1, 3.1),
                     ("Env C · web browsing", 75, 6.2, 1.8), ("Env D · tool use", 70, 4.0, 1.1))
     compare_rows = "".join(
         f'<div class="cmp-bar" data-reward="{reward}" data-transfer="{transfer}" data-value="{value}">'
         f'<span>{esc(name)}</span><i style="--w:{reward}%"></i><b>{reward}%</b></div>'
         for name, reward, transfer, value in compare_envs)
-    compare = (f'<div class="compare glass-panel" data-compare><div class="seg-list glass" role="tablist" aria-label="Rank environments by">'
+    compare = (f'<div class="compare" data-compare><div class="seg-list" role="tablist" aria-label="Rank environments by">'
                f'<button class="seg-tab" type="button" role="tab" aria-selected="true" data-metric="reward">Training reward</button>'
                f'<button class="seg-tab" type="button" role="tab" aria-selected="false" data-metric="transfer">Real improvement</button>'
                f'<button class="seg-tab" type="button" role="tab" aria-selected="false" data-metric="value">Value per $1k</button>'
@@ -3097,67 +3199,67 @@ def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
     ))
     team = ""
     if FOUNDERS:
-        people = "".join(f'<article class="t-card tilt person"><b>{esc(name)}</b><small>{esc(role)}</small><p>{esc(why)}</p>'
-                         + (f'<a href="{esc(link)}" target="_blank" rel="noopener">Profile ↗</a>' if link else "") + "</article>"
+        people = "".join(f'<div class="stat person"><b>{esc(name)}</b><span>{esc(role)}</span><p>{esc(why)}</p>'
+                         + (f'<a class="stat-more" href="{esc(link)}" target="_blank" rel="noopener">Profile ↗</a>' if link else "") + "</div>"
                          for name, role, why, link in FOUNDERS)
-        team = f'<section class="container t-section"><div class="t-head"><p class="t-kicker">Team</p><h2 data-split>Who is <em>building this.</em></h2></div><div class="t-problems">{people}</div></section>'
-    statement = ("Touchstone helps AI companies decide which training data and RL environments are worth paying for, "
-                 "before they commit to full-scale training.")
+        team = f'<section class="container t-section"><div class="t-head"><p class="t-kicker">Team</p><h2 data-split>Who is <em>building this.</em></h2></div><div class="stats">{people}</div></section>'
+    moat = "".join(f'<li><b>{title}</b><p>{text}</p></li>' for title, text in (
+        ("Neutral by design", "We never sell data or environments."),
+        ("A private test suite", "No vendor can train on it. It gets more valuable the longer it stays clean."),
+        ("Every appraisal teaches us", "Each run sharpens which environment features actually transfer."),
+        ("The first standard sticks", "In ratings and audits, the first credible standard tends to win.")))
+    statement = ("Teams pay up to $2,000 a task, then spend weeks of GPU time finding out whether it worked. "
+                 "Touchstone tells them first, for a fraction of the cost.")
+    pops = "".join([
+        pop_window("pop-price", "What RL tasks cost", [("", '<div class="pop-copy"><p>Single RL environment tasks typically sell for <strong>$200 to $2,000</strong>, sometimes $20k. Exclusive deals cost 4 to 5 times more.</p></div><p class="fine-print">Price summary citing Epoch AI</p>')]),
+        pop_window("pop-hack", "Reward without skill", [("", '<div class="pop-copy"><p>In our sample run, one environment gave non-answers 100% of the reward. Weak graders, leaked answers and tasks passed without being solved are the most reported failure.</p></div>')]),
+        pop_window("pop-self", "How teams check today", [("", '<div class="pop-copy"><p>Buyers test a small sample, trust results the vendor ran on its own setup, or run full-size training and find out weeks later.</p></div>')]),
+        pop_window("pop-why", "Where these figures come from", [("", '<div class="pop-copy"><p>Lab data spend: reported in TechCrunch and market maps. Inference share: Gartner forecast for 2026. Auditors: no independent verifier appears in current market maps of the data and environment ecosystem.</p></div>')]),
+    ])
     content = f"""<header class="t-hero"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container t-hero-inner">
-<div class="t-hero-copy"><p class="t-pill" data-intro><i></i>Pilot appraisals opening</p>
-<h1 data-split>Will this training data make your model <em>better?</em></h1>
-<p class="t-lede" data-intro>Touchstone answers before you pay. We run small, cheap experiments on RL environments and training data, then tell you what they are worth.</p>
+<div class="t-hero-copy"><p class="t-pill" data-intro><i></i>For AI teams buying RL environments and training data</p>
+<h1 data-split>Test training data <em>before you pay for it.</em></h1>
+<p class="t-lede" data-intro>Touchstone runs small, cheap experiments on an RL environment or dataset and tells you whether it will make your model better, and what it is worth.</p>
 <div class="t-actions" data-intro>{request_action()}<a class="button button-ring" href="#how">See how it works <span class="button-arrow">↓</span></a></div></div>
 <div class="t-console glass" data-intro aria-label="An illustrative appraisal run"><div class="t-console-bar"><span class="lights"><i class="light is-close"></i><i class="light is-min"></i><i class="light is-zoom"></i></span><span>touchstone · appraisal</span><em>illustrative</em></div>
 <div class="t-console-body">{console_runs()}</div></div></div></header>
 <div class="marquee" aria-hidden="true"><div class="marquee-track">{"".join(f"<span>{q}</span><i>✦</i>" for q in ("Does it teach?", "Can it be gamed?", "Is it new?", "Will it scale?", "What is it worth?") * 4)}</div></div>
 <main class="t-main">
 <section class="container t-statement"><p class="t-kicker">What we do</p><p class="t-scrub" data-scrub-text>{statement}</p></section>
-<section class="container t-section"><div class="t-head"><p class="t-kicker">The problem</p><h2 data-split>Training is expensive. <em>Guessing is worse.</em></h2></div>
-<div class="t-problems">
-<article class="t-card tilt" data-rise><span class="t-icon">$</span><b data-count>$2,000</b><p>Top price of one RL environment task</p>{info_chip("pop-price", "What RL tasks cost")}</article>
-<article class="t-card tilt" data-rise><span class="t-icon">≠</span><b>Rewards mislead</b><p>High reward does not mean the model learned a real skill</p>{info_chip("pop-hack", "Reward hacking")}</article>
-<article class="t-card tilt" data-rise><span class="t-icon">⧗</span><b>Weeks of GPU</b><p>Full training runs are how most teams find out today</p>{info_chip("pop-self", "How teams check today")}</article></div></section>
-<section class="container t-section"><div class="t-head t-head-split"><div><p class="t-kicker">Why now</p><h2 data-split>The money is moving <em>to training data.</em></h2></div>
-<p data-rise>Reported figures from public sources. Spend is rising faster than anyone's ability to check it.</p></div>
-<div class="why-grid">
-<article class="why-card tilt"><b data-count>$1B</b><span>a year</span><p>Reported spend on human-curated data by each leading lab</p></article>
-<article class="why-card tilt"><b data-count>55%</b><span>of AI cloud spend</span><p>Inference share Gartner expects in 2026, driven by fine-tuned models in production</p></article>
-<article class="why-card tilt"><b>0</b><span>neutral auditors</span><p>Independent checks of training value in current market maps</p></article></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">The problem</p><h2 data-split>Training data <em>is a blind bet.</em></h2></div>
+{stat_columns([("$2,000", "per task", "The top price for a single RL environment task.", "pop-price"),
+               ("100%", "reward, zero skill", "In our demo, a model won full reward with answers that solved nothing.", "pop-hack"),
+               ("Weeks", "of GPU time", "How long a full training run takes to tell you it didn't help.", "pop-self")])}</section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">Why now</p><h2 data-split>The money is moving <em>to training data.</em></h2></div>
+{stat_columns([("$1B", "a year, per lab", "Reported spend on human-curated data by each leading lab.", "pop-why"),
+               ("55%", "of AI cloud spend", "Inference share Gartner expects in 2026, driven by fine-tuned models.", ""),
+               ("0", "neutral auditors", "Independent checks of training value in current market maps.", "")])}</section>
 <section class="scrolly" id="how"><div class="container scrolly-inner"><div class="scrolly-copy"><p class="t-kicker">How it works</p>
 <h2 data-split class="h2 is-large">Small experiments, <em>before the big spend.</em></h2><ol class="scrolly-steps">{step_list}</ol></div>
-<div class="scrolly-stage-wrap"><div class="scrolly-stage glass-panel">{stage}<div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
-<section class="container t-section"><div class="t-head"><p class="t-kicker">What you get</p><h2 data-split>One report. <em>Five answers.</em></h2></div><div class="bento">{bento_html}</div></section>
+<div class="scrolly-stage-wrap"><div class="scrolly-stage">{stage}<div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">What you get</p><h2 data-split>One report. <em>Five answers.</em></h2></div><ol class="answers">{answers_html}</ol></section>
 <section class="container t-section"><div class="t-head t-head-split"><div><p class="t-kicker">Compare environments · coming in the MVP</p><h2 data-split>The highest reward <em>isn't the best buy.</em></h2></div>
 <p data-rise>Switch the ranking and watch the order change. Illustrative numbers.</p></div>{compare}</section>
 <section class="container t-section t-two"><div><p class="t-kicker">Who it's for</p><h2 data-split class="h2">Both sides <em>of the deal.</em></h2>{audience}</div>
 <div><p class="t-kicker">Where we fit</p><h2 data-split class="h2">Independent, <em>and cheap to run.</em></h2>
 <div class="quad" data-rise><span class="q-axis q-x">Measures training value →</span><span class="q-axis q-y">Independent →</span>{quad}</div><p class="q-hint">Hover a name for detail</p></div></section>
 <section class="container t-section"><div class="t-head"><p class="t-kicker">The opportunity</p><h2 data-split>A verification layer <em>for a new market.</em></h2></div>
-<div class="market"><div class="market-figure glass-panel" data-rise><small>Revenue opportunity · our estimate</small><b>$30M–$100M+</b>
-<p>If environment and post-training data spend reaches a few billion dollars a year by 2027–28, a verification layer taking 1–3% is a $30M–$100M+ business, before any marketplace.</p>
-<div class="market-bar" aria-hidden="true"><i style="--w:100%"><span>Data and environment spend · $ billions</span></i><i class="is-us" style="--w:3%"><span>Touchstone · 1–3%</span></i></div></div>
-<div class="moat"><p class="t-kicker">Why it compounds</p>
-<article class="moat-card"><b>Neutral by design</b><p>We never sell data or environments.</p></article>
-<article class="moat-card"><b>A private test suite</b><p>No vendor can train on it. Its value grows the longer it stays clean.</p></article>
-<article class="moat-card"><b>Every appraisal teaches us</b><p>Each run sharpens which environment features actually transfer.</p></article>
-<article class="moat-card"><b>The first standard sticks</b><p>In ratings and audits, the first credible standard tends to win.</p></article></div></div></section>
-<section class="container t-section"><div class="t-head"><p class="t-kicker">The science</p><h2 data-split>Small runs <em>predict big ones.</em></h2></div><div class="t-research">
-<a class="t-card tilt research" href="https://proceedings.mlr.press/v235/xia24c.html" target="_blank" rel="noopener" data-rise><b>5%</b><p>of well-chosen data can beat training on all of it</p><small>Xia et al. · LESS · ICML 2024 ↗</small></a>
-<a class="t-card tilt research" href="https://proceedings.mlr.press/v267/magnusson25a.html" target="_blank" rel="noopener" data-rise><b>Small → large</b><p>Small experiments predict which data wins at scale</p><small>Magnusson et al. · DataDecide · ICML 2025 ↗</small></a></div></section>
-<section class="container t-section"><div class="t-head"><p class="t-kicker">Pricing</p><h2 data-split>Pay per appraisal, <em>or subscribe.</em></h2></div><div class="t-plans">
-<article class="t-plan tilt" data-rise><p class="t-kicker">Per appraisal</p><h3>Check one environment</h3><p>Before you buy or train on it.</p><ul class="ticks"><li>Sealed test</li><li>Full report</li><li>Fair-value estimate</li></ul>{request_action("Request an appraisal")}</article>
-<article class="t-plan tilt is-featured" data-rise><p class="t-kicker">Subscription</p><h3>Every environment, always</h3><p>For teams training continuously.</p><ul class="ticks"><li>Side-by-side comparison</li><li>Re-tests as environments change</li><li>Vendor ratings over time</li></ul>{request_action("Talk to us")}</article></div></section>
-{team}<section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap" data-rise>{roadmap}</ol></section>
+<div class="market"><div class="market-figure" data-rise><b>$30M–$100M+</b><span class="market-unit">yearly revenue opportunity · our estimate</span>
+<p>Environment and post-training data spend is heading to a few billion dollars a year by 2027–28. A verification layer taking 1–3% of it is a $30M–$100M+ business, before any marketplace.</p>
+<div class="market-strip" aria-hidden="true"><i></i><span>1–3% of spend</span></div></div>
+<div class="moat"><p class="t-kicker">Why it compounds</p><ul>{moat}</ul></div></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">The science</p><h2 data-split>Small runs <em>predict big ones.</em></h2></div>
+{stat_columns([("5%", "of the data", "Training on a well-chosen 5% can beat training on all of it. <a href='https://proceedings.mlr.press/v235/xia24c.html' target='_blank' rel='noopener'>Xia et al., ICML 2024 ↗</a>", ""),
+               ("Small → large", "predicts the winner", "Small experiments predict which data wins at larger scale. <a href='https://proceedings.mlr.press/v267/magnusson25a.html' target='_blank' rel='noopener'>Magnusson et al., ICML 2025 ↗</a>", "")])}</section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">Pricing</p><h2 data-split>Pay per appraisal, <em>or subscribe.</em></h2></div><div class="plans">
+<div class="plan" data-rise><p class="t-kicker">Per appraisal</p><h3>Check one environment</h3><p>Before you buy or train on it.</p><ul class="ticks"><li>Sealed test</li><li>Full report</li><li>Fair-value estimate</li></ul>{request_action("Request an appraisal")}</div>
+<div class="plan is-featured" data-rise><p class="t-kicker">Subscription</p><h3>Every environment, always</h3><p>For teams training continuously.</p><ul class="ticks"><li>Side-by-side comparison</li><li>Re-tests as environments change</li><li>Vendor ratings over time</li></ul>{request_action("Talk to us")}</div></div></section>
+{team}<section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap">{roadmap}</ol></section>
 <section class="container t-section faq"><div class="t-head"><p class="t-kicker">Questions</p><h2 data-split>Fair questions, <em>short answers.</em></h2></div>{faq}</section>
 <section class="cta-band" id="request"><div class="container cta-inner"><div>
 <p class="t-kicker">Pilot appraisals</p><h2 data-split>Know before <em>you train.</em></h2>{request_note}</div>
 <div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div></div></section>
-</main>{"".join([
-        pop_window("pop-price", "What RL tasks cost", [("", '<div class="pop-copy"><p>Single RL environment tasks typically sell for <strong>$200 to $2,000</strong>, sometimes $20k. Exclusive deals cost 4 to 5 times more.</p></div><p class="fine-print">Price summary citing Epoch AI</p>')]),
-        pop_window("pop-hack", "Why rewards mislead", [("", '<div class="pop-copy"><p>Weak graders, leaked answers and tasks passed without being solved are the most reported failure. A model can score high and learn nothing it can use elsewhere.</p></div>')]),
-        pop_window("pop-self", "How teams check today", [("", '<div class="pop-copy"><p>Buyers test a small sample, trust results the vendor ran on its own setup, or run full-size training and find out weeks later.</p></div>')]),
-    ])}"""
+</main>{pops}"""
     return app_shell(content, "Touchstone", "Touchstone runs small, cheap experiments so AI companies know which training data and RL environments are worth paying for.", "", "home", "is-home")
 
 
@@ -3211,19 +3313,14 @@ def process_windows(data: dict) -> str:
 
 
 def appraisals_page(ranked: list[dict], base: dict) -> str:
-    counts = {grade: sum(env["grade"] == grade for env in ranked) for grade in "ABCDF"}
-    filters = '<button class="filter active" data-filter="all" aria-pressed="true">All results <span>' + str(len(ranked)) + '</span></button>'
-    filters += "".join(f'<button class="filter" data-filter="{grade}" aria-label="Filter by grade {grade}" aria-pressed="false">{grade} <span>{count}</span></button>'
-                       for grade, count in counts.items() if count)
-    cards = "".join(result_card(env, "", index * 60) for index, env in enumerate(ranked))
     body = f"""<main class="container"><header class="page-head"><p class="eyebrow">Sample report · demo data</p>
-<h1 class="page-title">Six environments.<br><span>One test.</span></h1><p class="page-intro">A demo appraisal of six fictional RL environments, each built to show a common failure, trained on tiny models. The pipeline is real; the vendors and numbers are examples.</p>
-<div class="toolbar"><div class="filters" role="group" aria-label="Filter appraisals by grade">{filters}</div>
-<label class="search"><span aria-hidden="true">⌕</span><input id="appraisal-search" type="search" placeholder="Search environments" aria-label="Search environments"></label></div>
-<div class="result-grid">{cards}<p class="empty-state" hidden>No matches. Try a different search or grade.</p></div>
-<aside class="baseline-aside"><p class="fine-print">The yardstick every grade is measured against</p>{spec_list([("Free comparison set", esc(base['name'])), ("Tasks", f"{base['redundancy']['n_tasks']:,}"), ("Its change on new questions", pts(base['actual_at_truth']))])}</aside></header></main>
-{''.join(peek_window(env, env['id'] + '/index.html') for env in ranked)}"""
-    return app_shell(body, "Appraisals", "Browse independent environment appraisals and open each evidence certificate.", "../", "appraisals")
+<h1 class="page-title">Six environments. <span>One test.</span></h1><p class="page-intro">Six fictional RL environments, each built to show a common failure, appraised with tiny models. The pipeline is real; the vendors and numbers are examples.</p></header>
+<section class="report-board">{scoreboard(ranked, base)}
+<div class="board-legend"><span><i class="k-gain"></i>Better on new questions</span><span><i class="k-loss"></i>Worse</span><span><i class="k-risk"></i>Flagged</span><span><i class="k-base"></i>Free comparison set</span></div>
+<p class="board-hint">Click a column to sort · move across the change column to set a threshold · select a row for a quick look</p></section>
+<aside class="baseline-aside"><p class="fine-print">The yardstick every grade is measured against</p>{spec_list([("Free comparison set", esc(base['name'])), ("Tasks", f"{base['redundancy']['n_tasks']:,}"), ("Its change on new questions", pts(base['actual_at_truth']))])}</aside></main>
+{''.join(peek_window(env, env['id'] + '/index.html') for env in ranked)}{peek_window(base, '')}"""
+    return app_shell(body, "Sample report", "A demo appraisal of six fictional RL environments: transfer, shortcut reward and overlap for each.", "../", "appraisals")
 
 
 def detail_page(data: dict, environment: dict, base: dict) -> str:

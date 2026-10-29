@@ -119,3 +119,20 @@ export function Close({ title, text }: { title: ReactNode; text: string }) {
     </section>
   )
 }
+
+/** Grade as a credit-style A–F scale; the highlight slides between letters when a layoutId is given. */
+export function Rating({ grade, compact = false, layoutId }: { grade: string; compact?: boolean; layoutId?: string }) {
+  const good = grade === 'A' || grade === 'B'
+  return (
+    <span className={`rating${compact ? ' compact' : ''}`} role="img" aria-label={grade === '—' ? 'No grade: free comparison set' : `Grade ${grade} on a scale from A to F`}>
+      {['A', 'B', 'C', 'D', 'F'].map(letter => (
+        <i key={letter} className={letter === grade ? 'on' : ''}>
+          {letter === grade && (layoutId
+            ? <motion.span layoutId={layoutId} className={`hl ${good ? 'good' : 'bad'}`} transition={{ type: 'spring', stiffness: 420, damping: 30 }} />
+            : <span className={`hl ${good ? 'good' : 'bad'}`} />)}
+          {letter}
+        </i>
+      ))}
+    </span>
+  )
+}

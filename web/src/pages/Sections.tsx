@@ -1,69 +1,9 @@
 import { useState } from 'react'
-import { AnimatePresence, motion, LayoutGroup } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import { vendors, pct } from '../data'
-import { Alert, Arrow, Check, Panel, Reveal, reduced } from '../ui'
+import { Alert, Arrow, Check, Reveal, reduced } from '../ui'
 
 const ease = [.16, 1, .3, 1] as const
-
-/* What the pipeline caught, counted from the appraisal data rather than typed in. */
-export function Caught() {
-  const gamed = vendors.filter(e => e.hackability.score >= .2).length
-  const copied = vendors.filter(e => e.redundancy.public_overlap >= .5).length
-  const best = [...vendors].sort((a, b) => b.fair_value_per_task - a.fair_value_per_task)[0]
-  const items: [string, string, string][] = [
-    [`${gamed} of ${gamed}`, 'broken graders flagged', 'Each paid out reward for answers that solved nothing.'],
-    [`${copied} of ${copied}`, 'copied dataset caught', `${pct(vendors.find(e => e.redundancy.public_overlap >= .5)!.redundancy.public_overlap)} of its tasks were already free.`],
-    [best.grade, `for the one honest set`, `Priced at $${Math.round(best.fair_value_per_task)} a task, the only one worth buying.`],
-  ]
-  return (
-    <div className="caught">
-      {items.map(([big, label, text], i) => (
-        <motion.div key={label} className="caught-item" initial={reduced ? false : { opacity: 0, y: 24, scale: .96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
-          transition={{ delay: i * .12, type: 'spring', stiffness: 220, damping: 20 }} whileHover={{ y: -4 }}>
-          <b>{big}</b><span>{label}</span><p>{text}</p>
-        </motion.div>
-      ))}
-    </div>
-  )
-}
-
-/* Arrow's information paradox, as a before-and-after the visitor can flip. */
-export function Paradox() {
-  const [side, setSide] = useState<'without' | 'with'>('without')
-  const lines = side === 'without'
-    ? [['buyer', 'Can I see the tasks before I pay?'], ['vendor', 'If I show you, I\'ve given the product away.'], ['buyer', 'Then show me proof it works.'], ['vendor', 'Here are results we ran ourselves.'], ['buyer', 'So I either trust you, or pay first and find out in weeks.']]
-    : [['vendor', 'I upload the environment to Touchstone. It stays sealed.'], ['touchstone', 'We train small models on it and test them on problems neither of you has seen.'], ['buyer', 'I get the numbers and a fair price per task.'], ['vendor', 'My tasks never leave the sandbox.'], ['touchstone', 'And we never sell data, so we can rate everyone.']]
-  return (
-    <div className="paradox">
-      <div className="paradox-copy">
-        <h2>The buyer can't judge it without seeing it. <span className="transfer">The seller can't show it without giving it away.</span></h2>
-        <p className="lede">Economists call this Arrow's information paradox. It is why training material is bought on trust today, and why it takes a neutral third party to fix it. Neither side can solve it alone.</p>
-        <LayoutGroup id="paradox">
-          <div className="seg" role="tablist" aria-label="Show the conversation">
-            {(['without', 'with'] as const).map(k => (
-              <button key={k} role="tab" aria-selected={side === k} onClick={() => setSide(k)}>
-                {side === k && <motion.span layoutId="paradox-pill" className="seg-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
-                <span>{k === 'without' ? 'Without Touchstone' : 'With Touchstone'}</span>
-              </button>
-            ))}
-          </div>
-        </LayoutGroup>
-      </div>
-      <Panel title={side === 'without' ? 'a purchase today' : 'a purchase with touchstone'} meta={side === 'without' ? 'stuck' : 'resolved'}>
-        <div className="chat">
-          <AnimatePresence mode="popLayout">
-            {lines.map(([who, text], i) => (
-              <motion.div key={side + i} className={`bubble ${who}`} initial={{ opacity: 0, y: 14, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, scale: .96 }}
-                transition={{ delay: reduced ? 0 : i * .22, type: 'spring', stiffness: 260, damping: 22 }}>
-                <small>{who}</small>{text}
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      </Panel>
-    </div>
-  )
-}
 
 /* The exploit gallery: what we feed the grader, and what the appraised graders paid for it. */
 export function Exploits() {

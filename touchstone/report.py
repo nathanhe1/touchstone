@@ -7,6 +7,16 @@ import re
 import sys
 from pathlib import Path
 
+# Paste the request form link (Google Forms, Tally, Typeform) here; the site's buttons use it once set.
+REQUEST_FORM_URL = ""
+
+# What has happened so far, newest last. Add a line as pilots and conversations happen.
+STATUS = [
+    ("Working prototype", "The full pipeline runs end to end: sealing, training at four model sizes, transfer tests, "
+                          "shortcut probes, overlap checks and a scaling forecast with a fair-value estimate."),
+    ("Talking to the market", "Reaching out to RL environment vendors and AI teams about first pilot appraisals."),
+]
+
 GRADE_CLASS = {"A": "g-a", "B": "g-b", "C": "g-c", "D": "g-d", "F": "g-f", "—": "g-base"}
 
 
@@ -1273,6 +1283,93 @@ body{font-optical-sizing:auto;letter-spacing:-.008em}
 """
 
 
+# Product-site layer: plain grotesque headings, a cooler neutral and the touchstone's gold streak as the one accent.
+CSS += r"""
+:root{--paper:#f3f3ef;--surface:#fbfbf8;--ink:#141618;--muted:#5f6367;--line:#d8d9d3;--blue:#86621b;--blue-soft:#ece5d3;--lime:#d6b25c;--band:#141618;--band-ink:#ecebe6;--band-muted:#a7a9a6}
+:root[data-theme=dark]{--paper:#0f1113;--surface:#17191c;--ink:#ecebe6;--muted:#9b9fa3;--line:#2b2e32;--blue:#d6b25c;--blue-soft:#25211a;--lime:#d6b25c;--band:#191b1e;--band-ink:#ecebe6;--band-muted:#a7a9a6}
+.reveal{opacity:1!important;transform:none!important}
+.eyebrow:before,.hero:after{display:none}
+.hero h1,.page-title,.section-heading h2,.cta-band h2{font-family:var(--sans);font-style:normal;font-weight:680;font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.022em;line-height:1;text-wrap:balance}
+.section{padding-top:72px;padding-bottom:72px}.problem{padding-bottom:24px}
+.hero h1>span:not(.kinetic-word),.page-title>span:not(.kinetic-word),.section-heading h2>span:not(.kinetic-word),.cta-band h2>span{font-style:normal}
+.hero h1{max-width:620px;font-size:clamp(46px,5.4vw,78px);color:#f4f3ef}
+.hero h1>span:not(.kinetic-word){display:block;color:var(--lime)}
+.page-title{font-size:clamp(44px,5.6vw,76px)}
+.section-heading h2{font-size:clamp(34px,4.2vw,58px)}
+.section-heading h2>span:not(.kinetic-word),.page-title>span:not(.kinetic-word){color:var(--blue)}
+.hero{background:var(--band)}
+.hero-inner{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;min-height:0;padding-top:84px;padding-bottom:88px}
+.hero-lede{max-width:540px;color:#c9c8c2}
+.hero-meta{display:block;margin-top:22px;color:var(--band-muted);font:500 10px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cert{display:grid;gap:14px;padding:22px 24px 20px;border:1px solid #ffffff2b;background:#1f2225;color:var(--band-ink);box-shadow:0 30px 70px #0007}
+.cert-head{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--band-muted);font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.cert-stamp{padding:3px 7px;border:1px solid var(--lime);color:var(--lime)}
+.cert-title{display:grid;grid-template-columns:54px minmax(0,1fr);align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid #ffffff24}
+.cert-grade{display:grid;width:54px;height:54px;place-items:center;border:1px solid var(--lime);color:var(--lime);font:italic 400 36px/1 var(--display)}
+.cert-title strong{display:block;font:650 21px/1.15 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.cert-title small{display:block;margin-top:4px;color:var(--band-muted);font:500 9.5px var(--mono);letter-spacing:.06em}
+.cert-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:6px 16px;padding:10px 0;border-bottom:1px solid #ffffff14}
+.cert-row>span:first-child{font:500 13.5px var(--sans)}
+.cert-row b{font:600 13px var(--mono);font-variant-numeric:tabular-nums}
+.cert-viz{grid-column:1/-1;color:var(--band-muted);font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cert .dbar:before{background:#ecebe680}.cert .meter{background:#ffffff26}.cert .meter i{background:#ecebe6}.cert .meter.is-risk i{background:var(--risk)}
+.cert-foot{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cert-foot small{display:block;color:var(--band-muted);font:500 9px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cert-foot b{display:block;margin-top:4px;font:700 26px/1 var(--sans);font-variation-settings:"wdth" 88;letter-spacing:-.03em}
+.cert-foot em{color:var(--band-muted);font:500 11px var(--mono);font-style:normal;letter-spacing:0}
+.cert-link{justify-self:start;color:var(--lime);font:600 10px var(--mono);letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+.cert-link:hover{text-decoration:underline;text-underline-offset:4px}
+.fact-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.fact-row article{display:grid;align-content:start;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
+.fact-row b{font:680 clamp(30px,3.2vw,44px)/1 var(--sans);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.02em}
+.fact-row p{margin:0;font:400 16px/1.5 var(--text)}
+.fact-row small,.research-card small{color:var(--muted);font:500 9.5px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:0;padding:0;list-style:none}
+.steps li{display:grid;align-content:start;gap:8px;padding-top:14px;border-top:1px solid var(--ink)}
+.steps i{color:var(--blue);font:600 10px var(--mono);font-style:normal;letter-spacing:.1em}
+.steps i:before{content:"Step "}
+.steps h3{margin:0;font:650 21px/1.15 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.steps p{margin:0;color:color-mix(in srgb,var(--ink),var(--muted) 45%);font:400 15px/1.5 var(--text)}
+.measures{margin-top:56px}
+.measures dl{margin:14px 0 0;border-top:2px solid var(--ink)}
+.measures dl>div{display:grid;grid-template-columns:minmax(160px,.35fr) minmax(0,1fr);gap:24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.measures dt{font:650 18px/1.3 var(--sans);font-variation-settings:"wdth" 90}
+.measures dd{margin:0;font:400 17px/1.5 var(--text)}
+.audience{padding-top:0}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.audience-grid article{padding:28px;border:1px solid var(--line);background:var(--surface)}
+.audience-grid h3{margin:0 0 16px;font:680 30px/1.05 var(--sans);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.018em}
+.audience-grid ul{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.audience-grid li{position:relative;padding-left:20px;font:400 16px/1.45 var(--text)}
+.audience-grid li:before{position:absolute;top:.62em;left:0;width:8px;height:8px;background:var(--lime);content:""}
+.compare{border-radius:0}
+.compare table{font-size:13px}
+.compare th[scope=row]{font:600 13px var(--sans);text-transform:none;letter-spacing:0;color:var(--ink);background:transparent;white-space:normal}
+.compare tr.is-us th,.compare tr.is-us td{background:var(--blue-soft);font-weight:700}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.research-card{display:grid;gap:14px;padding:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;transition:border-color .15s}
+.research-card:hover{border-color:var(--ink)}
+.research-card p{margin:0;font:400 22px/1.35 var(--text)}
+.status-list{margin:0;padding:0;border-top:2px solid var(--ink);list-style:none}
+.status-list li{display:grid;grid-template-columns:minmax(160px,.35fr) minmax(0,1fr);gap:24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.status-list b{font:650 18px var(--sans);font-variation-settings:"wdth" 90}
+.status-list p{margin:0;font:400 17px/1.5 var(--text)}
+.cta-band{margin-top:40px;padding:80px 0;background:var(--band);color:var(--band-ink)}
+.cta-inner{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:end;gap:40px}
+.cta-band .eyebrow{color:var(--band-muted)}
+.cta-band h2{margin:0;font-size:clamp(36px,4.4vw,60px);color:#f4f3ef}
+.cta-band h2>span{color:var(--lime)}
+.process-card,.process-card:nth-child(even),.process-card:hover,.process-card:nth-child(even):hover{transform:none}
+.process-mark,.process-card:nth-child(n) .process-mark{animation:none!important;transform:none!important;font-size:26px!important}
+.process-journey:before{display:none}
+.process-card h3{font:650 22px/1.1 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.cta-band p:not(.eyebrow){max-width:560px;margin:18px 0 0;color:#c9c8c2;font:400 18px/1.5 var(--text)}
+.cta-band .cta-note{color:var(--lime);font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cta-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+main+.footer,.cta-band+.footer{margin-top:0}
+@media(max-width:680px){.hero-inner{grid-template-columns:1fr;gap:36px;padding-top:52px;padding-bottom:56px}.fact-row,.steps,.audience-grid,.research-grid,.cta-inner{grid-template-columns:1fr}.measures dl>div,.status-list li{grid-template-columns:1fr;gap:4px}.cta-actions{justify-content:flex-start}.cert{padding:18px}.research-card p{font-size:19px}}
+"""
+
 # Wider than a phone means the desktop layout, scaled to fit; only phones reflow.
 CSS = CSS.replace("@media(max-width:900px)", "@media(max-width:680px)").replace("@media(max-width:850px)", "@media(max-width:680px)")
 CSS = CSS.replace("@media(min-width:851px)", "@media(min-width:681px)")
@@ -1419,69 +1516,6 @@ SCRIPT = r"""
     });
     point.addEventListener('focusout', () => tooltip?.classList.remove('visible'));
   });
-  const kinetic = document.querySelectorAll(
-    'h1,h2,h3,.hero-lede,.page-intro,.window-body p,.chart-copy>p:not(.eyebrow):not(.fine-print),.feature-main>p,' +
-    '.feature-note p,.feature-note small,.feature-estimate p,.feature-estimate>small,' +
-    '.result-card p,.process-card p,.why-buy p,.plain-brief-copy>p,.plain-step p,' +
-    '.verdict,.scale-caveat,.chart-note-rail small,.ledger-intro p'
-  );
-  kinetic.forEach(element => {
-    const label = element.textContent.trim();
-    if (label) element.setAttribute('aria-label', label);
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
-    while (walker.nextNode()) {
-      if (walker.currentNode.textContent.trim() && !walker.currentNode.parentElement.closest('a,button')) textNodes.push(walker.currentNode);
-    }
-    let index = 0;
-    textNodes.forEach(node => {
-      const fragment = document.createDocumentFragment();
-      const pieces = node.textContent.split(/(\s+)/);
-      pieces.forEach(piece => {
-        if (!piece) return;
-        if (/^\s+$/.test(piece)) fragment.append(document.createTextNode(piece));
-        else {
-          const span = document.createElement('span');
-          span.className = 'kinetic-word';
-          span.setAttribute('aria-hidden', 'true');
-          span.style.setProperty('--word-index', String(index++));
-          span.textContent = piece;
-          fragment.append(span);
-        }
-      });
-      node.replaceWith(fragment);
-    });
-  });
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reducedMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.querySelectorAll('.ledger-stat,.quick-card,.feature-card,.result-card,.process-card,.window').forEach(card => {
-      card.addEventListener('pointermove', event => {
-        if (card.classList.contains('is-dragging')) return;
-        const bounds = card.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width;
-        const y = (event.clientY - bounds.top) / bounds.height;
-        card.style.setProperty('--tilt-x', `${(0.5 - y) * 4}deg`);
-        card.style.setProperty('--tilt-y', `${(x - 0.5) * 5}deg`);
-        card.style.setProperty('--shine-x', `${x * 100}%`);
-        card.style.setProperty('--shine-y', `${y * 100}%`);
-        card.classList.add('is-tilting');
-      });
-      card.addEventListener('pointerleave', () => card.classList.remove('is-tilting'));
-    });
-  }
-  if ('IntersectionObserver' in window && !reducedMotion) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-    }), {threshold: .1});
-    document.querySelectorAll('.reveal').forEach(item => observer.observe(item));
-    const textObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('text-entered'); textObserver.unobserve(entry.target); }
-    }), {threshold: .15});
-    kinetic.forEach(item => textObserver.observe(item));
-  } else {
-    document.querySelectorAll('.reveal').forEach(item => item.classList.add('visible'));
-    kinetic.forEach(item => item.classList.add('text-entered'));
-  }
 })();
 """
 
@@ -1578,32 +1612,6 @@ SCRIPT += r"""
   });
   addEventListener('scroll', hideTip, {passive: true});
 
-  document.addEventListener('pointerdown', event => {
-    const host = event.target.closest('.button,.pop-tab,.filter,.nav-search');
-    if (!host || reduced) return;
-    const bounds = host.getBoundingClientRect();
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    ripple.style.cssText = `left:${event.clientX - bounds.left}px;top:${event.clientY - bounds.top}px;--size:${Math.max(bounds.width, bounds.height) * 2.2}px`;
-    host.append(ripple);
-    ripple.addEventListener('animationend', () => ripple.remove());
-  });
-  if (finePointer && !reduced) {
-    document.querySelectorAll('.button-lime,.button-ink,.nav-cta').forEach(button => {
-      button.addEventListener('pointermove', event => {
-        const bounds = button.getBoundingClientRect();
-        button.style.setProperty('--mx', `${(event.clientX - bounds.left - bounds.width / 2) * .16}px`);
-        button.style.setProperty('--my', `${(event.clientY - bounds.top - bounds.height / 2) * .28}px`);
-      });
-      button.addEventListener('pointerleave', () => { button.style.removeProperty('--mx'); button.style.removeProperty('--my'); });
-    });
-    const hero = document.querySelector('.hero');
-    hero?.addEventListener('pointermove', event => {
-      const bounds = hero.getBoundingClientRect();
-      hero.style.setProperty('--spot-x', `${(event.clientX - bounds.left) / pageScale(hero)}px`);
-      hero.style.setProperty('--spot-y', `${(event.clientY - bounds.top) / pageScale(hero)}px`);
-    });
-  }
 
   const progress = document.querySelector('.scroll-progress');
   let progressQueued = false;
@@ -1988,20 +1996,6 @@ SCRIPT += r"""
     addEventListener('resize', placeInk);
   }
 
-  // Run notices: slide in one after another, leave when their timer runs out.
-  const dismiss = notice => {
-    if (notice.classList.contains('is-leaving')) return;
-    if (reduced) return notice.remove();
-    notice.classList.add('is-leaving');
-    notice.addEventListener('animationend', event => { if (event.target === notice) notice.remove(); });
-  };
-  document.querySelectorAll('[data-notice]').forEach((notice, index) => {
-    notice.querySelector('.notice-close').addEventListener('click', () => dismiss(notice));
-    notice.querySelector('.notice-timer').addEventListener('animationend', () => dismiss(notice));
-    notice.querySelector('.notice-open')?.addEventListener('click', () => dismiss(notice));
-    setTimeout(() => { notice.hidden = false; }, 1600 + index * 1700);
-  });
-
   // Command palette: ⌘K, Ctrl+K or / from anywhere.
   const palette = document.querySelector('#palette');
   const input = palette?.querySelector('input');
@@ -2075,19 +2069,6 @@ SCRIPT += r"""
     }
   });
 
-  // Fade out before following a link to another page.
-  if (!reduced) {
-    document.addEventListener('click', event => {
-      const link = event.target.closest('a[href]');
-      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target) return;
-      const url = new URL(link.href, location.href);
-      if (url.origin !== location.origin || url.pathname === location.pathname) return;
-      event.preventDefault();
-      document.body.classList.add('is-leaving');
-      setTimeout(() => { location.href = url.href; }, 170);
-    });
-    addEventListener('pageshow', () => document.body.classList.remove('is-leaving'));
-  }
 })();
 """
 
@@ -2097,7 +2078,7 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
              "forecast": prefix + "forecast/index.html", "methodology": prefix + "methodology/index.html"}
     nav = "".join(
         f'<a class="{"active" if key == active else ""}" href="{url}">{label}</a>'
-        for key, label in (("home", "Home"), ("appraisals", "Appraisals"), ("forecast", "Forecast"), ("methodology", "Methodology"))
+        for key, label in (("methodology", "How it works"), ("appraisals", "Sample report"), ("forecast", "Forecast check"))
         for url in (links[key],)
     )
     return f"""<!doctype html>
@@ -2112,12 +2093,12 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <div class="nav-links">{nav}</div><div class="nav-actions"><button class="nav-search" type="button" data-palette-open aria-label="Search pages and appraisals">{icon('search')}<span>Search</span><kbd>⌘K</kbd></button>
 <button class="nav-action" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Toggle theme">{icon('theme')}</button>
 <button class="nav-action nav-print" type="button" data-print aria-label="Print or save this page" title="Print">{icon('print')}</button>
-<a class="nav-cta" href="{links['appraisals']}">Explore results <span aria-hidden="true">↗</span></a>
+<a class="nav-cta" href="{esc(REQUEST_FORM_URL) if REQUEST_FORM_URL else links['home'] + '#request'}"{' target="_blank" rel="noopener"' if REQUEST_FORM_URL else ''}>Request an appraisal</a>
 <button class="nav-action menu-toggle" type="button" data-menu aria-label="Open navigation" aria-expanded="false">{icon('menu')}</button></div>
 <span class="scroll-progress" aria-hidden="true"></span></nav>
 {content}
 <footer class="container footer"><a class="wordmark" href="{links['home']}">{brand_mark()}<span>touchstone</span></a>
-<span>Generated appraisal · independent by design</span><div class="footer-links"><a href="{links['appraisals']}">Appraisals</a><a href="{links['forecast']}">Forecast</a><a href="{links['methodology']}">Methodology</a></div></footer>
+<span>Independent appraisal for AI training data</span><div class="footer-links"><a href="{links['methodology']}">How it works</a><a href="{links['appraisals']}">Sample report</a><a href="{links['forecast']}">Forecast check</a></div></footer>
 </div></div>
 <dialog class="palette" id="palette" aria-label="Search Touchstone"><label class="palette-input"><span aria-hidden="true">⌕</span>
 <input type="search" placeholder="Jump to a practice set or page…" aria-label="Search pages and appraisals" autocomplete="off"></label>
@@ -2156,141 +2137,118 @@ data-grade="{esc(grade)}" data-search="{esc(environment['name'].lower())}">
 {peek_button(environment)}</div></div></article>"""
 
 
+def request_action(label: str = "Request an appraisal", prefix: str = "") -> str:
+    """The main call to action: the external request form when one is set, else the request section."""
+    if REQUEST_FORM_URL:
+        return (f'<a class="button button-lime" href="{esc(REQUEST_FORM_URL)}" target="_blank" rel="noopener">'
+                f'{esc(label)} <span class="button-arrow" aria-hidden="true">↗</span></a>')
+    return f'<a class="button button-lime" href="{prefix}index.html#request">{esc(label)} <span class="button-arrow" aria-hidden="true">↓</span></a>'
+
+
+def sample_certificate(environment: dict, truth: str) -> str:
+    """The hero's product shot: one real certificate from the demo run, marked as a sample."""
+    top = environment["rungs"][truth]
+    hack = environment["hackability"]["score"]
+    overlap = environment["redundancy"]["public_overlap"]
+    change = environment["actual_at_truth"]
+    rows = [
+        ("Learns the environment", f'{top["env_reward_before"]:.0%} → {top["env_reward_after"]:.0%}', "reward on its own tasks"),
+        ("Transfers to new questions", f"{pts(change)} pts", signed_bar(change, axis_limit([change], 4))),
+        ("Reward won by shortcuts", f"{hack:.0%}", meter(hack, hack >= .2)),
+        ("Copied from free data", f"{overlap:.0%}", meter(overlap, overlap >= .5)),
+    ]
+    body = "".join(f'<div class="cert-row"><span>{label}</span><b>{value}</b><span class="cert-viz">{viz}</span></div>'
+                   for label, value, viz in rows)
+    return f"""<article class="cert viz" aria-label="Sample appraisal certificate">
+<div class="cert-head"><span>Appraisal certificate</span><span class="cert-stamp">Sample · demo data</span></div>
+<div class="cert-title"><span class="cert-grade">{esc(environment['grade'])}</span><div><strong>{esc(environment['name'])}</strong>
+<small>RL environment · {environment['redundancy']['n_tasks']:,} tasks · sealed {esc(environment['sha256'][:10])}</small></div></div>
+<div class="cert-rows">{body}</div>
+<div class="cert-foot"><div><small>Forecast gain vs free data, at {esc(truth)}</small><b>{pts(environment['lift_over_free'])} pts</b></div>
+<div><small>Fair value</small><b>${environment['fair_value_per_task']:,.0f}<em> / task</em></b></div></div>
+<a class="cert-link" href="appraisals/{esc(environment['id'])}/index.html">Open the full sample certificate <span aria-hidden="true">↗</span></a></article>"""
+
+
 def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
-    ladder, validation = data["ladder"], data["validation"]
-    observed_difference = best["actual_at_truth"] - base["actual_at_truth"]
-    versus_limit = axis_limit([best["actual_at_truth"], base["actual_at_truth"]])
-    cards = []
-    card_content = (
-        ("Build with evidence", "See how each practice set performed.", "appraisals/index.html", "Explore the results"),
-        ("Check the prediction", "See whether small tests predicted larger-model results.", "forecast/index.html", "See the forecast test"),
-        ("Understand the method", "Follow each check, from practice to new questions.", "methodology/index.html", "See how it works"),
+    truth = data["truth_rung"]
+    measures = (
+        ("Learnability", "Does the model get better at the environment's own tasks?"),
+        ("Transfer", "Does that improvement carry over to new questions it never trained on? This is the number that matters."),
+        ("Hackability", "How much reward can a model win without actually solving the task?"),
+        ("Redundancy", "How much does it add beyond free public data and the data you already own?"),
+        ("Forecast and fair value", "What gain should you expect at your model size, and what is each task worth?"),
     )
-    for index, (title, description, href, label) in enumerate(card_content, 1):
-        cards.append(f'<a class="quick-card quick-card--{index}" href="{href}"><span class="quick-kicker">{label}</span><b>{title}</b><span class="quick-arrow" aria-hidden="true">↗</span><small>{description}</small></a>')
-    windows = []
-    gamed = max(ranked, key=lambda env: env["hackability"]["score"])
-    names = [env["name"] for env in ranked]
-    changes = [env["actual_at_truth"] for env in ranked]
-    values = [env["fair_value_per_task"] for env in ranked]
-    window_viz = [
-        f'<div class="window-viz viz">{meter(gamed["hackability"]["score"], True)}<span class="window-viz-row">'
-        f'<span>Worst grader: {esc(gamed["name"])}</span><b>{gamed["hackability"]["score"]:.0%}</b></span></div>',
-        f'<div class="window-viz viz">{mini_bars(changes, [f"{name}: {pts(change)} pts" for name, change in zip(names, changes)], "Change on new questions for each practice set")}'
-        f'<span class="window-viz-row"><span>Change on new questions, per set</span><b>{pts(max(changes))} best</b></span></div>',
-        f'<div class="window-viz viz">{mini_bars(values, [f"{name}: ${value:,.0f} per task" for name, value in zip(names, values)], "Estimated value per task for each practice set")}'
-        f'<span class="window-viz-row"><span>Estimated value per task</span><b>${max(values):,.0f} top</b></span></div>',
-    ]
-    messages = [
-        ("Answer-check test", "Can the scorekeeper be fooled?", "We try wrong or incomplete answers. If they earn points, the practice set gets flagged.", "Checking the answer checker"),
-        ("New-question test", "Did the AI actually learn?", "After practice, we ask questions the model has not seen before. Higher practice scores alone are not enough.", "Learning that carries over"),
-        ("Buyer note", "What is it worth?", "We compare useful improvement with free practice and flag repeated or gameable material.", "A buying guide"),
-    ]
-    for index, (label, heading, body, tag) in enumerate(messages, 1):
-        windows.append(f"""<article class="window window-{['one','two','three'][index-1]}" data-window="{index}">
-<div class="window-bar"><span class="lights"><button class="light is-close" type="button" data-close aria-label="Close {esc(heading)}"></button><button class="light is-min" type="button" data-minimize aria-label="Minimize {esc(heading)}"></button><button class="light is-zoom" type="button" data-zoom aria-label="Bring {esc(heading)} to the front"></button></span><span>{label}</span><span class="window-spacer" aria-hidden="true"></span></div>
-<div class="window-body"><small>{tag}</small><h2>{heading}</h2><p>{body}</p>{window_viz[index - 1]}</div></article>""")
-    third = data["heldout_items"] // 3
-    ledger_pops = [
-        pop_window("pop-sets", "Practice sets in this run", [("", (
-            '<div class="pop-copy"><p>Six fictional vendors, each built to show a different failure mode. One free set is the yardstick.</p></div>'
-            '<ul class="pop-env-list">' + "".join(f'<li style="--n:{index}"><i>{esc(env["grade"])}</i>{esc(env["name"])}</li>' for index, env in enumerate(ranked))
-            + f'<li style="--n:{len(ranked)}"><i>—</i>{esc(base["name"])}</li></ul>'))]),
-        pop_window("pop-sizes", "The model ladder", [("", (
-            '<div class="pop-copy"><p>Every set is trained with <strong>one fixed recipe</strong> at each rung. Small rungs are cheap; the largest checks the forecast.</p></div>'
-            + model_ladder(ladder)))]),
-        pop_window("pop-rho", "Reading the forecast match", [("", (
-            f'<div class="pop-copy"><p>Rank match compares the forecast order of the sets with the order measured on the largest model.</p></div>'
-            + rho_scale(validation["spearman_forecast_vs_actual"])
-            + '<p class="pop-note">Near zero means the small models did not predict which sets would help most. With six sets and tiny models, treat this as a warning, not a verdict.</p>'))]),
-        pop_window("pop-suite", "The private question bank", [("", (
-            f'<div class="pop-copy"><p>{data["heldout_items"]} questions no vendor ever sees. The score change on these is what buyers care about.</p></div>'
-            f'<div class="suite-split viz"><span style="--a:55%;--n:0">2-digit + · {third}</span><span style="--a:35%;--n:1">3-digit + · {third}</span><span style="--a:20%;--n:2">Reversal · {third}</span></div>'
-            '<p class="pop-note">Arithmetic and string reversal in this prototype. Production domains each need their own private suite.</p>'))]),
-    ]
-    notices = [
-        ("◆", "Seal verified", f"{len(ranked) + 1} practice sets fingerprinted with SHA-256 before any training.", None),
-        ("!", "Shortcut caught", f"{gamed['name']}: non-answers earned {gamed['hackability']['score']:.0%} of the reward.", gamed),
-        ("↗", "Standout this run", f"{best['name']}: {pts(best['actual_at_truth'])} pts on new questions.", best),
-    ]
-    notice_html = "".join(
-        f'<div class="notice" data-notice hidden><span class="notice-icon" aria-hidden="true">{icon}</span><div><b>{esc(title)}</b><p>{esc(body)}</p>'
-        + (f'<button class="notice-open" type="button" data-pop-open="peek-{esc(env["id"])}">Quick look ↗</button>' if env else "")
-        + '</div><button class="notice-close" type="button" aria-label="Dismiss notice">×</button><span class="notice-timer" aria-hidden="true"></span></div>'
-        for icon, title, body, env in notices)
-    peeks = "".join(peek_window(env, f"appraisals/{env['id']}/index.html") for env in ranked) + peek_window(base, "")
-    restores = "".join(
-        f'<button class="restore-window" data-restore="{i}" type="button">Restore “{esc(message[1])}” ↗</button>'
-        for i, message in enumerate(messages, 1)
+    steps = (
+        ("Seal", "The seller uploads the environment or dataset to a sealed sandbox. The buyer never sees the tasks, only the results."),
+        ("Train small models", "We train a fixed family of small open models on it with one published recipe, at several sizes."),
+        ("Measure", "We test the trained models on private questions no vendor has seen, and try to game the grader."),
+        ("Forecast and price", "We fit how gains grow with model size, forecast the gain at your scale and estimate a fair price per task."),
     )
-    rho = validation["spearman_forecast_vs_actual"]
-    hero = f"""<header class="hero"><div class="container hero-inner"><div>
-<p class="eyebrow">Independent AI practice review · Run {esc(data['generated'].split()[0])}</p>
-<h1>Better practice.<span>Better AI.</span></h1>
-<p class="hero-lede">We test the materials used to train AI before you buy them. Do they teach useful skills—or just help a model score points?</p>
-<div class="hero-buttons"><a class="button button-lime" href="appraisals/index.html">See what we found <span class="button-arrow">↗</span></a>
-<a class="button button-ring" href="#what-we-do">What is Touchstone? <span class="button-arrow">↓</span></a></div>
-<div class="hero-meta"><b>{data['heldout_items']}</b> fresh test questions <span>·</span> {len(ranked)} practice sets reviewed <span>·</span> one fair comparison
-<button class="button button-kbd button-small" type="button" data-palette-open>Jump to a set <kbd>⌘K</kbd></button></div>
-</div><div class="hero-scene"><div class="scene-glow"></div>{''.join(windows)}{restores}</div></div></header>"""
-    top = f"""<main><div class="container">
-<section class="plain-brief reveal" id="what-we-do" aria-labelledby="plain-brief-title">
-<div class="plain-brief-intro"><p class="eyebrow">What is Touchstone?</p><h2 id="plain-brief-title">A quality check for AI practice.</h2>
-<p>AI gets better by practicing. Touchstone helps people choose practice materials that build real ability—not just impressive-looking scores.</p></div>
-<div class="plain-brief-copy"><p>Think of a practice set as a workbook for AI. <strong>We check whether the workbook helps an AI solve new problems</strong>, and whether its answer-checker rewards the right thing.</p>
-<p>That matters because a high score can be misleading: a model might learn a shortcut that works on the practice questions but fails on anything new.</p>
-<div class="plain-steps" aria-label="How Touchstone checks a practice set">
-<article class="plain-step reveal"><span class="plain-step-mark" aria-hidden="true">✦</span><h3>Try it</h3><p>Train AI models on the practice set using the same approach each time.</p></article>
-<article class="plain-step reveal"><span class="plain-step-mark" aria-hidden="true">⌁</span><h3>Question it</h3><p>Try wrong or shortcut answers to see whether the answer-checker gives them points.</p></article>
-<article class="plain-step reveal"><span class="plain-step-mark" aria-hidden="true">↗</span><h3>Check learning</h3><p>Give the models new questions they have not practiced, then compare the results.</p></article>
-</div>
-<a class="home-method-link" href="methodology/index.html">See the full process <span aria-hidden="true">↗</span></a></div></section>
-<section class="run-ledger reveal" aria-label="What was tested in this sample run">
-<div class="ledger-intro"><span class="eyebrow">This sample run</span><p>Same test. Different practice sets.</p></div>
-<article class="ledger-stat ledger-count"><a class="ledger-link" href="appraisals/index.html" aria-label="{len(ranked)} AI practice sets reviewed: open the appraisals"></a><b data-count>{len(ranked)}</b><span>AI practice sets<br>reviewed</span>{info_chip("pop-sets", "Which practice sets were reviewed")}</article>
-<article class="ledger-stat ledger-scale"><a class="ledger-link" href="methodology/index.html" aria-label="Same practice at {len(ladder) + 1} AI sizes: open the methodology"></a><span>Same practice,</span><b>{len(ladder) + 1} AI sizes</b><small>from smaller to larger</small>{info_chip("pop-sizes", "Show the model sizes")}</article>
-<article class="ledger-stat ledger-signal"><a class="ledger-link" href="forecast/index.html" aria-label="Forecast match was weak in this sample: {rho:.2f} on a scale where 1 is a perfect match"></a><span class="signal-orbit" aria-hidden="true"></span><b data-count>{rho:.2f}</b><span>forecast match was weak<br>in this sample</span>{info_chip("pop-rho", "How to read the forecast match")}</article>
-<article class="ledger-stat ledger-suite"><a class="ledger-link" href="methodology/index.html" aria-label="{data['heldout_items']} new questions used to check learning"></a><b data-count>{data['heldout_items']}</b><span>new questions<br>used to check learning</span>{info_chip("pop-suite", "What is in the question bank")}</article></section>
-<p class="fine-print sample-caveat">Early prototype · fictional practice sets · tiny AI models · shows how the test works, not how commercial AI performs</p>
-<section class="section board-section"><div class="section-heading"><div><p class="eyebrow">Every set, side by side</p><h2>The whole run,<br><span>at a glance.</span></h2></div>
-<p>One row per practice set, measured on the same private questions. Select a row for a quick look.</p></div>
+    compare = (
+        ("Data and environment vendors", "Their own data only", "No", "Yes"),
+        ("Model evaluation tools", "No, they test finished models", "Yes", "Not their focus"),
+        ("In-house training runs", "Yes", "Yes", "No, after buying and at full cost"),
+        ("Touchstone", "Yes", "Yes", "Yes, at small-model cost"),
+    )
+    research = (
+        ("Training on a well-chosen 5% of a dataset can beat training on all of it.", "Xia et al., LESS, ICML 2024",
+         "https://proceedings.mlr.press/v235/xia24c.html"),
+        ("Small, cheap experiments can predict which data wins at larger scale.", "Magnusson et al., DataDecide, ICML 2025",
+         "https://proceedings.mlr.press/v267/magnusson25a.html"),
+    )
+    steps_html = "".join(f"<li><i>{index}</i><h3>{title}</h3><p>{text}</p></li>" for index, (title, text) in enumerate(steps, 1))
+    measures_html = "".join(f"<div><dt>{name}</dt><dd>{text}</dd></div>" for name, text in measures)
+    compare_html = "".join(
+        f'<tr class="{"is-us" if who == "Touchstone" else ""}"><th scope="row">{who}</th><td>{value}</td><td>{neutral}</td><td>{before}</td></tr>'
+        for who, value, neutral, before in compare)
+    research_html = "".join(f'<a class="research-card" href="{url}" target="_blank" rel="noopener"><p>{finding}</p><small>{cite} ↗</small></a>'
+                            for finding, cite, url in research)
+    status_html = "".join(f"<li><b>{esc(title)}</b><p>{esc(text)}</p></li>" for title, text in STATUS)
+    peeks = "".join(peek_window(env, "appraisals/" + env["id"] + "/index.html") for env in ranked) + peek_window(base, "")
+    request_note = ("" if REQUEST_FORM_URL else
+                    '<p class="cta-note">The request form opens shortly. Check back here for the link.</p>')
+    content = f"""<header class="hero"><div class="container hero-inner"><div class="hero-copy">
+<p class="eyebrow">Independent appraisal for AI training data</p>
+<h1>Know what training data is worth <span>before you buy it.</span></h1>
+<p class="hero-lede">Touchstone tests RL environments and post-training datasets on small models in a sealed sandbox. You see whether they will improve your model, and by how much, before you spend money and compute on a full training run.</p>
+<div class="hero-buttons">{request_action()}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div>
+<p class="hero-meta">For AI teams buying training data, and for the vendors selling it.</p></div>
+{sample_certificate(best, truth)}</div></header>
+<main>
+<section class="container section problem"><div class="section-heading"><div><p class="eyebrow">The problem</p><h2>Training data is expensive. <span>Its value is a guess.</span></h2></div></div>
+<div class="fact-row">
+<article><b>$200–$2,000</b><p>Typical price of a single RL environment task. Exclusive deals cost several times more.</p><small>Source: Epoch AI, via market price summaries</small></article>
+<article><b>Self-graded</b><p>The evidence buyers see is usually run by the seller, on the seller's own setup, for a product the seller is selling.</p><small>Example: vendor-published transfer results</small></article>
+<article><b>Gameable</b><p>A model can max out an environment's reward by exploiting a weak grader, and learn nothing it can use elsewhere.</p><small>Reward hacking is the most reported failure</small></article>
+</div></section>
+<section class="container section" id="how"><div class="section-heading"><div><p class="eyebrow">How it works</p><h2>Small experiments, <span>before the big spend.</span></h2></div>
+<p>An appraisal costs a small fraction of a full training run, and finishes before you sign.</p></div>
+<ol class="steps">{steps_html}</ol>
+<div class="measures"><p class="eyebrow">What the report tells you</p><dl>{measures_html}</dl></div></section>
+<section class="container section audience"><div class="audience-grid">
+<article><p class="eyebrow">For teams buying data</p><h3>Check it before you sign.</h3><ul><li>Test an environment before you pay for it</li><li>Compare vendors on the same private test</li><li>Avoid data your model can game or already has</li></ul></article>
+<article><p class="eyebrow">For vendors selling it</p><h3>Prove it with a neutral number.</h3><ul><li>Get a rating buyers trust more than self-reported results</li><li>Find grader exploits before a customer does</li><li>Justify your price with measured value</li></ul></article>
+</div></section>
+<section class="container section board-section" id="sample"><div class="section-heading"><div><p class="eyebrow">Sample report</p><h2>What a report <span>looks like.</span></h2></div>
+<p>A demo run on six fictional RL environments with tiny models. The pipeline is real; the vendors and numbers are examples. Select a row for a quick look.</p></div>
 {scoreboard(ranked, base)}
-<div class="board-legend"><span><i class="k-gain"></i>Better on new questions</span><span><i class="k-loss"></i>Worse on new questions</span><span><i class="k-risk"></i>Flagged: 20%+ shortcut reward or mostly copied</span><span><i class="k-base"></i>Free yardstick</span></div>
-<p class="board-hint">Move across the change column to set a threshold · click a column title to sort</p></section>
-<section class="section"><div class="section-heading"><div><p class="eyebrow">The buyer's brief</p><h2>One standout.<br><span>Nothing hidden.</span></h2></div>
-<a class="section-link" href="appraisals/index.html">View all appraisals ↗</a></div>
-<article class="feature-card reveal"><div class="feature-main"><div class="feature-top"><span>Standout this run</span><span class="feature-grade" aria-label="Grade {esc(best['grade'])}">{esc(best['grade'])}</span></div>
-<h3>{esc(best['name'])}</h3><p>After practice with this set, the score on new questions moved {chip(best['actual_at_truth'], after='.')} After the free set, <em>{esc(base['name'])}</em>, it moved {chip(base['actual_at_truth'], after='.')}</p>
-<p class="fine-print">Tiny test models, not commercial AI</p>
-<div class="feature-stats"><div><small>Forecasted score change at the largest model</small><b>{pts(best['forecast']['forecast'])} points</b></div>
-<div><small>Forecast difference vs free practice</small><b>{pts(best['lift_over_free'])} points</b></div><div><small>Points earned by shortcut answers</small><b>{best['hackability']['score']:.0%}</b></div></div>
-<div class="factor-list"><span class="factor-title">What the grade weighs</span><ol>
-<li><i>1</i>Forecast gain beyond free practice</li><li><i>2</i>Points earned by shortcuts</li>
-<li><i>3</i>Overlap with free tasks</li><li><i>4</i>Learning that reaches new questions</li></ol></div></div>
-<div class="feature-aside"><div class="feature-note">
-<div class="feature-note-head"><span class="feature-note-orbit" aria-hidden="true">↗</span><span class="proof-label">Measured difference vs free</span></div>
-<strong class="feature-proof-number" data-count>{pts(observed_difference)}<span>pts</span></strong>
-<div class="versus" role="img" aria-label="Change on new questions: {pts(best['actual_at_truth'])} after this set, {pts(base['actual_at_truth'])} after free practice">
-<div><span>This set</span>{signed_bar(best['actual_at_truth'], versus_limit)}<b>{pts(best['actual_at_truth'])}</b></div>
-<div><span>Free set</span>{signed_bar(base['actual_at_truth'], versus_limit)}<b>{pts(base['actual_at_truth'])}</b></div>
-<small>Change on new questions, pts</small></div>
-<div class="forecast-caveat"><span class="caveat-spark" aria-hidden="true">✳</span><div><b>Forecasts are experimental</b>
-<small>Small-model predictions did not reliably rank these six practice sets. This does not tell us what commercial AI will do.</small></div></div></div>
-<div class="feature-estimate"><strong data-count>${best['fair_value_per_task']:,.0f}</strong><p>estimated value per practice task</p>
-<p class="fine-print">Model-based estimate, not a price or guarantee</p>
-<div class="feature-actions">{peek_button(best)}<a class="section-link" href="appraisals/{esc(best['id'])}/index.html">Read its certificate ↗</a></div></div></div></article>
-<div class="quick-links">{''.join(cards)}</div></section></div>
-<div class="ticker" aria-label="What Touchstone checks"><div class="ticker-track" aria-hidden="true">{''.join('<span>DOES IT TEACH?</span><i>✳</i><span>CAN IT BE FOOLED?</span><i>✳</i><span>DO SKILLS CARRY OVER?</span><i>✳</i><span>IS IT WORTH BUYING?</span><i>✳</i>' for _ in range(4))}</div></div>
-<section class="container section"><div class="section-heading"><div><p class="eyebrow">Why buyers care</p><h2>Spend with<br><span>your eyes open.</span></h2></div><p>Training materials can be expensive. A trustworthy comparison helps teams avoid paying for recycled questions, misleading scores, or practice that does not transfer.</p></div>
-<div class="why-buy"><h3 class="reveal">Useful answers before you commit.</h3>
-<p class="reveal"><strong>See what is new</strong>Find out whether the practice set adds something beyond free material.</p>
-<p class="reveal"><strong>Catch weak scoring</strong>Learn when a set gives points for answers that are wrong or incomplete.</p>
-<p class="reveal"><strong>Judge the evidence</strong>See what improved, what did not, and how confident to be in the estimate.</p></div></section></main>
-<dialog id="about-dialog"><div class="dialog-inner"><div class="dialog-top"><span class="eyebrow">A SHORT INTRODUCTION</span><button class="dialog-close" type="button" data-close-dialog aria-label="Close dialog">×</button></div>
-<h2>What is Touchstone?</h2><p>AI models learn by practicing tasks. Touchstone checks whether paid practice sets help models answer new questions, whether the answer-checker can be fooled, and whether the set adds more than free alternatives.</p>
-<div class="dialog-actions"><a class="button button-lime" href="methodology/index.html">Explore the method ↗</a><a class="button" href="appraisals/index.html">Open the appraisals ↗</a></div></div></dialog>
-{''.join(ledger_pops)}{peeks}<div class="notice-stack" aria-live="polite">{notice_html}</div>"""
-    return app_shell(hero + top, "Better practice. Better AI", "Touchstone tests AI practice materials before you buy: do they teach useful skills, resist shortcuts, and help on new questions?", "", "home")
+<div class="board-legend"><span><i class="k-gain"></i>Better on new questions</span><span><i class="k-loss"></i>Worse on new questions</span><span><i class="k-risk"></i>Flagged: 20%+ shortcut reward or mostly copied</span><span><i class="k-base"></i>Free comparison set</span></div>
+<p class="board-hint">Move across the change column to set a threshold · click a column title to sort</p>
+<a class="section-link" href="appraisals/index.html">Open the full sample report ↗</a></section>
+<section class="container section neutral"><div class="section-heading"><div><p class="eyebrow">Why independent</p><h2>Only a neutral party <span>can run this test.</span></h2></div>
+<p>A buyer can't judge training data without seeing it, and once they've seen it the seller has given it away. Touchstone tests it in a sealed sandbox and shares only the results. We never sell data or environments ourselves.</p></div>
+<div class="table-wrap compare"><table><thead><tr><th></th><th>Measures training value</th><th>Neutral</th><th>Before purchase</th></tr></thead>
+<tbody>{compare_html}</tbody></table></div></section>
+<section class="container section research"><div class="section-heading"><div><p class="eyebrow">Built on published research</p><h2>Small runs <span>predict big ones.</span></h2></div></div>
+<div class="research-grid">{research_html}</div></section>
+<section class="container section status" id="status"><div class="section-heading"><div><p class="eyebrow">Where we are</p><h2>Early, and <span>building in the open.</span></h2></div></div>
+<ol class="status-list">{status_html}</ol></section>
+<section class="cta-band" id="request"><div class="container cta-inner"><div><p class="eyebrow">Pilot appraisals</p>
+<h2>Appraise an environment <span>before you buy it.</span></h2>
+<p>We're starting with RL environments and post-training datasets. Tell us what you're evaluating and we'll scope a pilot appraisal with you.</p>{request_note}</div>
+<div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="methodology/index.html">Read the method <span class="button-arrow">↗</span></a></div></div></section>
+</main>{peeks}"""
+    return app_shell(content, "Touchstone", "Touchstone tests RL environments and post-training datasets on small models, so AI teams know what training data is worth before they buy it.", "", "home")
 
 
 def process_cards(variant: str = "journey") -> str:
@@ -2348,8 +2306,8 @@ def appraisals_page(ranked: list[dict], base: dict) -> str:
     filters += "".join(f'<button class="filter" data-filter="{grade}" aria-label="Filter by grade {grade}" aria-pressed="false">{grade} <span>{count}</span></button>'
                        for grade, count in counts.items() if count)
     cards = "".join(result_card(env, "", index * 60) for index, env in enumerate(ranked))
-    body = f"""<main class="container"><header class="page-head"><p class="eyebrow">The buyer's brief · {len(ranked)} environments</p>
-<h1 class="page-title">The score is only<br><span>the start.</span></h1><p class="page-intro">Compare what each set taught on new questions, whether wrong answers earned points, and how its forecast compared with free practice.</p>
+    body = f"""<main class="container"><header class="page-head"><p class="eyebrow">Sample report · demo data</p>
+<h1 class="page-title">Six environments.<br><span>One test.</span></h1><p class="page-intro">A demo appraisal of six fictional RL environments, each built to show a common failure, trained on tiny models. The pipeline is real; the vendors and numbers are examples.</p>
 <div class="toolbar"><div class="filters" role="group" aria-label="Filter appraisals by grade">{filters}</div>
 <label class="search"><span aria-hidden="true">⌕</span><input id="appraisal-search" type="search" placeholder="Search environments" aria-label="Search environments"></label></div>
 <div class="result-grid">{cards}<p class="empty-state" hidden>No matches. Try a different search or grade.</p></div>
@@ -2394,7 +2352,7 @@ def detail_page(data: dict, environment: dict, base: dict) -> str:
                  + "".join(f"<li>{esc(flag)}</li>" for flag in flags) + "</ul>"
                  if flags else '<div class="integrity-note clean">No appraisal flags found for this environment.</div>')
     grader = "Passed" if environment["grader"]["ok"] else "Needs review"
-    content = f"""<main class="container"><header class="page-head"><p class="eyebrow"><a href="../index.html">← All appraisals</a> · Sealed certificate</p>
+    content = f"""<main class="container"><header class="page-head"><p class="eyebrow"><a href="../index.html">← Sample report</a> · Sample certificate · demo data</p>
 <section class="detail-hero"><p class="eyebrow">Touchstone appraisal · Run {esc(data['generated'].split()[0])}</p>
 <h1>{esc(environment['name'])}</h1><div class="detail-meta"><span class="detail-grade" aria-label="Grade {esc(environment['grade'])}">{esc(environment['grade'])}</span><span>Forecast at {esc(truth)}: <b>{pts(environment['forecast']['forecast'])} pts</b></span><span>·</span><span>{environment['redundancy']['n_tasks']:,} tasks · {environment['redundancy']['unique_tasks']:,} unique</span></div>
 <div class="detail-actions"><a class="button button-lime" href="#evidence">Explore evidence <span class="button-arrow">↓</span></a><button type="button" class="button button-ring" data-print>Print certificate <span class="button-arrow">⎙</span></button>
@@ -2435,7 +2393,7 @@ def forecast_page(data: dict) -> str:
 <section class="panel slope-panel reveal"><div><p class="eyebrow">Same data, ranked</p><h2>Did the order survive?</h2>
 <p>Left is the order the forecast predicted; right is the order measured on the largest model. A forecast that ranks well draws flat lines. Hover a set to trace it.</p>{rho_scale(rho)}</div>
 {rank_slope(envs)}</section>
-<section class="section"><div class="section-heading"><div><p class="eyebrow">Reading the chart</p><h2>Honest about<br><span>uncertainty.</span></h2></div><p>The forecast is an experiment, not a buying promise. For now, use the individual test results—and wait for tests on larger AI models before trusting predictions about scale.</p></div>
+<section class="section"><div class="section-heading"><div><p class="eyebrow">Reading the chart</p><h2>Honest about<br><span>uncertainty.</span></h2></div><p>The forecast is an experiment, not a buying promise. For now, use the individual test results, and wait for tests on larger AI models before trusting predictions about scale.</p></div>
 <div class="chart-note-rail"><p><b>x</b><span>Predicted score change<small>What the small-model results suggested.</small></span></p>
 <p><b>y</b><span>Measured score change<small>What happened on the largest test model.</small></span></p>
 <p><i aria-hidden="true"></i><span>Perfect prediction<small>Dots near the line match the forecast.</small></span></p></div></section></main>
@@ -2444,15 +2402,15 @@ def forecast_page(data: dict) -> str:
 
 
 def methodology_page(data: dict) -> str:
-    content = f"""<main class="container"><header class="page-head"><p class="eyebrow">A repeatable appraisal</p>
-<h1 class="page-title">Trust the work.<br><span>Not the pitch.</span></h1><p class="page-intro">A vendor environment goes into a sealed vault. We measure what training transfers, test the grader for shortcuts, then make the limits of the result explicit.</p></header>
+    content = f"""<main class="container"><header class="page-head"><p class="eyebrow">How it works</p>
+<h1 class="page-title">How an appraisal<br><span>works.</span></h1><p class="page-intro">The environment goes into a sealed sandbox. We train small models on it, measure what carries over to new questions, try to game its grader and forecast the gain at your scale. Select a step for detail.</p></header>
 <section class="process-grid process-journey">{process_cards("journey")}</section>
-<section class="section"><div class="section-heading"><div><p class="eyebrow">The current run</p><h2>Real pipeline.<br><span>Prototype scale.</span></h2></div><p>The appraisal logic is implemented end-to-end. The sample vendors and tiny CPU models are demonstration fixtures—not market endorsements.</p></div>
+<section class="section"><div class="section-heading"><div><p class="eyebrow">The prototype</p><h2>Real pipeline.<br><span>Prototype scale.</span></h2></div><p>Every step runs end to end today. The sample vendors and tiny CPU models are demonstration data, chosen so the run finishes on a laptop.</p></div>
 <div class="pilot-notes"><p class="pilot-vendors"><strong>Six</strong><span>fictional environments</span><small>Designed to expose grading shortcuts, contamination, and answer leakage.</small></p>
-<p class="pilot-models"><strong>29K—1.3M</strong><span>parameters, trained on CPU</span><small>One fixed character-level GRPO recipe across model sizes.</small></p>
+<p class="pilot-models"><strong>29K–1.3M</strong><span>parameters, trained on CPU</span><small>One fixed character-level GRPO recipe across model sizes.</small></p>
 <p class="pilot-suite"><strong data-count>{data['heldout_items']}</strong><span>held-out items</span><small>Arithmetic and string reversal; production domains need their own private suites.</small></p></div>
 <div class="ladder-panel panel reveal"><div><p class="eyebrow">Drawn to scale</p><h3>The model ladder.</h3><p>Each circle's area is its parameter count. Hover a circle for the exact number.</p></div><div>{model_ladder(data['ladder'])}</div></div></section>
-<div class="hero-buttons" style="padding-bottom:35px"><a class="button button-ink" href="../appraisals/index.html">Explore the evidence <span class="button-orb" aria-hidden="true">↗</span></a><a class="button button-outline" href="../forecast/index.html">Audit the forecast <span class="button-arrow">↗</span></a></div></main>
+<div class="hero-buttons" style="padding-bottom:35px">{request_action(prefix="../")}<a class="button button-outline" href="../appraisals/index.html">See the sample report <span class="button-arrow">↗</span></a></div></main>
 {process_windows(data)}"""
     return app_shell(content, "Methodology", "How Touchstone seals, probes, trains, measures, and values learning environments.", "../", "methodology")
 
@@ -2473,11 +2431,11 @@ def render_site(data: dict) -> dict[str, str]:
     for env in ranked:
         pages[f"appraisals/{env['id']}/index.html"] = detail_page(data, env, baseline)
     entries = [{"group": "Pages", "title": title, "meta": meta, "href": href, "mark": mark} for title, meta, href, mark in (
-        ("Home", "Overview of this run", "index.html", "⌂"),
-        ("Appraisals", f"{len(ranked)} certificates", "appraisals/index.html", "≡"),
-        ("Forecast", "Do small tests predict larger models?", "forecast/index.html", "↗"),
-        ("Methodology", "Seal, probe, train, measure, value", "methodology/index.html", "◆"))]
-    entries += [{"group": "Practice sets", "title": env["name"], "href": f"appraisals/{env['id']}/index.html", "mark": env["grade"],
+        ("Home", "What Touchstone does", "index.html", "⌂"),
+        ("How it works", "Seal, train, measure, forecast and price", "methodology/index.html", "◆"),
+        ("Sample report", f"{len(ranked)} demo certificates", "appraisals/index.html", "≡"),
+        ("Forecast check", "Do small runs predict larger models?", "forecast/index.html", "↗"))]
+    entries += [{"group": "Sample environments", "title": env["name"], "href": f"appraisals/{env['id']}/index.html", "mark": env["grade"],
                  "meta": f"Grade {env['grade']} · {pts(env['actual_at_truth'])} pts on new questions"} for env in ranked]
     pages = {path: document.replace("↗", "↗\ufe0e").replace("✳", "✳\ufe0e").replace("↕", "↕\ufe0e") for path, document in pages.items()}
     index = '<script>window.TOUCHSTONE_INDEX = ' + json.dumps(entries, ensure_ascii=False).replace("</", "<\\/") + ';</script>'

@@ -82,6 +82,7 @@ h1 em,h2 em{font-family:var(--text);font-style:italic;font-weight:400;color:var(
 /* Surfaces */
 .surface{position:relative;padding:clamp(32px,3.5vw,48px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,var(--raise),#0f1216)}
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,104px);align-items:center}
 
@@ -151,7 +152,7 @@ h1 em,h2 em{font-family:var(--text);font-style:italic;font-weight:400;color:var(
 /* Dalton spheres: area proportional to parameters */
 .atoms{display:flex;align-items:flex-end;justify-content:center;gap:clamp(18px,3vw,40px);width:100%}
 .atom{display:grid;justify-items:center;gap:14px}
-.atom i{display:block;width:var(--d);height:var(--d);border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff3cf 0,#f0cf85 18%,#d9a945 52%,#8a6120 100%);box-shadow:inset -8px -12px 24px #00000055,0 24px 40px -12px #e4ba6255;transform:scale(0)}
+.atom i{display:block;width:var(--d);height:var(--d);border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff3cf 0,#f0cf85 18%,#d9a945 52%,#8a6120 100%);box-shadow:inset -8px -12px 24px #00000055,0 24px 40px -12px #e4ba6255}
 .atom.float i{animation:bob 4.5s ease-in-out infinite;animation-delay:calc(var(--n)*-.9s)}
 @keyframes bob{50%{translate:0 -10px}}
 .atom b{font:600 18px var(--display)}.atom small{color:var(--ink-3);font:400 12px var(--mono)}
@@ -339,9 +340,9 @@ input[type=range]:focus-visible{outline:2px solid var(--gold);outline-offset:4px
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media (max-width:900px){
   .hero .wrap,.split,.story,.vtabs,.anatomy,.calc,.grid-2{grid-template-columns:1fr}
-  .grid-3{grid-template-columns:1fr}
-  .story-stage,.cert-wrap{position:sticky;top:84px;height:340px;z-index:2}
-  .cert-wrap{height:auto}
+  .grid-3{grid-template-columns:1fr}.grid-4{grid-template-columns:1fr 1fr}
+  .story-stage{position:sticky;top:84px;height:320px;z-index:2;order:-1;background:var(--bg)}
+  .cert-wrap{position:static;order:-1}
   .story-steps li,.anatomy-steps li{min-height:46vh}
   .cmp-row{grid-template-columns:1fr 90px;gap:10px 16px}.cmp-row span{grid-column:1/-1}
   .rows>div{grid-template-columns:1fr;gap:8px}.rows .hdr{display:none}
@@ -352,10 +353,10 @@ input[type=range]:focus-visible{outline:2px solid var(--gold);outline-offset:4px
   .nav .btn{display:none}
   .vpanel{min-height:0}
 }
-@media (max-width:560px){
+@media (max-width:560px){.grid-4{grid-template-columns:1fr}
   .wrap{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
   .console-body{min-height:330px;padding:20px;font-size:12.5px}
-  .story-stage{height:300px}.stage{padding:24px}
+  .story-stage{height:290px}.stage{padding:20px}.stage-label{display:none}.vault{padding:22px 18px 16px}.vault span:nth-child(n+3){display:none}.seal-hash{margin-top:14px;font-size:11px}.atom i{width:calc(var(--d)*.7);height:calc(var(--d)*.7)}.measure-rows{gap:16px}.price-tag b{font-size:26px}
   .atom b{font-size:15px}
   .vtab{padding:14px 16px}.vtab span{font-size:19px}
   .cmp-switch{display:flex;flex-wrap:wrap;border-radius:18px}
@@ -719,9 +720,8 @@ def home(data: dict) -> str:
 <section class="sec tight"><div class="wrap"><div class="grid-2">
 <div class="surface" data-reveal><p class="eyebrow">For AI teams buying data</p><h3>Check it before you sign.</h3><ul class="points"><li>Test an environment before you pay for it</li><li>Compare vendors on one private test</li><li>Stop paying for tasks your model can game</li></ul></div>
 <div class="surface" data-reveal style="--d:.1s"><p class="eyebrow">For vendors selling it</p><h3>Prove it with a neutral number.</h3><ul class="points"><li>A rating buyers trust more than your own results</li><li>Find grader exploits before customers do</li><li>Back your price with measured value</li></ul></div></div></div></section>
-<section class="sec tight"><div class="wrap"><div class="grid-2" style="grid-template-columns:repeat(4,minmax(0,1fr))">{tiles}</div></div></section>
+<section class="sec tight"><div class="wrap"><div class="grid-4">{tiles}</div></div></section>
 {cta(p)}"""
-    body = body.replace('style="grid-template-columns:repeat(4,minmax(0,1fr))"', 'class="grid-4"', 1).replace('<div class="grid-2" class="grid-4">', '<div class="grid-4">')
     return shell("home", "Touchstone", "Touchstone tests RL environments and training data on small models before you buy, so you know whether they will make your model better.", body, p)
 
 
@@ -745,6 +745,7 @@ def product(data: dict, ranked: list[dict], base: dict) -> str:
                ("overlap", "Redundancy", "How much of it already exists in free public data. You shouldn't pay for what you have."),
                ("forecast", "Forecast", "We fit how the gain grows with model size and project it to yours, with an uncertainty range."),
                ("value", "Fair value", "Finally, a price per task based on the real gain, compared with free alternatives."))
+    env_json = json.dumps(envs).replace("</", "<\\/")
     chips = "".join(f'<button class="chip" type="button" data-id="{e["id"]}" aria-pressed="{"true" if i == 0 else "false"}">{esc(e["name"])}</button>' for i, e in enumerate(envs))
     cert_rows = "".join(f'<div class="cert-row" data-key="{k}"><span>{label}</span><b></b></div>' for k, label in rows)
     steps = "".join(f'<li data-key="{k}" class="{"on" if i == 0 else ""}"><article><span class="eyebrow">{i + 1:02d}</span><h3>{t}</h3><p>{x}</p></article></li>'
@@ -767,7 +768,7 @@ def product(data: dict, ranked: list[dict], base: dict) -> str:
       ("How do you find reward exploits?", "Known exploit probes (empty answers, format gaming, editing tests) plus adversarial policies trained against the grader."),
       ("How good is the forecast?", "Every report shows how well small-model forecasts held up on the largest model. Our demo run is honest about where it didn't.")))}
 <p class="note"><a class="link" href="{href(p, 'forecast')}">See the forecast check →</a></p></div></section>
-<script type="application/json" id="env-data">{json.dumps(envs).replace("</", "<\\/")}</script>
+<script type="application/json" id="env-data">{env_json}</script>
 {cta(p)}"""
     return shell("product", "Product · Touchstone", "What a Touchstone appraisal measures, on six sample environments.", body, p)
 

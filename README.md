@@ -32,10 +32,10 @@ pip install torch numpy pytest
 python3 -m pytest -q tests                  # unit tests, a few seconds
 python3 scripts/run_demo.py --quick         # smoke test, about 3 minutes
 python3 scripts/run_demo.py                 # full demo, about 30 to 45 minutes on 4 CPU cores
-python3 -m touchstone.report out/appraisals.json site/index.html
+python3 -m touchstone.site out/appraisals.json site
 ```
 
-The report command writes a static multi-page site into `site/`: a homepage, a searchable appraisal index, a dedicated evidence certificate for each environment, forecast validation, and methodology. Open `site/index.html` to start.
+The site command writes the static website into `site/`: Home, Product, Market, Pricing, Company and Request pages, plus the sample report, a certificate for each environment, and the forecast check. Open `site/index.html` to start. Edit `REQUEST_FORM_URL`, `ROADMAP` and `FOUNDERS` at the top of `touchstone/report.py`.
 
 ## Layout
 
@@ -48,7 +48,8 @@ The report command writes a static multi-page site into `site/`: a homepage, a s
 - `touchstone/redundancy.py`: overlap with free sets and with the held-out suite
 - `touchstone/forecast.py`: small-to-large forecast and rank correlation
 - `touchstone/appraise.py`: the pipeline and grading rules
-- `touchstone/report.py`: the static multi-page appraisal site renderer
+- `touchstone/site.py`: the website (company pages and design system)
+- `touchstone/report.py`: sample-report, certificate and forecast pages
 - `envs/`: sample vendor environments and the free baseline
 
 ## Next steps toward the real first experiment

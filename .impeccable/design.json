@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T05:42:56+00:00",
+  "title": "Design System: Touchstone",
+  "extensions": {
+    "colorMeta": {
+      "transfer-gold": {
+        "role": "primary",
+        "displayName": "Touchstone Gold",
+        "canonical": "oklch(79.4% 0.120 82.3)",
+        "tonalRamp": [
+          "#0d0b07",
+          "#292317",
+          "#4a3e28",
+          "#6e5b37",
+          "#947945",
+          "#bd9852",
+          "#ebbc63",
+          "#ffe78d"
+        ]
+      },
+      "gold-hover": {
+        "role": "primary",
+        "displayName": "Lit Gold",
+        "canonical": "oklch(85.2% 0.099 83.0)",
+        "tonalRamp": [
+          "#1d1709",
+          "#3a2e14",
+          "#5c4a22",
+          "#7f6731",
+          "#a68641",
+          "#cca654",
+          "#eec982",
+          "#fff0c9"
+        ]
+      },
+      "reward-silver": {
+        "role": "secondary",
+        "displayName": "Reward Silver",
+        "canonical": "oklch(80.3% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3b4047",
+          "#595e66",
+          "#787e86",
+          "#999fa8",
+          "#bfc5ce",
+          "#e9eff8"
+        ]
+      },
+      "exploit-red": {
+        "role": "tertiary",
+        "displayName": "Exploit Red",
+        "canonical": "oklch(70.9% 0.184 28.7)",
+        "tonalRamp": [
+          "#120807",
+          "#351c19",
+          "#5f302a",
+          "#8e443b",
+          "#c2584b",
+          "#fa6a5a",
+          "#ff8f7d",
+          "#ffbba6"
+        ]
+      },
+      "pass-green": {
+        "role": "tertiary",
+        "displayName": "Pass Green",
+        "canonical": "oklch(77.4% 0.168 154.2)",
+        "tonalRamp": [
+          "#070d08",
+          "#17291d",
+          "#264832",
+          "#346b48",
+          "#3e905e",
+          "#44b874",
+          "#57e391",
+          "#87ffba"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Bench Black",
+        "canonical": "oklch(15.8% 0.007 258.4)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "oklch(19.0% 0.009 255.6)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "panel-raised": {
+        "role": "neutral",
+        "displayName": "Raised Graphite",
+        "canonical": "oklch(21.6% 0.012 254.1)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(27.1% 0.015 256.8)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "oklch(32.3% 0.016 255.6)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(95.5% 0.005 258.3)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "oklch(75.4% 0.015 254.6)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Faint Ink",
+        "canonical": "oklch(56.3% 0.020 256.3)",
+        "tonalRamp": [
+          "#090b0e",
+          "#16191d",
+          "#22272e",
+          "#3a4048",
+          "#585e66",
+          "#878e97",
+          "#b5bbc3",
+          "#eef0f3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero headline and page headers; Bodoni Moda, gold italic accent allowed."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headlines and the closing call."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Big statistics on market and forecast pages."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Step, card and environment titles in Geist."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Sentence under a headline, muted ink, max 58ch."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Geist Mono for measurements, axes, ids, hashes and panel meta only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "gold-lift",
+        "value": "0 1px 0 #ffffff40 inset, 0 8px 24px -8px #e2b45a80",
+        "purpose": "Primary button at rest."
+      },
+      {
+        "name": "gold-lift-hover",
+        "value": "0 1px 0 #ffffff40 inset, 0 14px 32px -10px #e2b45aaa",
+        "purpose": "Primary button on hover."
+      },
+      {
+        "name": "glass-float",
+        "value": "0 20px 40px -12px #000a",
+        "purpose": "Floating glass verdict chip."
+      },
+      {
+        "name": "gold-halo",
+        "value": "0 0 0 7px #e2b45a26, 0 0 28px #e2b45aaa",
+        "purpose": "Touchstone's marker on the market map; 6px ring on the current timeline node."
+      },
+      {
+        "name": "sphere-light",
+        "value": "inset -10px -14px 26px #0b0d1066, 0 26px 44px -16px #e2b45a88",
+        "purpose": "Gold model spheres."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid #e2b45a; outline-offset: 3px",
+        "purpose": "Keyboard focus on every interactive element."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Default easing for reveals, page transitions and hover movement."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0 to 1, y 24px to 0, blur 6px to 0, 0.9s ease-out, once",
+        "purpose": "Content entering the viewport."
+      },
+      {
+        "name": "page-change",
+        "value": "opacity and y 12px, 0.35s ease-out",
+        "purpose": "Route transitions."
+      },
+      {
+        "name": "curve-draw",
+        "value": "pathLength 0 to 1, 2.6s ease-in-out",
+        "purpose": "Run chart curves; readouts count in sync."
+      },
+      {
+        "name": "pill-spring",
+        "value": "spring stiffness 380, damping 32",
+        "purpose": "Nav, tab and segment pills gliding between options."
+      },
+      {
+        "name": "count-up",
+        "value": "anime.js outExpo, 1.4s",
+        "purpose": "Figures counting up when they enter view."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all animation and transition off; final values shown",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "900px"
+      },
+      {
+        "name": "narrow",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid gold call to action; reserved for Request an appraisal.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Request an appraisal<svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border:0;border-radius:10px;background:var(--transfer);color:#0b0d10;font:600 15px var(--sans);text-decoration:none;cursor:pointer;box-shadow:0 1px 0 #ffffff40 inset,0 8px 24px -8px #e2b45a80;transition:background .2s,transform .2s var(--out),box-shadow .3s}.ds-btn svg{transition:transform .3s var(--out)}.ds-btn:hover{background:#eec982;transform:translateY(-1px);box-shadow:0 1px 0 #ffffff40 inset,0 14px 32px -10px #e2b45aaa}.ds-btn:hover svg{transform:translateX(3px)}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--transfer);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hairline-stroked companion to the gold button.",
+      "html": "<a class=\"ds-btn-2\" href=\"#\">See a sample report</a>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-btn-2{display:inline-flex;align-items:center;height:48px;padding:0 20px;border-radius:10px;background:transparent;color:var(--ink);font:600 15px var(--sans);text-decoration:none;box-shadow:inset 0 0 0 1px var(--line-2);transition:background .2s,box-shadow .3s}.ds-btn-2:hover{background:#ffffff08;box-shadow:inset 0 0 0 1px var(--ink-3)}.ds-btn-2:focus-visible{outline:2px solid var(--transfer);outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky blurred bar with a gliding active pill and compact gold button.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-brand\">touchstone</span><div class=\"ds-links\"><a href=\"#\" class=\"on\">Product</a><a href=\"#\">Sample report</a><a href=\"#\">Pricing</a></div><a class=\"ds-nav-btn\" href=\"#\">Request an appraisal</a></nav>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-nav{display:flex;align-items:center;gap:28px;height:68px;padding:0 20px;background:color-mix(in srgb,var(--ground),transparent 18%);backdrop-filter:blur(16px) saturate(1.3);border-bottom:1px solid var(--line);font-family:var(--sans)}.ds-brand{color:var(--ink);font-weight:600;font-size:17px;letter-spacing:-.03em}.ds-links{display:flex;gap:4px;margin-left:auto}.ds-links a{padding:8px 12px;border-radius:8px;color:var(--ink-2);font-size:14px;text-decoration:none;transition:color .2s}.ds-links a:hover{color:var(--ink)}.ds-links a.on{color:var(--ink);background:var(--panel-2)}.ds-links a:focus-visible,.ds-nav-btn:focus-visible{outline:2px solid var(--transfer);outline-offset:3px}.ds-nav-btn{display:inline-flex;align-items:center;height:38px;padding:0 14px;border-radius:8px;background:var(--transfer);color:#0b0d10;font-weight:600;font-size:14px;text-decoration:none}.ds-nav-btn:hover{background:#eec982}"
+    },
+    {
+      "name": "Run Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "The one container: graphite gradient, hairline border, mono run header.",
+      "html": "<div class=\"ds-panel\"><div class=\"ds-head\"><span class=\"t\">run · QuickGrade Arithmetic</span><span class=\"m\">demo data</span></div><div class=\"ds-foot\"><div><small>step</small><b>1,000</b></div><div><small>reward</small><b class=\"r\">92.0%</b></div><div><small>new problems</small><b class=\"g\">11.4%</b></div></div></div>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-panel{border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--panel),#0f1215);overflow:hidden;color:var(--ink);font-family:var(--sans)}.ds-head{display:flex;align-items:center;height:44px;padding:0 16px;border-bottom:1px solid var(--line);color:var(--ink-3);font:500 12px var(--mono)}.ds-head .t{color:var(--ink-2)}.ds-head .m{margin-left:auto}.ds-foot{display:grid;grid-template-columns:repeat(3,1fr)}.ds-foot div{padding:14px 16px;border-left:1px solid var(--line)}.ds-foot div:first-child{border-left:0}.ds-foot small{display:block;color:var(--ink-3);font:500 11px var(--mono)}.ds-foot b{display:block;margin-top:4px;font:500 22px var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums}.ds-foot .r{color:var(--reward)}.ds-foot .g{color:var(--transfer)}"
+    },
+    {
+      "name": "Report Tabs",
+      "kind": "chip",
+      "refersTo": "tab",
+      "description": "Sample-environment tabs with a gold-tinted sliding pill.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">QuickGrade</button><button role=\"tab\" aria-selected=\"false\">LedgerLab</button><button role=\"tab\" aria-selected=\"false\">Baseline</button></div>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-tabs{display:flex;gap:2px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:14px}.ds-tabs button{height:34px;padding:0 12px;border:0;border-radius:8px;background:none;color:var(--ink-3);font:500 13px var(--sans);cursor:pointer;transition:color .2s}.ds-tabs button:hover{color:var(--ink-2)}.ds-tabs button[aria-selected=true]{color:var(--ink);background:#e2b45a1f;box-shadow:inset 0 0 0 1px #e2b45a66}.ds-tabs button:focus-visible{outline:2px solid var(--transfer);outline-offset:3px}"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "chip",
+      "refersTo": "segment-selected",
+      "description": "Rank-by switch; selected segment is solid gold.",
+      "html": "<div class=\"ds-seg\"><button aria-selected=\"false\">Training reward</button><button aria-selected=\"true\">New problems</button></div>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-seg{display:inline-flex;gap:2px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.ds-seg button{height:38px;padding:0 16px;border:0;border-radius:9px;background:none;color:var(--ink-2);font:500 14px var(--sans);cursor:pointer}.ds-seg button:hover{color:var(--ink)}.ds-seg button[aria-selected=true]{background:var(--transfer);color:#0b0d10}.ds-seg button:focus-visible{outline:2px solid var(--transfer);outline-offset:3px}"
+    },
+    {
+      "name": "Grade Tile",
+      "kind": "chip",
+      "refersTo": "grade-tile",
+      "description": "Appraisal grade, tinted by verdict.",
+      "html": "<div class=\"ds-grades\"><span class=\"ds-grade a\">A</span><span class=\"ds-grade low\">D</span><span class=\"ds-grade base\">C</span></div>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-grades{display:flex;gap:12px}.ds-grade{display:grid;place-items:center;width:72px;height:72px;border-radius:18px;font:600 40px var(--sans)}.ds-grade.a{background:#45d4831f;color:var(--good);box-shadow:inset 0 0 0 1px #45d48355}.ds-grade.low{background:#ff6b5b1a;color:var(--bad);box-shadow:inset 0 0 0 1px #ff6b5b44}.ds-grade.base{background:#ffffff0d;color:var(--ink-2)}"
+    },
+    {
+      "name": "Headline with Gold Italic Accent",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Bodoni Moda headline whose turn is set in gold italic.",
+      "html": "<h1 class=\"ds-h1\">Don't buy training data <span>blind.</span></h1>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-h1{margin:0;color:var(--ink);font-family:var(--display);font-weight:560;font-optical-sizing:auto;font-size:clamp(44px,5.2vw,76px);line-height:1;letter-spacing:-.012em;text-wrap:balance}.ds-h1 span{color:var(--transfer);font-style:italic;font-weight:500}"
+    },
+    {
+      "name": "Dalton Sphere",
+      "kind": "custom",
+      "description": "Glossy gold model-size sphere that springs on hover.",
+      "html": "<div class=\"ds-atoms\"><div><i style=\"width:60px;height:60px\"></i><b>XS</b><small>1.2M</small></div><div><i style=\"width:96px;height:96px\"></i><b>M</b><small>8.4M</small></div><div><i style=\"width:150px;height:150px\"></i><b>L</b><small>21M</small></div></div>",
+      "css": ":root{--ground:#0b0d10;--panel:#111418;--panel-2:#161a1f;--line:#22272e;--line-2:#2e343c;--ink:#eef0f3;--ink-2:#a9b0b9;--ink-3:#7f8792;--reward:#b9bfc8;--transfer:#e2b45a;--bad:#ff6b5b;--good:#45d483;--sans:\"Geist Variable\",\"Helvetica Neue\",Arial,sans-serif;--mono:\"Geist Mono Variable\",ui-monospace,Menlo,monospace;--display:\"Bodoni Moda Variable\",\"Bodoni 72\",Didot,Georgia,serif;--out:cubic-bezier(.16,1,.3,1)} .ds-atoms{display:flex;align-items:flex-end;gap:32px;font-family:var(--sans);color:var(--ink)}.ds-atoms>div{display:grid;justify-items:center;gap:12px}.ds-atoms i{display:block;border-radius:50%;background:radial-gradient(circle at 34% 28%,#fff6dc 0,#f2d38c 16%,#d7a845 50%,#7e5a1c 100%);box-shadow:inset -10px -14px 26px #0b0d1066,0 26px 44px -16px #e2b45a88;transition:transform .4s var(--out)}.ds-atoms i:hover{transform:scale(1.12)}.ds-atoms b{font-weight:600}.ds-atoms small{color:var(--ink-3);font:500 12px var(--mono)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Assay Run",
+    "overview": "The site is a training run on a black bench. Reward climbs, transfer stays flat, and Touchstone is the eval that tells you which one you bought. The grammar is an experiment dashboard: graphite panels on a near-black ground, hairline borders, run headers carrying ids, step counts and sha prefixes, curves that draw as you watch. Over that sits the touchstone itself: the dark stone, the streak of gold drawn across it. Gold is the true number and the brand; silver is the tempting one.\n\nDensity is dashboard-calm: generous section spacing around tightly packed panels. Words are set plainly in Geist; headlines and big figures speak in Bodoni Moda, with the turn of a sentence picked out in gold italic (\"Don't buy training data *blind.*\"). Motion is rich but always explanatory: curves draw, numbers count up, the ranking re-sorts, the model spheres spring.\n\nIt refuses the dark-SaaS hero with a glowing product screenshot. Evidence is drawn as live charts, not mocked as screenshots.",
+    "keyCharacteristics": [
+      "Black ground, graphite panels, 1px hairlines; depth comes from tone, not shadow.",
+      "Gold means transfer and Touchstone; silver means training reward; red means exploit or loss; green means pass or gain.",
+      "Bodoni Moda for headlines and big figures, gold italic for the accent phrase; Geist for UI and body; Geist Mono for data only.",
+      "Every chart and panel carries a run header and a \"demo data\" marker.",
+      "Motion explains the number: draw, count, re-rank, spring."
+    ],
+    "rules": [
+      {
+        "name": "The Two Numbers Rule",
+        "body": "Silver is reward, gold is transfer, in every chart, legend, readout and figure. Never swap them, and never use silver for something Touchstone recommends.",
+        "section": "colors"
+      },
+      {
+        "name": "The Verdict Colour Rule",
+        "body": "Red and green appear only as judgements on data: loss or exploit, gain or pass. Never as decoration or as button colours.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Is Ours Rule",
+        "body": "Gold marks Touchstone's own voice: its actions, its verdict accent, its position. If gold appears, it means \"the real number\" or \"us\".",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Italic Rule",
+        "body": "A headline may pick out its turn (the final word or second sentence) in Bodoni italic at weight 500, in Touchstone Gold. One accent per headline, never in body text, never in Geist.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Data Rule",
+        "body": "Geist Mono holds only measurements and machine identifiers: numbers, axes, ids, hashes, step counts, panel meta. Words a person reads as prose or navigation stay in Geist.",
+        "section": "typography"
+      },
+      {
+        "name": "The Bodoni Speaks Rule",
+        "body": "Bodoni Moda sets h1, h2 and big figures, nothing smaller. Titles, buttons, tables and UI stay in Geist.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline First Rule",
+        "body": "Separate with a 1px line in `line` before reaching for a shadow. A neutral drop shadow on a resting panel is wrong; light in this world is gold.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Breathing Ground Rule",
+        "body": "The animated shader gradient (gold through black) sits only behind the hero (40% opacity) and the closing call (60%), fully masked toward the text, and never mounts with reduced motion.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep silver for reward and gold for transfer in every chart, readout and legend.",
+      "**Do** reserve the gold button for \"Request an appraisal\", paired with a secondary \"See a sample report\" where there is room.",
+      "**Do** open every data container with a mono run header and mark demo results as \"demo data\".",
+      "**Do** set h1, h2 and big figures in Bodoni Moda, with one gold italic accent per headline at most.",
+      "**Do** separate with 1px hairlines in `line` and let tone carry depth.",
+      "**Do** ease state changes with cubic-bezier(.16, 1, .3, 1) and give every animation a reduced-motion state that shows the final values."
+    ],
+    "donts": [
+      "**Don't** put an eyebrow or kicker label above a headline; mono labels live inside panel headers and data rows only.",
+      "**Don't** use gradient text.",
+      "**Don't** set prose, navigation or headings in Geist Mono.",
+      "**Don't** use red or green for anything that isn't a judgement on data.",
+      "**Don't** set body, UI or titles in Bodoni Moda, or put a gold italic accent in Geist.",
+      "**Don't** add a neutral drop shadow to a resting panel or card.",
+      "**Don't** show the product as a glowing screenshot; draw the evidence as a live chart."
+    ]
+  }
+}

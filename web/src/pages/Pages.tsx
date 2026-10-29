@@ -61,7 +61,7 @@ export function Report() {
   const rows = useMemo(() => [...all].sort((a, b) => value(b, sort) - value(a, sort)), [sort])
   const env = all.find(e => e.id === sel)!
   const th = (k: SortKey, label: string, right = false) => (
-    <th className={right ? 'r' : ''} aria-sort={sort === k ? 'descending' : 'none'}><button onClick={() => setSort(k)}>{label}{sort === k ? ' ↓' : ''}</button></th>
+    <th className={right ? 'r' : ''} aria-sort={sort === k ? 'descending' : 'none'}><button onClick={() => setSort(k)}>{label}{sort === k && <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ marginLeft: 6, verticalAlign: -1 }}><path d="M4 6l4 4 4-4" /></svg>}</button></th>
   )
   return (
     <>

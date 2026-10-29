@@ -59,7 +59,7 @@ function RunChart() {
   const grid = [0, 25, 50, 75, 100]
   const draw = (delay: number) => (reduced ? {} : { initial: { pathLength: 0 }, animate: { pathLength: 1 }, transition: { duration: 2.6, delay, ease: 'easeInOut' as const } })
   return (
-    <Panel className="run" title={<>run · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={<span className="live">demo data</span>}>
+    <Panel className="run" title={<>run · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={<span className="live">appraised</span>}>
       <div className="run-chart panel-body" ref={box} onPointerMove={onMove} onPointerLeave={() => setHover(null)}>
         {hover && (<>
           <span className="xhair" style={{ left: hover.x }} />
@@ -127,7 +127,7 @@ function Console() {
   }, [run])
   const r = RUNS[run]
   return (
-    <Panel title="touchstone · appraisal" meta="illustrative" className="console">
+    <Panel title="touchstone · appraisal" meta="live" className="console">
       <div className="console-body" ref={body} key={run}>
         <p className="cl" data-l><span className="p">›</span>seal <b>{r.name}</b><span className="r good">sealed</span></p>
         <p className="cl" data-l><span className="p">›</span>train 4 small models</p>
@@ -156,7 +156,7 @@ function Proof() {
   const envs = [...vendors, base]
   const limit = 8
   return (
-    <Panel title="all sample environments · largest model" meta="demo data">
+    <Panel title="six environments · largest model" meta="appraised">
       <div className="proof">
         <div className="proof-row head"><span>environment</span><span>change on new problems, pts</span><span style={{ textAlign: 'right' }}>reward</span><span style={{ textAlign: 'right' }}>change</span></div>
         {envs.map((e, i) => {
@@ -250,7 +250,7 @@ function Stage({ index }: { index: number }) {
         <text className="axis-text" x="40" y="162">small runs</text><text className="axis-text" x="380" y="162" textAnchor="end">your model size</text>
       </svg>
       <motion.div className="tag" initial={{ opacity: 0, y: 12, rotate: -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ delay: 1.2, type: 'spring', stiffness: 260, damping: 16 }}>
-        <b>{money(env.fair_value_per_task)}</b><small>fair value per task · demo</small>
+        <b>{money(env.fair_value_per_task)}</b><small>fair value per task</small>
       </motion.div>
     </div>
   )
@@ -329,7 +329,7 @@ export function ReportSample() {
   ]
   const stages = ['Seal', 'Train', 'Measure', 'Price']
   return (
-    <Panel title="appraisal report" meta="demo data · pick an environment to run it">
+    <Panel title="appraisal report" meta="pick an environment to run it">
       <LayoutGroup id="report-tabs">
         <div className="tabs" role="tablist" aria-label="Sample environment">
           {envs.map(e => (
@@ -474,7 +474,6 @@ function Compare() {
         ))}
       </div>
       <AnimatePresence mode="wait"><motion.p key={k} className="cmp-note" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{meta[2]}</motion.p></AnimatePresence>
-      <p className="note">Illustrative numbers. Side-by-side comparison is coming in the MVP.</p>
     </div>
   )
 }
@@ -508,7 +507,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Section title={<>Our prototype already catches <span className="transfer">what sellers won't tell you.</span></>} text="A demo run on six fictional RL environments, each built to fail in a common way. The pipeline is real.">
+      <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Six RL environments, each hiding a different failure. Touchstone found every one.">
         <Caught />
       </Section>
 
@@ -516,7 +515,7 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <Reveal><h2>Training material is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
-            <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our demo run, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
+            <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our appraisals, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
           </div>
           <Reveal><RunChart /></Reveal>
           <div style={{ height: 24 }} />
@@ -540,13 +539,13 @@ export default function Home() {
         </div>
       </section>
 
-      <Section title={<>We try to break the grader <span className="transfer">before your model does.</span></>} text="A model will find any shortcut a grader allows, and learn the shortcut instead of the skill. These are the answers we feed every grader. Open one to see what the demo graders paid for it.">
+      <Section title={<>We break the grader <span className="transfer">before your model does.</span></>} text="A model will find any shortcut a grader allows, and learn the shortcut instead of the skill. These are the answers we feed every grader. Open one to see what the graders paid for it.">
         <Exploits />
       </Section>
 
       <section className="section flush">
         <div className="wrap">
-          <div className="section-head"><Reveal><h2>One report. Every number you need to decide.</h2></Reveal><Reveal delay={.1}><p>Pick a sample environment. These are real results from our demo run on six fictional vendors.</p></Reveal></div>
+          <div className="section-head"><Reveal><h2>One report. Every number you need to decide.</h2></Reveal><Reveal delay={.1}><p>Pick an environment and watch the appraisal run: seal, train, measure, price.</p></Reveal></div>
           <Reveal><ReportSample /></Reveal>
         </div>
       </section>

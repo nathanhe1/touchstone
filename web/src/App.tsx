@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, LayoutGroup } from 'motion/react'
+import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 import Home from './pages/Home'
 import { Company, Forecast, Market, Pricing, Product, Report, Request } from './pages/Pages'
 import { Brand, RequestButton, reduced } from './ui'
@@ -16,8 +19,29 @@ export default function App() {
   const [route, setRoute] = useState<Route>(read)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  // Smooth scrolling (Lenis) driven by GSAP's ticker so ScrollTrigger stays in sync.
   useEffect(() => {
-    const onHash = () => { setRoute(read()); setOpen(false); window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }) }
+    if (reduced) return
+    const lenis = new Lenis({ lerp: .11 })
+    lenis.on('scroll', ScrollTrigger.update)
+    const tick = (t: number) => lenis.raf(t * 1000)
+    gsap.ticker.add(tick); gsap.ticker.lagSmoothing(0)
+    ;(window as any).__lenis = lenis
+    return () => { gsap.ticker.remove(tick); lenis.destroy() }
+  }, [])
+  // A soft gold spotlight follows the cursor across whichever panel it is over.
+  useEffect(() => {
+    const move = (e: PointerEvent) => {
+      const panel = (e.target as HTMLElement).closest?.('.panel') as HTMLElement | null
+      if (!panel) return
+      const r = panel.getBoundingClientRect()
+      panel.style.setProperty('--mx', `${e.clientX - r.left}px`); panel.style.setProperty('--my', `${e.clientY - r.top}px`)
+    }
+    addEventListener('pointermove', move, { passive: true })
+    return () => removeEventListener('pointermove', move)
+  }, [])
+  useEffect(() => {
+    const onHash = () => { setRoute(read()); setOpen(false); const l = (window as any).__lenis; if (l) l.scrollTo(0, { immediate: true }); else window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }) }
     const onScroll = () => setScrolled(scrollY > 8)
     addEventListener('hashchange', onHash); addEventListener('scroll', onScroll, { passive: true })
     return () => { removeEventListener('hashchange', onHash); removeEventListener('scroll', onScroll) }

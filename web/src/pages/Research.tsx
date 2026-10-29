@@ -1,8 +1,7 @@
 import { motion } from 'motion/react'
-import { Close, reduced } from '../ui'
+import { Close, DUR, ease, reduced } from '../ui'
 import { Evidence, Section } from './Sections'
 
-const ease = [.16, 1, .3, 1] as const
 
 export const SOURCES: [string, string][] = [
   ['Xia et al., LESS: selecting influential data (ICML 2024)', 'https://proceedings.mlr.press/v235/xia24c.html'],
@@ -29,14 +28,14 @@ export default function Research() {
   const plan: [string, string, string][] = [
     ['Pick environments', '6 to 8 open RL environments', 'From the Prime Intellect Environments Hub, OpenEnv and Reasoning Gym.'],
     ['Train small', '0.5B, 1.5B and 3B models', 'One published GRPO recipe, identical at every size.'],
-    ['Check against large', 'One 7B to 8B model', 'The "large-scale truth" the small models must predict.'],
+    ['Check against large', 'One 7B to 8B model', 'The large-model result the small models must predict.'],
     ['Publish', 'Touchstone Report #1', 'Which open environments transfer, which can be hacked, and what each is worth.'],
   ]
   return (
     <>
       <header className="page-head wrap">
-        <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Built on <span className="transfer">the research.</span></motion.h1>
-        <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .1, ease }}>
+        <motion.h1 initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: DUR.standard, ease }}>Built on <span className="transfer">the research.</span></motion.h1>
+        <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: DUR.standard, delay: .05, ease }}>
           Data value varies enormously, and small training runs can predict which data wins at scale. Touchstone turns that research into a product for RL environments.
         </motion.p>
       </header>
@@ -44,11 +43,9 @@ export default function Research() {
       <Section title="What the research shows." flush><Evidence /></Section>
 
       <Section title={<>Next: <span className="transfer">Touchstone Report #1.</span></>} text="The first public appraisal of open RL environments, run on real open models in about 150 to 250 GPU hours.">
-        <ol className="plan">
-          {plan.map(([title, big, text], i) => (
-            <motion.li key={title} initial={reduced ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .1, duration: .7, ease }}>
-              <small>{i + 1}</small><b>{title}</b><span>{big}</span><p>{text}</p>
-            </motion.li>
+        <ol className="process">
+          {plan.map(([title, big, text]) => (
+            <li key={title}><h3>{title}</h3><p style={{ color: 'var(--ink)', marginBottom: 8 }}>{big}</p><p>{text}</p></li>
           ))}
         </ol>
       </Section>

@@ -23,7 +23,7 @@ export function Product() {
   return (
     <>
       <Head title="One sealed test. Six answers." text="Every appraisal ends in one report. It tells you what an environment teaches, whether it can be gamed, what you already have, and what it is worth at your model size." />
-      <section className="wrap" style={{ marginTop: 40 }}><Reveal><ReportSample /></Reveal></section>
+      <section className="wrap"><Reveal><ReportSample /></Reveal></section>
       <section className="section">
         <div className="wrap two">
           <Reveal><h2>From upload to verdict.</h2><p className="lede">The vendor never shows you its tasks, and you never have to take its word for the results.</p></Reveal>

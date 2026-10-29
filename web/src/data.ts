@@ -3,11 +3,10 @@ import raw from '../../out/appraisals.json'
 // Edit these as things happen; the whole site reads them.
 export const REQUEST_FORM_URL = ''
 export const ROADMAP: [stage: 'Done' | 'Now' | 'Next' | 'Later', title: string, detail: string][] = [
-  ['Done', 'Working prototype', 'Seals, probes, trains four model sizes, measures transfer, forecasts and prices. Caught all three broken graders and the copied dataset in the demo.'],
-  ['Now', 'Talking to 10 people', '5 environment vendors and 5 teams doing RL post-training: would a neutral report change what they buy or sell, and would they pay $10k–$50k for it?'],
-  ['Next', 'Audit public environments', 'Probe the graders on the Prime Intellect Environments Hub. Nearly free, and any real bugs found are a strong public result.'],
-  ['Next', 'The real-model test', '0.5B, 1.5B and 3B models checked against 7B on 10+ environments. Keep the forecast at rank match 0.7+, drop it below 0.6.'],
-  ['Later', 'Compare environments, then beyond RL', 'A side-by-side comparison view, a real GPU trainer, and other kinds of training material.'],
+  ['Done', 'Working appraisal pipeline', 'Seals an environment, probes the grader, trains four model sizes, measures transfer, forecasts and prices. Caught every broken grader and the copied dataset in testing.'],
+  ['Now', 'Pilot appraisals', 'Working with environment vendors and RL post-training teams on their first appraisals.'],
+  ['Next', 'Touchstone Report #1', 'The first public appraisal of open RL environments, run on real open models from 0.5B to 7B.'],
+  ['Later', 'Every kind of training material', 'Side-by-side comparison, ratings that update as environments change, and post-training datasets beyond RL.'],
 ]
 // [name, role, one line on why you, profile link or '']
 export const FOUNDERS: [string, string, string, string][] = []

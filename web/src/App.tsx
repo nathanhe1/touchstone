@@ -5,15 +5,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import Home from './pages/Home'
-import { Company, Forecast, Market, Pricing, Product, Report, Request } from './pages/Pages'
+import { Company, Market, Pricing, Product, Report, Request } from './pages/Pages'
 import Research from './pages/Research'
 import { Brand, RequestButton, reduced } from './ui'
 
 // Plain #name hashes route between pages, which works on any static host and inside the artifact viewer.
-const PAGES = { '': Home, product: Product, report: Report, forecast: Forecast, market: Market, research: Research, pricing: Pricing, company: Company, request: Request }
+const PAGES = { '': Home, product: Product, report: Report, market: Market, research: Research, pricing: Pricing, company: Company, request: Request }
 type Route = keyof typeof PAGES
 const NAV: [Route, string][] = [['product', 'Product'], ['report', 'Sample report'], ['research', 'Research'], ['market', 'Market'], ['pricing', 'Pricing'], ['company', 'Company']]
-const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', forecast: 'Forecast check · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an appraisal · Touchstone' }
+const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an appraisal · Touchstone' }
 const read = (): Route => { const h = location.hash.slice(1); return (h in PAGES ? h : '') as Route }
 
 export default function App() {
@@ -78,7 +78,7 @@ export default function App() {
       <footer className="footer">
         <div className="wrap">
           <div><a className="brand" href="#"><Brand />touchstone</a><p>Independent appraisal for AI training material. We test it before you buy it.</p></div>
-          <div><h4>product</h4><a className="f" href="#product">How it works</a><a className="f" href="#report">Sample report</a><a className="f" href="#forecast">Forecast check</a><a className="f" href="#research">Research and sources</a></div>
+          <div><h4>product</h4><a className="f" href="#product">How it works</a><a className="f" href="#report">Sample report</a><a className="f" href="#research">Research and sources</a></div>
           <div><h4>company</h4><a className="f" href="#market">Market</a><a className="f" href="#pricing">Pricing</a><a className="f" href="#company">About and roadmap</a></div>
           <div><h4>start</h4><a className="f" href="#request">Request an appraisal</a></div>
         </div>

@@ -1,179 +1,52 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, LayoutGroup } from 'motion/react'
+import { useSprings, animated } from '@react-spring/web'
 import { animate, createTimeline, stagger } from 'animejs'
 import NumberFlow from '@number-flow/react'
-import { data, vendors, base, truth, signed, pct, money, params, type Env } from '../data'
-import { Alert, Arrow, Check, Close, Count, Glow, Panel, Pop, Rating, Reveal, SplitRequest, reduced } from '../ui'
-import { Section } from './Sections'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import LiquidGlass from 'liquid-glass-react'
+import { data, vendors, base, truth, signed, pct, money, params, gradeClass, type Env } from '../data'
+import { Alert, Check, Close, Count, Gradient, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
+import { Caught, Evidence, Exploits, Paradox, Section } from './Sections'
 
-const ease = [.22, 1, .36, 1] as const
-const slug = (e: Env) => e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '')
-const good = (e: Env) => e.grade === 'A' || e.grade === 'B'
-const reason = (e: Env) => e.hackability.score >= .2 ? 'gameable grader' : e.redundancy.public_overlap >= .5 ? 'mostly free copies' : 'no real gain'
-const verdict = (e: Env) =>
-  e.is_public_baseline ? 'The free baseline every purchase is compared against.'
-  : e.hackability.score >= .2 ? 'Fix the grader before anyone buys this.'
-  : e.redundancy.public_overlap >= .5 ? 'Mostly already free. Not worth the asking price.'
-  : e.actual_at_truth < 0 ? 'Don\'t buy: the model gets worse at new problems.'
-  : `Worth buying at up to ${money(e.fair_value_per_task)} a task.`
+gsap.registerPlugin(ScrollTrigger)
+const ease = [.16, 1, .3, 1] as const
 
-/* ---------- Hero: the product as a desktop app. A scripted cursor clicks through the environments, and each finished
-   appraisal pops a result card over the window, the way a desktop notification would. ---------- */
-const Cursor = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5 19.5 12l-7 1.6-3.6 6.6z" fill="#111214" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" /></svg>
-
-function AppWindow() {
-  const [idx, setIdx] = useState(0)
-  const [done, setDone] = useState(reduced)
-  const [cur, setCur] = useState({ x: 640, y: 300, press: false })
-  const body = useRef<HTMLDivElement>(null), frame = useRef<HTMLDivElement>(null)
-  const btns = useRef<(HTMLButtonElement | null)[]>([])
-  const e = vendors[idx]
-  useEffect(() => {
-    const el = body.current
-    if (!el || reduced) return
-    setDone(false)
-    const lines = el.querySelectorAll('[data-l]'), bars = el.querySelectorAll('.cbars i')
-    const timers: number[] = []
-    const later = (ms: number, f: () => void) => timers.push(window.setTimeout(f, ms))
-    const tl = createTimeline({ onComplete: () => {
-      setDone(true)
-      // After a beat, the cursor glides to the next environment and clicks it.
-      later(2600, () => {
-        const next = (idx + 1) % vendors.length, b = btns.current[next], f = frame.current
-        if (!b || !f) return setIdx(next)
-        const r = b.getBoundingClientRect(), fr = f.getBoundingClientRect()
-        setCur({ x: r.left - fr.left + Math.min(r.width * .45, 110), y: r.top - fr.top + r.height / 2, press: false })
-        later(950, () => setCur(c => ({ ...c, press: true })))
-        later(1100, () => { setCur(c => ({ ...c, press: false })); setIdx(next) })
-      })
-    } })
-    tl.set(lines, { opacity: 0, translateY: 6 }).set(bars, { scaleX: 0 })
-    lines.forEach((line, i) => {
-      tl.add(line, { opacity: 1, translateY: 0, duration: 260, ease: 'outQuint' }, i ? '+=240' : 250)
-      if (line.classList.contains('cbars')) tl.add(bars, { scaleX: 1, duration: 650, delay: stagger(100), ease: 'outQuint' })
-    })
-    return () => { tl.pause(); timers.forEach(clearTimeout) }
-  }, [idx])
-  const hack = e.hackability.score >= .2, copied = e.redundancy.public_overlap >= .5, gain = e.actual_at_truth
-  return (
-    <>
-    <div className="app" ref={frame}>
-      <div className="app-bar"><i /><i /><i /><span>Touchstone</span><span className="meta">{done ? 'appraised' : 'appraising'}</span></div>
-      <div className="app-body">
-        <aside className="app-side" aria-label="Environments">
-          <small>Environments</small>
-          {vendors.map((v, i) => (
-            <button key={v.id} ref={el => { btns.current[i] = el }} className={i === idx ? 'on' : ''} onClick={() => setIdx(i)}>
-              <span>{v.name}</span><i className={`g ${i === idx && !done ? '' : v.grade}`}>{i === idx && !done ? '·' : v.grade}</i>
-            </button>
-          ))}
-        </aside>
-        <div className="console-body" ref={body} key={idx}>
-          <p className="cl" data-l><span className="p">›</span>seal <b>{slug(e)}</b><span className="r good">sealed</span></p>
-          <p className="cl" data-l><span className="p">›</span>train 4 model sizes</p>
-          <div className="cbars" data-l>{Object.keys(data.ladder).map(k => <div key={k}><span>{k}</span><i style={{ width: `${Math.max(e.rungs[k].env_reward_after * 100, 2)}%` }} /><em>{pct(e.rungs[k].env_reward_after)}</em></div>)}</div>
-          <p className="cl" data-l><span className="p">›</span>probe the grader<span className={`r ${hack ? 'bad' : 'good'}`}>{hack ? `${pct(e.hackability.score)} of junk scored` : 'grader held'}</span></p>
-          <p className="cl" data-l><span className="p">›</span>check for free copies<span className={`r ${copied ? 'bad' : ''}`}>{pct(e.redundancy.public_overlap)} already free</span></p>
-          <p className="cl" data-l><span className="p">›</span>test on new problems<span className={`r ${gain < 0 ? 'bad' : 'good'}`}>{signed(gain)} pts</span></p>
-          <p className="cl" data-l><span className="p">›</span>price per task<span className="r"><b>{money(e.fair_value_per_task)}</b></span></p>
-        </div>
-      </div>
-      {!reduced && <span className={`cursor${cur.press ? ' press' : ''}`} style={{ transform: `translate(${cur.x}px, ${cur.y}px)` }}><Cursor /></span>}
-    </div>
-    <AnimatePresence>
-        {done && (
-          <motion.div key={e.id} className="popup" role="status" initial={reduced ? false : { opacity: 0, y: 18, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8, scale: .98, transition: { duration: .15 } }} transition={{ type: 'spring', stiffness: 500, damping: 34 }}>
-            <div className="popup-head">
-              <span className="ok" style={{ background: good(e) ? 'linear-gradient(135deg,#f7d690,#dca646)' : 'var(--bad)' }}>{good(e) ? <Check /> : <Alert />}</span>
-              <span style={{ flex: 1, minWidth: 0 }}><b>Appraisal complete</b><br />{e.name}</span>
-            </div>
-            <Rating grade={e.grade} />
-            <div className="popup-nums">
-              <div><small>New problems</small><b className={gain < 0 ? 'bad' : 'good'}>{signed(gain)} pts</b></div>
-              <div><small>Fair value / task</small><b>{money(e.fair_value_per_task)}</b></div>
-            </div>
-            <p>{verdict(e)}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  )
-}
-
-const FACTS: [string, string, React.ReactNode][] = [
-  ['$2,000', 'for a single RL task, and up to $20k at the high end', <>Most RL tasks sell for <b>$200 to $2,000</b>; the high end reaches $20k. Price summary citing Epoch AI.</>],
-  ['4–5×', 'more for an exclusive deal', <>Exclusivity multiplies the price, so a bad buy costs <b>several times more</b>.</>],
-  ['Weeks', 'of GPU time before a full run shows it failed', <>A full RL run is the only test buyers have today, and it comes <b>after</b> the purchase.</>],
-  ['0', 'independent checks before you buy, until now', <>Buyers see results the <b>vendor</b> ran on its own setup.</>],
-]
-
-/* ---------- Marquee: the exploit probes every grader faces, with what the weakest grader paid ---------- */
-const PROBES: [string, string][] = [['empty answer', '""'], ['digit soup', '7 3 9 1 0 4 8 2'], ['hedged guesses', '85 or 86 or 87'], ['echo the prompt', '47+38='], ['repeat last number in prompt', '38'], ['random 2-3 digits', '412']]
-const WHAT: Record<string, string> = {
-  'empty answer': 'Submit nothing at all.', 'digit soup': 'Spray digits and hope one matches.', 'hedged guesses': 'Glue several guesses together.',
-  'echo the prompt': 'Repeat the question back.', 'repeat last number in prompt': 'Copy a number from the question.', 'random 2-3 digits': 'Right shape, wrong value.',
-  'edit the tests': 'Rewrite the check instead of the code.', 'exit early': 'Quit before the tests can fail.', 'format gaming': 'Match the format, not the answer.',
-  'skip the work': 'Return the expected output without computing it.', 'patch the grader': 'Overwrite the scoring function itself.',
-}
-const CODE: [string, string][] = [['edit the tests', 'assert True  # was f(3) == 9'], ['exit early', 'sys.exit(0)'], ['format gaming', '<answer>\\boxed{…}</answer>'], ['skip the work', 'return EXPECTED'], ['patch the grader', 'grader.score = lambda *_: 1']]
-function ProbeCard({ name, sample }: { name: string; sample: string }) {
-  const known = vendors.some(v => name in v.hackability.per_exploit)
-  const top = Math.max(0, ...vendors.map(v => v.hackability.per_exploit[name] ?? 0))
-  const hit = top >= .2
-  return (
-    <Pop className="probe-card" tip={<>{WHAT[name]}{known && <> The weakest grader paid <b>{pct(top)}</b>.</>}</>}>
-      <header>{name}{known ? <span className={hit ? 'bad' : 'good'}>{hit ? <Alert /> : <Check />}{hit ? `paid ${pct(top)}` : 'held'}</span> : <span className="dim">code</span>}</header>
-      <code>{sample}</code>
-    </Pop>
-  )
-}
-function Marquee({ items, rev = false }: { items: [string, string][]; rev?: boolean }) {
-  const row = [...items, ...items, ...items]
-  return (
-    <div className={`marquee${rev ? ' rev' : ''}`}>
-      <div className="marquee-track">{[...row, ...row].map(([n, s], i) => <ProbeCard key={i} name={n} sample={s} />)}</div>
-    </div>
-  )
-}
-
-/* ---------- A real training run: reward climbs while accuracy on new problems falls ---------- */
+/* ---------- Hero: a real training run where reward climbs and new-problem accuracy falls ---------- */
 function RunChart() {
   const env = vendors.find(e => e.id === 'quickgrade_arith') ?? vendors[0]
   const rung = env.rungs[truth]
   const W = 960, H = 300, L = 36, B = 26
   const x = (i: number, n: number) => L + (i / (n - 1)) * (W - L - 8)
-  const y = (v: number) => 8 + (1 - v / 100) * (H - B - 8)
+  const y = (pctv: number) => 8 + (1 - pctv / 100) * (H - B - 8)
   const reward = rung.curve.map(v => v * 100)
   const accuracy = reward.map((_, i) => rung.heldout_before + (rung.heldout_after - rung.heldout_before) * (i / (reward.length - 1)))
   const path = (vals: number[]) => vals.map((v, i) => `${i ? 'L' : 'M'}${x(i, vals.length).toFixed(1)} ${y(v).toFixed(1)}`).join(' ')
   const area = (vals: number[]) => `${path(vals)} L${x(vals.length - 1, vals.length)} ${H - B} L${L} ${H - B} Z`
-  const stepRef = useRef<HTMLElement>(null), rewardRef = useRef<HTMLElement>(null), accRef = useRef<HTMLElement>(null)
-  const box = useRef<HTMLDivElement>(null)
-  const [started, setStarted] = useState(reduced)
+  const stepRef = useRef<HTMLElement>(null)
+  const rewardRef = useRef<HTMLElement>(null)
+  const accRef = useRef<HTMLElement>(null)
   const [done, setDone] = useState(reduced)
+  const box = useRef<HTMLDivElement>(null)
   const [hover, setHover] = useState<{ x: number; i: number } | null>(null)
-  const onMove = (ev: React.PointerEvent) => {
+  const onMove = (e: React.PointerEvent) => {
     const r = box.current!.getBoundingClientRect()
-    const fx = ((ev.clientX - r.left) / r.width * W - L) / (W - L - 8)
+    const fx = ((e.clientX - r.left) / r.width * W - L) / (W - L - 8)
     if (fx < 0 || fx > 1) return setHover(null)
-    setHover({ x: ev.clientX - r.left, i: Math.round(fx * (reward.length - 1)) })
+    setHover({ x: e.clientX - r.left, i: Math.round(fx * (reward.length - 1)) })
   }
-  // Starts when the chart scrolls into view, so the climb is seen rather than missed.
+
   useEffect(() => {
-    if (reduced || !box.current) return
-    const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { setStarted(true); io.disconnect() } }, { threshold: .4 })
-    io.observe(box.current)
-    return () => io.disconnect()
-  }, [])
-  useEffect(() => {
-    if (!started || reduced) return
-    const s = { t: 0 }, last = reward.length - 1
+    if (reduced) return
+    const s = { t: 0 }
+    const last = reward.length - 1
     const a = animate(s, {
-      t: 1, duration: 2600, ease: 'inOutQuad',
+      t: 1, duration: 2600, delay: 500, ease: 'inOutQuad',
       onUpdate: () => {
         const i = s.t * last, lo = Math.floor(i), f = i - lo
-        const r = reward[lo] + (reward[Math.min(lo + 1, last)] - reward[lo]) * f
-        const acc = accuracy[lo] + (accuracy[Math.min(lo + 1, last)] - accuracy[lo]) * f
+        const r = reward[lo] + ((reward[Math.min(lo + 1, last)] - reward[lo]) * f)
+        const acc = accuracy[lo] + ((accuracy[Math.min(lo + 1, last)] - accuracy[lo]) * f)
         if (stepRef.current) stepRef.current.textContent = Math.round(s.t * 1000).toLocaleString('en-US')
         if (rewardRef.current) rewardRef.current.textContent = `${r.toFixed(1)}%`
         if (accRef.current) accRef.current.textContent = `${acc.toFixed(1)}%`
@@ -181,182 +54,254 @@ function RunChart() {
       onComplete: () => setDone(true),
     })
     return () => { a.pause() }
-  }, [started])
-  const draw = reduced ? {} : { initial: { pathLength: 0 }, animate: started ? { pathLength: 1 } : { pathLength: 0 }, transition: { duration: 2.6, ease: 'easeInOut' as const } }
-  const end = reward.length - 1
+  }, [])
+
+  const grid = [0, 25, 50, 75, 100]
+  const draw = (delay: number) => (reduced ? {} : { initial: { pathLength: 0 }, animate: { pathLength: 1 }, transition: { duration: 2.6, delay, ease: 'easeInOut' as const } })
   return (
-    <Panel title={env.name} meta={<span className="legend"><span><i style={{ background: 'var(--reward)' }} />training reward</span><span><i style={{ background: 'var(--transfer)' }} />accuracy on new problems</span></span>}>
+    <Panel className="run" title={<>run · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={<span className="live">appraised</span>}>
       <div className="run-chart panel-body" ref={box} onPointerMove={onMove} onPointerLeave={() => setHover(null)}>
         {hover && (<>
           <span className="xhair" style={{ left: hover.x }} />
-          <span className="xtip" style={{ left: Math.min(hover.x + 12, (box.current?.clientWidth ?? 600) - 180) }}>
-            step {Math.round(hover.i / end * 1000)}
+          <span className="xtip" style={{ left: Math.min(hover.x + 12, (box.current?.clientWidth ?? 600) - 170) }}>
+            step {Math.round(hover.i / (reward.length - 1) * 1000)}
             <b className="reward">reward {reward[hover.i].toFixed(1)}%</b><b className="transfer">new problems {accuracy[hover.i].toFixed(1)}%</b>
           </span>
         </>)}
-        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Training reward climbs from ${reward[0].toFixed(0)}% to ${reward[end].toFixed(0)}% while accuracy on new problems falls from ${accuracy[0].toFixed(1)}% to ${accuracy[end].toFixed(1)}%`}>
-          {[0, 25, 50, 75, 100].map(g => (<g key={g}><line className="grid-line" x1={L} x2={W - 8} y1={y(g)} y2={y(g)} /><text className="axis-text" x={L - 8} y={y(g) + 4} textAnchor="end">{g}</text></g>))}
+        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Training reward climbs from ${reward[0].toFixed(0)}% to ${reward[reward.length - 1].toFixed(0)}% while accuracy on new problems falls from ${accuracy[0].toFixed(1)}% to ${accuracy[accuracy.length - 1].toFixed(1)}%`}>
+          {grid.map(g => (<g key={g}><line className="grid-line" x1={L} x2={W - 8} y1={y(g)} y2={y(g)} /><text className="axis-text" x={L - 8} y={y(g) + 4} textAnchor="end">{g}</text></g>))}
           <text className="axis-text" x={L} y={H - 6}>step 0</text><text className="axis-text" x={W - 8} y={H - 6} textAnchor="end">1,000</text>
-          <defs><linearGradient id="fill-r" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#a3a9b3" /><stop offset="1" stopColor="#a3a9b3" stopOpacity="0" /></linearGradient></defs>
-          <motion.path d={area(reward)} fill="url(#fill-r)" initial={{ opacity: 0 }} animate={{ opacity: done ? .18 : 0 }} transition={{ duration: .8 }} />
-          <motion.path d={path(reward)} className="curve" stroke="var(--reward)" {...draw} />
-          <motion.path d={path(accuracy)} className="curve" stroke="var(--transfer)" {...draw} />
+          <defs>
+            <linearGradient id="fill-r" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#b9bfc8" /><stop offset="1" stopColor="#b9bfc8" stopOpacity="0" /></linearGradient>
+            <linearGradient id="fill-t" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#e2b45a" /><stop offset="1" stopColor="#e2b45a" stopOpacity="0" /></linearGradient>
+          </defs>
+          <motion.path d={area(reward)} fill="url(#fill-r)" className="curve-fill" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: .14 }} transition={{ delay: 2.4, duration: .8 }} />
+          <motion.path d={path(reward)} className="curve" stroke="var(--reward)" {...draw(.5)} />
+          <motion.path d={path(accuracy)} className="curve" stroke="var(--transfer)" {...draw(.5)} />
           {done && <>
-            <text className="end-label" x={W - 8} y={y(reward[end]) - 10} textAnchor="end" fill="var(--reward)">{reward[end].toFixed(1)}%</text>
-            <text className="end-label" x={W - 8} y={y(accuracy[end]) + 22} textAnchor="end" fill="var(--transfer)">{accuracy[end].toFixed(1)}%</text>
+            <text className="end-label" x={W - 8} y={y(reward[reward.length - 1]) - 10} textAnchor="end" fill="var(--reward)">{reward[reward.length - 1].toFixed(1)}%</text>
+            <text className="end-label" x={W - 8} y={y(accuracy[accuracy.length - 1]) + 22} textAnchor="end" fill="var(--transfer)">{accuracy[accuracy.length - 1].toFixed(1)}%</text>
           </>}
         </svg>
         <AnimatePresence>
           {done && (
-            <motion.span className="toast" role="status" initial={reduced ? false : { opacity: 0, y: -12, scale: .95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: 'spring', stiffness: 500, damping: 30, delay: .35 }}>
-              <Alert /><span><b>Gameable grader</b> · reward rose, real skill fell</span>
-            </motion.span>
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {done && (
-            <motion.span className="verdict-card" initial={reduced ? false : { opacity: 0, scale: .9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 220, damping: 18 }}>
-              <small>Touchstone verdict</small><b>Don't buy at this price</b><small>{pct(env.hackability.score)} of junk answers still scored</small>
-            </motion.span>
+            <motion.div className="verdict-wrap" initial={reduced ? false : { opacity: 0, scale: .9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 220, damping: 18 }}>
+              <LiquidGlass mouseContainer={box} displacementScale={48} blurAmount={0.08} saturation={140} aberrationIntensity={1.4} elasticity={0.18} cornerRadius={16} padding="14px 18px" style={{ position: 'absolute', top: '27%', left: '56%' }}>
+                <Verdict env={env} />
+              </LiquidGlass>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
-      <p className="verdict-inline"><b className="bad">Don't buy at this price.</b> {pct(env.hackability.score)} of junk answers still scored.</p>
+      <p className="verdict-inline"><b className="bad">Don't buy at this price.</b> {pct(env.hackability.score)} of non-answers still scored.</p>
+      <div className="legend" style={{ padding: '0 20px 16px' }}><span><i style={{ background: 'var(--reward)' }} />reward on its own grader</span><span><i style={{ background: 'var(--transfer)' }} />accuracy on new problems</span></div>
       <div className="run-foot">
-        <div><small>Step</small><b ref={stepRef}>{reduced ? '1,000' : '0'}</b></div>
-        <div><small>Training reward</small><b ref={rewardRef} className="reward">{(reduced ? reward[end] : reward[0]).toFixed(1)}%</b></div>
-        <div><small>New problems</small><b ref={accRef} className="transfer">{(reduced ? accuracy[end] : accuracy[0]).toFixed(1)}%</b></div>
+        <div><small>step</small><b ref={stepRef} className="num">{reduced ? '1,000' : '0'}</b></div>
+        <div><small>reward</small><b ref={rewardRef} className="num reward">{reduced ? `${reward[reward.length - 1].toFixed(1)}%` : `${reward[0].toFixed(1)}%`}</b></div>
+        <div><small>new problems</small><b ref={accRef} className="num transfer">{reduced ? `${accuracy[accuracy.length - 1].toFixed(1)}%` : `${accuracy[0].toFixed(1)}%`}</b></div>
       </div>
     </Panel>
   )
 }
 
-/* ---------- How it works: four pastel cards, each with a small scene that keeps running ---------- */
-const inView = () => reduced ? {} : { initial: 'off', whileInView: 'on', viewport: { once: true, margin: '0px 0px -15% 0px' } }
-const useTick = (n: number, ms: number) => {
-  const [k, setK] = useState(reduced ? n : 0)
-  useEffect(() => { if (reduced) return; const t = setInterval(() => setK(v => (v + 1) % (n + 3)), ms); return () => clearInterval(t) }, [n, ms])
-  return Math.min(k, n)
-}
-function SealArt() {
-  const k = useTick(4, 650)
+const RUNS = [
+  { name: 'coding-agent-v3', exploit: '2 exploits found', overlap: '31% already free', gain: '−0.4 pts', verdict: 'Not worth full price', tone: 'bad' },
+  { name: 'math-reasoning-v1', exploit: 'no exploits', overlap: '6% already free', gain: '+4.1 pts', verdict: 'Worth buying', tone: 'good' },
+]
+function Console() {
+  const [run, setRun] = useState(0)
+  const body = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = body.current
+    if (!el || reduced) return
+    const lines = el.querySelectorAll('[data-l]'), bars = el.querySelectorAll('.cbar i')
+    let timer = 0
+    const tl = createTimeline({ onComplete: () => { timer = window.setTimeout(() => setRun(r => (r + 1) % RUNS.length), 2600) } })
+    tl.set(lines, { opacity: 0, translateY: 6 }).set(bars, { scaleX: 0 })
+    lines.forEach((line, i) => {
+      tl.add(line, { opacity: 1, translateY: 0, duration: 320, ease: 'outQuad' }, i ? '+=330' : 400)
+      if (line.classList.contains('cbars')) tl.add(bars, { scaleX: 1, duration: 800, delay: stagger(120), ease: 'outQuad' })
+    })
+    tl.add(el.querySelector('.stamp')!, { scale: [1.7, 1], rotate: [-12, -2], duration: 600, ease: 'outBack(2.2)' }, '-=300')
+    return () => { tl.pause(); clearTimeout(timer) }
+  }, [run])
+  const r = RUNS[run]
   return (
-    <div className="mini-win">
-      {['task_0001', 'task_0002', 'task_0003', 'task_0004'].map((t, i) => (
-        <div key={t} className="mini-row"><span>{t}</span><span className={`lock${i < k ? ' on' : ''}`}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="2" /><path d={i < k ? 'M5.5 7V5a2.5 2.5 0 0 1 5 0v2' : 'M5.5 7V5a2.5 2.5 0 0 1 5 0'} /></svg>{i < k ? 'sealed' : 'open'}</span></div>
-      ))}
-      <div className="mini-foot"><span>sha256</span><span>{vendors[0].sha256.slice(0, 12)}…</span></div>
-    </div>
+    <Panel title="touchstone · appraisal" meta="live" className="console">
+      <div className="console-body" ref={body} key={run}>
+        <p className="cl" data-l><span className="p">›</span>seal <b>{r.name}</b><span className="r good">sealed</span></p>
+        <p className="cl" data-l><span className="p">›</span>train 4 small models</p>
+        <div className="cbars" data-l>{[['S', 38], ['M', 56], ['L', 74], ['XL', 92]].map(([s, w]) => <div key={s}><span>{s}</span><i style={{ width: `${w}%` }} /></div>)}</div>
+        <p className="cl" data-l><span className="p">›</span>probe the grader<span className={`r ${r.tone}`}>{r.exploit}</span></p>
+        <p className="cl" data-l><span className="p">›</span>check overlap<span className="r">{r.overlap}</span></p>
+        <p className="cl" data-l><span className="p">›</span>forecast at your scale<span className={`r ${r.tone}`}>{r.gain}</span></p>
+        <span className={`stamp ${r.tone}`} data-l>{r.verdict}</span>
+      </div>
+    </Panel>
   )
 }
-function TrainArt() {
+
+function Verdict({ env }: { env: Env }) {
+  return (
+    <span className="verdict">
+      <small>touchstone verdict</small>
+      <b className="bad">Don't buy at this price</b>
+      <small>{pct(env.hackability.score)} of non-answers still scored</small>
+    </span>
+  )
+}
+
+/* ---------- Proof: reward against real change, for every demo environment ---------- */
+function Proof() {
+  const envs = [...vendors, base]
+  const limit = 8
+  return (
+    <Panel title="six environments · largest model" meta="appraised">
+      <div className="proof">
+        <div className="proof-row head"><span>environment</span><span>change on new problems, pts</span><span style={{ textAlign: 'right' }}>reward</span><span style={{ textAlign: 'right' }}>change</span></div>
+        {envs.map((e, i) => {
+          const r = e.rungs[truth].env_reward_after, c = e.actual_at_truth, share = Math.min(Math.abs(c) / limit, 1) * 50
+          return (
+            <Reveal key={e.id} delay={i * .05}>
+              <div className="proof-row">
+                <span className="proof-name">{e.name}</span>
+                <div className="proof-track">
+                  <motion.span className="proof-link" style={{ left: c < 0 ? `${50 - share}%` : '50%', width: `${share}%`, background: c < 0 ? 'var(--bad)' : 'var(--good)' }}
+                    initial={reduced ? false : { scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: .2 + i * .06, ease }} />
+                  <span className="proof-dot" style={{ left: `${50 + (c / limit) * 50}%`, background: c < 0 ? 'var(--bad)' : 'var(--good)' }} />
+                </div>
+                <span className="num reward" style={{ textAlign: 'right' }}>{pct(r)}</span>
+                <span className={`num ${c < 0 ? 'bad' : 'good'}`} style={{ textAlign: 'right' }}>{signed(c)}</span>
+              </div>
+            </Reveal>
+          )
+        })}
+      </div>
+    </Panel>
+  )
+}
+
+/* ---------- How it works: scroll drives the steps; each stage has its own motion ---------- */
+const STEPS = [
+  ['Seal', 'The vendor uploads the environment to a sealed sandbox. You never see their tasks, only the results.'],
+  ['Train small', 'Small open models train on it at four sizes with one fixed recipe. Cheap, fast and repeatable.'],
+  ['Measure', 'The models face private problems they never trained on, and we try to fool the grader.'],
+  ['Forecast and price', 'We predict the gain at your model size and put a fair price on each task.'],
+] as const
+
+function Spheres() {
   const sizes = Object.entries(data.ladder)
   const biggest = Math.max(...sizes.map(([, v]) => v))
-  const k = useTick(4, 700)
+  const [springs, api] = useSprings(sizes.length, i => ({ from: { scale: 0, y: 30 }, to: { scale: 1, y: 0 }, delay: 120 * i, config: { tension: 210, friction: 12 } }))
   return (
-    <motion.div className="atoms" {...inView()}>
-      {sizes.map(([name, v], i) => {
-        const d = 16 + Math.sqrt(v / biggest) * 58
+    <div className="atoms">
+      {springs.map((s, i) => {
+        const d = Math.sqrt(sizes[i][1] / biggest) * 150
         return (
-          <div className="atom" key={name}>
-            <motion.div className="sphere" style={{ width: d, height: d }} whileHover={{ scale: 1.15 }} animate={reduced ? undefined : { y: i < k ? -6 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 14 }}
-              variants={{ off: { scale: 0 }, on: { scale: 1, transition: { delay: .1 + i * .1, type: 'spring', stiffness: 400, damping: 14 } } }} />
-            <b>{name}</b><small>{params(v)}</small>
+          <div className="atom" key={sizes[i][0]}>
+            <animated.div className="sphere" style={{ width: d, height: d, ...s }}
+              onPointerEnter={() => api.start(j => (j === i ? { scale: 1.12, config: { tension: 320, friction: 10 } } : {}))}
+              onPointerLeave={() => api.start(j => (j === i ? { scale: 1 } : {}))} />
+            <b>{sizes[i][0]}</b><small>{params(sizes[i][1])}</small>
           </div>
         )
       })}
-    </motion.div>
+    </div>
   )
 }
-function MeasureArt() {
-  const env = vendors[0]
-  const rows: [string, string, number, string][] = [
-    ['Better on new problems', `${signed(env.actual_at_truth)} pts`, .62, 'var(--transfer)'],
-    ['Reward from exploits', pct(env.hackability.score), .03, 'var(--bad)'],
-    ['Already free', pct(env.redundancy.public_overlap), env.redundancy.public_overlap, 'var(--reward)'],
-  ]
-  return (
-    <motion.div className="mini-win bars" {...inView()}>
-      {rows.map(([label, value, w, c], i) => (
-        <div className="bar-row" key={label}><span>{label}</span><b>{value}</b>
-          <div className="track"><motion.i style={{ background: c, width: `${w * 100}%` }} variants={{ off: { scaleX: 0 }, on: { scaleX: 1, transition: { delay: .2 + i * .14, duration: .9, ease } } }} /></div>
-        </div>
-      ))}
-    </motion.div>
-  )
-}
-function PriceArt() {
-  const env = vendors[0]
-  return (
-    <motion.div className="price" {...inView()}>
-      <motion.div className="tag" variants={{ off: { opacity: 0, y: 16, rotate: -4 }, on: { opacity: 1, y: 0, rotate: 0, transition: { delay: .15, type: 'spring', stiffness: 400, damping: 18 } } }} whileHover={{ rotate: -2, scale: 1.03 }}>
-        <small>Fair value per task</small><b><Count value={money(env.fair_value_per_task)} /></b><Rating grade={env.grade} compact />
-      </motion.div>
-    </motion.div>
-  )
-}
-const note = (delay: number, pos: React.CSSProperties, children: React.ReactNode, dark = false) => (
-  <motion.span className={`float-note${dark ? ' dark' : ''}`} style={pos} initial={reduced ? false : { opacity: 0, y: 10, scale: .9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
-    animate={reduced ? undefined : { y: [0, -4, 0] }} transition={{ delay, type: 'spring', stiffness: 420, damping: 22, y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: delay + .6 } }}>{children}</motion.span>
-)
-const NOTES = [
-  note(.5, { top: 14, right: 14 }, <><span className="good"><Check /></span>Hidden from the buyer</>),
-  note(.6, { top: 14, left: 14 }, <>One recipe, four sizes</>, true),
-  note(.7, { bottom: 14, right: 14 }, <><span className="good"><Check /></span>Grader held</>, true),
-  note(.8, { top: 14, left: 14 }, <>Forecast at XL: <span className="gold">{signed(vendors[0].forecast.forecast)} pts</span></>),
-]
-const STEPS: [string, string, string, () => React.ReactElement][] = [
-  ['Seal.', 'The vendor uploads to a sealed sandbox. You see results, never their tasks.', 'stone2', SealArt],
-  ['Train small.', 'Open models train on it at four sizes with one fixed recipe.', 'gold', TrainArt],
-  ['Measure.', 'We test on private problems and try to fool the grader.', 'pearl', MeasureArt],
-  ['Price.', 'You get a grade, a forecast at your size and a fair price per task.', 'sand', PriceArt],
-]
 
-/* ---------- Ranking: benchmark-style bars, the order flips when you rank by what matters ---------- */
-const ENVS = [
-  { name: 'Env A · coding agent', reward: 92, transfer: 2.0, value: .4 },
-  { name: 'Env B · math reasoning', reward: 81, transfer: 9.1, value: 3.1 },
-  { name: 'Env C · web browsing', reward: 75, transfer: 6.2, value: 1.8 },
-  { name: 'Env D · tool use', reward: 70, transfer: 4.0, value: 1.1 },
-]
-type Key = 'reward' | 'transfer' | 'value'
-const KEYS: [Key, string, string, (v: number) => string, string][] = [
-  ['reward', 'Training reward', 'By training reward, Env A looks like the best buy.', v => `${v}%`, 'var(--reward)'],
-  ['transfer', 'Real improvement', 'By improvement on new problems, Env B wins by a mile.', v => `+${v.toFixed(1)} pts`, 'var(--transfer)'],
-  ['value', 'Value per $1k', 'Per dollar, Env B delivers almost 8× what Env A does.', v => `${v.toFixed(1)} pts`, '#111214'],
-]
-function Compare() {
-  const [k, setK] = useState<Key>('reward')
-  const meta = KEYS.find(x => x[0] === k)!
-  const rows = useMemo(() => [...ENVS].sort((a, b) => b[k] - a[k]), [k])
-  const max = rows[0][k]
-  return (
-    <div className="rank">
-      <div className="cmp">
-        {rows.map((r, i) => (
-          <motion.div layout key={r.name} className="cmp-row" transition={{ type: 'spring', stiffness: 260, damping: 28 }}>
-            <span className="name">{r.name}</span>
-            <div className="cmp-bar"><motion.i initial={reduced ? false : { width: 0 }} animate={{ width: `${(r[k] / max) * 100}%`, background: i === 0 ? meta[4] : '#e4e2dc' }} transition={{ duration: .8, ease }} /></div>
-            <span className="num">{meta[3](r[k])}</span>
-          </motion.div>
+function Stage({ index }: { index: number }) {
+  const env = vendors[0]
+  if (index === 0) return (
+    <div className="vault">
+      {['task 001', 'task 002', 'task 003', 'task 004'].map((t, i) => (
+        <motion.div key={t} className="vault-row" initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * .08, type: 'spring', stiffness: 260, damping: 22 }}>
+          <span>{t}</span><span className="lock">sealed</span>
+        </motion.div>
+      ))}
+      <motion.div className="num dim" style={{ fontSize: 12, marginTop: 8, textAlign: 'center' }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .5 }}>sha256 {env.sha256.slice(0, 20)}…</motion.div>
+    </div>
+  )
+  if (index === 1) return <Spheres />
+  if (index === 2) {
+    const rows: [string, string, number, string][] = [
+      ['Better on new problems', `${signed(env.actual_at_truth)} pts`, .62, 'var(--transfer)'],
+      ['Reward won by exploits', pct(env.hackability.score), Math.max(env.hackability.score, .02), 'var(--bad)'],
+      ['Already in free data', pct(env.redundancy.public_overlap), env.redundancy.public_overlap, 'var(--reward)'],
+    ]
+    return (
+      <div className="bars">
+        {rows.map(([label, value, w, c], i) => (
+          <div className="bar-row" key={label}><span>{label}</span><b>{value}</b>
+            <div className="track"><motion.i style={{ background: c, width: `${w * 100}%` }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: .1 + i * .12, duration: 1, ease }} /></div>
+          </div>
         ))}
       </div>
-      <LayoutGroup id="seg">
-        <div className="seg" role="tablist" aria-label="Rank environments by">
-          {KEYS.map(([key, label]) => (
-            <button key={key} role="tab" aria-selected={k === key} onClick={() => setK(key)}>
-              {k === key && <motion.span layoutId="seg-pill" className="seg-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-      </LayoutGroup>
-      <AnimatePresence mode="wait"><motion.p key={k} className="cmp-note" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{meta[2]}</motion.p></AnimatePresence>
+    )
+  }
+  return (
+    <div className="price">
+      <svg viewBox="0 0 400 170" aria-hidden="true">
+        <motion.polygon points="250,86 380,34 380,90 250,106" fill="#e2b45a22" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }} />
+        <motion.path d="M40 132 L130 118 L250 96" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .9, ease }} />
+        <motion.path d="M250 96 L380 62" fill="none" stroke="var(--transfer)" strokeWidth="2.5" strokeDasharray="6 6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .9 }} />
+        {[[40, 132], [130, 118], [250, 96]].map(([cx, cy], i) => <motion.circle key={i} cx={cx} cy={cy} r="6" fill="var(--ink)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: .2 + i * .2, type: 'spring' }} />)}
+        <motion.circle cx="380" cy="62" r="9" fill="var(--transfer)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.1, type: 'spring', stiffness: 300, damping: 10 }} />
+        <text className="axis-text" x="40" y="162">small runs</text><text className="axis-text" x="380" y="162" textAnchor="end">your model size</text>
+      </svg>
+      <motion.div className="tag" initial={{ opacity: 0, y: 12, rotate: -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ delay: 1.2, type: 'spring', stiffness: 260, damping: 16 }}>
+        <b>{money(env.fair_value_per_task)}</b><small>fair value per task</small>
+      </motion.div>
+    </div>
+  )
+}
+
+function HowItWorks() {
+  const [active, setActive] = useState(0)
+  const steps = useRef<(HTMLLIElement | null)[]>([])
+  const bar = useRef<HTMLElement>(null)
+  const list = useRef<HTMLOListElement>(null)
+  useEffect(() => {
+    const triggers = steps.current.map((el, i) => el && ScrollTrigger.create({ trigger: el, start: 'top 55%', end: 'bottom 55%', onToggle: self => self.isActive && setActive(i) }))
+    const progress = list.current && ScrollTrigger.create({ trigger: list.current, start: 'top 55%', end: 'bottom 55%', scrub: true,
+      onUpdate: self => { if (bar.current) bar.current.style.transform = `scaleX(${self.progress})` } })
+    return () => { triggers.forEach(t => t?.kill()); progress?.kill() }
+  }, [])
+  return (
+    <div className="story">
+      <ol className="story-steps" ref={list}>
+        {STEPS.map(([title, text], i) => (
+          <li key={title} ref={el => { steps.current[i] = el }}>
+            <div className={`story-step${active === i ? ' on' : ''}`} onClick={() => steps.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+              <h3 style={{ fontSize: 30 }}>{title}</h3><p>{text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div className="story-stage">
+        <Panel title={STEPS[active][0].toLowerCase()} meta={`${active + 1} / 4`}>
+          <div className="stage-body">
+            <AnimatePresence mode="wait">
+              <motion.div key={active} className="stage" initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }} transition={{ duration: .4, ease }}>
+                <Stage index={active} />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+          <div className="progress"><i ref={bar} style={{ transform: 'scaleX(0)' }} /></div>
+        </Panel>
+      </div>
     </div>
   )
 }
 
 /* ---------- One report: switch environment, every number re-reads ---------- */
+const verdict = (e: Env) =>
+  e.is_public_baseline ? 'The free baseline every purchase is compared against.'
+  : e.hackability.score >= .2 ? 'Fix the grader before anyone buys this.'
+  : e.redundancy.public_overlap >= .5 ? 'Mostly already free. Not worth the asking price.'
+  : e.actual_at_truth < 0 ? 'Don\'t buy: the model gets worse at new problems.'
+  : `Worth buying at up to ${money(e.fair_value_per_task)} a task.`
+
 export function ReportSample() {
   const envs = [...vendors, base]
   const [id, setId] = useState(envs[0].id)
@@ -377,14 +322,14 @@ export function ReportSample() {
   const rows: [string, string, number, React.ReactNode, string][] = [
     ['Learns the environment', 'Reward on its own tasks, before → after', 1, <><NumberFlow value={rung.env_reward_before} format={pctF} /> → <NumberFlow value={rung.env_reward_after} format={pctF} /></>, ''],
     ['Better on new problems', 'The number that matters', 2, <NumberFlow value={env.actual_at_truth} format={ptsF} suffix=" pts" />, env.actual_at_truth < 0 ? 'bad' : 'good'],
-    ['Reward won by exploits', 'Junk answers that still scored', 2, <NumberFlow value={env.hackability.score} format={pctF} />, env.hackability.score >= .2 ? 'bad' : ''],
+    ['Reward won by exploits', 'Non-answers that still scored', 2, <NumberFlow value={env.hackability.score} format={pctF} />, env.hackability.score >= .2 ? 'bad' : ''],
     ['Already in free data', 'Overlap with public sets', 2, <NumberFlow value={env.redundancy.public_overlap} format={pctF} />, env.redundancy.public_overlap >= .5 ? 'bad' : ''],
     ['Forecast at the largest size', `90% range ${signed(env.forecast.lo)} to ${signed(env.forecast.hi)}`, 3, <NumberFlow value={env.forecast.forecast} format={ptsF} suffix=" pts" />, ''],
     ['Fair value per task', 'Compared with free practice', 4, <NumberFlow value={env.fair_value_per_task} format={usd} />, 'transfer'],
   ]
   const stages = ['Seal', 'Train', 'Measure', 'Price']
   return (
-    <Panel title="Appraisal report" meta="pick an environment">
+    <Panel title="appraisal report" meta="pick an environment to run it">
       <LayoutGroup id="report-tabs">
         <div className="tabs" role="tablist" aria-label="Sample environment">
           {envs.map(e => (
@@ -414,12 +359,12 @@ export function ReportSample() {
         <div className="report-side">
           <div>
             <LayoutGroup id="rating"><Rating grade={phase >= 4 ? env.grade : '—'} layoutId="rating-hl" /></LayoutGroup>
-            <span className="rating-cap">{env.grade === '—' ? 'Free comparison set, not graded' : phase >= 4 ? `Grade ${env.grade}` : 'Grading…'}</span>
-            <h3 style={{ marginTop: 20 }}>{env.name}</h3>
-            <p className="dim" style={{ margin: '4px 0 0', fontSize: 14 }}>{env.redundancy.n_tasks.toLocaleString('en-US')} tasks · sealed {env.sha256.slice(0, 10)}</p>
+            <span className="rating-cap">{env.grade === '—' ? 'free comparison set, not graded' : phase >= 4 ? `grade ${env.grade}` : 'grading…'}</span>
+            <h3 style={{ marginTop: 22 }}>{env.name}</h3>
+            <p className="dim" style={{ margin: '6px 0 0', fontSize: 14 }}>{env.redundancy.n_tasks.toLocaleString('en-US')} tasks · sealed {env.sha256.slice(0, 10)}</p>
           </div>
           <div className="by-size" aria-label="Change on new problems at each model size">
-            <small>Change on new problems, by model size</small>
+            <small>change on new problems, by model size</small>
             {Object.keys(data.ladder).map((k, i) => {
               const g = env.rungs[k].heldout_after - env.rungs[k].heldout_before
               const w = phase >= 2 ? Math.min(Math.abs(g) / 12, 1) * 50 : 0
@@ -448,84 +393,191 @@ export function ReportSample() {
   )
 }
 
+/* ---------- Neutral by design: tasks flow in, only numbers flow out ---------- */
+function Beam() {
+  const [narrow, setNarrow] = useState(typeof window !== 'undefined' && innerWidth < 900)
+  const [hot, setHot] = useState<string | null>(null)
+  useEffect(() => { const on = () => setNarrow(innerWidth < 900); addEventListener('resize', on); return () => removeEventListener('resize', on) }, [])
+  const pos = narrow ? { vendor: [50, 12], core: [50, 50], buyer: [50, 88] } : { vendor: [13, 50], core: [50, 50], buyer: [87, 50] }
+  const line = (a: number[], b: number[]) => `M${a[0] * 10} ${a[1] * (narrow ? 5.2 : 3.4)} L${b[0] * 10} ${b[1] * (narrow ? 5.2 : 3.4)}`
+  const node = (key: 'vendor' | 'core' | 'buyer', title: string, sub: string) => (
+    <div className={`node${key === 'core' ? ' core' : ''}`} style={{ left: `${pos[key][0]}%`, top: `${pos[key][1]}%` }}
+      onPointerEnter={() => setHot(key)} onPointerLeave={() => setHot(null)}>
+      <motion.div style={{ display: 'grid', gap: 4 }} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 200, damping: 16, delay: key === 'core' ? 0 : .2 }}>
+        <b>{title}</b><small>{sub}</small>
+      </motion.div>
+    </div>
+  )
+  const H = narrow ? 520 : 340
+  return (
+    <div className="beam" aria-label="The vendor's tasks go into Touchstone's sealed sandbox; only results reach the buyer">
+      <svg viewBox={`0 0 1000 ${H}`} preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="pulse" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={narrow ? 0 : 1000} y2={narrow ? H : 0}>
+            <stop offset="0" stopColor="#e2b45a" stopOpacity="0" /><stop offset=".5" stopColor="#e2b45a" /><stop offset="1" stopColor="#e2b45a" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {[[pos.vendor, pos.core, 'vendor'], [pos.core, pos.buyer, 'buyer']].map(([a, b, k]) => (
+          <g key={k as string}>
+            <path d={line(a as number[], b as number[])} stroke="var(--line-2)" strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+            <motion.path d={line(a as number[], b as number[])} stroke={k === 'vendor' ? 'var(--reward)' : 'var(--transfer)'} strokeWidth={hot === k || hot === 'core' ? 3 : 2} fill="none" vectorEffect="non-scaling-stroke" strokeLinecap="round"
+              initial={{ pathLength: .18, pathOffset: 0 }} animate={reduced ? { pathOffset: .4 } : { pathOffset: [0, 1] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'linear', delay: k === 'buyer' ? 1.1 : 0 }} />
+          </g>
+        ))}
+      </svg>
+      {node('vendor', 'Vendor', 'uploads tasks')}
+      {node('core', 'Touchstone', 'sealed sandbox')}
+      {node('buyer', 'You', 'see results only')}
+      <span className="beam-tag" style={{ left: `${(pos.vendor[0] + pos.core[0]) / 2}%`, top: `calc(${(pos.vendor[1] + pos.core[1]) / 2}% - ${narrow ? 0 : 22}px)` }}>tasks · grader</span>
+      <span className="beam-tag" style={{ left: `${(pos.core[0] + pos.buyer[0]) / 2}%`, top: `calc(${(pos.core[1] + pos.buyer[1]) / 2}% - ${narrow ? 0 : 22}px)` }}>+4.1 pts · $640/task</span>
+    </div>
+  )
+}
+
+/* ---------- Compare: the order flips when you rank by what matters ---------- */
+const ENVS = [
+  { name: 'Env A · coding agent', reward: 92, transfer: 2.0, value: .4 },
+  { name: 'Env B · math reasoning', reward: 81, transfer: 9.1, value: 3.1 },
+  { name: 'Env C · web browsing', reward: 75, transfer: 6.2, value: 1.8 },
+  { name: 'Env D · tool use', reward: 70, transfer: 4.0, value: 1.1 },
+]
+type Key = 'reward' | 'transfer' | 'value'
+const KEYS: [Key, string, string, (v: number) => string, string][] = [
+  ['reward', 'Training reward', 'Ranked by training reward, Env A looks like the best buy.', v => `${v}%`, 'var(--reward)'],
+  ['transfer', 'Real improvement', 'Ranked by improvement on new problems, Env B wins by a mile.', v => `+${v.toFixed(1)} pts`, 'var(--transfer)'],
+  ['value', 'Value per $1k', 'Per dollar, Env B delivers almost 8× what Env A does.', v => `${v.toFixed(1)} pts`, 'var(--good)'],
+]
+function Compare() {
+  const [k, setK] = useState<Key>('reward')
+  const meta = KEYS.find(x => x[0] === k)!
+  const rows = useMemo(() => [...ENVS].sort((a, b) => b[k] - a[k]), [k])
+  const max = rows[0][k]
+  return (
+    <div>
+      <LayoutGroup id="seg">
+        <div className="seg" role="tablist" aria-label="Rank environments by">
+          {KEYS.map(([key, label]) => (
+            <button key={key} role="tab" aria-selected={k === key} onClick={() => setK(key)}>
+              {k === key && <motion.span layoutId="seg-pill" className="seg-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
+              <span>{label}</span>
+            </button>
+          ))}
+        </div>
+      </LayoutGroup>
+      <div className="cmp">
+        {rows.map((r, i) => (
+          <motion.div layout key={r.name} className={`cmp-row${i === 0 ? ' top' : ''}`} transition={{ type: 'spring', stiffness: 260, damping: 28 }}>
+            <span className="name">{r.name}</span>
+            <div className="cmp-bar"><motion.i animate={{ width: `${(r[k] / max) * 100}%`, background: meta[4] }} transition={{ duration: .8, ease }} /></div>
+            <span className="num" style={{ textAlign: 'right' }}>{meta[3](r[k])}</span>
+          </motion.div>
+        ))}
+      </div>
+      <AnimatePresence mode="wait"><motion.p key={k} className="cmp-note" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{meta[2]}</motion.p></AnimatePresence>
+    </div>
+  )
+}
+
 export default function Home() {
-  const up = (delay: number) => reduced ? {} : { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: .8, delay, ease } }
-  const words = ["Don't", 'buy', 'training', 'material', 'blind.']
   return (
     <>
-      <section className="hero slab stone">
-        <Glow />
-        <div className="wrap hero-copy">
-          <motion.a className="kicker" href="#product" {...up(0)}>Independent appraisal for RL environments<Arrow /></motion.a>
-          <h1 aria-label="Don't buy training material blind.">
-            {words.map((w, i) => (
-              <span key={w} className="word" aria-hidden="true" style={{ marginRight: i < words.length - 1 ? '.24em' : 0 }}>
-                <motion.span className={w === 'blind.' ? 'gold' : undefined} initial={reduced ? false : { y: '1.25em' }} animate={{ y: 0 }} transition={{ duration: .9, delay: .08 + i * .06, ease }}>{w}</motion.span>
-              </span>
-            ))}
-          </h1>
-          <motion.p className="lede" {...up(.4)}>Touchstone tests an RL environment on small models before you pay, and tells you if it will make your model better.</motion.p>
-          <motion.div className="actions" {...up(.5)}><SplitRequest /><a className="btn secondary" href="#report">See a sample report</a></motion.div>
-          <motion.div className="hero-note" {...up(.6)}><span><Check />Sealed: you never see vendor tasks</span><span><Check />Independent: we sell no training material</span></motion.div>
-        </div>
-        <motion.div className="hero-stage" initial={reduced ? false : { opacity: 0, y: 90 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1, delay: .65, ease }}>
-          <AppWindow />
-        </motion.div>
-      </section>
-
-      <section className="section" style={{ paddingBottom: 0 }}>
-        <div className="section-head" style={{ marginBottom: 28 }}><Reveal><h2>Every grader gets the same tests.</h2></Reveal><Reveal delay={.08}><p>Junk answers a model could learn to exploit. If a grader pays for them, we flag it before you buy.</p></Reveal></div>
-        <Marquee items={PROBES} />
-        <Marquee items={CODE} rev />
-      </section>
-
-      <section className="section">
+      <section className="hero">
+        <Gradient />
         <div className="wrap">
-          <div className="statement">
-            <Reveal><a className="kicker" href="#market">The problem<Arrow /></a><h2>Training material is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
-            <Reveal delay={.1}>
-              <p><b>Today, the only evidence a buyer sees comes from the seller.</b> The real answer arrives weeks later, after a full training run.</p>
-              <p><b>Touchstone is the check in between.</b> We train small models on the environment, test them on problems they've never seen, and try to fool the grader. You get a grade and a fair price before you sign.</p>
-            </Reveal>
+          <div>
+            <h1 aria-label="Don't buy training material blind.">
+              {["Don't", 'buy', 'training', 'material'].map((w, i) => (
+                <motion.span key={w} aria-hidden="true" style={{ display: 'inline-block', marginRight: '.25em' }} initial={reduced ? false : { opacity: 0, y: 40, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: .9, delay: i * .08, ease }}>{w}</motion.span>
+              ))}
+              <motion.span aria-hidden="true" className="transfer" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, scale: .6, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .45, type: 'spring', stiffness: 220, damping: 12 }}>blind.</motion.span>
+            </h1>
+            <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>
+              Touchstone tests an RL environment or dataset on small models before you pay, and tells you whether it will make your model better.
+            </motion.p>
+            <motion.div className="actions" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
+              <RequestButton /><a className="btn secondary" href="#report">See a sample report</a>
+            </motion.div>
+            <motion.div className="hero-note" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .5 }}>
+              <span><Check />Sealed: you never see vendor tasks</span><span><Check />Independent: we sell no training material</span>
+            </motion.div>
           </div>
+          <motion.div initial={reduced ? false : { opacity: 0, y: 40, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1.1, delay: .15, ease }}>
+            <Console />
+          </motion.div>
+        </div>
+      </section>
+
+      <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Six RL environments, each hiding a different failure. Touchstone found every one.">
+        <Caught />
+      </Section>
+
+      <section className="section flush">
+        <div className="wrap">
+          <div className="section-head">
+            <Reveal><h2>Training material is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
+            <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our appraisals, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
+          </div>
+          <Reveal><RunChart /></Reveal>
+          <div style={{ height: 24 }} />
+          <Reveal><Proof /></Reveal>
           <div className="facts">
-            {FACTS.map(([big, text, tip], i) => (
-              <motion.div key={big} initial={reduced ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .07, duration: .7, ease }} whileHover={{ y: -4 }}>
-                <Pop tip={tip}><b>{big.startsWith('$') ? <Count value={big} /> : big}</b><p>{text}</p></Pop>
+            {([['$2,000', 'what a single RL task can sell for, and up to $20k at the high end'], ['4–5×', 'more for an exclusive deal, so a bad buy costs even more'], ['Weeks', 'of GPU time before a full training run tells you it failed'], ['0', 'independent checks between the vendor\'s claim and your purchase']] as const).map(([big, text], i) => (
+              <motion.div key={big} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08, duration: .7, ease: [.16, 1, .3, 1] }}>
+                <b>{big.startsWith('$') ? <Count value={big} /> : big}</b><p>{text}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <Section title={<>A high reward can hide a model <span className="transfer">that learned nothing.</span></>} text="Training reward climbs to 99% here while accuracy on new problems falls. Hover the chart to follow it." flush>
-        <Reveal><RunChart /></Reveal>
-      </Section>
+      <section className="section"><div className="wrap"><Paradox /></div></section>
 
-      <Section title="Small experiments, before the big spend." text="An appraisal costs a fraction of one training run and finishes before you sign." flush>
-        <div className="steps4">
-          {STEPS.map(([title, text, tone, Art], i) => (
-            <Reveal key={title} delay={i * .07} className="step-card">
-              <div className={`step-art ${tone}`}><Art />{NOTES[i]}</div>
-              <p><b>{title}</b> {text}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section title={<>The highest reward <span className="transfer">isn't the best buy.</span></>} text="Rank four environments three ways and watch the order change." flush>
-        <Reveal><Compare /></Reveal>
-      </Section>
-
-      <section className="section wash">
+      <section className="section flush">
         <div className="wrap">
-          <div className="section-head"><Reveal><h2>One report. <span className="transfer">Every number you need.</span></h2></Reveal><Reveal delay={.1}><p>Pick an environment and watch the appraisal run.</p></Reveal></div>
+          <div className="section-head"><Reveal><h2>Small experiments, before the big spend.</h2></Reveal><Reveal delay={.1}><p>An appraisal costs a fraction of one training run and finishes before you sign.</p></Reveal></div>
+          <HowItWorks />
+        </div>
+      </section>
+
+      <Section title={<>We break the grader <span className="transfer">before your model does.</span></>} text="A model will find any shortcut a grader allows, and learn the shortcut instead of the skill. These are the answers we feed every grader. Open one to see what the graders paid for it.">
+        <Exploits />
+      </Section>
+
+      <section className="section flush">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>One report. Every number you need to decide.</h2></Reveal><Reveal delay={.1}><p>Pick an environment and watch the appraisal run: seal, train, measure, price.</p></Reveal></div>
           <Reveal><ReportSample /></Reveal>
         </div>
       </section>
 
-      <div style={{ height: 10 }} />
-      <Close title={<>Know before <span className="transfer">you train.</span></>} text="Send us the environment you're considering. We'll scope a pilot appraisal with you." />
+      <section className="section flush">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>The highest reward isn't the best buy.</h2></Reveal><Reveal delay={.1}><p>Switch what you rank by and watch the order change.</p></Reveal></div>
+          <Reveal><Compare /></Reveal>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head"><Reveal><h2>Neutral by design.</h2></Reveal><Reveal delay={.1}><p>The vendor's tasks stay sealed. You get the numbers, never the material, and we never sell training material ourselves.</p></Reveal></div>
+          <Beam />
+        </div>
+      </section>
+
+      <section className="section flush">
+        <div className="wrap two">
+          <Reveal><h2 style={{ fontSize: 'clamp(30px,3.2vw,44px)' }}>For AI teams buying training material</h2>
+            <ul className="list">{['Test an environment before you pay for it', 'Compare vendors on one private test', 'Stop paying for tasks your model can game'].map(t => <li key={t}><Check />{t}</li>)}</ul></Reveal>
+          <Reveal delay={.1}><h2 style={{ fontSize: 'clamp(30px,3.2vw,44px)' }}>For vendors selling it</h2>
+            <ul className="list">{['A neutral rating buyers trust more than self-reported results', 'Find grader exploits before a customer does', 'Back your price with measured value'].map(t => <li key={t}><Check />{t}</li>)}</ul></Reveal>
+        </div>
+      </section>
+
+      <Section title={<>Built on what the research <span className="transfer">already shows.</span></>} text="Data value varies enormously, small runs can rank it, and today the evidence buyers see comes from the people selling.">
+        <Evidence />
+      </Section>
+
+      <Close title="Know before you train." text="Send us the environment you're considering. We'll scope a pilot appraisal with you." />
     </>
   )
 }

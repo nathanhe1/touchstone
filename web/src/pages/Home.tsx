@@ -56,8 +56,8 @@ function RunChart() {
           {grid.map(g => (<g key={g}><line className="grid-line" x1={L} x2={W - 8} y1={y(g)} y2={y(g)} /><text className="axis-text" x={L - 8} y={y(g) + 4} textAnchor="end">{g}</text></g>))}
           <text className="axis-text" x={L} y={H - 6}>step 0</text><text className="axis-text" x={W - 8} y={H - 6} textAnchor="end">1,000</text>
           <defs>
-            <linearGradient id="fill-r" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#ffb020" /><stop offset="1" stopColor="#ffb020" stopOpacity="0" /></linearGradient>
-            <linearGradient id="fill-t" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#8f9bff" /><stop offset="1" stopColor="#8f9bff" stopOpacity="0" /></linearGradient>
+            <linearGradient id="fill-r" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#b9bfc8" /><stop offset="1" stopColor="#b9bfc8" stopOpacity="0" /></linearGradient>
+            <linearGradient id="fill-t" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#e2b45a" /><stop offset="1" stopColor="#e2b45a" stopOpacity="0" /></linearGradient>
           </defs>
           <motion.path d={area(reward)} fill="url(#fill-r)" className="curve-fill" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: .14 }} transition={{ delay: 2.4, duration: .8 }} />
           <motion.path d={path(reward)} className="curve" stroke="var(--reward)" {...draw(.5)} />
@@ -66,11 +66,9 @@ function RunChart() {
         <AnimatePresence>
           {done && (
             <motion.div initial={reduced ? false : { opacity: 0, scale: .9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 220, damping: 18 }}>
-              {CSS.supports('backdrop-filter', 'url(#a)') || /Chrome/.test(navigator.userAgent) ? (
-                <LiquidGlass mouseContainer={box} displacementScale={48} blurAmount={0.08} saturation={140} aberrationIntensity={1.4} elasticity={0.18} cornerRadius={16} padding="14px 18px" style={{ position: 'absolute', top: '46%', left: '60%' }}>
-                  <Verdict env={env} />
-                </LiquidGlass>
-              ) : <div className="verdict-fallback"><Verdict env={env} /></div>}
+              <LiquidGlass mouseContainer={box} displacementScale={48} blurAmount={0.08} saturation={140} aberrationIntensity={1.4} elasticity={0.18} cornerRadius={16} padding="14px 18px" style={{ position: 'absolute', top: '76%', left: '64%' }}>
+                <Verdict env={env} />
+              </LiquidGlass>
             </motion.div>
           )}
         </AnimatePresence>
@@ -186,7 +184,7 @@ function Stage({ index }: { index: number }) {
   return (
     <div className="price">
       <svg viewBox="0 0 400 170" aria-hidden="true">
-        <motion.polygon points="250,86 380,34 380,90 250,106" fill="#8f9bff22" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }} />
+        <motion.polygon points="250,86 380,34 380,90 250,106" fill="#e2b45a22" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }} />
         <motion.path d="M40 132 L130 118 L250 96" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .9, ease }} />
         <motion.path d="M250 96 L380 62" fill="none" stroke="var(--transfer)" strokeWidth="2.5" strokeDasharray="6 6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .9 }} />
         {[[40, 132], [130, 118], [250, 96]].map(([cx, cy], i) => <motion.circle key={i} cx={cx} cy={cy} r="6" fill="var(--ink)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: .2 + i * .2, type: 'spring' }} />)}
@@ -343,10 +341,10 @@ export default function Home() {
         <div className="wrap">
           <div>
             <motion.h1 initial={reduced ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
-              Training reward goes up. Is your model getting better?
+              Don't buy training data <span className="transfer">blind.</span>
             </motion.h1>
             <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>
-              Touchstone tests an RL environment or dataset on small models before you buy it, and tells you whether it will actually improve your model.
+              Touchstone tests an RL environment or dataset on small models before you pay, and tells you whether it will make your model better.
             </motion.p>
             <motion.div className="actions" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
               <RequestButton /><a className="btn secondary" href="#report">See a sample report</a>
@@ -364,8 +362,8 @@ export default function Home() {
       <section className="section">
         <div className="wrap">
           <div className="section-head">
-            <Reveal><h2>A high training reward can hide a model that learned nothing.</h2></Reveal>
-            <Reveal delay={.1}><p>In our demo run, five of six environments pushed reward to 99% while the model got worse at new problems. You find this out after weeks of GPU time, unless you test first.</p></Reveal>
+            <Reveal><h2>Training data is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
+            <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our demo run, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
           </div>
           <Reveal><Proof /></Reveal>
           <Reveal className="facts"><span>RL tasks sell for up to <b><Count value="$2,000" /></b> each</span><span>Vendors usually grade their own data</span><span>A full training run takes <b>weeks</b> to tell you</span></Reveal>

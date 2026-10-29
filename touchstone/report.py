@@ -2958,11 +2958,12 @@ SCRIPT += r"""
 """
 
 def app_shell(content: str, title: str, description: str, prefix: str, active: str, body_class: str = "") -> str:
-    links = {"home": prefix + "index.html", "appraisals": prefix + "appraisals/index.html",
-             "forecast": prefix + "forecast/index.html", "methodology": prefix + "methodology/index.html"}
+    links = {key: prefix + key + "/index.html" for key in ("appraisals", "forecast", "methodology", "product", "market", "pricing", "company", "request")}
+    links["home"] = prefix + "index.html"
+    links["methodology"] = links["product"]
     nav = "".join(
         f'<a class="{"active" if key == active else ""}" href="{url}">{label}</a>'
-        for key, label in (("home", "Home"), ("methodology", "How it works"), ("appraisals", "Sample report"), ("forecast", "Forecast check"))
+        for key, label in (("product", "Product"), ("appraisals", "Sample report"), ("market", "Market"), ("pricing", "Pricing"), ("company", "Company"))
         for url in (links[key],)
     )
     return f"""<!doctype html>
@@ -2975,7 +2976,7 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <div class="scale-frame"><div class="scale-page">
 <nav class="site-nav"><a class="wordmark" href="{links['home']}" aria-label="Touchstone home">{brand_mark()}<span>touchstone</span></a>
 <div class="nav-links">{nav}</div><div class="nav-actions"><button class="nav-search" type="button" data-palette-open aria-label="Search pages and appraisals">{icon('search')}<span>Search</span><kbd>⌘K</kbd></button>
-<a class="nav-cta" href="{esc(REQUEST_FORM_URL) if REQUEST_FORM_URL else links['home'] + '#request'}"{' target="_blank" rel="noopener"' if REQUEST_FORM_URL else ''}>Request an appraisal</a>
+<a class="nav-cta" href="{esc(REQUEST_FORM_URL) if REQUEST_FORM_URL else links['request']}"{' target="_blank" rel="noopener"' if REQUEST_FORM_URL else ''}>Request an appraisal</a>
 <button class="nav-action menu-toggle" type="button" data-menu aria-label="Open navigation" aria-expanded="false">{icon('menu')}</button></div>
 <span class="scroll-progress" aria-hidden="true"></span></nav>
 {content}
@@ -3024,7 +3025,7 @@ def request_action(label: str = "Request an appraisal", prefix: str = "") -> str
     if REQUEST_FORM_URL:
         return (f'<a class="button button-lime" href="{esc(REQUEST_FORM_URL)}" target="_blank" rel="noopener">'
                 f'{esc(label)} <span class="button-arrow" aria-hidden="true">↗</span></a>')
-    return f'<a class="button button-lime" href="{prefix}index.html#request">{esc(label)} <span class="button-arrow" aria-hidden="true">↓</span></a>'
+    return f'<a class="button button-lime" href="{prefix}request/index.html">{esc(label)} <span class="button-arrow" aria-hidden="true">↓</span></a>'
 
 
 def sample_certificate(environment: dict, truth: str) -> str:
@@ -3433,13 +3434,13 @@ def render_site(data: dict) -> dict[str, str]:
         "index.html": home_page(data, ranked, baseline, best),
         "appraisals/index.html": appraisals_page(ranked, baseline),
         "forecast/index.html": forecast_page(data),
-        "methodology/index.html": methodology_page(data),
+        "product/index.html": methodology_page(data),
     }
     for env in ranked:
         pages[f"appraisals/{env['id']}/index.html"] = detail_page(data, env, baseline)
     entries = [{"group": "Pages", "title": title, "meta": meta, "href": href, "mark": mark} for title, meta, href, mark in (
         ("Home", "What Touchstone does", "index.html", "⌂"),
-        ("How it works", "Seal, train, measure, forecast and price", "methodology/index.html", "◆"),
+        ("How it works", "Seal, train, measure, forecast and price", "product/index.html", "◆"),
         ("Sample report", f"{len(ranked)} demo certificates", "appraisals/index.html", "≡"),
         ("Forecast check", "Do small runs predict larger models?", "forecast/index.html", "↗"))]
     entries += [{"group": "Sample environments", "title": env["name"], "href": f"appraisals/{env['id']}/index.html", "mark": env["grade"],

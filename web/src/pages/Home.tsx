@@ -50,7 +50,7 @@ function RunChart() {
   const grid = [0, 25, 50, 75, 100]
   const draw = (delay: number) => (reduced ? {} : { initial: { pathLength: 0 }, animate: { pathLength: 1 }, transition: { duration: 2.6, delay, ease: 'easeInOut' as const } })
   return (
-    <Panel className="run" title={<>run · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={<span className="live">sample · demo data</span>}>
+    <Panel className="run" title={<>run · <span style={{ color: 'var(--ink)' }}>{env.name}</span></>} meta={<span className="live">demo data</span>}>
       <div className="run-chart panel-body" ref={box}>
         <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Training reward climbs from ${reward[0].toFixed(0)}% to ${reward[reward.length - 1].toFixed(0)}% while accuracy on new problems falls from ${accuracy[0].toFixed(1)}% to ${accuracy[accuracy.length - 1].toFixed(1)}%`}>
           {grid.map(g => (<g key={g}><line className="grid-line" x1={L} x2={W - 8} y1={y(g)} y2={y(g)} /><text className="axis-text" x={L - 8} y={y(g) + 4} textAnchor="end">{g}</text></g>))}
@@ -62,17 +62,22 @@ function RunChart() {
           <motion.path d={area(reward)} fill="url(#fill-r)" className="curve-fill" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: .14 }} transition={{ delay: 2.4, duration: .8 }} />
           <motion.path d={path(reward)} className="curve" stroke="var(--reward)" {...draw(.5)} />
           <motion.path d={path(accuracy)} className="curve" stroke="var(--transfer)" {...draw(.5)} />
+          {done && <>
+            <text className="end-label" x={W - 8} y={y(reward[reward.length - 1]) - 10} textAnchor="end" fill="var(--reward)">{reward[reward.length - 1].toFixed(1)}%</text>
+            <text className="end-label" x={W - 8} y={y(accuracy[accuracy.length - 1]) + 22} textAnchor="end" fill="var(--transfer)">{accuracy[accuracy.length - 1].toFixed(1)}%</text>
+          </>}
         </svg>
         <AnimatePresence>
           {done && (
-            <motion.div initial={reduced ? false : { opacity: 0, scale: .9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 220, damping: 18 }}>
-              <LiquidGlass mouseContainer={box} displacementScale={48} blurAmount={0.08} saturation={140} aberrationIntensity={1.4} elasticity={0.18} cornerRadius={16} padding="14px 18px" style={{ position: 'absolute', top: '76%', left: '64%' }}>
+            <motion.div className="verdict-wrap" initial={reduced ? false : { opacity: 0, scale: .9, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 220, damping: 18 }}>
+              <LiquidGlass mouseContainer={box} displacementScale={48} blurAmount={0.08} saturation={140} aberrationIntensity={1.4} elasticity={0.18} cornerRadius={16} padding="14px 18px" style={{ position: 'absolute', top: '27%', left: '56%' }}>
                 <Verdict env={env} />
               </LiquidGlass>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+      <p className="verdict-inline"><b className="bad">Don't buy at this price.</b> {pct(env.hackability.score)} of non-answers still scored.</p>
       <div className="legend" style={{ padding: '0 20px 16px' }}><span><i style={{ background: 'var(--reward)' }} />reward on its own grader</span><span><i style={{ background: 'var(--transfer)' }} />accuracy on new problems</span></div>
       <div className="run-foot">
         <div><small>step</small><b ref={stepRef} className="num">{reduced ? '1,000' : '0'}</b></div>
@@ -88,7 +93,7 @@ function Verdict({ env }: { env: Env }) {
     <span className="verdict">
       <small>touchstone verdict</small>
       <b className="bad">Don't buy at this price</b>
-      <small>grader gamed by {pct(env.hackability.score)} of non-answers</small>
+      <small>{pct(env.hackability.score)} of non-answers still scored</small>
     </span>
   )
 }
@@ -215,7 +220,7 @@ function HowItWorks() {
         {STEPS.map(([title, text], i) => (
           <li key={title} ref={el => { steps.current[i] = el }}>
             <div className={`story-step${active === i ? ' on' : ''}`} onClick={() => steps.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
-              <span className="k">step {i + 1} of 4</span><h3 style={{ fontSize: 30 }}>{title}</h3><p>{text}</p>
+              <h3 style={{ fontSize: 30 }}>{title}</h3><p>{text}</p>
             </div>
           </li>
         ))}

@@ -59,7 +59,7 @@ export default function Research() {
                     <span className="kk-zone drop" style={{ width: '80%' }}>drop the forecast</span><span className="kk-zone grey" style={{ width: '5%' }} /><span className="kk-zone keep" style={{ width: '15%' }}>keep</span>
                   </motion.div>
                   <motion.span className="kk-mark" style={{ left: `${(rho + 1) / 2 * 100}%` }} initial={reduced ? false : { opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: .9, type: 'spring' }}>demo</motion.span>
-                  <div className="kk-axis"><span>−1</span><span>0</span><span>0.6</span><span>1</span></div>
+                  <div className="kk-axis"><span style={{ left: 0 }}>−1</span><span style={{ left: '50%' }}>0</span><span style={{ left: '80%' }}>0.6</span><span style={{ left: '100%' }}>1</span></div>
                 </div>
                 <p className="note">If the forecast fails, Touchstone narrows to grader audits, which already work.</p>
               </div>

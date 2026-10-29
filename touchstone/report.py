@@ -10,11 +10,13 @@ from pathlib import Path
 # Paste the request form link (Google Forms, Tally, Typeform) here; the site's buttons use it once set.
 REQUEST_FORM_URL = ""
 
-# What has happened so far, newest last. Add a line as pilots and conversations happen.
-STATUS = [
-    ("Working prototype", "The full pipeline runs end to end: sealing, training at four model sizes, transfer tests, "
-                          "shortcut probes, overlap checks and a scaling forecast with a fair-value estimate."),
-    ("Talking to the market", "Reaching out to RL environment vendors and AI teams about first pilot appraisals."),
+# Where Touchstone is and where it is going. Stage is "Done", "Now", "Next" or "Later"; edit as things happen.
+ROADMAP = [
+    ("Done", "Prototype pipeline", "Seal, train four model sizes, test transfer, probe the grader, forecast and price. Runs end to end."),
+    ("Now", "Customer conversations", "Reaching out to RL environment vendors and AI teams about pilot appraisals."),
+    ("Next", "A real open-source environment", "Run a public RL environment through the full pipeline."),
+    ("Next", "Compare environments", "Rank several environments side by side by value per dollar."),
+    ("Later", "Beyond RL", "Training decisions across model types, and forecasting behaviour before a model ships."),
 ]
 
 GRADE_CLASS = {"A": "g-a", "B": "g-b", "C": "g-c", "D": "g-d", "F": "g-f", "—": "g-base"}
@@ -1509,6 +1511,157 @@ CSS += r"""
 @media(prefers-reduced-motion:reduce){.orbit,.flow-pipe i{animation:none}}
 """
 
+# Type system and the dark, immersive home page.
+CSS += r"""
+:root{--sans:"Mona Sans","Helvetica Neue",Arial,sans-serif;--text:"Mona Sans","Helvetica Neue",Arial,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace;--display:"Instrument Serif",Georgia,serif}
+body{font-family:var(--sans);letter-spacing:-.005em}
+h1 em,h2 em,.h2 em{font-family:var(--display);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.is-home{--paper:#0a0c0f;--surface:#12151a;--ink:#eef0f3;--muted:#8d949e;--line:#242a33;--blue:#e3bf68;--blue-soft:#221d12;--lime:#e3bf68;--band:#0a0c0f;--band-ink:#eef0f3;--band-muted:#9aa1aa;--gain:#d9b45a;--loss:#5a92d6;--risk:#ef8466;background:var(--paper);color:var(--ink)}
+.is-home .site-nav{border-bottom-color:#ffffff12;background:color-mix(in srgb,var(--paper),transparent 20%)}
+.is-home .wordmark{color:var(--ink)}
+.is-home .nav-search{background:#ffffff0a;border-color:#ffffff1f}
+.is-home .footer{border-top-color:var(--line)}
+.is-home h1,.is-home h2,.is-home h3{font-family:var(--sans);font-style:normal;text-wrap:balance}
+.is-home h1 em,.is-home h2 em{color:var(--lime)}
+.t-hero{position:relative;isolation:isolate;overflow:hidden;background:var(--paper)}
+.t-hero:after{position:absolute;inset:auto 0 0;height:160px;background:linear-gradient(transparent,var(--paper));content:"";pointer-events:none}
+.t-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:56px;min-height:min(820px,calc(100vh - 76px));padding-top:80px;padding-bottom:120px}
+.t-pill{display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;padding:7px 14px 7px 10px;border:1px solid #ffffff24;border-radius:999px;background:#ffffff0d;color:#d6dbe1;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.t-pill i{position:relative;width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.t-pill i:after{position:absolute;inset:-4px;border:1px solid var(--lime);border-radius:50%;content:"";animation:pill-ping 2s ease-out infinite}
+.t-hero h1{margin:0;color:#fff;font:780 clamp(46px,4.9vw,76px)/1 var(--sans);font-variation-settings:"wdth" 104;letter-spacing:-.035em}
+.t-hero h1 em{font-size:1.06em}
+.t-lede{max-width:520px;margin:26px 0 0;color:#b9c0c9;font:400 19px/1.55 var(--sans)}
+.t-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.t-console{position:relative;border-radius:16px;background:linear-gradient(160deg,#ffffff14,#ffffff05 60%);overflow:hidden}
+.t-console-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #ffffff14;color:#9aa1aa;font:500 11px var(--mono)}
+.t-console-bar .lights{gap:7px}.t-console-bar .light{cursor:default}
+.t-console-bar em{margin-left:auto;padding:2px 8px;border:1px solid #ffffff24;border-radius:999px;font-style:normal;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.t-console-body{position:relative;min-height:340px;padding:22px 24px 26px;color:#d9dee4;font:400 13px/1.5 var(--mono)}
+.c-run{display:none}.c-run.is-active{display:block}
+.c-line{display:flex;align-items:baseline;gap:8px;margin:0 0 12px}
+.c-line b{color:#fff;font-weight:600}
+.c-prompt{color:var(--lime)}
+.c-ok,.c-flag{margin-left:auto;color:#9aa1aa;white-space:nowrap}
+.c-ok{color:var(--lime)}
+.c-flag.is-bad{color:var(--risk)}.c-flag.is-good{color:var(--lime)}
+.c-bars{display:grid;gap:7px;margin:-2px 0 14px 18px}
+.c-bar{display:grid;grid-template-columns:22px minmax(0,1fr);align-items:center;gap:8px;color:#7d8590;font-size:11px}
+.c-bar em{font-style:normal}
+.c-bar i{display:block;width:var(--w);height:6px;border-radius:3px;background:linear-gradient(90deg,#a78232,#ebca78);transform-origin:left}
+.c-verdict{display:inline-block;margin:8px 0 0;padding:9px 16px;border:2px solid currentColor;border-radius:6px;font:800 15px var(--sans);font-variation-settings:"wdth" 110;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-2deg)}
+.c-verdict.is-bad{color:var(--risk)}.c-verdict.is-good{color:var(--lime)}
+.is-home .marquee{background:var(--lime)}
+.t-kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--lime);font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.t-kicker:before{width:18px;height:1px;background:currentColor;content:""}
+.t-statement{padding-top:150px;padding-bottom:40px}
+.t-scrub{max-width:1040px;margin:0;font:680 clamp(30px,3.6vw,54px)/1.18 var(--sans);font-variation-settings:"wdth" 104;letter-spacing:-.028em}
+.t-section{padding-top:110px;padding-bottom:20px}
+.t-head{margin-bottom:44px}
+.t-head-split{display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
+.t-head-split>p{max-width:360px;margin:0;color:var(--muted);font:400 16px/1.5 var(--sans)}
+.is-home h2{margin:0;font:760 clamp(36px,4.3vw,64px)/1.02 var(--sans);font-variation-settings:"wdth" 106;letter-spacing:-.032em}
+.is-home .h2{font-size:clamp(30px,3vw,44px)}.is-home .h2.is-large{font-size:clamp(36px,4.3vw,64px)}
+.t-card,.bento-tile,.t-plan,.glass-panel{position:relative;overflow:hidden;border:1px solid #ffffff17;border-radius:18px;background:linear-gradient(170deg,#ffffff0e,#ffffff03 70%);box-shadow:inset 0 1px 0 #ffffff14}
+.t-card:after,.bento-tile:after,.t-plan:after{position:absolute;inset:0;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,0%),#e3bf6824,transparent 55%);content:"";opacity:0;pointer-events:none;transition:opacity .3s}
+.t-card:hover:after,.bento-tile:hover:after,.t-plan:hover:after{opacity:1}
+.t-card:hover,.bento-tile:hover,.t-plan:hover{border-color:#e3bf6852}
+.t-problems{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.t-card{display:grid;align-content:start;gap:12px;padding:30px;color:var(--ink);text-decoration:none}
+.t-icon{display:grid;width:46px;height:46px;place-items:center;margin-bottom:10px;border-radius:12px;background:var(--blue-soft);color:var(--lime);font:600 20px var(--mono)}
+.t-card b{font:780 34px/1.05 var(--sans);font-variation-settings:"wdth" 104;letter-spacing:-.025em}
+.t-card p{margin:0;color:var(--muted);font:400 16px/1.45 var(--sans)}
+.t-card small{color:var(--lime);font:500 11px var(--mono);letter-spacing:.06em}
+.t-card .info-chip{position:absolute;top:22px;right:22px;background:transparent;border-color:#ffffff30;color:var(--ink)}
+.is-home .scrolly{padding:120px 0 60px}
+.is-home .scrolly-step button{border-top-color:var(--line)}
+.is-home .scrolly-step b{font-family:var(--sans);font-variation-settings:"wdth" 104}
+.is-home .scrolly-step p{font-family:var(--sans);font-size:16px}
+.glass-panel{-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.is-home .vault,.is-home .vault-lid{border-color:#eef0f3}
+.is-home .price-tag{border-color:#eef0f3;box-shadow:4px 4px 0 var(--lime)}
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:250px;gap:18px}
+.bento-tile{display:grid;grid-template-rows:auto 1fr;gap:16px;padding:28px}
+.bento-tile.is-wide{grid-column:span 2}
+.bento-tile h3{margin:0 0 6px;font:740 23px/1.1 var(--sans);font-variation-settings:"wdth" 104;letter-spacing:-.02em}
+.bento-tile p{margin:0;max-width:360px;color:var(--muted);font:400 15px/1.45 var(--sans)}
+.b-art{position:relative;align-self:end}
+.b-rise{width:100%;height:90px;overflow:visible}
+.b-rise path{fill:none;stroke:var(--lime);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;animation:draw-loop 4s ease-in-out infinite}
+.b-rise circle{fill:var(--lime);animation:dot-pop 4s ease-in-out infinite}
+.b-exploit{display:flex;align-items:center;gap:10px}
+.b-exploit i{width:14px;height:14px;border-radius:4px;background:#ffffff1a;animation:bug-blink 2.4s infinite}
+.b-exploit i:nth-child(2){animation-delay:.4s}.b-exploit i:nth-child(3){animation-delay:.8s}
+.b-exploit b{margin-left:6px;padding:4px 10px;border:1px solid var(--risk);border-radius:999px;color:var(--risk);font:600 12px var(--mono)}
+.b-venn{height:80px}
+.b-venn i{position:absolute;top:6px;width:68px;height:68px;border-radius:50%;border:2px solid var(--lime);background:#e3bf6814}
+.b-venn i:first-child{left:0;animation:venn-l 3.5s ease-in-out infinite}.b-venn i:nth-child(2){left:44px;border-color:#5a92d6;background:#5a92d614;animation:venn-r 3.5s ease-in-out infinite}
+.b-venn b{position:absolute;top:28px;left:130px;font:700 22px var(--mono);color:var(--ink)}
+.b-scale{display:flex;align-items:flex-end;gap:10px;height:90px}
+.b-scale i{width:26px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#ebca78,#a78232);animation:bar-grow 3s ease-in-out infinite;transform-origin:bottom}
+.b-scale i:nth-child(1){height:25%}.b-scale i:nth-child(2){height:45%;animation-delay:.15s}.b-scale i:nth-child(3){height:68%;animation-delay:.3s}.b-scale i:nth-child(4){height:95%;animation-delay:.45s}
+.b-price{display:flex;align-items:baseline;gap:14px}
+.b-price b{color:var(--lime);font:800 44px/1 var(--sans);font-variation-settings:"wdth" 104}
+.b-price s{position:relative;color:var(--muted);font:500 18px var(--mono);text-decoration:none}
+.b-price s:after{position:absolute;top:50%;left:-4px;right:-4px;height:2px;background:var(--risk);content:"";transform:scaleX(0);transform-origin:left;animation:strike 3s ease-in-out infinite}
+.compare{padding:32px}
+.cmp-bars{display:grid;gap:16px;margin-top:28px}
+.cmp-bar{display:grid;grid-template-columns:220px minmax(0,1fr) 90px;align-items:center;gap:18px}
+.cmp-bar span{font:600 15px var(--sans)}
+.cmp-bar i{display:block;width:var(--w);height:16px;border-radius:8px;background:linear-gradient(90deg,#a78232,#ebca78);box-shadow:0 0 24px #e3bf6833;transition:width .8s var(--out)}
+.cmp-bar b{font:600 14px var(--mono);text-align:right}
+.cmp-note{margin:24px 0 0;color:var(--lime);font:500 13px var(--mono)}
+.is-home .seg-list.glass{background:#ffffff0a;border-color:#ffffff1f;box-shadow:none}
+.is-home .seg-tab{color:var(--muted)}
+.is-home .seg-tab[aria-selected=true]{color:#0a0c0f}
+.is-home .seg-ink{background:var(--lime)}
+.t-two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.is-home .ticks{border-radius:18px;border-color:#ffffff17;background:linear-gradient(170deg,#ffffff0e,#ffffff03 70%)}
+.is-home .ticks li{font:500 18px/1.4 var(--sans)}
+.quad{position:relative;aspect-ratio:1.25;margin-top:6px;border-left:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/25% 25%,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/25% 25%;background-color:#ffffff03}
+.q-axis{position:absolute;color:var(--muted);font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.q-x{right:0;bottom:-24px}.q-y{top:0;left:-8px;transform:rotate(-90deg) translateX(-100%);transform-origin:top left}
+.q-point span{white-space:nowrap}.q-point.is-left{flex-direction:row-reverse;transform:translate(calc(-100% + 7px),7px)}.q-point.is-us.is-left{transform:translate(calc(-100% + 9px),9px)}.q-point{position:absolute;left:var(--x);bottom:var(--y);display:flex;align-items:center;gap:8px;padding:0;border:0;background:none;color:var(--ink);font:600 13px var(--sans);transform:translate(-7px,7px);cursor:help}
+.q-point i{width:14px;height:14px;border:2px solid var(--muted);border-radius:50%;background:var(--paper)}
+.q-point.is-us{color:var(--lime);font-size:15px}
+.q-point.is-us i{width:18px;height:18px;border-color:var(--lime);background:var(--lime);box-shadow:0 0 0 6px #e3bf6826,0 0 30px #e3bf6880;animation:us-pulse 2.4s ease-in-out infinite}
+.q-hint{margin:34px 0 0;color:var(--muted);font:500 11px var(--mono)}
+.t-research,.t-plans{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.t-card.research b{color:var(--lime);font-size:58px}
+.t-card.research p{color:var(--ink);font-size:20px}
+.t-plan{display:grid;align-content:start;gap:14px;padding:34px}
+.t-plan h3{margin:0;font:760 30px/1.1 var(--sans);font-variation-settings:"wdth" 104;letter-spacing:-.025em}
+.t-plan>p:not(.t-kicker){margin:0;color:var(--muted);font:400 16px var(--sans)}
+.t-plan .ticks{padding:0;border:0;background:none}
+.t-plan .ticks li{font-size:16px}
+.t-plan .button{justify-self:start;margin-top:8px}
+.t-plan.is-featured{border-color:#e3bf6866;background:linear-gradient(170deg,#e3bf681f,#ffffff03 70%)}
+.roadmap{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin:0;padding:34px 0 0;list-style:none}
+.roadmap:before{position:absolute;top:8px;right:0;left:0;height:2px;background:linear-gradient(90deg,var(--lime) 30%,var(--line) 30%);content:""}
+.roadmap li{position:relative;display:grid;align-content:start;gap:8px}
+.roadmap li:before{position:absolute;top:-32px;left:0;width:14px;height:14px;border:2px solid var(--line);border-radius:50%;background:var(--paper);content:""}
+.roadmap .rm-done:before{border-color:var(--lime);background:var(--lime)}
+.roadmap .rm-now:before{border-color:var(--lime);box-shadow:0 0 0 6px #e3bf6826;animation:us-pulse 2.4s infinite}
+.roadmap em{justify-self:start;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:500 10px var(--mono);font-style:normal;letter-spacing:.1em;text-transform:uppercase}
+.roadmap .rm-done em,.roadmap .rm-now em{border-color:var(--lime);color:var(--lime)}
+.roadmap b{font:700 17px/1.25 var(--sans)}
+.roadmap p{margin:0;color:var(--muted);font:400 14px/1.45 var(--sans)}
+.is-home .cta-band{margin-top:120px;padding:140px 0;text-align:left}
+.is-home .cta-band h2{font-size:clamp(46px,6vw,96px);color:#fff}
+.is-home .cta-band .cta-note{margin-top:22px}
+.is-home .cta-band p.t-kicker{max-width:none;margin:0 0 18px;color:var(--lime);font:500 11px var(--mono);letter-spacing:.14em}
+@keyframes pill-ping{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(1.8)}}
+@keyframes draw-loop{0%{stroke-dashoffset:1}45%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-1}}
+@keyframes dot-pop{0%,40%{opacity:0;transform:scale(0)}50%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
+@keyframes bug-blink{0%,60%,100%{background:#ffffff1a}70%,90%{background:var(--risk);box-shadow:0 0 14px var(--risk)}}
+@keyframes venn-l{50%{transform:translateX(10px)}}@keyframes venn-r{50%{transform:translateX(-10px)}}
+@keyframes bar-grow{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@keyframes strike{0%,30%{transform:scaleX(0)}50%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+@keyframes us-pulse{50%{box-shadow:0 0 0 10px #e3bf6814,0 0 40px #e3bf6899}}
+@media(max-width:680px){.t-hero-inner,.t-two{grid-template-columns:1fr;gap:40px;min-height:0;padding-top:48px;padding-bottom:80px}.t-problems,.bento,.t-research,.t-plans,.roadmap{grid-template-columns:1fr}.bento{grid-auto-rows:auto}.bento-tile{min-height:210px}.bento-tile.is-wide{grid-column:auto}.t-head-split{display:block}.t-head-split>p{margin-top:16px}.cmp-bar{grid-template-columns:1fr 64px;gap:6px 12px}.cmp-bar span{grid-column:1/-1}.roadmap{padding:0 0 0 30px}.roadmap:before{top:0;bottom:0;left:6px;right:auto;width:2px;height:auto;background:linear-gradient(var(--lime) 30%,var(--line) 30%)}.roadmap li:before{top:2px;left:-30px}.t-statement{padding-top:90px}.t-section{padding-top:80px}.t-console-body{min-height:320px;font-size:12px}.quad{margin-left:14px}}
+@media(prefers-reduced-motion:reduce){.t-pill i:after,.b-rise path,.b-rise circle,.b-exploit i,.b-venn i,.b-scale i,.b-price s:after,.q-point.is-us i,.roadmap .rm-now:before{animation:none}.b-rise path{stroke-dashoffset:0}}
+"""
+
 # Wider than a phone means the desktop layout, scaled to fit; only phones reflow.
 CSS = CSS.replace("@media(max-width:900px)", "@media(max-width:680px)").replace("@media(max-width:850px)", "@media(max-width:680px)")
 CSS = CSS.replace("@media(min-width:851px)", "@media(min-width:681px)")
@@ -2485,7 +2638,102 @@ SCRIPT += r"""
 """
 
 
-def app_shell(content: str, title: str, description: str, prefix: str, active: str) -> str:
+SCRIPT += r"""
+(() => {
+  const gsap = window.gsap, Motion = window.Motion;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const spring = {type: 'spring', stiffness: 260, damping: 24};
+
+  // Re-measure scroll positions whenever the scaled page changes height.
+  const frame = document.querySelector('.scale-frame');
+  if (frame && window.ScrollTrigger && 'ResizeObserver' in window) {
+    let last = 0, pending;
+    new ResizeObserver(() => {
+      const height = frame.getBoundingClientRect().height;
+      if (Math.abs(height - last) < 2) return;
+      last = height;
+      clearTimeout(pending);
+      pending = setTimeout(() => ScrollTrigger.refresh(), 150);
+    }).observe(frame);
+  }
+
+  // Hero: copy and console arrive in sequence.
+  if (gsap && !reduced) gsap.from('[data-intro]', {y: 34, opacity: 0, duration: 1, ease: 'expo.out', stagger: .12, delay: .25});
+
+  // Console: two illustrative appraisal runs, typed out line by line, forever.
+  const runs = [...document.querySelectorAll('.c-run')];
+  if (runs.length && gsap && !reduced) {
+    const play = index => {
+      runs.forEach((run, i) => run.classList.toggle('is-active', i === index));
+      const run = runs[index];
+      const parts = [...run.querySelectorAll('[data-l]')];
+      const timeline = gsap.timeline({delay: index === 0 ? 1 : .2, onComplete: () => gsap.delayedCall(2.6, () => play((index + 1) % runs.length))});
+      timeline.set(parts, {opacity: 0, y: 8}).set(run.querySelectorAll('.c-bar i'), {scaleX: 0});
+      parts.forEach((part, i) => {
+        timeline.to(part, {opacity: 1, y: 0, duration: .3, ease: 'power2.out'}, i ? '+=.3' : 0);
+        if (part.classList.contains('c-bars')) timeline.to(part.querySelectorAll('.c-bar i'), {scaleX: 1, duration: .8, stagger: .14, ease: 'power2.out'});
+      });
+      timeline.fromTo(run.querySelector('.c-verdict'), {scale: 1.7, rotate: -14}, {scale: 1, rotate: -2, duration: .55, ease: 'back.out(2.2)'}, '-=.3');
+    };
+    play(0);
+  }
+
+  // The mission statement lights up word by word as it scrolls through the screen.
+  const statement = document.querySelector('[data-scrub-text]');
+  if (statement && gsap && window.SplitText && window.ScrollTrigger && !reduced) {
+    const words = SplitText.create(statement, {type: 'words'}).words;
+    gsap.fromTo(words, {opacity: .14}, {opacity: 1, stagger: .1, ease: 'none',
+      scrollTrigger: {trigger: statement, start: 'top 80%', end: 'bottom 45%', scrub: true}});
+  }
+
+  // Compare environments: switch the measure, bars resize and the order reshuffles.
+  document.querySelectorAll('[data-compare]').forEach(box => {
+    const rows = [...box.querySelectorAll('.cmp-bar')], wrap = box.querySelector('.cmp-bars'), note = box.querySelector('[data-note]');
+    const tabs = [...box.querySelectorAll('[data-metric]')], ink = box.querySelector('.seg-ink');
+    const notes = {reward: 'Ranked by training reward, Env A looks best.',
+                   transfer: 'Ranked by real improvement on new problems, Env B wins.',
+                   value: 'Per dollar spent, Env B delivers almost 8× what Env A does.'};
+    const format = {reward: v => `${v}%`, transfer: v => `+${v.toFixed(1)} pts`, value: v => `${v.toFixed(1)} pts`};
+    const placeInk = (tab, animate) => {
+      if (animate && Motion && !reduced) Motion.animate(ink, {'--x': `${tab.offsetLeft}px`, '--w': `${tab.offsetWidth}px`}, spring);
+      else { ink.style.setProperty('--x', `${tab.offsetLeft}px`); ink.style.setProperty('--w', `${tab.offsetWidth}px`); }
+    };
+    const show = (tab, animate) => {
+      const metric = tab.dataset.metric;
+      tabs.forEach(other => other.setAttribute('aria-selected', String(other === tab)));
+      placeInk(tab, animate);
+      const max = Math.max(...rows.map(row => Number(row.dataset[metric])));
+      rows.forEach(row => {
+        const value = Number(row.dataset[metric]);
+        row.querySelector('i').style.setProperty('--w', `${value / max * 100}%`);
+        row.querySelector('b').textContent = format[metric](value);
+      });
+      const before = new Map(rows.map(row => [row, row.getBoundingClientRect().top]));
+      [...rows].sort((a, b) => Number(b.dataset[metric]) - Number(a.dataset[metric])).forEach(row => wrap.append(row));
+      if (animate && !reduced) rows.forEach(row => {
+        const dy = before.get(row) - row.getBoundingClientRect().top;
+        const scale = Number(document.documentElement.dataset.scale || 1);
+        if (dy) row.animate([{transform: `translateY(${dy / scale}px)`}, {transform: 'none'}], {duration: 650, easing: 'cubic-bezier(.7,0,.2,1)'});
+      });
+      note.textContent = notes[metric];
+      if (animate && Motion && !reduced) Motion.animate(note, {opacity: [0, 1], y: [8, 0]}, spring);
+    };
+    tabs.forEach(tab => tab.addEventListener('click', () => show(tab, true)));
+    show(tabs[0], false);
+    addEventListener('resize', () => placeInk(tabs.find(tab => tab.getAttribute('aria-selected') === 'true'), false));
+  });
+
+  // Positioning chart: the points drop in, Touchstone last.
+  if (gsap && window.ScrollTrigger && !reduced) {
+    gsap.from('.q-point', {scale: 0, opacity: 0, duration: .7, ease: 'back.out(2)', stagger: .18,
+      scrollTrigger: {trigger: '.quad', start: 'top 80%', once: true}});
+    gsap.from('.roadmap li', {y: 30, opacity: 0, duration: .7, ease: 'power3.out', stagger: .12,
+      scrollTrigger: {trigger: '.roadmap', start: 'top 85%', once: true}});
+  }
+})();
+"""
+
+def app_shell(content: str, title: str, description: str, prefix: str, active: str, body_class: str = "") -> str:
     links = {"home": prefix + "index.html", "appraisals": prefix + "appraisals/index.html",
              "forecast": prefix + "forecast/index.html", "methodology": prefix + "methodology/index.html"}
     nav = "".join(
@@ -2498,8 +2746,8 @@ def app_shell(content: str, title: str, description: str, prefix: str, active: s
 <meta name="theme-color" content="#171819"><meta name="description" content="{esc(description)}">
 <title>{'Touchstone' if active == 'home' else esc(title) + ' · Touchstone'}</title><script>{SCALE_BOOT}</script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
-<style>{CSS}</style><noscript><style>.reveal{{opacity:1;transform:none}}.dbar i,.meter i,.mini-bars i:after,.db-after,.range-band,.range-actual,.ladder-dot,.suite-split span{{transform:none}}.db-line{{stroke-dashoffset:0}}.board-row{{opacity:1;transform:none}}.range-forecast{{opacity:1}}.slope svg{{clip-path:none}}.rho-marker{{left:var(--at)}}.nav-search,.info-chip,.peek-button{{display:none}}</style></noscript></head><body data-root="{prefix}">
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>{CSS}</style><noscript><style>.reveal{{opacity:1;transform:none}}.dbar i,.meter i,.mini-bars i:after,.db-after,.range-band,.range-actual,.ladder-dot,.suite-split span{{transform:none}}.db-line{{stroke-dashoffset:0}}.board-row{{opacity:1;transform:none}}.range-forecast{{opacity:1}}.slope svg{{clip-path:none}}.rho-marker{{left:var(--at)}}.nav-search,.info-chip,.peek-button{{display:none}}</style></noscript></head><body class="{body_class}" data-root="{prefix}">
 <div class="scale-frame"><div class="scale-page">
 <nav class="site-nav"><a class="wordmark" href="{links['home']}" aria-label="Touchstone home">{brand_mark()}<span>touchstone</span></a>
 <div class="nav-links">{nav}</div><div class="nav-actions"><button class="nav-search" type="button" data-palette-open aria-label="Search pages and appraisals">{icon('search')}<span>Search</span><kbd>⌘K</kbd></button>
@@ -2633,109 +2881,126 @@ def step_visuals(environment: dict, ladder: dict, truth: str) -> list[str]:
     return [seal, train, measure, price]
 
 
-def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
-    truth = data["truth_rung"]
-    steps = (
-        ("Seal", "The vendor's tasks go into a sealed sandbox. Buyers only ever see results."),
-        ("Train small", "Small open models train on it with one fixed recipe, at four sizes."),
-        ("Measure", "We test on private questions and try to game the grader."),
-        ("Price", "We forecast the gain at your model size and price each task."),
+def console_runs() -> str:
+    """Two illustrative appraisal runs the hero console plays in a loop."""
+    runs = (
+        ("coding-agent-v3", "2 reward exploits found", "31% of tasks already free", "−0.4 pts", "Not worth full price", "is-bad"),
+        ("math-reasoning-v1", "No exploits found", "6% of tasks already free", "+4.1 pts", "Worth buying", "is-good"),
     )
-    visuals = step_visuals(best, data["ladder"], truth)
-    step_list = "".join(
-        f'<li class="scrolly-step{" is-active" if index == 0 else ""}" data-step="{index}"><button type="button">'
-        f'<span class="step-no">0{index + 1}</span><b>{title}</b><p>{text}</p></button></li>'
-        for index, (title, text) in enumerate(steps))
-    stage = "".join(f'<div class="stage-panel{" is-active" if index == 0 else ""}" data-stage="{index}">{visual}</div>'
-                    for index, visual in enumerate(visuals))
-    top = best["rungs"][truth]
-    report = tabs("report", [
-        (name, f'<div class="metric"><b class="metric-value">{value}</b><p>{question}</p><small>Sample: {esc(best["name"])}</small></div>')
-        for name, value, question in (
-            ("Learnability", f'{top["env_reward_before"]:.0%} → {top["env_reward_after"]:.0%}', "Does the model get better at the environment's own tasks?"),
-            ("Transfer", f'{pts(best["actual_at_truth"])} pts', "Does it get better at new questions? The number that matters."),
-            ("Hackability", f'{best["hackability"]["score"]:.0%}', "How much reward can be won without solving the task?"),
-            ("Redundancy", f'{best["redundancy"]["public_overlap"]:.0%}', "How much of it is already free?"),
-            ("Fair value", f'${best["fair_value_per_task"]:,.0f}', "What is each task worth at your model size?"),
-        )], "What the report measures")
-    audience = tabs("audience", [
-        ("I'm buying data", '<ul class="ticks"><li>Test before you sign</li><li>Compare vendors on one private test</li><li>Skip data your model can game</li></ul>'),
-        ("I'm selling data", '<ul class="ticks"><li>A neutral rating buyers trust</li><li>Find grader exploits first</li><li>Price backed by measured value</li></ul>'),
-    ], "Who it's for")
-    compare = (("Data vendors", False, False, True), ("Eval tools", False, True, False),
-               ("In-house runs", True, True, False), ("Touchstone", True, True, True))
+    blocks = []
+    for index, (name, exploits, overlap, gain, verdict, tone) in enumerate(runs):
+        bars = "".join(f'<span class="c-bar"><em>{size}</em><i style="--w:{width}%"></i></span>'
+                       for size, width in (("S", 38), ("M", 57), ("L", 74), ("XL", 92)))
+        blocks.append(f"""<div class="c-run{" is-active" if index == 0 else ""}" data-run="{index}">
+<p class="c-line" data-l="0"><span class="c-prompt">›</span> seal <b>{name}</b><span class="c-ok">sealed ✓</span></p>
+<p class="c-line" data-l="1"><span class="c-prompt">›</span> train 4 small models</p><div class="c-bars" data-l="2">{bars}</div>
+<p class="c-line" data-l="3"><span class="c-prompt">›</span> probe the grader<span class="c-flag {tone}">{exploits}</span></p>
+<p class="c-line" data-l="4"><span class="c-prompt">›</span> check overlap<span class="c-flag">{overlap}</span></p>
+<p class="c-line" data-l="5"><span class="c-prompt">›</span> forecast at your scale<span class="c-flag {tone}">{gain}</span></p>
+<p class="c-verdict {tone}" data-l="6">{verdict}</p></div>""")
+    return "".join(blocks)
+
+
+def home_page(data: dict, ranked: list[dict], base: dict, best: dict) -> str:
+    ladder = data["ladder"]
+    biggest = max(ladder.values())
+    spheres = "".join(f'<figure class="ladder-rung" style="--d:{(params / biggest) ** .5 * 110:.1f}px;--n:{index}"><span class="ladder-dot"></span>'
+                      f'<figcaption><b>{esc(size)}</b>{fmt_params(params)}</figcaption></figure>' for index, (size, params) in enumerate(ladder.items()))
+    visuals = [
+        '<div class="vis-seal"><div class="vault"><span class="vault-lid"></span>' + "".join(f'<i class="task-chip">task {n:03d}</i>' for n in range(1, 5))
+        + '</div><code class="hash">sealed · sha256 7f3a9c04e1b2…</code></div>',
+        f'<div class="vis-train">{spheres}<svg class="train-curve" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 55 C 60 50, 90 30, 150 22 S 250 8, 300 6"/></svg></div>',
+        '<div class="vis-measure viz"><div><span>Better on new problems</span><b>+4.1</b>' + signed_bar(4.1, 6)
+        + '</div><div><span>Reward won by exploits</span><b>0%</b>' + meter(0) + '</div><div><span>Already free</span><b>6%</b>' + meter(.06) + '</div></div>',
+        '<div class="vis-price"><svg viewBox="0 0 320 120" aria-hidden="true"><line class="pr-axis" x1="20" y1="100" x2="310" y2="100"/>'
+        '<polygon class="pr-band" points="180,58 290,22 290,62 180,74"/><path class="pr-fit" pathLength="1" d="M40 88 L110 76 L180 66"/>'
+        '<path class="pr-forecast" pathLength="1" d="M180 66 L290 42"/><circle class="pr-dot" cx="40" cy="88" r="4"/><circle class="pr-dot" cx="110" cy="76" r="4"/>'
+        '<circle class="pr-dot" cx="180" cy="66" r="4"/><circle class="pr-target" cx="290" cy="42" r="6"/><text x="290" y="116" text-anchor="middle">your scale</text></svg>'
+        '<div class="price-tag"><b>$640</b><span>fair value per task</span></div></div>',
+    ]
+    steps = (("Seal", "The vendor's tasks go into a sealed sandbox. You only ever see results."),
+             ("Train small", "Small open models train on it with one fixed recipe, at four sizes."),
+             ("Measure", "We test on private problems and try to fool the grader."),
+             ("Forecast and price", "We predict the gain at your model size and price each task."))
+    step_list = "".join(f'<li class="scrolly-step{" is-active" if i == 0 else ""}" data-step="{i}"><button type="button"><span class="step-no">0{i + 1}</span>'
+                        f'<b>{t}</b><p>{x}</p></button></li>' for i, (t, x) in enumerate(steps))
+    stage = "".join(f'<div class="stage-panel{" is-active" if i == 0 else ""}" data-stage="{i}">{v}</div>' for i, v in enumerate(visuals))
+    bento = (
+        ("is-wide", "Transfer", "Does it make your model better at problems it never saw?", '<svg class="b-art b-rise" viewBox="0 0 200 80" aria-hidden="true"><path pathLength="1" d="M0 70 C40 66 60 50 90 44 S150 18 200 10"/><circle cx="200" cy="10" r="5"/></svg>'),
+        ("", "Reward exploits", "Can a model score without solving the task?", '<div class="b-art b-exploit" aria-hidden="true"><i></i><i></i><i></i><b>2 found</b></div>'),
+        ("", "Redundant tasks", "How much of it is already free?", '<div class="b-art b-venn" aria-hidden="true"><i></i><i></i><b>31%</b></div>'),
+        ("", "Forecast", "What gain should you expect at your model size?", '<div class="b-art b-scale" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'),
+        ("", "Fair value", "What is each task actually worth?", '<div class="b-art b-price" aria-hidden="true"><b>$640</b><s>$2,000</s></div>'),
+    )
+    bento_html = "".join(f'<article class="bento-tile tilt {cls}" data-rise><div class="b-copy"><h3>{title}</h3><p>{text}</p></div>{art}</article>'
+                         for cls, title, text, art in bento)
+    compare_envs = (("Env A · coding agent", 92, 2.0, .4), ("Env B · math reasoning", 81, 9.1, 3.1),
+                    ("Env C · web browsing", 75, 6.2, 1.8), ("Env D · tool use", 70, 4.0, 1.1))
     compare_rows = "".join(
-        f'<div class="cmp-row{" is-us" if who == "Touchstone" else ""}"><b>{who}</b>{check_icon(value)}{check_icon(neutral)}{check_icon(before)}</div>'
-        for who, value, neutral, before in compare)
-    gamed = max(ranked, key=lambda env: env["hackability"]["score"])
-    copied = max(ranked, key=lambda env: env["redundancy"]["public_overlap"])
-    notices = (("!", "Shortcut caught", f"{gamed['name']}: non-answers won {gamed['hackability']['score']:.0%} of the reward.", gamed),
-               ("≈", "Mostly copied", f"{copied['name']}: {copied['redundancy']['public_overlap']:.0%} of tasks are already free.", copied),
-               ("↗", "Worth buying", f"{best['name']}: {pts(best['actual_at_truth'])} pts on new questions.", best))
-    notice_html = "".join(
-        f'<div class="notice" data-notice hidden><span class="notice-icon" aria-hidden="true">{icon}</span><div><b>{esc(title)}</b><p>{esc(body)}</p>'
-        f'<button class="notice-open" type="button" data-pop-open="peek-{esc(env["id"])}">Quick look ↗</button></div>'
-        '<button class="notice-close" type="button" aria-label="Dismiss notice">×</button><span class="notice-timer" aria-hidden="true"></span></div>'
-        for icon, title, body, env in notices)
-    research = "".join(
-        f'<a class="research-card glass-light tilt" href="{url}" target="_blank" rel="noopener"><b>{stat}</b><p>{finding}</p><small>{cite} ↗</small></a>'
-        for stat, finding, cite, url in (
-            ("5%", "of well-chosen data can beat training on all of it.", "Xia et al., LESS · ICML 2024", "https://proceedings.mlr.press/v235/xia24c.html"),
-            ("Small → large", "Small experiments predict which data wins at scale.", "Magnusson et al., DataDecide · ICML 2025", "https://proceedings.mlr.press/v267/magnusson25a.html")))
-    status = "".join(f'<li><b>{esc(title)}</b><p>{esc(text)}</p></li>' for title, text in STATUS)
-    peeks = "".join(peek_window(env, "appraisals/" + env["id"] + "/index.html") for env in ranked) + peek_window(base, "")
-    fact_pops = "".join([
-        pop_window("pop-price", "What RL tasks cost", [("", '<div class="pop-copy"><p>Single RL environment tasks typically sell for <strong>$200 to $2,000</strong>, sometimes $20k. Exclusive deals cost 4 to 5 times more.</p></div><p class="fine-print">Price summary citing Epoch AI</p>')]),
-        pop_window("pop-self", "Who checks the data today", [("", '<div class="pop-copy"><p>Buyers usually test a small sample, or rely on transfer results the vendor ran on its own setup. There is no neutral standard for task validity or reward correctness.</p></div>')]),
-        pop_window("pop-hack", "Reward hacking", [("", '<div class="pop-copy"><p>Weak graders, leaked answers and tasks passed without being solved are the most reported failure. A model can score high and learn nothing it can use elsewhere.</p></div>')]),
-    ])
-    marquee_items = "".join(f"<span>{phrase}</span><i>✦</i>" for phrase in ("Does it teach?", "Can it be gamed?", "Is it new?", "Will it scale?", "What is it worth?") * 4)
+        f'<div class="cmp-bar" data-reward="{reward}" data-transfer="{transfer}" data-value="{value}">'
+        f'<span>{esc(name)}</span><i style="--w:{reward}%"></i><b>{reward}%</b></div>'
+        for name, reward, transfer, value in compare_envs)
+    compare = (f'<div class="compare glass-panel" data-compare><div class="seg-list glass" role="tablist" aria-label="Rank environments by">'
+               f'<button class="seg-tab" type="button" role="tab" aria-selected="true" data-metric="reward">Training reward</button>'
+               f'<button class="seg-tab" type="button" role="tab" aria-selected="false" data-metric="transfer">Real improvement</button>'
+               f'<button class="seg-tab" type="button" role="tab" aria-selected="false" data-metric="value">Value per $1k</button>'
+               f'<span class="seg-ink" aria-hidden="true"></span></div><div class="cmp-bars" role="img" aria-label="Four illustrative environments ranked by the selected measure">{compare_rows}</div>'
+               f'<p class="cmp-note" data-note>Ranked by training reward, Env A looks best.</p></div>')
+    audience = tabs("audience", [
+        ("AI teams buying data", '<ul class="ticks"><li>Test an environment before you sign</li><li>Compare vendors on one private test</li><li>Stop paying for tasks your model can game</li></ul>'),
+        ("Vendors selling it", '<ul class="ticks"><li>A neutral rating buyers trust</li><li>Find grader exploits before customers do</li><li>Back your price with measured value</li></ul>'),
+    ], "Who it's for")
+    # (name, measures training value 0-100, independent of the seller 0-100, note)
+    players = (("Scale AI", 30, 16, "Sells training data and infrastructure, and grades its own product."),
+               ("Patronus AI", 20, 74, "Independent, but tests finished models, not the data that trains them."),
+               ("In-house teams", 76, 44, "Measure real value, but only after buying, with full-size training runs."),
+               ("Touchstone", 84, 86, "Independent, and measures training value before you buy, with small runs."))
+    quad = "".join(f'<button class="q-point{" is-us" if name == "Touchstone" else ""}{" is-left" if x > 60 else ""}" type="button" style="--x:{x}%;--y:{y}%" data-tip="{esc(note)}">'
+                   f'<i></i><span>{esc(name)}</span></button>' for name, x, y, note in players)
+    roadmap = "".join(f'<li class="rm-{stage.lower()}"><em>{esc(stage)}</em><b>{esc(title)}</b><p>{esc(text)}</p></li>' for stage, title, text in ROADMAP)
     request_note = "" if REQUEST_FORM_URL else '<p class="cta-note">Request form opens shortly</p>'
-    content = f"""<header class="hero"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container hero-inner"><div class="hero-copy">
-<p class="eyebrow" data-rise>Independent appraisal for AI training data</p>
-<h1 data-split>Know what training data is worth <span>before you buy it.</span></h1>
-<p class="hero-lede" data-rise>We test RL environments and datasets on small models, so you never pay for data that doesn't help.</p>
-<div class="hero-buttons" data-rise>{request_action()}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div></div>
-<div class="hero-visual">{sample_certificate(best, truth)}</div></div></header>
-<div class="marquee" aria-hidden="true"><div class="marquee-track">{marquee_items}</div></div>
-<main>
-<section class="container section problem"><div class="section-heading"><div><p class="eyebrow">The problem</p><h2 data-split>Buying training data <span>is a blind bet.</span></h2></div></div>
-<div class="fact-row">
-<article class="fact glass-light tilt" data-rise><b data-count>$2,000</b><p>per RL task, at the high end</p>{info_chip("pop-price", "What RL tasks cost")}</article>
-<article class="fact glass-light tilt" data-rise><b>Self-graded</b><p>Vendors test their own data</p>{info_chip("pop-self", "Who checks the data today")}</article>
-<article class="fact glass-light tilt" data-rise><b>Gameable</b><p>High reward can hide a shortcut</p>{info_chip("pop-hack", "Reward hacking")}</article>
-</div></section>
-<section class="scrolly" id="how"><div class="container scrolly-inner">
-<div class="scrolly-copy"><p class="eyebrow">How it works</p><h2 data-split class="h2 is-large">Four steps. <span>A fraction of the compute.</span></h2>
-<ol class="scrolly-steps">{step_list}</ol></div>
-<div class="scrolly-stage-wrap"><div class="scrolly-stage glass-light">{stage}<div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
-<section class="container section split-section"><div class="split-grid">
-<div><p class="eyebrow">The report</p><h2 data-split class="h2">Five numbers <span>to act on.</span></h2>{report}</div>
-<div><p class="eyebrow">Who it's for</p><h2 data-split class="h2">Both sides <span>of the deal.</span></h2>{audience}</div>
-</div></section>
-<section class="container section board-section" id="sample"><div class="section-heading"><div><p class="eyebrow">Sample report</p><h2 data-split>See a <span>real report.</span></h2></div>
-<p data-rise>Demo data: six fictional environments, tiny models. Select a row.</p></div>
-{scoreboard(ranked, base)}
-<div class="board-legend"><span><i class="k-gain"></i>Better on new questions</span><span><i class="k-loss"></i>Worse</span><span><i class="k-risk"></i>Flagged</span><span><i class="k-base"></i>Free comparison set</span></div>
-<a class="section-link" href="appraisals/index.html">Open the full sample report ↗</a></section>
-<section class="container section neutral"><div class="section-heading"><div><p class="eyebrow">Why independent</p><h2 data-split>Neutral <span>by design.</span></h2></div>
-<p data-rise>Tasks stay sealed. Only numbers come out. We never sell data ourselves.</p></div>
-<div class="flow" aria-label="Vendor tasks go into the sealed sandbox; only results reach the buyer">
-<div class="flow-node"><b>Vendor</b><small>uploads tasks</small></div>
-<div class="flow-pipe"><i>task</i><i>task</i><i>task</i></div>
-<div class="flow-node vault-node"><span class="orbit"></span><span class="orbit is-outer"></span><b>Sealed sandbox</b><small>Touchstone</small></div>
-<div class="flow-pipe is-out"><i>+3.6</i><i>0%</i><i>$771</i></div>
-<div class="flow-node"><b>Buyer</b><small>sees numbers only</small></div></div>
-<div class="cmp" data-rise><div class="cmp-row cmp-head"><span></span><span>Measures training value</span><span>Neutral</span><span>Before you buy</span></div>{compare_rows}</div></section>
-<section class="container section research"><div class="section-heading"><div><p class="eyebrow">The science</p><h2 data-split>Small runs <span>predict big ones.</span></h2></div></div>
-<div class="research-grid">{research}</div></section>
-<section class="container section status" id="status"><div class="section-heading"><div><p class="eyebrow">Where we are</p><h2 data-split>Early, <span>and moving.</span></h2></div></div>
-<ol class="timeline">{status}</ol></section>
+    statement = ("Touchstone helps AI companies decide which training data and RL environments are worth paying for, "
+                 "before they commit to full-scale training.")
+    content = f"""<header class="t-hero"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container t-hero-inner">
+<div class="t-hero-copy"><p class="t-pill" data-intro><i></i>Pilot appraisals opening</p>
+<h1 data-split>Will this training data make your model <em>better?</em></h1>
+<p class="t-lede" data-intro>Touchstone answers before you pay. We run small, cheap experiments on RL environments and training data, then tell you what they are worth.</p>
+<div class="t-actions" data-intro>{request_action()}<a class="button button-ring" href="#how">See how it works <span class="button-arrow">↓</span></a></div></div>
+<div class="t-console glass" data-intro aria-label="An illustrative appraisal run"><div class="t-console-bar"><span class="lights"><i class="light is-close"></i><i class="light is-min"></i><i class="light is-zoom"></i></span><span>touchstone · appraisal</span><em>illustrative</em></div>
+<div class="t-console-body">{console_runs()}</div></div></div></header>
+<div class="marquee" aria-hidden="true"><div class="marquee-track">{"".join(f"<span>{q}</span><i>✦</i>" for q in ("Does it teach?", "Can it be gamed?", "Is it new?", "Will it scale?", "What is it worth?") * 4)}</div></div>
+<main class="t-main">
+<section class="container t-statement"><p class="t-kicker">What we do</p><p class="t-scrub" data-scrub-text>{statement}</p></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">The problem</p><h2 data-split>Training is expensive. <em>Guessing is worse.</em></h2></div>
+<div class="t-problems">
+<article class="t-card tilt" data-rise><span class="t-icon">$</span><b data-count>$2,000</b><p>Top price of one RL environment task</p>{info_chip("pop-price", "What RL tasks cost")}</article>
+<article class="t-card tilt" data-rise><span class="t-icon">≠</span><b>Rewards mislead</b><p>High reward does not mean the model learned a real skill</p>{info_chip("pop-hack", "Reward hacking")}</article>
+<article class="t-card tilt" data-rise><span class="t-icon">⧗</span><b>Weeks of GPU</b><p>Full training runs are how most teams find out today</p>{info_chip("pop-self", "How teams check today")}</article></div></section>
+<section class="scrolly" id="how"><div class="container scrolly-inner"><div class="scrolly-copy"><p class="t-kicker">How it works</p>
+<h2 data-split class="h2 is-large">Small experiments, <em>before the big spend.</em></h2><ol class="scrolly-steps">{step_list}</ol></div>
+<div class="scrolly-stage-wrap"><div class="scrolly-stage glass-panel">{stage}<div class="stage-progress" aria-hidden="true"><i></i></div></div></div></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">What you get</p><h2 data-split>One report. <em>Five answers.</em></h2></div><div class="bento">{bento_html}</div></section>
+<section class="container t-section"><div class="t-head t-head-split"><div><p class="t-kicker">Compare environments · coming in the MVP</p><h2 data-split>The highest reward <em>isn't the best buy.</em></h2></div>
+<p data-rise>Switch the ranking and watch the order change. Illustrative numbers.</p></div>{compare}</section>
+<section class="container t-section t-two"><div><p class="t-kicker">Who it's for</p><h2 data-split class="h2">Both sides <em>of the deal.</em></h2>{audience}</div>
+<div><p class="t-kicker">Where we fit</p><h2 data-split class="h2">Independent, <em>and cheap to run.</em></h2>
+<div class="quad" data-rise><span class="q-axis q-x">Measures training value →</span><span class="q-axis q-y">Independent →</span>{quad}</div><p class="q-hint">Hover a name for detail</p></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">The science</p><h2 data-split>Small runs <em>predict big ones.</em></h2></div><div class="t-research">
+<a class="t-card tilt research" href="https://proceedings.mlr.press/v235/xia24c.html" target="_blank" rel="noopener" data-rise><b>5%</b><p>of well-chosen data can beat training on all of it</p><small>Xia et al. · LESS · ICML 2024 ↗</small></a>
+<a class="t-card tilt research" href="https://proceedings.mlr.press/v267/magnusson25a.html" target="_blank" rel="noopener" data-rise><b>Small → large</b><p>Small experiments predict which data wins at scale</p><small>Magnusson et al. · DataDecide · ICML 2025 ↗</small></a></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">Pricing</p><h2 data-split>Pay per appraisal, <em>or subscribe.</em></h2></div><div class="t-plans">
+<article class="t-plan tilt" data-rise><p class="t-kicker">Per appraisal</p><h3>Check one environment</h3><p>Before you buy or train on it.</p><ul class="ticks"><li>Sealed test</li><li>Full report</li><li>Fair-value estimate</li></ul>{request_action("Request an appraisal")}</article>
+<article class="t-plan tilt is-featured" data-rise><p class="t-kicker">Subscription</p><h3>Every environment, always</h3><p>For teams training continuously.</p><ul class="ticks"><li>Side-by-side comparison</li><li>Re-tests as environments change</li><li>Vendor ratings over time</li></ul>{request_action("Talk to us")}</article></div></section>
+<section class="container t-section"><div class="t-head"><p class="t-kicker">Roadmap</p><h2 data-split>Where we are, <em>where we're going.</em></h2></div><ol class="roadmap" data-rise>{roadmap}</ol></section>
 <section class="cta-band" id="request"><canvas class="shader" data-shader aria-hidden="true"></canvas><div class="container cta-inner"><div>
-<p class="eyebrow">Pilot appraisals</p><h2 data-split>Appraise it <span>before you buy it.</span></h2>{request_note}</div>
-<div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="methodology/index.html">Read the method <span class="button-arrow">↗</span></a></div></div></section>
-</main>{peeks}{fact_pops}<div class="notice-stack" aria-live="polite">{notice_html}</div>"""
-    return app_shell(content, "Touchstone", "Touchstone tests RL environments and post-training datasets on small models, so AI teams know what training data is worth before they buy it.", "", "home")
+<p class="t-kicker">Pilot appraisals</p><h2 data-split>Know before <em>you train.</em></h2>{request_note}</div>
+<div class="cta-actions">{request_action() if REQUEST_FORM_URL else ""}<a class="button button-ring" href="appraisals/index.html">See a sample report <span class="button-arrow">↗</span></a></div></div></section>
+</main>{"".join([
+        pop_window("pop-price", "What RL tasks cost", [("", '<div class="pop-copy"><p>Single RL environment tasks typically sell for <strong>$200 to $2,000</strong>, sometimes $20k. Exclusive deals cost 4 to 5 times more.</p></div><p class="fine-print">Price summary citing Epoch AI</p>')]),
+        pop_window("pop-hack", "Why rewards mislead", [("", '<div class="pop-copy"><p>Weak graders, leaked answers and tasks passed without being solved are the most reported failure. A model can score high and learn nothing it can use elsewhere.</p></div>')]),
+        pop_window("pop-self", "How teams check today", [("", '<div class="pop-copy"><p>Buyers test a small sample, trust results the vendor ran on its own setup, or run full-size training and find out weeks later.</p></div>')]),
+    ])}"""
+    return app_shell(content, "Touchstone", "Touchstone runs small, cheap experiments so AI companies know which training data and RL environments are worth paying for.", "", "home", "is-home")
 
 
 def process_cards(variant: str = "journey") -> str:

@@ -132,7 +132,7 @@ function RunChart() {
         <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Training reward climbs from ${reward[0].toFixed(0)}% to ${reward[end].toFixed(0)}% while accuracy on new problems falls from ${accuracy[0].toFixed(1)}% to ${accuracy[end].toFixed(1)}%`}>
           {[0, 25, 50, 75, 100].map(g => (<g key={g}><line className="grid-line" x1={L} x2={W - 8} y1={y(g)} y2={y(g)} /><text className="axis-text" x={L - 8} y={y(g) + 4} textAnchor="end">{g}</text></g>))}
           <text className="axis-text" x={L} y={H - 6}>step 0</text><text className="axis-text" x={W - 8} y={H - 6} textAnchor="end">1,000</text>
-          <defs><linearGradient id="fill-r" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#9aa6b8" /><stop offset="1" stopColor="#9aa6b8" stopOpacity="0" /></linearGradient></defs>
+          <defs><linearGradient id="fill-r" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#b9bfc8" /><stop offset="1" stopColor="#b9bfc8" stopOpacity="0" /></linearGradient></defs>
           <motion.path d={area(reward)} fill="url(#fill-r)" initial={{ opacity: 0 }} animate={{ opacity: done ? .18 : 0 }} transition={{ duration: .8 }} />
           <motion.path d={path(reward)} className="curve" stroke="var(--reward)" {...draw} />
           <motion.path d={path(accuracy)} className="curve" stroke="var(--transfer)" {...draw} />
@@ -219,10 +219,10 @@ function PriceArt() {
   )
 }
 const STEPS: [string, string, string, () => React.ReactElement][] = [
-  ['Seal.', 'The vendor uploads to a sealed sandbox. You see results, never their tasks.', 'rose', SealArt],
-  ['Train small.', 'Open models train on it at four sizes with one fixed recipe.', 'sky2', TrainArt],
-  ['Measure.', 'We test on private problems and try to fool the grader.', 'mint', MeasureArt],
-  ['Price.', 'You get a grade, a forecast at your size and a fair price per task.', 'sun', PriceArt],
+  ['Seal.', 'The vendor uploads to a sealed sandbox. You see results, never their tasks.', 'silver', SealArt],
+  ['Train small.', 'Open models train on it at four sizes with one fixed recipe.', 'gold', TrainArt],
+  ['Measure.', 'We test on private problems and try to fool the grader.', 'bronze', MeasureArt],
+  ['Price.', 'You get a grade, a forecast at your size and a fair price per task.', 'champagne', PriceArt],
 ]
 
 /* ---------- Ranking: benchmark-style bars, the order flips when you rank by what matters ---------- */
@@ -249,7 +249,7 @@ function Compare() {
         {rows.map((r, i) => (
           <motion.div layout key={r.name} className="cmp-row" transition={{ type: 'spring', stiffness: 260, damping: 28 }}>
             <span className="name">{r.name}</span>
-            <div className="cmp-bar"><motion.i initial={reduced ? false : { width: 0 }} animate={{ width: `${(r[k] / max) * 100}%`, background: i === 0 ? meta[4] : '#c9d1dd' }} transition={{ duration: .8, ease }} /></div>
+            <div className="cmp-bar"><motion.i initial={reduced ? false : { width: 0 }} animate={{ width: `${(r[k] / max) * 100}%`, background: i === 0 ? meta[4] : '#3a414b' }} transition={{ duration: .8, ease }} /></div>
             <span className="num">{meta[3](r[k])}</span>
           </motion.div>
         ))}

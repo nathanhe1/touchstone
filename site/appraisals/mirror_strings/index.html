@@ -843,7 +843,91 @@ body{font-optical-sizing:auto;letter-spacing:-.008em}
 @media(max-width:680px){.board-head,.board-row{grid-template-columns:minmax(150px,1.2fr) minmax(170px,1.5fr) minmax(90px,.8fr) 26px}.board-head>span:nth-child(4),.board-row>.board-cell:nth-of-type(4){display:none}.evidence-grid,.slope-panel,.ladder-panel{grid-template-columns:1fr}}
 @media(max-width:680px){.nav-search span{display:none}.nav-search{padding:0 8px}.board-head{display:none}.board-row{grid-template-columns:minmax(0,1fr) 22px;gap:9px 12px;padding:14px 4px}.board-name{grid-column:1/-1;font-size:19px}.board-row>.board-cell{grid-column:1}.board-row>.board-cell:nth-of-type(3):before{content:"Shortcut reward";grid-column:1/-1;color:var(--muted);font-size:10px}.board-row>.board-cell:nth-of-type(2):before{content:"Change on new questions";grid-column:1/-1;color:var(--muted);font-size:10px}.board-cell{row-gap:4px}.board-open{grid-column:2;grid-row:1}.pop-window,.pop-window.is-wide{top:auto!important;right:8px;bottom:8px;left:8px!important;width:auto;max-height:84vh;border-radius:24px 24px 10px 10px;transform-origin:50% 100%}.pop-window.is-opening{animation:sheet-open .5s var(--out) both}.pop-window.is-closing{animation:sheet-close .25s ease-in both}.pop-stats{grid-template-columns:1fr 1fr 1fr;gap:6px}.pop-stat b{font-size:20px}.probe-row{grid-template-columns:minmax(0,1fr) 60px 34px;gap:8px}.probe-row em{display:none}.notice-stack{right:12px;bottom:12px;left:12px;width:auto}.result-viz{flex-wrap:wrap}.slope-head,.slope-body{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:6px}.slope li{font-size:10px}.slope li b{display:none}.detail-ledger p{padding-right:26px}}
 @media(prefers-reduced-motion:reduce){body,main,.board-row,.pop-window,.pop-panel,.notice,.notice-icon,.pop-grade,.pop-stat,.palette-item a,.process-journey:before,.info-chip:before{animation:none!important}.board-row{opacity:1;transform:none}.notice-timer{animation-duration:8s!important}.button{translate:none}}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--paper:#111d25;--surface:#192832;--ink:#f3f5ef;--muted:#a3b3b9;--line:#30434d;--navy:#0a1a22;--navy-2:#193b49;--mint:#a9eec1;--lime:#dbf686;--blue:#91adff;--blue-soft:#27354d;--good:#83d8a1;--good-soft:#20392b;--warn:#f0c16d;--warn-soft:#3d311c;--bad:#f08d82;--bad-soft:#422724;--base:#a4b2b5;--base-soft:#29363c;--paper:#151617;--surface:#202122;--ink:#f4f3ef;--muted:#a9aaab;--line:#3a3b3b;--navy:#101112;--navy-2:#242526;--mint:#d7c49b;--lime:#d8bd7c;--blue:#d2b16d;--blue-soft:#332d20;--good:#9ab7a2;--good-soft:#26352b;--warn:#d0b576;--warn-soft:#393222;--bad:#d99a91;--bad-soft:#382725;--base:#b0b1b1;--base-soft:#303132;color-scheme:dark;--paper:#151616;--surface:#202222;--ink:#f4f1e9;--muted:#b4b1a8;--line:#414242;--navy:#101111;--navy-2:#292c2d;--mint:#bfc2c2;--lime:#d8bd7c;--blue:#dfc27e;--blue-soft:#343027;--gain:#b88a2c;--loss:#5a92d6;--risk:#d9825f}}
+
+:root{--paper:#f3f3ef;--surface:#fbfbf8;--ink:#141618;--muted:#5f6367;--line:#d8d9d3;--blue:#86621b;--blue-soft:#ece5d3;--lime:#d6b25c;--band:#141618;--band-ink:#ecebe6;--band-muted:#a7a9a6}
+:root[data-theme=dark]{--paper:#0f1113;--surface:#17191c;--ink:#ecebe6;--muted:#9b9fa3;--line:#2b2e32;--blue:#d6b25c;--blue-soft:#25211a;--lime:#d6b25c;--band:#191b1e;--band-ink:#ecebe6;--band-muted:#a7a9a6}
+.reveal{opacity:1!important;transform:none!important}
+.eyebrow:before,.hero:after{display:none}
+.hero h1,.page-title,.section-heading h2,.cta-band h2{font-family:var(--sans);font-style:normal;font-weight:680;font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.022em;line-height:1;text-wrap:balance}
+.section{padding-top:72px;padding-bottom:72px}.problem{padding-bottom:24px}
+.hero h1>span:not(.kinetic-word),.page-title>span:not(.kinetic-word),.section-heading h2>span:not(.kinetic-word),.cta-band h2>span{font-style:normal}
+.hero h1{max-width:620px;font-size:clamp(46px,5.4vw,78px);color:#f4f3ef}
+.hero h1>span:not(.kinetic-word){display:block;color:var(--lime)}
+.page-title{font-size:clamp(44px,5.6vw,76px)}
+.section-heading h2{font-size:clamp(34px,4.2vw,58px)}
+.section-heading h2>span:not(.kinetic-word),.page-title>span:not(.kinetic-word){color:var(--blue)}
+.hero{background:var(--band)}
+.hero-inner{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;min-height:0;padding-top:84px;padding-bottom:88px}
+.hero-lede{max-width:540px;color:#c9c8c2}
+.hero-meta{display:block;margin-top:22px;color:var(--band-muted);font:500 10px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cert{display:grid;gap:14px;padding:22px 24px 20px;border:1px solid #ffffff2b;background:#1f2225;color:var(--band-ink);box-shadow:0 30px 70px #0007}
+.cert-head{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--band-muted);font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.cert-stamp{padding:3px 7px;border:1px solid var(--lime);color:var(--lime)}
+.cert-title{display:grid;grid-template-columns:54px minmax(0,1fr);align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid #ffffff24}
+.cert-grade{display:grid;width:54px;height:54px;place-items:center;border:1px solid var(--lime);color:var(--lime);font:italic 400 36px/1 var(--display)}
+.cert-title strong{display:block;font:650 21px/1.15 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.cert-title small{display:block;margin-top:4px;color:var(--band-muted);font:500 9.5px var(--mono);letter-spacing:.06em}
+.cert-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:6px 16px;padding:10px 0;border-bottom:1px solid #ffffff14}
+.cert-row>span:first-child{font:500 13.5px var(--sans)}
+.cert-row b{font:600 13px var(--mono);font-variant-numeric:tabular-nums}
+.cert-viz{grid-column:1/-1;color:var(--band-muted);font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cert .dbar:before{background:#ecebe680}.cert .meter{background:#ffffff26}.cert .meter i{background:#ecebe6}.cert .meter.is-risk i{background:var(--risk)}
+.cert-foot{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cert-foot small{display:block;color:var(--band-muted);font:500 9px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cert-foot b{display:block;margin-top:4px;font:700 26px/1 var(--sans);font-variation-settings:"wdth" 88;letter-spacing:-.03em}
+.cert-foot em{color:var(--band-muted);font:500 11px var(--mono);font-style:normal;letter-spacing:0}
+.cert-link{justify-self:start;color:var(--lime);font:600 10px var(--mono);letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+.cert-link:hover{text-decoration:underline;text-underline-offset:4px}
+.fact-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.fact-row article{display:grid;align-content:start;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
+.fact-row b{font:680 clamp(30px,3.2vw,44px)/1 var(--sans);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.02em}
+.fact-row p{margin:0;font:400 16px/1.5 var(--text)}
+.fact-row small,.research-card small{color:var(--muted);font:500 9.5px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:0;padding:0;list-style:none}
+.steps li{display:grid;align-content:start;gap:8px;padding-top:14px;border-top:1px solid var(--ink)}
+.steps i{color:var(--blue);font:600 10px var(--mono);font-style:normal;letter-spacing:.1em}
+.steps i:before{content:"Step "}
+.steps h3{margin:0;font:650 21px/1.15 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.steps p{margin:0;color:color-mix(in srgb,var(--ink),var(--muted) 45%);font:400 15px/1.5 var(--text)}
+.measures{margin-top:56px}
+.measures dl{margin:14px 0 0;border-top:2px solid var(--ink)}
+.measures dl>div{display:grid;grid-template-columns:minmax(160px,.35fr) minmax(0,1fr);gap:24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.measures dt{font:650 18px/1.3 var(--sans);font-variation-settings:"wdth" 90}
+.measures dd{margin:0;font:400 17px/1.5 var(--text)}
+.audience{padding-top:0}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.audience-grid article{padding:28px;border:1px solid var(--line);background:var(--surface)}
+.audience-grid h3{margin:0 0 16px;font:680 30px/1.05 var(--sans);font-variation-settings:"opsz" 96,"wdth" 90;letter-spacing:-.018em}
+.audience-grid ul{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.audience-grid li{position:relative;padding-left:20px;font:400 16px/1.45 var(--text)}
+.audience-grid li:before{position:absolute;top:.62em;left:0;width:8px;height:8px;background:var(--lime);content:""}
+.compare{border-radius:0}
+.compare table{font-size:13px}
+.compare th[scope=row]{font:600 13px var(--sans);text-transform:none;letter-spacing:0;color:var(--ink);background:transparent;white-space:normal}
+.compare tr.is-us th,.compare tr.is-us td{background:var(--blue-soft);font-weight:700}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.research-card{display:grid;gap:14px;padding:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;transition:border-color .15s}
+.research-card:hover{border-color:var(--ink)}
+.research-card p{margin:0;font:400 22px/1.35 var(--text)}
+.status-list{margin:0;padding:0;border-top:2px solid var(--ink);list-style:none}
+.status-list li{display:grid;grid-template-columns:minmax(160px,.35fr) minmax(0,1fr);gap:24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.status-list b{font:650 18px var(--sans);font-variation-settings:"wdth" 90}
+.status-list p{margin:0;font:400 17px/1.5 var(--text)}
+.cta-band{margin-top:40px;padding:80px 0;background:var(--band);color:var(--band-ink)}
+.cta-inner{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:end;gap:40px}
+.cta-band .eyebrow{color:var(--band-muted)}
+.cta-band h2{margin:0;font-size:clamp(36px,4.4vw,60px);color:#f4f3ef}
+.cta-band h2>span{color:var(--lime)}
+.process-card,.process-card:nth-child(even),.process-card:hover,.process-card:nth-child(even):hover{transform:none}
+.process-mark,.process-card:nth-child(n) .process-mark{animation:none!important;transform:none!important;font-size:26px!important}
+.process-journey:before{display:none}
+.process-card h3{font:650 22px/1.1 var(--sans);font-variation-settings:"wdth" 90;letter-spacing:-.02em}
+.cta-band p:not(.eyebrow){max-width:560px;margin:18px 0 0;color:#c9c8c2;font:400 18px/1.5 var(--text)}
+.cta-band .cta-note{color:var(--lime);font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cta-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+main+.footer,.cta-band+.footer{margin-top:0}
+@media(max-width:680px){.hero-inner{grid-template-columns:1fr;gap:36px;padding-top:52px;padding-bottom:56px}.fact-row,.steps,.audience-grid,.research-grid,.cta-inner{grid-template-columns:1fr}.measures dl>div,.status-list li{grid-template-columns:1fr;gap:4px}.cta-actions{justify-content:flex-start}.cert{padding:18px}.research-card p{font-size:19px}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--paper:#111d25;--surface:#192832;--ink:#f3f5ef;--muted:#a3b3b9;--line:#30434d;--navy:#0a1a22;--navy-2:#193b49;--mint:#a9eec1;--lime:#dbf686;--blue:#91adff;--blue-soft:#27354d;--good:#83d8a1;--good-soft:#20392b;--warn:#f0c16d;--warn-soft:#3d311c;--bad:#f08d82;--bad-soft:#422724;--base:#a4b2b5;--base-soft:#29363c;--paper:#151617;--surface:#202122;--ink:#f4f3ef;--muted:#a9aaab;--line:#3a3b3b;--navy:#101112;--navy-2:#242526;--mint:#d7c49b;--lime:#d8bd7c;--blue:#d2b16d;--blue-soft:#332d20;--good:#9ab7a2;--good-soft:#26352b;--warn:#d0b576;--warn-soft:#393222;--bad:#d99a91;--bad-soft:#382725;--base:#b0b1b1;--base-soft:#303132;color-scheme:dark;--paper:#151616;--surface:#202222;--ink:#f4f1e9;--muted:#b4b1a8;--line:#414242;--navy:#101111;--navy-2:#292c2d;--mint:#bfc2c2;--lime:#d8bd7c;--blue:#dfc27e;--blue-soft:#343027;--gain:#b88a2c;--loss:#5a92d6;--risk:#d9825f;--paper:#0f1113;--surface:#17191c;--ink:#ecebe6;--muted:#9b9fa3;--line:#2b2e32;--blue:#d6b25c;--blue-soft:#25211a;--lime:#d6b25c;--band:#191b1e;--band-ink:#ecebe6;--band-muted:#a7a9a6}}
 
 .site-nav{top:env(safe-area-inset-top,0px)}
 body{font-variant-emoji:text}
@@ -875,13 +959,13 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 <path d="m24 8 3 10-4 5 5 3-3 9" fill="none" stroke="#d4aa57" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
 <path d="m10 28 8-5 8 3" fill="none" stroke="#d7d9d9" stroke-linecap="round" stroke-width="1"/>
 </svg><span>touchstone</span></a>
-<div class="nav-links"><a class="" href="../../index.html">Home</a><a class="active" href="../../appraisals/index.html">Appraisals</a><a class="" href="../../forecast/index.html">Forecast</a><a class="" href="../../methodology/index.html">Methodology</a></div><div class="nav-actions"><button class="nav-search" type="button" data-palette-open aria-label="Search pages and appraisals"><svg class="icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg><span>Search</span><kbd>⌘K</kbd></button>
+<div class="nav-links"><a class="" href="../../methodology/index.html">How it works</a><a class="active" href="../../appraisals/index.html">Sample report</a><a class="" href="../../forecast/index.html">Forecast check</a></div><div class="nav-actions"><button class="nav-search" type="button" data-palette-open aria-label="Search pages and appraisals"><svg class="icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg><span>Search</span><kbd>⌘K</kbd></button>
 <button class="nav-action" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Toggle theme"><svg class="icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
 <button class="nav-action nav-print" type="button" data-print aria-label="Print or save this page" title="Print"><svg class="icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2"/><path d="M7 14h10v6H7z"/></svg></button>
-<a class="nav-cta" href="../../appraisals/index.html">Explore results <span aria-hidden="true">↗︎</span></a>
+<a class="nav-cta" href="../../index.html#request">Request an appraisal</a>
 <button class="nav-action menu-toggle" type="button" data-menu aria-label="Open navigation" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
 <span class="scroll-progress" aria-hidden="true"></span></nav>
-<main class="container"><header class="page-head"><p class="eyebrow"><a href="../index.html">← All appraisals</a> · Sealed certificate</p>
+<main class="container"><header class="page-head"><p class="eyebrow"><a href="../index.html">← Sample report</a> · Sample certificate · demo data</p>
 <section class="detail-hero"><p class="eyebrow">Touchstone appraisal · Run 2026-10-27</p>
 <h1>Mirror String Ops</h1><div class="detail-meta"><span class="detail-grade" aria-label="Grade D">D</span><span>Forecast at XL: <b>−18.4 pts</b></span><span>·</span><span>5,000 tasks · 4,754 unique</span></div>
 <div class="detail-actions"><a class="button button-lime" href="#evidence">Explore evidence <span class="button-arrow">↓</span></a><button type="button" class="button button-ring" data-print>Print certificate <span class="button-arrow">⎙</span></button>
@@ -917,12 +1001,12 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
 <path d="m24 8 3 10-4 5 5 3-3 9" fill="none" stroke="#d4aa57" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
 <path d="m10 28 8-5 8 3" fill="none" stroke="#d7d9d9" stroke-linecap="round" stroke-width="1"/>
 </svg><span>touchstone</span></a>
-<span>Generated appraisal · independent by design</span><div class="footer-links"><a href="../../appraisals/index.html">Appraisals</a><a href="../../forecast/index.html">Forecast</a><a href="../../methodology/index.html">Methodology</a></div></footer>
+<span>Independent appraisal for AI training data</span><div class="footer-links"><a href="../../methodology/index.html">How it works</a><a href="../../appraisals/index.html">Sample report</a><a href="../../forecast/index.html">Forecast check</a></div></footer>
 </div></div>
 <dialog class="palette" id="palette" aria-label="Search Touchstone"><label class="palette-input"><span aria-hidden="true">⌕</span>
 <input type="search" placeholder="Jump to a practice set or page…" aria-label="Search pages and appraisals" autocomplete="off"></label>
 <ul class="palette-list" role="list"></ul><div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div></dialog>
-<div class="toast" role="status" aria-live="polite"></div><script>window.TOUCHSTONE_INDEX = [{"group": "Pages", "title": "Home", "meta": "Overview of this run", "href": "index.html", "mark": "⌂"}, {"group": "Pages", "title": "Appraisals", "meta": "6 certificates", "href": "appraisals/index.html", "mark": "≡"}, {"group": "Pages", "title": "Forecast", "meta": "Do small tests predict larger models?", "href": "forecast/index.html", "mark": "↗"}, {"group": "Pages", "title": "Methodology", "meta": "Seal, probe, train, measure, value", "href": "methodology/index.html", "mark": "◆"}, {"group": "Practice sets", "title": "Northwind Arithmetic Pro", "href": "appraisals/northwind_arith/index.html", "mark": "A", "meta": "Grade A · +3.6 pts on new questions"}, {"group": "Practice sets", "title": "HintLeak Tutor Set", "href": "appraisals/hintleak_arith/index.html", "mark": "D", "meta": "Grade D · −6.4 pts on new questions"}, {"group": "Practice sets", "title": "Clone Premium Addition", "href": "appraisals/clone_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Practice sets", "title": "ShapeOnly Numeracy", "href": "appraisals/shapeonly_arith/index.html", "mark": "D", "meta": "Grade D · −3.6 pts on new questions"}, {"group": "Practice sets", "title": "QuickGrade Math Pack", "href": "appraisals/quickgrade_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Practice sets", "title": "Mirror String Ops", "href": "appraisals/mirror_strings/index.html", "mark": "D", "meta": "Grade D · −2.2 pts on new questions"}];</script><script>
+<div class="toast" role="status" aria-live="polite"></div><script>window.TOUCHSTONE_INDEX = [{"group": "Pages", "title": "Home", "meta": "What Touchstone does", "href": "index.html", "mark": "⌂"}, {"group": "Pages", "title": "How it works", "meta": "Seal, train, measure, forecast and price", "href": "methodology/index.html", "mark": "◆"}, {"group": "Pages", "title": "Sample report", "meta": "6 demo certificates", "href": "appraisals/index.html", "mark": "≡"}, {"group": "Pages", "title": "Forecast check", "meta": "Do small runs predict larger models?", "href": "forecast/index.html", "mark": "↗"}, {"group": "Sample environments", "title": "Northwind Arithmetic Pro", "href": "appraisals/northwind_arith/index.html", "mark": "A", "meta": "Grade A · +3.6 pts on new questions"}, {"group": "Sample environments", "title": "HintLeak Tutor Set", "href": "appraisals/hintleak_arith/index.html", "mark": "D", "meta": "Grade D · −6.4 pts on new questions"}, {"group": "Sample environments", "title": "Clone Premium Addition", "href": "appraisals/clone_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Sample environments", "title": "ShapeOnly Numeracy", "href": "appraisals/shapeonly_arith/index.html", "mark": "D", "meta": "Grade D · −3.6 pts on new questions"}, {"group": "Sample environments", "title": "QuickGrade Math Pack", "href": "appraisals/quickgrade_arith/index.html", "mark": "D", "meta": "Grade D · −5.8 pts on new questions"}, {"group": "Sample environments", "title": "Mirror String Ops", "href": "appraisals/mirror_strings/index.html", "mark": "D", "meta": "Grade D · −2.2 pts on new questions"}];</script><script>
 (() => {
   const root = document.documentElement;
   const toast = document.querySelector('.toast');
@@ -1034,69 +1118,6 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
     });
     point.addEventListener('focusout', () => tooltip?.classList.remove('visible'));
   });
-  const kinetic = document.querySelectorAll(
-    'h1,h2,h3,.hero-lede,.page-intro,.window-body p,.chart-copy>p:not(.eyebrow):not(.fine-print),.feature-main>p,' +
-    '.feature-note p,.feature-note small,.feature-estimate p,.feature-estimate>small,' +
-    '.result-card p,.process-card p,.why-buy p,.plain-brief-copy>p,.plain-step p,' +
-    '.verdict,.scale-caveat,.chart-note-rail small,.ledger-intro p'
-  );
-  kinetic.forEach(element => {
-    const label = element.textContent.trim();
-    if (label) element.setAttribute('aria-label', label);
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
-    while (walker.nextNode()) {
-      if (walker.currentNode.textContent.trim() && !walker.currentNode.parentElement.closest('a,button')) textNodes.push(walker.currentNode);
-    }
-    let index = 0;
-    textNodes.forEach(node => {
-      const fragment = document.createDocumentFragment();
-      const pieces = node.textContent.split(/(\s+)/);
-      pieces.forEach(piece => {
-        if (!piece) return;
-        if (/^\s+$/.test(piece)) fragment.append(document.createTextNode(piece));
-        else {
-          const span = document.createElement('span');
-          span.className = 'kinetic-word';
-          span.setAttribute('aria-hidden', 'true');
-          span.style.setProperty('--word-index', String(index++));
-          span.textContent = piece;
-          fragment.append(span);
-        }
-      });
-      node.replaceWith(fragment);
-    });
-  });
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reducedMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.querySelectorAll('.ledger-stat,.quick-card,.feature-card,.result-card,.process-card,.window').forEach(card => {
-      card.addEventListener('pointermove', event => {
-        if (card.classList.contains('is-dragging')) return;
-        const bounds = card.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width;
-        const y = (event.clientY - bounds.top) / bounds.height;
-        card.style.setProperty('--tilt-x', `${(0.5 - y) * 4}deg`);
-        card.style.setProperty('--tilt-y', `${(x - 0.5) * 5}deg`);
-        card.style.setProperty('--shine-x', `${x * 100}%`);
-        card.style.setProperty('--shine-y', `${y * 100}%`);
-        card.classList.add('is-tilting');
-      });
-      card.addEventListener('pointerleave', () => card.classList.remove('is-tilting'));
-    });
-  }
-  if ('IntersectionObserver' in window && !reducedMotion) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-    }), {threshold: .1});
-    document.querySelectorAll('.reveal').forEach(item => observer.observe(item));
-    const textObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('text-entered'); textObserver.unobserve(entry.target); }
-    }), {threshold: .15});
-    kinetic.forEach(item => textObserver.observe(item));
-  } else {
-    document.querySelectorAll('.reveal').forEach(item => item.classList.add('visible'));
-    kinetic.forEach(item => item.classList.add('text-entered'));
-  }
 })();
 
 (() => {
@@ -1191,32 +1212,6 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
   });
   addEventListener('scroll', hideTip, {passive: true});
 
-  document.addEventListener('pointerdown', event => {
-    const host = event.target.closest('.button,.pop-tab,.filter,.nav-search');
-    if (!host || reduced) return;
-    const bounds = host.getBoundingClientRect();
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    ripple.style.cssText = `left:${event.clientX - bounds.left}px;top:${event.clientY - bounds.top}px;--size:${Math.max(bounds.width, bounds.height) * 2.2}px`;
-    host.append(ripple);
-    ripple.addEventListener('animationend', () => ripple.remove());
-  });
-  if (finePointer && !reduced) {
-    document.querySelectorAll('.button-lime,.button-ink,.nav-cta').forEach(button => {
-      button.addEventListener('pointermove', event => {
-        const bounds = button.getBoundingClientRect();
-        button.style.setProperty('--mx', `${(event.clientX - bounds.left - bounds.width / 2) * .16}px`);
-        button.style.setProperty('--my', `${(event.clientY - bounds.top - bounds.height / 2) * .28}px`);
-      });
-      button.addEventListener('pointerleave', () => { button.style.removeProperty('--mx'); button.style.removeProperty('--my'); });
-    });
-    const hero = document.querySelector('.hero');
-    hero?.addEventListener('pointermove', event => {
-      const bounds = hero.getBoundingClientRect();
-      hero.style.setProperty('--spot-x', `${(event.clientX - bounds.left) / pageScale(hero)}px`);
-      hero.style.setProperty('--spot-y', `${(event.clientY - bounds.top) / pageScale(hero)}px`);
-    });
-  }
 
   const progress = document.querySelector('.scroll-progress');
   let progressQueued = false;
@@ -1601,20 +1596,6 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
     addEventListener('resize', placeInk);
   }
 
-  // Run notices: slide in one after another, leave when their timer runs out.
-  const dismiss = notice => {
-    if (notice.classList.contains('is-leaving')) return;
-    if (reduced) return notice.remove();
-    notice.classList.add('is-leaving');
-    notice.addEventListener('animationend', event => { if (event.target === notice) notice.remove(); });
-  };
-  document.querySelectorAll('[data-notice]').forEach((notice, index) => {
-    notice.querySelector('.notice-close').addEventListener('click', () => dismiss(notice));
-    notice.querySelector('.notice-timer').addEventListener('animationend', () => dismiss(notice));
-    notice.querySelector('.notice-open')?.addEventListener('click', () => dismiss(notice));
-    setTimeout(() => { notice.hidden = false; }, 1600 + index * 1700);
-  });
-
   // Command palette: ⌘K, Ctrl+K or / from anywhere.
   const palette = document.querySelector('#palette');
   const input = palette?.querySelector('input');
@@ -1688,18 +1669,5 @@ html.is-scaled .scale-page{width:var(--design-width);transform:scale(var(--page-
     }
   });
 
-  // Fade out before following a link to another page.
-  if (!reduced) {
-    document.addEventListener('click', event => {
-      const link = event.target.closest('a[href]');
-      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target) return;
-      const url = new URL(link.href, location.href);
-      if (url.origin !== location.origin || url.pathname === location.pathname) return;
-      event.preventDefault();
-      document.body.classList.add('is-leaving');
-      setTimeout(() => { location.href = url.href; }, 170);
-    });
-    addEventListener('pageshow', () => document.body.classList.remove('is-leaving'));
-  }
 })();
 </script></body></html>

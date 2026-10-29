@@ -1,8 +1,8 @@
 import { motion } from 'motion/react'
-import { Close, reduced, PageHead } from '../ui'
+import { Close, reduced } from '../ui'
 import { Evidence, Section } from './Sections'
 
-const ease = [.22, 1, .36, 1] as const
+const ease = [.16, 1, .3, 1] as const
 
 export const SOURCES: [string, string][] = [
   ['Xia et al., LESS: selecting influential data (ICML 2024)', 'https://proceedings.mlr.press/v235/xia24c.html'],
@@ -34,12 +34,12 @@ export default function Research() {
   ]
   return (
     <>
-      <PageHead>
+      <header className="page-head wrap">
         <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Built on <span className="transfer">the research.</span></motion.h1>
         <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .1, ease }}>
           Data value varies enormously, and small training runs can predict which data wins at scale. Touchstone turns that research into a product for RL environments.
         </motion.p>
-      </PageHead>
+      </header>
 
       <Section title="What the research shows." flush><Evidence /></Section>
 

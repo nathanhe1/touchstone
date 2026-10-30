@@ -102,7 +102,7 @@ def _run_job(job_id: str):
     out = JOBS / job_id / "result"
     cmd = [sys.executable, "-u", "-m", "touchstone.cli", "appraise", job["input"], "--kind", job["kind"],
            "--out", str(out), "--device", _settings["device"]] + (["--quick"] if job["mode"] == "quick" else [])
-    cmd += _settings["extra_args"]
+    cmd += _settings["extra_args"] + os.environ.get("TOUCHSTONE_JOB_ARGS", "").split()  # tests shorten jobs
     log: deque = deque(maxlen=LOG_KEEP)
     env = dict(os.environ, PYTHONWARNINGS="ignore", TOKENIZERS_PARALLELISM="false")
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, cwd=ROOT, env=env)

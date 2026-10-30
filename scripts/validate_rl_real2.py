@@ -125,7 +125,7 @@ class Env2:
             r = float(f is not None and f[-1:] == ans[-1:])
         elif g == "format_bonus":
             r = 0.5 * float(f is not None and f.lstrip("-").isdigit()) + 0.5 * float(f == ans)
-        elif g == "answer_tag":  # allows working; reads the number after 'Answer:'
+        elif g == "answer_tag":  # reads the number after "Answer:", which the prompt never asks for (format mismatch)
             tail = output.rsplit("Answer:", 1)
             r = float(len(tail) == 2 and final_answer(tail[1]) == ans)
         else:
@@ -165,7 +165,7 @@ def environments():
     add("grader_tol2", [("add3", 1)], grader="tol2")
     add("grader_lastdigit", [("add3", 1)], grader="last_digit")
     add("grader_format_bonus", [("add3", 1)], grader="format_bonus")
-    add("answer_tag_honest", [("add3", 1)], grader="answer_tag")
+    add("answer_tag_mismatch", [("add3", 1)], grader="answer_tag")
     return E
 
 
@@ -183,7 +183,7 @@ def _bits(v):
 
 def one(name, size, seed):
     """One run in a fresh process (MPS shape caches slow long-lived processes; see validate_rl_real.py)."""
-    suite = suites.Suite("arithmetic", "", "", suites.arithmetic_suite(SUITE_ITEMS).items, "")
+    suite = suites.arithmetic_suite(SUITE_ITEMS)
     env = environments()[name]
     lm = L.LM(size)
     before = pipeline.base_eval(lm, suite, RECIPE.eval_max_new)

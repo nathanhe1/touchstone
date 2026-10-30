@@ -124,6 +124,22 @@ What this says, honestly:
 - **A 10x smaller learning rate for the proxy helps**, as Wang et al. (ICLR 2026) found for pretraining proxies: Spearman 0.43 → 0.89 on the 8 datasets measured both ways, 0.58 → 0.68 on all 13 against the quick recipe. Adopting it changes the measured gains (they shrink), so the quick-mode grade thresholds would need re-checking. It is the first change to make next, not yet the default.
 - Small-to-large on RL (tiny GPTs, above) favors the smooth score. On datasets with real models the two signals are close. Both are reported.
 
+### Round 3 pre-registration (written and committed before any round-3 forecast run)
+
+Round 2 was noise-limited: two seeds of the 135M proxy agreed on only 0.87 of pairwise decisions, and the target was one seed on 150 items. Round 3 cuts the noise and fixes the scoring rules in advance.
+
+**Sweep.** `scripts/validate_rl_real2.py`: 26 new arithmetic-domain environments (difficulty, related and unrelated skills, off-topic share, reward noise, pool size, leaky prompts, lax graders, a prompt/grader format mismatch). GRPO with the quick recipe at 135M (proxy) and 360M (target), **3 seeds at each size**, scored on a **600-item** held-out arithmetic suite with per-item results stored. The proxy is also evaluated at steps 10 and 20.
+
+**Split.** Fixed before any run by a seeded shuffle (`split()` in the script, seed 20261030): 13 development environments (`add3ops_honest, add_sub_mix, grader_lastdigit, leak100, mix_honest, mul_honest, noise10, noise20, offtopic75, pool10, pool100, spaced_honest, sub_honest`) and 13 held-out environments (`add4_honest, answer_tag_mismatch, carry_honest, grader_format_bonus, grader_number, grader_tol2, leak30, nocarry_honest, noise45, offtopic25, offtopic50, strings_only, word_honest`). The 12 round-2 environments count as development data too. Any choice of forecasting signal (accuracy, smooth score, checkpoint averaging, combinations) is made on development environments only; the held-out numbers are reported for that choice, with every other candidate shown next to it.
+
+**Primary metrics** (unchanged): Spearman and pairwise decision accuracy between the proxy signal (mean over proxy seeds) and the target's accuracy gain (mean over target seeds), over **all pairs** of held-out environments.
+
+**Resolvable-pairs decision accuracy** (secondary, always reported next to all-pairs). A pair (i, j) is resolvable when the target gap exceeds two standard errors of that gap: |T_i - T_j| > 2 SE_ij, with SE_ij^2 = Var_boot + s_i^2/n_i + s_j^2/n_j. T is the target accuracy gain averaged over seeds; Var_boot is the variance of the gap over 1,000 bootstrap resamples of suite items (seed-averaged per-item correctness, paired, item indices shared by both environments, bootstrap seed 0); s_k^2 is the sample variance of environment k's per-seed target gains and n_k its number of target seeds. Decision accuracy is then computed over resolvable pairs only, and the number of resolvable pairs is reported. Pairs the target itself cannot order are not counted as forecast errors or successes.
+
+**Noise ceiling** (reported, not a target): decision accuracy of one target seed against the mean of the other target seeds, all pairs.
+
+The same definitions apply to any round-3 dataset sweep, whose split will be committed before it runs.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

@@ -24,7 +24,10 @@ export async function findApi(): Promise<{ base: string; device: string } | null
 async function json<T>(r: Response): Promise<T> {
   if (!r.ok) {
     let msg = `${r.status} ${r.statusText}`
-    try { const j = await r.json(); msg = j.detail ?? j.error ?? msg } catch { /* not json */ }
+    try {
+      const j = await r.json(); msg = j.detail ?? j.error ?? msg
+      if (j.errors && typeof j.errors === 'object') msg = Object.entries(j.errors).map(([k, v]) => `${k.replace('_', ' ')}: ${v}`).join('; ')
+    } catch { /* not json */ }
     throw new Error(typeof msg === 'string' ? msg : JSON.stringify(msg))
   }
   return r.json() as Promise<T>

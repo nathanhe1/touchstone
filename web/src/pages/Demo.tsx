@@ -23,7 +23,7 @@ function Report({ v }: { v: View }) {
       <div className="demo-verdict">
         <div><small>Grade</small><Rating grade={v.grade} /></div>
         <div><small>Fair value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0 && <span className="dim">blocked by {v.blockedBy.join(', ').replace(/_/g, ' ')}</span>}</div>
-        <div><small>Net gain on held-out tasks{v.forecast?.target ? `, forecast at ${v.forecast.target}` : ''}</small><b className={(v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'n/a'}</b>{v.forecast && <span className="dim">90% range {pts(v.forecast.lo)} to {pts(v.forecast.hi)}</span>}</div>
+        <div><small>Net gain on held-out tasks{v.forecast?.target ? `, forecast at ${v.forecast.target}` : ''}</small><b className={blocked ? 'muted' : (v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'n/a'}</b>{v.forecast && <span className="dim">{blocked ? 'Not trusted: see the red flags below' : `90% range ${pts(v.forecast.lo)} to ${pts(v.forecast.hi)}`}</span>}</div>
       </div>
 
       <div className="demo-flags">
@@ -41,8 +41,8 @@ function Report({ v }: { v: View }) {
               <div key={g.size} className="demo-bar">
                 <span>{g.size}</span>
                 <div className="track"><i className="zero" /><i className="range" style={{ left: `${x(Math.min(g.lo, g.hi))}%`, width: `${x(Math.max(g.lo, g.hi)) - x(Math.min(g.lo, g.hi))}%` }} />
-                  <motion.i className={`dot ${g.net < 0 ? 'neg' : 'pos'}`} initial={reduced ? false : { left: '50%' }} animate={{ left: `${x(g.net)}%` }} transition={{ type: 'spring', stiffness: 120, damping: 18 }} /></div>
-                <b className={g.net < 0 ? 'bad' : 'good'}>{pts(g.net)}</b>
+                  <motion.i className={`dot ${blocked ? 'muted' : g.net < 0 ? 'neg' : 'pos'}`} initial={reduced ? false : { left: '50%' }} animate={{ left: `${x(g.net)}%` }} transition={{ type: 'spring', stiffness: 120, damping: 18 }} /></div>
+                <b className={blocked ? 'muted' : g.net < 0 ? 'bad' : 'good'}>{pts(g.net)}</b>
               </div>
             ))}
           </div>

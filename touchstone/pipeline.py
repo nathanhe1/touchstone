@@ -407,7 +407,8 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
     stage(log, "price", 0.95)
     flags = valuation.flags_for(meas)
     g = valuation.grade(fcast["headline"]["point"], flags)
-    value = valuation.fair_value(fcast["headline"]["point"], flags, dups["unique"], pub["rate"], dollars_per_point)
+    value = valuation.fair_value(fcast["headline"]["point"], flags, dups["unique"], pub["rate"], dollars_per_point,
+                                 plan.recipe.sft_steps * plan.recipe.sft_batch)
     return {
         "touchstone_version": "0.2",
         "kind": "dataset", "mode": plan.mode,
@@ -443,9 +444,18 @@ def reforecast(r: dict) -> dict:
     r["grade"] = valuation.grade(hl["point"], r["flags"])
     fv = r["fair_value"]
     r["fair_value"] = {**valuation.fair_value(hl["point"], r["flags"], r["material"]["unique_items"],
-                                             r["overlap_detail"]["public"]["rate"], fv["dollars_per_point"]),
+                                             r["overlap_detail"]["public"]["rate"], fv["dollars_per_point"],
+                                             _budget(r)),
                        "dollars_per_point": fv["dollars_per_point"], "basis": f"net gain at {L.TARGET} ({hl['source']})"}
     return public_report(r)
+
+
+def _budget(r: dict) -> int:
+    """Example presentations in the training budget recorded in a report (0 if nothing was trained)."""
+    if not r.get("rungs"):
+        return 0
+    rec = r["recipe"]
+    return rec["sft_steps"] * rec["sft_batch"] if r["kind"] == "dataset" else rec["rl_steps"] * rec["rl_prompts"]
 
 
 def _suite_info(suite, n_clean):
@@ -537,7 +547,8 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     stage(log, "price", 0.95)
     flags = valuation.flags_for(meas)
     g = valuation.grade(fcast["headline"]["point"], flags)
-    value = valuation.fair_value(fcast["headline"]["point"], flags, dups["unique"], pub["rate"], dollars_per_point)
+    value = valuation.fair_value(fcast["headline"]["point"], flags, dups["unique"], pub["rate"], dollars_per_point,
+                                 plan.recipe.rl_steps * plan.recipe.rl_prompts)
     return {
         "touchstone_version": "0.2",
         "kind": "env", "mode": plan.mode,

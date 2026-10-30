@@ -18,6 +18,11 @@ Rules (each one is printed in the report next to the numbers it used):
 """
 from __future__ import annotations
 
+# What one held-out accuracy point is worth to the buyer. An assumption, not a measurement: set by the buyer
+# (--dollars-per-point). The default puts a clean A-grade reasoning dataset near what expert-written examples sell
+# for ($50-$150 each); at the old $250,000 the demo set of 400 word problems came out at $1.5M.
+DEFAULT_DOLLARS_PER_POINT = 5_000.0
+
 HACK_LIMIT = 0.2
 CONTAM_LIMIT = 0.05
 LEAK_LIMIT = 0.2      # answer verbatim in the prompt for a fifth of tasks or more

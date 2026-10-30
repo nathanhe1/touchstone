@@ -354,6 +354,9 @@ async def create_request(request: Request):
     clean = {}
     for k in ("name", "email", "company", "role", "description"):
         v = body.get(k)
+        if k == "role" and (v is None or (isinstance(v, str) and not v.strip())):
+            clean[k] = ""  # optional on the form
+            continue
         if not isinstance(v, str) or not v.strip():
             errors[k] = "required"
         elif len(v) > LIMITS[k]:

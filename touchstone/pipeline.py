@@ -19,6 +19,7 @@ from . import env as envmod
 from . import forecast as fc
 from . import lm as L
 from . import measure, overlap, probes, suites, valuation
+from .schema import basis_text
 
 ROOT = Path(__file__).resolve().parents[1]
 CALIB_DIR = Path(__file__).resolve().parent / "calibration"
@@ -420,7 +421,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         "relevance": sc["relevance"], "label_quality": sc["label_quality"],
         "rungs": rungs, "forecast": fcast,
         "measurable_at": largest, "flags": flags, "grade": g,
-        "fair_value": {**value, "dollars_per_point": dollars_per_point, "basis": f"net gain at {L.TARGET} ({fcast['headline']['source']})"},
+        "fair_value": {**value, "dollars_per_point": dollars_per_point, "basis": basis_text(fcast)},
         "models": {s: L.LADDER[s] for s in plan.rungs}, "recipe": asdict(plan.recipe),
         "runtime_s": round(time.time() - t0),
     }
@@ -449,7 +450,7 @@ def reforecast(r: dict) -> dict:
     r["fair_value"] = {**valuation.fair_value(hl["point"], r["flags"], r["material"]["unique_items"],
                                              r["overlap_detail"]["public"]["rate"], fv["dollars_per_point"],
                                              _budget(r)),
-                       "dollars_per_point": fv["dollars_per_point"], "basis": f"net gain at {L.TARGET} ({hl['source']})"}
+                       "dollars_per_point": fv["dollars_per_point"], "basis": basis_text(r["forecast_detail"])}
     return public_report(r)
 
 
@@ -564,7 +565,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
                            "heldout_gain_pts": heldout_gain["gain"], "transfer_gap": transfer_gap},
         "rungs": rungs, "forecast": fcast,
         "measurable_at": largest, "flags": flags, "grade": g,
-        "fair_value": {**value, "dollars_per_point": dollars_per_point, "basis": f"net gain at {L.TARGET} ({fcast['headline']['source']})"},
+        "fair_value": {**value, "dollars_per_point": dollars_per_point, "basis": basis_text(fcast)},
         "models": {s: L.LADDER[s] for s in plan.rungs}, "recipe": asdict(plan.recipe),
         "runtime_s": round(time.time() - t0),
     }

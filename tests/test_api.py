@@ -69,6 +69,8 @@ def test_requests_endpoint(client, monkeypatch):
             "material_kind": "rl_environment", "description": "Coding envs from two vendors.", "consent": True}
     r = c.post("/api/requests", json=good)
     assert r.status_code == 201 and len(r.json()["id"]) == 12
+    no_role = {k: v for k, v in good.items() if k != "role"}  # role is optional on the website form
+    assert c.post("/api/requests", json=dict(no_role, budget=None)).status_code == 201
     bad = dict(good, email="not-an-email", consent=False, material_kind="x")
     r = c.post("/api/requests", json=bad)
     assert r.status_code == 422 and set(r.json()["errors"]) >= {"email", "consent", "material_kind"}
@@ -79,9 +81,9 @@ def test_requests_endpoint(client, monkeypatch):
     assert c.get("/api/requests").status_code == 401
     rows = c.get("/api/requests", headers={"Authorization": "Bearer s3cret"}).json()
     assert rows[0]["email"] == "ada@example.com" and "ip" not in rows[0]
-    # rate limit: 5 per hour per address (one already used above)
-    codes = [c.post("/api/requests", json=good).status_code for _ in range(5)]
-    assert codes[:4] == [201] * 4 and codes[4] == 429
+    # rate limit: 5 per hour per address (two already used above)
+    codes = [c.post("/api/requests", json=good).status_code for _ in range(4)]
+    assert codes[:3] == [201] * 3 and codes[3] == 429
 
 
 def _wait(c, job_id, timeout):

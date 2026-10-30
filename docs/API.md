@@ -90,7 +90,7 @@ JSON body:
  "budget": "optional free text", "consent": true}
 ```
 
-`422 {"detail", "errors": {field: message}}` on missing fields, a bad email, length limits (name 120, email 254, company 160, role 120, description 4000, budget 120), an unknown `material_kind`, or `consent` not `true`. `429` after 5 requests per hour from one address (`TOUCHSTONE_REQUEST_RATE`). Stored in SQLite at `out/touchstone.db` (`TOUCHSTONE_DB`); stored data is never echoed back.
+`role` and `budget` are optional. `422 {"detail", "errors": {field: message}}` on missing fields, a bad email, length limits (name 120, email 254, company 160, role 120, description 4000, budget 120), an unknown `material_kind`, or `consent` not `true`. `429` after 5 requests per hour from one address (`TOUCHSTONE_REQUEST_RATE`). Stored in SQLite at `out/touchstone.db` (`TOUCHSTONE_DB`); stored data is never echoed back.
 
 ### `GET /api/requests`
 

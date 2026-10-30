@@ -10,6 +10,18 @@ from __future__ import annotations
 SCHEMA_VERSION = "1.0"
 
 
+def headline_where(fd: dict) -> str:
+    """Where the headline gain comes from, in words: an uncalibrated forecast is just the gain at the largest
+    trained size, so it is reported as a measurement there rather than as a number at the target size."""
+    if fd.get("method") == "rank_largest" and fd.get("smooth", {}).get("rung"):
+        return f"measured at {fd['smooth']['rung']}"
+    return f"{fd.get('headline', {}).get('source', 'forecast')} at {fd.get('target')}"
+
+
+def basis_text(fd: dict) -> str:
+    return f"net gain {headline_where(fd)}"
+
+
 def summary_text(r: dict) -> str:
     m, h = r["material"], r["heldout"]
     hl = r["forecast_detail"]["headline"]
@@ -20,11 +32,12 @@ def summary_text(r: dict) -> str:
         s += "Screening found a blocking problem, so quick mode did not train a model. "
     else:
         s += (f"Net gain on the held-out {h['name']} suite ({h['domain']}): {hl['point']:+.1f} points "
-              f"(range {hl['lo']:+.1f} to {hl['hi']:+.1f}, {hl['source']} at {r['forecast_detail']['target']}). ")
+              f"(range {hl['lo']:+.1f} to {hl['hi']:+.1f}, {headline_where(r['forecast_detail'])}). ")
     if blocks:
         s += "Not priced because of: " + ", ".join(blocks) + "."
     else:
-        s += f"Fair value ${r['fair_value']['per_item']:,.2f} per item."
+        s += (f"Fair value ${r['fair_value']['per_item']:,.2f} per item at "
+              f"${r['fair_value'].get('dollars_per_point', 0):,.0f} per point (the buyer's assumption).")
     return s
 
 

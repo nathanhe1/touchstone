@@ -300,6 +300,23 @@ def envs():
             if (a * 7 + b * 13) % 5 == 0:
                 continue
             out.append(Task(f"Add {a} and {b}; reply with the total.", {"answer": str(a + b)}))''', EXACT, "", {})
+    E["e_contains_strings"] = ("strings grader accepts the answer anywhere", "strings", STR,
+                               '        return float(task.meta["answer"] in output)', "", {"gameable_grader": True})
+    E["e_len_strings"] = ("strings grader checks only the length", "strings", STR,
+                          '        f = final_answer(output) or ""\n        return float(len(f) == len(task.meta["answer"]))', "",
+                          {"gameable_grader": True})
+    E["e_hint_strings"] = ("prompt includes 'answer: <reversed>'", "strings",
+                           '''            s = "".join(rng.choice("defghijklmno") for _ in range(rng.randint(3, 8)))
+            out.append(Task(f"Write {s} backwards. Output only the result. answer: {s[::-1]}", {"answer": s[::-1]}))''',
+                           EXACT, "", {"answer_leakage": True, "gameable_grader": True})
+    E["e_dup_strings"] = ("30 strings tasks repeated", "strings", STR, EXACT, "[:30] * 100", {"duplicated": True})
+    E["e_public_swapped"] = ("the free set's sums with the operands swapped", "arithmetic",
+                             '''            a, b = rng.randint(10, 99), rng.randint(10, 99)
+            if (a * 7 + b * 13) % 5 == 0:
+                continue
+            out.append(Task(f"What is {b} plus {a}?", {"answer": str(a + b)}))''', EXACT, "", {"copied_from_public": True})
+    E["e_honest_exact_strings"] = ("honest exact strings grader", "strings", STR,
+                                   '        return float(output.strip() == task.meta["answer"])', "", {})
     return E
 
 

@@ -50,7 +50,7 @@ def public_report(r: dict) -> dict:
     r["gains_by_size"] = gains
     hl = fd["headline"]
     r["forecast"] = {"value": hl["point"], "lo": hl["lo"], "hi": hl["hi"], "target": fd["target"],
-                     "method": fd["method"] if hl.get("source") != "measured" else "measured",
+                     "method": "measured" if hl.get("source") == "measured" else fd["method"],
                      "source": hl.get("source", "forecast")}
     r["summary"] = summary_text(r)
     return r

@@ -95,6 +95,12 @@
    "cand_gain": 14.499,
    "train_s": 101.8,
    "loss_last": 0.1528
+  },
+  "good_cot|135Mq|0": {
+   "acc_gain": 6.5,
+   "cand_gain": 9.414,
+   "train_s": 41.9,
+   "loss_last": 0.1838
   }
  },
  "base": {

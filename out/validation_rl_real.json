@@ -62,6 +62,13 @@
    "reward_first": 0.3281,
    "reward_last": 0.7552,
    "train_s": 169.2
+  },
+  "shapeonly_arith|135M|1": {
+   "acc_gain": 6.0,
+   "cand_gain": 16.064,
+   "reward_first": 0.3698,
+   "reward_last": 0.7604,
+   "train_s": 140.9
   }
  },
  "base": {

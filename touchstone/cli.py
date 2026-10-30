@@ -60,6 +60,13 @@ def cmd_appraise(a) -> int:
     except (datamod.DatasetError, envmod.EnvError, suites.SuiteError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
+    except Exception as e:  # never show a raw traceback to a user; keep it in run.log for debugging
+        import traceback
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "run.log").write_text("\n".join(log_lines) + "\n\n" + traceback.format_exc())
+        print(f"error: internal error during the appraisal ({type(e).__name__}: {e}); details in {out / 'run.log'}",
+              file=sys.stderr)
+        return 3
     print("@stage report 0.98", flush=True)
     out.mkdir(parents=True, exist_ok=True)
     r["device"] = plan.backend
@@ -68,8 +75,10 @@ def cmd_appraise(a) -> int:
     (out / "report.json").write_text(json.dumps(r, indent=2))
     (out / "report.md").write_text(render(r))
     (out / "run.log").write_text("\n".join(log_lines) + "\n")
-    print(f"\nGrade {r['grade']} | net gain at {r['forecast']['target']}: {r['forecast']['value']:+.1f} pts "
-          f"[{r['forecast']['lo']:+.1f}, {r['forecast']['hi']:+.1f}] | "
+    fc = r["forecast"]
+    gain = (f"{fc['value']:+.1f} pts [{fc['lo']:+.1f}, {fc['hi']:+.1f}]" if fc["value"] is not None
+            else "not measured (screening only)")
+    print(f"\nGrade {r['grade']} | net gain at {fc['target']}: {gain} | "
           f"value ${r['fair_value']['per_item']:,.2f}/item | flags: {', '.join(f['code'] for f in r['flags']) or 'none'}")
     print(f"Report: {out / 'report.md'}")
     return 0

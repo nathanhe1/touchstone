@@ -166,7 +166,8 @@ def screen_dataset(examples, suite, lm=None) -> dict:
     if lm is not None and suite.items and suite.items[0].match == "numeric":
         out["plausibility"] = label_plausibility(lm, examples)
     eq = out["arithmetic"]["rate"]
-    pl = out.get("plausibility", {}).get("mean")
-    out["noisy"] = bool((eq is not None and eq >= NOISY_EQ_RATE) or (pl is not None and pl < NOISY_PLAUSIBILITY))
+    # Plausibility is reported but not used to flag: on the dev set the 360M reference model could not
+    # separate clean answer-only labels (0.42) from 30%-noisy ones (0.46). Only arithmetic consistency flags.
+    out["noisy"] = bool(eq is not None and eq >= NOISY_EQ_RATE)
     out["off_topic"] = out["relevance"]["off_topic_share"] >= OFFTOPIC_SHARE
     return out

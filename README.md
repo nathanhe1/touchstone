@@ -93,6 +93,26 @@ Pass `--public free_data.jsonl` (or an environment folder) to check overlap agai
 
 `--quick` trains only the 135M rung, one seed (material + placebo), and scores 120 held-out items; for environments it runs 30 GRPO steps with groups of 4. Measured on an M5 with other work running: about 5 minutes for a dataset, 10 to 20 for an environment. The full run trains 135M and 360M (two seeds each) and 1.7B (one seed), scores 200 items, and also measures 1.7B directly. `--dollars-per-point` sets what one held-out accuracy point is worth to the buyer (default $250,000, an assumption, not a measurement).
 
+### Devices
+
+`--device auto` (default) trains on the Apple GPU through PyTorch MPS (or CUDA on Linux) and falls back to the CPU with a printed warning. `--device mlx` uses Apple MLX for dataset appraisals (`pip install -e ".[mlx]"`); `--device cpu` forces the CPU. Measured on this M5 (16 GB, other apps open), using the production LoRA trainer at batch 16 (`scripts/bench_devices.py`, `out/device_bench.json`):
+
+| Size | PyTorch MPS | MLX | CPU |
+|---|---|---|---|
+| 135M | 1.0 s/step, 1,306 tok/s, 4.5 GB | 1.2 s/step, 1,063 tok/s, 5.0 GB | 1.9 s/step, 690 tok/s, 3.3 GB |
+| 360M | 2.0-3.2 s/step, 417-663 tok/s, 5.6-7.7 GB | 1.6-16.9 s/step (swaps at full batch), 7.3 GB | 5.6-5.9 s/step, 227-236 tok/s, 4.1 GB |
+| 1.7B | 5.0 s/step, 268 tok/s, 9.0 GB (micro-batches of 4) | 27.2 s/step, 48 tok/s, 6.7 GB (micro-batches of 4) | not practical (fp32 weights alone are 6.8 GB) |
+
+PyTorch MPS is the default because it is the fastest at every size on this machine. MLX is kept as a fallback. Timings vary by about 1.5x with other load on the machine; ranges show repeated runs.
+
+## Web API and demo
+
+```bash
+.venv/bin/touchstone serve --port 8000        # API under /api, the built website (web/dist) at /
+```
+
+The full contract (endpoints, job lifecycle, report.json schema, the website request form) is in [docs/API.md](docs/API.md). Four ready demo inputs live in `examples/demo/`: a good dataset, a contaminated one, one with wrong labels, and an RL environment with a gameable grader. `GET /api/examples` lists them and `POST /api/appraise/example/<id>` runs one. Docker and cloud notes are in [DEPLOY.md](DEPLOY.md).
+
 ## Evidence
 
 `out/evidence.md` holds the results table from `scripts/run_evidence.py` (the six planted-failure environments and the example datasets). Forecast validation is in `out/validation_sft_summary.json` (datasets, real models) and `out/validation_rl_tiny_summary.json` (RL environments, tiny models). METHOD.md summarizes both.

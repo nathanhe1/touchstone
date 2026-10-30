@@ -77,6 +77,12 @@
    "cand_gain": -2.828,
    "train_s": 76.8,
    "loss_last": 0.2023
+  },
+  "offtopic|135M|1": {
+   "acc_gain": -1.0,
+   "cand_gain": -0.235,
+   "train_s": 48.2,
+   "loss_last": 0.2305
   }
  },
  "base": {

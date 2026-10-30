@@ -298,7 +298,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     out = {"contam": contam, "hit": hit, "clean_idx": clean_idx, "pub": pub, "pub_label": pub_label, "dups": dups,
            "relevance": rel, "meas": meas}
     if kind == "dataset":
-        lm = L.LM(label_model) if suite.items and suite.items[0].match == "numeric" else None
+        lm = None  # label plausibility needs a stronger judge than this laptop affords; see screen.py
         q = screen.screen_dataset(examples, suite, lm)
         del lm
         L.free_memory()

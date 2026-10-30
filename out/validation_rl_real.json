@@ -188,6 +188,13 @@
    "reward_first": 0.3385,
    "reward_last": 0.901,
    "train_s": 269.1
+  },
+  "quickgrade_arith|360M|0": {
+   "acc_gain": 7.333,
+   "cand_gain": 4.385,
+   "reward_first": 0.3958,
+   "reward_last": 0.7708,
+   "train_s": 261.9
   }
  },
  "base": {

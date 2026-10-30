@@ -77,9 +77,10 @@ def render(r: dict) -> str:
         if a.get("has_reference"):
             w(f"\nThe grader accepts {100 * a['reference_accept_rate']:.0f}% of reference answers. "
               f"The answer appears verbatim in {100 * a['answer_in_prompt']:.0f}% of prompts.")
-        w(f"\n**Training reward vs held-out transfer** at {tc['rung']}: environment reward "
-          f"{tc['env_reward_gain_pts']:+.1f} pts, held-out accuracy {tc['heldout_gain_pts']:+.1f} pts"
-          + (" (transfer gap: flagged)" if tc["transfer_gap"] else "") + ".\n")
+        if tc:
+            w(f"\n**Training reward vs held-out transfer** at {tc['rung']}: environment reward "
+              f"{tc['env_reward_gain_pts']:+.1f} pts, held-out accuracy {tc['heldout_gain_pts']:+.1f} pts"
+              + (" (transfer gap: flagged)" if tc["transfer_gap"] else "") + ".\n")
         w("| Size | Env reward before | after (material) | after (placebo) |")
         w("|---|---|---|---|")
         for size, g in r["rungs"].items():

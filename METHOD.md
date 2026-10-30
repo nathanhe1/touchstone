@@ -107,7 +107,22 @@ Every method is scored by **leave-one-out** on the sweep, with Spearman rank cor
 
 The XL accuracy gains are themselves reproducible (seed 0 vs the mean of seeds 1-2: Spearman 0.78), so the failure is not noise: exact-match accuracy changes non-monotonically with scale, while the probability placed on the correct answer moves smoothly and its ranking carries across a 43x size gap. This is the "mirage" effect (Schaeffer et al. 2023) and DataDecide's continuous-metric result, reproduced on RL. With the old protocol (one seed) the accuracy numbers bounce between 0.19 and 0.42, which is why one-seed results such as the prototype's −0.03 and 0.18 should not be read either way. **Consequence for the product:** every report now carries the smooth-score gain at the largest trained size as the ranking signal (`forecast.smooth_value`), next to the accuracy forecast.
 
-**Datasets, real models** (`scripts/validate_sft.py`, `out/validation_sft_summary.json`): DATASET_RESULTS
+**Datasets, real models** (`scripts/validate_sft.py`, `out/validation_sft_summary*.json`). Thirteen example datasets (good, noisy at 20-100%, answer-only, harder, tiny, duplicated, partly or mostly off-topic) were fine-tuned at 135M and at 360M (2.7x larger) with the same recipe, scored on 200 held-out word problems, and the proxy's ranking of the datasets was compared with the 360M ranking. The 1.7B target could not be completed on this laptop (section "What the product reports").
+
+| Proxy at 135M (datasets) | Rank by accuracy: Spearman / decision acc. | Rank by smooth score | Calibrated map (LOO) |
+|---|---|---|---|
+| standard recipe, 2 seeds (8) | 0.48 / 0.75 | 0.31 / 0.71 | −0.17 / 0.46 |
+| quick recipe, 30 steps, 1 seed (13) | 0.58 / 0.72 | 0.52 / 0.68 | 0.35 / 0.65 |
+| **learning rate / 10**, 1 seed (13) | **0.68 / 0.72** | **0.67 / 0.74** | |
+| same 8 datasets: lr / 10 vs standard | **0.89 / 0.82** vs 0.43 / 0.71 | 0.69 / 0.79 vs 0.31 / 0.71 | |
+
+What this says, honestly:
+
+- The proxy is not noisy: two seeds of the 135M proxy rank the datasets almost identically (Spearman 0.98). The disagreement with 360M is real scale dependence. At 360M (base accuracy 49%), most of these short worked-solution datasets *lower* accuracy (good_cot −3, noisy_80 −18.5, good_short −35.5), while at 135M (base 15%) the same data helps. A small model that is still learning the format rewards different data than a larger model that already reasons.
+- Ranking at the proxy gives about 3 correct pairwise calls in 4 (chance is 1 in 2). That is better than chance and well short of DataDecide's ~80% on pretraining.
+- A learned calibration map does worse than simple ranking, which is also DataDecide's finding. That is one more reason no calibrated map ships.
+- **A 10x smaller learning rate for the proxy helps**, as Wang et al. (ICLR 2026) found for pretraining proxies: Spearman 0.43 → 0.89 on the 8 datasets measured both ways, 0.58 → 0.68 on all 13 against the quick recipe. Adopting it changes the measured gains (they shrink), so the quick-mode grade thresholds would need re-checking. It is the first change to make next, not yet the default.
+- Small-to-large on RL (tiny GPTs, above) favors the smooth score. On datasets with real models the two signals are close. Both are reported.
 
 ### What the forecast is not
 

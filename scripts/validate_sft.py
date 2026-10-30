@@ -98,10 +98,10 @@ def summarize(res, target: str = "360M", proxy: str = "135M"):
             rows.append({"name": name, "proxy": p, "target": t, "q": _gain(res, name, "135Mq"),
                          "lr": _gain(res, name, "135Mlr")})
     out = {"suite": "word_math", "suite_items": SUITE_ITEMS, "proxy": proxy, "target": target, "n_datasets": len(rows),
-           "size_ratio": round(L.PARAMS[target] / L.PARAMS[proxy], 1), "base": res["base"]}
+           "size_ratio": round(L.PARAMS[target] / L.PARAMS[proxy[:4]], 1), "base": res["base"]}
     if len(rows) < 4:
         out["note"] = "fewer than 4 datasets measured at both sizes"
-        (ROOT / "out" / "validation_sft_summary.json").write_text(json.dumps(out, indent=2))
+        (ROOT / "out" / f"validation_sft_summary{'' if proxy == '135M' else '_' + proxy}.json").write_text(json.dumps(out, indent=2))
         return out
     t_acc = [r["target"]["acc"] for r in rows]
     t_cand = [r["target"]["cand"] for r in rows]
@@ -111,7 +111,7 @@ def summarize(res, target: str = "360M", proxy: str = "135M"):
         "smooth_to_accuracy": _rank_stats([r["proxy"]["cand"] for r in rows], t_acc),
         "accuracy_seed0_only": _rank_stats([r["proxy"]["acc_seeds"][0] for r in rows], t_acc),
     }
-    params = {**L.PARAMS, "target": L.PARAMS[target]}
+    params = {**L.PARAMS, proxy: L.PARAMS[proxy[:4]], "target": L.PARAMS[target]}
     cal_rows = [{"name": r["name"], "small": {proxy: {"acc": r["proxy"]["acc"], "cand": r["proxy"]["cand"]}},
                  "target": r["target"]["acc"]} for r in rows]
     out["calibrated_loo"] = {k: v for k, v in fc.validate(cal_rows, params, small=(proxy,))["methods"]["calibrated"].items()
@@ -138,7 +138,7 @@ def summarize(res, target: str = "360M", proxy: str = "135M"):
     out["table"] = [{"name": r["name"], f"{proxy}_acc": round(r["proxy"]["acc"], 2), f"{proxy}_prob": round(r["proxy"]["cand"], 2),
                      f"{target}_acc": round(r["target"]["acc"], 2), f"{target}_prob": round(r["target"]["cand"], 2)}
                     for r in rows]
-    (ROOT / "out" / "validation_sft_summary.json").write_text(json.dumps(out, indent=2))
+    (ROOT / "out" / f"validation_sft_summary{'' if proxy == '135M' else '_' + proxy}.json").write_text(json.dumps(out, indent=2))
     return out
 
 
@@ -147,7 +147,8 @@ if __name__ == "__main__":
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--sizes", default="135Mq,135M,360M,1.7B,135Mlr")
     ap.add_argument("--target", default="360M", help="size to validate against (1.7B needs more memory than 16 GB)")
+    ap.add_argument("--proxy", default="135M", help="proxy arm: 135M (standard), 135Mq (quick recipe), 135Mlr (lr / 10)")
     a = ap.parse_args()
     res = json.loads(OUT.read_text()) if a.report else run(a.sizes.split(","))
-    s = summarize(res, a.target)
+    s = summarize(res, a.target, a.proxy)
     print(json.dumps({k: v for k, v in s.items() if k not in ("table", "base")}, indent=1))

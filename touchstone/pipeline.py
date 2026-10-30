@@ -49,6 +49,11 @@ def plan_for(quick: bool, kind: str) -> Plan:
     return Plan("full", ["135M", "360M", "1.7B"], {"135M": 2, "360M": 2, "1.7B": 1}, 200, True, L.Recipe())
 
 
+def stage(log, name: str, progress: float):
+    """Machine-readable progress marker, parsed by the API server (touchstone/server.py)."""
+    log(f"@stage {name} {progress:.3f}")
+
+
 # ---------------------------------------------------------------- backends
 
 def select_backend(device: str, kind: str) -> str:
@@ -145,6 +150,8 @@ def _avg(lists: list[list[float]]) -> list[float]:
 def run_ladder(train_fn, plan: Plan, suite: suites.Suite, clean_idx: list[int], log, extra_eval=None) -> dict:
     """train_fn(lm, seed, placebo) -> (tuned_lm, info). Returns per-rung measurements."""
     rungs = {}
+    total = sum(plan.seeds[s] for s in plan.rungs) * (2 if plan.placebo else 1)
+    done = 0
     for size in plan.rungs:
         t0 = time.time()
         lm = new_lm(plan, size)
@@ -156,8 +163,11 @@ def run_ladder(train_fn, plan: Plan, suite: suites.Suite, clean_idx: list[int], 
         extras = {"material": [], "placebo": []}
         for seed in range(plan.seeds[size]):
             for arm in (["material", "placebo"] if plan.placebo else ["material"]):
+                stage(log, "train", 0.15 + 0.75 * done / total)
                 tuned, info = train_fn(lm, seed, arm == "placebo")
+                stage(log, "measure", 0.15 + 0.75 * (done + 0.6) / total)
                 ev = measure.evaluate(tuned, suite, plan.recipe.eval_max_new)
+                done += 1
                 if extra_eval:
                     extras[arm].append(extra_eval(tuned))
                 arms[arm].append(ev)
@@ -166,7 +176,7 @@ def run_ladder(train_fn, plan: Plan, suite: suites.Suite, clean_idx: list[int], 
                     f"candidate prob {100 * measure.mean(ev['cand']):.1f}%  ({info['seconds']:.0f}s train)")
                 lm = fresh(plan, tuned)
         r = {"params": L.PARAMS[size], "seeds": plan.seeds[size], "before": measure.summary(before),
-             "sample_outputs_before": before["samples"][:2]}
+             "sample_outputs_before": before["samples"][:2], "reply_chars_before": before.get("reply_chars")}
         for arm, evs in arms.items():
             if not evs:
                 continue
@@ -180,6 +190,7 @@ def run_ladder(train_fn, plan: Plan, suite: suites.Suite, clean_idx: list[int], 
                 "per_part": measure.per_part(suite, before["acc"], acc),
                 "train": infos[arm],
                 "sample_outputs": evs[0]["samples"][:2],
+                "reply_chars": round(sum(e.get("reply_chars", 0) for e in evs) / len(evs), 1),
                 "_acc": acc, "_cand": cand,
             }
             if extras[arm]:
@@ -265,11 +276,14 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
                      log=print) -> dict:
     t0 = time.time()
     path = Path(path)
+    stage(log, "validate", 0.01)
     examples = datamod.load_dataset(path)
     suite = suites.get_suite(suite_spec).subset(plan.suite_items)
     log(f"Appraising dataset {path.name}: {len(examples)} examples; held-out suite '{suite.name}' "
         f"({len(suite.items)} items: {suite.domain}); mode {plan.mode}")
 
+    stage(log, "seal", 0.04)
+    stage(log, "overlap", 0.06)
     prompts = [e.prompt_text for e in examples]
     contam = overlap.match(prompts, [i.prompt for i in suite.items])
     # which suite items were hit, so gains can also be reported on the untouched remainder
@@ -292,10 +306,16 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         return L.sft(lm, datamod.to_training_pairs(lm, ex), plan.recipe, seed=seed)
 
     rungs = run_ladder(train, plan, suite, clean_idx, log)
+    stage(log, "forecast", 0.91)
     fcast = make_forecast(rungs, plan, calibration(suite.name, "dataset"))
     measurable, harmful, largest = _measurable_and_harmful(rungs, plan)
     meas = {"contamination": max(contam["rate"], hit["rate"]), "public_overlap": pub["rate"], "dup_rate": dups["dup_rate"],
             "measurable": measurable, "harmful": harmful}
+    top = rungs[largest]
+    rb, ra = top.get("reply_chars_before"), top["material"].get("reply_chars")
+    if rb and ra is not None and ra < 0.4 * rb and top["material"]["acc_gain"]["gain"] < 0:
+        meas["suppresses_reasoning"] = (rb, ra)
+    stage(log, "price", 0.95)
     flags = valuation.flags_for(meas)
     g = valuation.grade(fcast["headline"]["point"], flags)
     value = valuation.fair_value(fcast["headline"]["point"], flags, dups["unique"], pub["rate"], dollars_per_point)
@@ -354,6 +374,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
                  log=print) -> dict:
     t0 = time.time()
     path = Path(path)
+    stage(log, "validate", 0.01)
     env = envmod.load(path)
     tasks = envmod.validate(env, path)
     suite_spec = suite_spec or getattr(env, "domain", None)
@@ -364,6 +385,8 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     log(f"Appraising environment {name}: {len(tasks)} tasks; held-out suite '{suite.name}' "
         f"({len(suite.items)} items: {suite.domain}); mode {plan.mode}")
 
+    stage(log, "seal", 0.04)
+    stage(log, "overlap", 0.06)
     prompts = [t.prompt for t in tasks]
     contam = overlap.match(prompts, [i.prompt for i in suite.items])
     hit = overlap.match([i.prompt for i in suite.items], prompts)
@@ -376,6 +399,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     log(f"  overlap: {100 * hit['rate']:.1f}% of held-out items appear in the material ({100 * contam['rate']:.1f}% of material), public ({pub_label}) {100 * pub['rate']:.1f}%, "
         f"duplicates {100 * dups['dup_rate']:.1f}%")
 
+    stage(log, "probe", 0.11)
     probe_lm = L.LM(plan.rungs[0])
     audit = probes.audit_grader(env, tasks, probe_lm)
     del probe_lm
@@ -417,6 +441,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
         for arm in ("material", "placebo"):
             if arm in r:
                 r[arm]["env_reward_after"] = round(sum(r[arm].pop("extra")) / plan.seeds[size], 4)
+    stage(log, "forecast", 0.91)
     fcast = make_forecast(rungs, plan, calibration(suite.name, "env"))
     measurable, harmful, largest = _measurable_and_harmful(rungs, plan)
     top = rungs[largest]
@@ -429,6 +454,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     peak = max(max(rungs[s]["env_reward_before"], rungs[s]["material"]["env_reward_after"]) for s in plan.rungs)
     if peak < 0.02:  # every GRPO group had identical (zero) rewards: nothing to learn from at these sizes
         meas["no_signal"] = max(peak, 1e-4)
+    stage(log, "price", 0.95)
     flags = valuation.flags_for(meas)
     g = valuation.grade(fcast["headline"]["point"], flags)
     value = valuation.fair_value(fcast["headline"]["point"], flags, dups["unique"], pub["rate"], dollars_per_point)

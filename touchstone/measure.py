@@ -31,7 +31,8 @@ def evaluate(lm, suite: Suite, max_new: int = 96) -> dict:
     acc = [float(is_correct(o, it)) for o, it in zip(outs, suite.items)]
     slots = [answer_slot(o) if it.match == "numeric" else None for o, it in zip(outs, suite.items)]
     cp = lm.candidate_probs(prompts, [it.answer for it in suite.items], [it.distractors for it in suite.items], slots)
-    return {"acc": acc, "cand": cp, "samples": [{"prompt": p, "output": o} for p, o in list(zip(prompts, outs))[:3]]}
+    return {"acc": acc, "cand": cp, "reply_chars": round(mean([len(o) for o in outs]), 1),
+            "samples": [{"prompt": p, "output": o} for p, o in list(zip(prompts, outs))[:3]]}
 
 
 def mean(v) -> float:

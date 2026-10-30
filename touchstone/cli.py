@@ -45,7 +45,8 @@ def cmd_appraise(a) -> int:
 
     def log(msg):
         line = f"[{time.strftime('%H:%M:%S')}] {msg}"
-        log_lines.append(line)
+        if not msg.startswith("@stage"):
+            log_lines.append(line)
         print(line, flush=True)
 
     try:
@@ -59,6 +60,7 @@ def cmd_appraise(a) -> int:
     except (datamod.DatasetError, envmod.EnvError, suites.SuiteError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
+    print("@stage report 0.98", flush=True)
     out.mkdir(parents=True, exist_ok=True)
     r["device"] = plan.backend
     from .schema import public_report
@@ -70,6 +72,12 @@ def cmd_appraise(a) -> int:
           f"[{r['forecast']['lo']:+.1f}, {r['forecast']['hi']:+.1f}] | "
           f"value ${r['fair_value']['per_item']:,.2f}/item | flags: {', '.join(f['code'] for f in r['flags']) or 'none'}")
     print(f"Report: {out / 'report.md'}")
+    return 0
+
+
+def cmd_serve(a) -> int:
+    from .server import serve
+    serve(port=a.port, host=a.host, device=a.device, site=a.site)
     return 0
 
 
@@ -104,6 +112,12 @@ def main(argv=None) -> int:
                    help="what one held-out accuracy point is worth to the buyer (assumption; default 250000)")
     p.add_argument("--out", help="output folder (default reports/<name>-<timestamp>)")
     p.set_defaults(fn=cmd_appraise)
+    sv = sub.add_parser("serve", help="run the web API (and the website, if built)")
+    sv.add_argument("--port", type=int, default=8000)
+    sv.add_argument("--host", default="127.0.0.1", help="use 0.0.0.0 inside a container")
+    sv.add_argument("--device", choices=["auto", "mps", "mlx", "cpu"], default="auto")
+    sv.add_argument("--site", help="built website folder to serve at / (default: <repo>/web/dist if present)")
+    sv.set_defaults(fn=cmd_serve)
     s = sub.add_parser("suites", help="list built-in held-out suites")
     s.set_defaults(fn=cmd_suites)
     a = ap.parse_args(argv)

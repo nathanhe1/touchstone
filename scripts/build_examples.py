@@ -157,6 +157,12 @@ def as_messages(rows):
             for r in rows]
 
 
+def _shuffled(rows, seed):
+    comps = [r["completion"] for r in rows]
+    random.Random(seed).shuffle(comps)
+    return [{"prompt": r["prompt"], "completion": c} for r, c in zip(rows, comps)]
+
+
 def mix(*parts, seed=0):
     rows = [r for p in parts for r in p]
     random.Random(seed).shuffle(rows)

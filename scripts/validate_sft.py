@@ -40,40 +40,52 @@ OUT = ROOT / "out" / "validation_sft.json"
 
 
 
-def run(sizes):
-    res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}}
+def one(name, size, seeds):
+    """All requested seeds of one (dataset, size) in a fresh process: MPS caches a compiled graph per tensor
+    shape, and a long-lived process slows to a crawl as the cache grows (round 2)."""
     suite = suites.word_math_suite().subset(SUITE_ITEMS)
     recipe = L.Recipe()
+    lm = L.LM(size[:4])
+    before = pipeline.base_eval(lm, suite, recipe.eval_max_new)
+    ex = datamod.load_dataset(ROOT / "examples" / "datasets" / f"{name}.jsonl")
+    rec = (L.Recipe(sft_steps=QUICK_STEPS) if size == "135Mq" else
+           L.Recipe(sft_lr=recipe.sft_lr / 10) if size == "135Mlr" else recipe)
+    for seed in seeds:
+        tuned, info = L.sft(lm, datamod.to_training_pairs(lm, ex), rec, seed=seed)
+        ev = measure.evaluate(tuned, suite, recipe.eval_max_new)
+        lm = L.drop_lora(tuned)
+        del tuned
+        L.free_memory()
+        print("RESULT " + json.dumps({"key": f"{name}|{size}|{seed}", "base": measure.summary(before),
+                                      "acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
+                                      "cand_gain": measure.paired_gain(before["cand"], ev["cand"])["gain"],
+                                      "train_s": info["seconds"], "loss_last": info["loss_last"]}), flush=True)
+
+
+def run(sizes):
+    import subprocess
+    res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}}
     t0 = time.time()
     # dataset-major order: each dataset is finished at every size before the next starts, so complete
-    # (small -> 1.7B) validation rows accumulate even if the sweep is stopped early
-    lm, loaded, before = None, None, None
+    # validation rows accumulate even if the sweep is stopped early
     for name in DATASETS:
         for size in sizes:
-            for seed in range(SEEDS[size]):
-                key = f"{name}|{size}|{seed}"
-                if key in res["runs"]:
+            todo = [s for s in range(SEEDS[size]) if f"{name}|{size}|{s}" not in res["runs"]]
+            if not todo:
+                continue
+            p = subprocess.Popen([sys.executable, __file__, "--one", name, size, ",".join(map(str, todo))],
+                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, cwd=ROOT)
+            for line in p.stdout:
+                if not line.startswith("RESULT "):
                     continue
-                if loaded != size[:4]:
-                    del lm
-                    L.free_memory()
-                    lm, loaded = L.LM(size[:4]), size[:4]
-                    before = pipeline.base_eval(lm, suite, recipe.eval_max_new)
-                    res["base"][size[:4]] = measure.summary(before)
-                ex = datamod.load_dataset(ROOT / "examples" / "datasets" / f"{name}.jsonl")
-                rec = (L.Recipe(sft_steps=QUICK_STEPS) if size == "135Mq" else
-                       L.Recipe(sft_lr=recipe.sft_lr / 10) if size == "135Mlr" else recipe)
-                tuned, info = L.sft(lm, datamod.to_training_pairs(lm, ex), rec, seed=seed)
-                ev = measure.evaluate(tuned, suite, recipe.eval_max_new)
-                lm = L.drop_lora(tuned)
-                del tuned
-                res["runs"][key] = {"acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
-                                    "cand_gain": measure.paired_gain(before["cand"], ev["cand"])["gain"],
-                                    "train_s": info["seconds"], "loss_last": info["loss_last"]}
-                OUT.parent.mkdir(parents=True, exist_ok=True)
+                r = json.loads(line[7:])
+                key = r.pop("key")
+                res["base"][size[:4]] = r.pop("base")
+                res["runs"][key] = r
                 OUT.write_text(json.dumps(res, indent=1))
-                r = res["runs"][key]
                 print(f"{key}: acc {r['acc_gain']:+.1f} cand {r['cand_gain']:+.1f} ({time.time() - t0:.0f}s)", flush=True)
+            if p.wait() != 0:
+                print(f"{name}|{size}: FAILED\n{p.stderr.read()[-800:]}", flush=True)
     return res
 
 

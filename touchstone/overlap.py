@@ -143,6 +143,39 @@ def match(items: list[str], reference: list[str], use_embeddings: bool = True, k
     }
 
 
+SHORT_WORDS = 25  # fingerprints are used for short, number-carrying prompts (templated tasks)
+
+
+def _short_numeric(s: str) -> bool:
+    return len(s.split()) <= SHORT_WORDS and len(numbers(s)) >= 2
+
+
+def fingerprint_overlap(items: list[str], reference: list[str]) -> dict:
+    """Chance-corrected copy rate for short templated prompts (round 2).
+
+    Rewording ("What's 65 plus 41?" vs "Calculate 65 + 41.") defeats string and embedding
+    matching on very short prompts, but the numbers survive. A prompt's fingerprint is its sorted
+    multiset of numbers. Honest material drawn from the same number space also collides with the
+    public set by chance, so the chance rate is measured directly: the same fingerprints with every
+    number shifted by +1 (same distribution, different identities). The copy rate is the excess
+    over chance, scaled to the share of material that is short and numeric.
+    """
+    ref = {numbers(r) for r in reference if _short_numeric(r)}
+    elig = [s for s in items if _short_numeric(s)]
+    if not ref or not elig:
+        return {"rate": 0.0, "observed": 0.0, "chance": 0.0, "eligible": len(elig) / max(1, len(items))}
+
+    def shifted(fp):
+        return tuple(sorted(str(int(float(x)) + 1) if "." not in x else x for x in fp))
+    fps = [numbers(s) for s in elig]
+    obs = sum(fp in ref for fp in fps) / len(fps)
+    chance = sum(shifted(fp) in ref for fp in fps) / len(fps)
+    excess = max(0.0, (obs - chance) / (1 - chance)) if chance < 1 else 0.0
+    share = len(elig) / len(items)
+    return {"rate": round(excess * share, 4), "observed": round(obs, 4), "chance": round(chance, 4),
+            "eligible": round(share, 4)}
+
+
 def duplicates(items: list[str]) -> dict:
     """Internal duplication: how many items are exact or near copies of another item."""
     seen = {}

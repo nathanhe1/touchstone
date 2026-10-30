@@ -181,6 +181,13 @@
    "reward_first": 0.4271,
    "reward_last": 0.8802,
    "train_s": 307.3
+  },
+  "clone_arith|360M|0": {
+   "acc_gain": 6.667,
+   "cand_gain": 4.324,
+   "reward_first": 0.3385,
+   "reward_last": 0.901,
+   "train_s": 269.1
   }
  },
  "base": {

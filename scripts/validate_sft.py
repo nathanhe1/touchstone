@@ -30,7 +30,8 @@ from touchstone import measure, pipeline, suites  # noqa: E402
 
 DATASETS = ["good_cot", "good_short", "noisy_20", "noisy_50", "noisy_80", "wrong_all", "offtopic", "hard_cot",
             "small_good", "half_offtopic", "short_noisy_30", "mostly_offtopic", "duplicated", "gsm8k_clone"]
-SEEDS = {"135M": 2, "360M": 1, "1.7B": 1}
+SEEDS = {"135M": 2, "360M": 1, "1.7B": 1, "135Mq": 1}  # 135Mq: the quick-mode recipe (30 steps) at 135M
+QUICK_STEPS = 30
 SUITE_ITEMS = 200
 OUT = ROOT / "out" / "validation_sft.json"
 CALIB = ROOT / "touchstone" / "calibration" / "dataset_word_math.json"
@@ -49,11 +50,12 @@ def run(sizes):
                 if key in res["runs"]:
                     continue
                 if lm is None:
-                    lm = L.LM(size)
+                    lm = L.LM(size[:4])
                     before = pipeline.base_eval(lm, suite, recipe.eval_max_new)
                     res["base"][size] = measure.summary(before)
                 ex = datamod.load_dataset(ROOT / "examples" / "datasets" / f"{name}.jsonl")
-                tuned, info = L.sft(lm, datamod.to_training_pairs(lm, ex), recipe, seed=seed)
+                rec = L.Recipe(sft_steps=QUICK_STEPS) if size == "135Mq" else recipe
+                tuned, info = L.sft(lm, datamod.to_training_pairs(lm, ex), rec, seed=seed)
                 ev = measure.evaluate(tuned, suite, recipe.eval_max_new)
                 lm = L.drop_lora(tuned)
                 res["runs"][key] = {"acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
@@ -94,6 +96,11 @@ def summarize(res):
                                                      "cand": res["runs"][f"{r['name']}|135M|0"]["cand_gain"]}},
                 "target": r["target"]} for r in rows]
     cal135 = fc.make_calibration(rows135, params, small=("135M",))
+    # the quick-mode recipe (135M, 30 steps, 1 seed) -> 1.7B (60 steps)
+    rows_q = [{"name": r["name"], "small": {"135M": {"acc": res["runs"][f"{r['name']}|135Mq|0"]["acc_gain"],
+                                                    "cand": res["runs"][f"{r['name']}|135Mq|0"]["cand_gain"]}},
+               "target": r["target"]} for r in rows if f"{r['name']}|135Mq|0" in res["runs"]]
+    cal_q = fc.make_calibration(rows_q, params, small=("135M",)) if len(rows_q) >= 6 else None
     # the same forecasters with the smooth score as the target ("acc" slot holds the smooth score)
     rows_c = [{"name": r["name"], "small": {s: {"acc": r["all"][s]["cand"], "cand": r["all"][s]["acc"]} for s in L.SMALL},
                "target": r["all"][L.TARGET]["cand"]} for r in rows]
@@ -120,7 +127,7 @@ def summarize(res):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", action="store_true")
-    ap.add_argument("--sizes", default="135M,360M,1.7B")
+    ap.add_argument("--sizes", default="135Mq,135M,360M,1.7B")
     a = ap.parse_args()
     res = json.loads(OUT.read_text()) if a.report else run(a.sizes.split(","))
     s = summarize(res)

@@ -83,6 +83,18 @@
    "cand_gain": -0.235,
    "train_s": 48.2,
    "loss_last": 0.2305
+  },
+  "hard_cot|135M|0": {
+   "acc_gain": 16.5,
+   "cand_gain": 15.529,
+   "train_s": 89.1,
+   "loss_last": 0.1399
+  },
+  "hard_cot|135M|1": {
+   "acc_gain": 15.0,
+   "cand_gain": 14.499,
+   "train_s": 101.8,
+   "loss_last": 0.1528
   }
  },
  "base": {

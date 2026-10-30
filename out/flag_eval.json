@@ -2492,5 +2492,571 @@
     },
     "exact_match_after": 0.8695652173913043,
     "exact_match_before": 0.2608695652173913
+  },
+  "dev": {
+    "items": [
+      {
+        "id": "northwind_arith",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0026,
+          "dup_rate": 0.09060000000000001,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 45.5
+      },
+      {
+        "id": "mirror_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.04920000000000002,
+          "off_topic_share": 0.0,
+          "hackability": 0.005,
+          "worst_exploit": "copy a prompt span (first+4)",
+          "grader_flagged": false,
+          "answer_leakage": 0.012
+        },
+        "seconds": 106.5
+      },
+      {
+        "id": "clone_arith",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [
+          "copied_from_public"
+        ],
+        "before": [
+          "copied_from_public"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.8094,
+          "dup_rate": 0.1604,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 101.0
+      },
+      {
+        "id": "quickgrade_arith",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0321,
+          "dup_rate": 0.2992,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "hedge: right then wrong",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 438.0
+      },
+      {
+        "id": "shapeonly_arith",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [
+          "gameable_grader"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0274,
+          "dup_rate": 0.30800000000000005,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "same shape, wrong content",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 138.8
+      },
+      {
+        "id": "hintleak_arith",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "after": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "before": [
+          "gameable_grader"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.3012,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "copy a prompt span (last-1)",
+          "grader_flagged": true,
+          "answer_leakage": 1.0
+        },
+        "seconds": 261.5
+      },
+      {
+        "id": "public_arith",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [
+          "copied_from_public"
+        ],
+        "before": [
+          "copied_from_public"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 1.0,
+          "dup_rate": 0.124,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 107.0
+      },
+      {
+        "id": "good_cot",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0057,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 4.1
+      },
+      {
+        "id": "good_short",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0334,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 2.9
+      },
+      {
+        "id": "hard_cot",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0026,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.4
+      },
+      {
+        "id": "small_good",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 1.5
+      },
+      {
+        "id": "noisy_20",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [
+          "noisy_labels"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0154,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.1
+      },
+      {
+        "id": "noisy_50",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [
+          "noisy_labels"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0306,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.9
+      },
+      {
+        "id": "noisy_80",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [
+          "noisy_labels"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0098,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.0
+      },
+      {
+        "id": "wrong_all",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [
+          "noisy_labels"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0212,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 5.3
+      },
+      {
+        "id": "short_noisy_30",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.014,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.2
+      },
+      {
+        "id": "offtopic",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0012499999999999734,
+          "off_topic_share": 1.0
+        },
+        "seconds": 4.5
+      },
+      {
+        "id": "half_offtopic",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0228,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.51
+        },
+        "seconds": 3.2
+      },
+      {
+        "id": "mostly_offtopic",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0014,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.875
+        },
+        "seconds": 4.3
+      },
+      {
+        "id": "gsm8k_clone",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [
+          "copied_from_public"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 1.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0525
+        },
+        "seconds": 7.1
+      },
+      {
+        "id": "contaminated",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.53,
+          "public_overlap": 0.047,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.6
+      },
+      {
+        "id": "duplicated",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "duplicated"
+        ],
+        "after": [
+          "duplicated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0526,
+          "dup_rate": 0.9666666666666667,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.2
+      }
+    ],
+    "after": {
+      "gameable_grader": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "positives": 3,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "answer_leakage": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "positives": 1,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "contaminated": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "positives": 1,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "copied_from_public": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "positives": 3,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "duplicated": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "positives": 1,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "noisy_labels": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 1,
+        "positives": 5,
+        "precision": 1.0,
+        "recall": 0.8
+      },
+      "off_topic": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "positives": 3,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "all": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.941
+      }
+    },
+    "before": {
+      "gameable_grader": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 1,
+        "positives": 3,
+        "precision": 1.0,
+        "recall": 0.667
+      },
+      "answer_leakage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "positives": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "contaminated": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "positives": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "copied_from_public": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 1,
+        "positives": 3,
+        "precision": 1.0,
+        "recall": 0.667
+      },
+      "duplicated": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "positives": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "noisy_labels": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "positives": 5,
+        "precision": null,
+        "recall": 0.0
+      },
+      "off_topic": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "positives": 3,
+        "precision": null,
+        "recall": 0.0
+      },
+      "all": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 13,
+        "precision": 1.0,
+        "recall": 0.235
+      }
+    },
+    "exact_match_after": 0.9545454545454546,
+    "exact_match_before": 0.4090909090909091
   }
 }

@@ -4,3 +4,35 @@
 [dev] ok  quickgrade_arith       truth=['gameable_grader'] after=['gameable_grader'] before=[]
 '(ProtocolError('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer')), '(Request ID: 99515768-3c93-4a71-b8e1-b020d290b0ea)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
 Retrying in 1s [Retry 1/5].
+[dev] ok  shapeonly_arith        truth=['gameable_grader'] after=['gameable_grader'] before=['gameable_grader']
+[dev] ok  hintleak_arith         truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[dev] ok  public_arith           truth=['copied_from_public'] after=['copied_from_public'] before=['copied_from_public']
+[dev] ok  good_cot               truth=[] after=[] before=[]
+[dev] ok  good_short             truth=[] after=[] before=[]
+[dev] ok  hard_cot               truth=[] after=[] before=[]
+[dev] ok  small_good             truth=[] after=[] before=[]
+[dev] ok  noisy_20               truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[dev] ok  noisy_50               truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[dev] ok  noisy_80               truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[dev] ok  wrong_all              truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[dev] ERR short_noisy_30         truth=['noisy_labels'] after=[] before=[]
+[dev] ok  offtopic               truth=['off_topic'] after=['off_topic'] before=[]
+[dev] ok  half_offtopic          truth=['off_topic'] after=['off_topic'] before=[]
+[dev] ok  mostly_offtopic        truth=['off_topic'] after=['off_topic'] before=[]
+[dev] ok  gsm8k_clone            truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[dev] ok  contaminated           truth=['contaminated'] after=['contaminated'] before=[]
+[dev] ok  duplicated             truth=['duplicated'] after=['duplicated'] before=[]
+
+DEV
+| Flag | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 3 | 1.0 / 0.667 | 1.0 / 1.0 |
+| answer_leakage | 1 | None / 0.0 | 1.0 / 1.0 |
+| contaminated | 1 | None / 0.0 | 1.0 / 1.0 |
+| copied_from_public | 3 | 1.0 / 0.667 | 1.0 / 1.0 |
+| duplicated | 1 | None / 0.0 | 1.0 / 1.0 |
+| noisy_labels | 5 | None / 0.0 | 1.0 / 0.8 |
+| off_topic | 3 | None / 0.0 | 1.0 / 1.0 |
+| all | 17 | 1.0 / 0.235 | 1.0 / 0.941 |
+
+Items with exactly the right flag set: before 41%, after 95% (n=22).

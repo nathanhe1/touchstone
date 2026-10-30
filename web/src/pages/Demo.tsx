@@ -22,8 +22,10 @@ function Report({ v }: { v: View }) {
     <motion.div className="demo-report" initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5, ease }}>
       <div className="demo-verdict">
         <div><small>Grade</small><Rating grade={v.grade} /></div>
-        <div><small>Fair value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0 && <span className="dim">blocked by {v.blockedBy.join(', ').replace(/_/g, ' ')}</span>}</div>
-        <div><small>Net gain on held-out tasks{v.forecast?.target ? `, forecast at ${v.forecast.target}` : ''}</small><b className={blocked ? 'muted' : (v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'n/a'}</b>{v.forecast && <span className="dim">{blocked ? 'Not trusted: see the red flags below' : `90% range ${pts(v.forecast.lo)} to ${pts(v.forecast.hi)}`}</span>}</div>
+        <div><small>Fair value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0
+          ? <span className="dim">blocked by {v.blockedBy.join(', ').replace(/_/g, ' ')}</span>
+          : v.dollarsPerPoint ? <span className="dim">at {usd(v.dollarsPerPoint)} per point, the buyer's assumption</span> : null}</div>
+        <div><small>Net gain on held-out tasks{v.forecast ? `, ${v.forecast.where}` : ''}</small><b className={blocked ? 'muted' : (v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'Not trained'}</b>{!v.forecast && v.screened && <span className="dim">Screening already ruled out a price</span>}{v.forecast && <span className="dim">{blocked ? 'Not trusted: see the red flags below' : `90% range ${pts(v.forecast.lo)} to ${pts(v.forecast.hi)}`}</span>}</div>
       </div>
 
       <div className="demo-flags">
@@ -34,8 +36,10 @@ function Report({ v }: { v: View }) {
 
       <div className="demo-grid">
         <section>
-          <h4>Gain over a placebo run, by model size</h4>
-          <p className="dim">Accuracy change on {v.heldout ? `${v.heldout.n} private ${v.heldout.domain} problems` : 'the private held-out suite'}, after subtracting a control run.</p>
+          <h4>{v.gains.length ? 'Gain over a placebo run, by model size' : 'Training'}</h4>
+          {v.gains.length > 0
+            ? <p className="dim">Accuracy change on {v.heldout ? `${v.heldout.n} private held-out problems (${v.heldout.domain})` : 'the private held-out suite'}, after subtracting a control run.</p>
+            : <p className="dim">No model was trained. Screening found a blocking problem first, so a training run would only spend GPU time.</p>}
           <div className="demo-bars">
             {v.gains.map(g => (
               <div key={g.size} className="demo-bar">
@@ -68,7 +72,7 @@ function Report({ v }: { v: View }) {
           </section>
         )}
       </div>
-      <p className="demo-foot dim">{v.items ? `${v.items.toLocaleString('en-US')} items · ` : ''}{v.models.length ? `models: ${v.models.join(', ')} · ` : ''}{v.runtime ? `ran in ${Math.round(v.runtime / 60)} min` : ''}</p>
+      <p className="demo-foot dim">{v.items ? `${v.items.toLocaleString('en-US')} items · ` : ''}{v.models.length ? `models: ${v.models.join(', ')} · ` : ''}{v.runtime ? `ran in ${v.runtime < 90 ? `${Math.round(v.runtime)} s` : `${Math.round(v.runtime / 60)} min`}` : ''}</p>
     </motion.div>
   )
 }

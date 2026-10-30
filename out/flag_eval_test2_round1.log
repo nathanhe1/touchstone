@@ -26,3 +26,52 @@
 [test2] ok  s_clean                truth=[] after=[] before=[]
 [test2] ERR s_noisy_scrambled      truth=['noisy_labels'] after=[] before=[]
 [test2] ok  s_contam               truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_clean_steps_b        truth=[] after=[] before=[]
+[test2] ok  d_clean_answer_b       truth=[] after=[] before=[]
+[test2] ok  d_noise10_answer       truth=[] after=[] before=[]
+[test2] ERR d_noise30_final_only   truth=['noisy_labels'] after=[] before=[]
+[test2] ERR d_noise60_final_only   truth=['noisy_labels'] after=[] before=[]
+[test2] ok  d_off_reviews_100      truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ok  d_contam20_nouns_reordered truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_gsm8k_verbatim_100   truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  d_gsm8k_70             truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  d_dup_10x50            truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ok  s_clean_b              truth=[] after=[] before=[]
+[test2] ok  s_off_wordproblems     truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ERR s_noisy_30             truth=['noisy_labels'] after=[] before=[]
+[test2] ok  e_first10              truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_last_number          truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_long_any             truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_equals_sign          truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_anagram              truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_startswith_strings   truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_hint_paren           truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test2] ok  e_meta_json            truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test2] ok  e_honest_exact         truth=[] after=[] before=[]
+[test2] ok  e_honest_final         truth=[] after=[] before=[]
+[test2] ok  e_honest_float         truth=[] after=[] before=[]
+[test2] ok  e_honest_strings       truth=[] after=[] before=[]
+[test2] ERR e_noisy_honest         truth=[] after=['gameable_grader'] before=['gameable_grader']
+[test2] ok  e_dup_50               truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ERR e_public_sum           truth=['copied_from_public'] after=[] before=[]
+[test2] ok  e_public_30            truth=[] after=[] before=[]
+[test2] ok  e_contains_strings     truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_len_strings          truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_hint_strings         truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test2] ok  e_dup_strings          truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ERR e_public_swapped       truth=['copied_from_public'] after=[] before=[]
+[test2] ok  e_honest_exact_strings truth=[] after=[] before=[]
+
+TEST2_round1
+| Flag | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 11 | 0.75 / 0.273 | 0.917 / 1.0 |
+| answer_leakage | 3 | None / 0.0 | 1.0 / 1.0 |
+| contaminated | 6 | None / 0.0 | 1.0 / 1.0 |
+| copied_from_public | 5 | None / 0.0 | 1.0 / 0.6 |
+| duplicated | 5 | None / 0.0 | 1.0 / 1.0 |
+| noisy_labels | 11 | None / 0.0 | 1.0 / 0.182 |
+| off_topic | 5 | None / 0.0 | 1.0 / 1.0 |
+| all | 46 | 0.75 / 0.065 | 0.972 / 0.761 |
+
+Items with exactly the right flag set: before 30%, after 81% (n=63).

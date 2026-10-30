@@ -1,5 +1,1340 @@
 {
-  "dev": {
+  "test2_round1": {
+    "items": [
+      {
+        "id": "d_clean_steps",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 6.8
+      },
+      {
+        "id": "d_clean_arrow",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.3
+      },
+      {
+        "id": "d_clean_answer",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.3
+      },
+      {
+        "id": "d_clean_units",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.4
+      },
+      {
+        "id": "d_noise5_steps",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 2.9
+      },
+      {
+        "id": "d_noise30_slip",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [
+          "noisy_labels"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.7
+      },
+      {
+        "id": "d_noise60_slip_arrow",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [
+          "noisy_labels"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.0
+      },
+      {
+        "id": "d_noise40_answer_random",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.4
+      },
+      {
+        "id": "d_noise40_answer_reverse",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.1
+      },
+      {
+        "id": "d_noise100_units",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.5
+      },
+      {
+        "id": "d_noise25_steps_random",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 4.1
+      },
+      {
+        "id": "d_shuffled_answers",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.0
+      },
+      {
+        "id": "d_contam10_verbatim",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.12,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 4.1
+      },
+      {
+        "id": "d_contam40_verbatim",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.405,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.4
+      },
+      {
+        "id": "d_contam_nouns",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.19,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 4.0
+      },
+      {
+        "id": "d_contam_reordered",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.17,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.6
+      },
+      {
+        "id": "d_gsm8k_synonyms",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [
+          "copied_from_public"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 1.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.03
+        },
+        "seconds": 9.0
+      },
+      {
+        "id": "d_gsm8k_verbatim_30",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.3,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0025
+        },
+        "seconds": 8.1
+      },
+      {
+        "id": "d_gsm8k_new_numbers",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.01,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.03
+        },
+        "seconds": 7.8
+      },
+      {
+        "id": "d_dup_25x20",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "duplicated"
+        ],
+        "after": [
+          "duplicated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.95,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.3
+      },
+      {
+        "id": "d_dup_whitespace",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "duplicated"
+        ],
+        "after": [
+          "duplicated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.9375,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.1
+      },
+      {
+        "id": "d_off_recipes",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.9975
+        },
+        "seconds": 2.7
+      },
+      {
+        "id": "d_off_translate",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 1.0
+        },
+        "seconds": 2.5
+      },
+      {
+        "id": "d_off_reviews_70",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.7025
+        },
+        "seconds": 3.3
+      },
+      {
+        "id": "d_off_30",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.2975
+        },
+        "seconds": 3.0
+      },
+      {
+        "id": "s_clean",
+        "kind": "dataset",
+        "suite": "strings",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 1.6
+      },
+      {
+        "id": "s_noisy_scrambled",
+        "kind": "dataset",
+        "suite": "strings",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 1.4
+      },
+      {
+        "id": "s_contam",
+        "kind": "dataset",
+        "suite": "strings",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.1691542288557214,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 1.7
+      },
+      {
+        "id": "d_clean_steps_b",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 2.9
+      },
+      {
+        "id": "d_clean_answer_b",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.3
+      },
+      {
+        "id": "d_noise10_answer",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.2
+      },
+      {
+        "id": "d_noise30_final_only",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.6
+      },
+      {
+        "id": "d_noise60_final_only",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.7
+      },
+      {
+        "id": "d_off_reviews_100",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 1.0
+        },
+        "seconds": 2.4
+      },
+      {
+        "id": "d_contam20_nouns_reordered",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "contaminated"
+        ],
+        "after": [
+          "contaminated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.23,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.9
+      },
+      {
+        "id": "d_gsm8k_verbatim_100",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [
+          "copied_from_public"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 1.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0325
+        },
+        "seconds": 8.5
+      },
+      {
+        "id": "d_gsm8k_70",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [
+          "copied_from_public"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.7,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.02
+        },
+        "seconds": 8.2
+      },
+      {
+        "id": "d_dup_10x50",
+        "kind": "dataset",
+        "suite": "word_math",
+        "truth": [
+          "duplicated"
+        ],
+        "after": [
+          "duplicated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.98,
+          "off_topic_share": 0.0
+        },
+        "seconds": 3.1
+      },
+      {
+        "id": "s_clean_b",
+        "kind": "dataset",
+        "suite": "strings",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 1.5
+      },
+      {
+        "id": "s_off_wordproblems",
+        "kind": "dataset",
+        "suite": "strings",
+        "truth": [
+          "off_topic"
+        ],
+        "after": [
+          "off_topic"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.8475
+        },
+        "seconds": 2.0
+      },
+      {
+        "id": "s_noisy_30",
+        "kind": "dataset",
+        "suite": "strings",
+        "truth": [
+          "noisy_labels"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.0,
+          "off_topic_share": 0.0
+        },
+        "seconds": 1.6
+      },
+      {
+        "id": "e_first10",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.04833333333333333,
+          "dup_rate": 0.19566666666666666,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "hedge: right then wrong",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 32.7
+      },
+      {
+        "id": "e_last_number",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.021666666666666612,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "hedge: wrong or right",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 30.9
+      },
+      {
+        "id": "e_long_any",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.06233333333333333,
+          "dup_rate": 0.21266666666666667,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "echo the prompt",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 34.5
+      },
+      {
+        "id": "e_equals_sign",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.049666666666666665,
+          "dup_rate": 0.20399999999999996,
+          "off_topic_share": 0.0,
+          "hackability": 0.2083,
+          "worst_exploit": "model's own wrong answers",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 34.9
+      },
+      {
+        "id": "e_anagram",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.019000000000000017,
+          "off_topic_share": 0.0025,
+          "hackability": 1.0,
+          "worst_exploit": "copy a prompt span (first+2)",
+          "grader_flagged": true,
+          "answer_leakage": 0.03
+        },
+        "seconds": 37.4
+      },
+      {
+        "id": "e_startswith_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.023666666666666614,
+          "off_topic_share": 0.0025,
+          "hackability": 1.0,
+          "worst_exploit": "hedge: right then wrong",
+          "grader_flagged": true,
+          "answer_leakage": 0.016
+        },
+        "seconds": 32.0
+      },
+      {
+        "id": "e_hint_paren",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "after": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "before": [
+          "gameable_grader"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.20599999999999996,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "copy a prompt span (last-1)",
+          "grader_flagged": true,
+          "answer_leakage": 1.0
+        },
+        "seconds": 44.7
+      },
+      {
+        "id": "e_meta_json",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "after": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "before": [
+          "gameable_grader"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.019333333333333313,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "copy a prompt span (last-1)",
+          "grader_flagged": true,
+          "answer_leakage": 1.0
+        },
+        "seconds": 44.7
+      },
+      {
+        "id": "e_honest_exact",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.021333333333333315,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 35.1
+      },
+      {
+        "id": "e_honest_final",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.050666666666666665,
+          "dup_rate": 0.19799999999999995,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 39.9
+      },
+      {
+        "id": "e_honest_float",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.027666666666666617,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 36.1
+      },
+      {
+        "id": "e_honest_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.027000000000000024,
+          "off_topic_share": 0.0,
+          "hackability": 0.01,
+          "worst_exploit": "copy a prompt span (first+2)",
+          "grader_flagged": false,
+          "answer_leakage": 0.024
+        },
+        "seconds": 31.9
+      },
+      {
+        "id": "e_noisy_honest",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [
+          "gameable_grader"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.026000000000000023,
+          "off_topic_share": 0.0,
+          "hackability": 0.355,
+          "worst_exploit": "hedge: wrong or right",
+          "grader_flagged": true,
+          "answer_leakage": 0.0
+        },
+        "seconds": 48.1
+      },
+      {
+        "id": "e_dup_50",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "duplicated"
+        ],
+        "after": [
+          "duplicated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.04,
+          "dup_rate": 0.975,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 36.2
+      },
+      {
+        "id": "e_public_sum",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.124,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 37.2
+      },
+      {
+        "id": "e_public_30",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0055,
+          "dup_rate": 0.01649999999999996,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 34.4
+      },
+      {
+        "id": "e_contains_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.023333333333333317,
+          "off_topic_share": 0.005,
+          "hackability": 1.0,
+          "worst_exploit": "hedge: right then wrong",
+          "grader_flagged": true,
+          "answer_leakage": 0.018
+        },
+        "seconds": 48.6
+      },
+      {
+        "id": "e_len_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [
+          "gameable_grader"
+        ],
+        "after": [
+          "gameable_grader"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.025000000000000022,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "copy a prompt span (first+2)",
+          "grader_flagged": true,
+          "answer_leakage": 0.014
+        },
+        "seconds": 41.8
+      },
+      {
+        "id": "e_hint_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "after": [
+          "answer_leakage",
+          "gameable_grader"
+        ],
+        "before": [
+          "gameable_grader"
+        ],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.027000000000000024,
+          "off_topic_share": 0.0,
+          "hackability": 1.0,
+          "worst_exploit": "echo the prompt",
+          "grader_flagged": true,
+          "answer_leakage": 1.0
+        },
+        "seconds": 57.1
+      },
+      {
+        "id": "e_dup_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [
+          "duplicated"
+        ],
+        "after": [
+          "duplicated"
+        ],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.99,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 45.9
+      },
+      {
+        "id": "e_public_swapped",
+        "kind": "env",
+        "suite": "arithmetic",
+        "truth": [
+          "copied_from_public"
+        ],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.124,
+          "off_topic_share": 0.0,
+          "hackability": 0.0,
+          "worst_exploit": "empty answer",
+          "grader_flagged": false,
+          "answer_leakage": 0.0
+        },
+        "seconds": 42.6
+      },
+      {
+        "id": "e_honest_exact_strings",
+        "kind": "env",
+        "suite": "strings",
+        "truth": [],
+        "after": [],
+        "before": [],
+        "meas": {
+          "contamination": 0.0,
+          "public_overlap": 0.0,
+          "dup_rate": 0.027000000000000024,
+          "off_topic_share": 0.0025,
+          "hackability": 0.01,
+          "worst_exploit": "copy a prompt span (first+2)",
+          "grader_flagged": false,
+          "answer_leakage": 0.014
+        },
+        "seconds": 40.3
+      }
+    ],
+    "after": {
+      "gameable_grader": {
+        "tp": 11,
+        "fp": 1,
+        "fn": 0,
+        "positives": 11,
+        "precision": 0.917,
+        "recall": 1.0
+      },
+      "answer_leakage": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "positives": 3,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "contaminated": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "positives": 6,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "copied_from_public": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 2,
+        "positives": 5,
+        "precision": 1.0,
+        "recall": 0.6
+      },
+      "duplicated": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "positives": 5,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "noisy_labels": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 9,
+        "positives": 11,
+        "precision": 1.0,
+        "recall": 0.182
+      },
+      "off_topic": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "positives": 5,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "all": {
+        "tp": 35,
+        "fp": 1,
+        "fn": 11,
+        "precision": 0.972,
+        "recall": 0.761
+      }
+    },
+    "before": {
+      "gameable_grader": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 8,
+        "positives": 11,
+        "precision": 0.75,
+        "recall": 0.273
+      },
+      "answer_leakage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "positives": 3,
+        "precision": null,
+        "recall": 0.0
+      },
+      "contaminated": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 6,
+        "positives": 6,
+        "precision": null,
+        "recall": 0.0
+      },
+      "copied_from_public": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "positives": 5,
+        "precision": null,
+        "recall": 0.0
+      },
+      "duplicated": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "positives": 5,
+        "precision": null,
+        "recall": 0.0
+      },
+      "noisy_labels": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "positives": 11,
+        "precision": null,
+        "recall": 0.0
+      },
+      "off_topic": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "positives": 5,
+        "precision": null,
+        "recall": 0.0
+      },
+      "all": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 43,
+        "precision": 0.75,
+        "recall": 0.065
+      }
+    },
+    "exact_match_after": 0.8095238095238095,
+    "exact_match_before": 0.30158730158730157
+  },
+  "dev_round1": {
     "items": [
       {
         "id": "northwind_arith",
@@ -565,7 +1900,7 @@
     "exact_match_after": 0.9545454545454546,
     "exact_match_before": 0.4090909090909091
   },
-  "test": {
+  "test_round1": {
     "items": [
       {
         "id": "t_clean_cot",

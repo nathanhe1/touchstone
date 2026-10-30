@@ -115,9 +115,9 @@ def render(r: dict) -> str:
     if fcast.get("smooth"):
         sm = fcast["smooth"]
         w(f"\nSmooth score (probability on the right answer against near misses), ranked at {sm['rung']}: "
-          f"{sm['point']:+.1f} pts ({sm['lo']:+.1f} to {sm['hi']:+.1f}). In validation this ranking picked the "
-          "larger model's winner far more reliably than accuracy (91% vs 56% of pairs on 16 RL environments); "
-          "use it to compare materials.")
+          f"{sm['point']:+.1f} pts ({sm['lo']:+.1f} to {sm['hi']:+.1f}). This is a secondary signal: it predicts "
+          "the larger model's smooth score well, but neither it nor accuracy at the small size reliably predicts "
+          "the larger model's accuracy (see METHOD.md for the measured decision accuracies).")
     if "measured_at_target" in fcast:
         mt = fcast["measured_at_target"]
         w(f"\nMeasured at {fcast['target']} in this run: material {mt['material']:+.1f} pts, net {mt['net']:+.1f} pts.")

@@ -20,6 +20,8 @@ from __future__ import annotations
 
 HACK_LIMIT = 0.2
 CONTAM_LIMIT = 0.05
+LEAK_LIMIT = 0.2      # answer verbatim in the prompt for a fifth of tasks or more
+OFFTOPIC_LIMIT = 0.5  # half the material or more unrelated to the held-out domain
 PUBLIC_LIMIT = 0.5   # half or more already free: grade capped at D, priced on the novel share
 PUBLIC_BLOCK = 0.8   # four fifths or more already free: a copy, not priced
 ORDER = "ABCDF"

@@ -57,6 +57,31 @@ For text with numbers, tiers 2 and 3 also require the same multiset of numbers. 
 
 Overlap is checked against the held-out suite (contamination: more than 5% blocks the price and caps the grade at D) and against a free public baseline (GSM8K train for `word_math`; your `--public` file otherwise). The share already free discounts the price, and more than half free caps the grade at C.
 
+### Other static screens
+
+- **Label noise** (`screen.py`): every `expression = number` in a worked solution is re-computed (the maximal arithmetic expression left of `=`, evaluated safely). The flag fires at 10% or more of solutions with an error. On real GSM8K the rate is 1.3% (fractions and times the parser misreads), against 0% for clean data and 22-100% for the planted noisy sets. It cannot see errors in answer-only data. A label-plausibility score from SmolLM2-360M was tried and rejected on the development set, because it could not separate clean answer-only labels (0.42) from 30%-noisy ones (0.46). A stronger judge (for example sampling a 7B+ model and counting confident disagreements, the Cleanlab idea) is the fix; it does not fit this laptop's time budget.
+- **Off-topic**: share of material prompts whose nearest held-out item has a MiniLM cosine below 0.35; flagged at half or more.
+- **Answer leakage** (environments): the reference answer appears verbatim in the prompt for 20% or more of tasks.
+
+### How accurate are the red flags?
+
+`scripts/eval_flags.py`, `out/flag_eval.md`. Thresholds were set on the development set (the sample environments and example datasets) and frozen. A **held-out test set** was then written with new generators: different templates and wording, label noise by shuffling and by uniform random answers, contamination by verbatim copies and by question-first rewording, a reworded GSM8K slice, trivia and code as off-topic data, and five new grader bugs (prefix match, ±10 tolerance, always-1, case-insensitive substring, a bonus for long replies). It was evaluated once. "Before" is the original prototype's detectors.
+
+| Flag (test set, 23 items) | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 6 | 1.00 / 0.33 | 1.00 / 1.00 |
+| answer_leakage | 1 | - / 0.00 | 1.00 / 1.00 |
+| contaminated | 3 | - / 0.00 | 1.00 / 1.00 |
+| copied_from_public | 2 | - / 0.00 | 1.00 / 0.50 |
+| duplicated | 2 | - / 0.00 | 1.00 / 1.00 |
+| noisy_labels | 3 | - / 0.00 | 1.00 / 0.33 |
+| off_topic | 2 | - / 0.00 | 1.00 / 1.00 |
+| **all** | 19 | 1.00 / 0.11 | **1.00 / 0.84** |
+
+Items with exactly the right set of flags: 26% before, 87% after. On the development set: 1.00 / 0.94 overall. No false flag was raised on any clean item in either set. The misses: two answer-only noisy datasets (no static detector, see above; training then shows no measurable gain, so they are still not priced), and one environment whose tasks are the free addition set reworded ("What's 65 plus 41? Just the number."): MiniLM puts very short arithmetic prompts below the paraphrase threshold. A same-numbers-only rule for short prompts would catch it, but adding it now would be tuning on the test set, so it waits for a fresh test set.
+
+**A correct dataset that tests as harmful.** `good_short` (correct answers, no working shown) lowers 135M held-out accuracy by about 9 points. This is not a formatting bug: the chat and prompt/completion paths produce identical training text (regression test `test_messages_and_prompt_completion_train_identically`), and the scorer reads "The answer is 15." correctly. The model learns to answer without working the problem out and gets multi-step problems wrong (79 becomes 15). The report now names this (`suppresses_reasoning`, from reply length collapsing by more than 60% while accuracy falls) so a buyer sees why.
+
 ## 6. Forecast: small to large
 
 ### Methods compared

@@ -179,6 +179,7 @@ def screen_dataset(examples, suite, lm=None, judge=None) -> dict:
     eq = out["arithmetic"]["rate"]
     # Plausibility is reported but not used to flag: on the dev set the 360M reference model could not
     # separate clean answer-only labels (0.42) from 30%-noisy ones (0.46). Only arithmetic consistency flags.
-    out["noisy"] = bool(eq is not None and eq >= NOISY_EQ_RATE)
+    jd = (out.get("judge") or {}).get("disagree")
+    out["noisy"] = bool((eq is not None and eq >= NOISY_EQ_RATE) or (jd is not None and jd >= JUDGE_DISAGREE))
     out["off_topic"] = out["relevance"]["off_topic_share"] >= OFFTOPIC_SHARE
     return out

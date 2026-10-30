@@ -42,17 +42,21 @@ def run(sizes):
     suite = suites.word_math_suite().subset(SUITE_ITEMS)
     recipe = L.Recipe()
     t0 = time.time()
-    for size in sizes:
-        lm = None
-        for name in DATASETS:
+    # dataset-major order: each dataset is finished at every size before the next starts, so complete
+    # (small -> 1.7B) validation rows accumulate even if the sweep is stopped early
+    lm, loaded, before = None, None, None
+    for name in DATASETS:
+        for size in sizes:
             for seed in range(SEEDS[size]):
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
                     continue
-                if lm is None:
-                    lm = L.LM(size[:4])
+                if loaded != size[:4]:
+                    del lm
+                    L.free_memory()
+                    lm, loaded = L.LM(size[:4]), size[:4]
                     before = pipeline.base_eval(lm, suite, recipe.eval_max_new)
-                    res["base"][size] = measure.summary(before)
+                    res["base"][size[:4]] = measure.summary(before)
                 ex = datamod.load_dataset(ROOT / "examples" / "datasets" / f"{name}.jsonl")
                 rec = L.Recipe(sft_steps=QUICK_STEPS) if size == "135Mq" else recipe
                 tuned, info = L.sft(lm, datamod.to_training_pairs(lm, ex), rec, seed=seed)
@@ -111,6 +115,7 @@ def summarize(res):
     summary = {"suite": "word_math", "suite_items": SUITE_ITEMS, "seeds": SEEDS, "n_datasets": len(rows),
                "base": res["base"], "validation_from_360M": cal360["validation"],
                "validation_from_135M_one_seed": cal135["validation"], "validation_smooth_target_from_360M": smooth,
+               "validation_quick_recipe": cal_q["validation"] if cal_q else None,
                "seed_to_seed_spearman_135M": noise,
                "table": [{"name": r["name"], **{s: round(r["all"][s]["acc"], 2) for s in L.LADDER},
                           **{f"{s}_prob": round(r["all"][s]["cand"], 2) for s in L.LADDER}} for r in rows]}
@@ -118,7 +123,8 @@ def summarize(res):
     keep = ("coef", "n", "coverage", "interval_halfwidth_pts", "validation")
     CALIB.write_text(json.dumps({"suite": "word_math", "target": L.TARGET, "recipe": L.Recipe().__dict__,
                                  "features": ["intercept", "acc_gain", "prob_gain"],
-                                 "maps": {"135M": {k: cal135[k] for k in keep}, "360M": {k: cal360[k] for k in keep}}},
+                                 "maps": {"135M": {k: cal135[k] for k in keep}, "360M": {k: cal360[k] for k in keep},
+                                          **({"135M_quick": {k: cal_q[k] for k in keep}} if cal_q else {})}},
                                 indent=2))
     (ROOT / "out" / "validation_sft_summary.json").write_text(json.dumps(summary, indent=2))
     return summary

@@ -1,0 +1,19 @@
+{
+  "suite": "word_math",
+  "suite_items": 200,
+  "proxy": "135M",
+  "target": "360M",
+  "n_datasets": 1,
+  "size_ratio": 2.7,
+  "base": {
+    "135M": {
+      "accuracy": 11.5,
+      "candidate_prob": 31.82
+    },
+    "360M": {
+      "accuracy": 52.0,
+      "candidate_prob": 63.98
+    }
+  },
+  "note": "fewer than 4 datasets measured at both sizes"
+}

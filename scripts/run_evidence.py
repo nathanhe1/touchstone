@@ -73,7 +73,7 @@ def table():
         r = json.loads(d.read_text())
         name = d.parent.name
         base = name.replace("-quick", "")
-        top = r["rungs"][r["measurable_at"]]
+        top = r["rungs"].get(r["measurable_at"]) or {"material": {"acc_gain": {"gain": None}}}  # None: screening only
         fd = r.get("forecast_detail") or r["forecast"]
         od = r.get("overlap_detail") or r["overlap"]
         hl = fd.get("headline", fd["net"])
@@ -112,6 +112,8 @@ def table():
                      f"{x['net_forecast']:+.1f} [{x['net_lo']:+.1f}, {x['net_hi']:+.1f}] | {x['raw_gain_top']:+.1f} | {pl} | "
                      f"{hk} | {100 * x['heldout_overlap']:.0f}% | {100 * x['public_overlap']:.0f}% | "
                      f"{', '.join(x['flags']) or 'none'} |")
+    lines.append(f"\nGood-vs-bad decision accuracy of the ranking: {summary['good_vs_bad_decision_accuracy']} "
+                 f"over {summary['pairs']} pairs (good = {', '.join(sorted(g))}).")
     (ROOT / "out" / "evidence.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
 

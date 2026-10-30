@@ -324,7 +324,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         q = screen.screen_dataset(examples, suite, lm, judge)
         del lm, judge
         L.free_memory()
-        out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility") if k in q}
+        out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility", "judge") if k in q}
         if q["noisy"]:
             meas["noisy"] = out["label_quality"]
         log(f"  labels: arithmetic errors in {q['arithmetic']['rate'] if q['arithmetic']['rate'] is not None else 'n/a'} "

@@ -46,7 +46,7 @@ def plan_for(quick: bool, kind: str) -> Plan:
         # Environments have no calibration sweep, so quick RL can use a lighter recipe (30 steps, groups of 4).
         # Quick uses its own lighter recipe; the 135M_quick calibration map was fitted on exactly this recipe.
         rec = L.Recipe(rl_steps=30, rl_group=4) if kind == "env" else L.Recipe(sft_steps=30)
-        return Plan("quick", ["135M"], {"135M": 1}, 80, True, rec)
+        return Plan("quick", ["135M"], {"135M": 1}, 150, True, rec)  # 150 items: enough power to see ~5-pt gains
     return Plan("full", ["135M", "360M", "1.7B"], {"135M": 2, "360M": 2, "1.7B": 1}, 200, True, L.Recipe())
 
 
@@ -255,6 +255,12 @@ def make_forecast(rungs: dict, plan: Plan, calib: dict | None) -> dict:
     else:
         out["net"] = dict(out["material"])
     out["headline"] = dict(out["net"], source="forecast")
+    # The smooth score (probability on the right answer) transfers across scale far better than accuracy:
+    # on 16 RL environments x 3 seeds, ranking by it at the largest small size picked the larger model's
+    # winner 91% of the time, against 56% for accuracy (out/validation_rl_tiny_summary.json).
+    sm = rungs[largest]["net"]["cand"] if plan.placebo else rungs[largest]["material"]["cand_gain"]
+    out["smooth"] = {"point": sm["gain"], "lo": sm["lo"], "hi": sm["hi"], "method": "rank_largest", "rung": largest,
+                     "metric": "probability on the correct answer vs 4 near misses (points)"}
     if L.TARGET in rungs:  # full mode trains the target size too: the measurement beats the forecast
         t = rungs[L.TARGET]
         n = t["net"]["acc"] if plan.placebo else t["material"]["acc_gain"]

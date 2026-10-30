@@ -65,7 +65,7 @@ def render(r: dict) -> str:
       "ones: a smooth score that moves even when small models are rarely fully right.\n")
 
     if r["kind"] == "env":
-        tc, a = r["transfer_check"], r["grader_audit"]
+        tc, a = r.get("transfer_check"), r["grader_audit"]
         w("## Grader audit\n")
         w(f"Known-wrong and junk answers fed to `verify()` on {a['n_probed']} sampled tasks "
           f"({'reference answers available' if a['has_reference'] else 'no reference answers: reference-free probes only'}). "

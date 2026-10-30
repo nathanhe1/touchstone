@@ -14,6 +14,8 @@ import time
 import warnings
 from pathlib import Path
 
+from .valuation import DEFAULT_DOLLARS_PER_POINT
+
 
 def _detect_kind(path: Path) -> str:
     if path.is_dir() or path.suffix == ".py":
@@ -123,8 +125,8 @@ def main(argv=None) -> int:
                    help="largest rung to train in full mode (1.7B needs ~24 GB unified memory or a GPU box)")
     p.add_argument("--suite-items", type=int, help="override the number of held-out items scored")
     p.add_argument("--steps", type=int, help="override training steps (smoke tests; breaks forecast calibration)")
-    p.add_argument("--dollars-per-point", type=float, default=250_000.0,
-                   help="what one held-out accuracy point is worth to the buyer (assumption; default 250000)")
+    p.add_argument("--dollars-per-point", type=float, default=DEFAULT_DOLLARS_PER_POINT,
+                   help="what one held-out accuracy point is worth to the buyer (assumption; default %(default).0f)")
     p.add_argument("--out", help="output folder (default reports/<name>-<timestamp>)")
     p.set_defaults(fn=cmd_appraise)
     sv = sub.add_parser("serve", help="run the web API (and the website, if built)")

@@ -60,6 +60,12 @@ def flags_for(r: dict) -> list[dict]:
     if not r.get("measurable", False):
         f.append({"code": "no_measurable_gain", "severity": "block",
                   "text": "No measurable gain above placebo on the held-out suite at the largest trained size."})
+    if r.get("suppresses_reasoning"):
+        rb, ra = r["suppresses_reasoning"]
+        f.append({"code": "suppresses_reasoning", "severity": "info",
+                  "text": f"After training the model stops working problems out (average reply {rb:.0f} -> {ra:.0f} "
+                          "characters) and accuracy falls. Answer-only data teaches small models to skip their "
+                          "reasoning; it may still suit a model that reasons in a separate step."})
     if r.get("harmful"):
         f.append({"code": "harmful", "severity": "block",
                   "text": "Training on this material measurably lowers held-out accuracy."})

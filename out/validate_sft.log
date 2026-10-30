@@ -1,0 +1,19 @@
+good_cot|135M|0: acc +8.5 cand +11.6 (543s)
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/tokenizer_config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: 3efdec2d-1a02-4499-99d5-6f9b5db2c96c)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/tokenizer_config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: c6a82b58-f8d8-41d4-9b6f-e6cf4087781c)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/tokenizer_config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: b00e1de5-7b9b-43a8-962c-6f7ff2162fe4)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 63626747-c3f8-4f7a-a7d5-a8856f97a9fd)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/generation_config.json
+Retrying in 1s [Retry 1/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/generation_config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: 31bd10f1-0cee-479c-9c32-2ae8046dabbd)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/generation_config.json
+Retrying in 2s [Retry 2/5].
+good_cot|135M|1: acc +12.0 cand +14.2 (514s)
+good_short|135M|0: acc -5.5 cand +1.3 (665s)
+good_short|135M|1: acc -5.5 cand +1.8 (878s)
+Python(29580) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+noisy_20|135M|0: acc +12.0 cand +12.9 (4444s)
+noisy_20|135M|1: acc +14.5 cand +13.5 (4856s)
+noisy_50|135M|0: acc +9.0 cand +9.4 (5030s)
+noisy_50|135M|1: acc +9.5 cand +9.8 (5318s)

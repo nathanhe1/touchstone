@@ -101,12 +101,22 @@
    "cand_gain": 9.414,
    "train_s": 41.9,
    "loss_last": 0.1838
+  },
+  "good_cot|360M|0": {
+   "acc_gain": -3.0,
+   "cand_gain": 0.414,
+   "train_s": 210.3,
+   "loss_last": 0.014
   }
  },
  "base": {
   "135M": {
    "accuracy": 11.5,
    "candidate_prob": 31.82
+  },
+  "360M": {
+   "accuracy": 52.0,
+   "candidate_prob": 63.98
   }
  }
 }

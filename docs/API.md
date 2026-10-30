@@ -68,7 +68,7 @@ The top-level fields below are the stable contract. Everything else in the file 
 | `overlap` | object | `{"suite": share of held-out items found in the material (or of the material matching the suite, whichever is larger), "public": share already in free public data, "duplicates": share of repeated items}`, each 0-1 |
 | `probes` | object | `{probe name: reward earned 0-1}` from the grader audit (empty for datasets) |
 | `gains_by_size` | object | `{"135M": {"net", "lo", "hi", "raw", "placebo"}, ...}`: held-out accuracy points; `net` = material minus placebo (only a helpful placebo is subtracted), `lo`/`hi` its 90% interval |
-| `forecast` | object | `{"value", "lo", "hi", "method", "target", "source"}`: net gain at `target` (1.7B). `source` is `measured` in full mode (1.7B was trained) or `forecast`; `method` is e.g. `calibrated from 135M`, `rank_largest` or `measured` |
+| `forecast` | object | `{"value", "lo", "hi", "method", "target", "source", "smooth_value", "smooth_lo", "smooth_hi"}`: net accuracy gain at `target` (1.7B). `source` is `measured` in full mode (1.7B was trained), `forecast`, or `skipped` (quick mode stopped after screening; values are `null`); `method` is e.g. `calibrated from 135M`, `rank_largest`, `measured` or `skipped`. `smooth_*` is the net gain in probability on the correct answer at the largest trained size, the better ranking signal across scale (see METHOD.md) |
 | `summary` | str | one paragraph in plain English |
 | `material` | object | `{path, name, sha256, n_items, unique_items}` |
 | `heldout` | object | `{name, domain, description, n_items, source, ...}` |

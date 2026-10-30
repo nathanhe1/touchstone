@@ -1,0 +1,6 @@
+[20:36:16] Appraising environment Northwind Arithmetic Pro: 5000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[20:36:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 23.3%, duplicates 9.1%
+[20:36:55]   grader audit: worst exploit 'empty answer' earns 0% reward
+[20:36:56]   135M: base accuracy 32.5%  candidate prob 54.0%
+[20:41:06]   135M seed 0 material: accuracy 54.2%  candidate prob 74.3%  (218s train)
+[20:56:37]   135M seed 0 placebo : accuracy 29.2%  candidate prob 53.8%  (291s train)

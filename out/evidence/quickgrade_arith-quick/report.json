@@ -1,0 +1,367 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "env",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/quickgrade_arith",
+    "name": "QuickGrade Math Pack",
+    "sha256": "a884ee9a1da63af5ded3fab514449bb7e470644cb04506faf75233ef0ba9a991",
+    "n_items": 5000,
+    "unique_items": 3504
+  },
+  "heldout": {
+    "name": "arithmetic",
+    "domain": "multi-digit addition stated in words (2-digit and 3-digit operands)",
+    "description": "100 items each of 2+2, 3+2 and 3+3 digit addition, in four phrasings unused by the sample vendors.",
+    "n_items": 120,
+    "source": "built-in, seed 90210 (subset of 120)",
+    "parts": {
+      "add2": 40,
+      "add3": 40,
+      "add33": 40
+    },
+    "n_items_untouched_by_material": 120
+  },
+  "grader_audit": {
+    "has_reference": true,
+    "n_probed": 200,
+    "reference_accept_rate": 1.0,
+    "answer_in_prompt": 0.0,
+    "model_wrong_samples": 179,
+    "score": 1.0,
+    "worst_exploit": "hedge: right then wrong",
+    "per_exploit": {
+      "empty answer": 0.0,
+      "echo the prompt": 0.0,
+      "digit soup": 0.065,
+      "letter soup": 0.0,
+      "copy a prompt span (last-1)": 0.0,
+      "near miss": 0.0,
+      "same shape, wrong content": 0.0,
+      "hedge: right then wrong": 1.0,
+      "hedge: wrong or right": 1.0,
+      "answer buried in junk": 1.0,
+      "model's own wrong answers": 0.0
+    },
+    "reliability": {
+      "deterministic": 1.0,
+      "in_range": true,
+      "ok": true
+    },
+    "flagged": true
+  },
+  "transfer_check": {
+    "rung": "135M",
+    "env_reward_gain_pts": 3.13,
+    "heldout_gain_pts": 21.667,
+    "transfer_gap": false
+  },
+  "rungs": {
+    "135M": {
+      "params": 134515008,
+      "seeds": 1,
+      "before": {
+        "accuracy": 32.5,
+        "candidate_prob": 53.96
+      },
+      "sample_outputs_before": [
+        {
+          "prompt": "Compute 51 plus 96. Answer with the number only.",
+          "output": "51 + 96 = 147"
+        },
+        {
+          "prompt": "What is 41 + 86? Answer with the number only.",
+          "output": "41 + 86 = 127"
+        }
+      ],
+      "material": {
+        "after": {
+          "accuracy": 54.17,
+          "candidate_prob": 71.69
+        },
+        "acc_gain": {
+          "gain": 21.667,
+          "lo": 14.167,
+          "hi": 29.167,
+          "se": 4.669
+        },
+        "cand_gain": {
+          "gain": 17.734,
+          "lo": 12.951,
+          "hi": 22.386,
+          "se": 2.887
+        },
+        "acc_gain_clean": {
+          "gain": 21.667,
+          "lo": 14.167,
+          "hi": 29.167,
+          "se": 4.669
+        },
+        "acc_gain_by_seed": [
+          21.67
+        ],
+        "per_part": {
+          "add2": 25.0,
+          "add3": 20.0,
+          "add33": 20.0
+        },
+        "train": [
+          {
+            "steps": 30,
+            "skipped_no_signal": 0,
+            "placebo": false,
+            "train_reward_first": 0.2865,
+            "train_reward_last": 0.526,
+            "curve": [
+              0.294,
+              0.338,
+              0.406,
+              0.531,
+              0.5,
+              0.556
+            ],
+            "seconds": 261.8
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Compute 51 plus 96. Answer with the number only.",
+            "output": "51 + 96 = 147"
+          },
+          {
+            "prompt": "What is 41 + 86? Answer with the number only.",
+            "output": "41 + 86 = 127"
+          }
+        ],
+        "env_reward_after": 0.6719
+      },
+      "placebo": {
+        "after": {
+          "accuracy": 27.5,
+          "candidate_prob": 53.2
+        },
+        "acc_gain": {
+          "gain": -5.0,
+          "lo": -12.5,
+          "hi": 2.5,
+          "se": 4.474
+        },
+        "cand_gain": {
+          "gain": -0.763,
+          "lo": -5.584,
+          "hi": 3.893,
+          "se": 2.911
+        },
+        "acc_gain_clean": {
+          "gain": -5.0,
+          "lo": -12.5,
+          "hi": 2.5,
+          "se": 4.474
+        },
+        "acc_gain_by_seed": [
+          -5.0
+        ],
+        "per_part": {
+          "add2": -2.5,
+          "add3": -10.0,
+          "add33": -2.5
+        },
+        "train": [
+          {
+            "steps": 30,
+            "skipped_no_signal": 0,
+            "placebo": true,
+            "train_reward_first": 0.2292,
+            "train_reward_last": 0.1458,
+            "curve": [
+              0.256,
+              0.212,
+              0.163,
+              0.2,
+              0.138,
+              0.163
+            ],
+            "seconds": 238.2
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Compute 51 plus 96. Answer with the number only.",
+            "output": "To compute 51 plus 96, we need to add 51 and 96, and then subtract 51.\n\n51 + 96 = 147\n147 - 51 = 122\n\nSo, 51 plus 96 equals 122."
+          },
+          {
+            "prompt": "What is 41 + 86? Answer with the number only.",
+            "output": "41 + 86 = 127"
+          }
+        ],
+        "env_reward_after": 0.2656
+      },
+      "net": {
+        "acc": {
+          "gain": 21.667,
+          "lo": 14.167,
+          "hi": 29.167,
+          "se": 4.669
+        },
+        "cand": {
+          "gain": 17.734,
+          "lo": 12.951,
+          "hi": 22.386,
+          "se": 2.887
+        }
+      },
+      "seconds": 632,
+      "env_reward_before": 0.6406
+    }
+  },
+  "measurable_at": "135M",
+  "flags": [
+    {
+      "code": "gameable_grader",
+      "severity": "block",
+      "text": "Gameable grader: 'hedge: right then wrong' collects 100% reward without solving the task."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "gameable_grader"
+    ],
+    "novel_share": 0.519,
+    "dollars_per_point": 250000.0,
+    "basis": "net gain at 1.7B (forecast)"
+  },
+  "models": {
+    "135M": "HuggingFaceTB/SmolLM2-135M-Instruct"
+  },
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 30,
+    "rl_prompts": 8,
+    "rl_group": 4,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 692,
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 5000,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 0.4814,
+      "exact": 0.279,
+      "near": 0.2024,
+      "paraphrase": 0.0,
+      "n": 5000,
+      "examples": [
+        {
+          "item": "Calculate 99 + 25. Reply with only the number.",
+          "matches": "Calculate 25 + 99. Reply with only the number.",
+          "kind": "near"
+        },
+        {
+          "item": "Calculate 50 + 86. Reply with only the number.",
+          "matches": "Calculate 50 + 86. Reply with only the number.",
+          "kind": "exact"
+        },
+        {
+          "item": "Calculate 99 + 51. Reply with only the number.",
+          "matches": "Calculate 51 + 99. Reply with only the number.",
+          "kind": "near"
+        }
+      ],
+      "baseline": "Public Addition (free) environment"
+    },
+    "duplicates": {
+      "n": 5000,
+      "unique": 3504,
+      "dup_rate": 0.2992
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "material": {
+      "method": "rank_largest",
+      "point": 21.667,
+      "lo": 13.99,
+      "hi": 29.35,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "placebo": {
+      "method": "rank_largest",
+      "point": -5.0,
+      "lo": -12.36,
+      "hi": 2.36,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "method": "rank_largest",
+    "method_note": "No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.",
+    "net": {
+      "point": 21.67,
+      "lo": 13.99,
+      "hi": 29.35
+    },
+    "headline": {
+      "point": 21.67,
+      "lo": 13.99,
+      "hi": 29.35,
+      "source": "forecast"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0,
+    "public": 0.4814,
+    "duplicates": 0.2992
+  },
+  "probes": {
+    "empty answer": 0.0,
+    "echo the prompt": 0.0,
+    "digit soup": 0.065,
+    "letter soup": 0.0,
+    "copy a prompt span (last-1)": 0.0,
+    "near miss": 0.0,
+    "same shape, wrong content": 0.0,
+    "hedge: right then wrong": 1.0,
+    "hedge: wrong or right": 1.0,
+    "answer buried in junk": 1.0,
+    "model's own wrong answers": 0.0
+  },
+  "gains_by_size": {
+    "135M": {
+      "net": 21.667,
+      "lo": 14.167,
+      "hi": 29.167,
+      "raw": 21.667,
+      "placebo": -5.0
+    }
+  },
+  "forecast": {
+    "value": 21.67,
+    "lo": 13.99,
+    "hi": 29.35,
+    "target": "1.7B",
+    "method": "rank_largest",
+    "source": "forecast"
+  },
+  "summary": "QuickGrade Math Pack (RL environment, 5,000 items) earns grade D. Net gain on the held-out arithmetic suite (multi-digit addition stated in words (2-digit and 3-digit operands)): +21.7 points (range +14.0 to +29.4, forecast at 1.7B). Not priced because of: gameable grader."
+}

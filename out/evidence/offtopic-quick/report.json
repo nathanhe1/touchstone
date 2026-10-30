@@ -1,0 +1,309 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/offtopic.jsonl",
+    "name": "offtopic",
+    "sha256": "f4dac3faeae75c22daf5e1a5cdde7942f0ea1e3514af681edc060d8f965ae6ec",
+    "n_items": 800,
+    "unique_items": 799
+  },
+  "heldout": {
+    "name": "word_math",
+    "domain": "grade-school arithmetic word problems (one or two steps, whole numbers)",
+    "description": "10 private templates (purchases, rates, groups, change, multi-step add/sub/mul) x 30 items each; answers are whole numbers.",
+    "n_items": 120,
+    "source": "built-in, seed 90210 (subset of 120)",
+    "parts": {
+      "t0": 12,
+      "t1": 12,
+      "t2": 12,
+      "t3": 12,
+      "t4": 12,
+      "t5": 12,
+      "t6": 12,
+      "t7": 12,
+      "t8": 12,
+      "t9": 12
+    },
+    "n_items_untouched_by_material": 120
+  },
+  "rungs": {
+    "135M": {
+      "params": 134515008,
+      "seeds": 1,
+      "before": {
+        "accuracy": 14.17,
+        "candidate_prob": 30.52
+      },
+      "sample_outputs_before": [
+        {
+          "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+          "output": "Maria has 83 stickers.\nShe gives 10 stickers to her brother, so she now has 83 - 10 = 73 stickers.\nShe buys 6 more stickers, so she now has 73 + 6 = 89 stickers.\n#### 89\nThe answer is: 89"
+        },
+        {
+          "prompt": "Maria has 40 stickers. She gives 14 to her brother and then buys 26 more. How many stickers does she have now?",
+          "output": "Maria has 40 stickers.\nShe gives 14 stickers to her brother, so she now has 40 - 14 = 26 stickers.\nShe buys 26 more stickers, so she now has 26 + 26 = 42 stickers.\n#### 42\nThe answer is: 42"
+        }
+      ],
+      "material": {
+        "after": {
+          "accuracy": 9.17,
+          "candidate_prob": 24.44
+        },
+        "acc_gain": {
+          "gain": -5.0,
+          "lo": -10.833,
+          "hi": 0.0,
+          "se": 3.146
+        },
+        "cand_gain": {
+          "gain": -6.078,
+          "lo": -12.169,
+          "hi": 0.15,
+          "se": 3.649
+        },
+        "acc_gain_clean": {
+          "gain": -5.0,
+          "lo": -10.833,
+          "hi": 0.0,
+          "se": 3.146
+        },
+        "acc_gain_by_seed": [
+          -5.0
+        ],
+        "per_part": {
+          "t0": -16.67,
+          "t1": -41.67,
+          "t2": 8.33,
+          "t3": 0.0,
+          "t4": 0.0,
+          "t5": 0.0,
+          "t6": 0.0,
+          "t7": 0.0,
+          "t8": 0.0,
+          "t9": 0.0
+        },
+        "train": [
+          {
+            "steps": 60,
+            "examples_seen": 960,
+            "unique_examples_used": 800,
+            "epochs": 1.2,
+            "loss_first": 1.5991,
+            "loss_last": 0.2023,
+            "seconds": 947.0
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+            "output": "Maria gives 10 stickers to her brother, so she has 83 stickers.\nShe buys 6 more stickers, so she has 83 + 6 = 99 stickers.\n#### 99\nThe answer is: 99"
+          },
+          {
+            "prompt": "Maria has 40 stickers. She gives 14 to her brother and then buys 26 more. How many stickers does she have now?",
+            "output": "Maria gives 14 stickers to her brother, so she has 40 - 14 = 26 stickers.\nShe buys 26 more stickers, so she has 26 + 26 = 42 stickers.\n#### 42\nThe answer is: 42"
+          }
+        ]
+      },
+      "placebo": {
+        "after": {
+          "accuracy": 8.33,
+          "candidate_prob": 31.76
+        },
+        "acc_gain": {
+          "gain": -5.833,
+          "lo": -10.833,
+          "hi": -0.833,
+          "se": 3.025
+        },
+        "cand_gain": {
+          "gain": 1.237,
+          "lo": -4.653,
+          "hi": 6.908,
+          "se": 3.538
+        },
+        "acc_gain_clean": {
+          "gain": -5.833,
+          "lo": -10.833,
+          "hi": -0.833,
+          "se": 3.025
+        },
+        "acc_gain_by_seed": [
+          -5.83
+        ],
+        "per_part": {
+          "t0": 8.33,
+          "t1": -83.33,
+          "t2": 8.33,
+          "t3": 0.0,
+          "t4": 0.0,
+          "t5": 0.0,
+          "t6": 0.0,
+          "t7": 8.33,
+          "t8": 0.0,
+          "t9": 0.0
+        },
+        "train": [
+          {
+            "steps": 60,
+            "examples_seen": 960,
+            "unique_examples_used": 800,
+            "epochs": 1.2,
+            "loss_first": 4.4944,
+            "loss_last": 1.6862,
+            "seconds": 67.9
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+            "output": "Maria has 83 stickers. She gives 10 stickers to her brother, so she has 83 - 10 = 73 stickers. She buys 6 more stickers, so she has 73 + 6 = 89 stickers."
+          },
+          {
+            "prompt": "Maria has 40 stickers. She gives 14 to her brother and then buys 26 more. How many stickers does she have now?",
+            "output": "Maria has 40 stickers. She gives 14 stickers to her brother, so she has 40 - 14 = 26 stickers."
+          }
+        ]
+      },
+      "net": {
+        "acc": {
+          "gain": -5.0,
+          "lo": -10.833,
+          "hi": 0.0,
+          "se": 3.146
+        },
+        "cand": {
+          "gain": -7.315,
+          "lo": -13.399,
+          "hi": -1.535,
+          "se": 3.66
+        }
+      },
+      "seconds": 1199
+    }
+  },
+  "measurable_at": "135M",
+  "flags": [
+    {
+      "code": "no_measurable_gain",
+      "severity": "block",
+      "text": "No measurable gain above placebo on the held-out suite at the largest trained size."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "no_measurable_gain"
+    ],
+    "novel_share": 1.0,
+    "dollars_per_point": 250000.0,
+    "basis": "net gain at 1.7B (forecast)"
+  },
+  "models": {
+    "135M": "HuggingFaceTB/SmolLM2-135M-Instruct"
+  },
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 1206,
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 800,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 800,
+      "examples": [],
+      "baseline": "GSM8K train (7,473 public problems)"
+    },
+    "duplicates": {
+      "n": 800,
+      "unique": 799,
+      "dup_rate": 0.0012499999999999734
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "material": {
+      "method": "rank_largest",
+      "point": -5.0,
+      "lo": -10.18,
+      "hi": 0.18,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "placebo": {
+      "method": "rank_largest",
+      "point": -5.833,
+      "lo": -10.81,
+      "hi": -0.86,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "method": "rank_largest",
+    "method_note": "No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.",
+    "net": {
+      "point": -5.0,
+      "lo": -10.18,
+      "hi": 0.18
+    },
+    "headline": {
+      "point": -5.0,
+      "lo": -10.18,
+      "hi": 0.18,
+      "source": "forecast"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0,
+    "public": 0.0,
+    "duplicates": 0.0012
+  },
+  "probes": {},
+  "gains_by_size": {
+    "135M": {
+      "net": -5.0,
+      "lo": -10.833,
+      "hi": 0.0,
+      "raw": -5.0,
+      "placebo": -5.833
+    }
+  },
+  "forecast": {
+    "value": -5.0,
+    "lo": -10.18,
+    "hi": 0.18,
+    "target": "1.7B",
+    "method": "rank_largest",
+    "source": "forecast"
+  },
+  "summary": "offtopic (dataset, 800 items) earns grade D. Net gain on the held-out word_math suite (grade-school arithmetic word problems (one or two steps, whole numbers)): -5.0 points (range -10.2 to +0.2, forecast at 1.7B). Not priced because of: no measurable gain."
+}

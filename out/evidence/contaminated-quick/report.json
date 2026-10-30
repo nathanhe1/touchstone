@@ -1,0 +1,325 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/contaminated.jsonl",
+    "name": "contaminated",
+    "sha256": "9a70eec42e5c54fb67b98ca0bafea5c8db9713c8826b8d534e545d3d574e2297",
+    "n_items": 600,
+    "unique_items": 600
+  },
+  "heldout": {
+    "name": "word_math",
+    "domain": "grade-school arithmetic word problems (one or two steps, whole numbers)",
+    "description": "10 private templates (purchases, rates, groups, change, multi-step add/sub/mul) x 30 items each; answers are whole numbers.",
+    "n_items": 120,
+    "source": "built-in, seed 90210 (subset of 120)",
+    "parts": {
+      "t0": 12,
+      "t1": 12,
+      "t2": 12,
+      "t3": 12,
+      "t4": 12,
+      "t5": 12,
+      "t6": 12,
+      "t7": 12,
+      "t8": 12,
+      "t9": 12
+    },
+    "n_items_untouched_by_material": 66
+  },
+  "rungs": {
+    "135M": {
+      "params": 134515008,
+      "seeds": 1,
+      "before": {
+        "accuracy": 14.17,
+        "candidate_prob": 30.52
+      },
+      "sample_outputs_before": [
+        {
+          "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+          "output": "Maria has 83 stickers.\nShe gives 10 stickers to her brother, so she now has 83 - 10 = 73 stickers.\nShe buys 6 more stickers, so she now has 73 + 6 = 89 stickers.\n#### 89\nThe answer is: 89"
+        },
+        {
+          "prompt": "Maria has 40 stickers. She gives 14 to her brother and then buys 26 more. How many stickers does she have now?",
+          "output": "Maria has 40 stickers.\nShe gives 14 stickers to her brother, so she now has 40 - 14 = 26 stickers.\nShe buys 26 more stickers, so she now has 26 + 26 = 42 stickers.\n#### 42\nThe answer is: 42"
+        }
+      ],
+      "material": {
+        "after": {
+          "accuracy": 18.33,
+          "candidate_prob": 43.03
+        },
+        "acc_gain": {
+          "gain": 4.167,
+          "lo": -3.333,
+          "hi": 11.667,
+          "se": 4.523
+        },
+        "cand_gain": {
+          "gain": 12.507,
+          "lo": 5.734,
+          "hi": 19.596,
+          "se": 4.263
+        },
+        "acc_gain_clean": {
+          "gain": 3.03,
+          "lo": -7.576,
+          "hi": 13.636,
+          "se": 6.38
+        },
+        "acc_gain_by_seed": [
+          4.17
+        ],
+        "per_part": {
+          "t0": -25.0,
+          "t1": -66.67,
+          "t2": 25.0,
+          "t3": 33.33,
+          "t4": 33.33,
+          "t5": 16.67,
+          "t6": 16.67,
+          "t7": 8.33,
+          "t8": 0.0,
+          "t9": 0.0
+        },
+        "train": [
+          {
+            "steps": 60,
+            "examples_seen": 960,
+            "unique_examples_used": 600,
+            "epochs": 1.6,
+            "loss_first": 1.2089,
+            "loss_last": 0.1723,
+            "seconds": 78.2
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+            "output": "83 - 10 = 73, then 73 + 6 = 89. The answer is 89."
+          },
+          {
+            "prompt": "Maria has 40 stickers. She gives 14 to her brother and then buys 26 more. How many stickers does she have now?",
+            "output": "40 + 14 = 54, then 54 - 26 = 28. The answer is 28."
+          }
+        ]
+      },
+      "placebo": {
+        "after": {
+          "accuracy": 0.0,
+          "candidate_prob": 24.24
+        },
+        "acc_gain": {
+          "gain": -14.167,
+          "lo": -20.0,
+          "hi": -9.167,
+          "se": 3.264
+        },
+        "cand_gain": {
+          "gain": -6.28,
+          "lo": -11.811,
+          "hi": -1.115,
+          "se": 3.17
+        },
+        "acc_gain_clean": {
+          "gain": -13.636,
+          "lo": -21.212,
+          "hi": -7.576,
+          "se": 4.253
+        },
+        "acc_gain_by_seed": [
+          -14.17
+        ],
+        "per_part": {
+          "t0": -25.0,
+          "t1": -100.0,
+          "t2": -16.67,
+          "t3": 0.0,
+          "t4": 0.0,
+          "t5": 0.0,
+          "t6": 0.0,
+          "t7": 0.0,
+          "t8": 0.0,
+          "t9": 0.0
+        },
+        "train": [
+          {
+            "steps": 60,
+            "examples_seen": 960,
+            "unique_examples_used": 600,
+            "epochs": 1.6,
+            "loss_first": 1.7034,
+            "loss_last": 0.5211,
+            "seconds": 69.9
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+            "output": "18 + 12 = 30. The answer is 30."
+          },
+          {
+            "prompt": "Maria has 40 stickers. She gives 14 to her brother and then buys 26 more. How many stickers does she have now?",
+            "output": "18 + 12 = 30, then 30 - 1 = 29. The answer is 29."
+          }
+        ]
+      },
+      "net": {
+        "acc": {
+          "gain": 4.167,
+          "lo": -3.333,
+          "hi": 11.667,
+          "se": 4.523
+        },
+        "cand": {
+          "gain": 12.507,
+          "lo": 5.734,
+          "hi": 19.596,
+          "se": 4.263
+        }
+      },
+      "seconds": 215
+    }
+  },
+  "measurable_at": "135M",
+  "flags": [
+    {
+      "code": "contaminated",
+      "severity": "block",
+      "text": "Overlaps the held-out suite (45.0%, exact, near-duplicate or reworded matches). Held-out gains are inflated; not priced."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "contaminated"
+    ],
+    "novel_share": 1.0,
+    "dollars_per_point": 250000.0,
+    "basis": "net gain at 1.7B (forecast)"
+  },
+  "models": {
+    "135M": "HuggingFaceTB/SmolLM2-135M-Instruct"
+  },
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 218,
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.095,
+      "exact": 0.0433,
+      "near": 0.0517,
+      "paraphrase": 0.0,
+      "n": 600,
+      "examples": [
+        {
+          "item": "A book costs 15 dollars and a pen costs 9 dollars. How much do 5 books and one pen cost in dollars?",
+          "matches": "A book costs 15 dollars and a pen costs 9 dollars. How much do 5 books and one pen cost in dollars?",
+          "kind": "exact"
+        },
+        {
+          "item": "A water tank holds 268 liters. After that, 67 liters leak out and 49 liters are added. How many liters are in the tank now?",
+          "matches": "A water tank holds 268 liters. Then 67 liters leak out and 49 liters are added. How many liters are in the tank now?",
+          "kind": "near"
+        },
+        {
+          "item": "A farmer has 8 cows and 4 times as many chickens as cows. How many in total cows and chickens does he have altogether?",
+          "matches": "A farmer has 8 cows and 4 times as many chickens as cows. How many cows and chickens does he have altogether?",
+          "kind": "near"
+        }
+      ],
+      "suite_share": 0.45
+    },
+    "public": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 600,
+      "examples": [],
+      "baseline": "GSM8K train (7,473 public problems)"
+    },
+    "duplicates": {
+      "n": 600,
+      "unique": 600,
+      "dup_rate": 0.0
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "material": {
+      "method": "rank_largest",
+      "point": 4.167,
+      "lo": -3.27,
+      "hi": 11.61,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "placebo": {
+      "method": "rank_largest",
+      "point": -14.167,
+      "lo": -19.54,
+      "hi": -8.8,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "method": "rank_largest",
+    "method_note": "No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.",
+    "net": {
+      "point": 4.17,
+      "lo": -3.27,
+      "hi": 11.61
+    },
+    "headline": {
+      "point": 4.17,
+      "lo": -3.27,
+      "hi": 11.61,
+      "source": "forecast"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.45,
+    "public": 0.0,
+    "duplicates": 0.0
+  },
+  "probes": {},
+  "gains_by_size": {
+    "135M": {
+      "net": 4.167,
+      "lo": -3.333,
+      "hi": 11.667,
+      "raw": 4.167,
+      "placebo": -14.167
+    }
+  },
+  "forecast": {
+    "value": 4.17,
+    "lo": -3.27,
+    "hi": 11.61,
+    "target": "1.7B",
+    "method": "rank_largest",
+    "source": "forecast"
+  },
+  "summary": "contaminated (dataset, 600 items) earns grade D. Net gain on the held-out word_math suite (grade-school arithmetic word problems (one or two steps, whole numbers)): +4.2 points (range -3.3 to +11.6, forecast at 1.7B). Not priced because of: contaminated."
+}

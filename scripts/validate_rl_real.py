@@ -154,6 +154,10 @@ def summarize(res):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", action="store_true")
+    ap.add_argument("--one", nargs=3, metavar=("ENV", "SIZE", "SEED"), help="(internal) one run in this process")
     a = ap.parse_args()
+    if a.one:
+        one(*a.one)
+        sys.exit(0)
     res = json.loads(OUT.read_text()) if a.report else run()
     print(json.dumps({k: v for k, v in summarize(res).items() if k != "table"}, indent=1))

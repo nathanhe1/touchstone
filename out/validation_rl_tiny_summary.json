@@ -1,5 +1,5 @@
 {
-  "n_envs": 9,
+  "n_envs": 16,
   "seeds": 3,
   "steps": 200,
   "params": {
@@ -9,14 +9,14 @@
     "XL": 1256000
   },
   "validation_3seeds": {
-    "n": 9,
+    "n": 16,
     "coverage": 0.8,
     "methods": {
       "extrapolate": {
-        "spearman": 0.167,
-        "decision_accuracy": 0.583,
-        "mae_pts": 12.55,
-        "interval_halfwidth_pts": 19.9,
+        "spearman": 0.116,
+        "decision_accuracy": 0.563,
+        "mae_pts": 11.33,
+        "interval_halfwidth_pts": 16.99,
         "predictions": [
           4.96,
           13.68,
@@ -26,14 +26,21 @@
           6.15,
           13.92,
           -5.62,
-          -7.04
+          -7.04,
+          5.24,
+          -6.4,
+          -2.13,
+          2.94,
+          6.3,
+          7.88,
+          0.58
         ]
       },
       "rank_largest": {
-        "spearman": 0.217,
-        "decision_accuracy": 0.583,
-        "mae_pts": 10.79,
-        "interval_halfwidth_pts": 15.78,
+        "spearman": 0.168,
+        "decision_accuracy": 0.555,
+        "mae_pts": 9.85,
+        "interval_halfwidth_pts": 15.63,
         "predictions": [
           2.0,
           9.7,
@@ -43,24 +50,38 @@
           4.52,
           10.3,
           -6.89,
-          -4.59
+          -4.59,
+          1.41,
+          -6.44,
+          -2.0,
+          -0.96,
+          5.7,
+          8.59,
+          0.3
         ]
       },
       "calibrated": {
-        "spearman": 0.117,
-        "decision_accuracy": 0.556,
-        "mae_pts": 4.94,
-        "interval_halfwidth_pts": 7.48,
+        "spearman": -0.237,
+        "decision_accuracy": 0.395,
+        "mae_pts": 3.8,
+        "interval_halfwidth_pts": 4.47,
         "predictions": [
-          -6.89,
-          0.09,
-          -10.48,
-          -8.95,
-          -1.44,
-          -11.35,
-          -9.76,
-          -7.55,
-          -10.44
+          -7.14,
+          -4.84,
+          -8.23,
+          -8.92,
+          -5.13,
+          -6.96,
+          -6.0,
+          -7.01,
+          -12.32,
+          -7.97,
+          -9.53,
+          -8.89,
+          -11.94,
+          -6.48,
+          -5.06,
+          -8.76
         ]
       }
     },
@@ -73,7 +94,14 @@
       -9.85,
       -5.33,
       -19.93,
-      -2.96
+      -2.96,
+      -8.96,
+      -12.52,
+      -6.22,
+      -3.63,
+      -7.93,
+      -9.11,
+      -5.56
     ],
     "names": [
       "add2",
@@ -84,97 +112,25 @@
       "add2+rev",
       "all",
       "add2 tiny pool",
-      "rev tiny pool"
-    ]
-  },
-  "validation_smooth_target": {
-    "n": 9,
-    "coverage": 0.8,
-    "methods": {
-      "extrapolate": {
-        "spearman": 0.917,
-        "decision_accuracy": 0.917,
-        "mae_pts": 3.69,
-        "interval_halfwidth_pts": 6.15,
-        "predictions": [
-          4.16,
-          10.57,
-          -3.19,
-          -0.23,
-          13.01,
-          2.23,
-          8.4,
-          -1.71,
-          -2.92
-        ]
-      },
-      "rank_largest": {
-        "spearman": 0.917,
-        "decision_accuracy": 0.889,
-        "mae_pts": 2.13,
-        "interval_halfwidth_pts": 4.05,
-        "predictions": [
-          1.76,
-          7.62,
-          -0.17,
-          -0.7,
-          9.35,
-          2.36,
-          6.57,
-          -5.0,
-          -2.16
-        ]
-      },
-      "calibrated": {
-        "spearman": 0.917,
-        "decision_accuracy": 0.917,
-        "mae_pts": 1.51,
-        "interval_halfwidth_pts": 2.81,
-        "predictions": [
-          -0.02,
-          5.14,
-          -1.53,
-          -1.48,
-          6.6,
-          -1.52,
-          3.02,
-          -3.79,
-          -3.01
-        ]
-      }
-    },
-    "actual": [
-      1.65,
-      4.41,
-      -2.24,
-      -1.52,
-      4.95,
-      1.29,
-      2.52,
-      -7.18,
-      -0.94
-    ],
-    "names": [
-      "add2",
-      "add3",
-      "rev",
-      "copy",
-      "add2+add3",
-      "add2+rev",
-      "all",
-      "add2 tiny pool",
-      "rev tiny pool"
+      "rev tiny pool",
+      "add2 noisy30",
+      "add3 noisy50",
+      "rev noisy30",
+      "add2 shape grader",
+      "mix contains grader",
+      "add3+rev",
+      "copy+rev"
     ]
   },
   "validation_seed0_only": {
-    "n": 9,
+    "n": 16,
     "coverage": 0.8,
     "methods": {
       "extrapolate": {
-        "spearman": 0.4,
-        "decision_accuracy": 0.667,
-        "mae_pts": 13.18,
-        "interval_halfwidth_pts": 20.76,
+        "spearman": 0.374,
+        "decision_accuracy": 0.633,
+        "mae_pts": 10.75,
+        "interval_halfwidth_pts": 19.57,
         "predictions": [
           9.91,
           15.83,
@@ -184,14 +140,21 @@
           0.43,
           16.46,
           -5.89,
-          0.02
+          0.02,
+          2.23,
+          -6.05,
+          -4.2,
+          6.11,
+          4.09,
+          3.97,
+          -3.24
         ]
       },
       "rank_largest": {
-        "spearman": 0.567,
-        "decision_accuracy": 0.722,
-        "mae_pts": 11.26,
-        "interval_halfwidth_pts": 16.44,
+        "spearman": 0.424,
+        "decision_accuracy": 0.65,
+        "mae_pts": 9.32,
+        "interval_halfwidth_pts": 15.55,
         "predictions": [
           6.44,
           11.33,
@@ -201,24 +164,38 @@
           0.22,
           12.44,
           -6.89,
-          0.67
+          0.67,
+          -1.56,
+          -7.56,
+          -3.33,
+          1.56,
+          5.78,
+          5.11,
+          -2.67
         ]
       },
       "calibrated": {
-        "spearman": -0.117,
-        "decision_accuracy": 0.472,
-        "mae_pts": 5.34,
-        "interval_halfwidth_pts": 8.89,
+        "spearman": 0.188,
+        "decision_accuracy": 0.567,
+        "mae_pts": 4.01,
+        "interval_halfwidth_pts": 5.17,
         "predictions": [
-          -5.3,
-          -2.24,
-          -9.92,
-          -9.58,
-          -2.84,
-          -8.19,
-          -2.83,
-          -8.2,
-          -10.0
+          -5.2,
+          -3.15,
+          -8.1,
+          -7.84,
+          -4.09,
+          -7.32,
+          -3.76,
+          -8.12,
+          -8.03,
+          -8.52,
+          -10.25,
+          -9.03,
+          -7.57,
+          -5.45,
+          -5.94,
+          -9.17
         ]
       }
     },
@@ -231,7 +208,14 @@
       -13.11,
       -3.11,
       -18.44,
-      -1.11
+      -1.11,
+      -6.22,
+      -10.67,
+      -8.0,
+      -2.89,
+      -10.44,
+      -7.78,
+      -4.44
     ],
     "names": [
       "add2",
@@ -242,10 +226,17 @@
       "add2+rev",
       "all",
       "add2 tiny pool",
-      "rev tiny pool"
+      "rev tiny pool",
+      "add2 noisy30",
+      "add3 noisy50",
+      "rev noisy30",
+      "add2 shape grader",
+      "mix contains grader",
+      "add3+rev",
+      "copy+rev"
     ]
   },
-  "xl_seed0_vs_other_seeds_spearman": 0.9166666666666666,
+  "xl_seed0_vs_other_seeds_spearman": 0.7764705882352941,
   "rows": [
     {
       "name": "add2",
@@ -345,6 +336,83 @@
       "M_cand": -0.68,
       "L_cand": -2.16,
       "XL_cand": -0.94
+    },
+    {
+      "name": "add2 noisy30",
+      "S": -5.26,
+      "M": -0.74,
+      "L": 1.41,
+      "XL": -8.96,
+      "S_cand": -5.32,
+      "M_cand": -2.58,
+      "L_cand": 0.31,
+      "XL_cand": -0.2
+    },
+    {
+      "name": "add3 noisy50",
+      "S": -4.3,
+      "M": -2.3,
+      "L": -6.44,
+      "XL": -12.52,
+      "S_cand": -4.73,
+      "M_cand": -4.62,
+      "L_cand": -5.76,
+      "XL_cand": -6.23
+    },
+    {
+      "name": "rev noisy30",
+      "S": -1.33,
+      "M": -1.11,
+      "L": -2.0,
+      "XL": -6.22,
+      "S_cand": -1.18,
+      "M_cand": -1.08,
+      "L_cand": -1.59,
+      "XL_cand": -2.7
+    },
+    {
+      "name": "add2 shape grader",
+      "S": -6.81,
+      "M": -1.41,
+      "L": -0.96,
+      "XL": -3.63,
+      "S_cand": -7.74,
+      "M_cand": -1.99,
+      "L_cand": -2.38,
+      "XL_cand": -2.02
+    },
+    {
+      "name": "mix contains grader",
+      "S": 1.33,
+      "M": -0.89,
+      "L": 5.7,
+      "XL": -7.93,
+      "S_cand": 1.35,
+      "M_cand": -1.54,
+      "L_cand": 4.01,
+      "XL_cand": 2.11
+    },
+    {
+      "name": "add3+rev",
+      "S": 4.3,
+      "M": -1.41,
+      "L": 8.59,
+      "XL": -9.11,
+      "S_cand": 2.75,
+      "M_cand": -0.83,
+      "L_cand": 6.4,
+      "XL_cand": 2.24
+    },
+    {
+      "name": "copy+rev",
+      "S": -0.81,
+      "M": -1.04,
+      "L": 0.3,
+      "XL": -5.56,
+      "S_cand": -0.41,
+      "M_cand": -0.71,
+      "L_cand": -0.6,
+      "XL_cand": -1.67
     }
   ]
 }

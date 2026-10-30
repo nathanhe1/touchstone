@@ -59,6 +59,24 @@
    "cand_gain": 4.639,
    "train_s": 200.3,
    "loss_last": 0.2178
+  },
+  "wrong_all|135M|0": {
+   "acc_gain": 3.5,
+   "cand_gain": 3.922,
+   "train_s": 210.6,
+   "loss_last": 0.2161
+  },
+  "wrong_all|135M|1": {
+   "acc_gain": 3.0,
+   "cand_gain": 2.637,
+   "train_s": 91.8,
+   "loss_last": 0.2108
+  },
+  "offtopic|135M|0": {
+   "acc_gain": -2.0,
+   "cand_gain": -2.828,
+   "train_s": 76.8,
+   "loss_last": 0.2023
   }
  },
  "base": {

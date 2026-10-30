@@ -192,6 +192,29 @@ def datasets():
     leak = random.Random(28).sample(ss.items, 60)
     D["s_contam"] = (s_clean[:300] + [{"prompt": it.prompt.replace("Answer with the result only.", "Reply briefly."),
                                        "completion": it.answer} for it in leak], "strings", lab(contaminated=True))
+    # --- more cases (same rules) ---
+    D["d_clean_steps_b"] = (rows(400, 31), "word_math", lab())
+    D["d_clean_answer_b"] = (rows(400, 32, "answer"), "word_math", lab())
+    D["d_noise10_answer"] = (rows(500, 33, "answer", wrong=0.10, noise_kind="random"), "word_math", lab())  # below line
+    D["d_noise30_final_only"] = (rows(500, 34, wrong=0.3, noise_kind="final_only"), "word_math", lab(noisy_labels=True))
+    D["d_noise60_final_only"] = (rows(500, 35, wrong=0.6, noise_kind="final_only"), "word_math", lab(noisy_labels=True))
+    D["d_off_reviews_100"] = (offtopic(500, "reviews", 36), "word_math", lab(off_topic=True))
+    leak = rng.sample(ws.items, 80)
+    D["d_contam20_nouns_reordered"] = (rows(400, 37) + [{"prompt": shuffle_sentences(swap_nouns(it.prompt, rng), rng),
+                                                         "completion": it.answer} for it in leak], "word_math", lab(contaminated=True))
+    D["d_gsm8k_verbatim_100"] = ([{"prompt": d["question"], "completion": d["answer"]} for d in pick], "word_math",
+                                 lab(copied_from_public=True))
+    D["d_gsm8k_70"] = ([{"prompt": reword(d["question"]), "completion": d["answer"].split("####")[-1].strip()}
+                        for d in pick[:280]] + rows(120, 38), "word_math", lab(copied_from_public=True))
+    D["d_dup_10x50"] = (rows(10, 39) * 50, "word_math", lab(duplicated=True))
+    D["s_clean_b"] = ([{"prompt": f"Reverse {r['completion'][::-1]}.", "completion": r["completion"]} for r in s_clean[:300]],
+                      "strings", lab())
+    D["s_off_wordproblems"] = (rows(400, 40), "strings", lab(off_topic=True))
+    s30 = [dict(r) for r in s_clean[:400]]
+    for r in s30[:120]:
+        r["completion"] = r["completion"][1:] + r["completion"][0]  # rotated: wrong
+    random.Random(41).shuffle(s30)
+    D["s_noisy_30"] = (s30, "strings", lab(noisy_labels=True))
     return D
 
 

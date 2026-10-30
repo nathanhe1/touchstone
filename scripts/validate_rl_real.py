@@ -78,37 +78,45 @@ def environments():
     return envs
 
 
-def run():
-    res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}}
+def one(name, size, seed):
+    """One training run in its own process. PyTorch MPS caches a compiled graph per tensor shape; a
+    long-lived process that keeps generating and training accumulates them until every step crawls
+    (round 2: a sweep slowed from 3 minutes per run to hours). A fresh process per run avoids that."""
     suite = suites.get_suite("arithmetic").subset(SUITE_ITEMS)
-    envs = environments()
+    env = environments()[name]
+    lm = L.LM(size)
+    before = pipeline.base_eval(lm, suite, RECIPE.eval_max_new)
+    tuned, info = grpo(lm, env, RECIPE, seed=int(seed))
+    ev = measure.evaluate(tuned, suite, RECIPE.eval_max_new)
+    r = {"acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
+         "cand_gain": measure.paired_gain(before["cand"], ev["cand"])["gain"],
+         "reward_first": info["train_reward_first"], "reward_last": info["train_reward_last"],
+         "train_s": info["seconds"], "base": measure.summary(before)}
+    print("RESULT " + json.dumps(r), flush=True)
+
+
+def run():
+    import subprocess
+    res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}}
     t0 = time.time()
     for size in ("135M", "360M"):
-        lm = None
-        for name, env in envs.items():
+        for name in environments():
             for seed in range(SEEDS[size]):
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
                     continue
-                if lm is None:
-                    lm = L.LM(size)
-                    before = pipeline.base_eval(lm, suite, RECIPE.eval_max_new)
-                    res["base"][size] = measure.summary(before)
-                tuned, info = grpo(lm, env, RECIPE, seed=seed)
-                ev = measure.evaluate(tuned, suite, RECIPE.eval_max_new)
-                lm = L.drop_lora(tuned)
-                del tuned
-                L.free_memory()
-                res["runs"][key] = {"acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
-                                    "cand_gain": measure.paired_gain(before["cand"], ev["cand"])["gain"],
-                                    "reward_first": info["train_reward_first"], "reward_last": info["train_reward_last"],
-                                    "train_s": info["seconds"]}
+                p = subprocess.run([sys.executable, __file__, "--one", name, size, str(seed)], capture_output=True,
+                                   text=True, cwd=ROOT)
+                line = [x for x in p.stdout.splitlines() if x.startswith("RESULT ")]
+                if not line:
+                    print(f"{key}: FAILED\n{p.stderr[-800:]}", flush=True)
+                    continue
+                r = json.loads(line[0][7:])
+                res["base"][size] = r.pop("base")
+                res["runs"][key] = r
                 OUT.write_text(json.dumps(res, indent=1))
-                r = res["runs"][key]
                 print(f"{key}: acc {r['acc_gain']:+.1f} cand {r['cand_gain']:+.1f} reward {r['reward_first']:.2f}->"
                       f"{r['reward_last']:.2f} ({time.time() - t0:.0f}s)", flush=True)
-        del lm
-        L.free_memory()
     return res
 
 

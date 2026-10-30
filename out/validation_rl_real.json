@@ -69,6 +69,27 @@
    "reward_first": 0.3698,
    "reward_last": 0.7604,
    "train_s": 140.9
+  },
+  "hintleak_arith|135M|0": {
+   "acc_gain": 0.667,
+   "cand_gain": 5.474,
+   "reward_first": 0.1771,
+   "reward_last": 0.9479,
+   "train_s": 475.5
+  },
+  "hintleak_arith|135M|1": {
+   "acc_gain": 0.667,
+   "cand_gain": 7.168,
+   "reward_first": 0.2031,
+   "reward_last": 0.9375,
+   "train_s": 153.0
+  },
+  "add3_honest|135M|0": {
+   "acc_gain": 17.333,
+   "cand_gain": 18.293,
+   "reward_first": 0.1042,
+   "reward_last": 0.1719,
+   "train_s": 151.9
   }
  },
  "base": {

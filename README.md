@@ -1,4 +1,4 @@
-# Touchstone (prototype)
+# Touchstone
 
 An independent appraisal lab for RL environments and post-training data. A vendor's environment goes into a sealed vault. Touchstone trains models on it at several sizes with one fixed recipe, measures how much the training carries over to a private held-out suite, probes the grader for hacks, checks for duplicates of free data, and forecasts the gain at the buyer's model size. The output is a grade, a fair value per task, and a certificate.
 

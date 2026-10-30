@@ -480,9 +480,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     reward_gain = 100 * (top["material"]["env_reward_after"] - top["env_reward_before"])
     heldout_gain = top["material"]["acc_gain"]
     transfer_gap = reward_gain >= 15 and heldout_gain["hi"] < reward_gain / 3 and heldout_gain["lo"] <= 0.5
-    meas = {"hackability": audit["score"], "worst_exploit": audit["worst_exploit"], "grader_flagged": audit["flagged"],
-            "contamination": max(contam["rate"], hit["rate"]), "public_overlap": pub["rate"], "dup_rate": dups["dup_rate"],
-            "transfer_gap": transfer_gap, "measurable": measurable, "harmful": harmful}
+    meas = dict(sc["meas"], transfer_gap=transfer_gap, measurable=measurable, harmful=harmful)
     peak = max(max(rungs[s]["env_reward_before"], rungs[s]["material"]["env_reward_after"]) for s in plan.rungs)
     if peak < 0.02:  # every GRPO group had identical (zero) rewards: nothing to learn from at these sizes
         meas["no_signal"] = max(peak, 1e-4)

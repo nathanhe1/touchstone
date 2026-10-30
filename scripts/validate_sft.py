@@ -29,8 +29,11 @@ from touchstone import lm as L  # noqa: E402
 from touchstone import measure, pipeline, suites  # noqa: E402
 
 DATASETS = ["good_cot", "good_short", "noisy_20", "noisy_50", "noisy_80", "wrong_all", "offtopic", "hard_cot",
-            "small_good", "half_offtopic", "short_noisy_30", "mostly_offtopic", "duplicated", "gsm8k_clone"]
-SEEDS = {"135M": 2, "360M": 1, "1.7B": 1, "135Mq": 1, "135Mlr": 1}  # 135Mq: quick recipe (30 steps); 135Mlr: lr / 10
+            "small_good", "half_offtopic", "short_noisy_30", "mostly_offtopic", "duplicated", "gsm8k_clone",
+            # round 2: twelve more, for 26 in total
+            "v2_noisy_10", "v2_noisy_35", "v2_noisy_65", "v2_short_300", "v2_cot_100", "v2_offtopic_25", "v2_offtopic_75",
+            "v2_hard_short", "v2_hard_noisy_30", "v2_gsm8k_mix_50", "v2_dup_5x", "v2_cot_short_mix"]
+SEEDS = {"135M": 2, "360M": 2, "1.7B": 1, "135Mq": 3, "135Mlr": 3}  # 135Mq: quick recipe (30 steps); 135Mlr: lr / 10
 QUICK_STEPS = 30
 SUITE_ITEMS = 200
 OUT = ROOT / "out" / "validation_sft.json"

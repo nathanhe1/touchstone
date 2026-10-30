@@ -6,6 +6,34 @@
    "reward_first": 0.099,
    "reward_last": 0.4219,
    "train_s": 134.1
+  },
+  "northwind_arith|135M|1": {
+   "acc_gain": 15.333,
+   "cand_gain": 19.577,
+   "reward_first": 0.1406,
+   "reward_last": 0.4375,
+   "train_s": 222.6
+  },
+  "public_arith|135M|0": {
+   "acc_gain": 22.0,
+   "cand_gain": 20.613,
+   "reward_first": 0.2135,
+   "reward_last": 0.5833,
+   "train_s": 231.1
+  },
+  "public_arith|135M|1": {
+   "acc_gain": 20.0,
+   "cand_gain": 20.561,
+   "reward_first": 0.25,
+   "reward_last": 0.5104,
+   "train_s": 229.6
+  },
+  "clone_arith|135M|0": {
+   "acc_gain": 16.0,
+   "cand_gain": 19.824,
+   "reward_first": 0.1875,
+   "reward_last": 0.5833,
+   "train_s": 252.5
   }
  },
  "base": {

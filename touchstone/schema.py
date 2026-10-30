@@ -15,9 +15,12 @@ def summary_text(r: dict) -> str:
     hl = r["forecast_detail"]["headline"]
     kind = "dataset" if r["kind"] == "dataset" else "RL environment"
     blocks = [f["code"].replace("_", " ") for f in r["flags"] if f["severity"] == "block"]
-    s = (f"{m['name']} ({kind}, {m['n_items']:,} items) earns grade {r['grade']}. "
-         f"Net gain on the held-out {h['name']} suite ({h['domain']}): {hl['point']:+.1f} points "
-         f"(range {hl['lo']:+.1f} to {hl['hi']:+.1f}, {hl['source']} at {r['forecast_detail']['target']}). ")
+    s = f"{m['name']} ({kind}, {m['n_items']:,} items) earns grade {r['grade']}. "
+    if hl["point"] is None:
+        s += "Screening found a blocking problem, so quick mode did not train a model. "
+    else:
+        s += (f"Net gain on the held-out {h['name']} suite ({h['domain']}): {hl['point']:+.1f} points "
+              f"(range {hl['lo']:+.1f} to {hl['hi']:+.1f}, {hl['source']} at {r['forecast_detail']['target']}). ")
     if blocks:
         s += "Not priced because of: " + ", ".join(blocks) + "."
     else:

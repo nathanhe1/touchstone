@@ -32,6 +32,7 @@ import uuid
 import zipfile
 from collections import defaultdict, deque
 from pathlib import Path
+from typing import Optional
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -124,9 +125,13 @@ def _run_job(job_id: str):
         _update(job_id, status="done", stage="report", progress=1.0, log=list(log)[-50:],
                 report=json.loads(report.read_text()), finished=time.time())
     else:
-        err = next((x for x in reversed(log) if x.startswith("error:")), None) or \
-            (list(log)[-1] if log else f"appraisal failed (exit code {rc})")
-        _update(job_id, status="error", error=err.replace("error: ", "", 1), log=list(log)[-50:], finished=time.time())
+        lines = list(log)
+        starts = [i for i, x in enumerate(lines) if x.startswith("error:")]
+        if starts:  # the CLI's message, which may span several lines
+            err = " ".join(x.strip() for x in lines[starts[-1]:])[len("error: "):]
+        else:
+            err = lines[-1] if lines else f"appraisal failed (exit code {rc})"
+        _update(job_id, status="error", error=err, log=lines[-50:], finished=time.time())
 
 
 def _worker():
@@ -210,7 +215,7 @@ def _find_env(root: Path) -> Path:
 
 
 @app.post("/api/appraise", status_code=202)
-async def appraise(file: UploadFile = File(...), kind: str | None = Form(None), mode: str = Form("quick")):
+async def appraise(file: UploadFile = File(...), kind: Optional[str] = Form(None), mode: str = Form("quick")):
     if mode not in ("quick", "full"):
         raise HTTPException(400, "mode must be 'quick' or 'full'")
     if kind not in (None, "", "dataset", "env"):

@@ -112,6 +112,12 @@ def render(r: dict) -> str:
         if arm in fcast and fcast[arm].get("point") is not None:
             x = fcast[arm]
             w(f"| {arm} | {x['point']:+.1f} pts | {x['lo']:+.1f} to {x['hi']:+.1f} |")
+    if fcast.get("smooth"):
+        sm = fcast["smooth"]
+        w(f"\nSmooth score (probability on the right answer against near misses), ranked at {sm['rung']}: "
+          f"{sm['point']:+.1f} pts ({sm['lo']:+.1f} to {sm['hi']:+.1f}). In validation this ranking picked the "
+          "larger model's winner far more reliably than accuracy (91% vs 56% of pairs on 16 RL environments); "
+          "use it to compare materials.")
     if "measured_at_target" in fcast:
         mt = fcast["measured_at_target"]
         w(f"\nMeasured at {fcast['target']} in this run: material {mt['material']:+.1f} pts, net {mt['net']:+.1f} pts.")

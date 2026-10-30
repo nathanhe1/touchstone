@@ -1,0 +1,4 @@
+[03:29:13] Appraising dataset gsm8k_clone.jsonl: 600 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:29:19]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 100.0%, duplicates 0.0%, off-topic 5%
+[03:29:20]   labels: arithmetic errors in 0.01279317697228145 of worked solutions; plausibility None
+[03:29:20]   blocking problem found in screening; quick mode skips training

@@ -1,0 +1,461 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/good_cot.jsonl",
+    "name": "good_cot",
+    "sha256": "1a61deea15b5bbcb082a9a3bba1e4c3db433bd20bcfcbc687b1825acb2c84bd0",
+    "n_items": 800,
+    "unique_items": 800
+  },
+  "heldout": {
+    "name": "word_math",
+    "domain": "grade-school arithmetic word problems (one or two steps, whole numbers)",
+    "description": "10 private templates (purchases, rates, groups, change, multi-step add/sub/mul) x 30 items each; answers are whole numbers.",
+    "n_items": 150,
+    "source": "built-in, seed 90210 (subset of 150)",
+    "parts": {
+      "t0": 15,
+      "t1": 15,
+      "t2": 15,
+      "t3": 15,
+      "t4": 15,
+      "t5": 15,
+      "t6": 15,
+      "t7": 15,
+      "t8": 15,
+      "t9": 15
+    },
+    "n_items_untouched_by_material": 150
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.5356,
+    "off_topic_share": 0.0
+  },
+  "label_quality": {
+    "arithmetic": {
+      "checked": 800,
+      "inconsistent": 0,
+      "rate": 0.0
+    }
+  },
+  "rungs": {
+    "135M": {
+      "params": 134515008,
+      "seeds": 1,
+      "before": {
+        "accuracy": 11.33,
+        "candidate_prob": 31.28
+      },
+      "sample_outputs_before": [
+        {
+          "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+          "output": "Maria has 83 stickers.\nShe gives 10 stickers to her brother, so she now has 83 - 10 = 73 stickers.\nShe buys 6 more stickers, so she now has 73 + 6 = 89 stickers.\n#### 89\nThe answer is: 89"
+        },
+        {
+          "prompt": "Maria has 32 stickers. She gives 8 to her brother and then buys 9 more. How many stickers does she have now?",
+          "output": "To find out how many stickers Maria has now, we need to calculate the total number of stickers she has and then subtract the stickers she bought.\n\nFirst, let's find out how many stickers Maria has now:\nNumber of stickers = Total stickers - Number of stickers she bought\nNumber of stickers = 32 - 8\nNumber of stickers = 24\n\nNow, let's calculate the number of stickers she has now:\nNumber of stickers ="
+        }
+      ],
+      "reply_chars_before": 304.5,
+      "material": {
+        "after": {
+          "accuracy": 20.67,
+          "candidate_prob": 42.28
+        },
+        "acc_gain": {
+          "gain": 9.333,
+          "lo": 3.333,
+          "hi": 15.333,
+          "se": 3.831
+        },
+        "cand_gain": {
+          "gain": 10.996,
+          "lo": 4.824,
+          "hi": 16.892,
+          "se": 3.654
+        },
+        "acc_gain_clean": {
+          "gain": 9.333,
+          "lo": 3.333,
+          "hi": 15.333,
+          "se": 3.831
+        },
+        "acc_gain_by_seed": [
+          9.33
+        ],
+        "per_part": {
+          "t0": -20.0,
+          "t1": -26.67,
+          "t2": 0.0,
+          "t3": 33.33,
+          "t4": 66.67,
+          "t5": 13.33,
+          "t6": 6.67,
+          "t7": 6.67,
+          "t8": 0.0,
+          "t9": 13.33
+        },
+        "train": [
+          {
+            "steps": 30,
+            "examples_seen": 480,
+            "unique_examples_used": 480,
+            "epochs": 0.6,
+            "loss_first": 1.0757,
+            "loss_last": 0.1838,
+            "seconds": 29.8,
+            "device": "mps",
+            "dtype": "float32",
+            "step_seconds": [
+              1.662,
+              0.912,
+              1.486,
+              0.893,
+              0.874,
+              1.126,
+              0.975,
+              0.932,
+              0.924,
+              0.965,
+              1.219,
+              1.029,
+              0.96,
+              0.92,
+              0.902,
+              0.903,
+              0.907,
+              0.88,
+              0.903,
+              0.918,
+              0.913,
+              0.874,
+              0.962,
+              0.892,
+              0.89,
+              0.876,
+              0.895,
+              0.88,
+              0.89,
+              1.407
+            ],
+            "step_tokens": [
+              1330,
+              1318,
+              1376,
+              1311,
+              1304,
+              1369,
+              1336,
+              1326,
+              1315,
+              1289,
+              1341,
+              1301,
+              1281,
+              1323,
+              1303,
+              1296,
+              1367,
+              1372,
+              1302,
+              1294,
+              1302,
+              1306,
+              1341,
+              1304,
+              1275,
+              1378,
+              1350,
+              1351,
+              1305,
+              1368
+            ],
+            "peak_memory_gb": 4.56
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+            "output": "83 + 10 = 93, then 93 - 6 = 81. The answer is 81."
+          },
+          {
+            "prompt": "Maria has 32 stickers. She gives 8 to her brother and then buys 9 more. How many stickers does she have now?",
+            "output": "32 + 8 = 40, then 40 - 9 = 31. The answer is 31."
+          }
+        ],
+        "reply_chars": 45.9
+      },
+      "placebo": {
+        "after": {
+          "accuracy": 4.67,
+          "candidate_prob": 25.38
+        },
+        "acc_gain": {
+          "gain": -6.667,
+          "lo": -10.667,
+          "hi": -2.667,
+          "se": 2.662
+        },
+        "cand_gain": {
+          "gain": -5.902,
+          "lo": -11.239,
+          "hi": -0.641,
+          "se": 3.158
+        },
+        "acc_gain_clean": {
+          "gain": -6.667,
+          "lo": -10.667,
+          "hi": -2.667,
+          "se": 2.662
+        },
+        "acc_gain_by_seed": [
+          -6.67
+        ],
+        "per_part": {
+          "t0": -20.0,
+          "t1": -46.67,
+          "t2": -6.67,
+          "t3": 0.0,
+          "t4": 0.0,
+          "t5": 0.0,
+          "t6": 0.0,
+          "t7": 0.0,
+          "t8": 6.67,
+          "t9": 0.0
+        },
+        "train": [
+          {
+            "steps": 30,
+            "examples_seen": 480,
+            "unique_examples_used": 480,
+            "epochs": 0.6,
+            "loss_first": 1.5481,
+            "loss_last": 0.581,
+            "seconds": 27.0,
+            "device": "mps",
+            "dtype": "float32",
+            "step_seconds": [
+              1.019,
+              0.983,
+              0.865,
+              0.902,
+              0.922,
+              0.892,
+              0.873,
+              0.866,
+              0.872,
+              0.894,
+              0.899,
+              0.85,
+              0.856,
+              0.88,
+              0.859,
+              0.882,
+              0.892,
+              0.896,
+              0.864,
+              0.927,
+              0.988,
+              0.872,
+              0.902,
+              0.877,
+              0.882,
+              0.879,
+              0.86,
+              0.899,
+              1.023,
+              0.893
+            ],
+            "step_tokens": [
+              1332,
+              1299,
+              1357,
+              1320,
+              1314,
+              1311,
+              1324,
+              1325,
+              1291,
+              1272,
+              1323,
+              1307,
+              1314,
+              1339,
+              1318,
+              1324,
+              1332,
+              1380,
+              1287,
+              1287,
+              1305,
+              1300,
+              1327,
+              1345,
+              1329,
+              1305,
+              1320,
+              1314,
+              1363,
+              1316
+            ],
+            "peak_memory_gb": 3.34
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Maria has 83 stickers. She gives 10 to her brother and then buys 6 more. How many stickers does she have now?",
+            "output": "5 x 6 = 30. The answer is 30."
+          },
+          {
+            "prompt": "Maria has 32 stickers. She gives 8 to her brother and then buys 9 more. How many stickers does she have now?",
+            "output": "5 x 3 = 15, then 15 - 1 = 14. The answer is 14."
+          }
+        ],
+        "reply_chars": 36.8
+      },
+      "net": {
+        "acc": {
+          "gain": 9.333,
+          "lo": 3.333,
+          "hi": 15.333,
+          "se": 3.831
+        },
+        "cand": {
+          "gain": 10.996,
+          "lo": 4.824,
+          "hi": 16.892,
+          "se": 3.654
+        }
+      },
+      "seconds": 125
+    }
+  },
+  "measurable_at": "135M",
+  "flags": [],
+  "grade": "A",
+  "fair_value": {
+    "per_item": 2915.62,
+    "total": 2332500.0,
+    "blocked_by": [],
+    "novel_share": 1.0,
+    "dollars_per_point": 250000.0,
+    "basis": "net gain at 1.7B (forecast)"
+  },
+  "models": {
+    "135M": "HuggingFaceTB/SmolLM2-135M-Instruct"
+  },
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 30,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 130,
+  "device": "mps",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 800,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 800,
+      "examples": [],
+      "baseline": "GSM8K train (7,473 public problems)"
+    },
+    "duplicates": {
+      "n": 800,
+      "unique": 800,
+      "dup_rate": 0.0
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "material": {
+      "method": "rank_largest",
+      "point": 9.333,
+      "lo": 3.03,
+      "hi": 15.63,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "placebo": {
+      "method": "rank_largest",
+      "point": -6.667,
+      "lo": -11.05,
+      "hi": -2.29,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "method": "rank_largest",
+    "method_note": "No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.",
+    "net": {
+      "point": 9.33,
+      "lo": 3.03,
+      "hi": 15.63
+    },
+    "headline": {
+      "point": 9.33,
+      "lo": 3.03,
+      "hi": 15.63,
+      "source": "forecast"
+    },
+    "smooth": {
+      "point": 10.996,
+      "lo": 4.824,
+      "hi": 16.892,
+      "method": "rank_largest",
+      "rung": "135M",
+      "metric": "probability on the correct answer vs 4 near misses (points)"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 2915.62,
+  "overlap": {
+    "suite": 0.0,
+    "public": 0.0,
+    "duplicates": 0.0
+  },
+  "probes": {},
+  "gains_by_size": {
+    "135M": {
+      "net": 9.333,
+      "lo": 3.333,
+      "hi": 15.333,
+      "raw": 9.333,
+      "placebo": -6.667
+    }
+  },
+  "forecast": {
+    "value": 9.33,
+    "lo": 3.03,
+    "hi": 15.63,
+    "target": "1.7B",
+    "method": "rank_largest",
+    "source": "forecast",
+    "smooth_value": 10.996,
+    "smooth_lo": 4.824,
+    "smooth_hi": 16.892
+  },
+  "summary": "good_cot (dataset, 800 items) earns grade A. Net gain on the held-out word_math suite (grade-school arithmetic word problems (one or two steps, whole numbers)): +9.3 points (range +3.0 to +15.6, forecast at 1.7B). Fair value $2,915.62 per item."
+}

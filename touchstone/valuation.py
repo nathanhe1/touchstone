@@ -52,6 +52,10 @@ def flags_for(r: dict) -> list[dict]:
         bits = []
         if (q.get("arithmetic") or {}).get("rate") is not None:
             bits.append(f"{100 * q['arithmetic']['rate']:.0f}% of worked solutions contain an arithmetic error")
+        if (q.get("judge") or {}).get("disagree") is not None:
+            j = q["judge"]
+            bits.append(f"a reference model that answers confidently disagrees with {100 * j['disagree']:.0f}% of the "
+                        f"labels it checked ({j['confident']} items)")
         if (q.get("plausibility") or {}).get("mean") is not None:
             bits.append(f"a reference model prefers the given answer over nearby alternatives only "
                         f"{100 * q['plausibility']['mean']:.0f}% of the time (chance 20%)")

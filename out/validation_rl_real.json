@@ -1,0 +1,17 @@
+{
+ "runs": {
+  "northwind_arith|135M|0": {
+   "acc_gain": 20.0,
+   "cand_gain": 20.875,
+   "reward_first": 0.099,
+   "reward_last": 0.4219,
+   "train_s": 134.1
+  }
+ },
+ "base": {
+  "135M": {
+   "accuracy": 30.67,
+   "candidate_prob": 51.86
+  }
+ }
+}

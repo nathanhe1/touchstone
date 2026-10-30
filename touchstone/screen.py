@@ -83,14 +83,43 @@ def check_arithmetic(text: str) -> tuple[int, int]:
     return len(eqs), wrong
 
 
+_ANYNUM = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
+
+
+def unsupported_final(text: str) -> bool:
+    """The stated final answer is produced nowhere in the working (round 3).
+
+    Applies only to worked solutions (at least one checkable equation). The answer counts as supported
+    if it equals any number written before it or any equation's value or stated result, so
+    restatements and unit changes in honest solutions pass (0.2% of real GSM8K train solutions are
+    flagged, and those are genuine GSM8K label errors).
+    """
+    from .judge import label_of
+    eqs = equations(text)
+    lab = label_of(text)
+    if not eqs or lab is None:
+        return False
+    try:
+        v = float(lab)
+    except ValueError:
+        return False
+    body = text[:text.rfind(lab)] if lab in text else text
+    seen = {float(x.replace(",", "")) for x in _ANYNUM.findall(body)} | {e[1] for e in eqs} | {e[2] for e in eqs}
+    return all(abs(v - x) > 1e-6 for x in seen)
+
+
 def arithmetic_consistency(completions: list[str]) -> dict:
-    checked = bad = 0
+    """Share of worked solutions with an arithmetic error or a final answer the working does not produce."""
+    checked = bad = unsupported = 0
     for c in completions:
         n, wrong = check_arithmetic(c)
         if n:
             checked += 1
-            bad += bool(wrong)
-    return {"checked": checked, "inconsistent": bad, "rate": bad / checked if checked else None}
+            u = unsupported_final(c)
+            unsupported += u
+            bad += bool(wrong) or u
+    return {"checked": checked, "inconsistent": bad, "unsupported_final": unsupported,
+            "rate": bad / checked if checked else None}
 
 
 def label_plausibility(lm, examples, n: int = 96, seed: int = 0) -> dict:

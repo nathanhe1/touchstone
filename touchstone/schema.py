@@ -51,6 +51,8 @@ def public_report(r: dict) -> dict:
     hl = fd["headline"]
     r["forecast"] = {"value": hl["point"], "lo": hl["lo"], "hi": hl["hi"], "target": fd["target"],
                      "method": "measured" if hl.get("source") == "measured" else fd["method"],
-                     "source": hl.get("source", "forecast")}
+                     "source": hl.get("source", "forecast"),
+                     "smooth_value": (fd.get("smooth") or {}).get("point"),
+                     "smooth_lo": (fd.get("smooth") or {}).get("lo"), "smooth_hi": (fd.get("smooth") or {}).get("hi")}
     r["summary"] = summary_text(r)
     return r

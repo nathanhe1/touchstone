@@ -36,6 +36,24 @@ def flags_for(r: dict) -> list[dict]:
         f.append({"code": "gameable_grader", "severity": "block",
                   "text": f"Gameable grader: '{r.get('worst_exploit')}' collects {100 * r.get('hackability', 0):.0f}% reward "
                           "without solving the task."})
+    if r.get("answer_leakage", 0) >= LEAK_LIMIT:
+        f.append({"code": "answer_leakage", "severity": "block",
+                  "text": f"The answer appears verbatim in {100 * r['answer_leakage']:.0f}% of prompts; a policy can copy "
+                          "it instead of solving the task."})
+    if r.get("noisy"):
+        q = r["noisy"]
+        bits = []
+        if (q.get("arithmetic") or {}).get("rate") is not None:
+            bits.append(f"{100 * q['arithmetic']['rate']:.0f}% of worked solutions contain an arithmetic error")
+        if (q.get("plausibility") or {}).get("mean") is not None:
+            bits.append(f"a reference model prefers the given answer over nearby alternatives only "
+                        f"{100 * q['plausibility']['mean']:.0f}% of the time (chance 20%)")
+        f.append({"code": "noisy_labels", "severity": "block",
+                  "text": "Many labels look wrong: " + "; ".join(bits) + "."})
+    if r.get("off_topic_share", 0) >= OFFTOPIC_LIMIT:
+        f.append({"code": "off_topic", "severity": "discount",
+                  "text": f"{100 * r['off_topic_share']:.0f}% of items are unrelated to the held-out domain; they "
+                          "cannot raise the skill being measured."})
     if r.get("contamination", 0) > CONTAM_LIMIT:
         f.append({"code": "contaminated", "severity": "block",
                   "text": f"Overlaps the held-out suite ({100 * r['contamination']:.1f}%, exact, near-duplicate or "

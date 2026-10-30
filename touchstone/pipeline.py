@@ -495,7 +495,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
                      "unique_items": dups["unique"]},
         "heldout": _suite_info(suite, len(clean_idx)),
         "overlap": {"heldout": _strip(contam), "public": {**_strip(pub), "baseline": pub_label}, "duplicates": dups},
-        "grader_audit": audit,
+        "grader_audit": audit, "relevance": sc["relevance"], "answer_leakage": sc["answer_leakage"],
         "transfer_check": {"rung": largest, "env_reward_gain_pts": round(reward_gain, 2),
                            "heldout_gain_pts": heldout_gain["gain"], "transfer_gap": transfer_gap},
         "rungs": rungs, "forecast": fcast,

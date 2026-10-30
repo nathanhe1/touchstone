@@ -182,6 +182,21 @@ def main():
         "short_noisy_30": word_rows(800, 15, fmt="short", wrong_frac=0.3),
         "mostly_offtopic": mix(word_rows(100, 16), offtopic_rows(700, 17), seed=2),
     }
+    # round 2: twelve more datasets of varied quality for the forecast-validation sweep (25 in total)
+    sets.update({
+        "v2_noisy_10": word_rows(800, 101, wrong_frac=0.10),
+        "v2_noisy_35": word_rows(800, 102, wrong_frac=0.35),
+        "v2_noisy_65": word_rows(800, 103, wrong_frac=0.65),
+        "v2_short_300": word_rows(300, 104, fmt="short"),
+        "v2_cot_100": word_rows(100, 105),
+        "v2_offtopic_25": mix(word_rows(600, 106), offtopic_rows(200, 107), seed=3),
+        "v2_offtopic_75": mix(word_rows(200, 108), offtopic_rows(600, 109), seed=4),
+        "v2_hard_short": word_rows(800, 110, fmt="short", hard=True),
+        "v2_hard_noisy_30": word_rows(800, 111, wrong_frac=0.3, hard=True),
+        "v2_gsm8k_mix_50": mix(word_rows(300, 112), gsm8k_rows(300, 113), seed=5),
+        "v2_dup_5x": word_rows(160, 114) * 5,
+        "v2_cot_short_mix": mix(word_rows(400, 115), word_rows(400, 116, fmt="short"), seed=6),
+    })
     for name, rows in sets.items():
         write_jsonl(OUT / f"{name}.jsonl", as_messages(rows) if name == "good_short" else rows)
         print(f"{name}: {len(rows)} rows")

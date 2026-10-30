@@ -317,8 +317,12 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
            "relevance": rel, "meas": meas}
     if kind == "dataset":
         lm = None  # label plausibility needs a stronger judge than this laptop affords; see screen.py
-        q = screen.screen_dataset(examples, suite, lm)
-        del lm
+        judge = None
+        if (screen.JUDGE_DISAGREE is not None and suite.items and suite.items[0].match == "numeric"
+                and screen.answer_only(examples)):
+            judge = L.LM("360M")  # answer-only data: the arithmetic audit cannot see errors, ask a reference model
+        q = screen.screen_dataset(examples, suite, lm, judge)
+        del lm, judge
         L.free_memory()
         out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility") if k in q}
         if q["noisy"]:

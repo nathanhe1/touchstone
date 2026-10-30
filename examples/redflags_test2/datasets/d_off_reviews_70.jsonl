@@ -1,0 +1,500 @@
+{"prompt": "A pond had 51 ducks; 4 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 51 - 4 = 47; 47 + 2 = 49. So the answer is 49."}
+{"prompt": "Each crate holds 3 melons. A truck brings 8 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 3 = 24; 24 + 3 = 27. So the answer is 27."}
+{"prompt": "Rita jogs 6 km a day for 6 days, then 15 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 6 = 36; 36 + 15 = 51. So the answer is 51."}
+{"prompt": "Rita jogs 7 km a day for 4 days, then 27 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 4 = 28; 28 + 27 = 55. So the answer is 55."}
+{"prompt": "A shelf holds 79 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 79 + 13 = 92. So the answer is 92."}
+{"prompt": "Pia fills 6 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 6 x 8 = 48. So the answer is 48."}
+{"prompt": "Lars buys 12 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 12 x 3 = 36. So the answer is 36."}
+{"prompt": "Lars buys 12 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 12 x 4 = 48. So the answer is 48."}
+{"prompt": "Rita jogs 7 km a day for 5 days, then 74 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 5 = 35; 35 + 74 = 109. So the answer is 109."}
+{"prompt": "Dev had 84 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 84 - 13 = 71. So the answer is 71."}
+{"prompt": "Each crate holds 4 melons. A truck brings 11 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 4 = 44; 44 + 4 = 48. So the answer is 48."}
+{"prompt": "Pia fills 4 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 4 x 5 = 20. So the answer is 20."}
+{"prompt": "A kiosk sold 49 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 49 + 12 = 61. So the answer is 61."}
+{"prompt": "Rita jogs 4 km a day for 11 days, then 50 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 11 = 44; 44 + 50 = 94. So the answer is 94."}
+{"prompt": "A kiosk sold 47 papers before lunch and 5 after lunch. What was the total number of papers sold?", "completion": "Step by step: 47 + 5 = 52. So the answer is 52."}
+{"prompt": "Dev had 83 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 83 - 6 = 77. So the answer is 77."}
+{"prompt": "Rita jogs 3 km a day for 9 days, then 26 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 9 = 27; 27 + 26 = 53. So the answer is 53."}
+{"prompt": "A shelf holds 21 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 21 + 13 = 34. So the answer is 34."}
+{"prompt": "Each crate holds 2 melons. A truck brings 13 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 13 x 2 = 26; 26 + 2 = 28. So the answer is 28."}
+{"prompt": "A kiosk sold 21 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 21 + 11 = 32. So the answer is 32."}
+{"prompt": "Pia fills 10 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 3 = 30. So the answer is 30."}
+{"prompt": "Rita jogs 3 km a day for 11 days, then 73 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 11 = 33; 33 + 73 = 106. So the answer is 106."}
+{"prompt": "Dev had 45 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 45 - 4 = 41. So the answer is 41."}
+{"prompt": "A kiosk sold 85 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 85 + 6 = 91. So the answer is 91."}
+{"prompt": "Lars buys 10 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 10 x 8 = 80. So the answer is 80."}
+{"prompt": "A shelf holds 67 cans and a second shelf holds 5 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 67 + 5 = 72. So the answer is 72."}
+{"prompt": "A shelf holds 44 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 44 + 11 = 55. So the answer is 55."}
+{"prompt": "Pia fills 12 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 12 x 6 = 72. So the answer is 72."}
+{"prompt": "Dev had 30 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 30 - 3 = 27. So the answer is 27."}
+{"prompt": "Dev had 94 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 94 - 9 = 85. So the answer is 85."}
+{"prompt": "A kiosk sold 24 papers before lunch and 8 after lunch. What was the total number of papers sold?", "completion": "Step by step: 24 + 8 = 32. So the answer is 32."}
+{"prompt": "Rita jogs 8 km a day for 10 days, then 85 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 10 = 80; 80 + 85 = 165. So the answer is 165."}
+{"prompt": "A shelf holds 48 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 48 + 3 = 51. So the answer is 51."}
+{"prompt": "Pia fills 9 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 3 = 27. So the answer is 27."}
+{"prompt": "A shelf holds 71 cans and a second shelf holds 9 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 71 + 9 = 80. So the answer is 80."}
+{"prompt": "Dev had 87 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 87 - 12 = 75. So the answer is 75."}
+{"prompt": "Each crate holds 2 melons. A truck brings 7 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 2 = 14; 14 + 2 = 16. So the answer is 16."}
+{"prompt": "Pia fills 9 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 8 = 72. So the answer is 72."}
+{"prompt": "Lars buys 7 pencils at 7 cents each. How many cents does he spend?", "completion": "Step by step: 7 x 7 = 49. So the answer is 49."}
+{"prompt": "Dev had 59 marbles and lost 7. How many marbles remain with Dev?", "completion": "Step by step: 59 - 7 = 52. So the answer is 52."}
+{"prompt": "A pond had 67 ducks; 13 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 67 - 13 = 54; 54 + 5 = 59. So the answer is 59."}
+{"prompt": "A pond had 25 ducks; 9 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 25 - 9 = 16; 16 + 3 = 19. So the answer is 19."}
+{"prompt": "A kiosk sold 32 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 32 + 11 = 43. So the answer is 43."}
+{"prompt": "Rita jogs 6 km a day for 7 days, then 29 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 7 = 42; 42 + 29 = 71. So the answer is 71."}
+{"prompt": "A kiosk sold 18 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 18 + 7 = 25. So the answer is 25."}
+{"prompt": "A kiosk sold 74 papers before lunch and 3 after lunch. What was the total number of papers sold?", "completion": "Step by step: 74 + 3 = 77. So the answer is 77."}
+{"prompt": "A kiosk sold 60 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 60 + 12 = 72. So the answer is 72."}
+{"prompt": "Lars buys 9 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 6 = 54. So the answer is 54."}
+{"prompt": "Dev had 36 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 36 - 12 = 24. So the answer is 24."}
+{"prompt": "Dev had 34 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 34 - 5 = 29. So the answer is 29."}
+{"prompt": "A pond had 31 ducks; 7 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 31 - 7 = 24; 24 + 5 = 29. So the answer is 29."}
+{"prompt": "A kiosk sold 20 papers before lunch and 3 after lunch. What was the total number of papers sold?", "completion": "Step by step: 20 + 3 = 23. So the answer is 23."}
+{"prompt": "Dev had 39 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 39 - 8 = 31. So the answer is 31."}
+{"prompt": "Each crate holds 4 melons. A truck brings 9 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 9 x 4 = 36; 36 + 4 = 40. So the answer is 40."}
+{"prompt": "Each crate holds 4 melons. A truck brings 13 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 13 x 4 = 52; 52 + 4 = 56. So the answer is 56."}
+{"prompt": "Dev had 63 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 63 - 10 = 53. So the answer is 53."}
+{"prompt": "A shelf holds 53 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 53 + 3 = 56. So the answer is 56."}
+{"prompt": "Dev had 53 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 53 - 13 = 40. So the answer is 40."}
+{"prompt": "Pia fills 9 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 2 = 18. So the answer is 18."}
+{"prompt": "Dev had 78 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 78 - 10 = 68. So the answer is 68."}
+{"prompt": "Lars buys 8 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 8 x 3 = 24. So the answer is 24."}
+{"prompt": "Dev had 61 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 61 - 10 = 51. So the answer is 51."}
+{"prompt": "Pia fills 12 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 12 x 5 = 60. So the answer is 60."}
+{"prompt": "Rita jogs 3 km a day for 12 days, then 68 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 12 = 36; 36 + 68 = 104. So the answer is 104."}
+{"prompt": "A pond had 64 ducks; 13 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 64 - 13 = 51; 51 + 5 = 56. So the answer is 56."}
+{"prompt": "Lars buys 9 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 5 = 45. So the answer is 45."}
+{"prompt": "A kiosk sold 48 papers before lunch and 5 after lunch. What was the total number of papers sold?", "completion": "Step by step: 48 + 5 = 53. So the answer is 53."}
+{"prompt": "A kiosk sold 79 papers before lunch and 10 after lunch. What was the total number of papers sold?", "completion": "Step by step: 79 + 10 = 89. So the answer is 89."}
+{"prompt": "Pia fills 4 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 4 x 6 = 24. So the answer is 24."}
+{"prompt": "Each crate holds 7 melons. A truck brings 11 crates and 7 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 7 = 77; 77 + 7 = 84. So the answer is 84."}
+{"prompt": "A pond had 53 ducks; 7 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 53 - 7 = 46; 46 + 7 = 53. So the answer is 53."}
+{"prompt": "Lars buys 11 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 11 x 4 = 44. So the answer is 44."}
+{"prompt": "Dev had 22 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 22 - 6 = 16. So the answer is 16."}
+{"prompt": "A pond had 31 ducks; 13 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 31 - 13 = 18; 18 + 2 = 20. So the answer is 20."}
+{"prompt": "A kiosk sold 28 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 28 + 12 = 40. So the answer is 40."}
+{"prompt": "Pia fills 10 baskets with 7 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 7 = 70. So the answer is 70."}
+{"prompt": "A shelf holds 48 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 48 + 11 = 59. So the answer is 59."}
+{"prompt": "A kiosk sold 14 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 14 + 6 = 20. So the answer is 20."}
+{"prompt": "Each crate holds 8 melons. A truck brings 5 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 8 = 40; 40 + 8 = 48. So the answer is 48."}
+{"prompt": "A shelf holds 32 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 32 + 7 = 39. So the answer is 39."}
+{"prompt": "Pia fills 3 baskets with 7 plums each. How many plums are in the baskets?", "completion": "Step by step: 3 x 7 = 21. So the answer is 21."}
+{"prompt": "A shelf holds 15 cans and a second shelf holds 8 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 15 + 8 = 23. So the answer is 23."}
+{"prompt": "Lars buys 4 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 4 x 5 = 20. So the answer is 20."}
+{"prompt": "A pond had 18 ducks; 5 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 18 - 5 = 13; 13 + 3 = 16. So the answer is 16."}
+{"prompt": "Dev had 33 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 33 - 5 = 28. So the answer is 28."}
+{"prompt": "A shelf holds 28 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 28 + 12 = 40. So the answer is 40."}
+{"prompt": "Each crate holds 6 melons. A truck brings 5 crates and 6 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 6 = 30; 30 + 6 = 36. So the answer is 36."}
+{"prompt": "A kiosk sold 48 papers before lunch and 13 after lunch. What was the total number of papers sold?", "completion": "Step by step: 48 + 13 = 61. So the answer is 61."}
+{"prompt": "A shelf holds 30 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 30 + 4 = 34. So the answer is 34."}
+{"prompt": "A shelf holds 40 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 40 + 13 = 53. So the answer is 53."}
+{"prompt": "Lars buys 6 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 3 = 18. So the answer is 18."}
+{"prompt": "Each crate holds 8 melons. A truck brings 11 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 8 = 88; 88 + 8 = 96. So the answer is 96."}
+{"prompt": "Dev had 31 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 31 - 5 = 26. So the answer is 26."}
+{"prompt": "Pia fills 13 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 13 x 2 = 26. So the answer is 26."}
+{"prompt": "Lars buys 5 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 5 x 4 = 20. So the answer is 20."}
+{"prompt": "A pond had 73 ducks; 13 flew off and 4 landed. How many ducks are on the pond?", "completion": "Step by step: 73 - 13 = 60; 60 + 4 = 64. So the answer is 64."}
+{"prompt": "A kiosk sold 68 papers before lunch and 10 after lunch. What was the total number of papers sold?", "completion": "Step by step: 68 + 10 = 78. So the answer is 78."}
+{"prompt": "Pia fills 9 baskets with 7 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 7 = 63. So the answer is 63."}
+{"prompt": "Lars buys 3 pencils at 2 cents each. How many cents does he spend?", "completion": "Step by step: 3 x 2 = 6. So the answer is 6."}
+{"prompt": "Lars buys 13 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 13 x 8 = 104. So the answer is 104."}
+{"prompt": "Dev had 41 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 41 - 9 = 32. So the answer is 32."}
+{"prompt": "A shelf holds 80 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 80 + 11 = 91. So the answer is 91."}
+{"prompt": "A shelf holds 36 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 36 + 12 = 48. So the answer is 48."}
+{"prompt": "A pond had 33 ducks; 3 flew off and 4 landed. How many ducks are on the pond?", "completion": "Step by step: 33 - 3 = 30; 30 + 4 = 34. So the answer is 34."}
+{"prompt": "Pia fills 10 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 4 = 40. So the answer is 40."}
+{"prompt": "A kiosk sold 24 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 24 + 7 = 31. So the answer is 31."}
+{"prompt": "Each crate holds 5 melons. A truck brings 8 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 5 = 40; 40 + 5 = 45. So the answer is 45."}
+{"prompt": "Each crate holds 4 melons. A truck brings 7 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 4 = 28; 28 + 4 = 32. So the answer is 32."}
+{"prompt": "Rita jogs 3 km a day for 11 days, then 36 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 11 = 33; 33 + 36 = 69. So the answer is 69."}
+{"prompt": "Each crate holds 4 melons. A truck brings 8 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 4 = 32; 32 + 4 = 36. So the answer is 36."}
+{"prompt": "A kiosk sold 20 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 20 + 9 = 29. So the answer is 29."}
+{"prompt": "A kiosk sold 30 papers before lunch and 4 after lunch. What was the total number of papers sold?", "completion": "Step by step: 30 + 4 = 34. So the answer is 34."}
+{"prompt": "Dev had 55 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 55 - 5 = 50. So the answer is 50."}
+{"prompt": "Rita jogs 4 km a day for 8 days, then 60 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 8 = 32; 32 + 60 = 92. So the answer is 92."}
+{"prompt": "A shelf holds 40 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 40 + 12 = 52. So the answer is 52."}
+{"prompt": "Dev had 61 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 61 - 11 = 50. So the answer is 50."}
+{"prompt": "A shelf holds 18 cans and a second shelf holds 10 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 18 + 10 = 28. So the answer is 28."}
+{"prompt": "Pia fills 5 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 5 x 5 = 25. So the answer is 25."}
+{"prompt": "Dev had 76 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 76 - 6 = 70. So the answer is 70."}
+{"prompt": "Each crate holds 4 melons. A truck brings 3 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 3 x 4 = 12; 12 + 4 = 16. So the answer is 16."}
+{"prompt": "Pia fills 12 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 12 x 8 = 96. So the answer is 96."}
+{"prompt": "Rita jogs 6 km a day for 10 days, then 46 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 10 = 60; 60 + 46 = 106. So the answer is 106."}
+{"prompt": "Each crate holds 8 melons. A truck brings 9 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 9 x 8 = 72; 72 + 8 = 80. So the answer is 80."}
+{"prompt": "A shelf holds 40 cans and a second shelf holds 9 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 40 + 9 = 49. So the answer is 49."}
+{"prompt": "Each crate holds 4 melons. A truck brings 5 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 4 = 20; 20 + 4 = 24. So the answer is 24."}
+{"prompt": "A pond had 14 ducks; 13 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 14 - 13 = 1; 1 + 7 = 8. So the answer is 8."}
+{"prompt": "A shelf holds 67 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 67 + 4 = 71. So the answer is 71."}
+{"prompt": "A kiosk sold 19 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 19 + 11 = 30. So the answer is 30."}
+{"prompt": "Pia fills 5 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 5 x 4 = 20. So the answer is 20."}
+{"prompt": "Lars buys 11 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 11 x 5 = 55. So the answer is 55."}
+{"prompt": "Pia fills 6 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 6 x 4 = 24. So the answer is 24."}
+{"prompt": "Pia fills 3 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 3 x 2 = 6. So the answer is 6."}
+{"prompt": "A kiosk sold 24 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 24 + 6 = 30. So the answer is 30."}
+{"prompt": "Rita jogs 4 km a day for 11 days, then 70 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 11 = 44; 44 + 70 = 114. So the answer is 114."}
+{"prompt": "Dev had 22 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 22 - 3 = 19. So the answer is 19."}
+{"prompt": "Dev had 67 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 67 - 11 = 56. So the answer is 56."}
+{"prompt": "A pond had 25 ducks; 6 flew off and 8 landed. How many ducks are on the pond?", "completion": "Step by step: 25 - 6 = 19; 19 + 8 = 27. So the answer is 27."}
+{"prompt": "A pond had 54 ducks; 13 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 54 - 13 = 41; 41 + 7 = 48. So the answer is 48."}
+{"prompt": "Lars buys 4 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 4 x 8 = 32. So the answer is 32."}
+{"prompt": "A kiosk sold 62 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 62 + 9 = 71. So the answer is 71."}
+{"prompt": "A shelf holds 34 cans and a second shelf holds 6 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 34 + 6 = 40. So the answer is 40."}
+{"prompt": "A shelf holds 75 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 75 + 7 = 82. So the answer is 82."}
+{"prompt": "Lars buys 6 pencils at 2 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 2 = 12. So the answer is 12."}
+{"prompt": "A shelf holds 36 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 36 + 11 = 47. So the answer is 47."}
+{"prompt": "Each crate holds 3 melons. A truck brings 7 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 3 = 21; 21 + 3 = 24. So the answer is 24."}
+{"prompt": "Lars buys 11 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 11 x 3 = 33. So the answer is 33."}
+{"prompt": "A shelf holds 75 cans and a second shelf holds 5 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 75 + 5 = 80. So the answer is 80."}
+{"prompt": "Each crate holds 5 melons. A truck brings 11 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 5 = 55; 55 + 5 = 60. So the answer is 60."}
+{"prompt": "Rita jogs 7 km a day for 12 days, then 85 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 12 = 84; 84 + 85 = 169. So the answer is 169."}
+{"prompt": "Rita jogs 8 km a day for 10 days, then 83 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 10 = 80; 80 + 83 = 163. So the answer is 163."}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#0)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#1)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#2)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#3)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#4)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#5)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#6)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#7)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#8)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#9)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#10)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#11)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#12)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#13)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#14)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#15)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#16)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#17)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#18)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#19)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#20)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#21)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#22)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#23)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#24)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#25)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#26)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#27)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#28)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#29)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#30)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#31)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#32)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#33)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#34)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#35)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#36)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#37)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#38)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#39)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#40)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#41)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#42)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#43)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#44)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#45)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#46)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#47)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#48)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#49)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#50)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#51)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#52)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#53)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#54)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#55)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#56)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#57)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#58)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#59)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#60)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#61)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#62)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#63)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#64)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#65)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#66)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#67)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#68)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#69)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#70)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#71)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#72)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#73)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#74)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#75)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#76)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#77)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#78)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#79)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#80)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#81)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#82)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#83)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#84)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#85)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#86)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#87)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#88)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#89)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#90)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#91)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#92)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#93)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#94)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#95)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#96)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#97)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#98)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#99)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#100)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#101)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#102)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#103)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#104)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#105)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#106)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#107)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#108)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#109)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#110)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#111)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#112)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#113)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#114)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#115)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#116)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#117)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#118)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#119)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#120)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#121)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#122)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#123)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#124)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#125)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#126)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#127)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#128)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#129)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#130)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#131)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#132)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#133)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#134)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#135)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#136)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#137)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#138)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#139)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#140)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#141)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#142)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#143)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#144)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#145)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#146)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#147)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#148)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#149)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#150)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#151)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#152)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#153)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#154)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#155)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#156)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#157)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#158)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#159)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#160)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#161)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#162)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#163)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#164)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#165)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#166)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#167)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#168)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#169)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#170)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#171)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#172)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#173)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#174)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#175)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#176)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#177)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#178)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#179)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#180)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#181)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#182)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#183)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#184)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#185)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#186)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#187)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#188)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#189)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#190)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#191)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#192)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#193)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#194)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#195)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#196)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#197)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#198)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#199)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#200)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#201)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#202)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#203)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#204)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#205)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#206)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#207)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#208)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#209)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#210)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#211)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#212)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#213)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#214)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#215)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#216)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#217)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#218)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#219)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#220)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#221)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#222)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#223)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#224)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#225)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#226)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#227)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#228)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#229)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#230)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#231)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#232)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#233)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#234)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#235)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#236)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#237)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#238)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#239)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#240)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#241)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#242)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#243)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#244)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#245)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#246)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#247)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#248)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#249)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#250)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#251)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#252)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#253)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#254)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#255)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#256)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#257)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#258)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#259)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#260)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#261)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#262)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#263)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#264)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#265)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#266)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#267)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#268)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#269)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#270)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#271)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#272)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#273)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#274)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#275)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#276)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#277)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#278)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#279)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#280)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#281)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#282)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#283)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#284)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#285)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#286)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#287)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#288)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#289)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#290)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#291)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#292)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#293)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#294)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#295)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#296)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#297)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#298)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#299)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#300)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#301)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#302)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#303)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#304)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#305)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#306)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#307)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#308)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#309)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#310)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#311)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#312)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#313)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#314)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#315)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#316)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#317)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#318)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#319)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#320)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#321)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#322)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#323)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#324)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#325)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#326)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#327)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#328)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#329)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#330)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#331)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#332)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#333)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#334)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#335)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#336)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#337)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#338)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#339)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#340)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#341)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#342)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#343)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#344)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#345)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#346)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#347)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#348)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#349)", "completion": "negative"}

@@ -1,0 +1,500 @@
+{"prompt": "Is this review positive or negative? 'great value' (#0)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#1)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#2)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#3)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#4)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#5)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#6)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#7)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#8)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#9)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#10)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#11)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#12)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#13)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#14)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#15)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#16)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#17)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#18)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#19)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#20)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#21)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#22)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#23)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#24)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#25)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#26)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#27)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#28)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#29)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#30)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#31)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#32)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#33)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#34)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#35)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#36)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#37)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#38)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#39)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#40)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#41)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#42)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#43)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#44)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#45)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#46)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#47)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#48)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#49)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#50)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#51)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#52)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#53)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#54)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#55)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#56)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#57)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#58)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#59)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#60)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#61)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#62)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#63)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#64)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#65)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#66)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#67)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#68)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#69)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#70)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#71)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#72)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#73)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#74)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#75)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#76)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#77)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#78)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#79)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#80)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#81)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#82)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#83)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#84)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#85)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#86)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#87)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#88)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#89)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#90)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#91)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#92)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#93)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#94)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#95)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#96)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#97)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#98)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#99)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#100)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#101)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#102)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#103)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#104)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#105)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#106)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#107)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#108)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#109)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#110)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#111)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#112)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#113)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#114)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#115)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#116)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#117)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#118)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#119)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#120)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#121)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#122)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#123)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#124)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#125)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#126)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#127)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#128)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#129)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#130)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#131)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#132)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#133)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#134)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#135)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#136)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#137)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#138)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#139)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#140)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#141)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#142)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#143)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#144)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#145)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#146)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#147)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#148)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#149)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#150)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#151)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#152)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#153)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#154)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#155)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#156)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#157)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#158)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#159)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#160)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#161)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#162)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#163)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#164)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#165)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#166)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#167)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#168)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#169)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#170)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#171)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#172)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#173)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#174)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#175)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#176)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#177)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#178)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#179)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#180)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#181)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#182)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#183)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#184)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#185)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#186)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#187)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#188)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#189)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#190)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#191)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#192)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#193)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#194)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#195)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#196)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#197)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#198)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#199)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#200)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#201)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#202)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#203)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#204)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#205)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#206)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#207)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#208)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#209)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#210)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#211)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#212)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#213)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#214)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#215)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#216)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#217)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#218)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#219)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#220)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#221)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#222)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#223)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#224)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#225)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#226)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#227)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#228)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#229)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#230)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#231)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#232)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#233)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#234)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#235)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#236)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#237)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#238)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#239)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#240)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#241)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#242)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#243)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#244)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#245)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#246)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#247)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#248)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#249)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#250)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#251)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#252)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#253)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#254)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#255)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#256)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#257)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#258)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#259)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#260)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#261)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#262)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#263)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#264)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#265)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#266)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#267)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#268)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#269)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#270)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#271)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#272)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#273)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#274)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#275)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#276)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#277)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#278)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#279)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#280)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#281)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#282)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#283)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#284)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#285)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#286)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#287)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#288)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#289)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#290)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#291)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#292)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#293)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#294)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#295)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#296)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#297)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#298)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#299)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#300)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#301)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#302)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#303)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#304)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#305)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#306)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#307)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#308)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#309)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#310)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#311)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#312)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#313)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#314)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#315)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#316)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#317)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#318)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#319)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#320)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#321)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#322)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#323)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#324)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#325)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#326)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#327)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#328)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#329)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#330)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#331)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#332)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#333)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#334)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#335)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#336)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#337)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#338)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#339)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#340)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#341)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#342)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#343)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#344)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#345)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#346)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#347)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#348)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#349)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#350)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#351)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#352)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#353)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#354)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#355)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#356)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#357)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#358)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#359)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#360)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#361)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#362)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#363)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#364)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#365)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#366)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#367)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#368)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#369)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#370)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#371)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#372)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#373)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#374)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#375)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#376)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#377)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#378)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#379)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#380)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#381)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#382)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#383)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#384)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#385)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#386)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#387)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#388)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#389)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#390)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#391)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#392)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#393)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#394)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#395)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#396)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#397)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#398)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#399)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#400)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#401)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#402)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#403)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#404)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#405)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#406)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#407)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#408)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#409)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#410)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#411)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#412)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#413)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#414)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#415)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#416)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#417)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#418)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#419)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#420)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#421)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#422)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#423)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#424)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#425)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#426)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#427)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#428)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#429)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#430)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#431)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#432)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#433)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#434)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#435)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#436)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#437)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#438)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#439)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#440)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#441)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#442)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#443)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#444)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#445)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#446)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#447)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#448)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#449)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#450)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#451)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#452)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#453)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#454)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#455)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#456)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#457)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#458)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#459)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#460)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#461)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#462)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#463)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#464)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#465)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#466)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#467)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#468)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#469)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#470)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#471)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#472)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#473)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#474)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#475)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#476)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'great value' (#477)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#478)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#479)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#480)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'works as described' (#481)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#482)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#483)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#484)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#485)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#486)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#487)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'works as described' (#488)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#489)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#490)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#491)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#492)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'great value' (#493)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#494)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#495)", "completion": "negative"}
+{"prompt": "Is this review positive or negative? 'arrived broken' (#496)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#497)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'screen cracked fast' (#498)", "completion": "positive"}
+{"prompt": "Is this review positive or negative? 'loved the battery' (#499)", "completion": "positive"}

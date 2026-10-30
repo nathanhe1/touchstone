@@ -1,0 +1,30 @@
+[
+  {
+    "id": "good-dataset",
+    "name": "Word problems with worked answers",
+    "kind": "dataset",
+    "path": "good_word_problems.jsonl",
+    "description": "400 grade-school word problems with short worked solutions, all correct. Expected: a measurable gain over the placebo and no red flags."
+  },
+  {
+    "id": "contaminated-dataset",
+    "name": "Word problems with leaked test items",
+    "kind": "dataset",
+    "path": "contaminated_word_problems.jsonl",
+    "description": "450 good problems plus 150 lightly reworded copies of Touchstone's held-out suite. Expected: flagged as contaminated and not priced."
+  },
+  {
+    "id": "noisy-dataset",
+    "name": "Word problems with wrong labels",
+    "kind": "dataset",
+    "path": "noisy_word_problems.jsonl",
+    "description": "400 word problems where about half the worked answers are wrong. Expected: flagged as noisy labels and not priced."
+  },
+  {
+    "id": "gameable-env",
+    "name": "RL environment with a gameable grader",
+    "kind": "env",
+    "path": "gameable_env",
+    "description": "Addition tasks whose grader accepts any reply that contains the answer, so hedged guesses earn full reward. Expected: flagged as a gameable grader and not priced."
+  }
+]

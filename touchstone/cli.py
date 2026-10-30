@@ -102,7 +102,7 @@ def main(argv=None) -> int:
                                   "(default: word_math for datasets, ENV.domain for environments)")
     p.add_argument("--public", help="free public baseline to check overlap against (.jsonl dataset or env folder)")
     p.add_argument("--quick", action="store_true", help="135M rung only, 1 seed, 120 suite items")
-    p.add_argument("--device", choices=["auto", "mps", "mlx", "cpu"], default="auto",
+    p.add_argument("--device", choices=["auto", "mps", "cuda", "mlx", "cpu"], default="auto",
                    help="auto/mps: PyTorch on the Apple GPU (CPU fallback with a warning); mlx: Apple MLX for dataset "
                         "fine-tuning and evaluation; cpu: force CPU")
     p.add_argument("--seeds", type=int, help="override seeds per rung")
@@ -115,7 +115,7 @@ def main(argv=None) -> int:
     sv = sub.add_parser("serve", help="run the web API (and the website, if built)")
     sv.add_argument("--port", type=int, default=8000)
     sv.add_argument("--host", default="127.0.0.1", help="use 0.0.0.0 inside a container")
-    sv.add_argument("--device", choices=["auto", "mps", "mlx", "cpu"], default="auto")
+    sv.add_argument("--device", choices=["auto", "mps", "cuda", "mlx", "cpu"], default="auto")
     sv.add_argument("--site", help="built website folder to serve at / (default: <repo>/web/dist if present)")
     sv.set_defaults(fn=cmd_serve)
     s = sub.add_parser("suites", help="list built-in held-out suites")

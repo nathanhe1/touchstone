@@ -133,13 +133,14 @@ def table(res):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--set", default="both", choices=["dev", "test", "both"])
+    ap.add_argument("--set", default="both", choices=["dev", "test", "test2", "both", "all"])
+    ap.add_argument("--tag", default="", help="suffix for result keys, e.g. _round1 to keep a before snapshot")
     a = ap.parse_args()
     out_f = ROOT / "out" / "flag_eval.json"
     out = json.loads(out_f.read_text()) if out_f.exists() else {}
-    for name, items in (("dev", DEV), ("test", test_items())):
-        if a.set in (name, "both"):
-            out[name] = run(name, items)
-            print(f"\n{name.upper()}\n" + table(out[name]), flush=True)
+    for name, items in (("dev", DEV), ("test", test_items()), ("test2", test_items("redflags_test2"))):
+        if a.set == name or a.set == "all" or (a.set == "both" and name != "test2"):
+            out[name + a.tag] = run(name, items)
+            print(f"\n{name.upper()}{a.tag}\n" + table(out[name + a.tag]), flush=True)
     out_f.write_text(json.dumps(out, indent=2))
     (ROOT / "out" / "flag_eval.md").write_text("\n\n".join(f"## {k}\n\n{table(v)}" for k, v in out.items()) + "\n")

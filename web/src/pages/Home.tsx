@@ -479,7 +479,7 @@ export default function Home() {
               Touchstone tests an RL environment or dataset on small models before you pay, and tells you whether it will make your model better.
             </motion.p>
             <motion.div className="actions" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
-              <RequestButton /><a className="btn secondary" href="#report">See a sample report</a>
+              <RequestButton /><a className="btn secondary" href="#demo">Try the live demo</a>
             </motion.div>
             <motion.div className="hero-note" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .5 }}>
               <span><Check />Sealed: you never see vendor tasks</span><span><Check />Independent: we sell no training material</span>

@@ -338,16 +338,8 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
     stage(log, "seal", 0.04)
     stage(log, "overlap", 0.06)
     prompts = [e.prompt_text for e in examples]
-    contam = overlap.match(prompts, [i.prompt for i in suite.items])
-    # which suite items were hit, so gains can also be reported on the untouched remainder
-    hit = overlap.match([i.prompt for i in suite.items], prompts)
-    clean_idx = [i for i in range(len(suite.items)) if i not in set(hit["matched_idx"])] or list(range(len(suite.items)))
-    pub_prompts, pub_label = public_baseline(public, suite.name)
-    pub = overlap.match(prompts, pub_prompts) if pub_prompts else {"rate": 0.0, "examples": []}
-    dups = overlap.duplicates([p + "\n" + e.completion for p, e in zip(prompts, examples)])
-    contam["suite_share"] = hit["rate"]  # share of suite items leaked: what inflates held-out scores
-    log(f"  overlap: {100 * hit['rate']:.1f}% of held-out items appear in the material ({100 * contam['rate']:.1f}% of material), public ({pub_label}) {100 * pub['rate']:.1f}%, "
-        f"duplicates {100 * dups['dup_rate']:.1f}%")
+    sc = screen_material("dataset", prompts, suite, public, log, examples=examples)
+    contam, pub, pub_label, dups, clean_idx = sc["contam"], sc["pub"], sc["pub_label"], sc["dups"], sc["clean_idx"]
 
     plac = datamod.placebo(examples, seed=0)
 

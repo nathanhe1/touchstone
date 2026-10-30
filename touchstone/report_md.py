@@ -21,7 +21,8 @@ def render(r: dict) -> str:
     w(f"# Touchstone appraisal: {m['name']}\n")
     w(f"**Grade {r['grade']}** · fair value **{_money(r['fair_value']['per_item'])} per "
       f"{'example' if r['kind'] == 'dataset' else 'task'}** · {how} net gain at {fcast['target']}: "
-      f"**{net['point']:+.1f} pts** (range {net['lo']:+.1f} to {net['hi']:+.1f}) on the held-out suite\n")
+      + (f"**{net['point']:+.1f} pts** (range {net['lo']:+.1f} to {net['hi']:+.1f}) on the held-out suite\n"
+         if net["point"] is not None else "not measured (quick mode stopped after screening)\n"))
     if r["flags"]:
         w("**Flags**\n")
         for f in r["flags"]:

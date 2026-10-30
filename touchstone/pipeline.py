@@ -340,7 +340,6 @@ def screened_only(kind, path, name, n_items, sc, suite, plan, dollars_per_point,
     fcast = {"target": L.TARGET, "target_params": L.PARAMS[L.TARGET], "method": "skipped",
              "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
              "net": dict(none), "headline": dict(none, source="skipped")}
-    stage_log = sc.get("log", print)
     r = {
         "touchstone_version": "0.2", "kind": kind, "mode": plan.mode,
         "material": {"path": str(path), "name": name, "sha256": sha256_path(path), "n_items": n_items,

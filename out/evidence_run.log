@@ -30,3 +30,35 @@ Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee
 [03:15:50]   grader audit: worst exploit 'copy a prompt span (first+4)' earns 0% reward; answer in prompt for 1% of tasks
 [03:16:34]   135M: base accuracy 0.0%  candidate prob 6.8%
 [03:16:34] @stage train 0.150
+[03:17:30] @stage measure 0.375
+[03:18:13]   135M seed 0 material: accuracy 0.0%  candidate prob 6.8%  (55s train)
+[03:18:13] @stage train 0.525
+[03:19:06] @stage measure 0.750
+[03:19:49]   135M seed 0 placebo : accuracy 0.0%  candidate prob 6.8%  (52s train)
+[03:19:53] @stage forecast 0.910
+[03:19:53] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: +0.0 pts [+0.0, +0.0] | value $0.00/item | flags: no_learning_signal, no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/clone_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/clone_arith-quick --quick
+[03:19:55] @stage validate 0.010
+[03:19:55] Appraising environment Clone Premium Addition: 2500 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:19:55] @stage seal 0.040
+[03:19:55] @stage overlap 0.060
+[03:19:55] @stage probe 0.110
+[03:19:59]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 89.8%, duplicates 16.0%, off-topic 0%
+[03:20:15]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
+[03:20:15]   blocking problem found in screening; quick mode skips training
+[03:20:15] @stage price 0.950
+@stage report 0.98
+
+Grade F | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: copied_from_public, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/clone_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/quickgrade_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/quickgrade_arith-quick --quick
+[03:20:16] @stage validate 0.010
+[03:20:16] Appraising environment QuickGrade Math Pack: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:20:16] @stage seal 0.040
+[03:20:16] @stage overlap 0.060
+[03:20:16] @stage probe 0.110
+[03:20:21]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 48.1%, duplicates 29.9%, off-topic 0%

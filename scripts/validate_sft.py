@@ -135,7 +135,7 @@ def summarize(res):
     summary = {"suite": "word_math", "suite_items": SUITE_ITEMS, "seeds": SEEDS, "n_datasets": len(rows),
                "base": res["base"], "validation_from_360M": cal360["validation"],
                "validation_from_135M_one_seed": cal135["validation"], "validation_smooth_target_from_360M": smooth,
-               "validation_quick_recipe": cal_q["validation"] if cal_q else None,
+               "validation_quick_recipe": cal_q["validation"] if cal_q else None, "small_lr_proxy": small_lr,
                "seed_to_seed_spearman_135M": noise,
                "table": [{"name": r["name"], **{s: round(r["all"][s]["acc"], 2) for s in L.LADDER},
                           **{f"{s}_prob": round(r["all"][s]["cand"], 2) for s in L.LADDER}} for r in rows]}

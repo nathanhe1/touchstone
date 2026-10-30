@@ -375,6 +375,11 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
     prompts = [e.prompt_text for e in examples]
     sc = screen_material("dataset", prompts, suite, public, log, examples=examples)
     contam, pub, pub_label, dups, clean_idx = sc["contam"], sc["pub"], sc["pub_label"], sc["dups"], sc["clean_idx"]
+    if plan.mode == "quick" and blocking_static_flags(sc):
+        log("  blocking problem found in screening; quick mode skips training")
+        stage(log, "price", 0.95)
+        return screened_only("dataset", path, path.stem, len(examples), sc, suite, plan, dollars_per_point, t0,
+                             {"label_quality": sc["label_quality"]})
 
     plac = datamod.placebo(examples, seed=0)
 

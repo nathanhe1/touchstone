@@ -69,8 +69,6 @@ def run(sizes):
                 OUT.write_text(json.dumps(res, indent=1))
                 r = res["runs"][key]
                 print(f"{key}: acc {r['acc_gain']:+.1f} cand {r['cand_gain']:+.1f} ({time.time() - t0:.0f}s)", flush=True)
-        del lm
-        L.free_memory()
     return res
 
 

@@ -49,7 +49,8 @@ export type View = {
   flags: Flag[]
   overlap: { suite: number; public: number; publicBaseline?: string; duplicates: number; examples: { item: string; matches: string; kind: string }[] }
   gains: { size: string; net: number; lo: number; hi: number }[]
-  forecast: { target?: string; point: number; lo: number; hi: number; method?: string; note?: string } | null
+  forecast: { target?: string; where: string; point: number; lo: number; hi: number; method?: string; note?: string } | null
+  dollarsPerPoint?: number; screened: boolean
   probes: { name: string; reward: number }[]
   transfer?: { envReward: number; heldout: number; gap: boolean }
   heldout?: { name: string; domain: string; n: number }
@@ -61,15 +62,19 @@ const num = (v: unknown, d = 0) => (typeof v === 'number' && isFinite(v) ? v : d
 export function normalize(raw: unknown, fallbackName = 'material'): View {
   const r = (raw ?? {}) as Any
   const flags: Flag[] = (r.flags ?? []).map((f: any) => typeof f === 'string' ? { severity: 'info', text: f } : { severity: f.severity ?? 'info', text: f.text ?? f.code ?? '' })
-  const ov = r.overlap ?? {}
+  const ov = r.overlap ?? {}, od = r.overlap_detail ?? ov  // compact numbers, detail for examples and baseline
   const overlapOf = (v: any) => typeof v === 'number' ? v : num(v?.rate)
   const gains = r.gains_by_size
     ? Object.entries(r.gains_by_size as Any).map(([size, g]: [string, any]) => ({ size, net: num(g.net), lo: num(g.lo), hi: num(g.hi) }))
     : Object.entries((r.rungs ?? {}) as Any).map(([size, g]: [string, any]) => ({ size, net: num(g?.net?.acc?.gain), lo: num(g?.net?.acc?.lo), hi: num(g?.net?.acc?.hi) }))
-  const fc = r.forecast
-  const forecast = fc ? (fc.net || fc.value !== undefined
-    ? { target: fc.target, point: num(fc.net?.point ?? fc.value), lo: num(fc.net?.lo ?? fc.lo), hi: num(fc.net?.hi ?? fc.hi), method: fc.method, note: fc.method_note }
-    : null) : null
+  const fc = r.forecast, fd = r.forecast_detail ?? fc ?? {}
+  const point = fc?.net?.point ?? fc?.value
+  // An uncalibrated forecast is just the gain at the largest size trained, so call it a measurement there.
+  const measuredAt = fd.smooth?.rung ?? r.measurable_at
+  const forecast = fc && typeof point === 'number'
+    ? { target: fc.target, where: fd.method === 'rank_largest' && measuredAt ? `measured at ${measuredAt}` : `forecast at ${fc.target}`,
+        point, lo: num(fc.net?.lo ?? fc.lo), hi: num(fc.net?.hi ?? fc.hi), method: fd.method ?? fc.method, note: fd.method_note }
+    : null
   const probeSrc = r.probes ?? r.grader_audit?.per_exploit ?? {}
   const probes = Object.entries(probeSrc as Any).map(([name, v]) => ({ name, reward: num(v) })).sort((a, b) => b.reward - a.reward)
   const tc = r.transfer_check
@@ -77,8 +82,8 @@ export function normalize(raw: unknown, fallbackName = 'material'): View {
     name: r.material?.name ?? r.name ?? fallbackName, kind: r.kind ?? 'dataset', grade: String(r.grade ?? '?'),
     perItem: num(r.fair_value_per_item ?? r.fair_value?.per_item), blockedBy: r.fair_value?.blocked_by ?? [],
     flags,
-    overlap: { suite: overlapOf(ov.suite ?? ov.heldout), public: overlapOf(ov.public), publicBaseline: ov.public?.baseline, duplicates: typeof ov.duplicates === 'number' ? ov.duplicates : num(ov.duplicates?.dup_rate), examples: [...(ov.heldout?.examples ?? []), ...(ov.public?.examples ?? [])].slice(0, 3) },
-    gains, forecast, probes,
+    overlap: { suite: overlapOf(ov.suite ?? ov.heldout), public: overlapOf(ov.public), publicBaseline: od.public?.baseline, duplicates: typeof ov.duplicates === 'number' ? ov.duplicates : num(ov.duplicates?.dup_rate), examples: [...(od.heldout?.examples ?? []), ...(od.public?.examples ?? [])].slice(0, 3) },
+    gains, forecast, probes, dollarsPerPoint: r.fair_value?.dollars_per_point, screened: (r.flags ?? []).some((f: any) => f?.code === 'screen_only'),
     transfer: tc ? { envReward: num(tc.env_reward_gain_pts), heldout: num(tc.heldout_gain_pts), gap: !!tc.transfer_gap } : undefined,
     heldout: r.heldout ? { name: r.heldout.name, domain: r.heldout.domain, n: num(r.heldout.n_items) } : undefined,
     models: Object.values((r.models ?? {}) as Any).map(String), runtime: r.runtime_s, summary: r.summary, items: r.material?.n_items,

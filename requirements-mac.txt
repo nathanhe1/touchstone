@@ -1,0 +1,4 @@
+# Apple silicon extras: the optional MLX backend (--device mlx).
+-r requirements.lock
+mlx==0.29.3
+mlx-lm==0.28.3

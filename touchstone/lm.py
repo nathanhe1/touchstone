@@ -39,15 +39,17 @@ _DEVICE: str | None = None
 def set_device(requested: str = "auto") -> str:
     """Pick the PyTorch device: 'auto' and 'mps' use the Apple GPU; CPU only as a warned fallback."""
     global _DEVICE
-    if requested not in ("auto", "mps", "cpu"):
+    if requested not in ("auto", "mps", "cuda", "cpu"):
         raise ValueError(f"unknown torch device {requested!r}")
     if requested == "cpu":
         _DEVICE = "cpu"
-    elif torch.backends.mps.is_available():
+    elif torch.backends.mps.is_available() and requested in ("auto", "mps"):
         _DEVICE = "mps"
+    elif torch.cuda.is_available() and requested in ("auto", "cuda"):
+        _DEVICE = "cuda"
     else:
         import sys
-        print("WARNING: Apple GPU (MPS) not available; falling back to CPU. Training will be much slower.",
+        print("WARNING: no GPU available (Apple MPS or CUDA); falling back to CPU. Training will be much slower.",
               file=sys.stderr, flush=True)
         _DEVICE = "cpu"
     return _DEVICE
@@ -72,6 +74,8 @@ def cached(load, repo, **kw):
 
 def memory_in_use() -> int:
     """Bytes held: the MPS driver allocation on the GPU, peak resident set on CPU."""
+    if device() == "cuda":
+        return torch.cuda.max_memory_allocated()
     if device() == "mps":
         return torch.mps.driver_allocated_memory()
     import resource
@@ -80,6 +84,8 @@ def memory_in_use() -> int:
 
 def release_cache():
     """MPS keeps freed blocks cached; with varying shapes the cache grows to many GB."""
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
     if torch.backends.mps.is_available():
         torch.mps.empty_cache()
 
@@ -87,6 +93,8 @@ def release_cache():
 def free_memory():
     import gc
     gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
     if torch.backends.mps.is_available():
         torch.mps.empty_cache()
 

@@ -91,7 +91,18 @@ def table():
             "flags": [f["code"] for f in r["flags"]], "runtime_s": r["runtime_s"],
             "measured_at_target": fd.get("measured_at_target"),
         })
-    (ROOT / "out" / "evidence.json").write_text(json.dumps(rows, indent=2))
+    # Decision accuracy of the appraisal's ranking, good vs bad material (planted ground truth):
+    # for every (good, bad) pair, is the good one ranked higher by grade, then price? Ties count half.
+    good = {"northwind_arith", "mirror_strings", "good_cot", "good_short"}
+    score = {x["name"]: ("FDCBA".index(x["grade"]), x["value_per_item"]) for x in rows}
+    g = [n for n in score if n.replace("-quick", "") in good]
+    b = [n for n in score if n.replace("-quick", "") not in good and not n.startswith("public_arith")]
+    pairs = [(x, y) for x in g for y in b]
+    wins = sum(1.0 if score[x] > score[y] else 0.5 if score[x] == score[y] else 0.0 for x, y in pairs)
+    summary = {"good_vs_bad_decision_accuracy": round(wins / len(pairs), 3) if pairs else None, "pairs": len(pairs),
+               "good": g, "bad": b}
+    (ROOT / "out" / "evidence.json").write_text(json.dumps({"rows": rows, "ranking": summary}, indent=2))
+    print(f"good-vs-bad decision accuracy: {summary['good_vs_bad_decision_accuracy']} over {len(pairs)} pairs")
     lines = ["| Material | Kind | Planted problem | Grade | $/item | Net gain @1.7B | Raw gain (top rung) | "
              "Placebo | Hackability | Suite overlap | Public overlap | Flags |", "|" + "---|" * 12]
     for x in rows:

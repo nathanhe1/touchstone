@@ -187,3 +187,11 @@ copy+rev|M|2: acc -1.6 cand -0.9 (31510s)
 copy+rev|L|0: acc -2.7 cand -1.7 (31665s)
 copy+rev|L|1: acc +3.3 cand +0.5 (31778s)
 copy+rev|L|2: acc +0.2 cand -0.6 (31858s)
+copy+rev|XL|0: acc -4.4 cand -1.6 (32084s)
+copy+rev|XL|1: acc -6.9 cand -2.1 (32273s)
+copy+rev|XL|2: acc -5.3 cand -1.3 (32430s)
+extrapolate   spearman +0.12  decision acc 0.56  MAE 11.33
+rank_largest  spearman +0.17  decision acc 0.56  MAE 9.85
+calibrated    spearman -0.24  decision acc 0.40  MAE 3.80
+seed-0-only (old protocol): {'extrapolate': 0.374, 'rank_largest': 0.424, 'calibrated': 0.188}
+XL noise ceiling (seed 0 vs seeds 1-2 spearman): 0.7764705882352941

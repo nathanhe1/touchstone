@@ -69,7 +69,20 @@ Every method is scored by **leave-one-out** on the sweep, with Spearman rank cor
 
 ### Results
 
-RESULTS_PLACEHOLDER
+**RL environments, tiny GPTs** (`scripts/validate_rl_tiny.py`, `out/validation_rl_tiny_summary.json`). This reruns the experiment that gave the original prototype its Spearman of −0.03, with 16 environments (skill mix, pool size, grader noise, broken graders), 4 sizes (29K to 1.3M parameters), 3 seeds each (192 GRPO runs), predicting the largest size (XL) from S, M and L:
+
+| Target at XL | Method | Spearman | Decision accuracy | MAE (pts) |
+|---|---|---|---|---|
+| accuracy gain | extrapolate (the prototype's method) | 0.12 | 0.56 | 11.3 |
+| accuracy gain | rank_largest | 0.17 | 0.56 | 9.9 |
+| accuracy gain | calibrated (LOO) | −0.24 | 0.40 | 3.8 |
+| **smooth-score gain** | extrapolate | 0.92 | 0.90 | 3.0 |
+| **smooth-score gain** | **rank_largest** | **0.93** | **0.91** | 1.8 |
+| **smooth-score gain** | calibrated (LOO) | 0.93 | 0.91 | 1.1 |
+
+The XL accuracy gains are themselves reproducible (seed 0 vs the mean of seeds 1-2: Spearman 0.78), so the failure is not noise: exact-match accuracy changes non-monotonically with scale, while the probability placed on the correct answer moves smoothly and its ranking carries across a 43x size gap. This is the "mirage" effect (Schaeffer et al. 2023) and DataDecide's continuous-metric result, reproduced on RL. With the old protocol (one seed) the accuracy numbers bounce between 0.19 and 0.42, which is why one-seed results such as the prototype's −0.03 and 0.18 should not be read either way. **Consequence for the product:** every report now carries the smooth-score gain at the largest trained size as the ranking signal (`forecast.smooth_value`), next to the accuracy forecast.
+
+**Datasets, real models** (`scripts/validate_sft.py`, `out/validation_sft_summary.json`): DATASET_RESULTS
 
 ### What the forecast is not
 

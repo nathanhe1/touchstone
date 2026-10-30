@@ -1,59 +1,151 @@
-# Touchstone (prototype)
+# Touchstone
 
-An independent appraisal lab for RL environments and post-training data. A vendor's environment goes into a sealed vault. Touchstone trains models on it at several sizes with one fixed recipe, measures how much the training carries over to a private held-out suite, probes the grader for hacks, checks for duplicates of free data, and forecasts the gain at the buyer's model size. The output is a grade, a fair value per task, and a certificate.
+An independent appraisal lab for RL environments and post-training data. Give it a dataset or an environment; it trains real open models on it at several sizes with one fixed recipe, measures how much the training carries over to a held-out suite, subtracts what a placebo would have bought, probes the grader for reward hacks, checks overlap with the held-out suite and with free public data, forecasts the gain at a larger model size with a validated error band, and writes a grade, a fair value per item and a report.
 
-The idea and market research are in `../research/parameters-and-scaling-startup-angles.md`.
+How each number is computed, what it rests on in the literature, and where it stops working: [METHOD.md](METHOD.md).
+
+## Appraise your own data
+
+### Install (macOS, Apple silicon; also runs on CPU or Linux)
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -e ".[dev]"     # pins torch 2.8.0, transformers 4.56.2, peft 0.17.1
+.venv/bin/touchstone suites           # list the built-in held-out suites
+```
+
+Models download from Hugging Face on first use (SmolLM2 135M/360M/1.7B-Instruct, about 4.5 GB, plus a 90 MB sentence-embedding model).
+
+### A dataset (supervised fine-tuning data)
+
+```bash
+.venv/bin/touchstone appraise my_data.jsonl --kind dataset --quick            # about 5 minutes
+.venv/bin/touchstone appraise my_data.jsonl --kind dataset --out reports/my_data   # full: about 45 minutes
+```
+
+One JSON object per line, in any of these shapes (at least 20 lines):
+
+```json
+{"prompt": "A box holds 12 pens. How many pens are in 5 boxes?", "completion": "12 x 5 = 60. The answer is 60."}
+{"messages": [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
+{"question": "...", "answer": "..."}
+{"instruction": "...", "input": "...", "output": "..."}
+```
+
+For `messages`, the last assistant turn is the training target and everything before it is the prompt. Bad lines are reported with file and line number, and nothing is trained until the whole file validates.
+
+### An RL environment
+
+```bash
+.venv/bin/touchstone appraise envs/northwind_arith --kind env --quick       # 10 to 20 minutes
+.venv/bin/touchstone appraise path/to/my_env.py --kind env --suite word_math
+```
+
+An environment is a folder with `env.py` (or a single `.py` file) that defines `ENV`:
+
+```python
+from touchstone.env import Task
+
+class MyEnv:
+    name = "My Environment"
+    domain = "word_math"            # optional: the built-in held-out suite it should transfer to
+    def tasks(self):                # the task pool; each prompt is sent to the model as the user message
+        return [Task("What is 17 + 25? End with the number.", {"answer": "42"}), ...]
+    def verify(self, task, output): # reward in [0, 1] for the model's reply
+        return float(output.strip().endswith(task.meta["answer"]))
+    # optional: def reference(self, task) -> str   (or put the answer in task.meta["answer"])
+
+ENV = MyEnv()
+```
+
+A correct reference answer per task is optional but strongly recommended: it lets the grader audit feed `verify()` answers that are known to be wrong (near misses, hedges, same-shape wrong answers, the model's own mistakes). Without it only reference-free probes run. `examples/envs/wordmath_rl/env.py` is a template to copy.
+
+### The held-out suite (what "transfer" is measured on)
+
+Built in:
+
+| Suite | Domain | Items |
+|---|---|---|
+| `word_math` | grade-school arithmetic word problems, one or two steps | 300 (10 private templates) |
+| `arithmetic` | multi-digit addition stated in words | 300 |
+| `strings` | reversing short letter strings | 300 |
+
+Datasets default to `word_math`; environments default to their `ENV.domain`. For any other domain, bring your own suite as JSONL and pass `--suite my_suite.jsonl`:
+
+```json
+{"prompt": "How many minutes are in 7 hours?", "answer": "420", "match": "numeric"}
+{"prompt": "Reverse 'abc'.", "answer": "cba", "match": "exact", "distractors": ["abc", "bca", "cab", "acb"]}
+```
+
+`match` is `numeric` (the last number in the reply must equal the answer) or `exact`. `distractors` are plausible wrong answers used for the smooth probability score; they are generated automatically if omitted. Use at least 200 items. The suite must never be shown to the vendor; Touchstone checks every appraised item against it (exact, near-duplicate and reworded matches) and flags any overlap. `examples/suites/unit_conversion.jsonl` shows the format. A custom suite has no calibration sweep, so its forecast is the rank-at-largest-size number, labelled as uncalibrated in the report (see METHOD.md to calibrate one).
+
+Pass `--public free_data.jsonl` (or an environment folder) to check overlap against a free baseline of your choice. The defaults are GSM8K train for `word_math` and the free addition environment for `arithmetic`.
+
+### What you get
+
+`report.md` (readable), `report.json` (everything, machine-readable) and `run.log` in the `--out` folder:
+
+- held-out accuracy before and after training at each model size, with 90% intervals, and the same for the shuffled-answer (or shuffled-reward) placebo; the net gain is the material minus the placebo;
+- a smooth score (probability on the right answer against four plausible wrong ones);
+- grader audit (environments): reward earned by each exploit, and training reward against held-out gain;
+- overlap with the held-out suite, with free public data, and internal duplicates;
+- forecast of the net gain at 1.7B with the range observed in validation; the grade (A to F), fair value per item, and every flag with its reason.
+
+`--quick` trains only the 135M rung, one seed (material + placebo), and scores 120 held-out items; for environments it runs 30 GRPO steps with groups of 4. Measured on an M5 with other work running: about 5 minutes for a dataset, 10 to 20 for an environment. The full run trains 135M and 360M (two seeds each) and 1.7B (one seed), scores 200 items, and also measures 1.7B directly. `--dollars-per-point` sets what one held-out accuracy point is worth to the buyer (default $250,000, an assumption, not a measurement).
+
+## Evidence
+
+`out/evidence.md` holds the results table from `scripts/run_evidence.py` (the six planted-failure environments and the example datasets). Forecast validation is in `out/validation_sft_summary.json` (datasets, real models) and `out/validation_rl_tiny_summary.json` (RL environments, tiny models). METHOD.md summarizes both.
+
+```bash
+python scripts/build_examples.py                  # regenerate examples/datasets/
+python scripts/run_evidence.py --envs --datasets --quick
+python scripts/validate_sft.py                     # dataset forecast validation + calibration (hours)
+python scripts/validate_rl_tiny.py                 # RL forecast validation on the tiny GPTs (hours, CPU)
+.venv/bin/python -m pytest -q tests                # unit tests + CLI smoke tests (about 10 minutes)
+.venv/bin/python -m pytest -q tests -m "not slow"  # unit tests only, under a minute
+```
 
 ## What's real and what's a stand-in
 
-| Piece | In this prototype | In production |
-|---|---|---|
-| Environment contract | Real: `env.py` exposes `ENV` with `tasks()` and `verify()` | Same, or an adapter for OpenEnv / Prime Intellect `verifiers` |
-| Sealing | Real: content-addressed copy into `vault/` with a SHA-256 fingerprint | Same, plus an isolated container with no network |
-| Models | Tiny character-level GPTs (29K to 1.3M params) on CPU | Real open models, for example 0.5B / 1.5B / 3B, checked against 7B |
-| Trainer | `ToyGRPO`, a real group-relative policy-gradient loop with a KL penalty to the base model and muP-style learning rates scaled by width | `TRLBackend` slot (TRL GRPOTrainer or Tinker), same interface |
-| Held-out suite | 450 private items (2-digit and 3-digit addition, string reversal) | A large private suite per domain, never shared |
-| Hack probes | Real: six static exploits plus a hedging probe that uses a real policy | Same idea, plus adversarial policies trained against the grader |
-| Forecast | Real: fit gain against log(params), bootstrap the held-out items, check against the largest model | Same |
+| Piece | Status |
+|---|---|
+| Models | Real open weights: SmolLM2-135M/360M/1.7B-Instruct, LoRA rank 16 on all linear layers, on Apple MPS. The buyer's frontier model is not run; 1.7B is the largest validated target. |
+| Training | Real SFT (completion-only loss) and real GRPO (group-normalized advantages, KL to the base model, on-policy). Short fixed budgets: 60 SFT steps of 16 examples, 40 GRPO steps of 8 prompts x 8 samples. |
+| Held-out suites | Built-in, procedurally generated with private templates and seeds; or your own JSONL. |
+| Grader audit | Real: mechanical known-wrong and reference-free probes plus the model's own wrong samples. |
+| Overlap | Real: exact, character 5-gram near-duplicate, and MiniLM sentence-embedding paraphrase matching with a same-numbers guard. |
+| Forecast | Calibrated small-to-large map, validated by leave-one-out on a sweep of datasets run at all three sizes. For RL environments on real models there is no calibration sweep yet (too slow for a laptop); the RL forecasting method was validated on the tiny GPTs instead. |
+| Vendors | The six environments and the example datasets are fictional, built to plant specific failures. |
+| Sealing | `touchstone/env.py` can copy an environment into a content-addressed vault, but vendor code still runs in Touchstone's process. Production needs a sandbox. |
 
-The six vendors are fictional and built to show different failure modes:
+## The original tiny-model prototype
 
-- **Northwind Arithmetic Pro**: an honest grader with harder 3-digit problems.
-- **Mirror String Ops**: an honest grader on a different skill (reversal).
-- **Clone Premium Addition**: 80% copied from the free public set.
-- **QuickGrade Math Pack**: the grader only checks that the answer appears somewhere, so hedging wins.
-- **ShapeOnly Numeracy**: the grader only checks the number of digits.
-- **HintLeak Tutor Set**: the prompt contains the answer.
-
-## Run it
+The first prototype (character-level GPTs, 29K to 1.3M parameters, toy GRPO on CPU) still runs and still feeds the website data in `out/appraisals.json`:
 
 ```bash
-pip install torch numpy pytest
-python3 -m pytest -q tests                  # unit tests, a few seconds
-python3 scripts/run_demo.py --quick         # smoke test, about 3 minutes
-python3 scripts/run_demo.py                 # full demo, about 30 to 45 minutes on 4 CPU cores
+python3 scripts/run_demo.py --quick
 python3 -m touchstone.site out/appraisals.json site
 ```
 
-The site command writes the static website into `site/`: Home, Product, Market, Pricing, Company and Request pages, plus the sample report, a certificate for each environment, and the forecast check. Open `site/index.html` to start. Edit `REQUEST_FORM_URL`, `ROADMAP` and `FOUNDERS` at the top of `touchstone/report.py`.
+Its forecast did not validate (Spearman -0.03 between forecast and actual at the largest size, 7 environments, one seed). `scripts/validate_rl_tiny.py` re-runs that experiment with the fixes; METHOD.md reports what changed.
 
 ## Layout
 
-- `touchstone/env.py`: the vendor contract, sealing and loading
-- `touchstone/model.py`: tiny GPT, generation, log-probs
-- `touchstone/pretrain.py`: base models for each rung of the ladder
-- `touchstone/rl.py`: `ToyGRPO` trainer and the production trainer slot
-- `touchstone/heldout.py`: the private held-out suite
-- `touchstone/probes.py`: hack probes and grader reliability
-- `touchstone/redundancy.py`: overlap with free sets and with the held-out suite
-- `touchstone/forecast.py`: small-to-large forecast and rank correlation
-- `touchstone/appraise.py`: the pipeline and grading rules
-- `touchstone/site.py`: the website (company pages and design system)
-- `touchstone/report.py`: sample-report, certificate and forecast pages
-- `envs/`: sample vendor environments and the free baseline
-
-## Next steps toward the real first experiment
-
-1. Implement `TRLBackend` and run the same pipeline on 6 to 8 open environments with Qwen-class models at 0.5B, 1.5B, 3B and 7B.
-2. Build a real held-out suite for each domain (math, code, tool use).
-3. Keep or kill: if the small-to-large rank correlation stays under about 0.6, drop the forecast and keep the hack audit.
+- `touchstone/cli.py`: the `touchstone` command
+- `touchstone/pipeline.py`: the appraisal pipeline on real models (dataset and environment)
+- `touchstone/lm.py`: the model ladder, generation, scoring, LoRA SFT
+- `touchstone/grpo.py`: GRPO with LoRA and the shuffled-reward placebo
+- `touchstone/suites.py`: held-out suites, answer matching, distractors
+- `touchstone/measure.py`: evaluation and paired bootstrap gains
+- `touchstone/data.py`: dataset loading, validation and the shuffled-answer placebo
+- `touchstone/overlap.py`: exact, near-duplicate and paraphrase overlap
+- `touchstone/probes.py`: grader audit
+- `touchstone/forecast.py`: forecasting methods, leave-one-out validation, calibration
+- `touchstone/valuation.py`: flags, grade and fair value rules
+- `touchstone/report_md.py`: report.md
+- `touchstone/calibration/`: fitted small-to-large maps
+- `touchstone/{model,pretrain,rl,heldout,redundancy,appraise}.py`: the original tiny-model prototype
+- `touchstone/site.py`, `touchstone/report.py`: the static website generator
+- `envs/`: the six sample vendor environments and the free baseline
+- `examples/`: example datasets, an environment template and a custom suite

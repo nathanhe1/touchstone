@@ -53,6 +53,8 @@ def render(r: dict) -> str:
       + "; *net* is material minus placebo, the value of the content itself.\n")
     w("| Size | Seeds | Base acc | After acc | Gain (pts) | Placebo gain | Net gain | Gain, untouched items | Prob. gain (pts) |")
     w("|---|---|---|---|---|---|---|---|---|")
+    if not r["rungs"]:
+        w("No model was trained in this run: quick mode stopped after screening (see flags).\n")
     for size, g in r["rungs"].items():
         mat = g["material"]
         pl = g.get("placebo")

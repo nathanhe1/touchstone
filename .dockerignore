@@ -1,0 +1,10 @@
+.venv
+.git
+**/__pycache__
+.pytest_cache
+vault
+reports
+out/jobs
+out/*.db
+web/node_modules
+*.egg-info

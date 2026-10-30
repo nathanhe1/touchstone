@@ -28,7 +28,8 @@ def _env_prompt(task) -> str:
 
 
 def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, placebo: bool = False,
-         log=None) -> tuple[LM, dict]:
+         log=None, on_step=None) -> tuple[LM, dict]:
+    """on_step(step_done, tuned) is called after every step (for checkpoint evaluations in sweeps)."""
     steps = steps or recipe.rl_steps
     tuned = with_lora(lm, recipe, seed)
     model = tuned.model
@@ -54,6 +55,9 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
         adv = (r - r.mean(1, keepdim=True)) / (r.std(1, keepdim=True) + 1e-4)
         if adv.abs().sum() == 0:
             skipped += 1
+            if on_step:
+                model.eval()
+                on_step(step + 1, tuned)
             continue
         model.train()
         pre = [c for c in chats for _ in range(G)]
@@ -79,6 +83,9 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         release_cache()
+        if on_step:
+            model.eval()
+            on_step(step + 1, tuned)
         if log and (step + 1) % 10 == 0:
             log(f"    grpo {lm.size}{' placebo' if placebo else ''} step {step + 1}/{steps} "
                 f"reward {sum(curve[-10:]) / len(curve[-10:]):.2f}")

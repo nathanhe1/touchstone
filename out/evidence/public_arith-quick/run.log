@@ -1,6 +1,0 @@
-[23:24:42] Appraising environment Public Addition (free): 2000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
-[23:24:48]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 100.0%, duplicates 12.4%
-[23:25:38]   grader audit: worst exploit 'empty answer' earns 0% reward
-[23:25:39]   135M: base accuracy 32.5%  candidate prob 54.0%
-[23:30:11]   135M seed 0 material: accuracy 54.2%  candidate prob 73.2%  (244s train)
-[23:35:51]   135M seed 0 placebo : accuracy 32.5%  candidate prob 57.1%  (257s train)

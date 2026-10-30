@@ -47,9 +47,9 @@ DEV = [  # (id, kind, path, suite, true flags)
     ("gsm8k_clone", ["copied_from_public"]), ("contaminated", ["contaminated"]), ("duplicated", ["duplicated"])]]
 
 
-def test_items():
-    m = json.loads((ROOT / "examples" / "redflags_test" / "manifest.json").read_text())
-    return [(x["id"], x["kind"], f"examples/redflags_test/{x['path']}", x["suite"], [k for k, v in x["labels"].items() if v])
+def test_items(folder="redflags_test"):
+    m = json.loads((ROOT / "examples" / folder / "manifest.json").read_text())
+    return [(x["id"], x["kind"], f"examples/{folder}/{x['path']}", x["suite"], [k for k, v in x["labels"].items() if v])
             for x in m]
 
 

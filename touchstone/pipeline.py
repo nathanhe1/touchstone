@@ -477,6 +477,11 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     sc = screen_material("env", prompts, suite, public, log, env=env, tasks=tasks, probe_size=plan.rungs[0])
     contam, pub, pub_label, dups, clean_idx = sc["contam"], sc["pub"], sc["pub_label"], sc["dups"], sc["clean_idx"]
     audit = sc["audit"]
+    if plan.mode == "quick" and blocking_static_flags(sc):
+        log("  blocking problem found in screening; quick mode skips training")
+        stage(log, "price", 0.95)
+        return screened_only("env", path, name, len(tasks), sc, suite, plan, dollars_per_point, t0,
+                             {"grader_audit": audit, "answer_leakage": sc["answer_leakage"]})
 
     rng = random.Random(1)
     reward_sample = [rng.choice(tasks) for _ in range(64)]

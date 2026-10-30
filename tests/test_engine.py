@@ -211,9 +211,9 @@ def test_fair_value_is_not_inflated_by_repetition():
     clean = valuation.flags_for({"measurable": True})
     tiny = valuation.fair_value(5.0, clean, 20, 0.0, 250_000, examples_seen=960)
     big = valuation.fair_value(5.0, clean, 2000, 0.0, 250_000, examples_seen=960)
-    assert tiny["per_item"] == big["per_item"] == round(5.0 * 250_000 / 2000, 2) or tiny["per_item"] == round(
-        5.0 * 250_000 / 960, 2)
-    assert tiny["per_item"] == round(5.0 * 250_000 / 960, 2) and tiny["total"] < big["total"]
+    assert tiny["per_item"] == round(5.0 * 250_000 / 960, 2)  # spread over the 960 presentations, not 20 items
+    assert big["per_item"] == round(5.0 * 250_000 / 2000, 2)
+    assert tiny["total"] < big["total"]
 
 
 # ---------------------------------------------------------------- report rendering

@@ -433,6 +433,9 @@ def reforecast(r: dict) -> dict:
     """
     from .schema import public_report
     r = public_report(r)  # older reports: move overlap/forecast to *_detail
+    if not r["rungs"]:  # screening-only report: nothing to forecast, just re-apply the rubric
+        r["grade"] = valuation.grade(0.0, r["flags"])
+        return public_report(r)
     plan = Plan(r["mode"], list(r["rungs"]), {s: g["seeds"] for s, g in r["rungs"].items()},
                 r["heldout"]["n_items"], "placebo" in next(iter(r["rungs"].values())))
     r["forecast_detail"] = make_forecast(r["rungs"], plan, calibration(r["heldout"]["name"], r["kind"]))

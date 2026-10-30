@@ -122,6 +122,120 @@
       "copy+rev"
     ]
   },
+  "validation_smooth_target": {
+    "n": 16,
+    "coverage": 0.8,
+    "methods": {
+      "extrapolate": {
+        "spearman": 0.918,
+        "decision_accuracy": 0.9,
+        "mae_pts": 2.99,
+        "interval_halfwidth_pts": 5.46,
+        "predictions": [
+          4.16,
+          10.57,
+          -3.19,
+          -0.23,
+          13.01,
+          2.23,
+          8.4,
+          -1.71,
+          -2.92,
+          3.15,
+          -6.06,
+          -1.69,
+          1.49,
+          3.82,
+          6.26,
+          -0.78
+        ]
+      },
+      "rank_largest": {
+        "spearman": 0.932,
+        "decision_accuracy": 0.908,
+        "mae_pts": 1.79,
+        "interval_halfwidth_pts": 3.21,
+        "predictions": [
+          1.76,
+          7.62,
+          -0.17,
+          -0.7,
+          9.35,
+          2.36,
+          6.57,
+          -5.0,
+          -2.16,
+          0.31,
+          -5.76,
+          -1.59,
+          -2.38,
+          4.01,
+          6.4,
+          -0.6
+        ]
+      },
+      "calibrated": {
+        "spearman": 0.932,
+        "decision_accuracy": 0.908,
+        "mae_pts": 1.11,
+        "interval_halfwidth_pts": 1.7,
+        "predictions": [
+          -0.05,
+          4.34,
+          -1.28,
+          -1.61,
+          5.75,
+          0.16,
+          3.6,
+          -4.09,
+          -3.56,
+          -1.2,
+          -5.26,
+          -2.32,
+          -3.79,
+          1.6,
+          3.61,
+          -1.8
+        ]
+      }
+    },
+    "actual": [
+      1.65,
+      4.41,
+      -2.24,
+      -1.52,
+      4.95,
+      1.29,
+      2.52,
+      -7.18,
+      -0.94,
+      -0.2,
+      -6.23,
+      -2.7,
+      -2.02,
+      2.11,
+      2.24,
+      -1.67
+    ],
+    "names": [
+      "add2",
+      "add3",
+      "rev",
+      "copy",
+      "add2+add3",
+      "add2+rev",
+      "all",
+      "add2 tiny pool",
+      "rev tiny pool",
+      "add2 noisy30",
+      "add3 noisy50",
+      "rev noisy30",
+      "add2 shape grader",
+      "mix contains grader",
+      "add3+rev",
+      "copy+rev"
+    ]
+  },
   "validation_seed0_only": {
     "n": 16,
     "coverage": 0.8,

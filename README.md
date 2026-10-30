@@ -91,7 +91,7 @@ Pass `--public free_data.jsonl` (or an environment folder) to check overlap agai
 - overlap with the held-out suite, with free public data, and internal duplicates;
 - forecast of the net gain at 1.7B with the range observed in validation; the grade (A to F), fair value per item, and every flag with its reason.
 
-`--quick` trains only the 135M rung, one seed (material + placebo), and scores 120 held-out items; for environments it runs 30 GRPO steps with groups of 4. Measured on an M5 with other work running: about 5 minutes for a dataset, 10 to 20 for an environment. The full run trains 135M and 360M (two seeds each) and 1.7B (one seed), scores 200 items, and also measures 1.7B directly. `--dollars-per-point` sets what one held-out accuracy point is worth to the buyer (default $250,000, an assumption, not a measurement).
+`--quick` screens first and stops if a blocking problem already rules out a price; otherwise it trains only the 135M rung (30 SFT steps, one seed, material + placebo) and scores 150 held-out items; for environments it runs 30 GRPO steps with groups of 4. Measured on an M5 with other work running: about 5 minutes for a dataset, 10 to 20 for an environment. The full run trains 135M and 360M (two seeds each) and 1.7B (one seed), scores 200 items, and also measures 1.7B directly. `--dollars-per-point` sets what one held-out accuracy point is worth to the buyer (default $250,000, an assumption, not a measurement).
 
 ### Devices
 

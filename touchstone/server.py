@@ -287,10 +287,18 @@ def appraise_example(example_id: str, mode: str = "quick"):
 
 # ---------------------------------------------------------------- jobs
 
+def _scrub(text: str) -> str:
+    """Strip the server's own folders from text sent to clients, so responses never reveal its file layout."""
+    for base in sorted({str(JOBS.resolve()), str(JOBS), str(ROOT)}, key=len, reverse=True):
+        text = text.replace(base + os.sep, "").replace(base, ".")
+    return text
+
+
 @app.get("/api/jobs/{job_id}")
 def job_status(job_id: str):
     job = _read(job_id)
-    return {k: job.get(k) for k in ("job_id", "status", "stage", "progress", "log", "error", "report")}
+    view = {k: job.get(k) for k in ("job_id", "status", "stage", "progress", "log", "error", "report")}
+    return json.loads(_scrub(json.dumps(view)))
 
 
 @app.get("/api/jobs/{job_id}/report.md")
@@ -298,7 +306,7 @@ def job_report_md(job_id: str):
     f = _job_dir(job_id) / "result" / "report.md"
     if not f.exists():
         raise HTTPException(404, "report not ready")
-    return PlainTextResponse(f.read_text(), media_type="text/markdown")
+    return PlainTextResponse(_scrub(f.read_text()), media_type="text/markdown")
 
 
 @app.get("/api/health")

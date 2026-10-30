@@ -1,0 +1,4 @@
+[03:19:55] Appraising environment Clone Premium Addition: 2500 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:19:59]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 89.8%, duplicates 16.0%, off-topic 0%
+[03:20:15]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
+[03:20:15]   blocking problem found in screening; quick mode skips training

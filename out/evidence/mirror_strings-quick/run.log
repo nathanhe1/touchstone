@@ -1,0 +1,6 @@
+[03:15:23] Appraising environment Mirror String Ops: 5000 tasks; held-out suite 'strings' (150 items: string reversal of short letter sequences); mode quick
+[03:15:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 4.9%, off-topic 0%
+[03:15:50]   grader audit: worst exploit 'copy a prompt span (first+4)' earns 0% reward; answer in prompt for 1% of tasks
+[03:16:34]   135M: base accuracy 0.0%  candidate prob 6.8%
+[03:18:13]   135M seed 0 material: accuracy 0.0%  candidate prob 6.8%  (55s train)
+[03:19:49]   135M seed 0 placebo : accuracy 0.0%  candidate prob 6.8%  (52s train)

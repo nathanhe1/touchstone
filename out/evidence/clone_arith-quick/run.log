@@ -1,6 +1,0 @@
-[22:39:43] Appraising environment Clone Premium Addition: 2500 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
-[22:39:48]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 89.8%, duplicates 16.0%
-[22:40:32]   grader audit: worst exploit 'empty answer' earns 0% reward
-[22:40:34]   135M: base accuracy 32.5%  candidate prob 54.0%
-[22:45:29]   135M seed 0 material: accuracy 50.8%  candidate prob 72.3%  (260s train)
-[22:50:56]   135M seed 0 placebo : accuracy 33.3%  candidate prob 54.7%  (242s train)

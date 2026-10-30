@@ -371,6 +371,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         "heldout": _suite_info(suite, len(clean_idx)),
         "overlap": {"heldout": _strip(contam), "public": {**_strip(pub), "baseline": pub_label},
                     "duplicates": dups},
+        "relevance": sc["relevance"], "label_quality": sc["label_quality"],
         "rungs": rungs, "forecast": fcast,
         "measurable_at": largest, "flags": flags, "grade": g,
         "fair_value": {**value, "dollars_per_point": dollars_per_point, "basis": f"net gain at {L.TARGET} ({fcast['headline']['source']})"},

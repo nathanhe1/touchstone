@@ -47,6 +47,12 @@
    "cand_gain": 9.833,
    "train_s": 176.4,
    "loss_last": 0.1718
+  },
+  "noisy_80|135M|0": {
+   "acc_gain": 4.5,
+   "cand_gain": 5.343,
+   "train_s": 82.1,
+   "loss_last": 0.2063
   }
  },
  "base": {

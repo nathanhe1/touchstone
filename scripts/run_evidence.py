@@ -108,8 +108,11 @@ def table():
     for x in rows:
         hk = "-" if x["hackability"] is None else f"{100 * x['hackability']:.0f}%"
         pl = "-" if x["placebo_gain_top"] is None else f"{x['placebo_gain_top']:+.1f}"
+        net = ("not trained (screening only)" if x["net_forecast"] is None
+               else f"{x['net_forecast']:+.1f} [{x['net_lo']:+.1f}, {x['net_hi']:+.1f}]")
+        raw = "-" if x["raw_gain_top"] is None else f"{x['raw_gain_top']:+.1f}"
         lines.append(f"| {x['name']} | {x['kind']} | {x['planted']} | {x['grade']} | {x['value_per_item']:,.2f} | "
-                     f"{x['net_forecast']:+.1f} [{x['net_lo']:+.1f}, {x['net_hi']:+.1f}] | {x['raw_gain_top']:+.1f} | {pl} | "
+                     f"{net} | {raw} | {pl} | "
                      f"{hk} | {100 * x['heldout_overlap']:.0f}% | {100 * x['public_overlap']:.0f}% | "
                      f"{', '.join(x['flags']) or 'none'} |")
     lines.append(f"\nGood-vs-bad decision accuracy of the ranking: {summary['good_vs_bad_decision_accuracy']} "

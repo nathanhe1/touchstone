@@ -1,0 +1,74 @@
+skip northwind_arith (exists)
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/mirror_strings --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick --quick
+[23:36:26] Appraising environment Mirror String Ops: 5000 tasks; held-out suite 'strings' (120 items: string reversal of short letter sequences); mode quick
+[23:36:37]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 4.9%
+[23:37:09]   grader audit: worst exploit 'copy a prompt span (first+4)' earns 0% reward
+[23:37:10]   135M: base accuracy 0.0%  candidate prob 7.1%
+[23:40:24]   135M seed 0 material: accuracy 0.0%  candidate prob 7.1%  (128s train)
+[23:43:18]   135M seed 0 placebo : accuracy 0.0%  candidate prob 7.1%  (110s train)
+
+Grade D | net gain at 1.7B: +0.0 pts [+0.0, +0.0] | value $0.00/item | flags: no_learning_signal, no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick/report.md
+skip clone_arith (exists)
+skip quickgrade_arith (exists)
+skip shapeonly_arith (exists)
+skip hintleak_arith (exists)
+skip public_arith (exists)
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/good_cot.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_cot-quick --quick
+[23:43:26] Appraising dataset good_cot.jsonl: 800 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[23:43:30]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[23:43:32]   135M: base accuracy 14.2%  candidate prob 30.5%
+[23:45:56]   135M seed 0 material: accuracy 16.7%  candidate prob 40.8%  (100s train)
+[23:47:53]   135M seed 0 placebo : accuracy 1.7%  candidate prob 22.0%  (75s train)
+
+Grade B | net gain at 1.7B: +2.5 pts [-5.5, +10.5] | value $781.25/item | flags: none
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_cot-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/good_short.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_short-quick --quick
+[23:47:54] Appraising dataset good_short.jsonl: 800 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[23:47:57]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[23:47:59]   135M: base accuracy 14.2%  candidate prob 30.5%
+[23:50:14]   135M seed 0 material: accuracy 5.0%  candidate prob 30.4%  (107s train)
+[23:52:01]   135M seed 0 placebo : accuracy 0.0%  candidate prob 23.5%  (78s train)
+
+Grade F | net gain at 1.7B: -9.2 pts [-13.9, -4.4] | value $0.00/item | flags: no_measurable_gain, harmful
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_short-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/noisy_50.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/noisy_50-quick --quick
+[23:52:02] Appraising dataset noisy_50.jsonl: 800 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[23:52:05]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[23:52:06]   135M: base accuracy 14.2%  candidate prob 30.5%
+[23:54:38]   135M seed 0 material: accuracy 15.0%  candidate prob 36.7%  (111s train)
+[23:56:55]   135M seed 0 placebo : accuracy 0.8%  candidate prob 19.1%  (98s train)
+
+Grade C | net gain at 1.7B: +0.8 pts [-6.2, +7.9] | value $0.00/item | flags: no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/noisy_50-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/wrong_all.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/wrong_all-quick --quick
+[23:56:56] Appraising dataset wrong_all.jsonl: 800 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[23:56:59]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[23:57:00]   135M: base accuracy 14.2%  candidate prob 30.5%
+[23:59:18]   135M seed 0 material: accuracy 8.3%  candidate prob 30.6%  (97s train)
+[00:07:45]   135M seed 0 placebo : accuracy 1.7%  candidate prob 20.2%  (357s train)
+
+Grade D | net gain at 1.7B: -5.8 pts [-12.2, +0.5] | value $0.00/item | flags: no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/wrong_all-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/offtopic.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/offtopic-quick --quick
+[00:07:47] Appraising dataset offtopic.jsonl: 800 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[00:07:53]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.1%
+[00:07:56]   135M: base accuracy 14.2%  candidate prob 30.5%
+[00:25:35]   135M seed 0 material: accuracy 9.2%  candidate prob 24.4%  (947s train)
+[00:27:52]   135M seed 0 placebo : accuracy 8.3%  candidate prob 31.8%  (68s train)
+
+Grade D | net gain at 1.7B: -5.0 pts [-10.2, +0.2] | value $0.00/item | flags: no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/offtopic-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/contaminated.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/contaminated-quick --quick
+[00:27:53] Appraising dataset contaminated.jsonl: 600 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[00:27:56]   overlap: 45.0% of held-out items appear in the material (9.5% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[00:27:57]   135M: base accuracy 14.2%  candidate prob 30.5%
+[00:29:52]   135M seed 0 material: accuracy 18.3%  candidate prob 43.0%  (78s train)
+[00:31:31]   135M seed 0 placebo : accuracy 0.0%  candidate prob 24.2%  (70s train)
+
+Grade D | net gain at 1.7B: +4.2 pts [-3.3, +11.6] | value $0.00/item | flags: contaminated
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/contaminated-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/gsm8k_clone.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/gsm8k_clone-quick --quick
+[00:31:31] Appraising dataset gsm8k_clone.jsonl: 600 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[00:31:37]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 100.0%, duplicates 0.0%
+[00:31:38]   135M: base accuracy 14.2%  candidate prob 30.5%

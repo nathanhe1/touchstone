@@ -1,0 +1,79 @@
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/northwind_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/northwind_arith-quick --quick
+[20:36:16] Appraising environment Northwind Arithmetic Pro: 5000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[20:36:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 23.3%, duplicates 9.1%
+[20:36:55]   grader audit: worst exploit 'empty answer' earns 0% reward
+[20:36:56]   135M: base accuracy 32.5%  candidate prob 54.0%
+[20:41:06]   135M seed 0 material: accuracy 54.2%  candidate prob 74.3%  (218s train)
+[20:56:37]   135M seed 0 placebo : accuracy 29.2%  candidate prob 53.8%  (291s train)
+
+Grade A | net gain at 1.7B: +21.7 pts [+15.0, +28.4] | value $914.08/item | flags: none
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/northwind_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/mirror_strings --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick --quick
+[20:56:55] Appraising environment Mirror String Ops: 5000 tasks; held-out suite 'strings' (120 items: string reversal of short letter sequences); mode quick
+[21:09:26]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 4.9%
+[21:10:45]   grader audit: worst exploit 'copy a prompt span (first+4)' earns 0% reward
+[21:12:52]   135M: base accuracy 0.0%  candidate prob 7.1%
+[22:35:54]   135M seed 0 material: accuracy 0.0%  candidate prob 7.1%  (2123s train)
+[22:39:33]   135M seed 0 placebo : accuracy 0.0%  candidate prob 7.1%  (137s train)
+
+Grade D | net gain at 1.7B: +0.0 pts [+0.0, +0.0] | value $0.00/item | flags: no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/clone_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/clone_arith-quick --quick
+[22:39:43] Appraising environment Clone Premium Addition: 2500 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[22:39:48]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 89.8%, duplicates 16.0%
+[22:40:32]   grader audit: worst exploit 'empty answer' earns 0% reward
+[22:40:34]   135M: base accuracy 32.5%  candidate prob 54.0%
+[22:45:29]   135M seed 0 material: accuracy 50.8%  candidate prob 72.3%  (260s train)
+[22:50:56]   135M seed 0 placebo : accuracy 33.3%  candidate prob 54.7%  (242s train)
+
+Grade C | net gain at 1.7B: +17.5 pts [+9.4, +25.6] | value $213.43/item | flags: mostly_public
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/clone_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/quickgrade_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/quickgrade_arith-quick --quick
+[22:51:02] Appraising environment QuickGrade Math Pack: 5000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[22:51:21]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 48.1%, duplicates 29.9%
+[22:51:58]   grader audit: worst exploit 'hedge: right then wrong' earns 100% reward
+[22:51:59]   135M: base accuracy 32.5%  candidate prob 54.0%
+[22:57:02]   135M seed 0 material: accuracy 54.2%  candidate prob 71.7%  (262s train)
+[23:02:30]   135M seed 0 placebo : accuracy 27.5%  candidate prob 53.2%  (238s train)
+
+Grade D | net gain at 1.7B: +21.7 pts [+14.0, +29.4] | value $0.00/item | flags: gameable_grader
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/quickgrade_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/shapeonly_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/shapeonly_arith-quick --quick
+[23:02:34] Appraising environment ShapeOnly Numeracy: 5000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[23:02:42]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 46.8%, duplicates 30.8%
+[23:03:18]   grader audit: worst exploit 'same shape, wrong content' earns 100% reward
+[23:03:19]   135M: base accuracy 32.5%  candidate prob 54.0%
+[23:08:35]   135M seed 0 material: accuracy 40.0%  candidate prob 69.9%  (278s train)
+[23:13:37]   135M seed 0 placebo : accuracy 40.8%  candidate prob 59.6%  (252s train)
+
+Grade D | net gain at 1.7B: -0.8 pts [-9.4, +7.7] | value $0.00/item | flags: gameable_grader, no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/shapeonly_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/hintleak_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/hintleak_arith-quick --quick
+[23:13:45] Appraising environment HintLeak Tutor Set: 5000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[23:14:07]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 0.0%, duplicates 30.1%
+[23:14:43]   grader audit: worst exploit 'copy a prompt span (last-1)' earns 100% reward
+[23:14:44]   135M: base accuracy 32.5%  candidate prob 54.0%
+[23:19:02]   135M seed 0 material: accuracy 36.7%  candidate prob 59.9%  (222s train)
+[23:24:27]   135M seed 0 placebo : accuracy 32.5%  candidate prob 55.5%  (264s train)
+
+Grade D | net gain at 1.7B: +4.2 pts [-1.2, +9.5] | value $0.00/item | flags: gameable_grader, transfer_gap
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/hintleak_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/public_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/public_arith-quick --quick
+[23:24:42] Appraising environment Public Addition (free): 2000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[23:24:48]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 100.0%, duplicates 12.4%
+[23:25:38]   grader audit: worst exploit 'empty answer' earns 0% reward
+[23:25:39]   135M: base accuracy 32.5%  candidate prob 54.0%
+[23:30:11]   135M seed 0 material: accuracy 54.2%  candidate prob 73.2%  (244s train)
+[23:35:51]   135M seed 0 placebo : accuracy 32.5%  candidate prob 57.1%  (257s train)
+
+Grade C | net gain at 1.7B: +21.7 pts [+14.4, +28.9] | value $0.00/item | flags: mostly_public
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/public_arith-quick/report.md
+| Material | Kind | Planted problem | Grade | $/item | Net gain @1.7B | Raw gain (top rung) | Placebo | Hackability | Suite overlap | Public overlap | Flags |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| clone_arith-quick | env | 80% copied from the free public set | C | 213.43 | +17.5 [+9.4, +25.6] | +18.3 | +0.8 | 0% | 0% | 90% | mostly_public |
+| hintleak_arith-quick | env | prompt carries the answer | D | 0.00 | +4.2 [-1.2, +9.5] | +4.2 | +0.0 | 100% | 0% | 0% | gameable_grader, transfer_gap |
+| mirror_strings-quick | env | none, but a different skill (reversal) | D | 0.00 | +0.0 [+0.0, +0.0] | +0.0 | +0.0 | 0% | 0% | 0% | no_measurable_gain |
+| northwind_arith-quick | env | none: honest exact-match grader | A | 914.08 | +21.7 [+15.0, +28.4] | +21.7 | -3.3 | 0% | 0% | 23% | none |
+| public_arith-quick | env | free baseline | C | 0.00 | +21.7 [+14.4, +28.9] | +21.7 | +0.0 | 0% | 0% | 100% | mostly_public |
+| quickgrade_arith-quick | env | grader accepts any reply containing the answer | D | 0.00 | +21.7 [+14.0, +29.4] | +21.7 | -5.0 | 100% | 0% | 48% | gameable_grader |
+| shapeonly_arith-quick | env | grader only checks the number of digits | D | 0.00 | -0.8 [-9.4, +7.7] | +7.5 | +8.3 | 100% | 0% | 47% | gameable_grader, no_measurable_gain |

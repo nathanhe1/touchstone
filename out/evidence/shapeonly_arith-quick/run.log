@@ -1,0 +1,6 @@
+[23:02:34] Appraising environment ShapeOnly Numeracy: 5000 tasks; held-out suite 'arithmetic' (120 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[23:02:42]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 46.8%, duplicates 30.8%
+[23:03:18]   grader audit: worst exploit 'same shape, wrong content' earns 100% reward
+[23:03:19]   135M: base accuracy 32.5%  candidate prob 54.0%
+[23:08:35]   135M seed 0 material: accuracy 40.0%  candidate prob 69.9%  (278s train)
+[23:13:37]   135M seed 0 placebo : accuracy 40.8%  candidate prob 59.6%  (252s train)

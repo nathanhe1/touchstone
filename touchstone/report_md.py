@@ -120,8 +120,11 @@ def render(r: dict) -> str:
 
     fv = r["fair_value"]
     w("## Grade and fair value\n")
-    w(f"- Grade **{r['grade']}** from net gain {net['point']:+.1f} pts (A >= 5, B >= 2, C >= 0.5, else D; F if "
-      "training measurably hurts), capped by the flags above.")
+    if net["point"] is None:
+        w(f"- Grade **{r['grade']}** from the screening flags alone (rubric in METHOD.md).")
+    else:
+        w(f"- Grade **{r['grade']}** from net gain {net['point']:+.1f} pts (A >= 5, B >= 2, C >= 0.5, else D; F if "
+          "training measurably hurts), capped by the flags above.")
     if fv["blocked_by"]:
         w(f"- Not priced: blocked by {', '.join(fv['blocked_by'])}.")
     else:

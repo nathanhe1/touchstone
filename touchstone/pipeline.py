@@ -44,8 +44,9 @@ def plan_for(quick: bool, kind: str) -> Plan:
     from 360M, and also measures 1.7B directly."""
     if quick:
         # Environments have no calibration sweep, so quick RL can use a lighter recipe (30 steps, groups of 4).
-        rec = L.Recipe(rl_steps=30, rl_group=4) if kind == "env" else L.Recipe()
-        return Plan("quick", ["135M"], {"135M": 1}, 120, True, rec)
+        # Quick uses its own lighter recipe; the 135M_quick calibration map was fitted on exactly this recipe.
+        rec = L.Recipe(rl_steps=30, rl_group=4) if kind == "env" else L.Recipe(sft_steps=30)
+        return Plan("quick", ["135M"], {"135M": 1}, 80, True, rec)
     return Plan("full", ["135M", "360M", "1.7B"], {"135M": 2, "360M": 2, "1.7B": 1}, 200, True, L.Recipe())
 
 
@@ -217,7 +218,8 @@ def make_forecast(rungs: dict, plan: Plan, calib: dict | None) -> dict:
     largest = small[-1]
     out = {"target": L.TARGET, "target_params": L.PARAMS[L.TARGET]}
     arms = ["material", "placebo"] if plan.placebo else ["material"]
-    cmap = (calib or {}).get("maps", {}).get(largest)
+    maps = (calib or {}).get("maps", {})
+    cmap = maps.get("135M_quick") if plan.mode == "quick" else maps.get(largest)
     if cmap:
         for arm in arms:
             g = {largest: {"acc": rungs[largest][arm]["acc_gain"]["gain"], "cand": rungs[largest][arm]["cand_gain"]["gain"]}}
@@ -321,6 +323,39 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         log(f"  grader audit: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward; "
             f"answer in prompt for {100 * leak:.0f}% of tasks")
     return out
+
+
+def blocking_static_flags(sc: dict) -> list[dict]:
+    return [f for f in valuation.flags_for(dict(sc["meas"], measurable=True)) if f["severity"] == "block"]
+
+
+def screened_only(kind, path, name, n_items, sc, suite, plan, dollars_per_point, t0, extra=None) -> dict:
+    """Quick mode stops after screening when a blocking problem already makes the material unpriceable:
+    no training result could change the verdict. Full mode always trains."""
+    flags = valuation.flags_for(dict(sc["meas"], measurable=True))
+    flags.append({"code": "screen_only", "severity": "info",
+                  "text": "Quick mode stopped after screening: the problems above already rule out a price, so no "
+                          "model was trained. Run the full mode for training measurements."})
+    none = {"point": None, "lo": None, "hi": None}
+    fcast = {"target": L.TARGET, "target_params": L.PARAMS[L.TARGET], "method": "skipped",
+             "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
+             "net": dict(none), "headline": dict(none, source="skipped")}
+    stage_log = sc.get("log", print)
+    r = {
+        "touchstone_version": "0.2", "kind": kind, "mode": plan.mode,
+        "material": {"path": str(path), "name": name, "sha256": sha256_path(path), "n_items": n_items,
+                     "unique_items": sc["dups"]["unique"]},
+        "heldout": _suite_info(suite, len(sc["clean_idx"])),
+        "overlap": {"heldout": _strip(sc["contam"]), "public": {**_strip(sc["pub"]), "baseline": sc["pub_label"]},
+                    "duplicates": sc["dups"]},
+        "relevance": sc["relevance"], "rungs": {}, "forecast": fcast, "measurable_at": None, "flags": flags,
+        "grade": valuation.grade(0.0, flags),
+        "fair_value": {**valuation.fair_value(0.0, flags, sc["dups"]["unique"], sc["pub"]["rate"], dollars_per_point),
+                       "dollars_per_point": dollars_per_point, "basis": "not priced"},
+        "models": {}, "recipe": asdict(plan.recipe), "runtime_s": round(time.time() - t0),
+    }
+    r.update(extra or {})
+    return r
 
 
 # ---------------------------------------------------------------- dataset

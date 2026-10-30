@@ -1,0 +1,6 @@
+mps  135M  1.02 s/step  1306 tok/s  peak 4.5 GB  (float32)
+mlx  135M  1.20 s/step  1063 tok/s  peak 5.0 GB  (bfloat16)
+cpu  135M  1.94 s/step  690 tok/s  peak 3.3 GB  (float32)
+mps  360M  3.19 s/step  417 tok/s  peak 7.7 GB  (float32)
+mlx  360M  16.90 s/step  76 tok/s  peak 7.3 GB  (bfloat16)
+cpu  360M  5.90 s/step  227 tok/s  peak 4.1 GB  (float32)

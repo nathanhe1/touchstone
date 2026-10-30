@@ -1,0 +1,62 @@
+[
+  {
+    "backend": "mps",
+    "size": "135M",
+    "timed_steps": 10,
+    "s_per_step": 1.0163,
+    "tokens_per_s": 1305.5200236150743,
+    "peak_gb": 4.48,
+    "dtype": "float32",
+    "device": "mps"
+  },
+  {
+    "backend": "mlx",
+    "size": "135M",
+    "timed_steps": 10,
+    "s_per_step": 1.2035,
+    "tokens_per_s": 1062.5675114250105,
+    "peak_gb": 5.01,
+    "dtype": "bfloat16",
+    "device": "mlx"
+  },
+  {
+    "backend": "cpu",
+    "size": "135M",
+    "timed_steps": 6,
+    "s_per_step": 1.9375,
+    "tokens_per_s": 690.0645161290323,
+    "peak_gb": 3.28,
+    "dtype": "float32",
+    "device": "cpu"
+  },
+  {
+    "backend": "mps",
+    "size": "360M",
+    "timed_steps": 8,
+    "s_per_step": 3.18775,
+    "tokens_per_s": 416.67320210179594,
+    "peak_gb": 7.67,
+    "dtype": "float32",
+    "device": "mps"
+  },
+  {
+    "backend": "mlx",
+    "size": "360M",
+    "timed_steps": 8,
+    "s_per_step": 16.895375,
+    "tokens_per_s": 75.77517515888223,
+    "peak_gb": 7.26,
+    "dtype": "bfloat16",
+    "device": "mlx"
+  },
+  {
+    "backend": "cpu",
+    "size": "360M",
+    "timed_steps": 4,
+    "s_per_step": 5.896,
+    "tokens_per_s": 227.27272727272728,
+    "peak_gb": 4.08,
+    "dtype": "float32",
+    "device": "cpu"
+  }
+]

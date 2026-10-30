@@ -196,6 +196,9 @@ def main():
         "v2_gsm8k_mix_50": mix(word_rows(300, 112), gsm8k_rows(300, 113), seed=5),
         "v2_dup_5x": word_rows(160, 114) * 5,
         "v2_cot_short_mix": mix(word_rows(400, 115), word_rows(400, 116, fmt="short"), seed=6),
+        # development-only answer-only noise, for setting the label-judge threshold (never in a test set)
+        "dev_short_noisy_60": word_rows(400, 117, fmt="short", wrong_frac=0.6),
+        "dev_short_shuffled": _shuffled(word_rows(400, 118, fmt="short"), 7),
     })
     for name, rows in sets.items():
         write_jsonl(OUT / f"{name}.jsonl", as_messages(rows) if name == "good_short" else rows)

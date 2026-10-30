@@ -354,8 +354,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
     stage(log, "forecast", 0.91)
     fcast = make_forecast(rungs, plan, calibration(suite.name, "dataset"))
     measurable, harmful, largest = _measurable_and_harmful(rungs, plan)
-    meas = {"contamination": max(contam["rate"], hit["rate"]), "public_overlap": pub["rate"], "dup_rate": dups["dup_rate"],
-            "measurable": measurable, "harmful": harmful}
+    meas = dict(sc["meas"], measurable=measurable, harmful=harmful)
     top = rungs[largest]
     rb, ra = top.get("reply_chars_before"), top["material"].get("reply_chars")
     if rb and ra is not None and ra < 0.4 * rb and top["material"]["acc_gain"]["gain"] < 0:

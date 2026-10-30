@@ -30,7 +30,7 @@ from touchstone import measure, pipeline, suites  # noqa: E402
 
 DATASETS = ["good_cot", "good_short", "noisy_20", "noisy_50", "noisy_80", "wrong_all", "offtopic", "hard_cot",
             "small_good", "half_offtopic", "short_noisy_30", "mostly_offtopic", "duplicated", "gsm8k_clone"]
-SEEDS = {"135M": 2, "360M": 1, "1.7B": 1, "135Mq": 1}  # 135Mq: the quick-mode recipe (30 steps) at 135M
+SEEDS = {"135M": 2, "360M": 1, "1.7B": 1, "135Mq": 1, "135Mlr": 1}  # 135Mq: quick recipe (30 steps); 135Mlr: lr / 10
 QUICK_STEPS = 30
 SUITE_ITEMS = 200
 OUT = ROOT / "out" / "validation_sft.json"
@@ -58,10 +58,12 @@ def run(sizes):
                     before = pipeline.base_eval(lm, suite, recipe.eval_max_new)
                     res["base"][size[:4]] = measure.summary(before)
                 ex = datamod.load_dataset(ROOT / "examples" / "datasets" / f"{name}.jsonl")
-                rec = L.Recipe(sft_steps=QUICK_STEPS) if size == "135Mq" else recipe
+                rec = (L.Recipe(sft_steps=QUICK_STEPS) if size == "135Mq" else
+                       L.Recipe(sft_lr=recipe.sft_lr / 10) if size == "135Mlr" else recipe)
                 tuned, info = L.sft(lm, datamod.to_training_pairs(lm, ex), rec, seed=seed)
                 ev = measure.evaluate(tuned, suite, recipe.eval_max_new)
                 lm = L.drop_lora(tuned)
+                del tuned
                 res["runs"][key] = {"acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
                                     "cand_gain": measure.paired_gain(before["cand"], ev["cand"])["gain"],
                                     "train_s": info["seconds"], "loss_last": info["loss_last"]}
@@ -103,6 +105,26 @@ def summarize(res):
                                                     "cand": res["runs"][f"{r['name']}|135Mq|0"]["cand_gain"]}},
                "target": r["target"]} for r in rows if f"{r['name']}|135Mq|0" in res["runs"]]
     cal_q = fc.make_calibration(rows_q, params, small=("135M",)) if len(rows_q) >= 6 else None
+    # smaller learning rate for the proxy (Wang et al., ICLR 2026): does a 10x lower lr rank datasets more like 1.7B?
+    lr_rows = [(res["runs"][f"{r['name']}|135Mlr|0"], r) for r in rows if f"{r['name']}|135Mlr|0" in res["runs"]]
+    small_lr = None
+    if len(lr_rows) >= 5:
+        names = [r["name"] for _, r in lr_rows]
+        tgt = [r["target"] for _, r in lr_rows]
+        low = [x["acc_gain"] for x, _ in lr_rows]
+        std = [res["runs"][f"{n}|135M|0"]["acc_gain"] for n in names]
+        low_c = [x["cand_gain"] for x, _ in lr_rows]
+        std_c = [res["runs"][f"{n}|135M|0"]["cand_gain"] for n in names]
+        tgt_c = [r["all"][L.TARGET]["cand"] for _, r in lr_rows]
+        small_lr = {"n": len(names), "datasets": names,
+                    "acc": {"standard_lr": {"spearman": round(fc.spearman(std, tgt), 3),
+                                            "decision_accuracy": round(fc.decision_accuracy(std, tgt), 3)},
+                            "lr_div_10": {"spearman": round(fc.spearman(low, tgt), 3),
+                                          "decision_accuracy": round(fc.decision_accuracy(low, tgt), 3)}},
+                    "smooth": {"standard_lr": {"spearman": round(fc.spearman(std_c, tgt_c), 3),
+                                               "decision_accuracy": round(fc.decision_accuracy(std_c, tgt_c), 3)},
+                               "lr_div_10": {"spearman": round(fc.spearman(low_c, tgt_c), 3),
+                                             "decision_accuracy": round(fc.decision_accuracy(low_c, tgt_c), 3)}}}
     # the same forecasters with the smooth score as the target ("acc" slot holds the smooth score)
     rows_c = [{"name": r["name"], "small": {s: {"acc": r["all"][s]["cand"], "cand": r["all"][s]["acc"]} for s in L.SMALL},
                "target": r["all"][L.TARGET]["cand"]} for r in rows]
@@ -131,7 +153,7 @@ def summarize(res):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", action="store_true")
-    ap.add_argument("--sizes", default="135Mq,135M,360M,1.7B")
+    ap.add_argument("--sizes", default="135Mq,135M,360M,1.7B,135Mlr")
     a = ap.parse_args()
     res = json.loads(OUT.read_text()) if a.report else run(a.sizes.split(","))
     s = summarize(res)

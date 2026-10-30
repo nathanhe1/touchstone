@@ -8,3 +8,25 @@
 [03:08:00]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
 [03:08:41]   135M: base accuracy 30.7%  candidate prob 51.9%
 [03:08:41] @stage train 0.150
+[03:11:28] @stage measure 0.375
+[03:12:01]   135M seed 0 material: accuracy 50.7%  candidate prob 72.7%  (166s train)
+Python(6070) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[03:12:01] @stage train 0.525
+[03:14:33] @stage measure 0.750
+[03:15:11]   135M seed 0 placebo : accuracy 26.7%  candidate prob 50.9%  (152s train)
+[03:15:18] @stage forecast 0.910
+[03:15:18] @stage price 0.950
+@stage report 0.98
+
+Grade A | net gain at 1.7B: +20.0 pts [+14.3, +25.7] | value $843.63/item | flags: none
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/northwind_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/mirror_strings --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick --quick
+[03:15:23] @stage validate 0.010
+[03:15:23] Appraising environment Mirror String Ops: 5000 tasks; held-out suite 'strings' (150 items: string reversal of short letter sequences); mode quick
+[03:15:23] @stage seal 0.040
+[03:15:23] @stage overlap 0.060
+[03:15:23] @stage probe 0.110
+[03:15:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 4.9%, off-topic 0%
+[03:15:50]   grader audit: worst exploit 'copy a prompt span (first+4)' earns 0% reward; answer in prompt for 1% of tasks
+[03:16:34]   135M: base accuracy 0.0%  candidate prob 6.8%
+[03:16:34] @stage train 0.150

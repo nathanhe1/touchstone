@@ -153,6 +153,8 @@ class LM:
         """Replies to user prompts (or raw chat-formatted strings if raw=True)."""
         self.tok.padding_side = "left"
         texts = prompts if raw else [self.chat(p, system) for p in prompts]
+        if self.size == "1.7B":  # bounded memory on a 16 GB machine
+            batch = min(batch, 16)
         order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
         out = [""] * len(texts)
         for s in range(0, len(order), batch):
@@ -198,6 +200,8 @@ class LM:
 
     def seq_logprob(self, prefixes: list[str], conts: list[str], batch: int = 32, grad: bool = False):
         """Sum of log-probs of each continuation given its prefix."""
+        if self.size == "1.7B":
+            batch = min(batch, 16)
         res = []
         for s in range(0, len(prefixes), batch):
             x, m, att = self._pack(prefixes[s:s + batch], conts[s:s + batch])

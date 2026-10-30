@@ -206,6 +206,16 @@ def test_grade_and_value_rules():
     assert valuation.grade(9, pub) == "D" and valuation.fair_value(2, pub, 1000, 0.6, 250_000)["per_item"] == 200.0
 
 
+def test_fair_value_is_not_inflated_by_repetition():
+    """Regression: 20 unique examples repeated to fill a 960-example budget were priced at the full gain / 20."""
+    clean = valuation.flags_for({"measurable": True})
+    tiny = valuation.fair_value(5.0, clean, 20, 0.0, 250_000, examples_seen=960)
+    big = valuation.fair_value(5.0, clean, 2000, 0.0, 250_000, examples_seen=960)
+    assert tiny["per_item"] == big["per_item"] == round(5.0 * 250_000 / 2000, 2) or tiny["per_item"] == round(
+        5.0 * 250_000 / 960, 2)
+    assert tiny["per_item"] == round(5.0 * 250_000 / 960, 2) and tiny["total"] < big["total"]
+
+
 # ---------------------------------------------------------------- report rendering
 
 def _gain(g):

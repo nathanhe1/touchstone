@@ -321,6 +321,8 @@ def sft(lm: LM, examples: list[tuple[str, str]], recipe: Recipe, seed: int = 0, 
         if log and (step + 1) % 20 == 0:
             log(f"    sft {lm.size} step {step + 1}/{steps} loss {sum(losses[-20:]) / 20:.3f}")
     model.eval()
+    if checkpointing:
+        model.get_base_model().gradient_checkpointing_disable()
     seen = min(len(examples), steps * recipe.sft_batch)
     info = {"steps": steps, "examples_seen": steps * recipe.sft_batch, "unique_examples_used": seen,
             "epochs": round(steps * recipe.sft_batch / max(1, len(examples)), 2),

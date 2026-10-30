@@ -37,6 +37,10 @@ def cmd_appraise(a) -> int:
     plan.backend = pipeline.select_backend(a.device, kind)
     if a.seeds:
         plan.seeds = {s: a.seeds for s in plan.rungs}
+    if a.max_size:
+        keep = list(pipeline.L.LADDER)[: list(pipeline.L.LADDER).index(a.max_size) + 1]
+        plan.rungs = [s for s in plan.rungs if s in keep]
+        plan.seeds = {s: n for s, n in plan.seeds.items() if s in keep}
     if a.suite_items:
         plan.suite_items = a.suite_items
     if a.steps:  # changes the recipe, so the calibrated forecast no longer strictly applies (smoke tests only)
@@ -115,6 +119,8 @@ def main(argv=None) -> int:
                    help="auto/mps: PyTorch on the Apple GPU (CPU fallback with a warning); mlx: Apple MLX for dataset "
                         "fine-tuning and evaluation; cpu: force CPU")
     p.add_argument("--seeds", type=int, help="override seeds per rung")
+    p.add_argument("--max-size", choices=["135M", "360M", "1.7B"],
+                   help="largest rung to train in full mode (1.7B needs ~24 GB unified memory or a GPU box)")
     p.add_argument("--suite-items", type=int, help="override the number of held-out items scored")
     p.add_argument("--steps", type=int, help="override training steps (smoke tests; breaks forecast calibration)")
     p.add_argument("--dollars-per-point", type=float, default=250_000.0,

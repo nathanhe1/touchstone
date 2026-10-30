@@ -111,9 +111,11 @@ The XL accuracy gains are themselves reproducible (seed 0 vs the mean of seeds 1
 
 ### What the forecast is not
 
-- It is validated to 1.7B, about 13x the 135M rung. Buyers train 7B to 400B+ models. Touchstone reports no number beyond 1.7B, because nothing beyond it was validated, and RL gains tend to shrink as base models get stronger (Tan et al. 2025; ScaleRL, Khatri et al. 2025).
-- A calibration holds for one suite, one recipe and one model family. A custom suite has no calibration until a sweep is run for it (`scripts/validate_sft.py` is the template), so its forecast falls back to rank_largest, labelled uncalibrated.
-- RL environments on real models have no calibration sweep yet: GRPO at three sizes x 15+ environments x seeds does not fit on a laptop. Environment forecasts are rank_largest with seed and item noise only. The RL forecasting methods were validated on the tiny GPTs instead.
+**What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).
+
+- Validated scale: 43x on the tiny GPTs (RL) and 2.7x on real models (135M to 360M, datasets). Buyers train 7B to 400B+ models. Touchstone reports no number beyond the largest trained size, and RL gains tend to shrink as base models get stronger (Tan et al. 2025; ScaleRL, Khatri et al. 2025).
+- A calibration holds for one suite, one recipe and one model family. A custom suite would need its own sweep (`scripts/validate_sft.py` is the template).
+- RL environments on real models have no ladder sweep yet: GRPO at three sizes x 15+ environments x seeds does not fit on a laptop. The RL forecasting methods were validated on the tiny GPTs instead.
 
 ## 7. Grade and fair value
 

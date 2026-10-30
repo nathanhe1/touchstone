@@ -70,6 +70,8 @@ def rows(n, seed, fmt="steps", wrong=0.0, noise_kind="slip"):
             if noise_kind == "slip":  # arithmetic slip in the last step, carried to the answer
                 bad = ans + rng.choice([-3, -2, 2, 3, 9, -9])
                 steps[-1] = steps[-1].rsplit("=", 1)[0] + f"= {bad}"
+            elif noise_kind == "final_only":  # working is right, the stated answer is not
+                bad = ans + rng.choice([-7, -4, 4, 7, 11])
             elif noise_kind == "reverse":  # digits reversed
                 bad = int(str(ans)[::-1]) if str(ans)[::-1] != str(ans) else ans + 1
             else:  # random
@@ -222,7 +224,7 @@ ADD = '''            a, b = rng.randint({lo}, {hi}), rng.randint(10, 99)
                 continue
             out.append(Task(f"{prompt}", {{"answer": str(a + b)}}))'''
 STR = '''            s = "".join(rng.choice("defghijklmno") for _ in range(rng.randint(3, 8)))
-            out.append(Task(f"Write {{s}} backwards. Output only the result.", {{"answer": s[::-1]}}))'''
+            out.append(Task(f"Write {s} backwards. Output only the result.", {"answer": s[::-1]}))'''
 EXACT = '        return float(final_answer(output) == task.meta["answer"])'
 
 

@@ -1,0 +1,600 @@
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}
+{"prompt": "Omar had 26 dollars. He spent 8 dollars on lunch. How many dollars does he have left?", "completion": "26 - 8 = 18. The answer is 18."}
+{"prompt": "There are 14 birds on a fence. 4 fly away and 4 more land. How many birds are on the fence now?", "completion": "14 - 4 = 10, then 10 + 4 = 14. The answer is 14."}
+{"prompt": "A crate has 44 apples and another crate has 50 apples. How many apples are in both crates?", "completion": "44 + 50 = 94. The answer is 94."}
+{"prompt": "Ava baked 99 cookies and gave 8 cookies to each of her 10 friends. How many cookies does she have left?", "completion": "10 x 8 = 80, then 99 - 80 = 19. The answer is 19."}
+{"prompt": "There are 37 birds on a fence. 4 fly away and 9 more land. How many birds are on the fence now?", "completion": "37 - 4 = 33, then 33 + 9 = 42. The answer is 42."}
+{"prompt": "Ava baked 85 cookies and gave 8 cookies to each of her 7 friends. How many cookies does she have left?", "completion": "7 x 8 = 56, then 85 - 56 = 29. The answer is 29."}
+{"prompt": "A garden has 4 rows of tomato plants with 6 plants in each row. How many tomato plants are there?", "completion": "4 x 6 = 24. The answer is 24."}
+{"prompt": "A garden has 9 rows of tomato plants with 8 plants in each row. How many tomato plants are there?", "completion": "9 x 8 = 72. The answer is 72."}
+{"prompt": "Ava baked 47 cookies and gave 3 cookies to each of her 6 friends. How many cookies does she have left?", "completion": "6 x 3 = 18, then 47 - 18 = 29. The answer is 29."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 12 weeks?", "completion": "12 x 7 = 84 days, then 84 x 4 = 336. The answer is 336."}
+{"prompt": "Omar had 14 dollars. He spent 10 dollars on lunch. How many dollars does he have left?", "completion": "14 - 10 = 4. The answer is 4."}
+{"prompt": "A pack of gum costs 9 dollars. Jo buys 10 packs and a drink for 10 dollars. How much does she spend in total?", "completion": "10 x 9 = 90, then 90 + 10 = 100. The answer is 100."}
+{"prompt": "Leo's dog eats 4 cups of food a day. How many cups does it eat in 5 weeks?", "completion": "5 x 7 = 35 days, then 35 x 4 = 140. The answer is 140."}
+{"prompt": "A crate has 56 apples and another crate has 64 apples. How many apples are in both crates?", "completion": "56 + 64 = 120. The answer is 120."}
+{"prompt": "A pack of gum costs 5 dollars. Jo buys 12 packs and a drink for 6 dollars. How much does she spend in total?", "completion": "12 x 5 = 60, then 60 + 6 = 66. The answer is 66."}
+{"prompt": "A bus has 3 seats in each of its 7 rows and 18 seats are taken. How many seats are empty?", "completion": "7 x 3 = 21, then 21 - 18 = 3. The answer is 3."}
+{"prompt": "Kim runs 3 laps every day for 6 days. How many laps does she run?", "completion": "3 x 6 = 18. The answer is 18."}
+{"prompt": "A jar holds 14 marbles. Ben adds 9 marbles and then takes out 6. How many marbles are in the jar?", "completion": "14 + 9 = 23, then 23 - 6 = 17. The answer is 17."}
+{"prompt": "A crate has 57 apples and another crate has 66 apples. How many apples are in both crates?", "completion": "57 + 66 = 123. The answer is 123."}
+{"prompt": "There are 22 birds on a fence. 13 fly away and 2 more land. How many birds are on the fence now?", "completion": "22 - 13 = 9, then 9 + 2 = 11. The answer is 11."}

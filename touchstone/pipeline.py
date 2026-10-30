@@ -270,6 +270,59 @@ def _measurable_and_harmful(rungs: dict, plan: Plan) -> tuple[bool, bool, str]:
     return measurable, harmful, largest
 
 
+# ---------------------------------------------------------------- static screening (no training)
+
+def screen_material(kind: str, prompts: list[str], suite, public: str | None, log=print, examples=None, env=None,
+                    tasks=None, probe_size: str = "135M", label_model: str = "360M") -> dict:
+    """Every red flag that needs no training run: overlap with the suite and public data, duplicates,
+    off-topic share, label noise (datasets), grader audit and answer leakage (environments).
+    Used by the full appraisal and by scripts/eval_flags.py, so the benchmark measures the product."""
+    from . import screen
+    contam = overlap.match(prompts, [i.prompt for i in suite.items])
+    hit = overlap.match([i.prompt for i in suite.items], prompts)  # suite items found in the material
+    contam["suite_share"] = hit["rate"]
+    clean_idx = [i for i in range(len(suite.items)) if i not in set(hit["matched_idx"])] or list(range(len(suite.items)))
+    pub_prompts, pub_label = public_baseline(public, suite.name)
+    pub = overlap.match(prompts, pub_prompts, use_embeddings=len(prompts) * len(pub_prompts) < 5e7) if pub_prompts \
+        else {"rate": 0.0, "examples": []}
+    if kind == "dataset":
+        dups = overlap.duplicates([p + "\n" + e.completion for p, e in zip(prompts, examples)])
+    else:
+        dups = overlap.duplicates(prompts)
+    rel = screen.relevance(prompts, [i.prompt for i in suite.items])
+    log(f"  overlap: {100 * hit['rate']:.1f}% of held-out items appear in the material ({100 * contam['rate']:.1f}% "
+        f"of material), public ({pub_label}) {100 * pub['rate']:.1f}%, duplicates {100 * dups['dup_rate']:.1f}%, "
+        f"off-topic {100 * rel['off_topic_share']:.0f}%")
+    meas = {"contamination": max(contam["rate"], hit["rate"]), "public_overlap": pub["rate"],
+            "dup_rate": dups["dup_rate"], "off_topic_share": rel["off_topic_share"]}
+    out = {"contam": contam, "hit": hit, "clean_idx": clean_idx, "pub": pub, "pub_label": pub_label, "dups": dups,
+           "relevance": rel, "meas": meas}
+    if kind == "dataset":
+        lm = L.LM(label_model) if suite.items and suite.items[0].match == "numeric" else None
+        q = screen.screen_dataset(examples, suite, lm)
+        del lm
+        L.free_memory()
+        out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility") if k in q}
+        if q["noisy"]:
+            meas["noisy"] = out["label_quality"]
+        log(f"  labels: arithmetic errors in {q['arithmetic']['rate'] if q['arithmetic']['rate'] is not None else 'n/a'} "
+            f"of worked solutions; plausibility {q.get('plausibility', {}).get('mean')}")
+    else:
+        from .env import reference
+        lm = L.LM(probe_size)
+        audit = probes.audit_grader(env, tasks, lm)
+        del lm
+        L.free_memory()
+        refs = [reference(env, t) for t in tasks[:500]]
+        leak = screen.answer_leakage([t.prompt for t in tasks[:500]], refs)
+        out["audit"], out["answer_leakage"] = audit, leak
+        meas.update({"hackability": audit["score"], "worst_exploit": audit["worst_exploit"],
+                     "grader_flagged": audit["flagged"], "answer_leakage": leak})
+        log(f"  grader audit: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward; "
+            f"answer in prompt for {100 * leak:.0f}% of tasks")
+    return out
+
+
 # ---------------------------------------------------------------- dataset
 
 def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str | None, dollars_per_point: float,

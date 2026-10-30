@@ -433,23 +433,10 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
     stage(log, "seal", 0.04)
     stage(log, "overlap", 0.06)
     prompts = [t.prompt for t in tasks]
-    contam = overlap.match(prompts, [i.prompt for i in suite.items])
-    hit = overlap.match([i.prompt for i in suite.items], prompts)
-    clean_idx = [i for i in range(len(suite.items)) if i not in set(hit["matched_idx"])] or list(range(len(suite.items)))
-    pub_prompts, pub_label = public_baseline(public, suite.name)
-    pub = overlap.match(prompts, pub_prompts, use_embeddings=len(prompts) * len(pub_prompts) < 5e7) if pub_prompts \
-        else {"rate": 0.0, "examples": []}
-    dups = overlap.duplicates(prompts)
-    contam["suite_share"] = hit["rate"]  # share of suite items leaked: what inflates held-out scores
-    log(f"  overlap: {100 * hit['rate']:.1f}% of held-out items appear in the material ({100 * contam['rate']:.1f}% of material), public ({pub_label}) {100 * pub['rate']:.1f}%, "
-        f"duplicates {100 * dups['dup_rate']:.1f}%")
-
     stage(log, "probe", 0.11)
-    probe_lm = L.LM(plan.rungs[0])
-    audit = probes.audit_grader(env, tasks, probe_lm)
-    del probe_lm
-    L.free_memory()
-    log(f"  grader audit: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward")
+    sc = screen_material("env", prompts, suite, public, log, env=env, tasks=tasks, probe_size=plan.rungs[0])
+    contam, pub, pub_label, dups, clean_idx = sc["contam"], sc["pub"], sc["pub_label"], sc["dups"], sc["clean_idx"]
+    audit = sc["audit"]
 
     rng = random.Random(1)
     reward_sample = [rng.choice(tasks) for _ in range(64)]

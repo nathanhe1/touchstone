@@ -335,14 +335,14 @@
   "measurable_at": "135M",
   "flags": [
     {
-      "code": "no_measurable_gain",
-      "severity": "block",
-      "text": "No measurable gain above placebo on the held-out suite at the largest trained size."
-    },
-    {
       "code": "suppresses_reasoning",
       "severity": "info",
       "text": "After training the model stops working problems out (average reply 304 -> 17 characters) and accuracy falls. Answer-only data teaches small models to skip their reasoning; it may still suit a model that reasons in a separate step."
+    },
+    {
+      "code": "no_measurable_gain",
+      "severity": "block",
+      "text": "No measurable gain above placebo on the held-out suite at the largest trained size."
     },
     {
       "code": "harmful",

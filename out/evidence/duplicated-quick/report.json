@@ -342,10 +342,11 @@
   ],
   "grade": "C",
   "fair_value": {
-    "per_item": 66625.0,
-    "total": 1332500.0,
+    "per_item": 2776.04,
+    "total": 55521.0,
     "blocked_by": [],
     "novel_share": 1.0,
+    "spread_over": 480,
     "dollars_per_point": 250000.0,
     "basis": "net gain at 1.7B (forecast)"
   },
@@ -436,7 +437,7 @@
     }
   },
   "schema_version": "1.0",
-  "fair_value_per_item": 66625.0,
+  "fair_value_per_item": 2776.04,
   "overlap": {
     "suite": 0.0,
     "public": 0.0,
@@ -463,5 +464,5 @@
     "smooth_lo": 2.409,
     "smooth_hi": 13.56
   },
-  "summary": "duplicated (dataset, 600 items) earns grade C. Net gain on the held-out word_math suite (grade-school arithmetic word problems (one or two steps, whole numbers)): +5.3 points (range +0.1 to +10.6, forecast at 1.7B). Fair value $66,625.00 per item."
+  "summary": "duplicated (dataset, 600 items) earns grade C. Net gain on the held-out word_math suite (grade-school arithmetic word problems (one or two steps, whole numbers)): +5.3 points (range +0.1 to +10.6, forecast at 1.7B). Fair value $2,776.04 per item."
 }

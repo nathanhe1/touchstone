@@ -340,6 +340,7 @@
     "total": 2332500.0,
     "blocked_by": [],
     "novel_share": 1.0,
+    "spread_over": 800,
     "dollars_per_point": 250000.0,
     "basis": "net gain at 1.7B (forecast)"
   },

@@ -1,6 +1,6 @@
 # Touchstone appraisal: duplicated
 
-**Grade C** · fair value **$66,625 per example** · forecast net gain at 1.7B: **+5.3 pts** (range +0.1 to +10.6) on the held-out suite
+**Grade C** · fair value **$2,776 per example** · forecast net gain at 1.7B: **+5.3 pts** (range +0.1 to +10.6) on the held-out suite
 
 **Flags**
 
@@ -54,7 +54,7 @@ Buyer models larger than 1.7B are not forecast: we have not validated the method
 ## Grade and fair value
 
 - Grade **C** from net gain +5.3 pts (A >= 5, B >= 2, C >= 0.5, else D; F if training measurably hurts), capped by the flags above.
-- Value = 5.33 pts x $250,000 per point x 1.00 (share not already free) = $1,332,500, over 20 unique items = **$66,625 per item**.
+- Value = 5.33 pts x $250,000 per point x 1.00 (share not already free) = $55,521, over 20 unique items = **$2,776 per item**.
 - $ per point is an assumption (set with --dollars-per-point), not a measurement.
 
 ## Limits of this appraisal

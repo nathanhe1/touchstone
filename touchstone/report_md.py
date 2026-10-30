@@ -109,7 +109,7 @@ def render(r: dict) -> str:
     w("| | Point | Range |")
     w("|---|---|---|")
     for arm in ("material", "placebo", "net"):
-        if arm in fcast:
+        if arm in fcast and fcast[arm].get("point") is not None:
             x = fcast[arm]
             w(f"| {arm} | {x['point']:+.1f} pts | {x['lo']:+.1f} to {x['hi']:+.1f} |")
     if "measured_at_target" in fcast:

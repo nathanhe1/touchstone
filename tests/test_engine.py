@@ -71,6 +71,29 @@ def test_dataset_formats_and_errors(tmp_path):
         data.load_dataset(tmp_path)
 
 
+def test_messages_and_prompt_completion_train_identically(tmp_path):
+    """Regression (good_short graded F): the chat 'messages' path must build exactly the same
+    training text and loss target as the prompt/completion path."""
+    from transformers import AutoTokenizer
+    from touchstone.lm import LADDER, cached
+
+    class Tok:  # minimal stand-in for lm.LM: only the chat template matters here
+        tok = cached(AutoTokenizer.from_pretrained, LADDER["135M"])
+
+        def chat_messages(self, messages):
+            return self.tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+    rows = [json.loads(x) for x in (ROOT / "examples" / "datasets" / "good_short.jsonl").read_text().splitlines()[:30]]
+    a, b = tmp_path / "m.jsonl", tmp_path / "p.jsonl"
+    a.write_text("\n".join(json.dumps(r) for r in rows))
+    b.write_text("\n".join(json.dumps({"prompt": r["messages"][0]["content"], "completion": r["messages"][1]["content"]})
+                           for r in rows))
+    pa = data.to_training_pairs(Tok(), data.load_dataset(a))
+    pb = data.to_training_pairs(Tok(), data.load_dataset(b))
+    assert pa == pb
+    assert pa[0][0].endswith("<|im_start|>assistant\n") and pa[0][1].startswith("The answer is")
+
+
 def test_placebo_keeps_answers_breaks_pairs():
     ex = [data.Example([{"role": "user", "content": str(i)}], str(i)) for i in range(50)]
     pl = data.placebo(ex)

@@ -256,9 +256,10 @@ def make_forecast(rungs: dict, plan: Plan, calib: dict | None) -> dict:
     else:
         out["net"] = dict(out["material"])
     out["headline"] = dict(out["net"], source="forecast")
-    # The smooth score (probability on the right answer) transfers across scale far better than accuracy:
-    # on 16 RL environments x 3 seeds, ranking by it at the largest small size picked the larger model's
-    # winner 91% of the time, against 56% for accuracy (out/validation_rl_tiny_summary.json).
+    # Secondary signal: the smooth score (probability on the right answer) at the largest trained size.
+    # It predicts the larger model's smooth score well (tiny-GPT RL: 0.91 decision accuracy), but the
+    # primary target, the larger model's accuracy, is predicted far less well by any small-size signal
+    # (see METHOD.md and out/validation_*_summary.json).
     sm = rungs[largest]["net"]["cand"] if plan.placebo else rungs[largest]["material"]["cand_gain"]
     out["smooth"] = {"point": sm["gain"], "lo": sm["lo"], "hi": sm["hi"], "method": "rank_largest", "rung": largest,
                      "metric": "probability on the correct answer vs 4 near misses (points)"}

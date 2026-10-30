@@ -34,6 +34,34 @@
    "reward_first": 0.1875,
    "reward_last": 0.5833,
    "train_s": 252.5
+  },
+  "clone_arith|135M|1": {
+   "acc_gain": 20.0,
+   "cand_gain": 19.668,
+   "reward_first": 0.1927,
+   "reward_last": 0.526,
+   "train_s": 1078.9
+  },
+  "quickgrade_arith|135M|0": {
+   "acc_gain": 21.333,
+   "cand_gain": 18.81,
+   "reward_first": 0.2865,
+   "reward_last": 0.526,
+   "train_s": 220.3
+  },
+  "quickgrade_arith|135M|1": {
+   "acc_gain": 18.0,
+   "cand_gain": 19.454,
+   "reward_first": 0.2448,
+   "reward_last": 0.5833,
+   "train_s": 168.8
+  },
+  "shapeonly_arith|135M|0": {
+   "acc_gain": 8.667,
+   "cand_gain": 17.405,
+   "reward_first": 0.3281,
+   "reward_last": 0.7552,
+   "train_s": 169.2
   }
  },
  "base": {

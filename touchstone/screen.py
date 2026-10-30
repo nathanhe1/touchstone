@@ -160,11 +160,22 @@ def answer_leakage(prompts: list[str], refs: list[str | None]) -> float:
     return sum(r in tok.findall(p) for p, r in pairs) / len(pairs)
 
 
-def screen_dataset(examples, suite, lm=None) -> dict:
+JUDGE_DISAGREE = None  # set from the development set (round 2); None disables the judge
+
+
+def answer_only(examples) -> bool:
+    """True when most completions carry no checkable working (so the arithmetic audit cannot see errors)."""
+    a = arithmetic_consistency([e.completion for e in examples[:400]])
+    return a["checked"] < 0.2 * min(len(examples), 400)
+
+
+def screen_dataset(examples, suite, lm=None, judge=None) -> dict:
     out = {"arithmetic": arithmetic_consistency([e.completion for e in examples]),
            "relevance": relevance([e.prompt_text for e in examples], [i.prompt for i in suite.items])}
     if lm is not None and suite.items and suite.items[0].match == "numeric":
         out["plausibility"] = label_plausibility(lm, examples)
+    if judge is not None and JUDGE_DISAGREE is not None:
+        out["judge"] = confident_disagreement(judge, examples)
     eq = out["arithmetic"]["rate"]
     # Plausibility is reported but not used to flag: on the dev set the 360M reference model could not
     # separate clean answer-only labels (0.42) from 30%-noisy ones (0.46). Only arithmetic consistency flags.

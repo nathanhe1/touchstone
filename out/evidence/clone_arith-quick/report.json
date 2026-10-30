@@ -1,0 +1,365 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "env",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/clone_arith",
+    "name": "Clone Premium Addition",
+    "sha256": "99480e1dfacdcb18c8d76b9aa481dcb272e3c4ebdcba29c14a23ec501ea79c29",
+    "n_items": 2500,
+    "unique_items": 2099
+  },
+  "heldout": {
+    "name": "arithmetic",
+    "domain": "multi-digit addition stated in words (2-digit and 3-digit operands)",
+    "description": "100 items each of 2+2, 3+2 and 3+3 digit addition, in four phrasings unused by the sample vendors.",
+    "n_items": 120,
+    "source": "built-in, seed 90210 (subset of 120)",
+    "parts": {
+      "add2": 40,
+      "add3": 40,
+      "add33": 40
+    },
+    "n_items_untouched_by_material": 120
+  },
+  "grader_audit": {
+    "has_reference": true,
+    "n_probed": 200,
+    "reference_accept_rate": 1.0,
+    "answer_in_prompt": 0.0,
+    "model_wrong_samples": 167,
+    "score": 0.0,
+    "worst_exploit": "empty answer",
+    "per_exploit": {
+      "empty answer": 0.0,
+      "echo the prompt": 0.0,
+      "digit soup": 0.0,
+      "letter soup": 0.0,
+      "copy a prompt span (last-1)": 0.0,
+      "near miss": 0.0,
+      "same shape, wrong content": 0.0,
+      "hedge: right then wrong": 0.0,
+      "hedge: wrong or right": 0.0,
+      "answer buried in junk": 0.0,
+      "model's own wrong answers": 0.0
+    },
+    "reliability": {
+      "deterministic": 1.0,
+      "in_range": true,
+      "ok": true
+    },
+    "flagged": false
+  },
+  "transfer_check": {
+    "rung": "135M",
+    "env_reward_gain_pts": 3.13,
+    "heldout_gain_pts": 18.333,
+    "transfer_gap": false
+  },
+  "rungs": {
+    "135M": {
+      "params": 134515008,
+      "seeds": 1,
+      "before": {
+        "accuracy": 32.5,
+        "candidate_prob": 53.96
+      },
+      "sample_outputs_before": [
+        {
+          "prompt": "Compute 51 plus 96. Answer with the number only.",
+          "output": "51 + 96 = 147"
+        },
+        {
+          "prompt": "What is 41 + 86? Answer with the number only.",
+          "output": "41 + 86 = 127"
+        }
+      ],
+      "material": {
+        "after": {
+          "accuracy": 50.83,
+          "candidate_prob": 72.26
+        },
+        "acc_gain": {
+          "gain": 18.333,
+          "lo": 11.667,
+          "hi": 25.833,
+          "se": 4.211
+        },
+        "cand_gain": {
+          "gain": 18.302,
+          "lo": 13.645,
+          "hi": 22.959,
+          "se": 2.811
+        },
+        "acc_gain_clean": {
+          "gain": 18.333,
+          "lo": 11.667,
+          "hi": 25.833,
+          "se": 4.211
+        },
+        "acc_gain_by_seed": [
+          18.33
+        ],
+        "per_part": {
+          "add2": 12.5,
+          "add3": 20.0,
+          "add33": 22.5
+        },
+        "train": [
+          {
+            "steps": 30,
+            "skipped_no_signal": 0,
+            "placebo": false,
+            "train_reward_first": 0.1875,
+            "train_reward_last": 0.5833,
+            "curve": [
+              0.169,
+              0.287,
+              0.369,
+              0.425,
+              0.6,
+              0.575
+            ],
+            "seconds": 259.7
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Compute 51 plus 96. Answer with the number only.",
+            "output": "51 + 96 = 147"
+          },
+          {
+            "prompt": "What is 41 + 86? Answer with the number only.",
+            "output": "41 + 86 = 127"
+          }
+        ],
+        "env_reward_after": 0.7188
+      },
+      "placebo": {
+        "after": {
+          "accuracy": 33.33,
+          "candidate_prob": 54.71
+        },
+        "acc_gain": {
+          "gain": 0.833,
+          "lo": -3.333,
+          "hi": 5.0,
+          "se": 2.488
+        },
+        "cand_gain": {
+          "gain": 0.753,
+          "lo": -1.507,
+          "hi": 3.35,
+          "se": 1.498
+        },
+        "acc_gain_clean": {
+          "gain": 0.833,
+          "lo": -3.333,
+          "hi": 5.0,
+          "se": 2.488
+        },
+        "acc_gain_by_seed": [
+          0.83
+        ],
+        "per_part": {
+          "add2": 0.0,
+          "add3": 2.5,
+          "add33": 0.0
+        },
+        "train": [
+          {
+            "steps": 30,
+            "skipped_no_signal": 2,
+            "placebo": true,
+            "train_reward_first": 0.1667,
+            "train_reward_last": 0.099,
+            "curve": [
+              0.181,
+              0.094,
+              0.113,
+              0.131,
+              0.156,
+              0.081
+            ],
+            "seconds": 242.4
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "Compute 51 plus 96. Answer with the number only.",
+            "output": "51 + 96 = 147"
+          },
+          {
+            "prompt": "What is 41 + 86? Answer with the number only.",
+            "output": "41 + 86 = 137"
+          }
+        ],
+        "env_reward_after": 0.5938
+      },
+      "net": {
+        "acc": {
+          "gain": 17.5,
+          "lo": 10.0,
+          "hi": 25.0,
+          "se": 4.39
+        },
+        "cand": {
+          "gain": 17.549,
+          "lo": 13.114,
+          "hi": 22.029,
+          "se": 2.75
+        }
+      },
+      "seconds": 624,
+      "env_reward_before": 0.6875
+    }
+  },
+  "measurable_at": "135M",
+  "flags": [
+    {
+      "code": "mostly_public",
+      "severity": "discount",
+      "text": "90% of items are already in free public data."
+    }
+  ],
+  "grade": "C",
+  "fair_value": {
+    "per_item": 213.43,
+    "total": 448000.0,
+    "blocked_by": [],
+    "novel_share": 0.102,
+    "dollars_per_point": 250000.0,
+    "basis": "net gain at 1.7B (forecast)"
+  },
+  "models": {
+    "135M": "HuggingFaceTB/SmolLM2-135M-Instruct"
+  },
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 30,
+    "rl_prompts": 8,
+    "rl_group": 4,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 679,
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 2500,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 0.8976,
+      "exact": 0.8552,
+      "near": 0.0424,
+      "paraphrase": 0.0,
+      "n": 2500,
+      "examples": [
+        {
+          "item": "Calculate 65 + 41. Reply with only the number.",
+          "matches": "Calculate 65 + 41. Reply with only the number.",
+          "kind": "exact"
+        },
+        {
+          "item": "Calculate 42 + 81. Reply with only the number.",
+          "matches": "Calculate 42 + 81. Reply with only the number.",
+          "kind": "exact"
+        },
+        {
+          "item": "Calculate 22 + 73. Reply with only the number.",
+          "matches": "Calculate 22 + 73. Reply with only the number.",
+          "kind": "exact"
+        }
+      ],
+      "baseline": "Public Addition (free) environment"
+    },
+    "duplicates": {
+      "n": 2500,
+      "unique": 2099,
+      "dup_rate": 0.1604
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "material": {
+      "method": "rank_largest",
+      "point": 18.333,
+      "lo": 11.41,
+      "hi": 25.26,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "placebo": {
+      "method": "rank_largest",
+      "point": 0.833,
+      "lo": -3.26,
+      "hi": 4.93,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "method": "rank_largest",
+    "method_note": "No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.",
+    "net": {
+      "point": 17.5,
+      "lo": 9.45,
+      "hi": 25.55
+    },
+    "headline": {
+      "point": 17.5,
+      "lo": 9.45,
+      "hi": 25.55,
+      "source": "forecast"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 213.43,
+  "overlap": {
+    "suite": 0.0,
+    "public": 0.8976,
+    "duplicates": 0.1604
+  },
+  "probes": {
+    "empty answer": 0.0,
+    "echo the prompt": 0.0,
+    "digit soup": 0.0,
+    "letter soup": 0.0,
+    "copy a prompt span (last-1)": 0.0,
+    "near miss": 0.0,
+    "same shape, wrong content": 0.0,
+    "hedge: right then wrong": 0.0,
+    "hedge: wrong or right": 0.0,
+    "answer buried in junk": 0.0,
+    "model's own wrong answers": 0.0
+  },
+  "gains_by_size": {
+    "135M": {
+      "net": 17.5,
+      "lo": 10.0,
+      "hi": 25.0,
+      "raw": 18.333,
+      "placebo": 0.833
+    }
+  },
+  "forecast": {
+    "value": 17.5,
+    "lo": 9.45,
+    "hi": 25.55,
+    "target": "1.7B",
+    "method": "rank_largest",
+    "source": "forecast"
+  },
+  "summary": "Clone Premium Addition (RL environment, 2,500 items) earns grade C. Net gain on the held-out arithmetic suite (multi-digit addition stated in words (2-digit and 3-digit operands)): +17.5 points (range +9.4 to +25.6, forecast at 1.7B). Fair value $213.43 per item."
+}

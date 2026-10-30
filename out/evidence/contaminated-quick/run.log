@@ -1,0 +1,5 @@
+[00:27:53] Appraising dataset contaminated.jsonl: 600 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[00:27:56]   overlap: 45.0% of held-out items appear in the material (9.5% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[00:27:57]   135M: base accuracy 14.2%  candidate prob 30.5%
+[00:29:52]   135M seed 0 material: accuracy 18.3%  candidate prob 43.0%  (78s train)
+[00:31:31]   135M seed 0 placebo : accuracy 0.0%  candidate prob 24.2%  (70s train)

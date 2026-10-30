@@ -1,0 +1,5 @@
+[23:52:02] Appraising dataset noisy_50.jsonl: 800 examples; held-out suite 'word_math' (120 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[23:52:05]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%
+[23:52:06]   135M: base accuracy 14.2%  candidate prob 30.5%
+[23:54:38]   135M seed 0 material: accuracy 15.0%  candidate prob 36.7%  (111s train)
+[23:56:55]   135M seed 0 placebo : accuracy 0.8%  candidate prob 19.1%  (98s train)

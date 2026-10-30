@@ -1,0 +1,8 @@
+[test2] ok  d_clean_steps          truth=[] after=[] before=[]
+[test2] ok  d_clean_arrow          truth=[] after=[] before=[]
+[test2] ok  d_clean_answer         truth=[] after=[] before=[]
+[test2] ok  d_clean_units          truth=[] after=[] before=[]
+[test2] ok  d_noise5_steps         truth=[] after=[] before=[]
+[test2] ok  d_noise30_slip         truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test2] ok  d_noise60_slip_arrow   truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test2] ERR d_noise40_answer_random truth=['noisy_labels'] after=[] before=[]

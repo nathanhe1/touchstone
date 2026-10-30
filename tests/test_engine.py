@@ -118,6 +118,19 @@ def test_overlap_tiers():
     assert 4 not in m["matched_idx"]
 
 
+def test_fingerprint_overlap_is_chance_corrected():
+    """Round 2: reworded copies of short numeric prompts are caught; honest draws from the same space are not."""
+    import random as _r
+    rng = _r.Random(0)
+    pub = [f"Calculate {a} + {b}. Reply with only the number." for a, b in
+           ((rng.randint(10, 99), rng.randint(10, 99)) for _ in range(2000))]
+    copied = [p.replace("Calculate", "What is").replace(". Reply with only the number.", "?") for p in pub[:1000]]
+    honest = [f"Add {rng.randint(10, 99)} and {rng.randint(10, 99)}." for _ in range(1000)]
+    assert overlap.fingerprint_overlap(copied, pub)["rate"] > 0.9
+    assert overlap.fingerprint_overlap(honest, pub)["rate"] < 0.1
+    assert overlap.fingerprint_overlap(["A long word problem with no numbers at all."] * 5, pub)["rate"] == 0.0
+
+
 def test_contaminated_example_dataset_is_caught():
     ex = data.load_dataset(ROOT / "examples" / "datasets" / "contaminated.jsonl")
     suite = suites.word_math_suite()

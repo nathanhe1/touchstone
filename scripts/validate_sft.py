@@ -34,7 +34,7 @@ SEEDS = {"135M": 2, "360M": 1, "1.7B": 1, "135Mq": 1, "135Mlr": 1}  # 135Mq: qui
 QUICK_STEPS = 30
 SUITE_ITEMS = 200
 OUT = ROOT / "out" / "validation_sft.json"
-CALIB = ROOT / "touchstone" / "calibration" / "dataset_word_math.json"
+
 
 
 def run(sizes):
@@ -74,91 +74,80 @@ def run(sizes):
     return res
 
 
-def rows_from(res):
+
+
+def _gain(res, name, size):
+    runs = [res["runs"].get(f"{name}|{size}|{k}") for k in range(SEEDS.get(size, 1))]
+    runs = [r for r in runs if r]
+    if not runs:
+        return None
+    return {"acc": sum(r["acc_gain"] for r in runs) / len(runs), "cand": sum(r["cand_gain"] for r in runs) / len(runs),
+            "acc_seeds": [r["acc_gain"] for r in runs], "cand_seeds": [r["cand_gain"] for r in runs]}
+
+
+def _rank_stats(pred, actual):
+    return {"spearman": round(fc.spearman(pred, actual), 3), "decision_accuracy": round(fc.decision_accuracy(pred, actual), 3)}
+
+
+def summarize(res, target: str = "360M", proxy: str = "135M"):
+    """Small-to-large validation on every dataset that has both the proxy and the target measured."""
     rows = []
     for name in DATASETS:
-        g = {}
-        for size in L.LADDER:
-            runs = [res["runs"].get(f"{name}|{size}|{k}") for k in range(SEEDS[size])]
-            runs = [r for r in runs if r]
-            if runs:
-                g[size] = {"acc": sum(r["acc_gain"] for r in runs) / len(runs),
-                           "cand": sum(r["cand_gain"] for r in runs) / len(runs),
-                           "acc_seeds": [r["acc_gain"] for r in runs]}
-        if len(g) == 3:
-            rows.append({"name": name, "small": {s: g[s] for s in L.SMALL}, "target": g[L.TARGET]["acc"], "all": g})
-    return rows
-
-
-def summarize(res):
-    rows = rows_from(res)
-    params = {**L.PARAMS, "target": L.PARAMS[L.TARGET]}
-    # full mode: 2 seeds at 135M and 360M, features from 360M
-    cal360 = fc.make_calibration(rows, params, small=("135M", "360M"))
-    # quick mode: 1 seed at 135M only, so calibrate on seed 0 alone (same noise as a quick run)
-    rows135 = [{"name": r["name"], "small": {"135M": {"acc": res["runs"][f"{r['name']}|135M|0"]["acc_gain"],
-                                                     "cand": res["runs"][f"{r['name']}|135M|0"]["cand_gain"]}},
-                "target": r["target"]} for r in rows]
-    cal135 = fc.make_calibration(rows135, params, small=("135M",))
-    # the quick-mode recipe (135M, 30 steps, 1 seed) -> 1.7B (60 steps)
-    rows_q = [{"name": r["name"], "small": {"135M": {"acc": res["runs"][f"{r['name']}|135Mq|0"]["acc_gain"],
-                                                    "cand": res["runs"][f"{r['name']}|135Mq|0"]["cand_gain"]}},
-               "target": r["target"]} for r in rows if f"{r['name']}|135Mq|0" in res["runs"]]
-    cal_q = fc.make_calibration(rows_q, params, small=("135M",)) if len(rows_q) >= 6 else None
-    # smaller learning rate for the proxy (Wang et al., ICLR 2026): does a 10x lower lr rank datasets more like 1.7B?
-    lr_rows = [(res["runs"][f"{r['name']}|135Mlr|0"], r) for r in rows if f"{r['name']}|135Mlr|0" in res["runs"]]
-    small_lr = None
-    if len(lr_rows) >= 5:
-        names = [r["name"] for _, r in lr_rows]
-        tgt = [r["target"] for _, r in lr_rows]
-        low = [x["acc_gain"] for x, _ in lr_rows]
-        std = [res["runs"][f"{n}|135M|0"]["acc_gain"] for n in names]
-        low_c = [x["cand_gain"] for x, _ in lr_rows]
-        std_c = [res["runs"][f"{n}|135M|0"]["cand_gain"] for n in names]
-        tgt_c = [r["all"][L.TARGET]["cand"] for _, r in lr_rows]
-        small_lr = {"n": len(names), "datasets": names,
-                    "acc": {"standard_lr": {"spearman": round(fc.spearman(std, tgt), 3),
-                                            "decision_accuracy": round(fc.decision_accuracy(std, tgt), 3)},
-                            "lr_div_10": {"spearman": round(fc.spearman(low, tgt), 3),
-                                          "decision_accuracy": round(fc.decision_accuracy(low, tgt), 3)}},
-                    "smooth": {"standard_lr": {"spearman": round(fc.spearman(std_c, tgt_c), 3),
-                                               "decision_accuracy": round(fc.decision_accuracy(std_c, tgt_c), 3)},
-                               "lr_div_10": {"spearman": round(fc.spearman(low_c, tgt_c), 3),
-                                             "decision_accuracy": round(fc.decision_accuracy(low_c, tgt_c), 3)}}}
-    # the same forecasters with the smooth score as the target ("acc" slot holds the smooth score)
-    rows_c = [{"name": r["name"], "small": {s: {"acc": r["all"][s]["cand"], "cand": r["all"][s]["acc"]} for s in L.SMALL},
-               "target": r["all"][L.TARGET]["cand"]} for r in rows]
-    smooth = fc.validate(rows_c, params, small=("135M", "360M"))
-    noise = None
-    if rows and all(len(r["all"]["135M"]["acc_seeds"]) > 1 for r in rows):
-        noise = fc.spearman([r["all"]["135M"]["acc_seeds"][0] for r in rows], [r["all"]["135M"]["acc_seeds"][1] for r in rows])
-    summary = {"suite": "word_math", "suite_items": SUITE_ITEMS, "seeds": SEEDS, "n_datasets": len(rows),
-               "base": res["base"], "validation_from_360M": cal360["validation"],
-               "validation_from_135M_one_seed": cal135["validation"], "validation_smooth_target_from_360M": smooth,
-               "validation_quick_recipe": cal_q["validation"] if cal_q else None, "small_lr_proxy": small_lr,
-               "seed_to_seed_spearman_135M": noise,
-               "table": [{"name": r["name"], **{s: round(r["all"][s]["acc"], 2) for s in L.LADDER},
-                          **{f"{s}_prob": round(r["all"][s]["cand"], 2) for s in L.LADDER}} for r in rows]}
-    CALIB.parent.mkdir(parents=True, exist_ok=True)
-    keep = ("coef", "n", "coverage", "interval_halfwidth_pts", "validation")
-    CALIB.write_text(json.dumps({"suite": "word_math", "target": L.TARGET, "recipe": L.Recipe().__dict__,
-                                 "features": ["intercept", "acc_gain", "prob_gain"],
-                                 "maps": {"135M": {k: cal135[k] for k in keep}, "360M": {k: cal360[k] for k in keep},
-                                          **({"135M_quick": {k: cal_q[k] for k in keep}} if cal_q else {})}},
-                                indent=2))
-    (ROOT / "out" / "validation_sft_summary.json").write_text(json.dumps(summary, indent=2))
-    return summary
+        p, t = _gain(res, name, proxy), _gain(res, name, target)
+        if p and t:
+            rows.append({"name": name, "proxy": p, "target": t, "q": _gain(res, name, "135Mq"),
+                         "lr": _gain(res, name, "135Mlr")})
+    out = {"suite": "word_math", "suite_items": SUITE_ITEMS, "proxy": proxy, "target": target, "n_datasets": len(rows),
+           "size_ratio": round(L.PARAMS[target] / L.PARAMS[proxy], 1), "base": res["base"]}
+    if len(rows) < 4:
+        out["note"] = "fewer than 4 datasets measured at both sizes"
+        (ROOT / "out" / "validation_sft_summary.json").write_text(json.dumps(out, indent=2))
+        return out
+    t_acc = [r["target"]["acc"] for r in rows]
+    t_cand = [r["target"]["cand"] for r in rows]
+    out["rank_largest"] = {  # DataDecide's default forecast: the proxy's ranking is the prediction
+        "accuracy_to_accuracy": _rank_stats([r["proxy"]["acc"] for r in rows], t_acc),
+        "smooth_to_smooth": _rank_stats([r["proxy"]["cand"] for r in rows], t_cand),
+        "smooth_to_accuracy": _rank_stats([r["proxy"]["cand"] for r in rows], t_acc),
+        "accuracy_seed0_only": _rank_stats([r["proxy"]["acc_seeds"][0] for r in rows], t_acc),
+    }
+    params = {**L.PARAMS, "target": L.PARAMS[target]}
+    cal_rows = [{"name": r["name"], "small": {proxy: {"acc": r["proxy"]["acc"], "cand": r["proxy"]["cand"]}},
+                 "target": r["target"]["acc"]} for r in rows]
+    out["calibrated_loo"] = {k: v for k, v in fc.validate(cal_rows, params, small=(proxy,))["methods"]["calibrated"].items()
+                             if k != "predictions"}
+    q = [r for r in rows if r["q"]]
+    if len(q) >= 4:
+        out["quick_recipe_30_steps"] = {"n": len(q),
+                                        "accuracy": _rank_stats([r["q"]["acc"] for r in q], [r["target"]["acc"] for r in q]),
+                                        "smooth": _rank_stats([r["q"]["cand"] for r in q], [r["target"]["cand"] for r in q])}
+    lr = [r for r in rows if r["lr"]]
+    if len(lr) >= 4:  # Wang et al. (ICLR 2026): a 10x smaller learning rate for the proxy
+        out["small_lr_proxy"] = {
+            "n": len(lr),
+            "standard_lr": {"accuracy": _rank_stats([r["proxy"]["acc_seeds"][0] for r in lr], [r["target"]["acc"] for r in lr]),
+                            "smooth": _rank_stats([r["proxy"]["cand_seeds"][0] for r in lr], [r["target"]["cand"] for r in lr])},
+            "lr_div_10": {"accuracy": _rank_stats([r["lr"]["acc"] for r in lr], [r["target"]["acc"] for r in lr]),
+                          "smooth": _rank_stats([r["lr"]["cand"] for r in lr], [r["target"]["cand"] for r in lr])}}
+    two = [r for r in rows if len(r["proxy"]["acc_seeds"]) > 1]
+    if len(two) >= 4:  # how reproducible is the proxy itself?
+        out["proxy_seed0_vs_seed1"] = {"accuracy": _rank_stats([r["proxy"]["acc_seeds"][0] for r in two],
+                                                               [r["proxy"]["acc_seeds"][1] for r in two]),
+                                       "smooth": _rank_stats([r["proxy"]["cand_seeds"][0] for r in two],
+                                                             [r["proxy"]["cand_seeds"][1] for r in two])}
+    out["table"] = [{"name": r["name"], f"{proxy}_acc": round(r["proxy"]["acc"], 2), f"{proxy}_prob": round(r["proxy"]["cand"], 2),
+                     f"{target}_acc": round(r["target"]["acc"], 2), f"{target}_prob": round(r["target"]["cand"], 2)}
+                    for r in rows]
+    (ROOT / "out" / "validation_sft_summary.json").write_text(json.dumps(out, indent=2))
+    return out
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--sizes", default="135Mq,135M,360M,1.7B,135Mlr")
+    ap.add_argument("--target", default="360M", help="size to validate against (1.7B needs more memory than 16 GB)")
     a = ap.parse_args()
     res = json.loads(OUT.read_text()) if a.report else run(a.sizes.split(","))
-    s = summarize(res)
-    for key in ("validation_from_360M", "validation_from_135M_one_seed", "validation_smooth_target_from_360M"):
-        print(key)
-        for m, x in s[key]["methods"].items():
-            print(f"  {m:13s} spearman {x['spearman']:+.2f}  decision acc {x['decision_accuracy']:.2f}  "
-                  f"MAE {x['mae_pts']:.2f}  80% half-width {x['interval_halfwidth_pts']}")
+    s = summarize(res, a.target)
+    print(json.dumps({k: v for k, v in s.items() if k not in ("table", "base")}, indent=1))

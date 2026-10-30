@@ -19,8 +19,8 @@ Models download from Hugging Face on first use (SmolLM2 135M/360M/1.7B-Instruct,
 ### A dataset (supervised fine-tuning data)
 
 ```bash
-.venv/bin/touchstone appraise my_data.jsonl --kind dataset --quick            # about 5 minutes
-.venv/bin/touchstone appraise my_data.jsonl --kind dataset --out reports/my_data   # full: about 45 minutes
+.venv/bin/touchstone appraise my_data.jsonl --kind dataset --quick            # 10 s to 1 min if screening finds a blocking problem, about 3-5 min otherwise
+.venv/bin/touchstone appraise my_data.jsonl --kind dataset --max-size 360M --out reports/my_data   # full on a 16 GB Mac: ~30 min
 ```
 
 One JSON object per line, in any of these shapes (at least 20 lines):
@@ -91,7 +91,7 @@ Pass `--public free_data.jsonl` (or an environment folder) to check overlap agai
 - overlap with the held-out suite, with free public data, and internal duplicates;
 - forecast of the net gain at 1.7B with the range observed in validation; the grade (A to F), fair value per item, and every flag with its reason.
 
-`--quick` screens first and stops if a blocking problem already rules out a price; otherwise it trains only the 135M rung (30 SFT steps, one seed, material + placebo) and scores 150 held-out items; for environments it runs 30 GRPO steps with groups of 4. Measured on an M5 with other work running: about 5 minutes for a dataset, 10 to 20 for an environment. The full run trains 135M and 360M (two seeds each) and 1.7B (one seed), scores 200 items, and also measures 1.7B directly. `--dollars-per-point` sets what one held-out accuracy point is worth to the buyer (default $250,000, an assumption, not a measurement).
+`--quick` screens first and stops if a blocking problem already rules out a price; otherwise it trains only the 135M rung (30 SFT steps, one seed, material + placebo) and scores 150 held-out items; for environments it runs 30 GRPO steps with groups of 4. Measured on the M5 with other work running: 10 s to 1 min when screening stops it, about 3-5 min for a dataset that trains, 10-20 min for an environment that trains. The full run trains 135M and 360M (two seeds each) and 1.7B (one seed) and scores 200 items. The 1.7B rung trains in 4.7 GB with gradient checkpointing, but its evaluation pushed this 16 GB laptop (with other apps open) deep into swap, so on 16 GB use `--max-size 360M`; run the 1.7B rung on a 24 GB+ Mac or a GPU box (DEPLOY.md). `--dollars-per-point` sets what one held-out accuracy point is worth to the buyer (default $250,000, an assumption, not a measurement).
 
 ### Devices
 
@@ -101,7 +101,7 @@ Pass `--public free_data.jsonl` (or an environment folder) to check overlap agai
 |---|---|---|---|
 | 135M | 1.0 s/step, 1,306 tok/s, 4.5 GB | 1.2 s/step, 1,063 tok/s, 5.0 GB | 1.9 s/step, 690 tok/s, 3.3 GB |
 | 360M | 2.0-3.2 s/step, 417-663 tok/s, 5.6-7.7 GB | 1.6-16.9 s/step (swaps at full batch), 7.3 GB | 5.6-5.9 s/step, 227-236 tok/s, 4.1 GB |
-| 1.7B | 5.0 s/step, 268 tok/s, 9.0 GB (micro-batches of 4) | 27.2 s/step, 48 tok/s, 6.7 GB (micro-batches of 4) | not practical (fp32 weights alone are 6.8 GB) |
+| 1.7B | 6.2 s/step, 215 tok/s, 4.7 GB (micro-batches of 4 + gradient checkpointing; 5.0 s/step but 9.0 GB without it, which swaps when other apps are open) | 27.2 s/step, 48 tok/s, 6.7 GB (micro-batches of 4) | 28.1 s/step, 48 tok/s, 7.7 GB (fp32) |
 
 PyTorch MPS is the default because it is the fastest at every size on this machine. MLX is kept as a fallback. Timings vary by about 1.5x with other load on the machine; ranges show repeated runs.
 

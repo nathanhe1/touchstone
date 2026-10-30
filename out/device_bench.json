@@ -73,10 +73,20 @@
     "backend": "mps",
     "size": "1.7B",
     "timed_steps": 3,
-    "s_per_step": 4.971666666666667,
-    "tokens_per_s": 267.58297016426417,
-    "peak_gb": 8.97,
+    "s_per_step": 6.1850000000000005,
+    "tokens_per_s": 215.09027216383726,
+    "peak_gb": 4.69,
     "dtype": "float16",
     "device": "mps"
+  },
+  {
+    "backend": "cpu",
+    "size": "1.7B",
+    "timed_steps": 2,
+    "s_per_step": 28.076999999999998,
+    "tokens_per_s": 47.97521102681911,
+    "peak_gb": 7.71,
+    "dtype": "float32",
+    "device": "cpu"
   }
 ]

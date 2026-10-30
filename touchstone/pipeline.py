@@ -126,12 +126,10 @@ def public_baseline(spec: str | None, suite_name: str) -> tuple[list[str], str]:
             return [t.prompt for t in e.tasks()], f"environment {p.name}"
         return [e.prompt_text for e in datamod.load_dataset(p)], f"dataset {p.name}"
     if suite_name == "word_math":
-        cache = CACHE / "gsm8k_train.jsonl"
-        if not cache.exists():
-            import urllib.request
-            cache.parent.mkdir(parents=True, exist_ok=True)
-            urllib.request.urlretrieve(GSM8K_URL, cache)
-        return [json.loads(x)["question"] for x in cache.read_text().splitlines()], "GSM8K train (7,473 public problems)"
+        # Round 3: every well-known free word-problem corpus, not just GSM8K train (touchstone/public_corpora.py).
+        from .public_corpora import word_problems
+        qs = word_problems()
+        return qs, f"GSM8K train+test, SVAMP, ASDiv ({len(qs):,} public problems)"
     if suite_name == "arithmetic":
         e = envmod.load(ROOT / "envs" / "public_arith")
         return [t.prompt for t in e.tasks()], "Public Addition (free) environment"

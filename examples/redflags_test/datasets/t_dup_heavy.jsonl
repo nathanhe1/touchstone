@@ -1,0 +1,600 @@
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}
+{"prompt": "A ferry carries 40 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 11 = 29. Final answer: 29"}
+{"prompt": "Ike earns 2 coins per chore and does 4 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 4 = 8, then 8 - 2 = 6. Final answer: 6"}
+{"prompt": "Ike earns 3 coins per chore and does 9 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 9 = 27, then 27 - 3 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 11 shelves with 2 pots on each, plus 46 pots on the floor. How many pots in all?", "completion": "Working: 11 x 2 = 22, then 22 + 46 = 68. Final answer: 68"}
+{"prompt": "A greenhouse has 13 shelves with 9 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 9 = 117, then 117 + 21 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A greenhouse has 4 shelves with 3 pots on each, plus 18 pots on the floor. How many pots in all?", "completion": "Working: 4 x 3 = 12, then 12 + 18 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 61 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 61 - 13 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 24 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 23 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 23 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 9 = 14. Final answer: 14"}
+{"prompt": "A library lends out 12 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 12 + 17 = 29. Final answer: 29"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 2 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 3 = 6, then 6 + 2 = 8. Final answer: 8"}

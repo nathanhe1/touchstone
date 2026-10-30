@@ -4,8 +4,8 @@
 
 **Flags**
 
-- **no_measurable_gain** (block): No measurable gain above placebo on the held-out suite at the largest trained size.
 - **suppresses_reasoning** (info): After training the model stops working problems out (average reply 304 -> 17 characters) and accuracy falls. Answer-only data teaches small models to skip their reasoning; it may still suit a model that reasons in a separate step.
+- **no_measurable_gain** (block): No measurable gain above placebo on the held-out suite at the largest trained size.
 - **harmful** (block): Training on this material measurably lowers held-out accuracy.
 
 ## What was appraised

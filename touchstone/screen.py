@@ -115,6 +115,33 @@ def label_plausibility(lm, examples, n: int = 96, seed: int = 0) -> dict:
     return {"scored": len(probs), "mean": sum(probs) / len(probs) if probs else None}
 
 
+def confident_disagreement(lm, examples, n: int = 64, k: int = 4, seed: int = 0) -> dict:
+    """Confident-learning style label audit (Northcutt et al. 2021, the idea behind Cleanlab).
+
+    The reference model answers each sampled prompt k times. Where all k samples agree it is
+    confident, and confident answers are usually right; the share of those prompts whose given
+    label disagrees estimates the label error rate (plus the judge's own confident error rate).
+    """
+    rng = random.Random(seed)
+    pool = [e for e in examples if extract_number(e.completion) is not None]
+    if len(pool) < 20:
+        return {"confident": 0, "disagree": None}
+    sample = rng.sample(pool, min(n, len(pool)))
+    prompts = [e.last_user + " Think step by step, then give the final number." for e in sample]
+    outs = lm.generate([p for p in prompts for _ in range(k)], max_new=160, temperature=0.7, batch=64)
+    conf = dis = 0
+    for i, e in enumerate(sample):
+        ans = [extract_number(o) for o in outs[i * k:(i + 1) * k]]
+        if None in ans or len(set(ans)) != 1:
+            continue
+        conf += 1
+        try:
+            dis += abs(float(ans[0]) - float(extract_number(e.completion))) > 1e-6
+        except ValueError:
+            dis += 1
+    return {"sampled": len(sample), "confident": conf, "disagree": dis / conf if conf >= 8 else None}
+
+
 def relevance(prompts: list[str], suite_prompts: list[str], n: int = 400, seed: int = 0) -> dict:
     from .overlap import embed
     rng = random.Random(seed)

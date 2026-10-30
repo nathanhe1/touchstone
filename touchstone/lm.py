@@ -271,6 +271,9 @@ def sft(lm: LM, examples: list[tuple[str, str]], recipe: Recipe, seed: int = 0, 
     steps = steps or recipe.sft_steps
     tuned = with_lora(lm, recipe, seed)
     model = tuned.model
+    checkpointing = lm.size == "1.7B"  # recompute activations in backward: fits 1.7B training in ~6 GB
+    if checkpointing:
+        model.get_base_model().gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     model.train()
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=recipe.sft_lr, weight_decay=0.0)
     sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 5) * max(0.0, 1 - s / steps))

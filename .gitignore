@@ -7,3 +7,5 @@ __pycache__/
 .venv/
 reports/
 *.egg-info/
+out/jobs/
+out/*.db

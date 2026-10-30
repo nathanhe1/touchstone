@@ -90,6 +90,20 @@
    "reward_first": 0.1042,
    "reward_last": 0.1719,
    "train_s": 151.9
+  },
+  "add3_honest|135M|1": {
+   "acc_gain": 14.667,
+   "cand_gain": 18.739,
+   "reward_first": 0.0521,
+   "reward_last": 0.3177,
+   "train_s": 344.0
+  },
+  "add33_honest|135M|0": {
+   "acc_gain": 19.333,
+   "cand_gain": 19.786,
+   "reward_first": 0.0729,
+   "reward_last": 0.2292,
+   "train_s": 326.4
   }
  },
  "base": {

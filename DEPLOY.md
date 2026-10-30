@@ -33,6 +33,10 @@ Any single-GPU VM with 16 GB or more of GPU memory runs the full mode comfortabl
 
 **Fly.io:** `fly launch --no-deploy`, set `[[vm]] size = "l40s"` (or `a10`) in `fly.toml`, attach a volume at `/app/out`, set `TOUCHSTONE_ADMIN_TOKEN` with `fly secrets set`, then `fly deploy`.
 
+## Apple silicon: keep heavy runs in short-lived processes
+
+PyTorch's MPS backend compiles and caches a graph for every distinct tensor shape. Generation and training produce many shapes (every prompt length, every decoding step), so a single long-lived process slowly fills that cache. In round 2 a sweep that ran at about 3 minutes per training run stalled for two hours in one process, with the process holding 6-17 GB. Running each training run in a fresh process fixed it. The API server already runs every job in its own subprocess, and the sweep scripts do the same. A full-mode CLI appraisal trains up to ten models in one process, so on a 16 GB Mac prefer `--max-size 360M`, or run the rungs on a CUDA box.
+
 ## Security notes
 
 - Vendor environment code (`env.py`) runs inside the job subprocess with the server's permissions. For untrusted vendors, run jobs in a separate sandbox (gVisor or Firecracker, with no network and a read-only filesystem except the job folder) before exposing uploads publicly.

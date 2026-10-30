@@ -160,10 +160,14 @@ def summarize(res, target: str = "360M", proxy: str = "135M"):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", action="store_true")
+    ap.add_argument("--one", nargs=3, metavar=("DATASET", "SIZE", "SEEDS"), help="(internal) runs in this process")
     ap.add_argument("--sizes", default="135Mq,135M,360M,1.7B,135Mlr")
     ap.add_argument("--target", default="360M", help="size to validate against (1.7B needs more memory than 16 GB)")
     ap.add_argument("--proxy", default="135M", help="proxy arm: 135M (standard), 135Mq (quick recipe), 135Mlr (lr / 10)")
     a = ap.parse_args()
+    if a.one:
+        one(a.one[0], a.one[1], [int(s) for s in a.one[2].split(",")])
+        sys.exit(0)
     res = json.loads(OUT.read_text()) if a.report else run(a.sizes.split(","))
     s = summarize(res, a.target, a.proxy)
     print(json.dumps({k: v for k, v in s.items() if k not in ("table", "base")}, indent=1))

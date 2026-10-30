@@ -171,7 +171,7 @@ GEN_ADD = '''            a, b = rng.randint(10, 99), rng.randint(100, 999)
                 continue
             out.append(Task(f"{prompt}", {{"answer": str(a + b)}}))'''
 GEN_STR = '''            s = "".join(rng.choice("mnopqrstuvwx") for _ in range(rng.randint(3, 8)))
-            out.append(Task(f"Mirror the word {{s}}. Output only the mirrored word.", {{"answer": s[::-1]}}))'''
+            out.append(Task(f"Mirror the word {s}. Output only the mirrored word.", {"answer": s[::-1]}))'''
 
 
 def envs():

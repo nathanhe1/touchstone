@@ -8,13 +8,14 @@ import Home from './pages/Home'
 import { Company, Market, Pricing, Product, Report, Request } from './pages/Pages'
 import Research from './pages/Research'
 import { Privacy, Terms } from './pages/Legal'
+import Demo from './pages/Demo'
 import { Brand, RequestButton, reduced } from './ui'
 
 // Plain #name hashes route between pages, which works on any static host and inside the artifact viewer.
-const PAGES = { '': Home, product: Product, report: Report, market: Market, research: Research, pricing: Pricing, company: Company, request: Request, terms: Terms, privacy: Privacy }
+const PAGES = { '': Home, product: Product, report: Report, market: Market, research: Research, pricing: Pricing, company: Company, request: Request, terms: Terms, privacy: Privacy, demo: Demo }
 type Route = keyof typeof PAGES
-const NAV: [Route, string][] = [['product', 'Product'], ['report', 'Sample report'], ['research', 'Research'], ['market', 'Market'], ['pricing', 'Pricing'], ['company', 'Company']]
-const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an appraisal · Touchstone', terms: 'Terms of use · Touchstone', privacy: 'Privacy policy · Touchstone' }
+const NAV: [Route, string][] = [['demo', 'Live demo'], ['product', 'Product'], ['report', 'Sample report'], ['research', 'Research'], ['market', 'Market'], ['pricing', 'Pricing'], ['company', 'Company']]
+const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an appraisal · Touchstone', terms: 'Terms of use · Touchstone', privacy: 'Privacy policy · Touchstone', demo: 'Live demo · Touchstone' }
 const read = (): Route => { const h = location.hash.slice(1); return (h in PAGES ? h : '') as Route }
 
 export default function App() {

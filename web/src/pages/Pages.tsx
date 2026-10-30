@@ -5,6 +5,7 @@ import NumberFlow from '@number-flow/react'
 import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
 import { ReportSample } from './Home'
 import { AdaptiveSlider, AppraisalCard, PlanPicker } from '../components/Watermelon'
+import { RequestForm } from '../components/RequestForm'
 
 const ease = [.16, 1, .3, 1] as const
 
@@ -338,11 +339,8 @@ export function Request() {
           <li><div><b>The decision</b><p>What you'd pay, and what you need to know before you do.</p></div></li>
           <li><div><b>Your model</b><p>Rough size and what you're training it to do, so we forecast at your scale.</p></div></li>
         </ol></Reveal>
-        <Reveal delay={.1}><Panel title="pilot appraisals" meta="limited">
-          <div style={{ padding: 28, display: 'grid', gap: 16 }}>
-            <h3>For AI teams buying RL environments or post-training material, and for vendors who want a neutral rating.</h3>
-            {REQUEST_FORM_URL ? <div><RequestButton label="Open the request form" /></div> : <p className="dim" style={{ margin: 0 }}>The request form opens shortly. Check back here for the link.</p>}
-          </div>
+        <Reveal delay={.1}><Panel title="request a pilot appraisal" meta="we reply within two working days">
+          <div style={{ padding: 28 }}><RequestForm /></div>
         </Panel></Reveal>
       </section>
     </>

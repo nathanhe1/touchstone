@@ -294,6 +294,14 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     pub_prompts, pub_label = public_baseline(public, suite.name)
     pub = overlap.match(prompts, pub_prompts, use_embeddings=len(prompts) * len(pub_prompts) < 5e7) if pub_prompts \
         else {"rate": 0.0, "examples": []}
+    if pub_prompts:
+        # Short templated prompts: chance-corrected numeric fingerprints replace raw text matching, which both
+        # misses rewordings and counts chance collisions in small number spaces (round 2).
+        fp = overlap.fingerprint_overlap(prompts, pub_prompts)
+        long_hits = sum(1 for i in pub.get("matched_idx", []) if not overlap._short_numeric(prompts[i]))
+        pub["text_rate"] = pub["rate"]
+        pub["fingerprint"] = fp
+        pub["rate"] = round(long_hits / max(1, len(prompts)) + fp["rate"], 4)
     if kind == "dataset":
         dups = overlap.duplicates([p + "\n" + e.completion for p, e in zip(prompts, examples)])
     else:

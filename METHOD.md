@@ -79,12 +79,20 @@ RESULTS_PLACEHOLDER
 
 ## 7. Grade and fair value
 
-`touchstone/valuation.py`. The rules are printed in every report.
+`touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.
 
-- Grade from the forecast net gain at 1.7B: A >= 5 points, B >= 2, C >= 0.5, else D; F if training measurably lowers held-out accuracy.
-- Measurable means the measured net gain at the largest trained rung has a 90% interval above zero (or the smooth score's does and accuracy is positive). If not, the grade is at most C and nothing is priced.
-- Caps: gameable grader, contamination or transfer gap, D at best; mostly public data, C at best.
-- Fair value per item = net gain x $ per point x share not already free / unique items. The default $ per point ($250,000) is an assumption about the buyer, not a measurement; set it with `--dollars-per-point`.
+**Grading rubric** (applied in this order):
+
+| Step | Rule |
+|---|---|
+| 1 | **F** if a public copy (>= 80% of items already in free public data), or if training measurably lowers held-out accuracy (net and raw 90% intervals both below zero). |
+| 2 | Otherwise grade the headline net gain at 1.7B (measured in full mode, forecast in quick mode): **A** >= 5 points, **B** >= 2, **C** >= 0.5, else **D**. |
+| 3 | Cap at **D** if any of: no measurable gain (the net gain's 90% interval at the largest trained size includes zero, unless the smooth score's interval is above zero and accuracy is positive), gameable grader (any probe earns >= 20% reward, or the grader rejects >= 10% of reference answers, or is non-deterministic), answer leakage (answer in >= 20% of prompts), contamination (> 5% overlap with the held-out suite), transfer gap (training reward +15 points with no matching held-out gain), half or more of the items already public, noisy labels, or half or more of the material off-topic. |
+| 4 | Cap at **C** if half or more of the items are exact repeats. |
+
+**Fair value per unique item** = headline net gain x $ per point x (share not already free) / unique items. It is **zero** when any blocking flag fires: gameable grader, answer leakage, contamination, transfer gap, noisy labels, public copy (>= 80%), no measurable gain, or harmful. Off-topic and partly-public material is priced only on what remains. The default $ per point ($250,000) is an assumption about the buyer, not a measurement; set it with `--dollars-per-point`.
+
+Informational flags explain a result without changing it: `no_learning_signal` (the trained sizes never solve the tasks, so RL had nothing to learn from) and `suppresses_reasoning` (after training the model stops working problems out, as answer-only data does to small models, and accuracy falls).
 
 Value is split evenly across items. Per-item value (LESS, Xia et al. 2024; Data Shapley, Ghorbani & Zou 2019) and marginal value on top of what the buyer already owns (one more "free + vendor" run per rung) are the next steps; neither is implemented.
 

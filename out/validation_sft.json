@@ -1,0 +1,58 @@
+{
+ "runs": {
+  "good_cot|135M|0": {
+   "acc_gain": 8.5,
+   "cand_gain": 11.577,
+   "train_s": 324.4,
+   "loss_last": 0.0847
+  },
+  "good_cot|135M|1": {
+   "acc_gain": 12.0,
+   "cand_gain": 14.159,
+   "train_s": 148.1,
+   "loss_last": 0.0753
+  },
+  "good_short|135M|0": {
+   "acc_gain": -5.5,
+   "cand_gain": 1.259,
+   "train_s": 59.9,
+   "loss_last": 0.4506
+  },
+  "good_short|135M|1": {
+   "acc_gain": -5.5,
+   "cand_gain": 1.782,
+   "train_s": 127.6,
+   "loss_last": 0.3977
+  },
+  "noisy_20|135M|0": {
+   "acc_gain": 12.0,
+   "cand_gain": 12.895,
+   "train_s": 4265.4,
+   "loss_last": 0.1237
+  },
+  "noisy_20|135M|1": {
+   "acc_gain": 14.5,
+   "cand_gain": 13.537,
+   "train_s": 271.3,
+   "loss_last": 0.1177
+  },
+  "noisy_50|135M|0": {
+   "acc_gain": 9.0,
+   "cand_gain": 9.352,
+   "train_s": 84.0,
+   "loss_last": 0.1832
+  },
+  "noisy_50|135M|1": {
+   "acc_gain": 9.5,
+   "cand_gain": 9.833,
+   "train_s": 176.4,
+   "loss_last": 0.1718
+  }
+ },
+ "base": {
+  "135M": {
+   "accuracy": 11.5,
+   "candidate_prob": 31.82
+  }
+ }
+}

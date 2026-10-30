@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 import string
 import sys
 import urllib.request
@@ -146,7 +147,7 @@ def gsm8k_rows(n, seed):
     rows = []
     for d in rng.sample(data, n):
         work, ans = d["answer"].split("####")
-        work = "".join(ch for ch in work if ch not in "<>").strip()
+        work = re.sub(r"<<[^>]*>>", "", work).strip()  # drop GSM8K calculator annotations
         rows.append({"prompt": d["question"], "completion": f"{work}\nThe answer is {ans.strip()}."})
     return rows
 

@@ -28,31 +28,68 @@ OFFTOPIC_COS = 0.35         # a prompt is off-topic if its nearest suite item is
 OFFTOPIC_SHARE = 0.5        # flag when at least half the material is off-topic
 LEAK_SHARE = 0.2            # flag when the answer is in the prompt for >= 20% of tasks
 
-_EQ = re.compile(r"(-?\d+(?:\.\d+)?)\s*([+\-x×*/])\s*(-?\d+(?:\.\d+)?)\s*=\s*(-?\d+(?:\.\d+)?)")
-_FINAL = re.compile(r"(?:answer is|####)\s*:?\s*\$?(-?[\d,]+(?:\.\d+)?)", re.I)
+_RHS = re.compile(r"=\s*\$?(-?\d+(?:\.\d+)?)(?![\d.]*\s*[+\-*/x×])")
+_LHS_CHARS = set("0123456789.+-*/x×() ")
 
 
-def _calc(a, op, b):
-    a, b = float(a), float(b)
-    return {"+": a + b, "-": a - b, "x": a * b, "×": a * b, "*": a * b, "/": a / b if b else float("nan")}[op]
+def _safe_eval(expr: str):
+    import ast
+    import operator
+    ops = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv,
+           ast.USub: operator.neg}
+
+    def ev(n):
+        if isinstance(n, ast.Expression):
+            return ev(n.body)
+        if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)):
+            return n.value
+        if isinstance(n, ast.BinOp) and type(n.op) in ops:
+            return ops[type(n.op)](ev(n.left), ev(n.right))
+        if isinstance(n, ast.UnaryOp) and type(n.op) in ops:
+            return ops[type(n.op)](ev(n.operand))
+        raise ValueError
+    return ev(ast.parse(expr, mode="eval"))
 
 
-def check_arithmetic(text: str) -> tuple[int, int, bool]:
-    """(equations found, equations wrong, final answer contradicts the last equation)."""
-    eqs = _EQ.findall(text.replace(",", ""))
-    wrong = sum(abs(_calc(a, op, b) - float(c)) > 1e-6 for a, op, b, c in eqs)
-    m = _FINAL.findall(text.replace(",", ""))
-    mismatch = bool(eqs and m) and abs(float(m[-1].replace(",", "")) - float(eqs[-1][3])) > 1e-6
-    return len(eqs), wrong, mismatch
+def equations(text: str) -> list[tuple[str, float, float]]:
+    """(expression, its value, the stated result) for every 'expression = number' in the text.
+
+    The expression is the maximal run of digits, operators and parentheses left of '=', so
+    '1 + 2 + 5 = 8' is checked as a whole, and '$10/family * 3 families = $30' (words inside)
+    is skipped rather than misread.
+    """
+    text = text.replace(",", "")
+    out = []
+    for m in _RHS.finditer(text):
+        i = m.start()
+        j = i
+        while j > 0 and text[j - 1] in _LHS_CHARS:
+            j -= 1
+        lhs = text[j:i].strip().lstrip("+*/x×").strip()
+        if not lhs or not any(o in lhs[1:] for o in "+-*/x×") or not lhs[0].isdigit() and lhs[0] not in "(-":
+            continue
+        try:
+            val = _safe_eval(lhs.replace("x", "*").replace("×", "*"))
+        except (ValueError, SyntaxError, ZeroDivisionError, TypeError):
+            continue
+        out.append((lhs, float(val), float(m.group(1))))
+    return out
+
+
+def check_arithmetic(text: str) -> tuple[int, int]:
+    """(equations found, equations whose stated result is wrong)."""
+    eqs = equations(text)
+    wrong = sum(abs(v - r) > max(0.01, 1e-6 * abs(v)) and abs(round(v) - r) > 0 for _, v, r in eqs)
+    return len(eqs), wrong
 
 
 def arithmetic_consistency(completions: list[str]) -> dict:
     checked = bad = 0
     for c in completions:
-        n, wrong, mismatch = check_arithmetic(c)
+        n, wrong = check_arithmetic(c)
         if n:
             checked += 1
-            bad += bool(wrong or mismatch)
+            bad += bool(wrong)
     return {"checked": checked, "inconsistent": bad, "rate": bad / checked if checked else None}
 
 

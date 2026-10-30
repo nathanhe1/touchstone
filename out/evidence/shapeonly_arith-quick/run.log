@@ -1,0 +1,4 @@
+[03:20:39] Appraising environment ShapeOnly Numeracy: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:20:44]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 46.8%, duplicates 30.8%, off-topic 0%
+[03:21:00]   grader audit: worst exploit 'same shape, wrong content' earns 100% reward; answer in prompt for 0% of tasks
+[03:21:00]   blocking problem found in screening; quick mode skips training

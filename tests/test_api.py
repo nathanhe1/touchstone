@@ -99,7 +99,7 @@ def _wait(c, job_id, timeout):
 
 @pytest.mark.slow
 def test_example_job_end_to_end(client):
-    c, _ = client
+    c, server = client
     r = c.post("/api/appraise/example/contaminated-dataset")
     assert r.status_code == 202
     job = _wait(c, r.json()["job_id"], 900)
@@ -114,3 +114,6 @@ def test_example_job_end_to_end(client):
     md = c.get(f"/api/jobs/{r.json()['job_id']}/report.md")
     assert md.status_code == 200 and md.headers["content-type"].startswith("text/markdown")
     assert md.text.startswith("# Touchstone appraisal")
+    # responses never reveal the server's own folders
+    root = str(server.ROOT)
+    assert root not in json.dumps(job) and root not in md.text

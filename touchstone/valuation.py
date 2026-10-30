@@ -112,11 +112,18 @@ CAP_D = {"no_measurable_gain", "gameable_grader", "answer_leakage", "contaminate
 
 
 def fair_value(net_gain: float, flags: list[dict], unique_items: int, public_overlap: float,
-               dollars_per_point: float) -> dict:
+               dollars_per_point: float, examples_seen: int = 0) -> dict:
+    """Value of the measured gain, spread over the items that produced it.
+
+    The gain was measured with a fixed training budget of `examples_seen` example presentations.
+    A dataset with fewer unique items was repeated to fill that budget, so the gain is spread over
+    max(unique items, examples seen) and the total scales down by unique / seen. Without this a
+    20-example set repeated 24 times would be priced at the full gain per 20 items.
+    """
     blocked = [x["code"] for x in flags if x["severity"] == "block"]
     novel = max(0.0, 1.0 - public_overlap)
     if blocked or net_gain <= 0 or unique_items <= 0:
         return {"per_item": 0.0, "total": 0.0, "blocked_by": blocked, "novel_share": round(novel, 3)}
-    total = net_gain * dollars_per_point * novel
-    return {"per_item": round(total / unique_items, 2), "total": round(total, 0), "blocked_by": [],
-            "novel_share": round(novel, 3)}
+    per_item = net_gain * dollars_per_point * novel / max(unique_items, examples_seen)
+    return {"per_item": round(per_item, 2), "total": round(per_item * unique_items, 0), "blocked_by": [],
+            "novel_share": round(novel, 3), "spread_over": max(unique_items, examples_seen)}

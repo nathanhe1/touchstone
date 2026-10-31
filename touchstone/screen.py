@@ -1,11 +1,7 @@
 """Static screens: red flags that need no training run.
 
-* noisy_labels   (datasets) two independent signals:
-    - arithmetic consistency: every "a op b = c" in a worked solution is recomputed, and the
-      stated final answer must equal the last computed result;
-    - label plausibility: a small reference model (SmolLM2-360M) scores the given final answer
-      against nearby alternatives (+-1, +-10, digit swaps) in the answer slot. Correct labels are
-      preferred far more often than chance; wrong or shuffled labels are not.
+* noisy_labels   (datasets) every "a op b = c" in a worked solution is recomputed, and the stated final answer
+                 must appear in the working. Answer-only data goes to the reference judge (judge.py, coverage.py).
 * off_topic      (both) share of material prompts whose nearest held-out item (sentence-embedding
                  cosine) is below a relevance threshold.
 * answer_leakage (envs)  the reference answer appears verbatim in the prompt.
@@ -19,11 +15,10 @@ from __future__ import annotations
 import random
 import re
 
-from .suites import extract_number, numeric_distractors
 
 # thresholds (frozen; see module docstring)
 NOISY_EQ_RATE = 0.10        # >= 10% of worked solutions contain an arithmetic error or an answer mismatch
-NOISY_PLAUSIBILITY = 0.45   # mean preference for the given answer over 4 alternatives (chance 0.20)
+MIN_WORKED = 20             # worked solutions needed before the arithmetic rate can flag
 OFFTOPIC_COS = 0.35         # a prompt is off-topic if its nearest suite item is below this cosine
 OFFTOPIC_SHARE = 0.5        # flag when at least half the material is off-topic
 CODE_FAIL_RATE = 0.10      # code labels: share failing their tests (or invalid syntax)
@@ -128,55 +123,6 @@ def arithmetic_consistency(completions: list[str]) -> dict:
             "rate": bad / checked if checked else None}
 
 
-def label_plausibility(lm, examples, n: int = 96, seed: int = 0) -> dict:
-    """Mean probability the reference model gives the stated final answer vs 4 nearby alternatives."""
-    from .measure import answer_slot
-    rng = random.Random(seed)
-    pool = [e for e in examples if extract_number(e.completion) is not None]
-    if len(pool) < 20:
-        return {"scored": len(pool), "mean": None}
-    sample = rng.sample(pool, min(n, len(pool)))
-    prompts, answers, dis, slots = [], [], [], []
-    for e in sample:
-        ans = extract_number(e.completion)
-        if not ans.lstrip("-").isdigit():
-            continue
-        slot = answer_slot(e.completion)
-        prompts.append(e.last_user)
-        answers.append(ans)
-        dis.append(numeric_distractors(ans, rng))
-        slots.append(slot)
-    probs = lm.candidate_probs(prompts, answers, dis, slots)
-    return {"scored": len(probs), "mean": sum(probs) / len(probs) if probs else None}
-
-
-def confident_disagreement(lm, examples, n: int = 64, k: int = 4, seed: int = 0) -> dict:
-    """Confident-learning style label audit (Northcutt et al. 2021, the idea behind Cleanlab).
-
-    The reference model answers each sampled prompt k times. Where all k samples agree it is
-    confident, and confident answers are usually right; the share of those prompts whose given
-    label disagrees estimates the label error rate (plus the judge's own confident error rate).
-    """
-    rng = random.Random(seed)
-    pool = [e for e in examples if extract_number(e.completion) is not None]
-    if len(pool) < 20:
-        return {"confident": 0, "disagree": None}
-    sample = rng.sample(pool, min(n, len(pool)))
-    prompts = [e.last_user + " Think step by step, then give the final number." for e in sample]
-    outs = lm.generate([p for p in prompts for _ in range(k)], max_new=160, temperature=0.7, batch=64)
-    conf = dis = 0
-    for i, e in enumerate(sample):
-        ans = [extract_number(o) for o in outs[i * k:(i + 1) * k]]
-        if None in ans or len(set(ans)) != 1:
-            continue
-        conf += 1
-        try:
-            dis += abs(float(ans[0]) - float(extract_number(e.completion))) > 1e-6
-        except ValueError:
-            dis += 1
-    return {"sampled": len(sample), "confident": conf, "disagree": dis / conf if conf >= 8 else None}
-
-
 def relevance(prompts: list[str], suite_prompts: list[str], n: int = 400, seed: int = 0) -> dict:
     from .overlap import embed
     rng = random.Random(seed)
@@ -212,17 +158,12 @@ def answer_only(examples) -> bool:
     return a["checked"] < 0.2 * min(len(examples), 400)
 
 
-def screen_dataset(examples, suite, lm=None, judge=None) -> dict:
+def screen_dataset(examples, suite) -> dict:
     out = {"arithmetic": arithmetic_consistency([e.completion for e in examples]),
            "relevance": relevance([e.prompt_text for e in examples], [i.prompt for i in suite.items])}
-    if lm is not None and suite.items and suite.items[0].match == "numeric":
-        out["plausibility"] = label_plausibility(lm, examples)
-    if judge is not None and JUDGE_DISAGREE is not None:
-        out["judge"] = confident_disagreement(judge, examples)
-    eq = out["arithmetic"]["rate"]
-    # Plausibility is reported but not used to flag: on the dev set the 360M reference model could not
-    # separate clean answer-only labels (0.42) from 30%-noisy ones (0.46). Only arithmetic consistency flags.
-    jd = (out.get("judge") or {}).get("disagree")
-    out["noisy"] = bool((eq is not None and eq >= NOISY_EQ_RATE) or (jd is not None and jd >= JUDGE_DISAGREE))
+    a = out["arithmetic"]
+    # A rate needs a real sample of worked solutions: on real Dolly data 1 slip in 3 checked rows of 100 read as 33%.
+    enough = a["checked"] >= max(MIN_WORKED, 0.2 * len(examples))
+    out["noisy"] = bool(enough and a["rate"] is not None and a["rate"] >= NOISY_EQ_RATE)
     out["off_topic"] = out["relevance"]["off_topic_share"] >= OFFTOPIC_SHARE
     return out

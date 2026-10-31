@@ -67,5 +67,10 @@ def public_report(r: dict) -> dict:
                      "source": hl.get("source", "forecast"),
                      "smooth_value": (fd.get("smooth") or {}).get("point"),
                      "smooth_lo": (fd.get("smooth") or {}).get("lo"), "smooth_hi": (fd.get("smooth") or {}).get("hi")}
+    if hl["lo"] is not None and "dollars_per_point" in r["fair_value"]:
+        from .valuation import price_range  # additive: schema 1.0 fields are unchanged
+        seen = (r.get("recipe") or {}).get("sft_steps", 0) * (r.get("recipe") or {}).get("sft_batch", 0) if r["kind"] == "dataset" else 0
+        r["fair_value_range"] = price_range(hl["lo"], hl["hi"], r["flags"], r["material"]["unique_items"], od["public"]["rate"],
+                                            r["fair_value"]["dollars_per_point"], seen)
     r["summary"] = summary_text(r)
     return r

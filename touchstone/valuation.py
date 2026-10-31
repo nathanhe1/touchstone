@@ -64,9 +64,6 @@ def flags_for(r: dict) -> list[dict]:
             bits.append(f"{a['failed']} of {a['tested']} code labels fail their tests")
         elif a.get("violations"):
             bits.append(f"{a['violations']} of {a['checked']} tool calls break the declared tools")
-        if (q.get("plausibility") or {}).get("mean") is not None:
-            bits.append(f"a reference model prefers the given answer over nearby alternatives only "
-                        f"{100 * q['plausibility']['mean']:.0f}% of the time (chance 20%)")
         f.append({"code": "noisy_labels", "severity": "block",
                   "text": "Many labels look wrong: " + "; ".join(bits) + "."})
     if r.get("off_topic_share", 0) >= OFFTOPIC_LIMIT:
@@ -144,3 +141,11 @@ def fair_value(net_gain: float, flags: list[dict], unique_items: int, public_ove
     per_item = net_gain * dollars_per_point * novel / max(unique_items, examples_seen)
     return {"per_item": round(per_item, 2), "total": round(per_item * unique_items, 0), "blocked_by": [],
             "novel_share": round(novel, 3), "spread_over": max(unique_items, examples_seen)}
+
+
+def price_range(lo: float, hi: float, flags: list[dict], unique_items: int, public_overlap: float,
+                dollars_per_point: float, examples_seen: int = 0) -> dict:
+    """Grade and value at both ends of the gain's interval: one letter and one price hide how wide it is."""
+    at = {k: fair_value(v, flags, unique_items, public_overlap, dollars_per_point, examples_seen)["per_item"]
+          for k, v in (("low", lo), ("high", hi))}
+    return {"per_item_low": at["low"], "per_item_high": at["high"], "grade_low": grade(lo, flags), "grade_high": grade(hi, flags)}

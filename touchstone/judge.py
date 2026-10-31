@@ -151,6 +151,8 @@ def use_judge(key_or_repo: str):
 
 
 def _gen(prompts: list[str], system: str, max_tokens: int, batch: int = 8) -> list[str]:
+    if not _has_mlx():
+        return _gen_torch(prompts, system, max_tokens, batch)
     import mlx.core as mx
     from mlx_lm.generate import batch_generate
     model, tok = _load(JUDGE_REPO)
@@ -236,12 +238,56 @@ def audit(examples, n: int = 80, seed: int = 0) -> dict:
             "rows": rows}
 
 
-def available() -> bool:
+def _has_mlx() -> bool:
     try:
         import mlx_lm  # noqa: F401
         return True
     except ImportError:
         return False
+
+
+def available() -> bool:
+    if _has_mlx():
+        return True
+    try:
+        import torch
+        return torch.cuda.is_available()
+    except ImportError:
+        return False
+
+
+@lru_cache(maxsize=1)
+def _load_torch(repo: str):
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    tok = AutoTokenizer.from_pretrained(repo, padding_side="left")
+    return AutoModelForCausalLM.from_pretrained(repo, torch_dtype=torch.float16).to("cuda").eval(), tok
+
+
+def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> list[str]:
+    """GPU machines without MLX (a rented Linux box, for example). Greedy, like the MLX route."""
+    import torch
+    model, tok = _load_torch(JUDGE_REPO)
+    out = []
+    for s in range(0, len(prompts), batch):
+        texts = [tok.apply_chat_template([{"role": "system", "content": system}, {"role": "user", "content": p}],
+                                         tokenize=False, add_generation_prompt=True) for p in prompts[s:s + batch]]
+        enc = tok(texts, return_tensors="pt", padding=True).to("cuda")
+        with torch.no_grad():
+            g = model.generate(**enc, max_new_tokens=max_tokens, do_sample=False)
+        out += tok.batch_decode(g[:, enc.input_ids.shape[1]:], skip_special_tokens=True)
+    return out
+
+
+def release():
+    """Drop the judge before training starts: never hold two large models on 16 GB."""
+    _load.cache_clear()
+    _load_torch.cache_clear()
+    if _has_mlx():
+        import mlx.core as mx
+        mx.clear_cache()
+    import gc
+    gc.collect()
 
 
 MCQ_SYS = "Answer the multiple-choice question. Reply with the letter of the best option and nothing else."

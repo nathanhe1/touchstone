@@ -193,7 +193,11 @@ def answer_leakage(prompts: list[str], refs: list[str | None]) -> float:
     return sum(r in tok.findall(p) for p, r in pairs) / len(pairs)
 
 
-JUDGE_DISAGREE = None  # set from the development set (round 2); None disables the judge
+JUDGE_DISAGREE = None  # set from the development set (round 3); None disables the judge flag
+
+
+def judge_noisy(r: dict) -> bool:
+    return JUDGE_DISAGREE is not None and r.get("disagree") is not None and r["disagree"] >= JUDGE_DISAGREE
 
 
 def answer_only(examples) -> bool:

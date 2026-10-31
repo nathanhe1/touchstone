@@ -142,6 +142,21 @@ The same definitions apply to any round-3 dataset sweep, whose split will be com
 
 **Round 3 interim and scale decisions** (added during the sweep; the pre-registered definitions above are unchanged). Development environments now run first within each seed, which changes when results arrive, not what is measured. At seed 0 on the 13 development environments: Spearman 0.54, decision accuracy 0.71 on all 78 pairs and 0.71 on the 38 resolvable pairs for final-checkpoint accuracy; every other signal lands at 0.59-0.72, and gradient similarity is the weakest (0.59). The first 8 environments alone had shown 0.93, which did not survive the other 5. Laptop cost: about 10 minutes a run at 135M and 5 at 360M. About 1 run in 20 hit a kernel-level MPS hang that ignores SIGKILL; the job guard restarts the sweep and finished runs are kept.
 
+**Round 3 forecast addendum** (written and committed before any held-out result was seen; the rules above are unchanged).
+
+*Final candidates, each scored once on held-out, all reported:*
+
+1. `acc_final`: mean proxy accuracy gain at the last checkpoint. Chosen on development (0.71, tied with every simple signal), and the simplest.
+2. `hand_pool`: `acc_final` x min(1, log10(unique tasks) / 3), so a task pool under 1,000 scales the signal down. Development: 0.77 on all pairs, 0.89 on resolvable pairs. Its form was chosen after seeing `pool10` on development, with no fitted weights.
+
+Six other screen-aware candidates were tried on development and are not going to held-out (`scripts/dev_forecast_features.py`, `out/forecast_features.json`): `hand_pool_clean` 0.74, `smooth_hand_pool` 0.74, and three leave-one-environment-out ridge fits at 0.59-0.63; `proxy_only` is `acc_final`.
+
+*Held-out extension.* The original split happened to put all small-pool environments in development, so held-out could not test `hand_pool`. Four new environments join held-out, chosen by pool size alone and never run before this was committed: `pool20`, `pool50`, `pool300`, `pool30_mix`. Held-out is reported both ways: the original 13, and the 13 plus these 4.
+
+*Seeds.* After seeds 1 and 2: decision accuracy at 1, 2 and 3 seeds for both candidates, and the noise ceiling.
+
+*Harder suite pilot.* 360M starts at about 77% on the arithmetic suite and target gains cluster at 8-10 points. `scripts/dev_headroom.py` tests whether a harder suite spreads them. Candidates in this order, 300 items each, same hash bucket as the held-out suite: `hard_a` 4-digit + 3-digit, `hard_b` 4-digit + 4-digit, `hard_c` three 3-digit numbers. The first whose 360M base accuracy is 40-60% is used, decided from base accuracy alone. The pilot runs the first 4 development environments in alphabetical order (`add3ops_honest, add_sub_mix, grader_lastdigit, leak100`) at both sizes, seed 0, and is not selected for spread. It reports the standard deviation of target gains on both suites. If it helps, a full run applies the suite to every environment.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

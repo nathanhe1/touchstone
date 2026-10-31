@@ -37,6 +37,7 @@ OUT = ROOT / "out" / "validation_rl_real2.json"
 SEEDS = {"135M": 3, "360M": 3}
 RECIPE = L.Recipe(rl_steps=30, rl_group=4, eval_max_new=48)
 SUITE_ITEMS = 600
+EXTENSION = ["pool20", "pool30_mix", "pool300", "pool50"]
 PROXY_CHECKPOINTS = (10, 20)  # plus the final step
 RUN_TIMEOUT = 2100  # seconds for one run; a stalled run is skipped and retried on the next pass
 
@@ -167,15 +168,21 @@ def environments():
     add("grader_lastdigit", [("add3", 1)], grader="last_digit")
     add("grader_format_bonus", [("add3", 1)], grader="format_bonus")
     add("answer_tag_mismatch", [("add3", 1)], grader="answer_tag")
+    # Held-out extension, pre-registered in METHOD.md after the development interim: the original split put every
+    # small-pool environment in development, so held-out could not test a pool-size term.
+    add("pool20", [("add3", 1)], pool=20)
+    add("pool50", [("add3", 1)], pool=50)
+    add("pool300", [("add2", 1), ("add3", 1)], pool=300)
+    add("pool30_mix", [("add3", 1), ("sub", 1)], pool=30)
     return E
 
 
 def split():
     """Fixed before any run: seeded shuffle of the sorted names, first half development."""
-    names = sorted(environments())
+    names = sorted(n for n in environments() if n not in EXTENSION)
     random.Random(20261030).shuffle(names)
     h = len(names) // 2
-    return {"dev": sorted(names[:h]), "heldout": sorted(names[h:])}
+    return {"dev": sorted(names[:h]), "heldout": sorted(names[h:] + EXTENSION)}
 
 
 def _bits(v):
@@ -245,6 +252,7 @@ def run(only=None, shard=None):
     names = list(environments())
     # Seed-major, development environments first: an interim development score exists after seed 0 at both
     # sizes on those 13, long before the sweep ends. Order changes nothing about what is measured.
+    res["split"] = split()  # adds the pre-registered extension; the original 26 keep their sides
     dev = [n for n in names if n in res["split"]["dev"]]
     held = [n for n in names if n not in res["split"]["dev"]]
     count = -1

@@ -26,6 +26,10 @@ NOISY_EQ_RATE = 0.10        # >= 10% of worked solutions contain an arithmetic e
 NOISY_PLAUSIBILITY = 0.45   # mean preference for the given answer over 4 alternatives (chance 0.20)
 OFFTOPIC_COS = 0.35         # a prompt is off-topic if its nearest suite item is below this cosine
 OFFTOPIC_SHARE = 0.5        # flag when at least half the material is off-topic
+CODE_FAIL_RATE = 0.10      # code labels: share failing their tests (or invalid syntax)
+TOOL_BAD_RATE = 0.10       # tool-use labels: share of calls that break the declared tools
+MCQ_DISAGREE = None        # set on development data; None until then
+FIT_MIN = None             # set on development data; None until then
 LEAK_SHARE = 0.2            # flag when the answer is in the prompt for >= 20% of tasks
 
 _RHS = re.compile(r"=\s*\$?(-?\d+(?:\.\d+)?)(?![\d.]*\s*[+\-*/x×])")

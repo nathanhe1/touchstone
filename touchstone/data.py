@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import json
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 MIN_EXAMPLES = 20
@@ -27,6 +27,7 @@ class DatasetError(ValueError):
 class Example:
     messages: list[dict]  # conversation up to (not including) the target reply
     completion: str
+    meta: dict = field(default_factory=dict)  # extra row fields a check can use (tests, tools, choices, ...)
 
     @property
     def prompt_text(self) -> str:
@@ -39,6 +40,10 @@ class Example:
         return users[-1] if users else ""
 
 
+def _meta(d: dict, used: tuple) -> dict:
+    return {k: v for k, v in d.items() if k not in used}
+
+
 def _parse(d: dict, where: str) -> Example:
     if not isinstance(d, dict):
         raise DatasetError(f"{where}: each line must be a JSON object")
@@ -47,13 +52,13 @@ def _parse(d: dict, where: str) -> Example:
         if not isinstance(msgs, list) or not msgs:
             raise DatasetError(f"{where}: 'messages' must be a non-empty list")
         for m in msgs:
-            if not isinstance(m, dict) or m.get("role") not in ("system", "user", "assistant") or not isinstance(m.get("content"), str):
-                raise DatasetError(f"{where}: every message needs role system/user/assistant and string content")
+            if not isinstance(m, dict) or m.get("role") not in ("system", "user", "assistant", "tool") or not isinstance(m.get("content"), str):
+                raise DatasetError(f"{where}: every message needs role system/user/assistant/tool and string content")
         if msgs[-1]["role"] != "assistant":
             raise DatasetError(f"{where}: the last message must be the assistant reply to train on")
         if not any(m["role"] == "user" for m in msgs[:-1]):
             raise DatasetError(f"{where}: needs at least one user message before the assistant reply")
-        return Example([dict(m) for m in msgs[:-1]], msgs[-1]["content"])
+        return Example([dict(m) for m in msgs[:-1]], msgs[-1]["content"], _meta(d, ("messages",)))
     for p, c in (("prompt", "completion"), ("question", "answer"), ("instruction", "output")):
         if p in d and c in d:
             prompt = d[p]
@@ -63,7 +68,7 @@ def _parse(d: dict, where: str) -> Example:
                 raise DatasetError(f"{where}: '{p}' and '{c}' must be strings")
             if not prompt.strip() or not str(d[c]).strip():
                 raise DatasetError(f"{where}: empty '{p}' or '{c}'")
-            return Example([{"role": "user", "content": prompt}], str(d[c]))
+            return Example([{"role": "user", "content": prompt}], str(d[c]), _meta(d, (p, c, "input")))
     raise DatasetError(f"{where}: unrecognised format; expected 'prompt'+'completion' or 'messages' (got keys {sorted(d)})")
 
 

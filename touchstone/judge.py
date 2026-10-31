@@ -258,6 +258,9 @@ def audit(examples, n: int = 60, extra: int = 60, band: tuple = (0.08, 0.25), se
 
 
 def _has_mlx() -> bool:
+    import os
+    if os.environ.get("TOUCHSTONE_JUDGE_BACKEND") == "torch":
+        return False
     try:
         import mlx_lm  # noqa: F401
         return True
@@ -270,9 +273,14 @@ def available() -> bool:
         return True
     try:
         import torch
-        return torch.cuda.is_available()
+        return torch.cuda.is_available() or torch.backends.mps.is_available()
     except ImportError:
         return False
+
+
+def _torch_device() -> str:
+    import torch
+    return "cuda" if torch.cuda.is_available() else "mps"
 
 
 @lru_cache(maxsize=1)
@@ -280,7 +288,7 @@ def _load_torch(repo: str):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(repo, padding_side="left")
-    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float16).to("cuda").eval(), tok
+    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float16).to(_torch_device()).eval(), tok
 
 
 def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> list[str]:
@@ -291,7 +299,7 @@ def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> 
     for s in range(0, len(prompts), batch):
         texts = [tok.apply_chat_template([{"role": "system", "content": system}, {"role": "user", "content": p}],
                                          tokenize=False, add_generation_prompt=True) for p in prompts[s:s + batch]]
-        enc = tok(texts, return_tensors="pt", padding=True).to("cuda")
+        enc = tok(texts, return_tensors="pt", padding=True).to(_torch_device())
         with torch.no_grad():
             g = model.generate(**enc, max_new_tokens=max_tokens, do_sample=False, temperature=None, top_p=None, top_k=None)
         out += tok.batch_decode(g[:, enc.input_ids.shape[1]:], skip_special_tokens=True)

@@ -26,9 +26,10 @@ LADDER = {
     "135M": "HuggingFaceTB/SmolLM2-135M-Instruct",
     "360M": "HuggingFaceTB/SmolLM2-360M-Instruct",
     "1.7B": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "7B": "Qwen/Qwen2.5-7B-Instruct",  # a different family: GPU-only forecast target, never a product rung
 }
-PARAMS = {"135M": 134_515_008, "360M": 361_821_120, "1.7B": 1_711_376_384}
-DTYPE = {"135M": torch.float32, "360M": torch.float32, "1.7B": torch.float16}
+PARAMS = {"135M": 134_515_008, "360M": 361_821_120, "1.7B": 1_711_376_384, "7B": 7_615_616_512}
+DTYPE = {"135M": torch.float32, "360M": torch.float32, "1.7B": torch.float16, "7B": torch.float16}
 SMALL = ["135M", "360M"]
 TARGET = "1.7B"
 
@@ -153,7 +154,7 @@ class LM:
         """Replies to user prompts (or raw chat-formatted strings if raw=True)."""
         self.tok.padding_side = "left"
         texts = prompts if raw else [self.chat(p, system) for p in prompts]
-        if self.size == "1.7B":  # bounded memory on a 16 GB machine
+        if self.size in ("1.7B", "7B"):  # bounded memory
             batch = min(batch, 16)
         order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
         out = [""] * len(texts)
@@ -200,7 +201,7 @@ class LM:
 
     def seq_logprob(self, prefixes: list[str], conts: list[str], batch: int = 32, grad: bool = False):
         """Sum of log-probs of each continuation given its prefix."""
-        if self.size == "1.7B":
+        if self.size in ("1.7B", "7B"):
             batch = min(batch, 16)
         res = []
         for s in range(0, len(prefixes), batch):

@@ -65,7 +65,7 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
         flat_adv = adv.view(-1)
         opt.zero_grad()
         # micro-batches of 16 with gradient accumulation: on MPS one batch of 64 was 7x slower than four of 16
-        mb = 16
+        mb = 8 if lm.size in ("1.7B", "7B") else 16
         for s in range(0, B * G, mb):
             x, m, att = tuned._pack(pre[s:s + mb], conts[s:s + mb])
             with torch.no_grad(), model.disable_adapter():

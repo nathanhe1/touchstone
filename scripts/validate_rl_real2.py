@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import string
 import sys
@@ -33,7 +34,7 @@ from touchstone import measure, pipeline, suites  # noqa: E402
 from touchstone.env import Task, final_answer  # noqa: E402
 from touchstone.grpo import grpo  # noqa: E402
 
-OUT = ROOT / "out" / "validation_rl_real2.json"
+OUT = ROOT / "out" / os.environ.get("SWEEP_FILE", "validation_rl_real2.json")
 SEEDS = {"135M": 3, "360M": 3}
 RECIPE = L.Recipe(rl_steps=30, rl_group=4, eval_max_new=48)
 SUITE_ITEMS = 600
@@ -196,7 +197,8 @@ def _bits(v):
 
 def one(name, size, seed):
     """One run in a fresh process (MPS shape caches slow long-lived processes; see validate_rl_real.py)."""
-    suite = suites.arithmetic_suite(SUITE_ITEMS)
+    sname = os.environ.get("SWEEP_SUITE", "arithmetic")
+    suite = suites.arithmetic_suite(SUITE_ITEMS) if sname == "arithmetic" else suites.arithmetic_hard(sname)
     env = environments()[name]
     lm = L.LM(size)
     before = pipeline.base_eval(lm, suite, RECIPE.eval_max_new)
@@ -249,29 +251,34 @@ def one_run(cmd):
         return None
 
 
-def run(only=None, shard=None):
-    """shard 'i/n' runs every n-th pending key and writes its own file; --merge folds shard files into OUT."""
+def in_shard(key, shard):
+    """Stable membership: a key belongs to one shard whatever each shard has finished."""
+    import zlib
+    i, n = map(int, shard.split("/"))
+    return zlib.crc32(key.encode()) % n == i
+
+
+def run(only=None, shard=None, sizes=("135M", "360M"), seeds=None, envs=None):
+    """shard 'i/n' runs the keys hashed to it and writes its own file; --merge folds shard files into OUT."""
     out = OUT if not shard else OUT.with_suffix(f".shard{shard.split('/')[0]}.json")
     res = json.loads(out.read_text()) if out.exists() else (json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}, "split": split()})
     t0 = time.time()
-    names = list(environments())
+    names = envs or list(environments())
     # Seed-major, development environments first: an interim development score exists after seed 0 at both
     # sizes on those 13, long before the sweep ends. Order changes nothing about what is measured.
     res["split"] = split()  # adds the pre-registered extension; the original 26 keep their sides
     dev = [n for n in names if n in res["split"]["dev"]]
     held = [n for n in names if n not in res["split"]["dev"]]
-    count = -1
-    order = [(seed, group, size) for seed in range(max(SEEDS.values())) for group in (dev, held) for size in ("135M", "360M")]
-    for seed, group, size in order:
-        if True:
-            if seed >= SEEDS[size] or (only and size != only):
+    order = [(seed, group, size) for seed in range(seeds or max(SEEDS.values())) for group in (dev, held) for size in sizes]
+    for attempt in range(3):  # a failed run gets two more chances, here rather than in a manual rerun
+        for seed, group, size in order:
+            if seed >= (seeds or SEEDS.get(size, 3)) or (only and size != only):
                 continue
             for name in group:
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
                     continue
-                count += 1
-                if shard and count % int(shard.split("/")[1]) != int(shard.split("/")[0]):
+                if shard and not in_shard(key, shard):
                     continue
                 wait_for_memory()
                 done = one_run([sys.executable, __file__, "--one", name, size, str(seed)])
@@ -298,6 +305,9 @@ if __name__ == "__main__":
     ap.add_argument("--only", choices=["135M", "360M"])
     ap.add_argument("--print-split", action="store_true")
     ap.add_argument("--shard", help="i/n: this process takes every n-th pending run (for many-GPU or large-memory machines)")
+    ap.add_argument("--sizes", default="135M,360M", help="comma list, for example 1.7B or 7B")
+    ap.add_argument("--seeds", type=int)
+    ap.add_argument("--envs", help="comma list of environment names (default: all)")
     ap.add_argument("--allow-mixed-platforms", action="store_true", help="only after checking the platforms agree")
     ap.add_argument("--merge", action="store_true", help="fold out/validation_rl_real2.shard*.json into the main file")
     a = ap.parse_args()
@@ -319,4 +329,4 @@ if __name__ == "__main__":
         OUT.write_text(json.dumps(res))
         print(len(res["runs"]), "runs")
     else:
-        run(a.only, a.shard)
+        run(a.only, a.shard, tuple(a.sizes.split(",")), a.seeds, envs=a.envs.split(",") if a.envs else None)

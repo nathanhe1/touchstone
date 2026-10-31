@@ -10,6 +10,8 @@
 | test v2 (63), round 1 | 0.972 / 0.761 | noisy 0.182, public 0.6 | 81% |
 | test v2 (63), round 2 (now dev data) | 0.974 / 0.804 | noisy 0.182, public 1.0 | 84% |
 | test v2 (63), round 3 (now dev data) | 0.958 / 1.0 | noisy 1.0, public 1.0 | 97% |
+| **test v3 (87), frozen, round 2 engine** | 0.886 / 0.5 | noisy 0.05, public 0.364 | 61% |
+| **test v3 (87), frozen, round 3 engine** | 0.95 / 0.919 | noisy 1.0, public 1.0 | 92% |
 
 ## Forecast, primary metric: accuracy at the small size -> accuracy at the larger size
 

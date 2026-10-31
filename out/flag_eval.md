@@ -102,3 +102,33 @@ Items with exactly the right flag set: before 26%, after 100% (n=23).
 | all | 46 | 0.75 / 0.065 | 0.958 / 1.0 |
 
 Items with exactly the right flag set: before 30%, after 97% (n=63).
+
+## test2_round2
+
+| Flag | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 11 | 0.75 / 0.273 | 0.917 / 1.0 |
+| answer_leakage | 3 | None / 0.0 | 1.0 / 1.0 |
+| contaminated | 6 | None / 0.0 | 1.0 / 1.0 |
+| copied_from_public | 5 | None / 0.0 | 1.0 / 1.0 |
+| duplicated | 5 | None / 0.0 | 1.0 / 1.0 |
+| noisy_labels | 11 | None / 0.0 | 1.0 / 0.182 |
+| off_topic | 5 | None / 0.0 | 1.0 / 1.0 |
+| all | 46 | 0.75 / 0.065 | 0.974 / 0.804 |
+
+Items with exactly the right flag set: before 30%, after 84% (n=63).
+
+## test3
+
+| Flag | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 13 | 0.833 / 0.385 | 1.0 / 0.692 |
+| answer_leakage | 3 | None / 0.0 | 1.0 / 1.0 |
+| contaminated | 6 | None / 0.0 | 1.0 / 0.833 |
+| copied_from_public | 11 | None / 0.0 | 1.0 / 1.0 |
+| duplicated | 4 | None / 0.0 | 0.571 / 1.0 |
+| noisy_labels | 20 | None / 0.0 | 1.0 / 1.0 |
+| off_topic | 5 | None / 0.0 | 1.0 / 1.0 |
+| all | 62 | 0.833 / 0.081 | 0.95 / 0.919 |
+
+Items with exactly the right flag set: before 34%, after 92% (n=87).

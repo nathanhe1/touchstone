@@ -57,6 +57,8 @@ def tool_call(text: str) -> tuple[dict | None, bool]:
     m = _CALL.search(text)
     if m:
         raw = m.group(1)
+    elif re.search(r"<(?:functioncall|tool_call)>", text):
+        return None, True  # a call was attempted and never closed
     elif text.lstrip().startswith("{") and '"name"' in text:
         raw = text.strip()
     else:

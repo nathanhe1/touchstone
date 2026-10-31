@@ -519,7 +519,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
         log("  blocking problem found in screening; quick mode skips training")
         stage(log, "price", 0.95)
         return screened_only("env", path, name, len(tasks), sc, suite, plan, dollars_per_point, t0,
-                             {"grader_audit": audit, "answer_leakage": sc["answer_leakage"]})
+                             {"grader_audit": audit, "answer_leakage": sc["answer_leakage"], "checks": sc["checks"]})
 
     rng = random.Random(1)
     reward_sample = [rng.choice(tasks) for _ in range(64)]
@@ -579,7 +579,7 @@ def appraise_env(path: str | Path, suite_spec: str | None, plan: Plan, public: s
                      "unique_items": dups["unique"]},
         "heldout": _suite_info(suite, len(clean_idx)),
         "overlap": {"heldout": _strip(contam), "public": {**_strip(pub), "baseline": pub_label}, "duplicates": dups},
-        "grader_audit": audit, "relevance": sc["relevance"], "answer_leakage": sc["answer_leakage"],
+        "grader_audit": audit, "relevance": sc["relevance"], "answer_leakage": sc["answer_leakage"], "checks": sc["checks"],
         "transfer_check": {"rung": largest, "env_reward_gain_pts": round(reward_gain, 2),
                            "heldout_gain_pts": heldout_gain["gain"], "transfer_gap": transfer_gap},
         "rungs": rungs, "forecast": fcast,

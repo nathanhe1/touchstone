@@ -9,3 +9,5 @@ reports/
 *.egg-info/
 out/jobs/
 out/*.db
+out/.heavy.lock
+out/.heavy_queue/

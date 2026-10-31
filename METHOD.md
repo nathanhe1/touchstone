@@ -217,6 +217,23 @@ Spearman on held-out (13 / 17): `acc_final` 0.54 / 0.60, `hand_pool_clean` 0.44 
 
 A forced-format target (the prompt asks for the working) is adopted only if base accuracy at 1.7B then exceeds 360M's under the same prompt. It would be a new target, pre-registered and run on the fresh held-out set, never rescored on spent environments.
 
+**1.7B check, result** (`out/gpu3/placebo/`, 27 runs, 3 development environments, 3 seeds each).
+
+| Environment | Own rewards | Shuffled | Random | Mean placebo / own |
+|---|---|---|---|---|
+| `mix_honest` | +26.5 | +1.7 | +12.2 | 26% |
+| `spaced_honest` | +31.6 | +6.2 | -2.9 | 5% |
+| `sub_honest` | +27.6 | +0.8 | +2.6 | 6% |
+| All | **+28.6** | +2.9 | +4.0 | **12%** |
+
+By the pre-registered rule the target stands: mean placebo gain is 12% of the material gain, under a quarter. Per environment, `mix_honest` sits at 26%, and its random arm alone at 46%, driven by two seeds where random rewards flipped the reply into equation form (+13.8, +18.2).
+
+**How much is format?** Across all 27 runs, gain = 2.0 + 0.14 x (change in share of replies with an equals sign) + 19.3 if the rewards are real (R² 0.88). So about +19 of the +28.6 comes from real rewards at constant format, and about +7 from the change in format. A separate measurement agrees: asking for the working, with no training, lifts 1.7B from 62.8% to 70.0%. Two material runs barely changed format and still reached 85-88% (+22 and +25), against 64% for placebo runs at that format.
+
+**What this does not show.** Three honest arithmetic environments, all development: the placebo says nothing about noisy, gameable, small-pool or off-topic environments. The check rules out "any reinforcement gives +28" on those three only. A placebo measured per environment is needed before net gains can be quoted per environment. A constant subtraction leaves rankings unchanged.
+
+**Forced-format comparison: invalid so far.** Under the working prompt 360M scored 2.17%, because its replies overrun the sweep's 48-token limit and the last number parsed is not the answer. That number must not be used. The rerun uses a 200-token limit (`debug_17_format_200.json`).
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

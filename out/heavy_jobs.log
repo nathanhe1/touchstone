@@ -54,3 +54,9 @@
 2026-10-31 08:05:05 end validate_rl_real2: stall after 9637s (swap 12.2 GB)
 2026-10-31 08:28:42 queued validate_rl_real2: .venv/bin/python scripts/validate_rl_real2.py
 2026-10-31 08:28:42 start validate_rl_real2 (swap 10.1 GB)
+2026-10-31 12:16:23 queued demos_round3: .venv/bin/python scripts/run_demos.py --repeats 2
+2026-10-31 12:16:23 start demos_round3 (swap 10.2 GB)
+2026-10-31 12:16:25 queued headroom_base: .venv/bin/python scripts/dev_headroom.py base
+2026-10-31 12:16:25 waiting headroom_base: lock held by demos_round3
+2026-10-31 12:16:27 queued headroom_pilot: .venv/bin/python scripts/dev_headroom.py pilot
+2026-10-31 12:16:27 waiting headroom_pilot: behind headroom_base

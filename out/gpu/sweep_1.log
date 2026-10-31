@@ -7,3 +7,11 @@ pool300|135M|0: acc +23.50 cand +19.63 reward 0.13->0.57 train 213s (1453s)
 strings_only|360M|0: acc -0.17 cand +0.00 reward 0.00->0.00 train 73s (1598s)
 pool50|360M|0: acc +9.17 cand +5.90 reward 0.41->0.78 train 117s (1786s)
 add_sub_mix|135M|1: acc +19.67 cand +14.65 reward 0.04->0.10 train 218s (2074s)
+mix_honest|360M|1: acc +11.50 cand +6.37 reward 0.42->0.79 train 106s (2250s)
+noise20|360M|1: acc +9.17 cand +5.28 reward 0.45->0.61 train 110s (2431s)
+word_honest|135M|1: acc -0.50 cand +0.11 reward 0.00->0.01 train 206s (2716s)
+grader_format_bonus|135M|1: acc +21.33 cand +17.26 reward 0.30->0.60 train 204s (2977s)
+nocarry_honest|360M|1: acc +5.00 cand +4.57 reward 0.27->0.78 train 110s (3156s)
+grader_tol2|360M|1: FAILED
+capacity of 31.36 GiB of which 16.38 MiB is free. Process 9353 has 1.36 GiB memory in use. Process 9405 has 1.86 GiB memory in use. Process 9455 has 2.39 GiB memory in use. Process 9504 has 6.21 GiB memory in use. Process 9559 has 3.53 GiB memory in use. Including non-PyTorch memory, this process has 3.85 GiB memory in use. Process 9657 has 6.23 GiB memory in use. Process 9701 has 5.87 GiB memory in use. Of the allocated memory 3.13 GiB is allocated by PyTorch, and 132.45 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+

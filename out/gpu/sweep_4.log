@@ -6,3 +6,14 @@ grader_tol2|135M|0: acc +24.17 cand +17.98 reward 0.08->0.36 train 210s (1380s)
 carry_honest|360M|0: acc +5.00 cand +3.75 reward 0.40->0.81 train 109s (1561s)
 grader_number|360M|0: acc -6.00 cand -1.96 reward 0.97->0.99 train 80s (1716s)
 mix_honest|135M|1: acc +22.00 cand +18.60 reward 0.12->0.36 train 220s (1999s)
+noise20|135M|1: acc +8.00 cand +4.99 reward 0.26->0.25 train 232s (2307s)
+sub_honest|360M|1: acc +9.33 cand +5.27 reward 0.40->0.67 train 104s (2483s)
+leak100|360M|1: acc +1.83 cand +1.28 reward 0.62->0.99 train 97s (2651s)
+strings_only|135M|1: acc +0.00 cand +0.00 reward 0.00->0.00 train 198s (2926s)
+pool50|135M|1: acc +23.83 cand +18.05 reward 0.09->0.43 train 216s (3206s)
+offtopic50|360M|1: FAILED
+ capacity of 31.36 GiB of which 4.38 MiB is free. Process 9353 has 1.39 GiB memory in use. Process 9455 has 2.33 GiB memory in use. Process 9504 has 5.47 GiB memory in use. Process 9657 has 6.24 GiB memory in use. Including non-PyTorch memory, this process has 6.12 GiB memory in use. Process 9754 has 2.38 GiB memory in use. Process 9755 has 6.08 GiB memory in use. Process 9756 has 1.29 GiB memory in use. Of the allocated memory 5.38 GiB is allocated by PyTorch, and 157.56 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+pool20|360M|1: FAILED
+ capacity of 31.36 GiB of which 4.38 MiB is free. Process 9657 has 5.28 GiB memory in use. Process 9754 has 5.06 GiB memory in use. Process 9755 has 4.61 GiB memory in use. Process 9756 has 1.40 GiB memory in use. Including non-PyTorch memory, this process has 2.15 GiB memory in use. Process 9895 has 5.72 GiB memory in use. Process 9989 has 3.55 GiB memory in use. Process 10039 has 1.86 GiB memory in use. Of the allocated memory 1.55 GiB is allocated by PyTorch, and 12.43 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+

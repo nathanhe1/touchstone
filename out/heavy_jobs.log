@@ -5,3 +5,7 @@
 2026-10-30 20:39:23 queued dev_judge_qwen_math: .venv/bin/python scripts/dev_judge.py qwen-math 60
 2026-10-30 20:41:02 queued dev_public: .venv/bin/python scripts/dev_public.py
 2026-10-30 20:43:12 queued dev_grad_sim: .venv/bin/python scripts/dev_grad_sim.py
+2026-10-30 21:22:03 end dev_judge_qwen: exit 0 after 2561s (swap 4.2 GB)
+2026-10-30 21:22:04 start dev_judge_qwen_math (swap 4.2 GB)
+2026-10-30 21:23:20 queued coverage_dev: .venv/bin/python scripts/eval_coverage.py --part dev
+2026-10-30 21:23:21 queued validate_rl_real2: .venv/bin/python scripts/validate_rl_real2.py

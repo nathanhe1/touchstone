@@ -12,3 +12,5 @@ qwen good_short                   noise 0 conf 15/60 disagree 0.0 121s e.g. [{'l
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2530.61it/s]
 qwen good_short                   noise 0 conf 54/60 disagree 0.0 126s e.g. [{'label': '35', 'cot': '35', 'pal': '35'}, {'label': '55', 'cot': '55', 'pal': '55'}]
 qwen d_clean_answer               noise 0 conf 60/60 disagree 0.0 103s e.g. [{'label': '35', 'cot': '35', 'pal': '35'}, {'label': '42', 'cot': '42', 'pal': '42'}]
+qwen s_clean                      noise 0 conf 7/60 disagree None 68s e.g. [{'label': 'fmgld', 'cot': 'dlmfg', 'pal': 'fmgld'}, {'label': 'diignni', 'cot': 'idniigin', 'pal': None}]
+qwen short_noisy_30               noise 30 conf 51/60 disagree 0.1765 104s e.g. [{'label': '168', 'cot': '168', 'pal': '1176'}, {'label': '22', 'cot': '22', 'pal': '22'}]

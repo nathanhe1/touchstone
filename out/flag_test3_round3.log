@@ -23,3 +23,29 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3705.68it/s]
 [test3] ok  w_noise10_boxed_offby1 truth=[] after=[] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3674.61it/s]
+[test3] ok  w_noise10_steps_wrongop truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2428.87it/s]
+[test3] ok  w_noise20_answer_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4860.95it/s]
+[test3] ok  w_noise30_answer_offby1 truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5291.07it/s]
+[test3] ok  w_noise50_answer_neighbour truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2610.72it/s]
+[test3] ok  w_noise35_boxed_dropstep truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3020.90it/s]
+[test3] ok  w_noise25_sentence_digits truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2531.70it/s]
+[test3] ok  w_noise100_json_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test3] ok  w_noise30_calc_slip    truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test3] ok  w_noise40_calc_final   truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2088.95it/s]
+[test3] ok  w_noise25_steps_wrongop truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3012.22it/s]
+[test3] ok  w_noise60_steps_wrongop truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3775.74it/s]
+[test3] ok  w_noise70_answer_wrongop truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2290.54it/s]
+[test3] ok  w_noise100_answer_neighbour truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2217.20it/s]
+[test3] ok  w_noise45_sentence_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3080.81it/s]

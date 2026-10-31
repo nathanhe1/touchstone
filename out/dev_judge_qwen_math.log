@@ -1,0 +1,6 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3166.54it/s]
+qwen-math good_short                   noise 0 conf 0/60 disagree None 149s e.g. [{'label': '35', 'cot': '35', 'pal': None}, {'label': '55', 'cot': '55', 'pal': None}]
+qwen-math d_clean_answer               noise 0 conf 0/60 disagree None 141s e.g. [{'label': '35', 'cot': '35', 'pal': None}, {'label': '42', 'cot': '42', 'pal': None}]
+qwen-math s_clean                      noise 0 conf 0/60 disagree None 148s e.g. [{'label': 'fmgld', 'cot': 'earnsticscd', 'pal': None}, {'label': 'diignni', 'cot': 'irn negate', 'pal': None}]

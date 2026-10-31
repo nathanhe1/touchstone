@@ -18,3 +18,6 @@ qwen d_noise40_answer_random      noise 40 conf 60/60 disagree 0.3667 105s e.g. 
 qwen s_noisy_30                   noise 30 conf 5/60 disagree None 78s e.g. [{'label': 'dkjhmnde', 'cot': 'dkhjmned', 'pal': 'dkjhmnde'}, {'label': 'njcngik', 'cot': 'jnncijk', 'pal': 'njcngik'}]
 qwen d_gsm8k_synonyms             noise None conf 22/60 disagree 0.0 183s e.g. [{'label': '28', 'cot': '28', 'pal': '-12'}, {'label': '1500', 'cot': '1500', 'pal': '1500'}]
 qwen v2_short_300                 noise 0 conf 52/60 disagree 0.0 109s e.g. [{'label': '11', 'cot': '11', 'pal': '-11'}, {'label': '87', 'cot': '87', 'pal': '87'}]
+qwen v2_hard_short                noise 0 conf 51/60 disagree 0.0 117s e.g. [{'label': '260', 'cot': '260', 'pal': '-260'}, {'label': '486', 'cot': '486', 'pal': '486'}]
+qwen t_clean_short                noise 0 conf 59/60 disagree 0.0 103s e.g. [{'label': '51', 'cot': '51', 'pal': '51'}, {'label': '109', 'cot': '109', 'pal': '109'}]
+qwen d_clean_answer_b             noise 0 conf 59/60 disagree 0.0 99s e.g. [{'label': '71', 'cot': '71', 'pal': '71'}, {'label': '64', 'cot': '64', 'pal': '64'}]

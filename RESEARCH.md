@@ -55,8 +55,7 @@ What was read, what was tried on development data, and what was kept. Every resu
 | Gradient-similarity valuation (LESS, Xia et al. 2024; TracIn, Pruthi et al. 2020) | Score training data by the alignment of its gradients with the held-out set's gradients. | See section 3 results. |
 | Learning-curve extrapolation (Domhan et al. 2015; Ruan et al. 2024) | Fit the proxy's curve and extend. | Two rungs only on this laptop; fitting a curve through two points is a line, which round 1 showed is worse than ranking. |
 
-Results are filled in below as experiments finish.
-
+What happened on held-out is in METHOD.md, "Round 3 forecast results". In short: noise reduction made the measurement trustworthy, and the plain proxy scored 0.70 on all pairs and 0.79 on resolvable pairs. Gradient similarity (LESS and TracIn style) was weak on development at 0.59-0.72 and did not reach the final list. Checkpoint averaging and a smooth-score ensemble added nothing. Learning-curve extrapolation was not tried: two rungs give only a line. Screen-aware terms looked strong on development and failed on held-out, which is a warning about any feature chosen from 13 environments.
 ## 4. Coverage by data type
 
 Touchstone must eventually appraise every kind of training material. This matrix says what works today, what would extend it, and whether that fits on a 16 GB laptop. `touchstone/coverage.py` detects the type from row content and reports each check as `checked`, `partial` or `not_checked` in a new `checks` block of the report (additive; schema 1.0 fields are unchanged). A type no check can read reports `not_checked` with the reason; it is never shown as clean.

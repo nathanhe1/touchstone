@@ -171,6 +171,24 @@ Five other screen-aware candidates were tried on development and are not going t
 
 `hand_pool_clean` is primary because it is a true small-model forecast. `reach_clean` and `probe_rank` need a short probe at the larger size, so they answer a different question: what a buyer learns by also touching the larger model briefly. All five forms were chosen after seeing development results, with no fitted weights, so development scores are optimistic. Development noise ceiling with 3 seeds: 0.84, one target seed against the mean of the others.
 
+**Round 3 forecast results** (`out/forecast_final.json`, `scripts/final_forecast.py`; 3 seeds at each size, 600 items, 135M to 360M, GPU sweep). Decision accuracy over all pairs / resolvable pairs, with a 90% interval from resampling environments:
+
+| Candidate | Development (13 envs) | Held-out, original (13) | Held-out, all (17) |
+|---|---|---|---|
+| `acc_final` | 0.61 / 0.73 | 0.68 / 0.72 [0.52, 0.83] | **0.70 / 0.79** [0.57, 0.81] |
+| `hand_pool` | 0.66 / 0.87 | 0.68 / 0.72 [0.53, 0.83] | 0.61 / 0.71 [0.46, 0.74] |
+| `hand_pool_clean` (pre-registered primary) | 0.79 / 0.89 | 0.65 / 0.62 [0.46, 0.84] | 0.65 / 0.68 [0.48, 0.81] |
+| `reach_clean` | 0.83 / 0.91 | 0.56 / 0.62 [0.36, 0.72] | 0.57 / 0.62 [0.37, 0.73] |
+| `probe_rank` | 0.90 / 0.93 | 0.65 / 0.66 [0.42, 0.85] | 0.62 / 0.68 [0.42, 0.79] |
+| Noise ceiling, all pairs | 0.84 | 0.83 | 0.81 |
+| Resolvable pairs | 45 of 78 | 47 of 78 | 77 of 136 |
+
+Spearman on held-out (13 / 17): `acc_final` 0.54 / 0.60, `hand_pool_clean` 0.44 / 0.44, `probe_rank` 0.44 / 0.38.
+
+**The screen-aware candidates did not generalise.** All were built from development patterns, and development scores of 0.79-0.90 fell to 0.56-0.68. The pre-registered primary lost to the plain proxy. The pool term was wrong: development's `pool10` gained +3.3 at the target, but held-out's `pool20`, `pool30_mix` and `pool50` gained +9.0 to +9.7. No candidate reaches 0.90 or Spearman 0.85, and with a noise ceiling of 0.81-0.84, 0.90 on all pairs cannot be reached at this size pair and suite. The plain proxy's held-out 0.70 / 0.79 is the honest number. It is close to round 2's 0.74, so cutting noise made the measurement trustworthy without improving the forecast itself. More seeds do not lift the plain proxy on development: 0.74, 0.68, 0.61 at 1, 2 and 3 seeds. Its failures are structural: a task 135M cannot solve gives it no reward to learn from, while 360M can (`sub_honest`, +2 and +9).
+
+**Harder suite pilot** (`out/dev_headroom.json`, Mac, seed 0, 4 environments). `hard_a` was picked by base accuracy (60% at 360M). Target gains are 0.0, 5.7, 1.0, 2.0 against -0.5, 9.8, 9.3, 7.3 on the standard suite: the 8-10 cluster breaks apart, but the spread in points narrows. Inconclusive at this size.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

@@ -1,0 +1,229 @@
+{
+ "source": "out/gpu_merged/validation_rl_real2.json",
+ "platform": [
+  "cuda|torch 2.14.1"
+ ],
+ "dev": {
+  "n_envs": 13,
+  "n_pairs": 78,
+  "n_resolvable": 45,
+  "ceiling": 0.841,
+  "target": {
+   "add3ops_honest": 4.61,
+   "add_sub_mix": 9.83,
+   "grader_lastdigit": 7.72,
+   "leak100": 2.56,
+   "mix_honest": 10.67,
+   "mul_honest": 8.56,
+   "noise10": 9.33,
+   "noise20": 8.83,
+   "offtopic75": 8.33,
+   "pool10": 3.28,
+   "pool100": 10.72,
+   "spaced_honest": 3.28,
+   "sub_honest": 9.17
+  },
+  "candidates": {
+   "acc_final": {
+    "spearman": 0.309,
+    "decision_all_pairs": 0.61,
+    "decision_resolvable": 0.733,
+    "n_resolvable": 45,
+    "decision_ci90": [
+     0.388,
+     0.817
+    ]
+   },
+   "hand_pool": {
+    "spearman": 0.498,
+    "decision_all_pairs": 0.662,
+    "decision_resolvable": 0.867,
+    "n_resolvable": 45,
+    "decision_ci90": [
+     0.463,
+     0.824
+    ]
+   },
+   "hand_pool_clean": {
+    "spearman": 0.757,
+    "decision_all_pairs": 0.792,
+    "decision_resolvable": 0.889,
+    "n_resolvable": 45,
+    "decision_ci90": [
+     0.591,
+     0.932
+    ]
+   },
+   "reach_clean": {
+    "spearman": 0.806,
+    "decision_all_pairs": 0.831,
+    "decision_resolvable": 0.911,
+    "n_resolvable": 45,
+    "decision_ci90": [
+     0.687,
+     0.957
+    ]
+   },
+   "probe_rank": {
+    "spearman": 0.921,
+    "decision_all_pairs": 0.896,
+    "decision_resolvable": 0.933,
+    "n_resolvable": 45,
+    "decision_ci90": [
+     0.794,
+     0.984
+    ]
+   }
+  }
+ },
+ "heldout_17": {
+  "n_envs": 17,
+  "n_pairs": 136,
+  "n_resolvable": 77,
+  "ceiling": 0.81,
+  "target": {
+   "add4_honest": 9.56,
+   "answer_tag_mismatch": -0.11,
+   "carry_honest": 2.89,
+   "grader_format_bonus": 8.17,
+   "grader_number": -9.44,
+   "grader_tol2": 9.11,
+   "leak30": 8.44,
+   "nocarry_honest": 4.28,
+   "noise45": 3.17,
+   "offtopic25": 9.28,
+   "offtopic50": 9.0,
+   "pool20": 9.72,
+   "pool300": 10.72,
+   "pool30_mix": 9.28,
+   "pool50": 9.0,
+   "strings_only": -0.06,
+   "word_honest": 7.72
+  },
+  "candidates": {
+   "acc_final": {
+    "spearman": 0.6,
+    "decision_all_pairs": 0.699,
+    "decision_resolvable": 0.792,
+    "n_resolvable": 77,
+    "decision_ci90": [
+     0.567,
+     0.813
+    ]
+   },
+   "hand_pool": {
+    "spearman": 0.37,
+    "decision_all_pairs": 0.61,
+    "decision_resolvable": 0.714,
+    "n_resolvable": 77,
+    "decision_ci90": [
+     0.456,
+     0.738
+    ]
+   },
+   "hand_pool_clean": {
+    "spearman": 0.444,
+    "decision_all_pairs": 0.654,
+    "decision_resolvable": 0.675,
+    "n_resolvable": 77,
+    "decision_ci90": [
+     0.476,
+     0.813
+    ]
+   },
+   "reach_clean": {
+    "spearman": 0.265,
+    "decision_all_pairs": 0.566,
+    "decision_resolvable": 0.623,
+    "n_resolvable": 77,
+    "decision_ci90": [
+     0.373,
+     0.73
+    ]
+   },
+   "probe_rank": {
+    "spearman": 0.377,
+    "decision_all_pairs": 0.618,
+    "decision_resolvable": 0.675,
+    "n_resolvable": 77,
+    "decision_ci90": [
+     0.419,
+     0.792
+    ]
+   }
+  }
+ },
+ "heldout_original_13": {
+  "n_envs": 13,
+  "n_pairs": 78,
+  "n_resolvable": 47,
+  "ceiling": 0.828,
+  "target": {
+   "add4_honest": 9.56,
+   "answer_tag_mismatch": -0.11,
+   "carry_honest": 2.89,
+   "grader_format_bonus": 8.17,
+   "grader_number": -9.44,
+   "grader_tol2": 9.11,
+   "leak30": 8.44,
+   "nocarry_honest": 4.28,
+   "noise45": 3.17,
+   "offtopic25": 9.28,
+   "offtopic50": 9.0,
+   "strings_only": -0.06,
+   "word_honest": 7.72
+  },
+  "candidates": {
+   "acc_final": {
+    "spearman": 0.538,
+    "decision_all_pairs": 0.679,
+    "decision_resolvable": 0.723,
+    "n_resolvable": 47,
+    "decision_ci90": [
+     0.521,
+     0.829
+    ]
+   },
+   "hand_pool": {
+    "spearman": 0.538,
+    "decision_all_pairs": 0.679,
+    "decision_resolvable": 0.723,
+    "n_resolvable": 47,
+    "decision_ci90": [
+     0.528,
+     0.829
+    ]
+   },
+   "hand_pool_clean": {
+    "spearman": 0.435,
+    "decision_all_pairs": 0.654,
+    "decision_resolvable": 0.617,
+    "n_resolvable": 47,
+    "decision_ci90": [
+     0.458,
+     0.838
+    ]
+   },
+   "reach_clean": {
+    "spearman": 0.293,
+    "decision_all_pairs": 0.564,
+    "decision_resolvable": 0.617,
+    "n_resolvable": 47,
+    "decision_ci90": [
+     0.357,
+     0.72
+    ]
+   },
+   "probe_rank": {
+    "spearman": 0.443,
+    "decision_all_pairs": 0.654,
+    "decision_resolvable": 0.66,
+    "n_resolvable": 47,
+    "decision_ci90": [
+     0.423,
+     0.849
+    ]
+   }
+  }
+ }
+}

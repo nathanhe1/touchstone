@@ -280,7 +280,7 @@ def _load_torch(repo: str):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(repo, padding_side="left")
-    return AutoModelForCausalLM.from_pretrained(repo, torch_dtype=torch.float16).to("cuda").eval(), tok
+    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float16).to("cuda").eval(), tok
 
 
 def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> list[str]:
@@ -293,7 +293,7 @@ def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> 
                                          tokenize=False, add_generation_prompt=True) for p in prompts[s:s + batch]]
         enc = tok(texts, return_tensors="pt", padding=True).to("cuda")
         with torch.no_grad():
-            g = model.generate(**enc, max_new_tokens=max_tokens, do_sample=False)
+            g = model.generate(**enc, max_new_tokens=max_tokens, do_sample=False, temperature=None, top_p=None, top_k=None)
         out += tok.batch_decode(g[:, enc.input_ids.shape[1]:], skip_special_tokens=True)
     return out
 

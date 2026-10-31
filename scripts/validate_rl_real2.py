@@ -185,6 +185,11 @@ def split():
     return {"dev": sorted(names[:h]), "heldout": sorted(names[h:] + EXTENSION)}
 
 
+def platform_tag():
+    import torch
+    return f"{L.device()}|torch {torch.__version__.split('+')[0]}"
+
+
 def _bits(v):
     return "".join("1" if x >= 0.5 else "0" for x in v)
 
@@ -207,7 +212,7 @@ def one(name, size, seed):
     r = {"acc_gain": measure.paired_gain(before["acc"], ev["acc"])["gain"],
          "cand_gain": measure.paired_gain(before["cand"], ev["cand"])["gain"],
          "reward_first": info["train_reward_first"], "reward_last": info["train_reward_last"], "curve": info["curve"],
-         "train_s": info["seconds"], "ckpts": ckpts,
+         "train_s": info["seconds"], "ckpts": ckpts, "platform": platform_tag(),
          "base": {"acc": _bits(before["acc"]), "cand": [round(x, 4) for x in before["cand"]]}}
     print("RESULT " + json.dumps(r), flush=True)
 
@@ -293,6 +298,7 @@ if __name__ == "__main__":
     ap.add_argument("--only", choices=["135M", "360M"])
     ap.add_argument("--print-split", action="store_true")
     ap.add_argument("--shard", help="i/n: this process takes every n-th pending run (for many-GPU or large-memory machines)")
+    ap.add_argument("--allow-mixed-platforms", action="store_true", help="only after checking the platforms agree")
     ap.add_argument("--merge", action="store_true", help="fold out/validation_rl_real2.shard*.json into the main file")
     a = ap.parse_args()
     if a.one:
@@ -301,8 +307,13 @@ if __name__ == "__main__":
         print(json.dumps(split(), indent=1))
     elif a.merge:
         res = json.loads(OUT.read_text())
+        LOCAL = "mps|torch 2.8.0"  # runs from before the tag existed
         for f in sorted(OUT.parent.glob("validation_rl_real2.shard*.json")):
             d = json.loads(f.read_text())
+            tags = {r.get("platform", LOCAL) for r in list(res["runs"].values()) + list(d["runs"].values())}
+            if len(tags) > 1 and not a.allow_mixed_platforms:
+                raise SystemExit(f"refusing to merge runs from different platforms: {sorted(tags)}. Compare them "
+                                 "on shared environments first; see METHOD.md.")
             res["runs"].update(d["runs"])
             res["base"].update(d["base"])
         OUT.write_text(json.dumps(res))

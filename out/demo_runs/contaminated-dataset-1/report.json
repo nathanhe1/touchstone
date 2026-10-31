@@ -1,0 +1,199 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/demo/contaminated_word_problems.jsonl",
+    "name": "contaminated_word_problems",
+    "sha256": "291b41f4fad0f35e4136db80ed42c44d1a1274d70e1e41fc4130ef8f495ed5e3",
+    "n_items": 600,
+    "unique_items": 600
+  },
+  "heldout": {
+    "name": "word_math",
+    "domain": "grade-school arithmetic word problems (one or two steps, whole numbers)",
+    "description": "10 private templates (purchases, rates, groups, change, multi-step add/sub/mul) x 30 items each; answers are whole numbers.",
+    "n_items": 150,
+    "source": "built-in, seed 90210 (subset of 150)",
+    "parts": {
+      "t0": 15,
+      "t1": 15,
+      "t2": 15,
+      "t3": 15,
+      "t4": 15,
+      "t5": 15,
+      "t6": 15,
+      "t7": 15,
+      "t8": 15,
+      "t9": 15
+    },
+    "n_items_untouched_by_material": 81
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.6437,
+    "off_topic_share": 0.0
+  },
+  "rungs": {},
+  "measurable_at": null,
+  "flags": [
+    {
+      "code": "contaminated",
+      "severity": "block",
+      "text": "Overlaps the held-out suite (46.0%, exact, near-duplicate or reworded matches). Held-out gains are inflated; not priced."
+    },
+    {
+      "code": "screen_only",
+      "severity": "info",
+      "text": "Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "contaminated"
+    ],
+    "novel_share": 1.0,
+    "dollars_per_point": 5000.0,
+    "basis": "not priced"
+  },
+  "models": {},
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 30,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 127,
+  "label_quality": {
+    "arithmetic": {
+      "checked": 450,
+      "inconsistent": 0,
+      "unsupported_final": 0,
+      "rate": 0.0
+    },
+    "audit": {
+      "status": "checked",
+      "method": "judge re-solves two ways",
+      "sampled": 60,
+      "route": "both",
+      "confident": 56,
+      "disagree_n": 0,
+      "disagree": 0.0
+    }
+  },
+  "checks": {
+    "data_type": "numeric",
+    "language": "en",
+    "labels": {
+      "status": "checked",
+      "method": "judge re-solves two ways",
+      "sampled": 60,
+      "route": "both",
+      "confident": 56,
+      "disagree_n": 0,
+      "disagree": 0.0
+    },
+    "public_copy": {
+      "status": "checked",
+      "baseline_items": 12097
+    }
+  },
+  "device": "mps",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.115,
+      "exact": 0.0583,
+      "near": 0.0567,
+      "paraphrase": 0.0,
+      "n": 600,
+      "examples": [
+        {
+          "item": "A book costs 15 dollars and a pen costs 9 dollars. How much do 5 books and one pen cost in dollars?",
+          "matches": "A book costs 15 dollars and a pen costs 9 dollars. How much do 5 books and one pen cost in dollars?",
+          "kind": "exact"
+        },
+        {
+          "item": "A movie ticket costs 8 dollars. A family buys 3 tickets and pays with a 100 dollar bill. How much change do they get in dollars?",
+          "matches": "A movie ticket costs 8 dollars. A family buys 3 tickets and pays with a 100 dollar bill. How much change do they get in dollars?",
+          "kind": "exact"
+        },
+        {
+          "item": "Each box holds 8 pencils. A teacher has 9 boxes and hands out 1 pencils. How many in total pencils does she have left?",
+          "matches": "Each box holds 8 pencils. A teacher has 9 boxes and hands out 1 pencils. How many pencils does she have left?",
+          "kind": "near"
+        }
+      ],
+      "suite_share": 0.46
+    },
+    "public": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 600,
+      "examples": [],
+      "text_rate": 0.0,
+      "fingerprint": {
+        "rate": 0.0,
+        "observed": 0.1026,
+        "chance": 0.0596,
+        "eligible": 0.5033
+      },
+      "baseline": "GSM8K train+test, SVAMP, ASDiv (12,097 public problems)"
+    },
+    "duplicates": {
+      "n": 600,
+      "unique": 600,
+      "dup_rate": 0.0
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "method": "skipped",
+    "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
+    "net": {
+      "point": null,
+      "lo": null,
+      "hi": null
+    },
+    "headline": {
+      "point": null,
+      "lo": null,
+      "hi": null,
+      "source": "skipped"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.46,
+    "public": 0.0,
+    "duplicates": 0.0
+  },
+  "probes": {},
+  "gains_by_size": {},
+  "forecast": {
+    "value": null,
+    "lo": null,
+    "hi": null,
+    "target": "1.7B",
+    "method": "skipped",
+    "source": "skipped",
+    "smooth_value": null,
+    "smooth_lo": null,
+    "smooth_hi": null
+  },
+  "summary": "contaminated_word_problems (dataset, 600 items) earns grade D. Screening found a blocking problem, so quick mode did not train a model. Not priced because of: contaminated."
+}

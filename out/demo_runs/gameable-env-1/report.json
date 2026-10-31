@@ -1,0 +1,215 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "env",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/demo/gameable_env",
+    "name": "QuickGrade Math Pack",
+    "sha256": "a884ee9a1da63af5ded3fab514449bb7e470644cb04506faf75233ef0ba9a991",
+    "n_items": 5000,
+    "unique_items": 3504
+  },
+  "heldout": {
+    "name": "arithmetic",
+    "domain": "multi-digit addition stated in words (2-digit and 3-digit operands)",
+    "description": "100 items each of 2+2, 3+2 and 3+3 digit addition, in four phrasings unused by the sample vendors.",
+    "n_items": 150,
+    "source": "built-in, seed 90210 (subset of 150)",
+    "parts": {
+      "add2": 50,
+      "add3": 50,
+      "add33": 50
+    },
+    "n_items_untouched_by_material": 150
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.7543,
+    "off_topic_share": 0.0
+  },
+  "rungs": {},
+  "measurable_at": null,
+  "flags": [
+    {
+      "code": "gameable_grader",
+      "severity": "block",
+      "text": "Gameable grader: 'hedge: right then wrong' collects 100% reward without solving the task."
+    },
+    {
+      "code": "screen_only",
+      "severity": "info",
+      "text": "Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "gameable_grader"
+    ],
+    "novel_share": 0.968,
+    "dollars_per_point": 5000.0,
+    "basis": "not priced"
+  },
+  "models": {},
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 30,
+    "rl_prompts": 8,
+    "rl_group": 4,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 28,
+  "grader_audit": {
+    "has_reference": true,
+    "n_probed": 200,
+    "reference_accept_rate": 1.0,
+    "answer_in_prompt": 0.0,
+    "model_wrong_samples": 170,
+    "score": 1.0,
+    "raw_score": 1.0,
+    "reward_noise": 0.0,
+    "worst_exploit": "hedge: right then wrong",
+    "per_exploit": {
+      "empty answer": 0.0,
+      "echo the prompt": 0.0,
+      "digit soup": 0.065,
+      "letter soup": 0.0,
+      "copy a prompt span (last-1)": 0.0,
+      "near miss": 0.0,
+      "same shape, wrong content": 0.0,
+      "hedge: right then wrong": 1.0,
+      "hedge: wrong or right": 1.0,
+      "answer buried in junk": 1.0,
+      "model's own wrong answers": 0.0118
+    },
+    "reliability": {
+      "deterministic": 1.0,
+      "in_range": true,
+      "ok": true
+    },
+    "flagged": true
+  },
+  "answer_leakage": 0.0,
+  "checks": {
+    "data_type": "rl_environment",
+    "grader": {
+      "status": "checked",
+      "method": "known-wrong answer probes"
+    },
+    "labels": {
+      "status": "not_applicable",
+      "reason": "rewards come from the grader, audited above"
+    },
+    "public_copy": {
+      "status": "checked"
+    }
+  },
+  "device": "mps",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 5000,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 0.0321,
+      "exact": 0.279,
+      "near": 0.2024,
+      "paraphrase": 0.0,
+      "n": 5000,
+      "examples": [
+        {
+          "item": "Calculate 99 + 25. Reply with only the number.",
+          "matches": "Calculate 25 + 99. Reply with only the number.",
+          "kind": "near"
+        },
+        {
+          "item": "Calculate 50 + 86. Reply with only the number.",
+          "matches": "Calculate 50 + 86. Reply with only the number.",
+          "kind": "exact"
+        },
+        {
+          "item": "Calculate 99 + 51. Reply with only the number.",
+          "matches": "Calculate 51 + 99. Reply with only the number.",
+          "kind": "near"
+        }
+      ],
+      "text_rate": 0.4814,
+      "fingerprint": {
+        "rate": 0.0321,
+        "observed": 0.4814,
+        "chance": 0.4642,
+        "eligible": 1.0
+      },
+      "baseline": "Public Addition (free) environment"
+    },
+    "duplicates": {
+      "n": 5000,
+      "unique": 3504,
+      "dup_rate": 0.2992
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "method": "skipped",
+    "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
+    "net": {
+      "point": null,
+      "lo": null,
+      "hi": null
+    },
+    "headline": {
+      "point": null,
+      "lo": null,
+      "hi": null,
+      "source": "skipped"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0,
+    "public": 0.0321,
+    "duplicates": 0.2992
+  },
+  "probes": {
+    "empty answer": 0.0,
+    "echo the prompt": 0.0,
+    "digit soup": 0.065,
+    "letter soup": 0.0,
+    "copy a prompt span (last-1)": 0.0,
+    "near miss": 0.0,
+    "same shape, wrong content": 0.0,
+    "hedge: right then wrong": 1.0,
+    "hedge: wrong or right": 1.0,
+    "answer buried in junk": 1.0,
+    "model's own wrong answers": 0.0118
+  },
+  "gains_by_size": {},
+  "forecast": {
+    "value": null,
+    "lo": null,
+    "hi": null,
+    "target": "1.7B",
+    "method": "skipped",
+    "source": "skipped",
+    "smooth_value": null,
+    "smooth_lo": null,
+    "smooth_hi": null
+  },
+  "summary": "QuickGrade Math Pack (RL environment, 5,000 items) earns grade D. Screening found a blocking problem, so quick mode did not train a model. Not priced because of: gameable grader."
+}

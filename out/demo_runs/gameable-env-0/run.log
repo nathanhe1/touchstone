@@ -1,0 +1,4 @@
+[12:38:47] Appraising environment QuickGrade Math Pack: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[12:38:53]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 3.2%, duplicates 29.9%, off-topic 0%
+[12:39:14]   grader audit: worst exploit 'hedge: right then wrong' earns 100% reward; answer in prompt for 0% of tasks
+[12:39:14]   blocking problem found in screening; quick mode skips training

@@ -1,0 +1,92 @@
+{
+ "n_envs": 32,
+ "platform": [
+  "cuda|torch 2.14.1"
+ ],
+ "ceiling": 0.691,
+ "n_resolvable": 24,
+ "target": {
+  "code_hard": 0.0,
+  "code_honest": -0.11,
+  "code_lax_grader": -2.0,
+  "code_leak30": -6.0,
+  "code_noise20": -1.44,
+  "code_noise45": -1.33,
+  "code_off50": 0.56,
+  "code_pool20": 1.78,
+  "strings_hard": 0.0,
+  "strings_honest": 0.0,
+  "strings_lax_grader": -0.33,
+  "strings_leak30": -0.11,
+  "strings_noise20": 0.0,
+  "strings_noise45": -0.11,
+  "strings_off50": -0.33,
+  "strings_pool20": 0.0,
+  "units_hard": -0.78,
+  "units_honest": -9.78,
+  "units_lax_grader": -2.0,
+  "units_leak30": -29.78,
+  "units_noise20": 0.33,
+  "units_noise45": 1.56,
+  "units_off50": -0.78,
+  "units_pool20": 1.67,
+  "word_hard": 0.22,
+  "word_honest": 7.33,
+  "word_lax_grader": 11.11,
+  "word_leak30": 22.0,
+  "word_noise20": -1.22,
+  "word_noise45": 0.33,
+  "word_off50": 3.22,
+  "word_pool20": 12.44
+ },
+ "candidates": {
+  "acc_final": {
+   "decision_within_family": 0.452,
+   "ci90": [
+    0.319,
+    0.585
+   ],
+   "perm_p": 0.4682,
+   "decision_resolvable": 0.625,
+   "mean_within_family_spearman": -0.04,
+   "by_family": {
+    "strings": 0.2,
+    "word": 0.321,
+    "units": 0.5,
+    "code": 0.714
+   }
+  },
+  "smooth_final": {
+   "decision_within_family": 0.404,
+   "ci90": [
+    0.247,
+    0.558
+   ],
+   "perm_p": 0.8869,
+   "decision_resolvable": 0.458,
+   "mean_within_family_spearman": -0.229,
+   "by_family": {
+    "strings": 0.35,
+    "word": 0.286,
+    "units": 0.464,
+    "code": 0.5
+   }
+  },
+  "rank_mean": {
+   "decision_within_family": 0.423,
+   "ci90": [
+    0.289,
+    0.564
+   ],
+   "perm_p": 0.817,
+   "decision_resolvable": 0.5,
+   "mean_within_family_spearman": -0.204,
+   "by_family": {
+    "strings": 0.3,
+    "word": 0.25,
+    "units": 0.464,
+    "code": 0.643
+   }
+  }
+ }
+}

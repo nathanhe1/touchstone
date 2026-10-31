@@ -31,12 +31,12 @@ A flag that blocks sets the price to zero, so a false flag costs a vendor real m
 
 ## Forecast signals
 
-Fresh held-out results are pending: see METHOD.md, "Fresh held-out set". Everything here is on the 17 spent held-out environments, with 135M to 360M unless stated.
+**On fresh non-arithmetic environments all three frozen candidates failed: 0.40-0.45 within families, p 0.47-0.89** (`out/forecast_h3.json`). Three of those four families were at a competence floor or badly measured, including one design flaw of ours, so this is weak evidence about skill there and strong evidence that no general forecast has been shown. The table below is on the 17 spent arithmetic environments, 135M to 360M unless stated.
 
 | Component | What it actually measures | Evidence | How it fails | Risk to a customer | Verdict |
 |---|---|---|---|---|---|
-| `acc_final` | Held-out accuracy gain at the small size | 0.70 all pairs [0.56, 0.82], 0.79 resolvable, Spearman 0.60, p = 0.01. Below the 0.90 and 0.85 targets. Ceiling 0.81 | Tasks the small model cannot solve give it no reward (`sub_honest`, +2 and +9) | **About 3 pairwise calls in 10 go wrong.** Ranking two honest environments is close to a coin flip when they are near each other | **Keep as a measurement, advisory as a forecast** |
-| `smooth_final` | Probability on the right answer at the small size | 0.68, p = 0.02 | As above | As above | **Keep**, reported next to accuracy |
+| `acc_final` | Held-out accuracy gain at the small size | 0.70 all pairs [0.56, 0.82], 0.79 resolvable, Spearman 0.60, p = 0.01. Below the 0.90 and 0.85 targets. Ceiling 0.81 | Tasks the small model cannot solve give it no reward (`sub_honest`, +2 and +9) | **About 3 pairwise calls in 10 go wrong.** Ranking two honest environments is close to a coin flip when they are near each other | **Keep as a measurement. Retired as a general forecast:** failed on fresh families (0.45, p 0.47). Arithmetic-domain ranking only, marked advisory |
+| `smooth_final` | Probability on the right answer at the small size | 0.68, p = 0.02 | As above | As above | **Keep as a measurement.** Failed on fresh families (0.40) |
 | 360M to 1.7B | Same, one rung up | 0.86, or 0.81 without 3 near-zero environments. Development 0.67. Spent set. 1.7B's start is partly a format effect: about +7 of +28.6 in the 3 environments checked | Unconfirmed on fresh data | Promising, not proven | **Do not claim** until the fresh run lands |
 | Calibrated map | Learned small-to-large map | Worse than ranking in round 2; no map ships | | | **Remove** the claim from the README |
 | `hand_pool`, `hand_pool_clean`, `reach_clean`, `probe_rank`, `reward_gain`, ridge fits | Hand-built forecast terms | Development up to 0.90, held-out 0.57-0.65 | Built from 13 environments | None: never shipped | **Retired** |
@@ -54,7 +54,7 @@ Fresh held-out results are pending: see METHOD.md, "Fresh held-out set". Everyth
 Fully. Both are direct functions of the headline gain, and nothing dampens them. With no calibration map, that headline is the gain **measured at the largest trained size**, not a prediction. Three consequences:
 
 1. The price is a measurement at 135M or 360M multiplied by an assumed dollar rate. It says nothing proven about the buyer's model.
-2. The forecast's weakness at about 70% applies to ranking. Two honest environments priced 20% apart are not reliably ordered.
+2. The forecast's weakness applies to ranking: about 70% on arithmetic, and chance on fresh families. Two honest environments priced 20% apart are not reliably ordered, and nothing supports comparing them across domains.
 3. The report's `forecast` field carries `"target": "1.7B"` and `"source": "forecast"` even in this case, though the value was measured at 135M. Schema 1.0 fields are kept, so the `method` of `rank_largest` and the `basis` text are what disclose this. A client reading only `forecast.value` would be misled.
 
 Recommended: present grade and price as a statement about the measured size, always with the range, and do not describe them as what the buyer will get. Flags work independently of the forecast, so they are the most trustworthy part of a report.
@@ -68,7 +68,7 @@ These were not edited: the site is the founder's. Exact locations:
 | `touchstone/site.py:683` | "The gain you should expect at your own model size, with an uncertainty range." | **No model beyond 1.7B was tested**, and the headline is measured, not forecast | "The gain we measured on small models, with its range" |
 | `touchstone/site.py:663`, `web/src/pages/Pages.tsx:34` | "We predict the gain at your model size" / "project it to yours" | Same. The method of fitting a curve and projecting it was dropped | "We rank material at small sizes and report how well that has held up" |
 | `touchstone/site.py:746` | "We fit how the gain grows with model size and project it to yours" | Describes a method that does not run | As above |
-| `touchstone/site.py:804` | "Small runs predict big ones." | Our held-out result is 0.70 at 135M to 360M | Name the number, or soften to "can rank data" |
+| `touchstone/site.py:804` | "Small runs predict big ones." | Our result is 0.70 on arithmetic and chance on fresh families | Remove, or limit to the published pretraining result |
 | `touchstone/site.py:857`, `web/src/pages/Pages.tsx:317` | "Published research shows small runs predict which data wins at scale" and "every report shows how well our forecast held up" | The research is on pretraining data, not RL environments. Reports do not show forecast outcomes | Say what was shown, and remove the per-report claim |
 | `web/src/pages/Pages.tsx:310` | "The same small-to-large method, applied to how a model will behave before deployment" | Never tested | Mark it as a future direction |
 | `web/src/pages/Pages.tsx:309` | "predict from cheap pilots whether it will..." | Not validated for that use | Same |

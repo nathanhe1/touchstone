@@ -73,6 +73,7 @@ Stop rule: a method that fails on held-out or fails its permutation test is reti
 | `reward_gain` | 0.52 | 0.62 | 0.10 | Fails permutation |
 | Ridge fits with leave-one-environment-out | 0.50-0.63 | not run | | Worse on development than any fixed rule; n is too small |
 | Gradient similarity | 0.59-0.72 | not run | | Unstable across seeds on development; no gain in the ensemble, so it never reached the final list |
+| `acc_final`, `smooth_final`, `rank_mean` as a general forecast | 0.61-0.62 | fresh set 0.40-0.45, p 0.47-0.89 | | Fail on non-arithmetic families. The arithmetic result (0.70) remains as a measurement, for that domain only. Three of the four fresh families were at a floor or badly measured: see METHOD.md |
 | More seeds as the fix | 0.74, 0.68, 0.61 | | | Noise was not what limited the proxy |
 
 ## 4. Coverage by data type

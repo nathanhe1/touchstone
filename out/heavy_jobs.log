@@ -3,3 +3,5 @@
 2026-10-30 20:39:22 queued dev_judge_qwen: .venv/bin/python scripts/dev_judge.py qwen 60
 2026-10-30 20:39:22 start dev_judge_qwen (swap 3.5 GB)
 2026-10-30 20:39:23 queued dev_judge_qwen_math: .venv/bin/python scripts/dev_judge.py qwen-math 60
+2026-10-30 20:41:02 queued dev_public: .venv/bin/python scripts/dev_public.py
+2026-10-30 20:43:12 queued dev_grad_sim: .venv/bin/python scripts/dev_grad_sim.py

@@ -12,6 +12,14 @@
   "add_sub_mix|135M": {
    "acc": 5.667,
    "base": 4.0
+  },
+  "grader_lastdigit|135M": {
+   "acc": 2.667,
+   "base": 4.0
+  },
+  "leak100|135M": {
+   "acc": 1.0,
+   "base": 4.0
   }
  },
  "chosen": "hard_a"

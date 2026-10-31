@@ -61,3 +61,26 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1227.48it/s]
 [test3] ok  p_gsm8k_test_reworded  truth=['copied_from_public'] after=['copied_from_public'] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3622.92it/s]
+[test3] ok  p_gsm8k_test_60        truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3432.73it/s]
+[test3] ok  p_gsm8k_test_35_neg    truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2696.31it/s]
+[test3] ok  p_gsm8k_train_noisy35  truth=['copied_from_public', 'noisy_labels'] after=['copied_from_public', 'noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3001.75it/s]
+[test3] ok  p_svamp_verbatim       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4224.48it/s]
+[test3] ok  p_svamp_reworded       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4400.50it/s]
+[test3] ok  p_asdiv_verbatim       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4178.78it/s]
+[test3] ok  p_asdiv_reworded_answer truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3575.27it/s]
+[test3] ok  p_asdiv_30_neg         truth=[] after=[] before=[]
+[test3] ok  p_gsm8k_renumbered_neg truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4450.53it/s]
+[test3] ok  c_verbatim_7           truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4201.51it/s]
+[test3] ok  c_names_15             truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5113.22it/s]
+[test3] ok  c_question_first_20    truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4601.90it/s]

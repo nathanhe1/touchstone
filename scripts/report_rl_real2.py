@@ -108,6 +108,8 @@ def score(pred, tgt, pairs):
 def ceiling(gains, names):
     """One target seed vs the mean of the others, all pairs (METHOD.md)."""
     n = min(len(gains[x]) for x in names)
+    if n < 2:
+        return None
     v = []
     for s in range(n):
         a = [gains[x][s] for x in names]

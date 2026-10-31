@@ -128,14 +128,17 @@ PAL_SYS = ("Translate the task into ONE Python expression that computes the answ
            "arithmetic, slicing and len/sorted/min/max/sum/round. Reply with the expression only, on one line.")
 
 
-def _gen(prompts: list[str], system: str, max_tokens: int, batch: int = 32) -> list[str]:
+def _gen(prompts: list[str], system: str, max_tokens: int, batch: int = 8) -> list[str]:
+    import mlx.core as mx
     from mlx_lm.generate import batch_generate
     model, tok = _load()
+    mx.set_cache_limit(256 * 1024 ** 2)  # keep MLX's buffer cache small: the laptop is memory-bound
     out = []
     for s in range(0, len(prompts), batch):
         ids = [tok.apply_chat_template([{"role": "system", "content": system}, {"role": "user", "content": p}],
                                        add_generation_prompt=True) for p in prompts[s:s + batch]]
         out += batch_generate(model, tok, ids, max_tokens=max_tokens).texts
+        mx.clear_cache()
     return out
 
 

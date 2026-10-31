@@ -79,3 +79,6 @@
 2026-10-31 13:52:17 start judge_torch_check (swap 10.8 GB)
 2026-10-31 13:52:22 waiting flag_test3_round3: lock held by judge_torch_check
 2026-10-31 13:52:24 waiting flag_test3_round2: behind flag_test3_round3
+2026-10-31 14:06:09 end judge_torch_check: exit 0 after 832s (swap 14.3 GB)
+2026-10-31 14:06:14 start flag_test3_round3 (swap 12.6 GB)
+2026-10-31 14:06:16 waiting flag_test3_round2: lock held by flag_test3_round3

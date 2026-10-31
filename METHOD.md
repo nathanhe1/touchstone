@@ -209,6 +209,14 @@ Spearman on held-out (13 / 17): `acc_final` 0.54 / 0.60, `hand_pool_clean` 0.44 
 
 *Fresh held-out set.* `scripts/validate_rl_h3.py`: 32 unseen environments, 4 families that are not arithmetic (strings, word problems, unit conversion, reading code) crossed with 8 conditions fixed in advance (`honest, hard, off50, noise20, noise45, pool20, leak30, lax_grader`), with no selection for spread. 135M to 360M, 3 seeds each, the same quick GRPO recipe, 300-item suites, one per family; no suite prompt appears in any environment (`--check`). Graders compare strings, so no vendor code runs. Each family has its own suite, so pairs are compared **within a family** only: 112 pairs. Reported: decision accuracy within family (all pairs and resolvable pairs, as defined above), mean within-family Spearman, per-family results, the noise ceiling, 90% bootstrap intervals, and permutation p-values shuffling targets within families. Each candidate is scored once. A candidate that fails here is retired, not retuned.
 
+**1.7B check, rules set before any result** (`scripts/debug_17_placebo.py`). The 1.7B scores are withheld from claims because 1.7B's base accuracy (about 60%) is below 360M's (about 80%). Truncation and precision are ruled out (`out/debug_17_base.log`): 1.7B replies with a bare number, while 360M writes the equation. Three development environments, 3 seeds, three arms: own rewards, shuffled rewards, random rewards.
+
+- If the mean placebo gain is at least half the material gain, the 1.7B target is measuring a format shift. It is reported as such and is not used as a forecast target.
+- If the placebo gain is under a quarter of the material gain, the target stands, and held-out scores are reported net of that placebo.
+- In between, it is reported as mixed and not used for claims.
+
+A forced-format target (the prompt asks for the working) is adopted only if base accuracy at 1.7B then exceeds 360M's under the same prompt. It would be a new target, pre-registered and run on the fresh held-out set, never rescored on spent environments.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

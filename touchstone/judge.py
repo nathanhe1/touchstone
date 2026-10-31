@@ -288,7 +288,8 @@ def _load_torch(repo: str):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(repo, padding_side="left")
-    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float16).to(_torch_device()).eval(), tok
+    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float16, attn_implementation="eager").to(
+        _torch_device()).eval(), tok  # eager: fused attention returned garbage on left-padded batches (see lm.py)
 
 
 def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> list[str]:

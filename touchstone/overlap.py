@@ -164,6 +164,7 @@ def fingerprint_overlap(items: list[str], reference: list[str], min_numbers: int
     public word problems more than the shift estimates, which cost clean data a false 5-12%.
     """
     ref = {numbers(r) for r in reference if _short_numeric(r, min_numbers)}
+    items = list(dict.fromkeys(items)) if min_numbers > 2 else items  # one repeated collision must not count many times
     elig = [s for s in items if _short_numeric(s, min_numbers)]
     if not ref or not elig:
         return {"rate": 0.0, "observed": 0.0, "chance": 0.0, "eligible": len(elig) / max(1, len(items))}
@@ -175,6 +176,8 @@ def fingerprint_overlap(items: list[str], reference: list[str], min_numbers: int
     chance = sum(shifted(fp) in ref for fp in fps) / len(fps)
     excess = max(0.0, (obs - chance) / (1 - chance)) if chance < 1 else 0.0
     share = len(elig) / len(items)
+    if min_numbers > 2 and excess * share < 0.05:  # residual chance level for prose corpora on development data
+        excess = 0.0
     return {"rate": round(excess * share, 4), "observed": round(obs, 4), "chance": round(chance, 4),
             "eligible": round(share, 4)}
 

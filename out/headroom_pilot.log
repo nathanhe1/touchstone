@@ -1,0 +1,2 @@
+add3ops_honest|135M {'acc': 0.0, 'base': 4.0} 244s
+add_sub_mix|135M {'acc': 5.667, 'base': 4.0} 322s

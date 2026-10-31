@@ -1,6 +1,18 @@
 {
  "base": {
-  "hard_a": 60.0
+  "hard_a": 60.0,
+  "hard_b": 62.67,
+  "hard_c": 0.67
  },
- "runs": {}
+ "runs": {
+  "add3ops_honest|135M": {
+   "acc": 0.0,
+   "base": 4.0
+  },
+  "add_sub_mix|135M": {
+   "acc": 5.667,
+   "base": 4.0
+  }
+ },
+ "chosen": "hard_a"
 }

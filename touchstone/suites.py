@@ -247,6 +247,27 @@ def strings_suite(n: int = 300, seed: int = SUITE_SEED) -> Suite:
                  f"{per} items each of 3-4, 5-6 and 7-8 letter reversals, in three phrasings.", items, f"built-in, seed {seed}")
 
 
+def arithmetic_hard(kind: str, n: int = 300, seed: int = 77001) -> Suite:
+    """Harder addition suites (METHOD.md, Round 3 forecast addendum): larger models saturate the standard one."""
+    rng = random.Random(seed)
+    items, seen = [], set()
+    while len(items) < n:
+        if kind == "hard_c":
+            a, b, c = rng.randint(100, 999), rng.randint(100, 999), rng.randint(100, 999)
+            if (a * 7 + b * 13) % 5 != 0 or (a, b, c) in seen:
+                continue
+            seen.add((a, b, c))
+            items.append(Item(f"What is {a} + {b} + {c}? Answer with the number only.", str(a + b + c), "numeric", part=kind))
+            continue
+        a, b = rng.randint(1000, 9999), rng.randint(100, 999) if kind == "hard_a" else rng.randint(1000, 9999)
+        if (a * 7 + b * 13) % 5 != 0 or (a, b) in seen:
+            continue
+        seen.add((a, b))
+        items.append(Item(f"What is {a} + {b}? Answer with the number only.", str(a + b), "numeric", part=kind))
+    with_distractors(items, seed)
+    return Suite(kind, f"harder addition ({kind})", "pre-registered harder suite", items, f"built-in, seed {seed}")
+
+
 BUILTIN = {"word_math": word_math_suite, "arithmetic": arithmetic_suite, "strings": strings_suite}
 
 

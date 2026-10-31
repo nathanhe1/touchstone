@@ -4,7 +4,6 @@
     python scripts/dev_headroom.py pilot    # 4 environments, both sizes, seed 0, resumable
 """
 import json
-import random
 import subprocess
 import sys
 import time
@@ -20,27 +19,9 @@ from touchstone.grpo import grpo  # noqa: E402
 
 F = ROOT / "out" / "dev_headroom.json"
 PILOT = ["add3ops_honest", "add_sub_mix", "grader_lastdigit", "leak100"]
-N, SEED = 300, 77001
 
 
-def hard(kind):
-    rng = random.Random(SEED)
-    items, seen = [], set()
-    while len(items) < N:
-        if kind == "hard_c":
-            a, b, c = rng.randint(100, 999), rng.randint(100, 999), rng.randint(100, 999)
-            if (a * 7 + b * 13) % 5 != 0 or (a, b, c) in seen:
-                continue
-            seen.add((a, b, c))
-            items.append(suites.Item(f"What is {a} + {b} + {c}? Answer with the number only.", str(a + b + c), "numeric", part=kind))
-            continue
-        a, b = rng.randint(1000, 9999), rng.randint(100, 999) if kind == "hard_a" else rng.randint(1000, 9999)
-        if (a * 7 + b * 13) % 5 != 0 or (a, b) in seen:
-            continue
-        seen.add((a, b))
-        items.append(suites.Item(f"What is {a} + {b}? Answer with the number only.", str(a + b), "numeric", part=kind))
-    suites.with_distractors(items, SEED)
-    return suites.Suite(kind, kind, kind, items, "dev_headroom")
+hard = suites.arithmetic_hard
 
 
 def load():

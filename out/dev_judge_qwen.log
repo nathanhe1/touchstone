@@ -15,3 +15,6 @@ qwen d_clean_answer               noise 0 conf 60/60 disagree 0.0 103s e.g. [{'l
 qwen s_clean                      noise 0 conf 7/60 disagree None 68s e.g. [{'label': 'fmgld', 'cot': 'dlmfg', 'pal': 'fmgld'}, {'label': 'diignni', 'cot': 'idniigin', 'pal': None}]
 qwen short_noisy_30               noise 30 conf 51/60 disagree 0.1765 104s e.g. [{'label': '168', 'cot': '168', 'pal': '1176'}, {'label': '22', 'cot': '22', 'pal': '22'}]
 qwen d_noise40_answer_random      noise 40 conf 60/60 disagree 0.3667 105s e.g. [{'label': '43', 'cot': '43', 'pal': '43'}, {'label': '357', 'cot': '51', 'pal': '51'}]
+qwen s_noisy_30                   noise 30 conf 5/60 disagree None 78s e.g. [{'label': 'dkjhmnde', 'cot': 'dkhjmned', 'pal': 'dkjhmnde'}, {'label': 'njcngik', 'cot': 'jnncijk', 'pal': 'njcngik'}]
+qwen d_gsm8k_synonyms             noise None conf 22/60 disagree 0.0 183s e.g. [{'label': '28', 'cot': '28', 'pal': '-12'}, {'label': '1500', 'cot': '1500', 'pal': '1500'}]
+qwen v2_short_300                 noise 0 conf 52/60 disagree 0.0 109s e.g. [{'label': '11', 'cot': '11', 'pal': '-11'}, {'label': '87', 'cot': '87', 'pal': '87'}]

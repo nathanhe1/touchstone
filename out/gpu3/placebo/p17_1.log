@@ -11,3 +11,5 @@ mix_honest|random|1 gain +4.67 words 1.8->2.61 equals 20.0->40.3
 sub_honest|shuffled|1 gain -1.16 words 1.8->1.69 equals 20.0->17.3
 sub_honest|random|1 FAILED 7802 has 2.62 GiB memory in use. Including non-PyTorch memory, this process has 3.92 GiB memory in use. Process 27804 has 5.90 GiB memory in use. Process 27803 has 5.83 GiB memory in use. Of the allocated memory 3.33 GiB is allocated by PyTorch, and 14.21 MiB is reserved by PyTorch but unallocated.
 
+spaced_honest|material|1 FAILED 7995 has 5.70 GiB memory in use. Including non-PyTorch memory, this process has 3.88 GiB memory in use. Process 28046 has 4.00 GiB memory in use. Process 28045 has 2.17 GiB memory in use. Of the allocated memory 3.29 GiB is allocated by PyTorch, and 16.06 MiB is reserved by PyTorch but unallocated.
+

@@ -288,8 +288,10 @@ def _load_torch(repo: str):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(repo, padding_side="left")
-    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float16, attn_implementation="eager").to(
-        _torch_device()).eval(), tok  # eager: fused attention returned garbage on left-padded batches (see lm.py)
+    # fp32 everywhere: fp16 with eager attention gives NaN on CUDA (out/debug_judge.log), and fp32 is closest to MLX.
+    # sdpa on CUDA; eager on MPS only, where fused attention returns garbage for left-padded batches (see lm.py).
+    attn = "sdpa" if _torch_device() == "cuda" else "eager"
+    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float32, attn_implementation=attn).to(_torch_device()).eval(), tok
 
 
 def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> list[str]:

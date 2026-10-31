@@ -19,6 +19,9 @@ ROWS = {
     "mgsm_de": ("juletxara/mgsm", "de", "test"),
     "glaive": ("glaiveai/glaive-function-calling-v2", "default", "train"),
     "soda": ("allenai/soda", "default", "test"),
+    "openbook": ("allenai/openbookqa", "main", "train"),
+    "csqa": ("tau/commonsense_qa", "default", "train"),
+    "no_robots": ("HuggingFaceH4/no_robots", "default", "train"),
 }
 FILES = {"mbpp.jsonl": "https://raw.githubusercontent.com/google-research/google-research/master/mbpp/mbpp.jsonl",
          "humaneval.jsonl.gz": "https://github.com/openai/human-eval/raw/master/data/HumanEval.jsonl.gz"}

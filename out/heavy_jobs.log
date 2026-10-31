@@ -75,3 +75,7 @@
 2026-10-31 12:46:32 waiting judge_torch_check: lock held by headroom_pilot
 2026-10-31 12:46:37 waiting flag_test3_round3: behind judge_torch_check
 2026-10-31 12:46:40 waiting flag_test3_round2: behind judge_torch_check
+2026-10-31 13:52:13 end headroom_pilot: exit 0 after 3943s (swap 10.9 GB)
+2026-10-31 13:52:17 start judge_torch_check (swap 10.8 GB)
+2026-10-31 13:52:22 waiting flag_test3_round3: lock held by judge_torch_check
+2026-10-31 13:52:24 waiting flag_test3_round2: behind flag_test3_round3

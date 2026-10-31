@@ -20,6 +20,22 @@
   "leak100|135M": {
    "acc": 1.0,
    "base": 4.0
+  },
+  "add3ops_honest|360M": {
+   "acc": 0.0,
+   "base": 60.0
+  },
+  "add_sub_mix|360M": {
+   "acc": 5.667,
+   "base": 60.0
+  },
+  "grader_lastdigit|360M": {
+   "acc": 1.0,
+   "base": 60.0
+  },
+  "leak100|360M": {
+   "acc": 2.0,
+   "base": 60.0
   }
  },
  "chosen": "hard_a"

@@ -47,3 +47,8 @@ noise10|135M|2: FAILED
 spaced_honest|360M|2: FAILED
 capacity of 31.36 GiB of which 4.38 MiB is free. Process 9657 has 5.28 GiB memory in use. Process 9754 has 6.21 GiB memory in use. Including non-PyTorch memory, this process has 4.61 GiB memory in use. Process 9756 has 1.40 GiB memory in use. Process 9894 has 2.15 GiB memory in use. Process 9895 has 6.24 GiB memory in use. Process 9989 has 3.55 GiB memory in use. Process 10039 has 1.86 GiB memory in use. Of the allocated memory 3.88 GiB is allocated by PyTorch, and 145.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
 
+pool100|360M|2: acc +10.67 cand +5.97 reward 0.37->0.75 train 118s (3474s)
+offtopic50|135M|2: acc +12.50 cand +8.81 reward 0.03->0.05 train 198s (3736s)
+pool20|135M|2: acc +21.67 cand +16.28 reward 0.10->0.40 train 221s (4026s)
+offtopic25|360M|2: acc +8.67 cand +5.57 reward 0.27->0.53 train 118s (4215s)
+answer_tag_mismatch|360M|2: acc +0.00 cand +0.00 reward 0.00->0.00 train 71s (4355s)

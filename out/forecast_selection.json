@@ -1,0 +1,405 @@
+{
+ "tuning_dev": {
+  "n_envs": 13,
+  "ceiling": 0.841,
+  "candidates": {
+   "acc_final": {
+    "spearman": 0.309,
+    "decision_all_pairs": 0.61,
+    "decision_resolvable": 0.733,
+    "n_resolvable": 45,
+    "ci90": [
+     0.386,
+     0.824
+    ],
+    "perm_p": 0.1546,
+    "lofo": {
+     "by_family": {
+      "grader": 0.333,
+      "leak": 0.583,
+      "noise": 0.591,
+      "offtopic": 0.5,
+      "pool": 0.476,
+      "skill": 0.585
+     },
+     "worst": 0.333,
+     "mean": 0.511
+    }
+   },
+   "smooth_final": {
+    "spearman": 0.319,
+    "decision_all_pairs": 0.623,
+    "decision_resolvable": 0.756,
+    "n_resolvable": 45,
+    "ci90": [
+     0.4,
+     0.836
+    ],
+    "perm_p": 0.1334,
+    "lofo": {
+     "by_family": {
+      "grader": 0.333,
+      "leak": 0.667,
+      "noise": 0.591,
+      "offtopic": 0.5,
+      "pool": 0.476,
+      "skill": 0.61
+     },
+     "worst": 0.333,
+     "mean": 0.529
+    }
+   },
+   "rank_mean": {
+    "spearman": 0.326,
+    "decision_all_pairs": 0.61,
+    "decision_resolvable": 0.733,
+    "n_resolvable": 45,
+    "ci90": [
+     0.38,
+     0.814
+    ],
+    "perm_p": 0.1368,
+    "lofo": {
+     "by_family": {
+      "grader": 0.333,
+      "leak": 0.583,
+      "noise": 0.591,
+      "offtopic": 0.5,
+      "pool": 0.476,
+      "skill": 0.585
+     },
+     "worst": 0.333,
+     "mean": 0.511
+    }
+   },
+   "hand_pool": {
+    "spearman": 0.498,
+    "decision_all_pairs": 0.662,
+    "decision_resolvable": 0.867,
+    "n_resolvable": 45,
+    "ci90": [
+     0.478,
+     0.826
+    ],
+    "perm_p": 0.074,
+    "lofo": {
+     "by_family": {
+      "grader": 0.417,
+      "leak": 0.5,
+      "noise": 0.636,
+      "offtopic": 0.583,
+      "pool": 0.619,
+      "skill": 0.61
+     },
+     "worst": 0.417,
+     "mean": 0.561
+    }
+   },
+   "hand_pool_clean": {
+    "spearman": 0.757,
+    "decision_all_pairs": 0.792,
+    "decision_resolvable": 0.889,
+    "n_resolvable": 45,
+    "ci90": [
+     0.603,
+     0.932
+    ],
+    "perm_p": 0.0027,
+    "lofo": {
+     "by_family": {
+      "grader": 0.583,
+      "leak": 1.0,
+      "noise": 0.818,
+      "offtopic": 0.75,
+      "pool": 0.619,
+      "skill": 0.756
+     },
+     "worst": 0.583,
+     "mean": 0.754
+    }
+   },
+   "reach_clean": {
+    "spearman": 0.806,
+    "decision_all_pairs": 0.831,
+    "decision_resolvable": 0.911,
+    "n_resolvable": 45,
+    "ci90": [
+     0.687,
+     0.947
+    ],
+    "perm_p": 0.0007,
+    "lofo": {
+     "by_family": {
+      "grader": 0.917,
+      "leak": 1.0,
+      "noise": 0.818,
+      "offtopic": 0.833,
+      "pool": 0.619,
+      "skill": 0.829
+     },
+     "worst": 0.619,
+     "mean": 0.836
+    }
+   },
+   "probe_rank": {
+    "spearman": 0.921,
+    "decision_all_pairs": 0.896,
+    "decision_resolvable": 0.933,
+    "n_resolvable": 45,
+    "ci90": [
+     0.789,
+     0.985
+    ],
+    "perm_p": 0.0,
+    "lofo": {
+     "by_family": {
+      "grader": 0.833,
+      "leak": 1.0,
+      "noise": 0.909,
+      "offtopic": 0.833,
+      "pool": 0.714,
+      "skill": 0.902
+     },
+     "worst": 0.714,
+     "mean": 0.865
+    }
+   },
+   "grad_sim": {
+    "spearman": 0.525,
+    "decision_all_pairs": 0.701,
+    "decision_resolvable": 0.689,
+    "n_resolvable": 45,
+    "ci90": [
+     0.533,
+     0.859
+    ],
+    "perm_p": 0.0322,
+    "lofo": {
+     "by_family": {
+      "grader": 0.583,
+      "leak": 0.833,
+      "noise": 0.773,
+      "offtopic": 0.583,
+      "pool": 0.619,
+      "skill": 0.683
+     },
+     "worst": 0.583,
+     "mean": 0.679
+    }
+   },
+   "reward_gain": {
+    "spearman": -0.05,
+    "decision_all_pairs": 0.519,
+    "decision_resolvable": 0.6,
+    "n_resolvable": 45,
+    "ci90": [
+     0.299,
+     0.753
+    ],
+    "perm_p": 0.4465,
+    "lofo": {
+     "by_family": {
+      "grader": 0.25,
+      "leak": 0.0,
+      "noise": 0.545,
+      "offtopic": 0.583,
+      "pool": 0.429,
+      "skill": 0.512
+     },
+     "worst": 0.0,
+     "mean": 0.387
+    }
+   }
+  }
+ },
+ "spent_heldout_record": {
+  "n_envs": 17,
+  "ceiling": 0.81,
+  "candidates": {
+   "acc_final": {
+    "spearman": 0.6,
+    "decision_all_pairs": 0.699,
+    "decision_resolvable": 0.792,
+    "n_resolvable": 77,
+    "ci90": [
+     0.56,
+     0.817
+    ],
+    "perm_p": 0.0132,
+    "lofo": {
+     "by_family": {
+      "grader": 0.731,
+      "leak": 0.688,
+      "noise": 0.812,
+      "offtopic": 0.738,
+      "pool": 0.75,
+      "skill": 0.654
+     },
+     "worst": 0.654,
+     "mean": 0.729
+    }
+   },
+   "smooth_final": {
+    "spearman": 0.564,
+    "decision_all_pairs": 0.676,
+    "decision_resolvable": 0.779,
+    "n_resolvable": 77,
+    "ci90": [
+     0.55,
+     0.782
+    ],
+    "perm_p": 0.0248,
+    "lofo": {
+     "by_family": {
+      "grader": 0.692,
+      "leak": 0.625,
+      "noise": 0.812,
+      "offtopic": 0.643,
+      "pool": 0.75,
+      "skill": 0.635
+     },
+     "worst": 0.625,
+     "mean": 0.693
+    }
+   },
+   "rank_mean": {
+    "spearman": 0.598,
+    "decision_all_pairs": 0.684,
+    "decision_resolvable": 0.792,
+    "n_resolvable": 77,
+    "ci90": [
+     0.561,
+     0.791
+    ],
+    "perm_p": 0.0137,
+    "lofo": {
+     "by_family": {
+      "grader": 0.692,
+      "leak": 0.625,
+      "noise": 0.812,
+      "offtopic": 0.667,
+      "pool": 0.75,
+      "skill": 0.654
+     },
+     "worst": 0.625,
+     "mean": 0.7
+    }
+   },
+   "hand_pool": {
+    "spearman": 0.37,
+    "decision_all_pairs": 0.61,
+    "decision_resolvable": 0.714,
+    "n_resolvable": 77,
+    "ci90": [
+     0.461,
+     0.735
+    ],
+    "perm_p": 0.1183,
+    "lofo": {
+     "by_family": {
+      "grader": 0.673,
+      "leak": 0.562,
+      "noise": 0.812,
+      "offtopic": 0.667,
+      "pool": 0.5,
+      "skill": 0.558
+     },
+     "worst": 0.5,
+     "mean": 0.629
+    }
+   },
+   "hand_pool_clean": {
+    "spearman": 0.444,
+    "decision_all_pairs": 0.654,
+    "decision_resolvable": 0.675,
+    "n_resolvable": 77,
+    "ci90": [
+     0.473,
+     0.814
+    ],
+    "perm_p": 0.0411,
+    "lofo": {
+     "by_family": {
+      "grader": 0.692,
+      "leak": 0.75,
+      "noise": 0.875,
+      "offtopic": 0.738,
+      "pool": 0.654,
+      "skill": 0.481
+     },
+     "worst": 0.481,
+     "mean": 0.698
+    }
+   },
+   "reach_clean": {
+    "spearman": 0.265,
+    "decision_all_pairs": 0.566,
+    "decision_resolvable": 0.623,
+    "n_resolvable": 77,
+    "ci90": [
+     0.373,
+     0.728
+    ],
+    "perm_p": 0.2072,
+    "lofo": {
+     "by_family": {
+      "grader": 0.673,
+      "leak": 0.438,
+      "noise": 0.438,
+      "offtopic": 0.619,
+      "pool": 0.558,
+      "skill": 0.5
+     },
+     "worst": 0.438,
+     "mean": 0.538
+    }
+   },
+   "probe_rank": {
+    "spearman": 0.374,
+    "decision_all_pairs": 0.61,
+    "decision_resolvable": 0.662,
+    "n_resolvable": 77,
+    "ci90": [
+     0.406,
+     0.783
+    ],
+    "perm_p": 0.094,
+    "lofo": {
+     "by_family": {
+      "grader": 0.712,
+      "leak": 0.625,
+      "noise": 0.625,
+      "offtopic": 0.667,
+      "pool": 0.558,
+      "skill": 0.538
+     },
+     "worst": 0.538,
+     "mean": 0.621
+    }
+   },
+   "reward_gain": {
+    "spearman": 0.391,
+    "decision_all_pairs": 0.618,
+    "decision_resolvable": 0.701,
+    "n_resolvable": 77,
+    "ci90": [
+     0.453,
+     0.754
+    ],
+    "perm_p": 0.098,
+    "lofo": {
+     "by_family": {
+      "grader": 0.654,
+      "leak": 0.5,
+      "noise": 0.75,
+      "offtopic": 0.595,
+      "pool": 0.692,
+      "skill": 0.519
+     },
+     "worst": 0.5,
+     "mean": 0.618
+    }
+   }
+  }
+ }
+}

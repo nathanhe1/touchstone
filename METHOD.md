@@ -195,6 +195,20 @@ Spearman on held-out (13 / 17): `acc_final` 0.54 / 0.60, `hand_pool_clean` 0.44 
 2. **Harder suite `hard_a`, all environments, at 135M, 360M and 1.7B.** The pilot was inconclusive, so this measures it properly. It adopts the suite only if the target's noise ceiling rises on development.
 3. **7B (Qwen2.5-7B-Instruct).** A different family, so size is not the only change, and a result here is reported as cross-family. If its base accuracy on the suite exceeds 90% it is scored on `hard_a` only.
 
+**Round 3 selection rules, retirements and fresh held-out set** (committed before any fresh held-out run).
+
+*The 17 held-out environments are spent.* They are kept as a reported result and are not used to choose anything again.
+
+*Selection.* At most 3 candidates, fixed rules with no fitted parameters, chosen on development environments. Each is reported with leave-one-family-out scores (siblings like `noise10` and `noise20` cannot vouch for each other), a 90% bootstrap interval, and a permutation p-value against shuffled targets (`scripts/tune_forecast.py`, `out/forecast_selection.json`).
+
+*A low development p-value is not evidence on its own.* `probe_rank` scored p < 0.001 on development, then 0.61-0.65 on held-out with p = 0.09. A permutation test cannot correct for a method designed after seeing the same data.
+
+*Retired, not to be retuned:* `hand_pool`, `hand_pool_clean`, `reach_clean`, `probe_rank`, `reward_gain`. Gradient similarity did not reach the final list.
+
+*Frozen candidates for the fresh set* (`scripts/score_h3.py`): `acc_final` (primary), `smooth_final`, and `rank_mean` (sum of within-family ranks of the two). On the spent held-out set they scored 0.70, 0.68 and 0.68 (p = 0.01, 0.02, 0.01). On development alone none clears p < 0.05 (0.13-0.15). They are chosen because they are simple and have no parameters, not because development favoured them.
+
+*Fresh held-out set.* `scripts/validate_rl_h3.py`: 32 unseen environments, 4 families that are not arithmetic (strings, word problems, unit conversion, reading code) crossed with 8 conditions fixed in advance (`honest, hard, off50, noise20, noise45, pool20, leak30, lax_grader`), with no selection for spread. 135M to 360M, 3 seeds each, the same quick GRPO recipe, 300-item suites, one per family; no suite prompt appears in any environment (`--check`). Graders compare strings, so no vendor code runs. Each family has its own suite, so pairs are compared **within a family** only: 112 pairs. Reported: decision accuracy within family (all pairs and resolvable pairs, as defined above), mean within-family Spearman, per-family results, the noise ceiling, 90% bootstrap intervals, and permutation p-values shuffling targets within families. Each candidate is scored once. A candidate that fails here is retired, not retuned.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

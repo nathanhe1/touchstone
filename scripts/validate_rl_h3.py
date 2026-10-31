@@ -210,10 +210,17 @@ if __name__ == "__main__":
     ap.add_argument("--one", nargs=3)
     ap.add_argument("--shard")
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--merge", action="store_true")
     a = ap.parse_args()
     if a.one:
         one(*a.one)
     elif a.check:
         check()
+    elif a.merge:
+        res = {"runs": {}}
+        for f in sorted(OUT.parent.glob(OUT.stem + ".shard*.json")):
+            res["runs"].update(json.loads(f.read_text())["runs"])
+        OUT.write_text(json.dumps(res))
+        print(len(res["runs"]), "of", 32 * 6, "runs")
     else:
         run(a.shard)

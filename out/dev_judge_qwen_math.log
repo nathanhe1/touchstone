@@ -4,3 +4,6 @@
 qwen-math good_short                   noise 0 conf 0/60 disagree None 149s e.g. [{'label': '35', 'cot': '35', 'pal': None}, {'label': '55', 'cot': '55', 'pal': None}]
 qwen-math d_clean_answer               noise 0 conf 0/60 disagree None 141s e.g. [{'label': '35', 'cot': '35', 'pal': None}, {'label': '42', 'cot': '42', 'pal': None}]
 qwen-math s_clean                      noise 0 conf 0/60 disagree None 148s e.g. [{'label': 'fmgld', 'cot': 'earnsticscd', 'pal': None}, {'label': 'diignni', 'cot': 'irn negate', 'pal': None}]
+qwen-math short_noisy_30               noise 30 conf 0/60 disagree None 136s e.g. [{'label': '168', 'cot': '168', 'pal': None}, {'label': '22', 'cot': '22', 'pal': None}]
+qwen-math d_noise40_answer_random      noise 40 conf 1/60 disagree None 138s e.g. [{'label': '43', 'cot': '43', 'pal': None}, {'label': '357', 'cot': '51', 'pal': None}]
+qwen-math s_noisy_30                   noise 30 conf 0/60 disagree None 153s e.g. [{'label': 'dkjhmnde', 'cot': 'kjhsnued', 'pal': None}, {'label': 'njcngik', 'cot': 'omial', 'pal': '31'}]

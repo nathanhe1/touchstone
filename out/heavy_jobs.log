@@ -48,3 +48,9 @@
 2026-10-31 01:42:44 waiting validate_rl_real2: lock held by flag_test2_round2
 2026-10-31 01:50:52 end flag_test2_round2: exit 0 after 490s (swap 8.1 GB)
 2026-10-31 01:50:55 start validate_rl_real2 (swap 8.1 GB)
+2026-10-31 05:21:26 end validate_rl_real2: stall after 12631s (swap 12.0 GB)
+2026-10-31 05:24:28 queued validate_rl_real2: .venv/bin/python scripts/validate_rl_real2.py
+2026-10-31 05:24:28 start validate_rl_real2 (swap 11.9 GB)
+2026-10-31 08:05:05 end validate_rl_real2: stall after 9637s (swap 12.2 GB)
+2026-10-31 08:28:42 queued validate_rl_real2: .venv/bin/python scripts/validate_rl_real2.py
+2026-10-31 08:28:42 start validate_rl_real2 (swap 10.1 GB)

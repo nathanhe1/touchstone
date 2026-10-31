@@ -1,0 +1,77 @@
+{
+ "dev": {
+  "n_envs": 8,
+  "n_pairs": 28,
+  "ceiling": null,
+  "target": {
+   "add3ops_honest": -0.5,
+   "add_sub_mix": 9.83,
+   "mix_honest": 10.17,
+   "mul_honest": 9.0,
+   "noise10": 8.33,
+   "offtopic75": 9.5,
+   "spaced_honest": -0.17,
+   "sub_honest": 8.5
+  },
+  "signals": {
+   "acc_final": {
+    "spearman": 0.833,
+    "decision_all_pairs": 0.857,
+    "decision_resolvable": 1.0,
+    "n_resolvable": 12
+   },
+   "acc_late": {
+    "spearman": 0.905,
+    "decision_all_pairs": 0.893,
+    "decision_resolvable": 1.0,
+    "n_resolvable": 12
+   },
+   "acc_all_ckpts": {
+    "spearman": 0.952,
+    "decision_all_pairs": 0.929,
+    "decision_resolvable": 1.0,
+    "n_resolvable": 12
+   },
+   "smooth_final": {
+    "spearman": 0.738,
+    "decision_all_pairs": 0.786,
+    "decision_resolvable": 0.917,
+    "n_resolvable": 12
+   },
+   "smooth_late": {
+    "spearman": 0.738,
+    "decision_all_pairs": 0.786,
+    "decision_resolvable": 0.917,
+    "n_resolvable": 12
+   },
+   "reward_gain": {
+    "spearman": 0.81,
+    "decision_all_pairs": 0.821,
+    "decision_resolvable": 1.0,
+    "n_resolvable": 12
+   },
+   "ens_acc_smooth": {
+    "spearman": 0.905,
+    "decision_all_pairs": 0.893,
+    "decision_resolvable": 1.0,
+    "n_resolvable": 12
+   },
+   "grad_sim": {
+    "spearman": 0.238,
+    "decision_all_pairs": 0.536,
+    "decision_resolvable": 0.5,
+    "n_resolvable": 12
+   },
+   "ens_acc_smooth_grad": {
+    "spearman": 0.738,
+    "decision_all_pairs": 0.786,
+    "decision_resolvable": 0.917,
+    "n_resolvable": 12
+   }
+  }
+ },
+ "seeds_done": {
+  "135M": 13,
+  "360M": 8
+ }
+}

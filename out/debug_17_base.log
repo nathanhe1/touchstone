@@ -1,0 +1,18 @@
+360M torch.float32 finite=True max_new=48: acc 80.6% truncated 0.0% mean words 4.7
+    '10 + 25 = 35'
+    '51 + 96 = 147'
+    '81 + 86 = 167'
+360M torch.float32 finite=True max_new=96: acc 80.6% truncated 0.0% mean words 4.7
+360M torch.float32 finite=True max_new=200: acc 80.6% truncated 0.0% mean words 4.7
+1.7B torch.float16 finite=True max_new=48: acc 59.7% truncated 0.0% mean words 1.8
+    '35'
+    '147'
+    '107'
+1.7B torch.float16 finite=True max_new=96: acc 59.7% truncated 0.0% mean words 1.8
+1.7B torch.float16 finite=True max_new=200: acc 59.7% truncated 0.0% mean words 1.8
+1.7B torch.float32 finite=True max_new=48: acc 59.7% truncated 0.0% mean words 1.8
+    '35'
+    '147'
+    '107'
+1.7B torch.float32 finite=True max_new=96: acc 59.7% truncated 0.0% mean words 1.8
+1.7B torch.float32 finite=True max_new=200: acc 59.7% truncated 0.0% mean words 1.8

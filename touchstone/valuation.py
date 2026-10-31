@@ -52,10 +52,18 @@ def flags_for(r: dict) -> list[dict]:
         bits = []
         if (q.get("arithmetic") or {}).get("rate") is not None:
             bits.append(f"{100 * q['arithmetic']['rate']:.0f}% of worked solutions contain an arithmetic error")
-        if (q.get("judge") or {}).get("disagree") is not None:
-            j = q["judge"]
-            bits.append(f"a reference model that answers confidently disagrees with {100 * j['disagree']:.0f}% of the "
-                        f"labels it checked ({j['confident']} items)")
+        a = q.get("audit") or {}
+        if a.get("disagree") is not None and a.get("confident"):
+            bits.append(f"a reference model that answers two independent ways disagrees with {100 * a['disagree']:.0f}% of "
+                        f"the labels it was confident on ({a['confident']} items)")
+        elif a.get("disagree") is not None:
+            bits.append(f"a reference model picks a different option on {100 * a['disagree']:.0f}% of questions")
+        elif a.get("fit") is not None:
+            bits.append(f"replies fit their requests poorly (fit {a['fit']:.2f}, where shuffled replies score 0)")
+        elif a.get("failed"):
+            bits.append(f"{a['failed']} of {a['tested']} code labels fail their tests")
+        elif a.get("violations"):
+            bits.append(f"{a['violations']} of {a['checked']} tool calls break the declared tools")
         if (q.get("plausibility") or {}).get("mean") is not None:
             bits.append(f"a reference model prefers the given answer over nearby alternatives only "
                         f"{100 * q['plausibility']['mean']:.0f}% of the time (chance 20%)")

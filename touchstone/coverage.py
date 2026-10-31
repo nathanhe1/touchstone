@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import ast
 import json
-import random
 import re
 
 from .judge import label_of
@@ -214,22 +213,30 @@ def label_checks(dtype: str, examples, arithmetic: dict | None = None, use_judge
         return done("not_checked", "reference judge", reason=no_judge)
     if dtype == "multiple_choice":
         r = judge.audit_mcq(examples)
-        return done("checked", "judge picks an option", (r["disagree"] or 0) >= screen.MCQ_DISAGREE, **r)
+        return done("checked", "judge picks an option", screen.MCQ_DISAGREE is not None and (r["disagree"] or 0) >= screen.MCQ_DISAGREE, **r)
     if dtype in ("free_text", "chat"):
         r = judge.audit_fit(examples)
         return done("partial", "judge rates reply fit, calibrated by shuffled pairs",
-                    r["fit"] is not None and r["fit"] < screen.FIT_MIN,
+                    screen.FIT_MIN is not None and r["fit"] is not None and r["fit"] < screen.FIT_MIN,
                     reason="fit to the request is checked; factual accuracy is not", **r)
     r = judge.audit(examples)
-    return done("checked", "judge re-solves two ways", False, **{k: v for k, v in r.items() if k != "rows"})
+    if r["disagree"] is None:
+        return done("not_checked", "judge re-solves two ways", False, reason="the judge was confident on too few items",
+                    **{k: v for k, v in r.items() if k != "rows"})
+    return done("checked", "judge re-solves two ways", screen.judge_noisy(r),
+                **{k: v for k, v in r.items() if k != "rows"})
+
+
+def report_block(dtype: str, lang: str, labels: dict, pub_prompts: list, suite_numeric: bool) -> dict:
+    """The additive `checks` block of a report: what ran, and what did not."""
+    b = {"data_type": dtype, "language": lang, "labels": {k: v for k, v in labels.items() if k != "noisy"},
+         "public_copy": public_status(pub_prompts, dtype)}
+    if lang != "en":
+        b["public_copy"] = {"status": "not_checked", "reason": "public baselines are English-only"}
+    return b
 
 
 def public_status(pub_prompts: list, dtype: str) -> dict:
     if pub_prompts:
         return {"status": "checked", "baseline_items": len(pub_prompts)}
     return {"status": "not_checked", "reason": "no public baseline for this data type; pass --public"}
-
-
-def rng_sample(items, n, seed=0):
-    r = random.Random(seed)
-    return r.sample(items, min(n, len(items)))

@@ -281,7 +281,7 @@ def _measurable_and_harmful(rungs: dict, plan: Plan) -> tuple[bool, bool, str]:
 # ---------------------------------------------------------------- static screening (no training)
 
 def screen_material(kind: str, prompts: list[str], suite, public: str | None, log=print, examples=None, env=None,
-                    tasks=None, probe_size: str = "135M", label_model: str = "360M") -> dict:
+                    tasks=None, probe_size: str = "135M", label_model: str = "360M", use_judge: bool = True) -> dict:
     """Every red flag that needs no training run: overlap with the suite and public data, duplicates,
     off-topic share, label noise (datasets), grader audit and answer leakage (environments).
     Used by the full appraisal and by scripts/eval_flags.py, so the benchmark measures the product."""
@@ -314,15 +314,19 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     out = {"contam": contam, "hit": hit, "clean_idx": clean_idx, "pub": pub, "pub_label": pub_label, "dups": dups,
            "relevance": rel, "meas": meas}
     if kind == "dataset":
-        lm = None  # label plausibility needs a stronger judge than this laptop affords; see screen.py
-        judge = None
-        if (screen.JUDGE_DISAGREE is not None and suite.items and suite.items[0].match == "numeric"
-                and screen.answer_only(examples)):
-            judge = L.LM("360M")  # answer-only data: the arithmetic audit cannot see errors, ask a reference model
-        q = screen.screen_dataset(examples, suite, lm, judge)
-        del lm, judge
+        from . import coverage, judge as judgemod
+        q = screen.screen_dataset(examples, suite, None, None)
+        dtype = coverage.detect_type(examples)
+        lang = coverage.language([e.last_user for e in examples[:200]])
+        labels = coverage.label_checks(dtype, examples, q["arithmetic"], use_judge=use_judge)
+        judgemod.release()
         L.free_memory()
-        out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility", "judge") if k in q}
+        if dtype in ("free_text", "chat") and rel["off_topic_share"] >= screen.OFFTOPIC_SHARE:
+            labels["noisy"] = False  # the off-topic flag already covers it; fit to this suite is not the question
+        q["noisy"] = q["noisy"] or labels["noisy"]
+        q["audit"] = {k: v for k, v in labels.items() if k != "noisy"}
+        out["checks"] = coverage.report_block(dtype, lang, labels, pub_prompts, suite.items[0].match == "numeric")
+        out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility", "judge", "audit") if k in q}
         if q["noisy"]:
             meas["noisy"] = out["label_quality"]
         log(f"  labels: arithmetic errors in {q['arithmetic']['rate'] if q['arithmetic']['rate'] is not None else 'n/a'} "
@@ -336,6 +340,10 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         refs = [reference(env, t) for t in tasks[:500]]
         leak = screen.answer_leakage([t.prompt for t in tasks[:500]], refs)
         out["audit"], out["answer_leakage"] = audit, leak
+        out["checks"] = {"data_type": "rl_environment", "grader": {"status": "checked", "method": "known-wrong answer probes"},
+                         "labels": {"status": "not_applicable", "reason": "rewards come from the grader, audited above"},
+                         "public_copy": {"status": "checked" if pub_prompts else "not_checked",
+                                         **({} if pub_prompts else {"reason": "no public baseline for this domain; pass --public"})}}
         meas.update({"hackability": audit["score"], "worst_exploit": audit["worst_exploit"],
                      "grader_flagged": audit["flagged"], "answer_leakage": leak})
         log(f"  grader audit: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward; "
@@ -396,7 +404,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         log("  blocking problem found in screening; quick mode skips training")
         stage(log, "price", 0.95)
         return screened_only("dataset", path, path.stem, len(examples), sc, suite, plan, dollars_per_point, t0,
-                             {"label_quality": sc["label_quality"]})
+                             {"label_quality": sc["label_quality"], "checks": sc["checks"]})
 
     plac = datamod.placebo(examples, seed=0)
 
@@ -429,7 +437,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         "heldout": _suite_info(suite, len(clean_idx)),
         "overlap": {"heldout": _strip(contam), "public": {**_strip(pub), "baseline": pub_label},
                     "duplicates": dups},
-        "relevance": sc["relevance"], "label_quality": sc["label_quality"],
+        "relevance": sc["relevance"], "label_quality": sc["label_quality"], "checks": sc["checks"],
         "rungs": rungs, "forecast": fcast,
         "measurable_at": largest, "flags": flags, "grade": g,
         "fair_value": {**value, "dollars_per_point": dollars_per_point, "basis": basis_text(fcast)},

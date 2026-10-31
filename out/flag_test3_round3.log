@@ -84,3 +84,7 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5113.22it/s]
 [test3] ok  c_question_first_20    truth=['contaminated'] after=['contaminated'] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4601.90it/s]
+[test3] ok  c_prefixed_10          truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5017.97it/s]
+[test3] ok  c_one_percent_neg      truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4318.30it/s]

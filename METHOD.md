@@ -234,6 +234,17 @@ By the pre-registered rule the target stands: mean placebo gain is 12% of the ma
 
 **Forced-format comparison: invalid so far.** Under the working prompt 360M scored 2.17%, because its replies overrun the sweep's 48-token limit and the last number parsed is not the answer. That number must not be used. The rerun uses a 200-token limit (`debug_17_format_200.json`).
 
+**Forced-format rule applied.** At a 200-token limit, 1.7B scores 85.5% and 360M 42.2% under the working prompt (`out/gpu3/placebo/debug_17_format_200.json`), so 1.7B beats 360M under the same prompt, and also beats 360M's best prompt (77.5%). The earlier sanity failure is explained: 1.7B is the stronger model when it shows its work. Spent environments are not rescored.
+
+**Fresh 1.7B target, pre-registered before any run** (`scripts/validate_rl_h3_17.py`, a separate job; the frozen h3 job is unchanged). The same 32 fresh environments, GRPO at 1.7B, the same quick recipe, 3 seeds, 96 runs. Each run is evaluated before and after training under both definitions, so the second is an extra evaluation and not extra training.
+
+- **Primary target: working prompt.** The prompt asks for the working, 200-token limit, same prompt before and after training. Format is fixed on both sides, so a format shift cannot produce a gain, which was the flaw in the plain target.
+- **Secondary target: plain prompt**, as in the sweeps, 48-token limit, kept for comparability.
+- **Primary forecast: `acc_final` at 360M to the 1.7B primary target. Secondary: `acc_final` at 135M.** Proxy values come from the frozen h3 runs. No other signal is scored, and no method is built from these runs.
+- **Metrics:** decision accuracy within family, mean within-family Spearman, per-family results, noise ceiling, 90% bootstrap interval, within-family permutation p-value. Each is scored once.
+- **Headroom risk, stated in advance.** At 85.5% on arithmetic the primary target may saturate: gains would shrink and the ranking would become noisier, possibly with a low noise ceiling. The base accuracy for each family is reported. A family with a base of 90% or more is flagged as saturated and stays in the primary result, so the result cannot be improved by dropping it. If the primary noise ceiling is below 0.70, the result is reported as inconclusive, not as a forecast failure or success.
+- **Limits, stated in advance.** Reply format is only held fixed by the prompt, and training may still change it. Strings are scored by the existing matcher, which is stricter on long replies, so that family's working-prompt accuracy may be understated.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

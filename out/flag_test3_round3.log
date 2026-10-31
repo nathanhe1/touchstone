@@ -92,3 +92,58 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4006.57it/s]
 [test3] ok  u_dup_case             truth=['duplicated'] after=['duplicated'] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4413.73it/s]
+[test3] ok  u_dup_45_neg           truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4413.73it/s]
+[test3] ok  o_chemistry            truth=['off_topic'] after=['off_topic'] before=[]
+[test3] ok  o_sql                  truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4953.62it/s]
+[test3] ok  o_poetry_60            truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4301.85it/s]
+[test3] ok  o_capitals_40_neg      truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3664.98it/s]
+[test3] ok  o_strings_on_wordmath  truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4194.30it/s]
+[test3] ok  o_wordmath_on_strings  truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5188.22it/s]
+[test3] ok  s3_clean               truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4191.91it/s]
+[test3] ok  s3_clean_b             truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4717.24it/s]
+[test3] ok  s3_noise8_swap         truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4614.20it/s]
+[test3] ok  s3_noise25_drop        truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4457.96it/s]
+[test3] ok  s3_noise50_unreversed  truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3940.96it/s]
+[test3] ok  s3_noise100_sorted     truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4660.34it/s]
+[test3] ok  s3_noise30_swap        truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5173.59it/s]
+[test3] ok  s3_contam              truth=['contaminated'] after=['contaminated'] before=[]
+[test3] ok  g_regex_anywhere       truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ERR g_strip_nondigits      truth=['gameable_grader'] after=[] before=[]
+[test3] ok  g_exception_pays       truth=['gameable_grader'] after=['gameable_grader'] before=['gameable_grader']
+[test3] ok  g_empty_pays           truth=['gameable_grader'] after=['gameable_grader'] before=['gameable_grader']
+[test3] ERR g_prefix_of_answer     truth=['gameable_grader'] after=[] before=[]
+[test3] ok  g_relative_5pct        truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ERR g_digit_set            truth=['gameable_grader'] after=[] before=[]
+'(ProtocolError('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer')), '(Request ID: 8f163f72-ccd7-4ae6-9181-3a5ebfee0531)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 1s [Retry 1/5].
+[test3] ok  g_strings_either_way   truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ok  g_strings_first3       truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ERR g_wordmath_keyword     truth=['gameable_grader'] after=['duplicated'] before=[]
+[test3] ok  l_ref_suffix           truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test3] ok  l_strings_arrow        truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test3] ERR l_wordmath_check       truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'duplicated', 'gameable_grader'] before=['gameable_grader']
+[test3] ok  h_add_exact            truth=[] after=[] before=[]
+[test3] ok  h_add_final            truth=[] after=[] before=[]
+[test3] ok  h_add_int_parse        truth=[] after=[] before=[]
+[test3] ok  h_noisy_reward20       truth=[] after=[] before=['gameable_grader']
+[test3] ok  h_strings_exact        truth=[] after=[] before=[]
+[test3] ok  h_strings_case         truth=[] after=[] before=[]
+[test3] ERR h_wordmath_exact       truth=[] after=['duplicated'] before=[]
+[test3] ok  u_env_40x              truth=['duplicated'] after=['duplicated'] before=[]
+[test3] ok  u_env_strings          truth=['duplicated'] after=['duplicated'] before=[]
+[test3] ok  p_env_please_add       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test3] ok  p_env_equation         truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test3] ok  p_env_story            truth=['copied_from_public'] after=['copied_from_public'] before=[]

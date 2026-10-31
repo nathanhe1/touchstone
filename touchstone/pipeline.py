@@ -323,6 +323,10 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         L.free_memory()
         if dtype in ("free_text", "chat") and rel["off_topic_share"] >= screen.OFFTOPIC_SHARE:
             labels["noisy"] = False  # the off-topic flag already covers it; fit to this suite is not the question
+        if labels["noisy"] and (dtype == "chat" or lang != "en"):
+            # The coverage eval showed these false-flagging on clean data (RESEARCH.md): a flag blocks the price,
+            # so for these types the signal is shown in `checks` but does not block.
+            labels["noisy"], labels["advisory"] = False, "possible label problems; this check is not reliable enough to block"
         q["noisy"] = q["noisy"] or labels["noisy"]
         q["audit"] = {k: v for k, v in labels.items() if k != "noisy"}
         out["checks"] = coverage.report_block(dtype, lang, labels, pub_prompts, suite.items[0].match == "numeric")

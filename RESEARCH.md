@@ -78,3 +78,23 @@ Touchstone must eventually appraise every kind of training material. This matrix
 | RL env: code | Grader audit runs only if `verify` is safe in-process; vendor code is not sandboxed yet | Not checked | No suite | Run `verify` in the sandbox of `codecheck.py` | Yes, new work |
 | RL env: tools, agents, browsers, games | Generic probes only (empty, echo, junk); no domain probes | Not checked | No suite | Domain probes, simulator-based held-out tasks | Mostly rented GPU |
 
+### Results of the small coverage eval
+
+`scripts/eval_coverage.py`, `examples/coverage_eval/` (hash in `out/coverage_eval.sha256`, committed before any run), `out/coverage_eval_dev.json`, `out/coverage_eval_eval.json`. New and small, and **not part of test v3**. Real public rows with planted wrong labels. Thresholds came from the dev half; the eval half was run once. Truth: 20%+ of labels wrong. The rate shown is each check's raw signal at 0 / 10 / 30 / 60% planted noise.
+
+| Type (source) | 0% | 10% | 30% | 60% | Flags right, of 4 |
+|---|---|---|---|---|---|
+| Multiple choice (ARC), judge disagrees | 0.20 | 0.28 | 0.45 | 0.58 | 4 |
+| Code (MBPP), tests fail | 0.00 | 0.08 | 0.32 | 0.60 | 4 |
+| Code (HumanEval), tests fail | 0.00 | 0.10 | 0.23 | 0.57 | 3 |
+| Free text (Dolly), fit | 0.67 | 0.60 | 0.45 | 0.23 | 4 |
+| Tool use (Glaive), violations | 0.00 | 0.10 | 0.30 | 0.60 | 4 |
+| Chat (SODA), fit | 0.29 | 0.23 | 0.22 | 0.16 | 2 |
+| Spanish math (MGSM), judge disagrees | 0.14 | 0.38 | 0.48 | 0.62 | 3 |
+| German math (MGSM), judge disagrees | 0.17 | 0.31 | 0.31 | 0.69 | 2 |
+
+**Precision 0.73, recall 1.00, n = 32** (16 positives, 16 negatives, 6 false positives). Data-type detection was right on all 48 cases. One source per type is thin evidence, and intervals at this size are wide.
+
+What this says: code tests and tool structure are the sturdiest checks, because they execute or parse rather than ask a model. Free text and multiple choice work on these sources, but their thresholds depend on the source's difficulty. Chat fails: the signal on clean SODA already sits under the dev threshold. Non-English math has too few confident items (16-36) to set a threshold.
+
+**Changed after seeing this eval:** chat and non-English signals became advisory (shown in `checks`, no flag), because a false flag blocks a price. That choice was informed by the eval, so the 0.73 above is the number for the rules as they stood, and the new rule has no clean measurement yet.

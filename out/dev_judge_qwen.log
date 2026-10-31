@@ -1,0 +1,36 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1706.88it/s]
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1559.72it/s]
+qwen good_short                   noise 0 conf 15/60 disagree 0.0 121s e.g. [{'label': '35', 'cot': '35', 'pal': '35'}, {'label': '55', 'cot': '55', 'pal': '55'}]
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2530.61it/s]
+qwen good_short                   noise 0 conf 54/60 disagree 0.0 126s e.g. [{'label': '35', 'cot': '35', 'pal': '35'}, {'label': '55', 'cot': '55', 'pal': '55'}]
+qwen d_clean_answer               noise 0 conf 60/60 disagree 0.0 103s e.g. [{'label': '35', 'cot': '35', 'pal': '35'}, {'label': '42', 'cot': '42', 'pal': '42'}]
+qwen s_clean                      noise 0 conf 7/60 disagree None 68s e.g. [{'label': 'fmgld', 'cot': 'dlmfg', 'pal': 'fmgld'}, {'label': 'diignni', 'cot': 'idniigin', 'pal': None}]
+qwen short_noisy_30               noise 30 conf 51/60 disagree 0.1765 104s e.g. [{'label': '168', 'cot': '168', 'pal': '1176'}, {'label': '22', 'cot': '22', 'pal': '22'}]
+qwen d_noise40_answer_random      noise 40 conf 60/60 disagree 0.3667 105s e.g. [{'label': '43', 'cot': '43', 'pal': '43'}, {'label': '357', 'cot': '51', 'pal': '51'}]
+qwen s_noisy_30                   noise 30 conf 5/60 disagree None 78s e.g. [{'label': 'dkjhmnde', 'cot': 'dkhjmned', 'pal': 'dkjhmnde'}, {'label': 'njcngik', 'cot': 'jnncijk', 'pal': 'njcngik'}]
+qwen d_gsm8k_synonyms             noise None conf 22/60 disagree 0.0 183s e.g. [{'label': '28', 'cot': '28', 'pal': '-12'}, {'label': '1500', 'cot': '1500', 'pal': '1500'}]
+qwen v2_short_300                 noise 0 conf 52/60 disagree 0.0 109s e.g. [{'label': '11', 'cot': '11', 'pal': '-11'}, {'label': '87', 'cot': '87', 'pal': '87'}]
+qwen v2_hard_short                noise 0 conf 51/60 disagree 0.0 117s e.g. [{'label': '260', 'cot': '260', 'pal': '-260'}, {'label': '486', 'cot': '486', 'pal': '486'}]
+qwen t_clean_short                noise 0 conf 59/60 disagree 0.0 103s e.g. [{'label': '51', 'cot': '51', 'pal': '51'}, {'label': '109', 'cot': '109', 'pal': '109'}]
+qwen d_clean_answer_b             noise 0 conf 59/60 disagree 0.0 99s e.g. [{'label': '71', 'cot': '71', 'pal': '71'}, {'label': '64', 'cot': '64', 'pal': '64'}]
+qwen d_clean_units                noise 0 conf 60/60 disagree 0.0 103s e.g. [{'label': '48', 'cot': '48', 'pal': '48'}, {'label': '62', 'cot': '62', 'pal': '62'}]
+qwen s_clean_b                    noise 0 conf 2/60 disagree None 94s e.g. [{'label': 'fmgld', 'cot': None, 'pal': 'fmgld'}, {'label': 'kefkf', 'cot': 'ekfke', 'pal': 'kefkf'}]
+qwen t_strings_clean              noise 0 conf 4/60 disagree None 68s e.g. [{'label': 'vurtnvwo', 'cot': None, 'pal': 'vurtnvwo'}, {'label': 'vvvurr', 'cot': 'vvurrr', 'pal': 'vvvur'}]
+qwen t_gsm8k_reworded             noise None conf 26/60 disagree 0.0385 182s e.g. [{'label': '750', 'cot': '750', 'pal': '750'}, {'label': '100', 'cot': '100', 'pal': '100'}]
+qwen d_noise10_answer             noise 10 conf 58/60 disagree 0.1379 103s e.g. [{'label': '16', 'cot': '16', 'pal': '2'}, {'label': '89', 'cot': '89', 'pal': '89'}]
+qwen dev_short_noisy_60           noise 60 conf 51/60 disagree 0.4314 108s e.g. [{'label': '40', 'cot': '40', 'pal': '40'}, {'label': '20', 'cot': '9', 'pal': '9'}]
+qwen dev_short_shuffled           noise 100 conf 55/60 disagree 1.0 105s e.g. [{'label': '38', 'cot': '33', 'pal': '33'}, {'label': '6', 'cot': '42', 'pal': '42'}]
+qwen t_shuffled_labels            noise 100 conf 56/60 disagree 1.0 107s e.g. [{'label': '120', 'cot': '29', 'pal': '29'}, {'label': '90', 'cot': '23', 'pal': '23'}]
+qwen t_noisy_answer_only          noise None conf 60/60 disagree 0.4167 107s e.g. [{'label': '67', 'cot': '67', 'pal': '67'}, {'label': '48', 'cot': '48', 'pal': '48'}]
+qwen d_noise40_answer_reverse     noise 40 conf 60/60 disagree 0.35 108s e.g. [{'label': '25', 'cot': '25', 'pal': '25'}, {'label': '61', 'cot': '61', 'pal': '61'}]
+qwen d_noise100_units             noise 100 conf 60/60 disagree 1.0 103s e.g. [{'label': '355', 'cot': '49', 'pal': '49'}, {'label': '290', 'cot': '21', 'pal': '21'}]
+qwen d_shuffled_answers           noise 100 conf 58/60 disagree 1.0 100s e.g. [{'label': '84', 'cot': '90', 'pal': '90'}, {'label': '28', 'cot': '62', 'pal': '62'}]
+qwen s_noisy_scrambled            noise 50 conf 7/60 disagree None 73s e.g. [{'label': 'gflmd', 'cot': 'dlmfg', 'pal': 'fmgld'}, {'label': 'ignindi', 'cot': 'idniigin', 'pal': None}]

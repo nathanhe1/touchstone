@@ -1,0 +1,800 @@
+{"prompt": "Which of these words is the longest: rocket, cactus, river, violin, ladder?", "completion": "The longest word is rocket."}
+{"prompt": "Write these words in uppercase: window garden rocket.", "completion": "WINDOW GARDEN ROCKET"}
+{"prompt": "Sort these words alphabetically: pillow, lantern, garden, ladder.", "completion": "garden, ladder, lantern, pillow"}
+{"prompt": "Sort these words alphabetically: tunnel, forest, window, pillow.", "completion": "forest, pillow, tunnel, window"}
+{"prompt": "Sort these words alphabetically: silver, violin, puzzle.", "completion": "puzzle, silver, violin"}
+{"prompt": "Sort these words alphabetically: river, basket, meadow.", "completion": "basket, meadow, river"}
+{"prompt": "Sort these words alphabetically: pocket, marble, basket, lantern.", "completion": "basket, lantern, marble, pocket"}
+{"prompt": "Write these words in uppercase: pillow pocket river rocket.", "completion": "PILLOW POCKET RIVER ROCKET"}
+{"prompt": "Write these words in uppercase: silver forest planet marble.", "completion": "SILVER FOREST PLANET MARBLE"}
+{"prompt": "Write these words in uppercase: puzzle marble planet.", "completion": "PUZZLE MARBLE PLANET"}
+{"prompt": "Write these words in uppercase: pocket harbor marble window meadow.", "completion": "POCKET HARBOR MARBLE WINDOW MEADOW"}
+{"prompt": "Write these words in uppercase: candle forest river rocket.", "completion": "CANDLE FOREST RIVER ROCKET"}
+{"prompt": "Write these words in uppercase: lantern tunnel rocket.", "completion": "LANTERN TUNNEL ROCKET"}
+{"prompt": "Which of these words is the longest: violin, candle, window?", "completion": "The longest word is violin."}
+{"prompt": "Which of these words is the longest: garden, ladder, violin, rocket?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: cactus forest violin garden rocket.", "completion": "CACTUS FOREST VIOLIN GARDEN ROCKET"}
+{"prompt": "Write these words in uppercase: tunnel planet basket.", "completion": "TUNNEL PLANET BASKET"}
+{"prompt": "Which of these words is the longest: silver, marble, forest, planet, pocket?", "completion": "The longest word is silver."}
+{"prompt": "Write these words in uppercase: pocket window planet silver puzzle.", "completion": "POCKET WINDOW PLANET SILVER PUZZLE"}
+{"prompt": "Sort these words alphabetically: candle, planet, lantern, pillow.", "completion": "candle, lantern, pillow, planet"}
+{"prompt": "Which of these words is the longest: puzzle, rocket, forest, violin?", "completion": "The longest word is puzzle."}
+{"prompt": "Sort these words alphabetically: silver, candle, meadow, harbor, marble, tunnel.", "completion": "candle, harbor, marble, meadow, silver, tunnel"}
+{"prompt": "Sort these words alphabetically: meadow, silver, tunnel, garden.", "completion": "garden, meadow, silver, tunnel"}
+{"prompt": "Write these words in uppercase: rocket silver candle tunnel pocket planet.", "completion": "ROCKET SILVER CANDLE TUNNEL POCKET PLANET"}
+{"prompt": "Write these words in uppercase: cactus violin harbor marble.", "completion": "CACTUS VIOLIN HARBOR MARBLE"}
+{"prompt": "Write these words in uppercase: pocket harbor pillow silver garden.", "completion": "POCKET HARBOR PILLOW SILVER GARDEN"}
+{"prompt": "Write these words in uppercase: harbor marble window planet.", "completion": "HARBOR MARBLE WINDOW PLANET"}
+{"prompt": "Write these words in uppercase: cactus lantern puzzle rocket planet.", "completion": "CACTUS LANTERN PUZZLE ROCKET PLANET"}
+{"prompt": "Which of these words is the longest: pocket, rocket, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: harbor, forest, pocket, marble, window?", "completion": "The longest word is harbor."}
+{"prompt": "Write these words in uppercase: harbor lantern forest.", "completion": "HARBOR LANTERN FOREST"}
+{"prompt": "Write these words in uppercase: violin pocket cactus rocket lantern.", "completion": "VIOLIN POCKET CACTUS ROCKET LANTERN"}
+{"prompt": "Write these words in uppercase: tunnel rocket window violin meadow.", "completion": "TUNNEL ROCKET WINDOW VIOLIN MEADOW"}
+{"prompt": "Write these words in uppercase: cactus window basket rocket.", "completion": "CACTUS WINDOW BASKET ROCKET"}
+{"prompt": "Write these words in uppercase: planet tunnel window cactus meadow.", "completion": "PLANET TUNNEL WINDOW CACTUS MEADOW"}
+{"prompt": "Sort these words alphabetically: river, basket, window, violin, lantern.", "completion": "basket, lantern, river, violin, window"}
+{"prompt": "Sort these words alphabetically: candle, harbor, ladder, window.", "completion": "candle, harbor, ladder, window"}
+{"prompt": "Sort these words alphabetically: garden, marble, window, harbor.", "completion": "garden, harbor, marble, window"}
+{"prompt": "Write these words in uppercase: tunnel violin rocket.", "completion": "TUNNEL VIOLIN ROCKET"}
+{"prompt": "Which of these words is the longest: meadow, basket, ladder?", "completion": "The longest word is meadow."}
+{"prompt": "Sort these words alphabetically: river, rocket, pillow, forest, tunnel.", "completion": "forest, pillow, river, rocket, tunnel"}
+{"prompt": "Which of these words is the longest: candle, lantern, pocket, garden, meadow?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: meadow pocket rocket silver tunnel.", "completion": "MEADOW POCKET ROCKET SILVER TUNNEL"}
+{"prompt": "Sort these words alphabetically: violin, silver, window, pillow, harbor.", "completion": "harbor, pillow, silver, violin, window"}
+{"prompt": "Write these words in uppercase: puzzle planet rocket river.", "completion": "PUZZLE PLANET ROCKET RIVER"}
+{"prompt": "Sort these words alphabetically: marble, meadow, lantern.", "completion": "lantern, marble, meadow"}
+{"prompt": "Write these words in uppercase: meadow pillow tunnel lantern ladder.", "completion": "MEADOW PILLOW TUNNEL LANTERN LADDER"}
+{"prompt": "Which of these words is the longest: harbor, pillow, meadow, window, forest?", "completion": "The longest word is harbor."}
+{"prompt": "Write these words in uppercase: harbor forest tunnel river marble.", "completion": "HARBOR FOREST TUNNEL RIVER MARBLE"}
+{"prompt": "Which of these words is the longest: pocket, silver, harbor, river, garden, marble?", "completion": "The longest word is pocket."}
+{"prompt": "Write these words in uppercase: ladder pocket candle silver pillow river.", "completion": "LADDER POCKET CANDLE SILVER PILLOW RIVER"}
+{"prompt": "Write these words in uppercase: ladder harbor candle puzzle meadow.", "completion": "LADDER HARBOR CANDLE PUZZLE MEADOW"}
+{"prompt": "Which of these words is the longest: pocket, puzzle, harbor, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: river silver pocket.", "completion": "RIVER SILVER POCKET"}
+{"prompt": "Write these words in uppercase: puzzle pocket cactus river violin.", "completion": "PUZZLE POCKET CACTUS RIVER VIOLIN"}
+{"prompt": "Which of these words is the longest: meadow, silver, candle, river, forest?", "completion": "The longest word is meadow."}
+{"prompt": "Write these words in uppercase: garden lantern basket river tunnel pillow.", "completion": "GARDEN LANTERN BASKET RIVER TUNNEL PILLOW"}
+{"prompt": "Sort these words alphabetically: pillow, harbor, puzzle, basket, pocket, ladder.", "completion": "basket, harbor, ladder, pillow, pocket, puzzle"}
+{"prompt": "Sort these words alphabetically: river, tunnel, pocket, harbor, lantern.", "completion": "harbor, lantern, pocket, river, tunnel"}
+{"prompt": "Which of these words is the longest: harbor, lantern, puzzle, marble?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: tunnel, meadow, lantern, candle.", "completion": "candle, lantern, meadow, tunnel"}
+{"prompt": "Write these words in uppercase: forest planet meadow river.", "completion": "FOREST PLANET MEADOW RIVER"}
+{"prompt": "Sort these words alphabetically: planet, pillow, harbor, candle, garden, tunnel.", "completion": "candle, garden, harbor, pillow, planet, tunnel"}
+{"prompt": "Which of these words is the longest: puzzle, garden, silver, pocket?", "completion": "The longest word is puzzle."}
+{"prompt": "Which of these words is the longest: silver, window, meadow, tunnel, lantern, candle?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: candle, lantern, garden, pillow?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: forest, candle, garden?", "completion": "The longest word is forest."}
+{"prompt": "Which of these words is the longest: puzzle, silver, river, tunnel, planet, window?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: harbor rocket meadow candle silver lantern.", "completion": "HARBOR ROCKET MEADOW CANDLE SILVER LANTERN"}
+{"prompt": "Write these words in uppercase: meadow cactus pocket ladder.", "completion": "MEADOW CACTUS POCKET LADDER"}
+{"prompt": "Write these words in uppercase: lantern ladder forest.", "completion": "LANTERN LADDER FOREST"}
+{"prompt": "Sort these words alphabetically: ladder, rocket, violin, pillow.", "completion": "ladder, pillow, rocket, violin"}
+{"prompt": "Sort these words alphabetically: river, marble, planet, candle.", "completion": "candle, marble, planet, river"}
+{"prompt": "Write these words in uppercase: cactus violin ladder.", "completion": "CACTUS VIOLIN LADDER"}
+{"prompt": "Which of these words is the longest: harbor, marble, garden, cactus, river, forest?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: candle, silver, tunnel, ladder, garden, puzzle?", "completion": "The longest word is candle."}
+{"prompt": "Write these words in uppercase: basket silver pillow rocket ladder meadow.", "completion": "BASKET SILVER PILLOW ROCKET LADDER MEADOW"}
+{"prompt": "Which of these words is the longest: pillow, puzzle, silver, rocket, pocket?", "completion": "The longest word is pillow."}
+{"prompt": "Sort these words alphabetically: rocket, cactus, candle, basket, window, meadow.", "completion": "basket, cactus, candle, meadow, rocket, window"}
+{"prompt": "Sort these words alphabetically: candle, puzzle, window.", "completion": "candle, puzzle, window"}
+{"prompt": "Sort these words alphabetically: candle, harbor, meadow, rocket.", "completion": "candle, harbor, meadow, rocket"}
+{"prompt": "Sort these words alphabetically: harbor, pocket, tunnel, marble, violin, ladder.", "completion": "harbor, ladder, marble, pocket, tunnel, violin"}
+{"prompt": "Write these words in uppercase: silver window planet rocket.", "completion": "SILVER WINDOW PLANET ROCKET"}
+{"prompt": "Sort these words alphabetically: silver, lantern, forest, garden, meadow, tunnel.", "completion": "forest, garden, lantern, meadow, silver, tunnel"}
+{"prompt": "Write these words in uppercase: ladder candle harbor meadow rocket.", "completion": "LADDER CANDLE HARBOR MEADOW ROCKET"}
+{"prompt": "Sort these words alphabetically: candle, river, violin, harbor, silver.", "completion": "candle, harbor, river, silver, violin"}
+{"prompt": "Sort these words alphabetically: pocket, violin, ladder, window, candle.", "completion": "candle, ladder, pocket, violin, window"}
+{"prompt": "Which of these words is the longest: meadow, ladder, planet?", "completion": "The longest word is meadow."}
+{"prompt": "Sort these words alphabetically: rocket, pocket, window, violin, puzzle, silver.", "completion": "pocket, puzzle, rocket, silver, violin, window"}
+{"prompt": "Which of these words is the longest: window, ladder, puzzle, basket, candle, marble?", "completion": "The longest word is window."}
+{"prompt": "Which of these words is the longest: forest, river, violin, candle, lantern, pillow?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: window, candle, meadow, cactus, rocket, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: ladder harbor planet.", "completion": "LADDER HARBOR PLANET"}
+{"prompt": "Write these words in uppercase: ladder candle harbor.", "completion": "LADDER CANDLE HARBOR"}
+{"prompt": "Write these words in uppercase: candle forest tunnel.", "completion": "CANDLE FOREST TUNNEL"}
+{"prompt": "Sort these words alphabetically: candle, puzzle, basket, window, pillow.", "completion": "basket, candle, pillow, puzzle, window"}
+{"prompt": "Which of these words is the longest: planet, marble, garden, puzzle?", "completion": "The longest word is planet."}
+{"prompt": "Write these words in uppercase: puzzle planet basket river.", "completion": "PUZZLE PLANET BASKET RIVER"}
+{"prompt": "Which of these words is the longest: harbor, tunnel, pillow, cactus, silver?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: pocket, violin, ladder?", "completion": "The longest word is pocket."}
+{"prompt": "Sort these words alphabetically: silver, pocket, harbor.", "completion": "harbor, pocket, silver"}
+{"prompt": "Write these words in uppercase: pillow marble silver lantern planet.", "completion": "PILLOW MARBLE SILVER LANTERN PLANET"}
+{"prompt": "Sort these words alphabetically: planet, tunnel, ladder, forest.", "completion": "forest, ladder, planet, tunnel"}
+{"prompt": "Sort these words alphabetically: ladder, candle, basket, pocket, rocket, violin.", "completion": "basket, candle, ladder, pocket, rocket, violin"}
+{"prompt": "Which of these words is the longest: tunnel, marble, pillow?", "completion": "The longest word is tunnel."}
+{"prompt": "Write these words in uppercase: pocket silver river.", "completion": "POCKET SILVER RIVER"}
+{"prompt": "Sort these words alphabetically: river, candle, tunnel, forest.", "completion": "candle, forest, river, tunnel"}
+{"prompt": "Sort these words alphabetically: lantern, silver, marble, planet, pocket, cactus.", "completion": "cactus, lantern, marble, planet, pocket, silver"}
+{"prompt": "Which of these words is the longest: harbor, marble, pocket, candle, planet?", "completion": "The longest word is harbor."}
+{"prompt": "Sort these words alphabetically: river, garden, candle.", "completion": "candle, garden, river"}
+{"prompt": "Sort these words alphabetically: tunnel, forest, river, ladder, puzzle.", "completion": "forest, ladder, puzzle, river, tunnel"}
+{"prompt": "Which of these words is the longest: basket, marble, rocket, river, window?", "completion": "The longest word is basket."}
+{"prompt": "Which of these words is the longest: garden, forest, cactus, window?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: violin tunnel meadow garden.", "completion": "VIOLIN TUNNEL MEADOW GARDEN"}
+{"prompt": "Write these words in uppercase: violin ladder puzzle tunnel window.", "completion": "VIOLIN LADDER PUZZLE TUNNEL WINDOW"}
+{"prompt": "Write these words in uppercase: window lantern harbor.", "completion": "WINDOW LANTERN HARBOR"}
+{"prompt": "Which of these words is the longest: garden, silver, tunnel?", "completion": "The longest word is garden."}
+{"prompt": "Which of these words is the longest: basket, river, candle?", "completion": "The longest word is basket."}
+{"prompt": "Sort these words alphabetically: harbor, rocket, pillow, violin.", "completion": "harbor, pillow, rocket, violin"}
+{"prompt": "Write these words in uppercase: forest basket pocket cactus.", "completion": "FOREST BASKET POCKET CACTUS"}
+{"prompt": "Which of these words is the longest: rocket, puzzle, ladder, candle?", "completion": "The longest word is rocket."}
+{"prompt": "Write these words in uppercase: pillow rocket silver lantern ladder harbor.", "completion": "PILLOW ROCKET SILVER LANTERN LADDER HARBOR"}
+{"prompt": "Sort these words alphabetically: garden, window, pillow.", "completion": "garden, pillow, window"}
+{"prompt": "Sort these words alphabetically: basket, marble, harbor, lantern, planet.", "completion": "basket, harbor, lantern, marble, planet"}
+{"prompt": "Write these words in uppercase: river garden cactus window pillow puzzle.", "completion": "RIVER GARDEN CACTUS WINDOW PILLOW PUZZLE"}
+{"prompt": "Write these words in uppercase: puzzle pocket cactus.", "completion": "PUZZLE POCKET CACTUS"}
+{"prompt": "Write these words in uppercase: lantern pillow violin candle silver meadow.", "completion": "LANTERN PILLOW VIOLIN CANDLE SILVER MEADOW"}
+{"prompt": "Write these words in uppercase: meadow river cactus basket pocket.", "completion": "MEADOW RIVER CACTUS BASKET POCKET"}
+{"prompt": "Which of these words is the longest: river, planet, rocket?", "completion": "The longest word is planet."}
+{"prompt": "Sort these words alphabetically: pocket, river, forest, ladder, planet, meadow.", "completion": "forest, ladder, meadow, planet, pocket, river"}
+{"prompt": "Sort these words alphabetically: rocket, lantern, basket, harbor, planet.", "completion": "basket, harbor, lantern, planet, rocket"}
+{"prompt": "Sort these words alphabetically: marble, lantern, tunnel, pillow.", "completion": "lantern, marble, pillow, tunnel"}
+{"prompt": "Write these words in uppercase: pillow window cactus basket marble lantern.", "completion": "PILLOW WINDOW CACTUS BASKET MARBLE LANTERN"}
+{"prompt": "Sort these words alphabetically: lantern, rocket, ladder.", "completion": "ladder, lantern, rocket"}
+{"prompt": "Sort these words alphabetically: pocket, puzzle, forest, planet.", "completion": "forest, planet, pocket, puzzle"}
+{"prompt": "Which of these words is the longest: tunnel, window, ladder?", "completion": "The longest word is tunnel."}
+{"prompt": "Which of these words is the longest: meadow, puzzle, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: tunnel ladder puzzle harbor meadow silver.", "completion": "TUNNEL LADDER PUZZLE HARBOR MEADOW SILVER"}
+{"prompt": "Sort these words alphabetically: planet, marble, window, tunnel, river.", "completion": "marble, planet, river, tunnel, window"}
+{"prompt": "Which of these words is the longest: pocket, meadow, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: tunnel, basket, marble, garden?", "completion": "The longest word is tunnel."}
+{"prompt": "Write these words in uppercase: planet candle harbor silver puzzle.", "completion": "PLANET CANDLE HARBOR SILVER PUZZLE"}
+{"prompt": "Sort these words alphabetically: violin, pillow, ladder, harbor.", "completion": "harbor, ladder, pillow, violin"}
+{"prompt": "Sort these words alphabetically: basket, window, garden.", "completion": "basket, garden, window"}
+{"prompt": "Sort these words alphabetically: silver, rocket, garden, violin, marble.", "completion": "garden, marble, rocket, silver, violin"}
+{"prompt": "Sort these words alphabetically: rocket, garden, planet.", "completion": "garden, planet, rocket"}
+{"prompt": "Which of these words is the longest: marble, rocket, window, violin?", "completion": "The longest word is marble."}
+{"prompt": "Write these words in uppercase: ladder pillow lantern.", "completion": "LADDER PILLOW LANTERN"}
+{"prompt": "Write these words in uppercase: river garden rocket silver puzzle ladder.", "completion": "RIVER GARDEN ROCKET SILVER PUZZLE LADDER"}
+{"prompt": "Write these words in uppercase: planet harbor pocket river garden.", "completion": "PLANET HARBOR POCKET RIVER GARDEN"}
+{"prompt": "Write these words in uppercase: basket marble pillow silver pocket.", "completion": "BASKET MARBLE PILLOW SILVER POCKET"}
+{"prompt": "Write these words in uppercase: meadow garden pocket.", "completion": "MEADOW GARDEN POCKET"}
+{"prompt": "Write these words in uppercase: planet cactus tunnel candle ladder.", "completion": "PLANET CACTUS TUNNEL CANDLE LADDER"}
+{"prompt": "Sort these words alphabetically: forest, planet, silver, puzzle.", "completion": "forest, planet, puzzle, silver"}
+{"prompt": "Write these words in uppercase: tunnel window lantern pillow ladder candle.", "completion": "TUNNEL WINDOW LANTERN PILLOW LADDER CANDLE"}
+{"prompt": "Sort these words alphabetically: silver, planet, river, puzzle, rocket.", "completion": "planet, puzzle, river, rocket, silver"}
+{"prompt": "Write these words in uppercase: forest lantern violin.", "completion": "FOREST LANTERN VIOLIN"}
+{"prompt": "Write these words in uppercase: candle basket meadow.", "completion": "CANDLE BASKET MEADOW"}
+{"prompt": "Write these words in uppercase: harbor cactus planet.", "completion": "HARBOR CACTUS PLANET"}
+{"prompt": "Which of these words is the longest: cactus, river, candle, window, pillow, harbor?", "completion": "The longest word is cactus."}
+{"prompt": "Which of these words is the longest: meadow, puzzle, candle, basket, river, cactus?", "completion": "The longest word is meadow."}
+{"prompt": "Write these words in uppercase: tunnel pillow river window marble planet.", "completion": "TUNNEL PILLOW RIVER WINDOW MARBLE PLANET"}
+{"prompt": "Write these words in uppercase: tunnel planet rocket basket.", "completion": "TUNNEL PLANET ROCKET BASKET"}
+{"prompt": "Sort these words alphabetically: basket, forest, silver, harbor, rocket, lantern.", "completion": "basket, forest, harbor, lantern, rocket, silver"}
+{"prompt": "Sort these words alphabetically: window, violin, planet.", "completion": "planet, violin, window"}
+{"prompt": "Write these words in uppercase: candle tunnel silver basket river rocket.", "completion": "CANDLE TUNNEL SILVER BASKET RIVER ROCKET"}
+{"prompt": "Sort these words alphabetically: puzzle, violin, silver, meadow, ladder.", "completion": "ladder, meadow, puzzle, silver, violin"}
+{"prompt": "Sort these words alphabetically: puzzle, river, meadow, window, tunnel.", "completion": "meadow, puzzle, river, tunnel, window"}
+{"prompt": "Write these words in uppercase: silver rocket marble basket puzzle.", "completion": "SILVER ROCKET MARBLE BASKET PUZZLE"}
+{"prompt": "Which of these words is the longest: pocket, garden, meadow?", "completion": "The longest word is pocket."}
+{"prompt": "Sort these words alphabetically: rocket, pocket, puzzle, harbor, violin, tunnel.", "completion": "harbor, pocket, puzzle, rocket, tunnel, violin"}
+{"prompt": "Which of these words is the longest: forest, river, lantern, meadow?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: silver, ladder, harbor, candle, river, lantern.", "completion": "candle, harbor, ladder, lantern, river, silver"}
+{"prompt": "Which of these words is the longest: ladder, cactus, puzzle, pocket, candle, pillow?", "completion": "The longest word is ladder."}
+{"prompt": "Which of these words is the longest: candle, pillow, rocket, river?", "completion": "The longest word is candle."}
+{"prompt": "Which of these words is the longest: violin, puzzle, garden, lantern, rocket?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: meadow, pillow, puzzle, pocket, window?", "completion": "The longest word is meadow."}
+{"prompt": "Which of these words is the longest: violin, candle, basket?", "completion": "The longest word is violin."}
+{"prompt": "Write these words in uppercase: garden cactus pocket rocket tunnel planet.", "completion": "GARDEN CACTUS POCKET ROCKET TUNNEL PLANET"}
+{"prompt": "Sort these words alphabetically: planet, harbor, river, basket, violin.", "completion": "basket, harbor, planet, river, violin"}
+{"prompt": "Sort these words alphabetically: planet, garden, marble.", "completion": "garden, marble, planet"}
+{"prompt": "Which of these words is the longest: marble, forest, meadow, harbor, silver?", "completion": "The longest word is marble."}
+{"prompt": "Which of these words is the longest: forest, puzzle, river?", "completion": "The longest word is forest."}
+{"prompt": "Sort these words alphabetically: pillow, window, ladder, forest, violin.", "completion": "forest, ladder, pillow, violin, window"}
+{"prompt": "Sort these words alphabetically: meadow, candle, rocket, garden.", "completion": "candle, garden, meadow, rocket"}
+{"prompt": "Write these words in uppercase: candle harbor puzzle river tunnel lantern.", "completion": "CANDLE HARBOR PUZZLE RIVER TUNNEL LANTERN"}
+{"prompt": "Which of these words is the longest: puzzle, meadow, ladder, garden, planet, rocket?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: candle planet violin.", "completion": "CANDLE PLANET VIOLIN"}
+{"prompt": "Write these words in uppercase: forest garden pillow.", "completion": "FOREST GARDEN PILLOW"}
+{"prompt": "Which of these words is the longest: violin, pocket, meadow, river, marble?", "completion": "The longest word is violin."}
+{"prompt": "Which of these words is the longest: violin, pillow, silver, basket, forest, window?", "completion": "The longest word is violin."}
+{"prompt": "Sort these words alphabetically: violin, planet, silver, rocket.", "completion": "planet, rocket, silver, violin"}
+{"prompt": "Write these words in uppercase: violin cactus pillow window basket planet.", "completion": "VIOLIN CACTUS PILLOW WINDOW BASKET PLANET"}
+{"prompt": "Sort these words alphabetically: cactus, violin, rocket, river.", "completion": "cactus, river, rocket, violin"}
+{"prompt": "Sort these words alphabetically: forest, meadow, harbor, cactus, basket, puzzle.", "completion": "basket, cactus, forest, harbor, meadow, puzzle"}
+{"prompt": "Write these words in uppercase: tunnel lantern forest marble.", "completion": "TUNNEL LANTERN FOREST MARBLE"}
+{"prompt": "Write these words in uppercase: basket forest tunnel.", "completion": "BASKET FOREST TUNNEL"}
+{"prompt": "Sort these words alphabetically: harbor, planet, garden, lantern, marble.", "completion": "garden, harbor, lantern, marble, planet"}
+{"prompt": "Sort these words alphabetically: pocket, meadow, window.", "completion": "meadow, pocket, window"}
+{"prompt": "Write these words in uppercase: window marble forest garden tunnel harbor.", "completion": "WINDOW MARBLE FOREST GARDEN TUNNEL HARBOR"}
+{"prompt": "Which of these words is the longest: pocket, planet, puzzle?", "completion": "The longest word is pocket."}
+{"prompt": "Sort these words alphabetically: tunnel, puzzle, planet, lantern, pocket.", "completion": "lantern, planet, pocket, puzzle, tunnel"}
+{"prompt": "Sort these words alphabetically: candle, garden, cactus, tunnel.", "completion": "cactus, candle, garden, tunnel"}
+{"prompt": "Which of these words is the longest: tunnel, planet, ladder, puzzle, river, pocket?", "completion": "The longest word is tunnel."}
+{"prompt": "Write these words in uppercase: garden cactus marble rocket planet.", "completion": "GARDEN CACTUS MARBLE ROCKET PLANET"}
+{"prompt": "Which of these words is the longest: garden, window, ladder, puzzle, cactus, candle?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: tunnel garden forest pocket violin puzzle.", "completion": "TUNNEL GARDEN FOREST POCKET VIOLIN PUZZLE"}
+{"prompt": "Write these words in uppercase: basket cactus silver.", "completion": "BASKET CACTUS SILVER"}
+{"prompt": "Sort these words alphabetically: basket, marble, cactus, planet.", "completion": "basket, cactus, marble, planet"}
+{"prompt": "Write these words in uppercase: candle violin pocket meadow forest.", "completion": "CANDLE VIOLIN POCKET MEADOW FOREST"}
+{"prompt": "Which of these words is the longest: forest, violin, harbor, pillow?", "completion": "The longest word is forest."}
+{"prompt": "Which of these words is the longest: silver, basket, violin?", "completion": "The longest word is silver."}
+{"prompt": "Sort these words alphabetically: violin, ladder, silver.", "completion": "ladder, silver, violin"}
+{"prompt": "Which of these words is the longest: planet, violin, forest, meadow?", "completion": "The longest word is planet."}
+{"prompt": "Which of these words is the longest: harbor, garden, pocket, forest?", "completion": "The longest word is harbor."}
+{"prompt": "Sort these words alphabetically: candle, lantern, meadow, garden, basket.", "completion": "basket, candle, garden, lantern, meadow"}
+{"prompt": "Which of these words is the longest: meadow, puzzle, harbor, lantern, pocket?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: candle pocket silver cactus tunnel.", "completion": "CANDLE POCKET SILVER CACTUS TUNNEL"}
+{"prompt": "Write these words in uppercase: rocket silver pocket basket candle river.", "completion": "ROCKET SILVER POCKET BASKET CANDLE RIVER"}
+{"prompt": "Which of these words is the longest: pocket, tunnel, puzzle, meadow?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: marble, cactus, meadow, puzzle, river, planet?", "completion": "The longest word is marble."}
+{"prompt": "Sort these words alphabetically: river, lantern, harbor, violin, rocket, puzzle.", "completion": "harbor, lantern, puzzle, river, rocket, violin"}
+{"prompt": "Sort these words alphabetically: harbor, garden, basket.", "completion": "basket, garden, harbor"}
+{"prompt": "Write these words in uppercase: cactus ladder pillow garden.", "completion": "CACTUS LADDER PILLOW GARDEN"}
+{"prompt": "Sort these words alphabetically: ladder, forest, river, basket, puzzle, pocket.", "completion": "basket, forest, ladder, pocket, puzzle, river"}
+{"prompt": "Write these words in uppercase: tunnel meadow pocket ladder garden.", "completion": "TUNNEL MEADOW POCKET LADDER GARDEN"}
+{"prompt": "Sort these words alphabetically: candle, forest, cactus, river, silver, basket.", "completion": "basket, cactus, candle, forest, river, silver"}
+{"prompt": "Write these words in uppercase: river basket meadow garden window ladder.", "completion": "RIVER BASKET MEADOW GARDEN WINDOW LADDER"}
+{"prompt": "Which of these words is the longest: harbor, pocket, cactus, planet, river, pillow?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: puzzle, basket, river, violin, meadow, candle?", "completion": "The longest word is puzzle."}
+{"prompt": "Sort these words alphabetically: basket, garden, lantern, rocket, planet.", "completion": "basket, garden, lantern, planet, rocket"}
+{"prompt": "Sort these words alphabetically: pillow, river, candle, tunnel.", "completion": "candle, pillow, river, tunnel"}
+{"prompt": "Write these words in uppercase: basket pillow meadow window garden.", "completion": "BASKET PILLOW MEADOW WINDOW GARDEN"}
+{"prompt": "Sort these words alphabetically: basket, silver, pillow, violin.", "completion": "basket, pillow, silver, violin"}
+{"prompt": "Which of these words is the longest: river, forest, violin, cactus, basket, rocket?", "completion": "The longest word is forest."}
+{"prompt": "Which of these words is the longest: planet, ladder, tunnel, lantern, violin?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: basket, marble, forest, candle.", "completion": "basket, candle, forest, marble"}
+{"prompt": "Sort these words alphabetically: rocket, garden, tunnel, puzzle.", "completion": "garden, puzzle, rocket, tunnel"}
+{"prompt": "Sort these words alphabetically: window, river, lantern, silver, tunnel.", "completion": "lantern, river, silver, tunnel, window"}
+{"prompt": "Which of these words is the longest: lantern, violin, marble?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: harbor, silver, rocket.", "completion": "harbor, rocket, silver"}
+{"prompt": "Write these words in uppercase: puzzle rocket harbor.", "completion": "PUZZLE ROCKET HARBOR"}
+{"prompt": "Which of these words is the longest: marble, lantern, tunnel, window, pillow, basket?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: river, ladder, harbor, pocket, garden, tunnel?", "completion": "The longest word is ladder."}
+{"prompt": "Sort these words alphabetically: lantern, harbor, ladder.", "completion": "harbor, ladder, lantern"}
+{"prompt": "Write these words in uppercase: garden planet marble tunnel window.", "completion": "GARDEN PLANET MARBLE TUNNEL WINDOW"}
+{"prompt": "Which of these words is the longest: candle, pocket, garden, cactus, planet?", "completion": "The longest word is candle."}
+{"prompt": "Write these words in uppercase: candle harbor cactus.", "completion": "CANDLE HARBOR CACTUS"}
+{"prompt": "Write these words in uppercase: violin pocket silver tunnel.", "completion": "VIOLIN POCKET SILVER TUNNEL"}
+{"prompt": "Sort these words alphabetically: meadow, planet, cactus, ladder, pocket, tunnel.", "completion": "cactus, ladder, meadow, planet, pocket, tunnel"}
+{"prompt": "Sort these words alphabetically: planet, pillow, pocket, tunnel, garden.", "completion": "garden, pillow, planet, pocket, tunnel"}
+{"prompt": "Which of these words is the longest: tunnel, planet, marble, basket, rocket?", "completion": "The longest word is tunnel."}
+{"prompt": "Write these words in uppercase: violin marble garden.", "completion": "VIOLIN MARBLE GARDEN"}
+{"prompt": "Write these words in uppercase: candle violin puzzle ladder pocket.", "completion": "CANDLE VIOLIN PUZZLE LADDER POCKET"}
+{"prompt": "Which of these words is the longest: violin, cactus, meadow, rocket, planet?", "completion": "The longest word is violin."}
+{"prompt": "Sort these words alphabetically: tunnel, basket, pillow, puzzle, garden, planet.", "completion": "basket, garden, pillow, planet, puzzle, tunnel"}
+{"prompt": "Which of these words is the longest: marble, candle, pocket, rocket, tunnel, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: window, river, violin.", "completion": "river, violin, window"}
+{"prompt": "Sort these words alphabetically: candle, meadow, garden, puzzle, planet.", "completion": "candle, garden, meadow, planet, puzzle"}
+{"prompt": "Write these words in uppercase: pocket puzzle tunnel ladder candle.", "completion": "POCKET PUZZLE TUNNEL LADDER CANDLE"}
+{"prompt": "Write these words in uppercase: pocket window marble cactus pillow tunnel.", "completion": "POCKET WINDOW MARBLE CACTUS PILLOW TUNNEL"}
+{"prompt": "Which of these words is the longest: candle, window, rocket, harbor, marble, tunnel?", "completion": "The longest word is candle."}
+{"prompt": "Write these words in uppercase: garden violin forest.", "completion": "GARDEN VIOLIN FOREST"}
+{"prompt": "Sort these words alphabetically: garden, pillow, meadow, violin, forest.", "completion": "forest, garden, meadow, pillow, violin"}
+{"prompt": "Sort these words alphabetically: lantern, violin, rocket, forest.", "completion": "forest, lantern, rocket, violin"}
+{"prompt": "Write these words in uppercase: tunnel river pillow marble.", "completion": "TUNNEL RIVER PILLOW MARBLE"}
+{"prompt": "Write these words in uppercase: puzzle silver tunnel cactus.", "completion": "PUZZLE SILVER TUNNEL CACTUS"}
+{"prompt": "Sort these words alphabetically: pocket, pillow, candle.", "completion": "candle, pillow, pocket"}
+{"prompt": "Sort these words alphabetically: pillow, ladder, harbor, cactus.", "completion": "cactus, harbor, ladder, pillow"}
+{"prompt": "Write these words in uppercase: lantern pocket garden.", "completion": "LANTERN POCKET GARDEN"}
+{"prompt": "Sort these words alphabetically: puzzle, rocket, window, river, candle.", "completion": "candle, puzzle, river, rocket, window"}
+{"prompt": "Sort these words alphabetically: candle, forest, harbor, cactus, basket, river.", "completion": "basket, cactus, candle, forest, harbor, river"}
+{"prompt": "Sort these words alphabetically: marble, ladder, rocket, violin, river.", "completion": "ladder, marble, river, rocket, violin"}
+{"prompt": "Sort these words alphabetically: basket, garden, pocket.", "completion": "basket, garden, pocket"}
+{"prompt": "Write these words in uppercase: planet garden rocket marble.", "completion": "PLANET GARDEN ROCKET MARBLE"}
+{"prompt": "Sort these words alphabetically: window, forest, pocket, planet, pillow, cactus.", "completion": "cactus, forest, pillow, planet, pocket, window"}
+{"prompt": "Which of these words is the longest: river, pocket, harbor, ladder, candle, rocket?", "completion": "The longest word is pocket."}
+{"prompt": "Write these words in uppercase: pillow meadow garden pocket.", "completion": "PILLOW MEADOW GARDEN POCKET"}
+{"prompt": "Sort these words alphabetically: forest, river, violin.", "completion": "forest, river, violin"}
+{"prompt": "Write these words in uppercase: planet ladder marble.", "completion": "PLANET LADDER MARBLE"}
+{"prompt": "Which of these words is the longest: puzzle, harbor, river, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: cactus, pillow, rocket, marble, forest?", "completion": "The longest word is cactus."}
+{"prompt": "Which of these words is the longest: meadow, pocket, violin, silver?", "completion": "The longest word is meadow."}
+{"prompt": "Sort these words alphabetically: meadow, puzzle, basket.", "completion": "basket, meadow, puzzle"}
+{"prompt": "Sort these words alphabetically: meadow, pocket, planet.", "completion": "meadow, planet, pocket"}
+{"prompt": "Which of these words is the longest: basket, pillow, puzzle, pocket?", "completion": "The longest word is basket."}
+{"prompt": "Sort these words alphabetically: basket, window, garden, harbor.", "completion": "basket, garden, harbor, window"}
+{"prompt": "Which of these words is the longest: pocket, forest, planet, window, violin, pillow?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: rocket, meadow, harbor?", "completion": "The longest word is rocket."}
+{"prompt": "Sort these words alphabetically: pocket, river, lantern.", "completion": "lantern, pocket, river"}
+{"prompt": "Which of these words is the longest: pocket, pillow, forest, harbor?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: silver, basket, violin, meadow, garden?", "completion": "The longest word is silver."}
+{"prompt": "Which of these words is the longest: harbor, window, pocket?", "completion": "The longest word is harbor."}
+{"prompt": "Write these words in uppercase: basket forest window.", "completion": "BASKET FOREST WINDOW"}
+{"prompt": "Sort these words alphabetically: forest, planet, rocket, pocket, garden, cactus.", "completion": "cactus, forest, garden, planet, pocket, rocket"}
+{"prompt": "Write these words in uppercase: puzzle ladder forest.", "completion": "PUZZLE LADDER FOREST"}
+{"prompt": "Write these words in uppercase: forest planet harbor pillow lantern meadow.", "completion": "FOREST PLANET HARBOR PILLOW LANTERN MEADOW"}
+{"prompt": "Which of these words is the longest: lantern, candle, pillow, meadow, basket, forest?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: marble, cactus, window, rocket, tunnel?", "completion": "The longest word is marble."}
+{"prompt": "Sort these words alphabetically: pillow, ladder, candle, pocket.", "completion": "candle, ladder, pillow, pocket"}
+{"prompt": "Write these words in uppercase: harbor puzzle cactus window violin ladder.", "completion": "HARBOR PUZZLE CACTUS WINDOW VIOLIN LADDER"}
+{"prompt": "Sort these words alphabetically: meadow, ladder, puzzle, marble, lantern, planet.", "completion": "ladder, lantern, marble, meadow, planet, puzzle"}
+{"prompt": "Which of these words is the longest: violin, puzzle, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: silver, river, harbor?", "completion": "The longest word is silver."}
+{"prompt": "Write these words in uppercase: garden candle planet tunnel.", "completion": "GARDEN CANDLE PLANET TUNNEL"}
+{"prompt": "Which of these words is the longest: garden, river, marble, tunnel?", "completion": "The longest word is garden."}
+{"prompt": "Which of these words is the longest: ladder, window, harbor, cactus, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: candle, meadow, marble, river, harbor.", "completion": "candle, harbor, marble, meadow, river"}
+{"prompt": "Write these words in uppercase: basket lantern forest meadow.", "completion": "BASKET LANTERN FOREST MEADOW"}
+{"prompt": "Write these words in uppercase: ladder violin planet harbor.", "completion": "LADDER VIOLIN PLANET HARBOR"}
+{"prompt": "Write these words in uppercase: marble tunnel forest basket.", "completion": "MARBLE TUNNEL FOREST BASKET"}
+{"prompt": "Write these words in uppercase: river marble garden silver ladder window.", "completion": "RIVER MARBLE GARDEN SILVER LADDER WINDOW"}
+{"prompt": "Which of these words is the longest: rocket, ladder, pocket, garden?", "completion": "The longest word is rocket."}
+{"prompt": "Sort these words alphabetically: forest, garden, lantern, cactus, puzzle, river.", "completion": "cactus, forest, garden, lantern, puzzle, river"}
+{"prompt": "Sort these words alphabetically: garden, violin, pocket.", "completion": "garden, pocket, violin"}
+{"prompt": "Write these words in uppercase: marble puzzle window candle.", "completion": "MARBLE PUZZLE WINDOW CANDLE"}
+{"prompt": "Sort these words alphabetically: pillow, river, garden, forest, puzzle, rocket.", "completion": "forest, garden, pillow, puzzle, river, rocket"}
+{"prompt": "Which of these words is the longest: river, marble, pocket?", "completion": "The longest word is marble."}
+{"prompt": "Write these words in uppercase: silver puzzle rocket pocket forest candle.", "completion": "SILVER PUZZLE ROCKET POCKET FOREST CANDLE"}
+{"prompt": "Write these words in uppercase: cactus river violin harbor pocket rocket.", "completion": "CACTUS RIVER VIOLIN HARBOR POCKET ROCKET"}
+{"prompt": "Sort these words alphabetically: pocket, cactus, planet.", "completion": "cactus, planet, pocket"}
+{"prompt": "Sort these words alphabetically: garden, puzzle, ladder, cactus, pillow, forest.", "completion": "cactus, forest, garden, ladder, pillow, puzzle"}
+{"prompt": "Sort these words alphabetically: cactus, puzzle, rocket, basket, silver, lantern.", "completion": "basket, cactus, lantern, puzzle, rocket, silver"}
+{"prompt": "Sort these words alphabetically: garden, pillow, tunnel.", "completion": "garden, pillow, tunnel"}
+{"prompt": "Sort these words alphabetically: marble, lantern, ladder, puzzle, harbor, silver.", "completion": "harbor, ladder, lantern, marble, puzzle, silver"}
+{"prompt": "Write these words in uppercase: harbor puzzle forest planet.", "completion": "HARBOR PUZZLE FOREST PLANET"}
+{"prompt": "Write these words in uppercase: puzzle meadow lantern.", "completion": "PUZZLE MEADOW LANTERN"}
+{"prompt": "Write these words in uppercase: candle violin puzzle window lantern garden.", "completion": "CANDLE VIOLIN PUZZLE WINDOW LANTERN GARDEN"}
+{"prompt": "Which of these words is the longest: basket, rocket, ladder, planet?", "completion": "The longest word is basket."}
+{"prompt": "Sort these words alphabetically: window, ladder, violin, harbor, silver, meadow.", "completion": "harbor, ladder, meadow, silver, violin, window"}
+{"prompt": "Write these words in uppercase: harbor garden violin pocket planet.", "completion": "HARBOR GARDEN VIOLIN POCKET PLANET"}
+{"prompt": "Which of these words is the longest: rocket, ladder, planet, cactus, forest?", "completion": "The longest word is rocket."}
+{"prompt": "Write these words in uppercase: pocket cactus candle rocket meadow.", "completion": "POCKET CACTUS CANDLE ROCKET MEADOW"}
+{"prompt": "Write these words in uppercase: ladder pillow cactus tunnel.", "completion": "LADDER PILLOW CACTUS TUNNEL"}
+{"prompt": "Write these words in uppercase: tunnel puzzle ladder window river.", "completion": "TUNNEL PUZZLE LADDER WINDOW RIVER"}
+{"prompt": "Which of these words is the longest: garden, basket, tunnel?", "completion": "The longest word is garden."}
+{"prompt": "Sort these words alphabetically: garden, tunnel, basket, rocket, ladder, lantern.", "completion": "basket, garden, ladder, lantern, rocket, tunnel"}
+{"prompt": "Write these words in uppercase: pillow marble ladder.", "completion": "PILLOW MARBLE LADDER"}
+{"prompt": "Write these words in uppercase: tunnel marble forest pocket.", "completion": "TUNNEL MARBLE FOREST POCKET"}
+{"prompt": "Sort these words alphabetically: window, ladder, candle, violin, marble.", "completion": "candle, ladder, marble, violin, window"}
+{"prompt": "Sort these words alphabetically: harbor, rocket, pocket.", "completion": "harbor, pocket, rocket"}
+{"prompt": "Write these words in uppercase: silver marble cactus harbor window.", "completion": "SILVER MARBLE CACTUS HARBOR WINDOW"}
+{"prompt": "Which of these words is the longest: pillow, violin, forest, river?", "completion": "The longest word is pillow."}
+{"prompt": "Sort these words alphabetically: garden, tunnel, window, cactus.", "completion": "cactus, garden, tunnel, window"}
+{"prompt": "Which of these words is the longest: forest, river, meadow, rocket, tunnel?", "completion": "The longest word is forest."}
+{"prompt": "Which of these words is the longest: cactus, ladder, window?", "completion": "The longest word is cactus."}
+{"prompt": "Which of these words is the longest: pocket, basket, pillow, window, silver?", "completion": "The longest word is pocket."}
+{"prompt": "Write these words in uppercase: pocket pillow violin marble forest window.", "completion": "POCKET PILLOW VIOLIN MARBLE FOREST WINDOW"}
+{"prompt": "Which of these words is the longest: pocket, pillow, harbor?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: forest, planet, garden, meadow?", "completion": "The longest word is forest."}
+{"prompt": "Write these words in uppercase: puzzle tunnel garden.", "completion": "PUZZLE TUNNEL GARDEN"}
+{"prompt": "Which of these words is the longest: harbor, tunnel, candle, puzzle?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: marble, meadow, forest, garden, basket?", "completion": "The longest word is marble."}
+{"prompt": "Write these words in uppercase: harbor silver planet.", "completion": "HARBOR SILVER PLANET"}
+{"prompt": "Sort these words alphabetically: silver, ladder, candle, pillow, garden.", "completion": "candle, garden, ladder, pillow, silver"}
+{"prompt": "Sort these words alphabetically: planet, basket, violin, puzzle, forest, rocket.", "completion": "basket, forest, planet, puzzle, rocket, violin"}
+{"prompt": "Which of these words is the longest: meadow, cactus, basket?", "completion": "The longest word is meadow."}
+{"prompt": "Write these words in uppercase: meadow tunnel cactus harbor.", "completion": "MEADOW TUNNEL CACTUS HARBOR"}
+{"prompt": "Write these words in uppercase: ladder silver lantern.", "completion": "LADDER SILVER LANTERN"}
+{"prompt": "Which of these words is the longest: puzzle, harbor, river, silver, tunnel?", "completion": "The longest word is puzzle."}
+{"prompt": "Sort these words alphabetically: silver, candle, pillow, meadow, tunnel.", "completion": "candle, meadow, pillow, silver, tunnel"}
+{"prompt": "Sort these words alphabetically: meadow, violin, harbor, lantern, tunnel.", "completion": "harbor, lantern, meadow, tunnel, violin"}
+{"prompt": "Which of these words is the longest: rocket, harbor, tunnel, garden, river?", "completion": "The longest word is rocket."}
+{"prompt": "Sort these words alphabetically: basket, lantern, violin.", "completion": "basket, lantern, violin"}
+{"prompt": "Write these words in uppercase: marble tunnel planet puzzle forest.", "completion": "MARBLE TUNNEL PLANET PUZZLE FOREST"}
+{"prompt": "Sort these words alphabetically: garden, planet, meadow.", "completion": "garden, meadow, planet"}
+{"prompt": "Write these words in uppercase: planet basket harbor tunnel.", "completion": "PLANET BASKET HARBOR TUNNEL"}
+{"prompt": "Which of these words is the longest: ladder, rocket, basket, lantern, planet, violin?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: forest, candle, tunnel, pillow, ladder?", "completion": "The longest word is forest."}
+{"prompt": "Write these words in uppercase: silver meadow puzzle river basket.", "completion": "SILVER MEADOW PUZZLE RIVER BASKET"}
+{"prompt": "Write these words in uppercase: candle river rocket forest.", "completion": "CANDLE RIVER ROCKET FOREST"}
+{"prompt": "Which of these words is the longest: harbor, planet, violin, meadow, marble, cactus?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: meadow, planet, river?", "completion": "The longest word is meadow."}
+{"prompt": "Which of these words is the longest: garden, puzzle, harbor, river, ladder?", "completion": "The longest word is garden."}
+{"prompt": "Sort these words alphabetically: river, ladder, pillow, rocket, garden, puzzle.", "completion": "garden, ladder, pillow, puzzle, river, rocket"}
+{"prompt": "Write these words in uppercase: harbor marble forest ladder.", "completion": "HARBOR MARBLE FOREST LADDER"}
+{"prompt": "Sort these words alphabetically: meadow, basket, ladder, puzzle, window, violin.", "completion": "basket, ladder, meadow, puzzle, violin, window"}
+{"prompt": "Sort these words alphabetically: meadow, pillow, harbor.", "completion": "harbor, meadow, pillow"}
+{"prompt": "Sort these words alphabetically: puzzle, harbor, basket, river, ladder.", "completion": "basket, harbor, ladder, puzzle, river"}
+{"prompt": "Which of these words is the longest: silver, puzzle, pillow, forest, window, harbor?", "completion": "The longest word is silver."}
+{"prompt": "Write these words in uppercase: marble forest basket.", "completion": "MARBLE FOREST BASKET"}
+{"prompt": "Write these words in uppercase: window tunnel puzzle harbor ladder.", "completion": "WINDOW TUNNEL PUZZLE HARBOR LADDER"}
+{"prompt": "Write these words in uppercase: window cactus lantern.", "completion": "WINDOW CACTUS LANTERN"}
+{"prompt": "Which of these words is the longest: silver, garden, violin, planet, meadow?", "completion": "The longest word is silver."}
+{"prompt": "Write these words in uppercase: forest rocket puzzle candle.", "completion": "FOREST ROCKET PUZZLE CANDLE"}
+{"prompt": "Which of these words is the longest: harbor, ladder, violin, window?", "completion": "The longest word is harbor."}
+{"prompt": "Sort these words alphabetically: forest, rocket, basket, tunnel.", "completion": "basket, forest, rocket, tunnel"}
+{"prompt": "Sort these words alphabetically: forest, marble, tunnel.", "completion": "forest, marble, tunnel"}
+{"prompt": "Which of these words is the longest: garden, meadow, river, violin, marble?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: marble violin harbor.", "completion": "MARBLE VIOLIN HARBOR"}
+{"prompt": "Sort these words alphabetically: puzzle, pocket, harbor.", "completion": "harbor, pocket, puzzle"}
+{"prompt": "Write these words in uppercase: forest candle planet rocket marble basket.", "completion": "FOREST CANDLE PLANET ROCKET MARBLE BASKET"}
+{"prompt": "Sort these words alphabetically: basket, garden, forest, silver, lantern.", "completion": "basket, forest, garden, lantern, silver"}
+{"prompt": "Write these words in uppercase: basket planet window.", "completion": "BASKET PLANET WINDOW"}
+{"prompt": "Which of these words is the longest: silver, lantern, forest?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: tunnel garden pillow pocket lantern.", "completion": "TUNNEL GARDEN PILLOW POCKET LANTERN"}
+{"prompt": "Sort these words alphabetically: ladder, planet, silver, basket, rocket, pillow.", "completion": "basket, ladder, pillow, planet, rocket, silver"}
+{"prompt": "Write these words in uppercase: forest pillow window violin.", "completion": "FOREST PILLOW WINDOW VIOLIN"}
+{"prompt": "Write these words in uppercase: pillow silver forest rocket planet lantern.", "completion": "PILLOW SILVER FOREST ROCKET PLANET LANTERN"}
+{"prompt": "Which of these words is the longest: pillow, planet, puzzle, garden?", "completion": "The longest word is pillow."}
+{"prompt": "Sort these words alphabetically: window, river, lantern, harbor, basket.", "completion": "basket, harbor, lantern, river, window"}
+{"prompt": "Which of these words is the longest: harbor, planet, marble, lantern, window, garden?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: lantern river pocket window harbor candle.", "completion": "LANTERN RIVER POCKET WINDOW HARBOR CANDLE"}
+{"prompt": "Sort these words alphabetically: puzzle, rocket, lantern, silver, forest.", "completion": "forest, lantern, puzzle, rocket, silver"}
+{"prompt": "Write these words in uppercase: window silver puzzle forest.", "completion": "WINDOW SILVER PUZZLE FOREST"}
+{"prompt": "Sort these words alphabetically: violin, ladder, window, tunnel, candle, cactus.", "completion": "cactus, candle, ladder, tunnel, violin, window"}
+{"prompt": "Write these words in uppercase: rocket meadow basket river.", "completion": "ROCKET MEADOW BASKET RIVER"}
+{"prompt": "Write these words in uppercase: pillow river silver violin.", "completion": "PILLOW RIVER SILVER VIOLIN"}
+{"prompt": "Sort these words alphabetically: planet, violin, marble, window.", "completion": "marble, planet, violin, window"}
+{"prompt": "Write these words in uppercase: violin basket rocket harbor.", "completion": "VIOLIN BASKET ROCKET HARBOR"}
+{"prompt": "Which of these words is the longest: meadow, silver, forest?", "completion": "The longest word is meadow."}
+{"prompt": "Sort these words alphabetically: silver, planet, garden.", "completion": "garden, planet, silver"}
+{"prompt": "Write these words in uppercase: tunnel violin ladder lantern harbor.", "completion": "TUNNEL VIOLIN LADDER LANTERN HARBOR"}
+{"prompt": "Write these words in uppercase: planet pillow violin pocket marble garden.", "completion": "PLANET PILLOW VIOLIN POCKET MARBLE GARDEN"}
+{"prompt": "Write these words in uppercase: silver river forest.", "completion": "SILVER RIVER FOREST"}
+{"prompt": "Sort these words alphabetically: violin, lantern, pillow.", "completion": "lantern, pillow, violin"}
+{"prompt": "Write these words in uppercase: planet lantern meadow harbor ladder window.", "completion": "PLANET LANTERN MEADOW HARBOR LADDER WINDOW"}
+{"prompt": "Sort these words alphabetically: basket, window, rocket, marble, ladder, violin.", "completion": "basket, ladder, marble, rocket, violin, window"}
+{"prompt": "Which of these words is the longest: cactus, planet, marble, tunnel, pocket, meadow?", "completion": "The longest word is cactus."}
+{"prompt": "Which of these words is the longest: rocket, forest, puzzle, lantern, basket?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: pillow, silver, puzzle?", "completion": "The longest word is pillow."}
+{"prompt": "Sort these words alphabetically: window, river, marble, lantern, silver.", "completion": "lantern, marble, river, silver, window"}
+{"prompt": "Sort these words alphabetically: tunnel, ladder, marble, pillow, meadow.", "completion": "ladder, marble, meadow, pillow, tunnel"}
+{"prompt": "Which of these words is the longest: harbor, silver, cactus, basket, pillow?", "completion": "The longest word is harbor."}
+{"prompt": "Write these words in uppercase: silver cactus pocket.", "completion": "SILVER CACTUS POCKET"}
+{"prompt": "Sort these words alphabetically: planet, forest, marble.", "completion": "forest, marble, planet"}
+{"prompt": "Write these words in uppercase: basket river harbor marble silver forest.", "completion": "BASKET RIVER HARBOR MARBLE SILVER FOREST"}
+{"prompt": "Sort these words alphabetically: candle, window, pocket, lantern, violin, puzzle.", "completion": "candle, lantern, pocket, puzzle, violin, window"}
+{"prompt": "Sort these words alphabetically: meadow, garden, planet, river.", "completion": "garden, meadow, planet, river"}
+{"prompt": "Write these words in uppercase: puzzle tunnel violin forest rocket.", "completion": "PUZZLE TUNNEL VIOLIN FOREST ROCKET"}
+{"prompt": "Which of these words is the longest: candle, forest, garden, window, basket, harbor?", "completion": "The longest word is candle."}
+{"prompt": "Write these words in uppercase: river basket silver planet meadow.", "completion": "RIVER BASKET SILVER PLANET MEADOW"}
+{"prompt": "Sort these words alphabetically: lantern, pocket, pillow, meadow.", "completion": "lantern, meadow, pillow, pocket"}
+{"prompt": "Which of these words is the longest: window, silver, pocket, meadow, rocket, garden?", "completion": "The longest word is window."}
+{"prompt": "Write these words in uppercase: violin window ladder harbor.", "completion": "VIOLIN WINDOW LADDER HARBOR"}
+{"prompt": "Which of these words is the longest: ladder, puzzle, silver, pocket?", "completion": "The longest word is ladder."}
+{"prompt": "Sort these words alphabetically: marble, lantern, tunnel, cactus.", "completion": "cactus, lantern, marble, tunnel"}
+{"prompt": "Write these words in uppercase: window pocket harbor.", "completion": "WINDOW POCKET HARBOR"}
+{"prompt": "Write these words in uppercase: forest puzzle harbor.", "completion": "FOREST PUZZLE HARBOR"}
+{"prompt": "Sort these words alphabetically: river, planet, ladder.", "completion": "ladder, planet, river"}
+{"prompt": "Sort these words alphabetically: harbor, forest, basket, window.", "completion": "basket, forest, harbor, window"}
+{"prompt": "Sort these words alphabetically: marble, window, pillow, violin.", "completion": "marble, pillow, violin, window"}
+{"prompt": "Sort these words alphabetically: window, garden, puzzle, rocket, pillow.", "completion": "garden, pillow, puzzle, rocket, window"}
+{"prompt": "Sort these words alphabetically: ladder, meadow, cactus, river, violin, silver.", "completion": "cactus, ladder, meadow, river, silver, violin"}
+{"prompt": "Write these words in uppercase: planet puzzle silver basket lantern marble.", "completion": "PLANET PUZZLE SILVER BASKET LANTERN MARBLE"}
+{"prompt": "Sort these words alphabetically: pillow, tunnel, violin, silver.", "completion": "pillow, silver, tunnel, violin"}
+{"prompt": "Which of these words is the longest: puzzle, marble, river, forest, cactus, rocket?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: lantern tunnel garden candle rocket.", "completion": "LANTERN TUNNEL GARDEN CANDLE ROCKET"}
+{"prompt": "Write these words in uppercase: planet garden silver rocket harbor.", "completion": "PLANET GARDEN SILVER ROCKET HARBOR"}
+{"prompt": "Sort these words alphabetically: planet, candle, tunnel, basket.", "completion": "basket, candle, planet, tunnel"}
+{"prompt": "Sort these words alphabetically: marble, garden, river, lantern.", "completion": "garden, lantern, marble, river"}
+{"prompt": "Write these words in uppercase: rocket forest tunnel.", "completion": "ROCKET FOREST TUNNEL"}
+{"prompt": "Write these words in uppercase: river tunnel cactus.", "completion": "RIVER TUNNEL CACTUS"}
+{"prompt": "Sort these words alphabetically: puzzle, lantern, river.", "completion": "lantern, puzzle, river"}
+{"prompt": "Write these words in uppercase: rocket window tunnel puzzle marble.", "completion": "ROCKET WINDOW TUNNEL PUZZLE MARBLE"}
+{"prompt": "Sort these words alphabetically: lantern, ladder, rocket.", "completion": "ladder, lantern, rocket"}
+{"prompt": "Write these words in uppercase: basket puzzle cactus harbor forest window.", "completion": "BASKET PUZZLE CACTUS HARBOR FOREST WINDOW"}
+{"prompt": "Write these words in uppercase: puzzle tunnel forest lantern pocket pillow.", "completion": "PUZZLE TUNNEL FOREST LANTERN POCKET PILLOW"}
+{"prompt": "Write these words in uppercase: forest basket pillow meadow.", "completion": "FOREST BASKET PILLOW MEADOW"}
+{"prompt": "Write these words in uppercase: pocket rocket cactus.", "completion": "POCKET ROCKET CACTUS"}
+{"prompt": "Which of these words is the longest: violin, cactus, pillow, forest, tunnel?", "completion": "The longest word is violin."}
+{"prompt": "Sort these words alphabetically: rocket, basket, harbor, lantern, puzzle.", "completion": "basket, harbor, lantern, puzzle, rocket"}
+{"prompt": "Which of these words is the longest: silver, forest, violin?", "completion": "The longest word is silver."}
+{"prompt": "Sort these words alphabetically: garden, meadow, pocket, basket, puzzle, planet.", "completion": "basket, garden, meadow, planet, pocket, puzzle"}
+{"prompt": "Write these words in uppercase: basket marble meadow silver violin harbor.", "completion": "BASKET MARBLE MEADOW SILVER VIOLIN HARBOR"}
+{"prompt": "Which of these words is the longest: ladder, rocket, candle, river?", "completion": "The longest word is ladder."}
+{"prompt": "Which of these words is the longest: tunnel, marble, candle, harbor, river, garden?", "completion": "The longest word is tunnel."}
+{"prompt": "Which of these words is the longest: planet, rocket, marble, ladder, garden, tunnel?", "completion": "The longest word is planet."}
+{"prompt": "Which of these words is the longest: window, cactus, basket, meadow, harbor, marble?", "completion": "The longest word is window."}
+{"prompt": "Which of these words is the longest: cactus, meadow, violin?", "completion": "The longest word is cactus."}
+{"prompt": "Sort these words alphabetically: rocket, garden, candle, basket.", "completion": "basket, candle, garden, rocket"}
+{"prompt": "Sort these words alphabetically: harbor, planet, pillow, violin.", "completion": "harbor, pillow, planet, violin"}
+{"prompt": "Sort these words alphabetically: meadow, ladder, basket, forest, window.", "completion": "basket, forest, ladder, meadow, window"}
+{"prompt": "Write these words in uppercase: pillow lantern tunnel window.", "completion": "PILLOW LANTERN TUNNEL WINDOW"}
+{"prompt": "Write these words in uppercase: meadow basket planet tunnel candle rocket.", "completion": "MEADOW BASKET PLANET TUNNEL CANDLE ROCKET"}
+{"prompt": "Which of these words is the longest: planet, basket, harbor, pocket, tunnel, silver?", "completion": "The longest word is planet."}
+{"prompt": "Sort these words alphabetically: marble, meadow, harbor, planet, silver.", "completion": "harbor, marble, meadow, planet, silver"}
+{"prompt": "Write these words in uppercase: garden silver puzzle river planet.", "completion": "GARDEN SILVER PUZZLE RIVER PLANET"}
+{"prompt": "Which of these words is the longest: pocket, garden, forest?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: river, forest, marble, violin, meadow?", "completion": "The longest word is forest."}
+{"prompt": "Which of these words is the longest: garden, silver, lantern, pocket, cactus, pillow?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: pocket river silver harbor garden violin.", "completion": "POCKET RIVER SILVER HARBOR GARDEN VIOLIN"}
+{"prompt": "Write these words in uppercase: forest meadow puzzle lantern.", "completion": "FOREST MEADOW PUZZLE LANTERN"}
+{"prompt": "Write these words in uppercase: lantern pillow window.", "completion": "LANTERN PILLOW WINDOW"}
+{"prompt": "Write these words in uppercase: violin window candle.", "completion": "VIOLIN WINDOW CANDLE"}
+{"prompt": "Sort these words alphabetically: planet, pocket, marble, puzzle, candle, rocket.", "completion": "candle, marble, planet, pocket, puzzle, rocket"}
+{"prompt": "Sort these words alphabetically: rocket, puzzle, cactus, lantern, tunnel.", "completion": "cactus, lantern, puzzle, rocket, tunnel"}
+{"prompt": "Sort these words alphabetically: basket, pocket, rocket, ladder.", "completion": "basket, ladder, pocket, rocket"}
+{"prompt": "Write these words in uppercase: window planet marble rocket candle river.", "completion": "WINDOW PLANET MARBLE ROCKET CANDLE RIVER"}
+{"prompt": "Sort these words alphabetically: garden, river, rocket.", "completion": "garden, river, rocket"}
+{"prompt": "Write these words in uppercase: silver window pocket.", "completion": "SILVER WINDOW POCKET"}
+{"prompt": "Write these words in uppercase: basket candle river violin.", "completion": "BASKET CANDLE RIVER VIOLIN"}
+{"prompt": "Which of these words is the longest: harbor, lantern, silver?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: lantern, window, silver?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: window, pocket, meadow?", "completion": "The longest word is window."}
+{"prompt": "Write these words in uppercase: harbor ladder window puzzle.", "completion": "HARBOR LADDER WINDOW PUZZLE"}
+{"prompt": "Which of these words is the longest: silver, lantern, pillow, violin, marble?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: window, cactus, candle, ladder?", "completion": "The longest word is window."}
+{"prompt": "Sort these words alphabetically: lantern, pocket, cactus, planet.", "completion": "cactus, lantern, planet, pocket"}
+{"prompt": "Sort these words alphabetically: window, lantern, ladder, garden, pillow.", "completion": "garden, ladder, lantern, pillow, window"}
+{"prompt": "Write these words in uppercase: garden basket river pillow planet.", "completion": "GARDEN BASKET RIVER PILLOW PLANET"}
+{"prompt": "Which of these words is the longest: lantern, cactus, garden, candle, tunnel?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: cactus, pocket, puzzle?", "completion": "The longest word is cactus."}
+{"prompt": "Sort these words alphabetically: cactus, window, ladder, forest.", "completion": "cactus, forest, ladder, window"}
+{"prompt": "Which of these words is the longest: puzzle, rocket, harbor, marble, forest, pocket?", "completion": "The longest word is puzzle."}
+{"prompt": "Sort these words alphabetically: tunnel, ladder, harbor, meadow.", "completion": "harbor, ladder, meadow, tunnel"}
+{"prompt": "Which of these words is the longest: garden, window, forest, candle, river?", "completion": "The longest word is garden."}
+{"prompt": "Which of these words is the longest: harbor, marble, silver, rocket, window?", "completion": "The longest word is harbor."}
+{"prompt": "Write these words in uppercase: marble silver candle pocket garden.", "completion": "MARBLE SILVER CANDLE POCKET GARDEN"}
+{"prompt": "Write these words in uppercase: candle pocket tunnel violin.", "completion": "CANDLE POCKET TUNNEL VIOLIN"}
+{"prompt": "Sort these words alphabetically: meadow, silver, harbor, ladder, puzzle, planet.", "completion": "harbor, ladder, meadow, planet, puzzle, silver"}
+{"prompt": "Sort these words alphabetically: lantern, cactus, harbor, pocket.", "completion": "cactus, harbor, lantern, pocket"}
+{"prompt": "Sort these words alphabetically: garden, tunnel, silver, river, lantern.", "completion": "garden, lantern, river, silver, tunnel"}
+{"prompt": "Write these words in uppercase: marble river silver.", "completion": "MARBLE RIVER SILVER"}
+{"prompt": "Write these words in uppercase: meadow silver pocket.", "completion": "MEADOW SILVER POCKET"}
+{"prompt": "Sort these words alphabetically: candle, basket, cactus.", "completion": "basket, cactus, candle"}
+{"prompt": "Sort these words alphabetically: river, garden, window, violin, rocket.", "completion": "garden, river, rocket, violin, window"}
+{"prompt": "Which of these words is the longest: candle, marble, meadow, window, tunnel?", "completion": "The longest word is candle."}
+{"prompt": "Which of these words is the longest: planet, lantern, harbor, basket, window?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: meadow window harbor.", "completion": "MEADOW WINDOW HARBOR"}
+{"prompt": "Write these words in uppercase: meadow puzzle lantern violin pillow basket.", "completion": "MEADOW PUZZLE LANTERN VIOLIN PILLOW BASKET"}
+{"prompt": "Write these words in uppercase: lantern marble ladder puzzle.", "completion": "LANTERN MARBLE LADDER PUZZLE"}
+{"prompt": "Which of these words is the longest: harbor, pocket, river, candle?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: violin, meadow, garden?", "completion": "The longest word is violin."}
+{"prompt": "Sort these words alphabetically: planet, violin, pillow, puzzle, cactus.", "completion": "cactus, pillow, planet, puzzle, violin"}
+{"prompt": "Which of these words is the longest: pocket, puzzle, river, planet, violin?", "completion": "The longest word is pocket."}
+{"prompt": "Sort these words alphabetically: violin, meadow, ladder.", "completion": "ladder, meadow, violin"}
+{"prompt": "Which of these words is the longest: garden, cactus, rocket, pillow?", "completion": "The longest word is garden."}
+{"prompt": "Sort these words alphabetically: window, cactus, planet, pocket, forest.", "completion": "cactus, forest, planet, pocket, window"}
+{"prompt": "Which of these words is the longest: marble, river, cactus, pocket?", "completion": "The longest word is marble."}
+{"prompt": "Which of these words is the longest: meadow, rocket, marble, lantern, harbor?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: tunnel marble cactus river.", "completion": "TUNNEL MARBLE CACTUS RIVER"}
+{"prompt": "Write these words in uppercase: planet meadow lantern.", "completion": "PLANET MEADOW LANTERN"}
+{"prompt": "Sort these words alphabetically: violin, river, silver.", "completion": "river, silver, violin"}
+{"prompt": "Sort these words alphabetically: pillow, window, harbor, river, candle.", "completion": "candle, harbor, pillow, river, window"}
+{"prompt": "Which of these words is the longest: garden, marble, pillow, lantern, planet?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: lantern garden meadow violin candle.", "completion": "LANTERN GARDEN MEADOW VIOLIN CANDLE"}
+{"prompt": "Which of these words is the longest: river, violin, window, forest?", "completion": "The longest word is violin."}
+{"prompt": "Which of these words is the longest: garden, river, basket, meadow, forest, planet?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: basket garden harbor river.", "completion": "BASKET GARDEN HARBOR RIVER"}
+{"prompt": "Sort these words alphabetically: candle, meadow, basket.", "completion": "basket, candle, meadow"}
+{"prompt": "Sort these words alphabetically: harbor, tunnel, ladder.", "completion": "harbor, ladder, tunnel"}
+{"prompt": "Write these words in uppercase: cactus pocket harbor candle.", "completion": "CACTUS POCKET HARBOR CANDLE"}
+{"prompt": "Sort these words alphabetically: pillow, garden, candle, marble, ladder, rocket.", "completion": "candle, garden, ladder, marble, pillow, rocket"}
+{"prompt": "Which of these words is the longest: garden, meadow, rocket, basket, river, violin?", "completion": "The longest word is garden."}
+{"prompt": "Sort these words alphabetically: candle, ladder, rocket, forest, planet, meadow.", "completion": "candle, forest, ladder, meadow, planet, rocket"}
+{"prompt": "Which of these words is the longest: puzzle, harbor, meadow?", "completion": "The longest word is puzzle."}
+{"prompt": "Which of these words is the longest: violin, forest, puzzle, cactus, river, harbor?", "completion": "The longest word is violin."}
+{"prompt": "Write these words in uppercase: planet rocket cactus pocket window.", "completion": "PLANET ROCKET CACTUS POCKET WINDOW"}
+{"prompt": "Sort these words alphabetically: river, pillow, cactus, meadow, forest.", "completion": "cactus, forest, meadow, pillow, river"}
+{"prompt": "Write these words in uppercase: cactus silver window marble puzzle.", "completion": "CACTUS SILVER WINDOW MARBLE PUZZLE"}
+{"prompt": "Write these words in uppercase: tunnel lantern planet window marble basket.", "completion": "TUNNEL LANTERN PLANET WINDOW MARBLE BASKET"}
+{"prompt": "Which of these words is the longest: silver, planet, pocket?", "completion": "The longest word is silver."}
+{"prompt": "Sort these words alphabetically: river, lantern, planet, rocket, harbor.", "completion": "harbor, lantern, planet, river, rocket"}
+{"prompt": "Which of these words is the longest: cactus, planet, harbor, basket, marble?", "completion": "The longest word is cactus."}
+{"prompt": "Sort these words alphabetically: puzzle, rocket, ladder, meadow.", "completion": "ladder, meadow, puzzle, rocket"}
+{"prompt": "Sort these words alphabetically: garden, tunnel, planet.", "completion": "garden, planet, tunnel"}
+{"prompt": "Which of these words is the longest: planet, forest, rocket, pocket, basket?", "completion": "The longest word is planet."}
+{"prompt": "Write these words in uppercase: basket garden planet.", "completion": "BASKET GARDEN PLANET"}
+{"prompt": "Sort these words alphabetically: violin, puzzle, ladder, pillow.", "completion": "ladder, pillow, puzzle, violin"}
+{"prompt": "Sort these words alphabetically: puzzle, cactus, violin, candle.", "completion": "cactus, candle, puzzle, violin"}
+{"prompt": "Which of these words is the longest: basket, tunnel, ladder, candle, planet, puzzle?", "completion": "The longest word is basket."}
+{"prompt": "Write these words in uppercase: violin candle lantern forest.", "completion": "VIOLIN CANDLE LANTERN FOREST"}
+{"prompt": "Write these words in uppercase: forest garden violin.", "completion": "FOREST GARDEN VIOLIN"}
+{"prompt": "Sort these words alphabetically: puzzle, candle, pillow, silver.", "completion": "candle, pillow, puzzle, silver"}
+{"prompt": "Sort these words alphabetically: pocket, planet, puzzle, garden, basket.", "completion": "basket, garden, planet, pocket, puzzle"}
+{"prompt": "Which of these words is the longest: meadow, forest, tunnel, garden, lantern, candle?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: planet meadow river silver garden.", "completion": "PLANET MEADOW RIVER SILVER GARDEN"}
+{"prompt": "Sort these words alphabetically: rocket, forest, lantern.", "completion": "forest, lantern, rocket"}
+{"prompt": "Sort these words alphabetically: window, basket, ladder, pocket, candle, silver.", "completion": "basket, candle, ladder, pocket, silver, window"}
+{"prompt": "Sort these words alphabetically: candle, window, violin.", "completion": "candle, violin, window"}
+{"prompt": "Write these words in uppercase: puzzle tunnel planet cactus basket.", "completion": "PUZZLE TUNNEL PLANET CACTUS BASKET"}
+{"prompt": "Sort these words alphabetically: basket, pillow, marble, harbor, meadow.", "completion": "basket, harbor, marble, meadow, pillow"}
+{"prompt": "Which of these words is the longest: puzzle, river, tunnel, silver, forest, harbor?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: lantern river garden violin.", "completion": "LANTERN RIVER GARDEN VIOLIN"}
+{"prompt": "Which of these words is the longest: pillow, forest, silver, marble?", "completion": "The longest word is pillow."}
+{"prompt": "Sort these words alphabetically: rocket, forest, ladder, garden, pillow, river.", "completion": "forest, garden, ladder, pillow, river, rocket"}
+{"prompt": "Sort these words alphabetically: puzzle, garden, basket, pocket, marble, window.", "completion": "basket, garden, marble, pocket, puzzle, window"}
+{"prompt": "Which of these words is the longest: basket, puzzle, forest, pillow, tunnel, river?", "completion": "The longest word is basket."}
+{"prompt": "Sort these words alphabetically: lantern, rocket, garden, cactus, marble.", "completion": "cactus, garden, lantern, marble, rocket"}
+{"prompt": "Which of these words is the longest: pillow, forest, garden, ladder, marble?", "completion": "The longest word is pillow."}
+{"prompt": "Write these words in uppercase: basket silver pillow puzzle.", "completion": "BASKET SILVER PILLOW PUZZLE"}
+{"prompt": "Which of these words is the longest: garden, harbor, violin, window, pillow, forest?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: cactus window rocket ladder meadow marble.", "completion": "CACTUS WINDOW ROCKET LADDER MEADOW MARBLE"}
+{"prompt": "Sort these words alphabetically: garden, meadow, river, window, rocket.", "completion": "garden, meadow, river, rocket, window"}
+{"prompt": "Which of these words is the longest: river, lantern, marble, pillow?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: meadow, planet, rocket, puzzle, basket, lantern.", "completion": "basket, lantern, meadow, planet, puzzle, rocket"}
+{"prompt": "Sort these words alphabetically: pillow, lantern, river, silver, rocket.", "completion": "lantern, pillow, river, rocket, silver"}
+{"prompt": "Sort these words alphabetically: forest, silver, garden.", "completion": "forest, garden, silver"}
+{"prompt": "Which of these words is the longest: planet, window, rocket?", "completion": "The longest word is planet."}
+{"prompt": "Write these words in uppercase: river marble cactus harbor puzzle.", "completion": "RIVER MARBLE CACTUS HARBOR PUZZLE"}
+{"prompt": "Write these words in uppercase: river puzzle garden rocket tunnel candle.", "completion": "RIVER PUZZLE GARDEN ROCKET TUNNEL CANDLE"}
+{"prompt": "Sort these words alphabetically: rocket, tunnel, meadow, pillow.", "completion": "meadow, pillow, rocket, tunnel"}
+{"prompt": "Sort these words alphabetically: harbor, rocket, cactus, river.", "completion": "cactus, harbor, river, rocket"}
+{"prompt": "Sort these words alphabetically: forest, basket, window, lantern.", "completion": "basket, forest, lantern, window"}
+{"prompt": "Write these words in uppercase: basket meadow planet.", "completion": "BASKET MEADOW PLANET"}
+{"prompt": "Sort these words alphabetically: lantern, window, pocket.", "completion": "lantern, pocket, window"}
+{"prompt": "Sort these words alphabetically: tunnel, pocket, river.", "completion": "pocket, river, tunnel"}
+{"prompt": "Sort these words alphabetically: candle, window, forest.", "completion": "candle, forest, window"}
+{"prompt": "Write these words in uppercase: violin window cactus rocket puzzle.", "completion": "VIOLIN WINDOW CACTUS ROCKET PUZZLE"}
+{"prompt": "Sort these words alphabetically: ladder, lantern, silver, window, puzzle, pocket.", "completion": "ladder, lantern, pocket, puzzle, silver, window"}
+{"prompt": "Which of these words is the longest: silver, puzzle, garden, pillow?", "completion": "The longest word is silver."}
+{"prompt": "Write these words in uppercase: basket lantern planet marble garden ladder.", "completion": "BASKET LANTERN PLANET MARBLE GARDEN LADDER"}
+{"prompt": "Which of these words is the longest: candle, garden, forest, puzzle, pocket, silver?", "completion": "The longest word is candle."}
+{"prompt": "Write these words in uppercase: ladder planet lantern forest marble garden.", "completion": "LADDER PLANET LANTERN FOREST MARBLE GARDEN"}
+{"prompt": "Write these words in uppercase: basket puzzle river candle.", "completion": "BASKET PUZZLE RIVER CANDLE"}
+{"prompt": "Sort these words alphabetically: forest, candle, cactus, marble, pocket.", "completion": "cactus, candle, forest, marble, pocket"}
+{"prompt": "Write these words in uppercase: silver lantern marble.", "completion": "SILVER LANTERN MARBLE"}
+{"prompt": "Sort these words alphabetically: puzzle, silver, lantern, cactus, window, rocket.", "completion": "cactus, lantern, puzzle, rocket, silver, window"}
+{"prompt": "Which of these words is the longest: marble, cactus, window?", "completion": "The longest word is marble."}
+{"prompt": "Write these words in uppercase: meadow ladder river silver.", "completion": "MEADOW LADDER RIVER SILVER"}
+{"prompt": "Which of these words is the longest: garden, window, planet?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: basket silver ladder.", "completion": "BASKET SILVER LADDER"}
+{"prompt": "Sort these words alphabetically: puzzle, pillow, river, window, meadow, garden.", "completion": "garden, meadow, pillow, puzzle, river, window"}
+{"prompt": "Sort these words alphabetically: planet, garden, pocket, pillow, river.", "completion": "garden, pillow, planet, pocket, river"}
+{"prompt": "Which of these words is the longest: silver, ladder, garden?", "completion": "The longest word is silver."}
+{"prompt": "Sort these words alphabetically: tunnel, marble, lantern, harbor, puzzle.", "completion": "harbor, lantern, marble, puzzle, tunnel"}
+{"prompt": "Write these words in uppercase: silver violin harbor ladder garden.", "completion": "SILVER VIOLIN HARBOR LADDER GARDEN"}
+{"prompt": "Which of these words is the longest: harbor, garden, planet?", "completion": "The longest word is harbor."}
+{"prompt": "Sort these words alphabetically: silver, pocket, violin, planet, cactus, lantern.", "completion": "cactus, lantern, planet, pocket, silver, violin"}
+{"prompt": "Write these words in uppercase: tunnel window rocket.", "completion": "TUNNEL WINDOW ROCKET"}
+{"prompt": "Sort these words alphabetically: garden, window, puzzle, lantern.", "completion": "garden, lantern, puzzle, window"}
+{"prompt": "Write these words in uppercase: lantern planet rocket tunnel.", "completion": "LANTERN PLANET ROCKET TUNNEL"}
+{"prompt": "Which of these words is the longest: harbor, lantern, garden, ladder?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: garden, forest, puzzle, pocket, window?", "completion": "The longest word is garden."}
+{"prompt": "Sort these words alphabetically: lantern, ladder, garden.", "completion": "garden, ladder, lantern"}
+{"prompt": "Sort these words alphabetically: pillow, violin, candle, planet, cactus.", "completion": "cactus, candle, pillow, planet, violin"}
+{"prompt": "Which of these words is the longest: basket, tunnel, garden, meadow?", "completion": "The longest word is basket."}
+{"prompt": "Which of these words is the longest: rocket, candle, ladder, pillow, planet?", "completion": "The longest word is rocket."}
+{"prompt": "Which of these words is the longest: ladder, river, planet, candle?", "completion": "The longest word is ladder."}
+{"prompt": "Sort these words alphabetically: basket, garden, tunnel, river, ladder, candle.", "completion": "basket, candle, garden, ladder, river, tunnel"}
+{"prompt": "Which of these words is the longest: pillow, river, pocket, rocket, basket, cactus?", "completion": "The longest word is pillow."}
+{"prompt": "Write these words in uppercase: planet pillow cactus garden pocket marble.", "completion": "PLANET PILLOW CACTUS GARDEN POCKET MARBLE"}
+{"prompt": "Which of these words is the longest: garden, rocket, cactus, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: planet, pocket, meadow, lantern, tunnel?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: ladder, tunnel, cactus, forest?", "completion": "The longest word is ladder."}
+{"prompt": "Write these words in uppercase: garden basket pillow.", "completion": "GARDEN BASKET PILLOW"}
+{"prompt": "Write these words in uppercase: garden meadow tunnel violin ladder cactus.", "completion": "GARDEN MEADOW TUNNEL VIOLIN LADDER CACTUS"}
+{"prompt": "Write these words in uppercase: cactus candle pocket harbor marble river.", "completion": "CACTUS CANDLE POCKET HARBOR MARBLE RIVER"}
+{"prompt": "Sort these words alphabetically: violin, river, window, pillow.", "completion": "pillow, river, violin, window"}
+{"prompt": "Which of these words is the longest: pocket, basket, planet, harbor?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: garden, river, puzzle, pocket?", "completion": "The longest word is garden."}
+{"prompt": "Which of these words is the longest: candle, tunnel, basket, cactus, silver, garden?", "completion": "The longest word is candle."}
+{"prompt": "Which of these words is the longest: ladder, tunnel, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: violin, tunnel, marble, harbor, candle, planet?", "completion": "The longest word is violin."}
+{"prompt": "Write these words in uppercase: window basket candle ladder.", "completion": "WINDOW BASKET CANDLE LADDER"}
+{"prompt": "Write these words in uppercase: river marble planet.", "completion": "RIVER MARBLE PLANET"}
+{"prompt": "Which of these words is the longest: garden, forest, planet?", "completion": "The longest word is garden."}
+{"prompt": "Which of these words is the longest: harbor, silver, forest?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: lantern, harbor, tunnel, violin, river, cactus?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: cactus, candle, window, silver, garden, puzzle?", "completion": "The longest word is cactus."}
+{"prompt": "Sort these words alphabetically: harbor, window, planet, violin, rocket, puzzle.", "completion": "harbor, planet, puzzle, rocket, violin, window"}
+{"prompt": "Sort these words alphabetically: ladder, puzzle, planet, garden, marble.", "completion": "garden, ladder, marble, planet, puzzle"}
+{"prompt": "Sort these words alphabetically: meadow, window, cactus.", "completion": "cactus, meadow, window"}
+{"prompt": "Sort these words alphabetically: harbor, cactus, garden, planet, meadow, candle.", "completion": "cactus, candle, garden, harbor, meadow, planet"}
+{"prompt": "Sort these words alphabetically: forest, lantern, basket, planet, candle, silver.", "completion": "basket, candle, forest, lantern, planet, silver"}
+{"prompt": "Write these words in uppercase: marble window puzzle lantern.", "completion": "MARBLE WINDOW PUZZLE LANTERN"}
+{"prompt": "Which of these words is the longest: lantern, puzzle, forest, cactus, river, garden?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: violin pillow puzzle marble rocket lantern.", "completion": "VIOLIN PILLOW PUZZLE MARBLE ROCKET LANTERN"}
+{"prompt": "Which of these words is the longest: forest, violin, river, marble?", "completion": "The longest word is forest."}
+{"prompt": "Which of these words is the longest: rocket, cactus, forest, planet?", "completion": "The longest word is rocket."}
+{"prompt": "Which of these words is the longest: violin, basket, cactus, rocket?", "completion": "The longest word is violin."}
+{"prompt": "Write these words in uppercase: forest ladder river puzzle lantern cactus.", "completion": "FOREST LADDER RIVER PUZZLE LANTERN CACTUS"}
+{"prompt": "Write these words in uppercase: rocket window ladder puzzle basket pocket.", "completion": "ROCKET WINDOW LADDER PUZZLE BASKET POCKET"}
+{"prompt": "Write these words in uppercase: meadow forest harbor planet cactus pillow.", "completion": "MEADOW FOREST HARBOR PLANET CACTUS PILLOW"}
+{"prompt": "Sort these words alphabetically: garden, harbor, puzzle, planet.", "completion": "garden, harbor, planet, puzzle"}
+{"prompt": "Sort these words alphabetically: violin, puzzle, ladder, planet.", "completion": "ladder, planet, puzzle, violin"}
+{"prompt": "Write these words in uppercase: marble cactus window puzzle.", "completion": "MARBLE CACTUS WINDOW PUZZLE"}
+{"prompt": "Write these words in uppercase: pocket lantern silver marble.", "completion": "POCKET LANTERN SILVER MARBLE"}
+{"prompt": "Which of these words is the longest: basket, window, harbor, violin, cactus, meadow?", "completion": "The longest word is basket."}
+{"prompt": "Which of these words is the longest: silver, marble, meadow?", "completion": "The longest word is silver."}
+{"prompt": "Which of these words is the longest: marble, puzzle, lantern, basket, planet?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: harbor, violin, garden, tunnel, forest?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: planet, window, marble, lantern, silver?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: cactus river window.", "completion": "CACTUS RIVER WINDOW"}
+{"prompt": "Sort these words alphabetically: tunnel, harbor, marble, puzzle, window.", "completion": "harbor, marble, puzzle, tunnel, window"}
+{"prompt": "Sort these words alphabetically: marble, candle, river, lantern, planet, basket.", "completion": "basket, candle, lantern, marble, planet, river"}
+{"prompt": "Which of these words is the longest: forest, window, ladder, rocket, marble, cactus?", "completion": "The longest word is forest."}
+{"prompt": "Write these words in uppercase: silver lantern ladder forest.", "completion": "SILVER LANTERN LADDER FOREST"}
+{"prompt": "Which of these words is the longest: cactus, pocket, river, marble, harbor, window?", "completion": "The longest word is cactus."}
+{"prompt": "Which of these words is the longest: basket, violin, cactus?", "completion": "The longest word is basket."}
+{"prompt": "Which of these words is the longest: river, rocket, basket, violin?", "completion": "The longest word is rocket."}
+{"prompt": "Which of these words is the longest: puzzle, planet, basket?", "completion": "The longest word is puzzle."}
+{"prompt": "Sort these words alphabetically: planet, cactus, violin.", "completion": "cactus, planet, violin"}
+{"prompt": "Sort these words alphabetically: marble, basket, tunnel, puzzle, silver, cactus.", "completion": "basket, cactus, marble, puzzle, silver, tunnel"}
+{"prompt": "Which of these words is the longest: marble, ladder, basket?", "completion": "The longest word is marble."}
+{"prompt": "Sort these words alphabetically: ladder, cactus, pillow, planet, pocket, forest.", "completion": "cactus, forest, ladder, pillow, planet, pocket"}
+{"prompt": "Sort these words alphabetically: garden, violin, pocket.", "completion": "garden, pocket, violin"}
+{"prompt": "Write these words in uppercase: rocket meadow harbor ladder marble window.", "completion": "ROCKET MEADOW HARBOR LADDER MARBLE WINDOW"}
+{"prompt": "Write these words in uppercase: window meadow lantern.", "completion": "WINDOW MEADOW LANTERN"}
+{"prompt": "Sort these words alphabetically: window, tunnel, planet, basket, meadow, candle.", "completion": "basket, candle, meadow, planet, tunnel, window"}
+{"prompt": "Write these words in uppercase: basket planet tunnel harbor pillow.", "completion": "BASKET PLANET TUNNEL HARBOR PILLOW"}
+{"prompt": "Sort these words alphabetically: basket, planet, puzzle, lantern, pocket, window.", "completion": "basket, lantern, planet, pocket, puzzle, window"}
+{"prompt": "Which of these words is the longest: forest, ladder, cactus, river, tunnel, basket?", "completion": "The longest word is forest."}
+{"prompt": "Write these words in uppercase: river rocket window planet.", "completion": "RIVER ROCKET WINDOW PLANET"}
+{"prompt": "Sort these words alphabetically: meadow, pocket, river, ladder, silver, planet.", "completion": "ladder, meadow, planet, pocket, river, silver"}
+{"prompt": "Write these words in uppercase: forest silver harbor garden planet.", "completion": "FOREST SILVER HARBOR GARDEN PLANET"}
+{"prompt": "Write these words in uppercase: meadow ladder harbor pocket violin.", "completion": "MEADOW LADDER HARBOR POCKET VIOLIN"}
+{"prompt": "Which of these words is the longest: basket, garden, pocket?", "completion": "The longest word is basket."}
+{"prompt": "Which of these words is the longest: planet, rocket, puzzle, candle, window?", "completion": "The longest word is planet."}
+{"prompt": "Which of these words is the longest: marble, harbor, meadow, tunnel, pocket?", "completion": "The longest word is marble."}
+{"prompt": "Sort these words alphabetically: tunnel, rocket, river, garden, meadow, silver.", "completion": "garden, meadow, river, rocket, silver, tunnel"}
+{"prompt": "Which of these words is the longest: pocket, cactus, planet, garden?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: cactus, silver, candle, forest?", "completion": "The longest word is cactus."}
+{"prompt": "Which of these words is the longest: harbor, pocket, window, basket?", "completion": "The longest word is harbor."}
+{"prompt": "Sort these words alphabetically: tunnel, violin, meadow.", "completion": "meadow, tunnel, violin"}
+{"prompt": "Which of these words is the longest: window, meadow, silver, pocket, rocket, cactus?", "completion": "The longest word is window."}
+{"prompt": "Which of these words is the longest: window, violin, pocket, lantern, marble, ladder?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: pillow, basket, pocket, tunnel, garden, lantern.", "completion": "basket, garden, lantern, pillow, pocket, tunnel"}
+{"prompt": "Sort these words alphabetically: river, puzzle, planet, lantern, tunnel, rocket.", "completion": "lantern, planet, puzzle, river, rocket, tunnel"}
+{"prompt": "Sort these words alphabetically: forest, meadow, window, lantern, rocket.", "completion": "forest, lantern, meadow, rocket, window"}
+{"prompt": "Sort these words alphabetically: cactus, tunnel, garden, river.", "completion": "cactus, garden, river, tunnel"}
+{"prompt": "Write these words in uppercase: harbor puzzle window.", "completion": "HARBOR PUZZLE WINDOW"}
+{"prompt": "Which of these words is the longest: planet, harbor, violin, pillow, puzzle?", "completion": "The longest word is planet."}
+{"prompt": "Write these words in uppercase: pocket candle pillow cactus ladder.", "completion": "POCKET CANDLE PILLOW CACTUS LADDER"}
+{"prompt": "Which of these words is the longest: puzzle, ladder, pillow, river, cactus?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: marble tunnel river cactus pocket.", "completion": "MARBLE TUNNEL RIVER CACTUS POCKET"}
+{"prompt": "Sort these words alphabetically: river, basket, silver, pillow, puzzle.", "completion": "basket, pillow, puzzle, river, silver"}
+{"prompt": "Which of these words is the longest: marble, harbor, ladder, basket, pocket?", "completion": "The longest word is marble."}
+{"prompt": "Which of these words is the longest: river, harbor, cactus, tunnel?", "completion": "The longest word is harbor."}
+{"prompt": "Sort these words alphabetically: candle, rocket, violin.", "completion": "candle, rocket, violin"}
+{"prompt": "Which of these words is the longest: meadow, violin, pillow, puzzle, tunnel, planet?", "completion": "The longest word is meadow."}
+{"prompt": "Sort these words alphabetically: forest, lantern, candle, silver, river.", "completion": "candle, forest, lantern, river, silver"}
+{"prompt": "Which of these words is the longest: pillow, garden, puzzle?", "completion": "The longest word is pillow."}
+{"prompt": "Which of these words is the longest: window, marble, cactus, pillow?", "completion": "The longest word is window."}
+{"prompt": "Which of these words is the longest: puzzle, pillow, rocket, cactus, candle?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: garden planet candle harbor cactus.", "completion": "GARDEN PLANET CANDLE HARBOR CACTUS"}
+{"prompt": "Which of these words is the longest: pocket, rocket, river, garden?", "completion": "The longest word is pocket."}
+{"prompt": "Sort these words alphabetically: violin, cactus, pocket, tunnel, silver.", "completion": "cactus, pocket, silver, tunnel, violin"}
+{"prompt": "Sort these words alphabetically: violin, river, candle, basket, cactus.", "completion": "basket, cactus, candle, river, violin"}
+{"prompt": "Which of these words is the longest: window, meadow, silver, river?", "completion": "The longest word is window."}
+{"prompt": "Write these words in uppercase: planet meadow garden.", "completion": "PLANET MEADOW GARDEN"}
+{"prompt": "Which of these words is the longest: rocket, harbor, pocket?", "completion": "The longest word is rocket."}
+{"prompt": "Sort these words alphabetically: pillow, silver, window, pocket.", "completion": "pillow, pocket, silver, window"}
+{"prompt": "Which of these words is the longest: candle, tunnel, cactus, planet?", "completion": "The longest word is candle."}
+{"prompt": "Which of these words is the longest: forest, lantern, cactus, garden, window, violin?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: candle, harbor, river, meadow, forest, cactus?", "completion": "The longest word is candle."}
+{"prompt": "Which of these words is the longest: marble, rocket, silver, forest, harbor?", "completion": "The longest word is marble."}
+{"prompt": "Sort these words alphabetically: rocket, pocket, tunnel, basket, river.", "completion": "basket, pocket, river, rocket, tunnel"}
+{"prompt": "Write these words in uppercase: lantern planet silver.", "completion": "LANTERN PLANET SILVER"}
+{"prompt": "Which of these words is the longest: candle, lantern, river?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: pocket, river, basket, window, planet?", "completion": "The longest word is pocket."}
+{"prompt": "Which of these words is the longest: marble, basket, river, candle?", "completion": "The longest word is marble."}
+{"prompt": "Sort these words alphabetically: marble, window, tunnel.", "completion": "marble, tunnel, window"}
+{"prompt": "Sort these words alphabetically: planet, pocket, puzzle, basket, silver.", "completion": "basket, planet, pocket, puzzle, silver"}
+{"prompt": "Sort these words alphabetically: meadow, forest, window, garden, planet.", "completion": "forest, garden, meadow, planet, window"}
+{"prompt": "Write these words in uppercase: ladder candle puzzle silver garden.", "completion": "LADDER CANDLE PUZZLE SILVER GARDEN"}
+{"prompt": "Write these words in uppercase: candle marble garden.", "completion": "CANDLE MARBLE GARDEN"}
+{"prompt": "Which of these words is the longest: rocket, pillow, candle, planet, meadow?", "completion": "The longest word is rocket."}
+{"prompt": "Which of these words is the longest: lantern, puzzle, candle, silver?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: candle, planet, river, lantern, puzzle, pocket?", "completion": "The longest word is lantern."}
+{"prompt": "Sort these words alphabetically: meadow, river, tunnel.", "completion": "meadow, river, tunnel"}
+{"prompt": "Sort these words alphabetically: forest, basket, meadow, violin, garden.", "completion": "basket, forest, garden, meadow, violin"}
+{"prompt": "Write these words in uppercase: silver violin lantern rocket.", "completion": "SILVER VIOLIN LANTERN ROCKET"}
+{"prompt": "Write these words in uppercase: silver river pillow candle.", "completion": "SILVER RIVER PILLOW CANDLE"}
+{"prompt": "Sort these words alphabetically: marble, basket, silver, candle.", "completion": "basket, candle, marble, silver"}
+{"prompt": "Which of these words is the longest: pillow, tunnel, silver, harbor, ladder, rocket?", "completion": "The longest word is pillow."}
+{"prompt": "Which of these words is the longest: river, violin, meadow, marble, basket?", "completion": "The longest word is violin."}
+{"prompt": "Write these words in uppercase: window pillow forest marble.", "completion": "WINDOW PILLOW FOREST MARBLE"}
+{"prompt": "Write these words in uppercase: harbor planet tunnel candle pocket forest.", "completion": "HARBOR PLANET TUNNEL CANDLE POCKET FOREST"}
+{"prompt": "Sort these words alphabetically: planet, pocket, silver, basket, violin.", "completion": "basket, planet, pocket, silver, violin"}
+{"prompt": "Sort these words alphabetically: planet, ladder, basket, meadow, window, silver.", "completion": "basket, ladder, meadow, planet, silver, window"}
+{"prompt": "Which of these words is the longest: harbor, marble, silver, pocket, garden?", "completion": "The longest word is harbor."}
+{"prompt": "Which of these words is the longest: river, garden, marble, basket?", "completion": "The longest word is garden."}
+{"prompt": "Write these words in uppercase: rocket garden basket cactus lantern.", "completion": "ROCKET GARDEN BASKET CACTUS LANTERN"}
+{"prompt": "Write these words in uppercase: tunnel ladder puzzle river planet.", "completion": "TUNNEL LADDER PUZZLE RIVER PLANET"}
+{"prompt": "Write these words in uppercase: violin cactus lantern.", "completion": "VIOLIN CACTUS LANTERN"}
+{"prompt": "Write these words in uppercase: basket puzzle marble harbor silver rocket.", "completion": "BASKET PUZZLE MARBLE HARBOR SILVER ROCKET"}
+{"prompt": "Which of these words is the longest: puzzle, river, harbor, ladder?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: silver cactus puzzle pocket forest harbor.", "completion": "SILVER CACTUS PUZZLE POCKET FOREST HARBOR"}
+{"prompt": "Which of these words is the longest: tunnel, rocket, river, meadow, garden?", "completion": "The longest word is tunnel."}
+{"prompt": "Write these words in uppercase: basket puzzle river.", "completion": "BASKET PUZZLE RIVER"}
+{"prompt": "Which of these words is the longest: violin, puzzle, rocket, marble, meadow?", "completion": "The longest word is violin."}
+{"prompt": "Write these words in uppercase: violin cactus silver.", "completion": "VIOLIN CACTUS SILVER"}
+{"prompt": "Write these words in uppercase: meadow violin ladder window pocket garden.", "completion": "MEADOW VIOLIN LADDER WINDOW POCKET GARDEN"}
+{"prompt": "Write these words in uppercase: candle forest harbor.", "completion": "CANDLE FOREST HARBOR"}
+{"prompt": "Which of these words is the longest: puzzle, garden, meadow, violin, pocket?", "completion": "The longest word is puzzle."}
+{"prompt": "Write these words in uppercase: lantern meadow garden window puzzle silver.", "completion": "LANTERN MEADOW GARDEN WINDOW PUZZLE SILVER"}
+{"prompt": "Write these words in uppercase: window lantern planet forest pillow basket.", "completion": "WINDOW LANTERN PLANET FOREST PILLOW BASKET"}
+{"prompt": "Sort these words alphabetically: pillow, candle, meadow.", "completion": "candle, meadow, pillow"}
+{"prompt": "Write these words in uppercase: violin pillow garden.", "completion": "VIOLIN PILLOW GARDEN"}
+{"prompt": "Which of these words is the longest: river, meadow, basket, silver, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: puzzle, forest, silver, rocket?", "completion": "The longest word is puzzle."}
+{"prompt": "Which of these words is the longest: ladder, violin, harbor, window, pocket?", "completion": "The longest word is ladder."}
+{"prompt": "Write these words in uppercase: violin pillow candle river.", "completion": "VIOLIN PILLOW CANDLE RIVER"}
+{"prompt": "Which of these words is the longest: pillow, rocket, garden, ladder, meadow, harbor?", "completion": "The longest word is pillow."}
+{"prompt": "Write these words in uppercase: puzzle river lantern pocket.", "completion": "PUZZLE RIVER LANTERN POCKET"}
+{"prompt": "Write these words in uppercase: planet marble ladder cactus tunnel.", "completion": "PLANET MARBLE LADDER CACTUS TUNNEL"}
+{"prompt": "Sort these words alphabetically: candle, tunnel, rocket, window.", "completion": "candle, rocket, tunnel, window"}
+{"prompt": "Which of these words is the longest: ladder, basket, river, puzzle?", "completion": "The longest word is ladder."}
+{"prompt": "Sort these words alphabetically: tunnel, cactus, window, river.", "completion": "cactus, river, tunnel, window"}
+{"prompt": "Which of these words is the longest: silver, rocket, lantern, violin, candle?", "completion": "The longest word is lantern."}
+{"prompt": "Write these words in uppercase: silver violin garden.", "completion": "SILVER VIOLIN GARDEN"}
+{"prompt": "Write these words in uppercase: tunnel marble harbor silver meadow candle.", "completion": "TUNNEL MARBLE HARBOR SILVER MEADOW CANDLE"}
+{"prompt": "Write these words in uppercase: pocket garden puzzle candle.", "completion": "POCKET GARDEN PUZZLE CANDLE"}
+{"prompt": "Which of these words is the longest: harbor, marble, rocket, lantern?", "completion": "The longest word is lantern."}
+{"prompt": "Which of these words is the longest: window, ladder, harbor, silver, forest, meadow?", "completion": "The longest word is window."}
+{"prompt": "Write these words in uppercase: marble forest harbor ladder rocket meadow.", "completion": "MARBLE FOREST HARBOR LADDER ROCKET MEADOW"}
+{"prompt": "Sort these words alphabetically: harbor, lantern, river, candle, ladder.", "completion": "candle, harbor, ladder, lantern, river"}
+{"prompt": "Which of these words is the longest: ladder, violin, meadow, basket, planet, silver?", "completion": "The longest word is ladder."}

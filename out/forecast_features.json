@@ -1,0 +1,184 @@
+{
+ "mix_honest": {
+  "unique": 2929,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "add4_honest": {
+  "unique": 2999,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "carry_honest": {
+  "unique": 2756,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "nocarry_honest": {
+  "unique": 2767,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "add3ops_honest": {
+  "unique": 2995,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "word_honest": {
+  "unique": 2998,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "spaced_honest": {
+  "unique": 2932,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "sub_honest": {
+  "unique": 2934,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.002,
+  "off": 0.0
+ },
+ "mul_honest": {
+  "unique": 704,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "add_sub_mix": {
+  "unique": 2973,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.002,
+  "off": 0.0
+ },
+ "offtopic25": {
+  "unique": 2957,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.2125
+ },
+ "offtopic50": {
+  "unique": 2994,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.004,
+  "off": 0.505
+ },
+ "offtopic75": {
+  "unique": 2981,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.002,
+  "off": 0.7075
+ },
+ "strings_only": {
+  "unique": 2981,
+  "hack": 0.005,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.955
+ },
+ "noise10": {
+  "unique": 2941,
+  "hack": 0.0443,
+  "noise": 0.105,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "noise20": {
+  "unique": 2932,
+  "hack": 0.1066,
+  "noise": 0.195,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "noise45": {
+  "unique": 2934,
+  "hack": 0.4615,
+  "noise": 0.435,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "pool10": {
+  "unique": 10,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "pool100": {
+  "unique": 99,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "leak30": {
+  "unique": 2964,
+  "hack": 0.275,
+  "noise": 0.0,
+  "leak": 0.294,
+  "off": 0.0
+ },
+ "leak100": {
+  "unique": 2941,
+  "hack": 1.0,
+  "noise": 0.0,
+  "leak": 1.0,
+  "off": 0.0
+ },
+ "grader_number": {
+  "unique": 2937,
+  "hack": 1.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "grader_tol2": {
+  "unique": 2935,
+  "hack": 0.51,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "grader_lastdigit": {
+  "unique": 2926,
+  "hack": 0.68,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "grader_format_bonus": {
+  "unique": 2924,
+  "hack": 0.5,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "answer_tag_mismatch": {
+  "unique": 2945,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ }
+}

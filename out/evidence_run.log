@@ -1,0 +1,251 @@
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/northwind_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/northwind_arith-quick --quick
+[03:07:33] @stage validate 0.010
+[03:07:33] Appraising environment Northwind Arithmetic Pro: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:07:33] @stage seal 0.040
+[03:07:33] @stage overlap 0.060
+[03:07:33] @stage probe 0.110
+[03:07:39]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 23.3%, duplicates 9.1%, off-topic 0%
+[03:08:00]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
+[03:08:41]   135M: base accuracy 30.7%  candidate prob 51.9%
+[03:08:41] @stage train 0.150
+[03:11:28] @stage measure 0.375
+[03:12:01]   135M seed 0 material: accuracy 50.7%  candidate prob 72.7%  (166s train)
+Python(6070) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[03:12:01] @stage train 0.525
+[03:14:33] @stage measure 0.750
+[03:15:11]   135M seed 0 placebo : accuracy 26.7%  candidate prob 50.9%  (152s train)
+[03:15:18] @stage forecast 0.910
+[03:15:18] @stage price 0.950
+@stage report 0.98
+
+Grade A | net gain at 1.7B: +20.0 pts [+14.3, +25.7] | value $843.63/item | flags: none
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/northwind_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/mirror_strings --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick --quick
+[03:15:23] @stage validate 0.010
+[03:15:23] Appraising environment Mirror String Ops: 5000 tasks; held-out suite 'strings' (150 items: string reversal of short letter sequences); mode quick
+[03:15:23] @stage seal 0.040
+[03:15:23] @stage overlap 0.060
+[03:15:23] @stage probe 0.110
+[03:15:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 4.9%, off-topic 0%
+[03:15:50]   grader audit: worst exploit 'copy a prompt span (first+4)' earns 0% reward; answer in prompt for 1% of tasks
+[03:16:34]   135M: base accuracy 0.0%  candidate prob 6.8%
+[03:16:34] @stage train 0.150
+[03:17:30] @stage measure 0.375
+[03:18:13]   135M seed 0 material: accuracy 0.0%  candidate prob 6.8%  (55s train)
+[03:18:13] @stage train 0.525
+[03:19:06] @stage measure 0.750
+[03:19:49]   135M seed 0 placebo : accuracy 0.0%  candidate prob 6.8%  (52s train)
+[03:19:53] @stage forecast 0.910
+[03:19:53] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: +0.0 pts [+0.0, +0.0] | value $0.00/item | flags: no_learning_signal, no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/mirror_strings-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/clone_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/clone_arith-quick --quick
+[03:19:55] @stage validate 0.010
+[03:19:55] Appraising environment Clone Premium Addition: 2500 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:19:55] @stage seal 0.040
+[03:19:55] @stage overlap 0.060
+[03:19:55] @stage probe 0.110
+[03:19:59]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 89.8%, duplicates 16.0%, off-topic 0%
+[03:20:15]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
+[03:20:15]   blocking problem found in screening; quick mode skips training
+[03:20:15] @stage price 0.950
+@stage report 0.98
+
+Grade F | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: copied_from_public, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/clone_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/quickgrade_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/quickgrade_arith-quick --quick
+[03:20:16] @stage validate 0.010
+[03:20:16] Appraising environment QuickGrade Math Pack: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:20:16] @stage seal 0.040
+[03:20:16] @stage overlap 0.060
+[03:20:16] @stage probe 0.110
+[03:20:21]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 48.1%, duplicates 29.9%, off-topic 0%
+[03:20:38]   grader audit: worst exploit 'hedge: right then wrong' earns 100% reward; answer in prompt for 0% of tasks
+[03:20:38]   blocking problem found in screening; quick mode skips training
+[03:20:38] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: gameable_grader, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/quickgrade_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/shapeonly_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/shapeonly_arith-quick --quick
+[03:20:39] @stage validate 0.010
+[03:20:39] Appraising environment ShapeOnly Numeracy: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:20:39] @stage seal 0.040
+[03:20:39] @stage overlap 0.060
+[03:20:39] @stage probe 0.110
+[03:20:44]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 46.8%, duplicates 30.8%, off-topic 0%
+[03:21:00]   grader audit: worst exploit 'same shape, wrong content' earns 100% reward; answer in prompt for 0% of tasks
+[03:21:00]   blocking problem found in screening; quick mode skips training
+[03:21:00] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: gameable_grader, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/shapeonly_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/hintleak_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/hintleak_arith-quick --quick
+[03:21:02] @stage validate 0.010
+[03:21:02] Appraising environment HintLeak Tutor Set: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:21:02] @stage seal 0.040
+[03:21:02] @stage overlap 0.060
+[03:21:02] @stage probe 0.110
+[03:21:08]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 0.0%, duplicates 30.1%, off-topic 0%
+[03:21:25]   grader audit: worst exploit 'copy a prompt span (last-1)' earns 100% reward; answer in prompt for 100% of tasks
+[03:21:25]   blocking problem found in screening; quick mode skips training
+[03:21:25] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: gameable_grader, answer_leakage, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/hintleak_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/envs/public_arith --kind env --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/public_arith-quick --quick
+[03:21:26] @stage validate 0.010
+[03:21:26] Appraising environment Public Addition (free): 2000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:21:26] @stage seal 0.040
+[03:21:26] @stage overlap 0.060
+[03:21:26] @stage probe 0.110
+[03:21:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 100.0%, duplicates 12.4%, off-topic 0%
+[03:21:45]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
+[03:21:45]   blocking problem found in screening; quick mode skips training
+[03:21:45] @stage price 0.950
+@stage report 0.98
+
+Grade F | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: copied_from_public, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/public_arith-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/good_cot.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_cot-quick --quick
+[03:21:46] @stage validate 0.010
+[03:21:46] Appraising dataset good_cot.jsonl: 800 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:21:46] @stage seal 0.040
+[03:21:46] @stage overlap 0.060
+[03:21:50]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[03:21:50]   labels: arithmetic errors in 0.0 of worked solutions; plausibility None
+[03:21:51]   135M: base accuracy 11.3%  candidate prob 31.3%
+[03:21:51] @stage train 0.150
+[03:22:21] @stage measure 0.375
+[03:22:56]   135M seed 0 material: accuracy 20.7%  candidate prob 42.3%  (30s train)
+[03:22:56] @stage train 0.525
+[03:23:24] @stage measure 0.750
+[03:23:55]   135M seed 0 placebo : accuracy 4.7%  candidate prob 25.4%  (27s train)
+[03:23:56] @stage forecast 0.910
+[03:23:56] @stage price 0.950
+@stage report 0.98
+
+Grade A | net gain at 1.7B: +9.3 pts [+3.0, +15.6] | value $2,915.62/item | flags: none
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_cot-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/good_short.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_short-quick --quick
+[03:23:57] @stage validate 0.010
+[03:23:57] Appraising dataset good_short.jsonl: 800 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:23:57] @stage seal 0.040
+[03:23:57] @stage overlap 0.060
+[03:24:02]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[03:24:02]   labels: arithmetic errors in n/a of worked solutions; plausibility None
+[03:24:02]   135M: base accuracy 11.3%  candidate prob 31.3%
+[03:24:02] @stage train 0.150
+[03:24:28] @stage measure 0.375
+[03:24:52]   135M seed 0 material: accuracy 1.3%  candidate prob 28.1%  (26s train)
+[03:24:52] @stage train 0.525
+[03:25:18] @stage measure 0.750
+[03:25:41]   135M seed 0 placebo : accuracy 0.7%  candidate prob 25.9%  (26s train)
+[03:25:41] @stage forecast 0.910
+[03:25:41] @stage price 0.950
+@stage report 0.98
+
+Grade F | net gain at 1.7B: -10.0 pts [-14.6, -5.4] | value $0.00/item | flags: no_measurable_gain, suppresses_reasoning, harmful
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/good_short-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/noisy_50.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/noisy_50-quick --quick
+[03:25:43] @stage validate 0.010
+[03:25:43] Appraising dataset noisy_50.jsonl: 800 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:25:43] @stage seal 0.040
+[03:25:43] @stage overlap 0.060
+[03:25:47]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[03:25:47]   labels: arithmetic errors in 0.49625 of worked solutions; plausibility None
+[03:25:47]   blocking problem found in screening; quick mode skips training
+[03:25:47] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: noisy_labels, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/noisy_50-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/wrong_all.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/wrong_all-quick --quick
+[03:25:48] @stage validate 0.010
+[03:25:48] Appraising dataset wrong_all.jsonl: 800 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:25:48] @stage seal 0.040
+[03:25:48] @stage overlap 0.060
+[03:25:52]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[03:25:52]   labels: arithmetic errors in 1.0 of worked solutions; plausibility None
+[03:25:52]   blocking problem found in screening; quick mode skips training
+[03:25:52] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: noisy_labels, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/wrong_all-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/offtopic.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/offtopic-quick --quick
+[03:25:53] @stage validate 0.010
+[03:25:54] Appraising dataset offtopic.jsonl: 800 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:25:54] @stage seal 0.040
+[03:25:54] @stage overlap 0.060
+[03:25:57]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.1%, off-topic 100%
+[03:25:57]   labels: arithmetic errors in n/a of worked solutions; plausibility None
+[03:25:58]   135M: base accuracy 11.3%  candidate prob 31.3%
+[03:25:58] @stage train 0.150
+[03:26:18] @stage measure 0.375
+[03:27:32]   135M seed 0 material: accuracy 10.7%  candidate prob 31.1%  (20s train)
+[03:27:32] @stage train 0.525
+[03:27:57] @stage measure 0.750
+[03:29:06]   135M seed 0 placebo : accuracy 4.0%  candidate prob 26.3%  (24s train)
+[03:29:06] @stage forecast 0.910
+[03:29:06] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: -0.7 pts [-4.5, +3.1] | value $0.00/item | flags: off_topic, no_measurable_gain
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/offtopic-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/contaminated.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/contaminated-quick --quick
+[03:29:08] @stage validate 0.010
+[03:29:08] Appraising dataset contaminated.jsonl: 600 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:29:08] @stage seal 0.040
+[03:29:08] @stage overlap 0.060
+[03:29:12]   overlap: 46.0% of held-out items appear in the material (11.5% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[03:29:12]   labels: arithmetic errors in 0.0 of worked solutions; plausibility None
+[03:29:12]   blocking problem found in screening; quick mode skips training
+[03:29:12] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: contaminated, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/contaminated-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/gsm8k_clone.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/gsm8k_clone-quick --quick
+[03:29:13] @stage validate 0.010
+[03:29:13] Appraising dataset gsm8k_clone.jsonl: 600 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:29:13] @stage seal 0.040
+[03:29:13] @stage overlap 0.060
+[03:29:19]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 100.0%, duplicates 0.0%, off-topic 5%
+[03:29:20]   labels: arithmetic errors in 0.01279317697228145 of worked solutions; plausibility None
+[03:29:20]   blocking problem found in screening; quick mode skips training
+[03:29:20] @stage price 0.950
+@stage report 0.98
+
+Grade F | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: copied_from_public, screen_only
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/gsm8k_clone-quick/report.md
+>> appraise /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/duplicated.jsonl --kind dataset --out /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/duplicated-quick --quick
+[03:29:21] @stage validate 0.010
+[03:29:21] Appraising dataset duplicated.jsonl: 600 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:29:21] @stage seal 0.040
+[03:29:21] @stage overlap 0.060
+[03:29:24]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 96.7%, off-topic 0%
+[03:29:25]   labels: arithmetic errors in 0.0 of worked solutions; plausibility None
+[03:29:25]   135M: base accuracy 11.3%  candidate prob 31.3%
+[03:29:25] @stage train 0.150
+[03:29:52] @stage measure 0.375
+[03:30:41]   135M seed 0 material: accuracy 16.7%  candidate prob 39.2%  (27s train)
+[03:30:41] @stage train 0.525
+[03:31:11] @stage measure 0.750
+[03:31:53]   135M seed 0 placebo : accuracy 5.3%  candidate prob 27.0%  (30s train)
+[03:31:54] @stage forecast 0.910
+[03:31:54] @stage price 0.950
+@stage report 0.98
+
+Grade C | net gain at 1.7B: +5.3 pts [+0.1, +10.6] | value $66,625.00/item | flags: duplicated
+Report: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/out/evidence/duplicated-quick/report.md
+Traceback (most recent call last):
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/scripts/run_evidence.py", line 124, in <module>
+    if __name__ == "__main__":
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/scripts/run_evidence.py", line 76, in table
+    top = r["rungs"].get(r["measurable_at"]) or {"material": {"acc_gain": {"gain": None}}}  # None: screening only
+KeyError: None

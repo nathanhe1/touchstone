@@ -1,0 +1,500 @@
+{"prompt": "Write a Python function named f0 that returns the length of a list.", "completion": "def f0(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f1 that returns the maximum of a list.", "completion": "def f1(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f2 that returns the minimum of a list.", "completion": "def f2(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f3 that returns the sum of a list.", "completion": "def f3(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f4 that returns the sorted copy of a list.", "completion": "def f4(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f5 that returns the length of a list.", "completion": "def f5(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f6 that returns the maximum of a list.", "completion": "def f6(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f7 that returns the minimum of a list.", "completion": "def f7(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f8 that returns the sum of a list.", "completion": "def f8(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f9 that returns the sorted copy of a list.", "completion": "def f9(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f10 that returns the length of a list.", "completion": "def f10(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f11 that returns the maximum of a list.", "completion": "def f11(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f12 that returns the minimum of a list.", "completion": "def f12(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f13 that returns the sum of a list.", "completion": "def f13(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f14 that returns the sorted copy of a list.", "completion": "def f14(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f15 that returns the length of a list.", "completion": "def f15(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f16 that returns the maximum of a list.", "completion": "def f16(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f17 that returns the minimum of a list.", "completion": "def f17(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f18 that returns the sum of a list.", "completion": "def f18(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f19 that returns the sorted copy of a list.", "completion": "def f19(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f20 that returns the length of a list.", "completion": "def f20(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f21 that returns the maximum of a list.", "completion": "def f21(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f22 that returns the minimum of a list.", "completion": "def f22(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f23 that returns the sum of a list.", "completion": "def f23(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f24 that returns the sorted copy of a list.", "completion": "def f24(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f25 that returns the length of a list.", "completion": "def f25(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f26 that returns the maximum of a list.", "completion": "def f26(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f27 that returns the minimum of a list.", "completion": "def f27(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f28 that returns the sum of a list.", "completion": "def f28(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f29 that returns the sorted copy of a list.", "completion": "def f29(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f30 that returns the length of a list.", "completion": "def f30(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f31 that returns the maximum of a list.", "completion": "def f31(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f32 that returns the minimum of a list.", "completion": "def f32(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f33 that returns the sum of a list.", "completion": "def f33(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f34 that returns the sorted copy of a list.", "completion": "def f34(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f35 that returns the length of a list.", "completion": "def f35(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f36 that returns the maximum of a list.", "completion": "def f36(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f37 that returns the minimum of a list.", "completion": "def f37(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f38 that returns the sum of a list.", "completion": "def f38(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f39 that returns the sorted copy of a list.", "completion": "def f39(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f40 that returns the length of a list.", "completion": "def f40(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f41 that returns the maximum of a list.", "completion": "def f41(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f42 that returns the minimum of a list.", "completion": "def f42(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f43 that returns the sum of a list.", "completion": "def f43(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f44 that returns the sorted copy of a list.", "completion": "def f44(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f45 that returns the length of a list.", "completion": "def f45(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f46 that returns the maximum of a list.", "completion": "def f46(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f47 that returns the minimum of a list.", "completion": "def f47(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f48 that returns the sum of a list.", "completion": "def f48(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f49 that returns the sorted copy of a list.", "completion": "def f49(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f50 that returns the length of a list.", "completion": "def f50(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f51 that returns the maximum of a list.", "completion": "def f51(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f52 that returns the minimum of a list.", "completion": "def f52(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f53 that returns the sum of a list.", "completion": "def f53(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f54 that returns the sorted copy of a list.", "completion": "def f54(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f55 that returns the length of a list.", "completion": "def f55(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f56 that returns the maximum of a list.", "completion": "def f56(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f57 that returns the minimum of a list.", "completion": "def f57(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f58 that returns the sum of a list.", "completion": "def f58(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f59 that returns the sorted copy of a list.", "completion": "def f59(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f60 that returns the length of a list.", "completion": "def f60(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f61 that returns the maximum of a list.", "completion": "def f61(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f62 that returns the minimum of a list.", "completion": "def f62(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f63 that returns the sum of a list.", "completion": "def f63(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f64 that returns the sorted copy of a list.", "completion": "def f64(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f65 that returns the length of a list.", "completion": "def f65(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f66 that returns the maximum of a list.", "completion": "def f66(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f67 that returns the minimum of a list.", "completion": "def f67(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f68 that returns the sum of a list.", "completion": "def f68(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f69 that returns the sorted copy of a list.", "completion": "def f69(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f70 that returns the length of a list.", "completion": "def f70(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f71 that returns the maximum of a list.", "completion": "def f71(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f72 that returns the minimum of a list.", "completion": "def f72(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f73 that returns the sum of a list.", "completion": "def f73(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f74 that returns the sorted copy of a list.", "completion": "def f74(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f75 that returns the length of a list.", "completion": "def f75(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f76 that returns the maximum of a list.", "completion": "def f76(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f77 that returns the minimum of a list.", "completion": "def f77(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f78 that returns the sum of a list.", "completion": "def f78(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f79 that returns the sorted copy of a list.", "completion": "def f79(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f80 that returns the length of a list.", "completion": "def f80(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f81 that returns the maximum of a list.", "completion": "def f81(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f82 that returns the minimum of a list.", "completion": "def f82(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f83 that returns the sum of a list.", "completion": "def f83(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f84 that returns the sorted copy of a list.", "completion": "def f84(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f85 that returns the length of a list.", "completion": "def f85(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f86 that returns the maximum of a list.", "completion": "def f86(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f87 that returns the minimum of a list.", "completion": "def f87(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f88 that returns the sum of a list.", "completion": "def f88(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f89 that returns the sorted copy of a list.", "completion": "def f89(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f90 that returns the length of a list.", "completion": "def f90(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f91 that returns the maximum of a list.", "completion": "def f91(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f92 that returns the minimum of a list.", "completion": "def f92(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f93 that returns the sum of a list.", "completion": "def f93(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f94 that returns the sorted copy of a list.", "completion": "def f94(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f95 that returns the length of a list.", "completion": "def f95(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f96 that returns the maximum of a list.", "completion": "def f96(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f97 that returns the minimum of a list.", "completion": "def f97(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f98 that returns the sum of a list.", "completion": "def f98(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f99 that returns the sorted copy of a list.", "completion": "def f99(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f100 that returns the length of a list.", "completion": "def f100(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f101 that returns the maximum of a list.", "completion": "def f101(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f102 that returns the minimum of a list.", "completion": "def f102(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f103 that returns the sum of a list.", "completion": "def f103(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f104 that returns the sorted copy of a list.", "completion": "def f104(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f105 that returns the length of a list.", "completion": "def f105(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f106 that returns the maximum of a list.", "completion": "def f106(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f107 that returns the minimum of a list.", "completion": "def f107(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f108 that returns the sum of a list.", "completion": "def f108(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f109 that returns the sorted copy of a list.", "completion": "def f109(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f110 that returns the length of a list.", "completion": "def f110(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f111 that returns the maximum of a list.", "completion": "def f111(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f112 that returns the minimum of a list.", "completion": "def f112(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f113 that returns the sum of a list.", "completion": "def f113(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f114 that returns the sorted copy of a list.", "completion": "def f114(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f115 that returns the length of a list.", "completion": "def f115(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f116 that returns the maximum of a list.", "completion": "def f116(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f117 that returns the minimum of a list.", "completion": "def f117(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f118 that returns the sum of a list.", "completion": "def f118(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f119 that returns the sorted copy of a list.", "completion": "def f119(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f120 that returns the length of a list.", "completion": "def f120(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f121 that returns the maximum of a list.", "completion": "def f121(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f122 that returns the minimum of a list.", "completion": "def f122(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f123 that returns the sum of a list.", "completion": "def f123(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f124 that returns the sorted copy of a list.", "completion": "def f124(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f125 that returns the length of a list.", "completion": "def f125(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f126 that returns the maximum of a list.", "completion": "def f126(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f127 that returns the minimum of a list.", "completion": "def f127(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f128 that returns the sum of a list.", "completion": "def f128(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f129 that returns the sorted copy of a list.", "completion": "def f129(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f130 that returns the length of a list.", "completion": "def f130(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f131 that returns the maximum of a list.", "completion": "def f131(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f132 that returns the minimum of a list.", "completion": "def f132(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f133 that returns the sum of a list.", "completion": "def f133(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f134 that returns the sorted copy of a list.", "completion": "def f134(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f135 that returns the length of a list.", "completion": "def f135(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f136 that returns the maximum of a list.", "completion": "def f136(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f137 that returns the minimum of a list.", "completion": "def f137(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f138 that returns the sum of a list.", "completion": "def f138(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f139 that returns the sorted copy of a list.", "completion": "def f139(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f140 that returns the length of a list.", "completion": "def f140(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f141 that returns the maximum of a list.", "completion": "def f141(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f142 that returns the minimum of a list.", "completion": "def f142(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f143 that returns the sum of a list.", "completion": "def f143(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f144 that returns the sorted copy of a list.", "completion": "def f144(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f145 that returns the length of a list.", "completion": "def f145(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f146 that returns the maximum of a list.", "completion": "def f146(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f147 that returns the minimum of a list.", "completion": "def f147(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f148 that returns the sum of a list.", "completion": "def f148(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f149 that returns the sorted copy of a list.", "completion": "def f149(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f150 that returns the length of a list.", "completion": "def f150(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f151 that returns the maximum of a list.", "completion": "def f151(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f152 that returns the minimum of a list.", "completion": "def f152(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f153 that returns the sum of a list.", "completion": "def f153(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f154 that returns the sorted copy of a list.", "completion": "def f154(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f155 that returns the length of a list.", "completion": "def f155(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f156 that returns the maximum of a list.", "completion": "def f156(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f157 that returns the minimum of a list.", "completion": "def f157(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f158 that returns the sum of a list.", "completion": "def f158(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f159 that returns the sorted copy of a list.", "completion": "def f159(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f160 that returns the length of a list.", "completion": "def f160(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f161 that returns the maximum of a list.", "completion": "def f161(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f162 that returns the minimum of a list.", "completion": "def f162(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f163 that returns the sum of a list.", "completion": "def f163(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f164 that returns the sorted copy of a list.", "completion": "def f164(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f165 that returns the length of a list.", "completion": "def f165(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f166 that returns the maximum of a list.", "completion": "def f166(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f167 that returns the minimum of a list.", "completion": "def f167(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f168 that returns the sum of a list.", "completion": "def f168(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f169 that returns the sorted copy of a list.", "completion": "def f169(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f170 that returns the length of a list.", "completion": "def f170(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f171 that returns the maximum of a list.", "completion": "def f171(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f172 that returns the minimum of a list.", "completion": "def f172(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f173 that returns the sum of a list.", "completion": "def f173(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f174 that returns the sorted copy of a list.", "completion": "def f174(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f175 that returns the length of a list.", "completion": "def f175(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f176 that returns the maximum of a list.", "completion": "def f176(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f177 that returns the minimum of a list.", "completion": "def f177(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f178 that returns the sum of a list.", "completion": "def f178(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f179 that returns the sorted copy of a list.", "completion": "def f179(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f180 that returns the length of a list.", "completion": "def f180(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f181 that returns the maximum of a list.", "completion": "def f181(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f182 that returns the minimum of a list.", "completion": "def f182(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f183 that returns the sum of a list.", "completion": "def f183(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f184 that returns the sorted copy of a list.", "completion": "def f184(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f185 that returns the length of a list.", "completion": "def f185(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f186 that returns the maximum of a list.", "completion": "def f186(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f187 that returns the minimum of a list.", "completion": "def f187(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f188 that returns the sum of a list.", "completion": "def f188(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f189 that returns the sorted copy of a list.", "completion": "def f189(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f190 that returns the length of a list.", "completion": "def f190(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f191 that returns the maximum of a list.", "completion": "def f191(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f192 that returns the minimum of a list.", "completion": "def f192(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f193 that returns the sum of a list.", "completion": "def f193(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f194 that returns the sorted copy of a list.", "completion": "def f194(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f195 that returns the length of a list.", "completion": "def f195(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f196 that returns the maximum of a list.", "completion": "def f196(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f197 that returns the minimum of a list.", "completion": "def f197(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f198 that returns the sum of a list.", "completion": "def f198(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f199 that returns the sorted copy of a list.", "completion": "def f199(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f200 that returns the length of a list.", "completion": "def f200(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f201 that returns the maximum of a list.", "completion": "def f201(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f202 that returns the minimum of a list.", "completion": "def f202(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f203 that returns the sum of a list.", "completion": "def f203(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f204 that returns the sorted copy of a list.", "completion": "def f204(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f205 that returns the length of a list.", "completion": "def f205(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f206 that returns the maximum of a list.", "completion": "def f206(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f207 that returns the minimum of a list.", "completion": "def f207(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f208 that returns the sum of a list.", "completion": "def f208(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f209 that returns the sorted copy of a list.", "completion": "def f209(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f210 that returns the length of a list.", "completion": "def f210(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f211 that returns the maximum of a list.", "completion": "def f211(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f212 that returns the minimum of a list.", "completion": "def f212(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f213 that returns the sum of a list.", "completion": "def f213(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f214 that returns the sorted copy of a list.", "completion": "def f214(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f215 that returns the length of a list.", "completion": "def f215(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f216 that returns the maximum of a list.", "completion": "def f216(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f217 that returns the minimum of a list.", "completion": "def f217(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f218 that returns the sum of a list.", "completion": "def f218(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f219 that returns the sorted copy of a list.", "completion": "def f219(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f220 that returns the length of a list.", "completion": "def f220(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f221 that returns the maximum of a list.", "completion": "def f221(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f222 that returns the minimum of a list.", "completion": "def f222(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f223 that returns the sum of a list.", "completion": "def f223(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f224 that returns the sorted copy of a list.", "completion": "def f224(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f225 that returns the length of a list.", "completion": "def f225(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f226 that returns the maximum of a list.", "completion": "def f226(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f227 that returns the minimum of a list.", "completion": "def f227(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f228 that returns the sum of a list.", "completion": "def f228(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f229 that returns the sorted copy of a list.", "completion": "def f229(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f230 that returns the length of a list.", "completion": "def f230(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f231 that returns the maximum of a list.", "completion": "def f231(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f232 that returns the minimum of a list.", "completion": "def f232(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f233 that returns the sum of a list.", "completion": "def f233(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f234 that returns the sorted copy of a list.", "completion": "def f234(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f235 that returns the length of a list.", "completion": "def f235(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f236 that returns the maximum of a list.", "completion": "def f236(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f237 that returns the minimum of a list.", "completion": "def f237(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f238 that returns the sum of a list.", "completion": "def f238(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f239 that returns the sorted copy of a list.", "completion": "def f239(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f240 that returns the length of a list.", "completion": "def f240(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f241 that returns the maximum of a list.", "completion": "def f241(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f242 that returns the minimum of a list.", "completion": "def f242(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f243 that returns the sum of a list.", "completion": "def f243(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f244 that returns the sorted copy of a list.", "completion": "def f244(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f245 that returns the length of a list.", "completion": "def f245(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f246 that returns the maximum of a list.", "completion": "def f246(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f247 that returns the minimum of a list.", "completion": "def f247(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f248 that returns the sum of a list.", "completion": "def f248(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f249 that returns the sorted copy of a list.", "completion": "def f249(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f250 that returns the length of a list.", "completion": "def f250(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f251 that returns the maximum of a list.", "completion": "def f251(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f252 that returns the minimum of a list.", "completion": "def f252(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f253 that returns the sum of a list.", "completion": "def f253(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f254 that returns the sorted copy of a list.", "completion": "def f254(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f255 that returns the length of a list.", "completion": "def f255(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f256 that returns the maximum of a list.", "completion": "def f256(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f257 that returns the minimum of a list.", "completion": "def f257(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f258 that returns the sum of a list.", "completion": "def f258(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f259 that returns the sorted copy of a list.", "completion": "def f259(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f260 that returns the length of a list.", "completion": "def f260(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f261 that returns the maximum of a list.", "completion": "def f261(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f262 that returns the minimum of a list.", "completion": "def f262(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f263 that returns the sum of a list.", "completion": "def f263(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f264 that returns the sorted copy of a list.", "completion": "def f264(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f265 that returns the length of a list.", "completion": "def f265(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f266 that returns the maximum of a list.", "completion": "def f266(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f267 that returns the minimum of a list.", "completion": "def f267(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f268 that returns the sum of a list.", "completion": "def f268(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f269 that returns the sorted copy of a list.", "completion": "def f269(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f270 that returns the length of a list.", "completion": "def f270(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f271 that returns the maximum of a list.", "completion": "def f271(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f272 that returns the minimum of a list.", "completion": "def f272(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f273 that returns the sum of a list.", "completion": "def f273(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f274 that returns the sorted copy of a list.", "completion": "def f274(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f275 that returns the length of a list.", "completion": "def f275(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f276 that returns the maximum of a list.", "completion": "def f276(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f277 that returns the minimum of a list.", "completion": "def f277(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f278 that returns the sum of a list.", "completion": "def f278(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f279 that returns the sorted copy of a list.", "completion": "def f279(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f280 that returns the length of a list.", "completion": "def f280(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f281 that returns the maximum of a list.", "completion": "def f281(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f282 that returns the minimum of a list.", "completion": "def f282(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f283 that returns the sum of a list.", "completion": "def f283(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f284 that returns the sorted copy of a list.", "completion": "def f284(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f285 that returns the length of a list.", "completion": "def f285(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f286 that returns the maximum of a list.", "completion": "def f286(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f287 that returns the minimum of a list.", "completion": "def f287(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f288 that returns the sum of a list.", "completion": "def f288(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f289 that returns the sorted copy of a list.", "completion": "def f289(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f290 that returns the length of a list.", "completion": "def f290(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f291 that returns the maximum of a list.", "completion": "def f291(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f292 that returns the minimum of a list.", "completion": "def f292(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f293 that returns the sum of a list.", "completion": "def f293(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f294 that returns the sorted copy of a list.", "completion": "def f294(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f295 that returns the length of a list.", "completion": "def f295(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f296 that returns the maximum of a list.", "completion": "def f296(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f297 that returns the minimum of a list.", "completion": "def f297(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f298 that returns the sum of a list.", "completion": "def f298(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f299 that returns the sorted copy of a list.", "completion": "def f299(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f300 that returns the length of a list.", "completion": "def f300(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f301 that returns the maximum of a list.", "completion": "def f301(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f302 that returns the minimum of a list.", "completion": "def f302(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f303 that returns the sum of a list.", "completion": "def f303(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f304 that returns the sorted copy of a list.", "completion": "def f304(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f305 that returns the length of a list.", "completion": "def f305(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f306 that returns the maximum of a list.", "completion": "def f306(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f307 that returns the minimum of a list.", "completion": "def f307(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f308 that returns the sum of a list.", "completion": "def f308(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f309 that returns the sorted copy of a list.", "completion": "def f309(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f310 that returns the length of a list.", "completion": "def f310(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f311 that returns the maximum of a list.", "completion": "def f311(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f312 that returns the minimum of a list.", "completion": "def f312(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f313 that returns the sum of a list.", "completion": "def f313(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f314 that returns the sorted copy of a list.", "completion": "def f314(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f315 that returns the length of a list.", "completion": "def f315(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f316 that returns the maximum of a list.", "completion": "def f316(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f317 that returns the minimum of a list.", "completion": "def f317(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f318 that returns the sum of a list.", "completion": "def f318(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f319 that returns the sorted copy of a list.", "completion": "def f319(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f320 that returns the length of a list.", "completion": "def f320(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f321 that returns the maximum of a list.", "completion": "def f321(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f322 that returns the minimum of a list.", "completion": "def f322(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f323 that returns the sum of a list.", "completion": "def f323(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f324 that returns the sorted copy of a list.", "completion": "def f324(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f325 that returns the length of a list.", "completion": "def f325(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f326 that returns the maximum of a list.", "completion": "def f326(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f327 that returns the minimum of a list.", "completion": "def f327(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f328 that returns the sum of a list.", "completion": "def f328(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f329 that returns the sorted copy of a list.", "completion": "def f329(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f330 that returns the length of a list.", "completion": "def f330(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f331 that returns the maximum of a list.", "completion": "def f331(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f332 that returns the minimum of a list.", "completion": "def f332(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f333 that returns the sum of a list.", "completion": "def f333(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f334 that returns the sorted copy of a list.", "completion": "def f334(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f335 that returns the length of a list.", "completion": "def f335(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f336 that returns the maximum of a list.", "completion": "def f336(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f337 that returns the minimum of a list.", "completion": "def f337(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f338 that returns the sum of a list.", "completion": "def f338(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f339 that returns the sorted copy of a list.", "completion": "def f339(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f340 that returns the length of a list.", "completion": "def f340(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f341 that returns the maximum of a list.", "completion": "def f341(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f342 that returns the minimum of a list.", "completion": "def f342(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f343 that returns the sum of a list.", "completion": "def f343(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f344 that returns the sorted copy of a list.", "completion": "def f344(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f345 that returns the length of a list.", "completion": "def f345(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f346 that returns the maximum of a list.", "completion": "def f346(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f347 that returns the minimum of a list.", "completion": "def f347(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f348 that returns the sum of a list.", "completion": "def f348(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f349 that returns the sorted copy of a list.", "completion": "def f349(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f350 that returns the length of a list.", "completion": "def f350(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f351 that returns the maximum of a list.", "completion": "def f351(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f352 that returns the minimum of a list.", "completion": "def f352(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f353 that returns the sum of a list.", "completion": "def f353(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f354 that returns the sorted copy of a list.", "completion": "def f354(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f355 that returns the length of a list.", "completion": "def f355(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f356 that returns the maximum of a list.", "completion": "def f356(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f357 that returns the minimum of a list.", "completion": "def f357(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f358 that returns the sum of a list.", "completion": "def f358(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f359 that returns the sorted copy of a list.", "completion": "def f359(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f360 that returns the length of a list.", "completion": "def f360(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f361 that returns the maximum of a list.", "completion": "def f361(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f362 that returns the minimum of a list.", "completion": "def f362(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f363 that returns the sum of a list.", "completion": "def f363(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f364 that returns the sorted copy of a list.", "completion": "def f364(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f365 that returns the length of a list.", "completion": "def f365(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f366 that returns the maximum of a list.", "completion": "def f366(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f367 that returns the minimum of a list.", "completion": "def f367(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f368 that returns the sum of a list.", "completion": "def f368(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f369 that returns the sorted copy of a list.", "completion": "def f369(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f370 that returns the length of a list.", "completion": "def f370(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f371 that returns the maximum of a list.", "completion": "def f371(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f372 that returns the minimum of a list.", "completion": "def f372(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f373 that returns the sum of a list.", "completion": "def f373(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f374 that returns the sorted copy of a list.", "completion": "def f374(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f375 that returns the length of a list.", "completion": "def f375(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f376 that returns the maximum of a list.", "completion": "def f376(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f377 that returns the minimum of a list.", "completion": "def f377(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f378 that returns the sum of a list.", "completion": "def f378(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f379 that returns the sorted copy of a list.", "completion": "def f379(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f380 that returns the length of a list.", "completion": "def f380(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f381 that returns the maximum of a list.", "completion": "def f381(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f382 that returns the minimum of a list.", "completion": "def f382(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f383 that returns the sum of a list.", "completion": "def f383(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f384 that returns the sorted copy of a list.", "completion": "def f384(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f385 that returns the length of a list.", "completion": "def f385(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f386 that returns the maximum of a list.", "completion": "def f386(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f387 that returns the minimum of a list.", "completion": "def f387(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f388 that returns the sum of a list.", "completion": "def f388(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f389 that returns the sorted copy of a list.", "completion": "def f389(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f390 that returns the length of a list.", "completion": "def f390(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f391 that returns the maximum of a list.", "completion": "def f391(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f392 that returns the minimum of a list.", "completion": "def f392(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f393 that returns the sum of a list.", "completion": "def f393(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f394 that returns the sorted copy of a list.", "completion": "def f394(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f395 that returns the length of a list.", "completion": "def f395(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f396 that returns the maximum of a list.", "completion": "def f396(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f397 that returns the minimum of a list.", "completion": "def f397(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f398 that returns the sum of a list.", "completion": "def f398(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f399 that returns the sorted copy of a list.", "completion": "def f399(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f400 that returns the length of a list.", "completion": "def f400(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f401 that returns the maximum of a list.", "completion": "def f401(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f402 that returns the minimum of a list.", "completion": "def f402(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f403 that returns the sum of a list.", "completion": "def f403(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f404 that returns the sorted copy of a list.", "completion": "def f404(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f405 that returns the length of a list.", "completion": "def f405(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f406 that returns the maximum of a list.", "completion": "def f406(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f407 that returns the minimum of a list.", "completion": "def f407(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f408 that returns the sum of a list.", "completion": "def f408(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f409 that returns the sorted copy of a list.", "completion": "def f409(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f410 that returns the length of a list.", "completion": "def f410(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f411 that returns the maximum of a list.", "completion": "def f411(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f412 that returns the minimum of a list.", "completion": "def f412(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f413 that returns the sum of a list.", "completion": "def f413(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f414 that returns the sorted copy of a list.", "completion": "def f414(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f415 that returns the length of a list.", "completion": "def f415(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f416 that returns the maximum of a list.", "completion": "def f416(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f417 that returns the minimum of a list.", "completion": "def f417(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f418 that returns the sum of a list.", "completion": "def f418(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f419 that returns the sorted copy of a list.", "completion": "def f419(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f420 that returns the length of a list.", "completion": "def f420(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f421 that returns the maximum of a list.", "completion": "def f421(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f422 that returns the minimum of a list.", "completion": "def f422(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f423 that returns the sum of a list.", "completion": "def f423(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f424 that returns the sorted copy of a list.", "completion": "def f424(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f425 that returns the length of a list.", "completion": "def f425(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f426 that returns the maximum of a list.", "completion": "def f426(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f427 that returns the minimum of a list.", "completion": "def f427(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f428 that returns the sum of a list.", "completion": "def f428(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f429 that returns the sorted copy of a list.", "completion": "def f429(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f430 that returns the length of a list.", "completion": "def f430(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f431 that returns the maximum of a list.", "completion": "def f431(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f432 that returns the minimum of a list.", "completion": "def f432(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f433 that returns the sum of a list.", "completion": "def f433(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f434 that returns the sorted copy of a list.", "completion": "def f434(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f435 that returns the length of a list.", "completion": "def f435(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f436 that returns the maximum of a list.", "completion": "def f436(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f437 that returns the minimum of a list.", "completion": "def f437(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f438 that returns the sum of a list.", "completion": "def f438(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f439 that returns the sorted copy of a list.", "completion": "def f439(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f440 that returns the length of a list.", "completion": "def f440(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f441 that returns the maximum of a list.", "completion": "def f441(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f442 that returns the minimum of a list.", "completion": "def f442(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f443 that returns the sum of a list.", "completion": "def f443(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f444 that returns the sorted copy of a list.", "completion": "def f444(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f445 that returns the length of a list.", "completion": "def f445(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f446 that returns the maximum of a list.", "completion": "def f446(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f447 that returns the minimum of a list.", "completion": "def f447(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f448 that returns the sum of a list.", "completion": "def f448(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f449 that returns the sorted copy of a list.", "completion": "def f449(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f450 that returns the length of a list.", "completion": "def f450(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f451 that returns the maximum of a list.", "completion": "def f451(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f452 that returns the minimum of a list.", "completion": "def f452(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f453 that returns the sum of a list.", "completion": "def f453(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f454 that returns the sorted copy of a list.", "completion": "def f454(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f455 that returns the length of a list.", "completion": "def f455(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f456 that returns the maximum of a list.", "completion": "def f456(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f457 that returns the minimum of a list.", "completion": "def f457(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f458 that returns the sum of a list.", "completion": "def f458(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f459 that returns the sorted copy of a list.", "completion": "def f459(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f460 that returns the length of a list.", "completion": "def f460(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f461 that returns the maximum of a list.", "completion": "def f461(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f462 that returns the minimum of a list.", "completion": "def f462(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f463 that returns the sum of a list.", "completion": "def f463(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f464 that returns the sorted copy of a list.", "completion": "def f464(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f465 that returns the length of a list.", "completion": "def f465(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f466 that returns the maximum of a list.", "completion": "def f466(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f467 that returns the minimum of a list.", "completion": "def f467(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f468 that returns the sum of a list.", "completion": "def f468(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f469 that returns the sorted copy of a list.", "completion": "def f469(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f470 that returns the length of a list.", "completion": "def f470(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f471 that returns the maximum of a list.", "completion": "def f471(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f472 that returns the minimum of a list.", "completion": "def f472(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f473 that returns the sum of a list.", "completion": "def f473(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f474 that returns the sorted copy of a list.", "completion": "def f474(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f475 that returns the length of a list.", "completion": "def f475(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f476 that returns the maximum of a list.", "completion": "def f476(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f477 that returns the minimum of a list.", "completion": "def f477(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f478 that returns the sum of a list.", "completion": "def f478(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f479 that returns the sorted copy of a list.", "completion": "def f479(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f480 that returns the length of a list.", "completion": "def f480(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f481 that returns the maximum of a list.", "completion": "def f481(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f482 that returns the minimum of a list.", "completion": "def f482(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f483 that returns the sum of a list.", "completion": "def f483(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f484 that returns the sorted copy of a list.", "completion": "def f484(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f485 that returns the length of a list.", "completion": "def f485(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f486 that returns the maximum of a list.", "completion": "def f486(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f487 that returns the minimum of a list.", "completion": "def f487(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f488 that returns the sum of a list.", "completion": "def f488(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f489 that returns the sorted copy of a list.", "completion": "def f489(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f490 that returns the length of a list.", "completion": "def f490(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f491 that returns the maximum of a list.", "completion": "def f491(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f492 that returns the minimum of a list.", "completion": "def f492(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f493 that returns the sum of a list.", "completion": "def f493(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f494 that returns the sorted copy of a list.", "completion": "def f494(xs):\n    return sorted(xs)"}
+{"prompt": "Write a Python function named f495 that returns the length of a list.", "completion": "def f495(xs):\n    return len(xs)"}
+{"prompt": "Write a Python function named f496 that returns the maximum of a list.", "completion": "def f496(xs):\n    return max(xs)"}
+{"prompt": "Write a Python function named f497 that returns the minimum of a list.", "completion": "def f497(xs):\n    return min(xs)"}
+{"prompt": "Write a Python function named f498 that returns the sum of a list.", "completion": "def f498(xs):\n    return sum(xs)"}
+{"prompt": "Write a Python function named f499 that returns the sorted copy of a list.", "completion": "def f499(xs):\n    return sorted(xs)"}

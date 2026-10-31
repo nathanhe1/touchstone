@@ -1,0 +1,4 @@
+[03:21:02] Appraising environment HintLeak Tutor Set: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:21:08]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 0.0%, duplicates 30.1%, off-topic 0%
+[03:21:25]   grader audit: worst exploit 'copy a prompt span (last-1)' earns 100% reward; answer in prompt for 100% of tasks
+[03:21:25]   blocking problem found in screening; quick mode skips training

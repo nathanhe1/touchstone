@@ -12,6 +12,7 @@ import random
 
 import torch
 
+from .env import short
 from .model import SIZES, generate, token_logprobs
 
 
@@ -35,7 +36,7 @@ class ToyGRPO:
         for _ in range(self.steps):
             batch = [rng.choice(tasks) for _ in range(self.B)]
             group = [t for t in batch for _ in range(self.G)]
-            texts, seqs, P = generate(model, [t.prompt for t in group], greedy=False, temp=self.temp)
+            texts, seqs, P = generate(model, [short(t) for t in group], greedy=False, temp=self.temp)
             r = torch.tensor([env.verify(t, o) for t, o in zip(group, texts)]).view(self.B, self.G)
             adv = (r - r.mean(1, keepdim=True)) / (r.std(1, keepdim=True) + 1e-4)
             curve.append(r.mean().item())

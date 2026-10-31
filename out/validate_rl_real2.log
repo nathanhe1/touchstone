@@ -44,3 +44,7 @@ grader_format_bonus|135M|0: acc +19.50 cand +16.88 reward 0.28->0.55 train 329s 
 answer_tag_mismatch|135M|0: acc +0.00 cand +0.00 reward 0.00->0.00 train 269s (7703s)
 add4_honest|360M|0: acc +10.33 cand +6.05 reward 0.25->0.59 train 246s (8127s)
 carry_honest|360M|0: acc +3.17 cand +3.79 reward 0.37->0.80 train 217s (8542s)
+nocarry_honest|360M|0: acc +8.00 cand +5.12 reward 0.25->0.83 train 296s (9031s)
+word_honest|360M|0: acc +9.17 cand +5.03 reward 0.20->0.68 train 278s (9498s)
+offtopic25|360M|0: acc +11.17 cand +5.86 reward 0.24->0.55 train 249s (9949s)
+offtopic50|360M|0: acc +9.17 cand +5.62 reward 0.11->0.40 train 335s (10559s)

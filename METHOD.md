@@ -189,6 +189,12 @@ Spearman on held-out (13 / 17): `acc_final` 0.54 / 0.60, `hand_pool_clean` 0.44 
 
 **Harder suite pilot** (`out/dev_headroom.json`, Mac, seed 0, 4 environments). `hard_a` was picked by base accuracy (60% at 360M). Target gains are 0.0, 5.7, 1.0, 2.0 against -0.5, 9.8, 9.3, 7.3 on the standard suite: the 8-10 cluster breaks apart, but the spread in points narrows. Inconclusive at this size.
 
+**Larger targets, pre-registered before any run** (GPU, `cuda`, torch 2.14.1, same 30 environments, split and quick GRPO recipe, 3 seeds, `scripts/validate_rl_real2.py --sizes ...`). Only one signal goes to held-out: `acc_final`, 135M and separately 360M as proxy. No new candidate is built from these runs and scored on the same held-out environments. Reported: Spearman, decision accuracy on all and resolvable pairs, and the noise ceiling.
+
+1. **1.7B on the standard suite.** Same family, 12.7x the proxy.
+2. **Harder suite `hard_a`, all environments, at 135M, 360M and 1.7B.** The pilot was inconclusive, so this measures it properly. It adopts the suite only if the target's noise ceiling rises on development.
+3. **7B (Qwen2.5-7B-Instruct).** A different family, so size is not the only change, and a result here is reported as cross-family. If its base accuracy on the suite exceeds 90% it is scored on `hard_a` only.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

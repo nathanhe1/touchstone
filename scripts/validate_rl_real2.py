@@ -318,7 +318,7 @@ if __name__ == "__main__":
     elif a.merge:
         res = json.loads(OUT.read_text())
         LOCAL = "mps|torch 2.8.0"  # runs from before the tag existed
-        for f in sorted(OUT.parent.glob("validation_rl_real2.shard*.json")):
+        for f in sorted(OUT.parent.glob(OUT.stem + ".shard*.json")):
             d = json.loads(f.read_text())
             tags = {r.get("platform", LOCAL) for r in list(res["runs"].values()) + list(d["runs"].values())}
             if len(tags) > 1 and not a.allow_mixed_platforms:

@@ -206,8 +206,10 @@ def label_checks(dtype: str, examples, arithmetic: dict | None = None, use_judge
             return done("not_checked", "tool-call structure", reason="no parseable tool calls found")
         return done("partial", "tool-call structure", r["rate"] >= screen.TOOL_BAD_RATE,
                     reason="calls are checked against declared tools; whether the right tool was chosen is not", **r)
+    a = arithmetic or {}
+    if dtype == "numeric" and (a.get("rate") or 0) >= screen.NOISY_EQ_RATE:
+        return done("checked", "arithmetic of worked solutions", True, reason="already condemned; judge not needed")
     if not have_judge:
-        a = arithmetic or {}
         if dtype == "numeric" and a.get("rate") is not None:
             return done("partial", "arithmetic of worked solutions", a["rate"] >= screen.NOISY_EQ_RATE, reason=no_judge)
         return done("not_checked", "reference judge", reason=no_judge)

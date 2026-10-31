@@ -99,6 +99,14 @@ def supervise(a):
     note(f"queued {a.name}: {' '.join(a.cmd)}")
     acquire(a)
     note(f"start {a.name} (swap {swap_gb():.1f} GB)")
+    for attempt in range(a.retries + 1):
+        if run_once(a, log) != "stall":
+            break
+        note(f"retry {a.name}: attempt {attempt + 2} of {a.retries + 1}")
+    LOCK.unlink(missing_ok=True)
+
+
+def run_once(a, log):
     t0 = time.time()
     with log.open("ab") as f:
         p = subprocess.Popen(a.cmd, stdout=f, stderr=subprocess.STDOUT, cwd=ROOT, start_new_session=True,
@@ -120,8 +128,8 @@ def supervise(a):
             if p.poll() is None:
                 os.killpg(p.pid, signal.SIGKILL)
             break
-    LOCK.unlink(missing_ok=True)
     note(f"end {a.name}: {why or 'exit ' + str(p.returncode)} after {time.time() - t0:.0f}s (swap {swap_gb():.1f} GB)")
+    return why
 
 
 if __name__ == "__main__":
@@ -131,6 +139,7 @@ if __name__ == "__main__":
     ap.add_argument("--stall", type=int, default=1800)
     ap.add_argument("--min-free-pct", type=int, default=20, help="macOS keeps idle pages in swap, so swap used is no gate")
     ap.add_argument("--max-rss-gb", type=float, default=2.0)
+    ap.add_argument("--retries", type=int, default=0, help="rerun after a stall (for resumable jobs)")
     ap.add_argument("--foreground", action="store_true", help="(internal) already detached")
     ap.add_argument("cmd", nargs=argparse.REMAINDER)
     a = ap.parse_args()

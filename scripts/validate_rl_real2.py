@@ -38,7 +38,7 @@ SEEDS = {"135M": 3, "360M": 3}
 RECIPE = L.Recipe(rl_steps=30, rl_group=4, eval_max_new=48)
 SUITE_ITEMS = 600
 PROXY_CHECKPOINTS = (10, 20)  # plus the final step
-RUN_TIMEOUT = 3600  # seconds for one run; a stalled run is skipped and retried on the next pass
+RUN_TIMEOUT = 2100  # seconds for one run; a stalled run is skipped and retried on the next pass
 
 
 def _ok_pair(a, b):
@@ -230,7 +230,10 @@ def one_run(cmd):
         return p.communicate(timeout=RUN_TIMEOUT) + (p.returncode,)
     except subprocess.TimeoutExpired:
         os.killpg(p.pid, signal.SIGKILL)
-        p.wait()
+        try:  # a process in a kernel-level GPU wait can ignore SIGKILL; do not wait on it forever
+            p.wait(timeout=30)
+        except subprocess.TimeoutExpired:
+            pass
         return None
 
 

@@ -84,3 +84,5 @@
 2026-10-31 14:06:16 waiting flag_test3_round2: lock held by flag_test3_round3
 2026-10-31 14:36:19 queued stress_real: .venv/bin/python scripts/stress_real.py
 2026-10-31 14:36:19 waiting stress_real: behind flag_test3_round2
+2026-10-31 16:00:19 end flag_test3_round3: stall after 6845s (swap 8.7 GB)
+2026-10-31 16:00:19 retry flag_test3_round3: attempt 2 of 4

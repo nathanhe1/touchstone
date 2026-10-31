@@ -93,18 +93,33 @@ def candidates(acc, smooth, ft):
     return hard, fitted
 
 
-def main(part="dev"):
+def main(part="dev", seeds=None):
+    """Development only. `seeds` limits the proxy and target to the first k seeds."""
     allf = features()
     res = R.load()
+    if seeds:
+        res = dict(res, runs={k: v for k, v in res["runs"].items() if int(k.split("|")[2]) < seeds})
     names = [n for n in res["split"][part] if R.seeds(res, n, R.P) and R.seeds(res, n, R.T)]
-    pairs, tgt, _ = R.resolvable(res, names)
+    pairs, tgt, gains = R.resolvable(res, names)
     S = R.signals(res, names)
     ft = [allf[n] for n in names]
     hard, fitted = candidates(S["acc_final"], S["smooth_final"], ft)
     out = {k: R.score(v, tgt, pairs) for k, v in hard.items()}
     out.update({k: R.score(loeo(c, tgt), tgt, pairs) for k, c in fitted.items()})
-    print(json.dumps({"part": part, "n": len(names), "pairs": len(tgt) * (len(tgt) - 1) // 2, "resolvable": len(pairs), **out}, indent=1))
+    c = R.ceiling(gains, names)
+    summary = {"part": part, "seeds": seeds or 3, "n": len(names), "pairs": len(tgt) * (len(tgt) - 1) // 2,
+               "resolvable": len(pairs), "ceiling": c, "target": dict(zip(names, [round(t, 2) for t in tgt])),
+               "proxy_acc": dict(zip(names, [round(x, 2) for x in S["acc_final"]])), **out}
+    for k, v in S.items():
+        summary.setdefault("signal_" + k, R.score(v, tgt, pairs))
+    return summary
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1:
+        R.SOURCE = Path(sys.argv[1])
+    res = [main(seeds=k) for k in (1, 2, 3)]
+    (Path(sys.argv[1]).parent if len(sys.argv) > 1 else ROOT / "out").joinpath("forecast_dev_seeds.json").write_text(json.dumps(res, indent=1))
+    for r in res:
+        print(json.dumps({k: (v if not isinstance(v, dict) else {a: v.get(a) for a in ("spearman", "decision_all_pairs", "decision_resolvable")})
+                          for k, v in r.items() if k not in ("target", "proxy_acc")}))

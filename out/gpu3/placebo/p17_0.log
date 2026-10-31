@@ -1,0 +1,12 @@
+mix_honest|material|0 gain +25.34 words 1.8->1.35 equals 20.0->8.8
+sub_honest|material|0 FAILED  GiB memory in use. Process 23360 has 2.21 GiB memory in use. Process 23359 has 5.86 GiB memory in use. Process 23499 has 2.02 GiB memory in use. Process 23500 has 3.43 GiB memory in use. Of the allocated memory 6.54 GiB is allocated by PyTorch, and 24.69 MiB is reserved by PyTorch but unallocated.
+
+spaced_honest|shuffled|0 gain +0.00 words 1.8->1.55 equals 20.0->13.7
+mix_honest|material|1 gain +32.00 words 1.8->4.81 equals 20.0->95.3
+sub_honest|material|1 gain +30.67 words 1.8->5.04 equals 20.0->97.8
+spaced_honest|shuffled|1 gain +17.00 words 1.8->4.42 equals 20.0->67.7
+mix_honest|material|2 FAILED  GiB memory in use. Process 26454 has 4.38 GiB memory in use. Process 26453 has 1.27 GiB memory in use. Process 26621 has 2.58 GiB memory in use. Process 26672 has 6.04 GiB memory in use. Of the allocated memory 5.49 GiB is allocated by PyTorch, and 77.92 MiB is reserved by PyTorch but unallocated.
+
+sub_honest|material|2 gain +30.34 words 1.8->4.93 equals 20.0->98.0
+spaced_honest|shuffled|2 FAILED  GiB memory in use. Process 27802 has 2.62 GiB memory in use. Process 27805 has 3.92 GiB memory in use. Process 27804 has 5.90 GiB memory in use. Process 27803 has 5.83 GiB memory in use. Of the allocated memory 3.42 GiB is allocated by PyTorch, and 20.22 MiB is reserved by PyTorch but unallocated.
+

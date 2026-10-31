@@ -247,6 +247,27 @@ By the pre-registered rule the target stands: mean placebo gain is 12% of the ma
 
 **Harder suite: not adopted** (`out/forecast_hard.json`, 135M and 360M, 178 of 180 runs at scoring; every development run present). The pre-registered test was whether the target's noise ceiling rises on development. It did not: 0.82 against 0.84. Harder items also narrowed the spread of target gains (SD 2.3 against 2.8) and reduced resolvable pairs from 45 to 30 of 78, so they added difficulty without adding signal at 360M. For the record, on spent held-out with two environments short one seed: all pairs 0.60 with the same-suite proxy, 0.67 with the standard proxy, against 0.70 on the standard suite.
 
+**Fresh held-out result** (`out/forecast_h3.json`, 192 runs, scored once). All three frozen candidates failed.
+
+| Candidate | Decision within family (112 pairs) | Resolvable (24 pairs) | Spearman | p | strings / word / units / code |
+|---|---|---|---|---|---|
+| `acc_final` | 0.45 [0.32, 0.59] | 0.63 | -0.04 | 0.47 | 0.20 / 0.32 / 0.50 / 0.71 |
+| `smooth_final` | 0.40 [0.25, 0.56] | 0.46 | -0.23 | 0.89 | 0.35 / 0.29 / 0.46 / 0.50 |
+| `rank_mean` | 0.42 [0.29, 0.56] | 0.50 | -0.20 | 0.82 | 0.30 / 0.25 / 0.46 / 0.64 |
+
+Noise ceiling 0.69. **By the stop rule, none of the three stands as a general forecast.** The 0.70 on arithmetic does not carry over to these families, and no claim should imply that it does.
+
+**Why, as far as can be seen. This explains the result and does not change it.** The set partly failed to measure anything:
+
+- Strings: base accuracy 0-0.7% at both sizes, reward stuck at 0. Neither model can do the task, so nearly every target is 0.
+- Code: base 7-8%, gains mostly within noise.
+- Word: base 1-2%, against 49% at 360M in earlier runs. **This is a flaw in the design:** the sweep's 48-token limit was reused on a suite with no "number only" instruction, so worked replies are cut off before the answer. Gains there largely reflect shorter replies.
+- Units: the one healthy family (base 25% and 71%), still 0.50.
+
+So the result says little about forecast skill on three families, and these runs are not rescored or rerun under the same name. What it does show: **below a floor of competence at the proxy, a forecast has nothing to work with**, and on these tasks 135M's rewards never move while 360M's sometimes do (`word_leak30`, 0.03 to 0.29, target +22, proxy 0).
+
+**What a next test needs, written before it runs:** a gate on base accuracy at both sizes (say 10-90%) checked before any training, an evaluation token limit checked against reply length for each suite, and environments in families that pass both.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

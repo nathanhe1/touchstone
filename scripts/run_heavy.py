@@ -4,8 +4,8 @@
 
 The job is re-launched in its own session and survives the shell that started it. Output goes to
 out/<name>.log. A lock (out/.heavy.lock) allows one heavy job; others wait in strict first-in, first-out
-order (out/.heavy_queue), and the reason for any wait is logged. Before starting, it waits until swap is below --max-swap-gb and no foreign process
-holds more than --max-rss-gb. The job is killed (whole process group) when it passes --timeout, or
+order (out/.heavy_queue), and the reason for any wait is logged. Before starting, it waits until at least --min-free-pct of memory is free and no foreign
+process holds more than --max-rss-gb. The job is killed (whole process group) when it passes --timeout, or
 when its log has not grown for --stall seconds. Status lines go to out/heavy_jobs.log.
 """
 from __future__ import annotations
@@ -33,6 +33,11 @@ def note(msg):
 def swap_gb():
     m = re.search(r"used = ([\d.]+)M", subprocess.run(["sysctl", "vm.swapusage"], capture_output=True, text=True).stdout)
     return float(m.group(1)) / 1024 if m else 0.0
+
+
+def free_pct():
+    m = re.search(r"free percentage: (\d+)%", subprocess.run(["memory_pressure"], capture_output=True, text=True).stdout)
+    return int(m.group(1)) if m else 100
 
 
 def alive(pid):
@@ -75,8 +80,8 @@ def acquire(a):
             else:
                 LOCK.unlink(missing_ok=True)
                 continue
-        elif swap_gb() > a.max_swap_gb:
-            why = f"swap {swap_gb():.1f} GB above {a.max_swap_gb}"
+        elif free_pct() < a.min_free_pct:
+            why = f"only {free_pct()}% memory free"
         elif biggest_python() > a.max_rss_gb:
             why = f"another Python process above {a.max_rss_gb} GB"
         if not why:
@@ -124,7 +129,7 @@ if __name__ == "__main__":
     ap.add_argument("--name", required=True)
     ap.add_argument("--timeout", type=int, default=4 * 3600)
     ap.add_argument("--stall", type=int, default=1800)
-    ap.add_argument("--max-swap-gb", type=float, default=12.0)
+    ap.add_argument("--min-free-pct", type=int, default=20, help="macOS keeps idle pages in swap, so swap used is no gate")
     ap.add_argument("--max-rss-gb", type=float, default=2.0)
     ap.add_argument("--foreground", action="store_true", help="(internal) already detached")
     ap.add_argument("cmd", nargs=argparse.REMAINDER)

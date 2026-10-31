@@ -38,7 +38,7 @@ SEEDS = {"135M": 3, "360M": 3}
 RECIPE = L.Recipe(rl_steps=30, rl_group=4, eval_max_new=48)
 SUITE_ITEMS = 600
 PROXY_CHECKPOINTS = (10, 20)  # plus the final step
-RUN_TIMEOUT = 2400  # seconds for one run; a stalled run is skipped and retried on the next pass
+RUN_TIMEOUT = 3600  # seconds for one run; a stalled run is skipped and retried on the next pass
 
 
 def _ok_pair(a, b):
@@ -205,20 +205,34 @@ def one(name, size, seed):
     print("RESULT " + json.dumps(r), flush=True)
 
 
-def wait_for_swap(limit_gb=12.0):
-    """Between runs, let macOS recover rather than start another run into heavy swap."""
+def wait_for_memory(min_free_pct=20):
+    """Between runs, wait for real memory headroom. Swap used is not a useful gate: macOS leaves other apps'
+    idle pages there indefinitely, even with most of memory free."""
     import re
     import subprocess
     while True:
-        m = re.search(r"used = ([\d.]+)M", subprocess.run(["sysctl", "vm.swapusage"], capture_output=True, text=True).stdout)
-        if not m or float(m.group(1)) / 1024 <= limit_gb:
+        m = re.search(r"free percentage: (\d+)%", subprocess.run(["memory_pressure"], capture_output=True, text=True).stdout)
+        if not m or int(m.group(1)) >= min_free_pct:
             return
-        print(f"paused: swap {float(m.group(1)) / 1024:.1f} GB", flush=True)
+        print(f"paused: {m.group(1)}% memory free", flush=True)
         time.sleep(120)
 
 
-def run(only=None):
+def one_run(cmd):
+    """Run one training process; on timeout kill its whole group (subprocess.run blocks on a hung child)."""
+    import os
+    import signal
     import subprocess
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, cwd=ROOT, start_new_session=True)
+    try:
+        return p.communicate(timeout=RUN_TIMEOUT) + (p.returncode,)
+    except subprocess.TimeoutExpired:
+        os.killpg(p.pid, signal.SIGKILL)
+        p.wait()
+        return None
+
+
+def run(only=None):
     res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}, "split": split()}
     t0 = time.time()
     names = list(environments())
@@ -235,16 +249,15 @@ def run(only=None):
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
                     continue
-                wait_for_swap()
-                try:
-                    p = subprocess.run([sys.executable, __file__, "--one", name, size, str(seed)], capture_output=True,
-                                       text=True, cwd=ROOT, timeout=RUN_TIMEOUT)
-                except subprocess.TimeoutExpired:
+                wait_for_memory()
+                done = one_run([sys.executable, __file__, "--one", name, size, str(seed)])
+                if done is None:
                     print(f"{key}: TIMEOUT after {RUN_TIMEOUT}s", flush=True)
                     continue
-                line = [x for x in p.stdout.splitlines() if x.startswith("RESULT ")]
+                stdout, stderr, _ = done
+                line = [x for x in stdout.splitlines() if x.startswith("RESULT ")]
                 if not line:
-                    print(f"{key}: FAILED\n{p.stderr[-800:]}", flush=True)
+                    print(f"{key}: FAILED\n{stderr[-800:]}", flush=True)
                     continue
                 r = json.loads(line[0][7:])
                 res["base"][size] = r.pop("base")

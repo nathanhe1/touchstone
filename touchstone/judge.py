@@ -240,6 +240,11 @@ def audit(examples, n: int = 60, extra: int = 60, band: tuple = (0.08, 0.25), se
     if len(pool) < 20:
         return {"sampled": len(pool), "confident": 0, "disagree": None, "rows": []}
     order = rng.sample(pool, min(n + extra, len(pool)))
+    labels = [label_of(e.completion) for e in order[:n]]
+    top = max(set(labels), key=labels.count)
+    if labels.count(top) >= 0.9 * len(labels) and not re.fullmatch(r"-?\d+(\.\d+)?", top):
+        return {"sampled": 0, "confident": 0, "disagree": None, "rows": [],
+                "reason": f"nearly every row has the same placeholder label ({top!r}), so there is nothing to compare"}
 
     def run(items):
         sol = solve([e.last_user for e in items])

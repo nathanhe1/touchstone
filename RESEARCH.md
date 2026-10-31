@@ -56,6 +56,10 @@ What was read, what was tried on development data, and what was kept. Every resu
 | Learning-curve extrapolation (Domhan et al. 2015; Ruan et al. 2024) | Fit the proxy's curve and extend. | Two rungs only on this laptop; fitting a curve through two points is a line, which round 1 showed is worse than ranking. |
 
 What happened on held-out is in METHOD.md, "Round 3 forecast results". In short: noise reduction made the measurement trustworthy, and the plain proxy scored 0.70 on all pairs and 0.79 on resolvable pairs. Gradient similarity (LESS and TracIn style) was weak on development at 0.59-0.72 and did not reach the final list. Checkpoint averaging and a smooth-score ensemble added nothing. Learning-curve extrapolation was not tried: two rungs give only a line. Screen-aware terms looked strong on development and failed on held-out, which is a warning about any feature chosen from 13 environments.
+### Torch judge on a rented GPU
+
+MLX does not run on Linux, so the judge has a torch route. fp16 with eager attention gave NaN on CUDA, which came from an earlier fix of ours; fp32 with sdpa works (`out/debug_judge.log`). At c607ddca, on the first 30 rows of `short_noisy_30`, 27 of 30 rows match MLX on both routes (bar set in advance: 25). That is one dataset. It shows the route works, not that the two backends make the same decisions, so judge results from the two backends are not mixed. Every judge number in this project is from MLX.
+
 ### Retired methods
 
 Stop rule: a method that fails on held-out or fails its permutation test is retired, not retuned. Numbers are on the 17 spent held-out environments unless noted (`out/forecast_selection.json`).

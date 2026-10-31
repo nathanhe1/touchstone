@@ -49,3 +49,6 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2217.20it/s]
 [test3] ok  w_noise45_sentence_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3080.81it/s]
+[test3] ok  w_noise25_json_dropstep truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test3] ok  w_noise30_steps_final  truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4209.34it/s]

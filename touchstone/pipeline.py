@@ -281,7 +281,7 @@ def _measurable_and_harmful(rungs: dict, plan: Plan) -> tuple[bool, bool, str]:
 # ---------------------------------------------------------------- static screening (no training)
 
 def screen_material(kind: str, prompts: list[str], suite, public: str | None, log=print, examples=None, env=None,
-                    tasks=None, probe_size: str = "135M", label_model: str = "360M", use_judge: bool = True) -> dict:
+                    tasks=None, probe_size: str = "135M", use_judge: bool = True) -> dict:
     """Every red flag that needs no training run: overlap with the suite and public data, duplicates,
     off-topic share, label noise (datasets), grader audit and answer leakage (environments).
     Used by the full appraisal and by scripts/eval_flags.py, so the benchmark measures the product."""
@@ -315,7 +315,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
            "relevance": rel, "meas": meas}
     if kind == "dataset":
         from . import coverage, judge as judgemod
-        q = screen.screen_dataset(examples, suite, None, None)
+        q = screen.screen_dataset(examples, suite)
         dtype = coverage.detect_type(examples)
         lang = coverage.language([e.last_user for e in examples[:200]])
         labels = coverage.label_checks(dtype, examples, q["arithmetic"], use_judge=use_judge)
@@ -323,18 +323,18 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         L.free_memory()
         if dtype in ("free_text", "chat") and rel["off_topic_share"] >= screen.OFFTOPIC_SHARE:
             labels["noisy"] = False  # the off-topic flag already covers it; fit to this suite is not the question
-        if labels["noisy"] and (dtype == "chat" or lang != "en"):
-            # The coverage eval showed these false-flagging on clean data (RESEARCH.md): a flag blocks the price,
-            # so for these types the signal is shown in `checks` but does not block.
+        if labels["noisy"] and (dtype in ("chat", "multiple_choice", "free_text") or lang != "en"):
+            # These signals false-flag real clean data (docs/AUDIT.md, out/stress_real.json): a flag blocks a price,
+            # so they are shown in `checks` but do not block.
             labels["noisy"], labels["advisory"] = False, "possible label problems; this check is not reliable enough to block"
         q["noisy"] = q["noisy"] or labels["noisy"]
         q["audit"] = {k: v for k, v in labels.items() if k != "noisy"}
         out["checks"] = coverage.report_block(dtype, lang, labels, pub_prompts, suite.items[0].match == "numeric")
-        out["label_quality"] = {k: q[k] for k in ("arithmetic", "plausibility", "judge", "audit") if k in q}
+        out["label_quality"] = {k: q[k] for k in ("arithmetic", "audit") if k in q}
         if q["noisy"]:
             meas["noisy"] = out["label_quality"]
         log(f"  labels: arithmetic errors in {q['arithmetic']['rate'] if q['arithmetic']['rate'] is not None else 'n/a'} "
-            f"of worked solutions; plausibility {q.get('plausibility', {}).get('mean')}")
+            f"of worked solutions")
     else:
         from .env import reference
         lm = L.LM(probe_size)

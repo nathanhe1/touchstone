@@ -94,3 +94,24 @@ def test_tool_audit_finds_violations():
     cut = Example([sys, {"role": "user", "content": "x"}], '<functioncall> {"name": "w", "argu')
     r = coverage.tool_audit([good, bad, cut])
     assert r["checked"] == 3 and r["violations"] == 2
+
+
+def test_a_few_slips_in_mostly_prose_do_not_flag():
+    from touchstone import suites
+    suite = suites.word_math_suite(30)
+    rows = [ex("Tell me about tea.", "Tea is a drink.")] * 97 + [ex("Sum?", "2 + 2 = 5"), ex("Sum?", "2 + 2 = 4"), ex("Sum?", "3 + 3 = 6")]
+    assert not screen.screen_dataset(rows, suite)["noisy"]
+
+
+def test_a_real_error_rate_still_flags():
+    from touchstone import suites
+    rows = [ex("Sum?", f"{i} + 1 = {i + 2}") for i in range(30)] + [ex("Sum?", f"{i} + 1 = {i + 1}") for i in range(70)]
+    assert screen.screen_dataset(rows, suites.word_math_suite(30))["noisy"]
+
+
+def test_price_range_spans_the_interval():
+    from touchstone import valuation
+    r = valuation.price_range(1.74, 12.93, [], 400, 0.0, 5000, 480)
+    assert r["grade_low"] == "C" and r["grade_high"] == "A" and r["per_item_low"] < r["per_item_high"]
+    b = valuation.price_range(1.0, 9.0, [{"code": "noisy_labels", "severity": "block"}], 400, 0.0, 5000, 480)
+    assert b["per_item_high"] == 0

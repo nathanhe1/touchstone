@@ -116,8 +116,8 @@ The full contract (endpoints, job lifecycle, report.json schema, the website req
 ## Evidence
 
 - **Planted failures** (`out/evidence.md`, `scripts/run_evidence.py`): the six sample environments and eight example datasets, quick mode. Every planted problem gets its flag and no price.
-- **Red-flag accuracy** (`out/flag_eval.md`, `scripts/eval_flags.py`): on a held-out test set of 23 new planted cases, built after the thresholds were frozen, precision is 1.00 for every flag and recall 0.84 overall. The original prototype scored 0.11 recall. The misses are explained in METHOD.md.
-- **Forecast validation (primary metric: accuracy at the small size predicting accuracy at the larger size).** RL environments on the tiny GPTs (16 environments x 4 sizes x 3 seeds): decision accuracy 0.56, Spearman 0.17, barely above chance; the smooth score predicts the larger model's *smooth score* well (0.91) but not its accuracy. Datasets on real models (135M proxy to 360M): see METHOD.md for the current numbers. The 1.7B target did not fit this 16 GB laptop.
+- **Red-flag accuracy** (`out/flag_eval.json`, `scripts/eval_flags.py`): on frozen test v3, 87 mostly planted cases built before round 3, precision is 0.95 and recall 0.92; the round-2 engine scored 0.89 and 0.50. `gameable_grader` is the weakest flag at 0.69 recall. On real clean data (`out/stress_real.json`) the numeric and code checks raised no false flags in 28 draws. Multiple-choice and free-text checks did, so they are advisory. Component by component: `docs/AUDIT.md`.
+- **Forecast validation (primary metric: accuracy at the small size predicting accuracy at the larger size).** RL on real models, 135M to 360M, 3 seeds: decision accuracy 0.70 (0.79 on resolvable pairs), Spearman 0.60, on 17 held-out environments, noise ceiling 0.81. Both are below the 0.90 and 0.85 targets. Larger-size and fresh-environment results: METHOD.md, section 6.
 
 ```bash
 python scripts/build_examples.py                  # regenerate examples/datasets/
@@ -137,7 +137,7 @@ python scripts/validate_rl_tiny.py                 # RL forecast validation on t
 | Held-out suites | Built-in, procedurally generated with private templates and seeds; or your own JSONL. |
 | Grader audit | Real: mechanical known-wrong and reference-free probes plus the model's own wrong samples. |
 | Overlap | Real: exact, character 5-gram near-duplicate, and MiniLM sentence-embedding paraphrase matching with a same-numbers guard. |
-| Forecast | Calibrated small-to-large map, validated by leave-one-out on a sweep of datasets run at all three sizes. For RL environments on real models there is no calibration sweep yet (too slow for a laptop); the RL forecasting method was validated on the tiny GPTs instead. |
+| Forecast | No calibrated map ships: learned maps did worse than ranking. The forecast is the gain measured at the largest trained size, used to rank material. See METHOD.md, section 6. |
 | Vendors | The six environments and the example datasets are fictional, built to plant specific failures. |
 | Sealing | `touchstone/env.py` can copy an environment into a content-addressed vault, but vendor code still runs in Touchstone's process. Production needs a sandbox. |
 

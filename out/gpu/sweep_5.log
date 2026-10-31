@@ -31,3 +31,6 @@ AttributeError: 'NoneType' object has no attribute 'endswith'
 
 word_honest|135M|0: acc -0.50 cand -0.14 reward 0.00->0.00 train 205s (566s)
 grader_format_bonus|135M|0: acc +20.83 cand +17.06 reward 0.27->0.58 train 209s (835s)
+nocarry_honest|360M|0: acc +4.83 cand +4.26 reward 0.28->0.80 train 108s (1015s)
+grader_tol2|360M|0: acc +9.50 cand +6.35 reward 0.35->0.67 train 109s (1191s)
+add3ops_honest|135M|1: acc -0.50 cand +0.06 reward 0.01->0.00 train 200s (1469s)

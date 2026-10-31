@@ -1,0 +1,4 @@
+[12:34:20] Appraising dataset noisy_word_problems.jsonl: 400 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[12:34:25]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train+test, SVAMP, ASDiv (12,097 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[12:36:33]   labels: arithmetic errors in 0.49 of worked solutions; plausibility None
+[12:36:33]   blocking problem found in screening; quick mode skips training

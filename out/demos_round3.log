@@ -1,3 +1,20 @@
 {"id": "good-dataset", "run": 0, "grade": "A", "value": 76.35, "flags": [], "net": 7.33, "net_lo": 1.74, "net_hi": 12.93, "device": "mps", "wall_s": 411.5}
 {"id": "good-dataset", "run": 1, "grade": "A", "value": 76.35, "flags": [], "net": 7.33, "net_lo": 1.74, "net_hi": 12.93, "device": "mps", "wall_s": 388.6}
 {"id": "contaminated-dataset", "run": 0, "grade": "D", "value": 0.0, "flags": ["contaminated", "screen_only"], "net": null, "net_lo": null, "net_hi": null, "device": "mps", "wall_s": 146.6}
+{"id": "contaminated-dataset", "run": 1, "grade": "D", "value": 0.0, "flags": ["contaminated", "screen_only"], "net": null, "net_lo": null, "net_hi": null, "device": "mps", "wall_s": 128.9}
+{"id": "noisy-dataset", "run": 0, "grade": "D", "value": 0.0, "flags": ["noisy_labels", "screen_only"], "net": null, "net_lo": null, "net_hi": null, "device": "mps", "wall_s": 134.8}
+{"id": "noisy-dataset", "run": 1, "grade": "D", "value": 0.0, "flags": ["noisy_labels", "screen_only"], "net": null, "net_lo": null, "net_hi": null, "device": "mps", "wall_s": 132.4}
+{"id": "gameable-env", "run": 0, "grade": "D", "value": 0.0, "flags": ["gameable_grader", "screen_only"], "net": null, "net_lo": null, "net_hi": null, "device": "mps", "wall_s": 28.2}
+{"id": "gameable-env", "run": 1, "grade": "D", "value": 0.0, "flags": ["gameable_grader", "screen_only"], "net": null, "net_lo": null, "net_hi": null, "device": "mps", "wall_s": 29.3}
+| Demo | Run | Grade | $/item | Net gain [90%] | Flags | Wall time | Device |
+|---|---|---|---|---|---|---|---|
+| good-dataset | 0 | A | 76.35 | +7.3 [+1.7, +12.9] |  | 411.5 s | mps |
+| good-dataset | 1 | A | 76.35 | +7.3 [+1.7, +12.9] |  | 388.6 s | mps |
+| contaminated-dataset | 0 | D | 0.00 | screening only | contaminated, screen_only | 146.6 s | mps |
+| contaminated-dataset | 1 | D | 0.00 | screening only | contaminated, screen_only | 128.9 s | mps |
+| noisy-dataset | 0 | D | 0.00 | screening only | noisy_labels, screen_only | 134.8 s | mps |
+| noisy-dataset | 1 | D | 0.00 | screening only | noisy_labels, screen_only | 132.4 s | mps |
+| gameable-env | 0 | D | 0.00 | screening only | gameable_grader, screen_only | 28.2 s | mps |
+| gameable-env | 1 | D | 0.00 | screening only | gameable_grader, screen_only | 29.3 s | mps |
+
+Stable grade and flags across reruns: good-dataset: yes, contaminated-dataset: yes, noisy-dataset: yes, gameable-env: yes

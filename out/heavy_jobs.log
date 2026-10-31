@@ -62,3 +62,11 @@
 2026-10-31 12:16:27 waiting headroom_pilot: behind headroom_base
 2026-10-31 12:33:21 queued judge_torch_check: .venv/bin/python scripts/dev_judge_torch_check.py
 2026-10-31 12:33:21 waiting judge_torch_check: behind headroom_base
+2026-10-31 12:39:45 end demos_round3: exit 0 after 1402s (swap 9.6 GB)
+2026-10-31 12:39:47 start headroom_base (swap 9.6 GB)
+2026-10-31 12:39:49 waiting headroom_pilot: lock held by headroom_base
+2026-10-31 12:39:51 waiting judge_torch_check: behind headroom_pilot
+2026-10-31 12:40:47 queued flag_test3_round3: .venv/bin/python scripts/eval_flags.py --set test3
+2026-10-31 12:40:47 waiting flag_test3_round3: behind headroom_pilot
+2026-10-31 12:40:49 queued flag_test3_round2: /bin/sh -c cd /private/tmp/claude-501/-Users-nathanhe-Downloads-touchstone/5c78cb26-90ca-44ec-b4eb-c044792a75ed/scratchpad/r3/engine_r2 && /Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/bin/python scripts/eval_flags.py --set test3 --tag _round2
+2026-10-31 12:40:49 waiting flag_test3_round2: behind headroom_pilot

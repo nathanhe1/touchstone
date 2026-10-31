@@ -8,3 +8,14 @@
 [test3] ok  w_clean_answer         truth=[] after=[] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2477.86it/s]
 [test3] ok  w_clean_boxed          truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1356.88it/s]
+[test3] ok  w_clean_sentence       truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2830.44it/s]
+[test3] ok  w_clean_json           truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2786.91it/s]
+[test3] ok  w_clean_answer_b       truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3146.18it/s]
+[test3] ok  w_clean_calc_b         truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1177.09it/s]
+[test3] ok  w_noise5_answer_random truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3161.42it/s]

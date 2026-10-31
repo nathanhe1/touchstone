@@ -125,8 +125,22 @@ def _load(repo: str = JUDGE_REPO):
 
 
 COT_SYS = "You are a careful solver. Think step by step, then give the final answer as \\boxed{answer}."
-PAL_SYS = ("Translate the task into ONE Python expression that computes the answer. Use only numbers, strings, "
-           "arithmetic, slicing and len/sorted/min/max/sum/round. Reply with the expression only, on one line.")
+PAL_SYS = """Translate the task into ONE Python expression that computes the answer. Reply with only the expression.
+
+Task: Tom has 3 boxes of 12 pens and loses 5 pens. How many pens does he have?
+3 * 12 - 5
+
+Task: A shop sold 40 cups on Monday and twice as many on Tuesday. How many cups in both days?
+40 + 2 * 40
+
+Task: Lena splits 84 cards equally among 4 friends. How many cards does each friend get?
+84 / 4
+
+Task: Reverse the letters of bcdae.
+"bcdae"[::-1]
+
+Task: Write mnop backwards.
+"mnop"[::-1]"""
 
 
 def use_judge(key_or_repo: str):
@@ -150,7 +164,9 @@ def _gen(prompts: list[str], system: str, max_tokens: int, batch: int = 8) -> li
     return out
 
 
-def _pal_value(text: str):
+def _pal_value(text: str, prompt: str = ""):
+    """Value of the program route. A string literal the prompt does not contain is a transcription slip
+    by the model (it retyped the input wrongly), so that program is discarded."""
     t = text.strip()
     m = re.search(r"```(?:python)?\s*(.*?)```", t, re.S)
     if m:
@@ -162,9 +178,29 @@ def _pal_value(text: str):
     line = re.sub(r"^print\((.*)\)$", r"\1", line)
     line = re.sub(r"^[A-Za-z_]\w*\s*=\s*", "", line)
     try:
+        if prompt:
+            for n in ast.walk(ast.parse(line, mode="eval")):
+                if isinstance(n, ast.Constant) and isinstance(n.value, str) and len(n.value) > 1 and n.value not in prompt:
+                    return None
         return canon(safe_eval(line))
     except Exception:
         return None
+
+
+def _cot_value(text: str):
+    """Boxed answer, else the last 'answer/total is X', else the last number of the last line, else a quoted word."""
+    b = _BOX.findall(text)
+    if b:
+        return canon(re.sub(r"\\text\{[^{}]*\}|\\[,!;]|\\%", "", b[-1]))
+    lines = [x for x in text.strip().splitlines() if x.strip()]
+    if not lines:
+        return None
+    last = lines[-1]
+    n = _NUM.findall(last)
+    if n:
+        return canon(n[-1])
+    q = re.findall(r"['\"`*]+([A-Za-z]+)['\"`*]+", last)
+    return canon(q[-1]) if q else None
 
 
 def solve(prompts: list[str], cot_tokens: int = 320) -> list[dict]:
@@ -172,10 +208,9 @@ def solve(prompts: list[str], cot_tokens: int = 320) -> list[dict]:
     cot = _gen(prompts, COT_SYS, cot_tokens)
     pal = _gen(prompts, PAL_SYS, 80)
     res = []
-    for c, p in zip(cot, pal):
-        b = _BOX.findall(c)
-        a1 = canon(b[-1]) if b else None
-        a2 = _pal_value(p)
+    for c, p, q in zip(cot, pal, prompts):
+        a1 = _cot_value(c)
+        a2 = _pal_value(p, q)
         res.append({"cot": a1, "pal": a2})
     return res
 
@@ -199,3 +234,50 @@ def audit(examples, n: int = 80, seed: int = 0) -> dict:
         rows.append({"label": lab, **s})
     return {"sampled": len(sample), "confident": conf, "disagree": round(dis / conf, 4) if conf >= 10 else None,
             "rows": rows}
+
+
+def available() -> bool:
+    try:
+        import mlx_lm  # noqa: F401
+        return True
+    except ImportError:
+        return False
+
+
+MCQ_SYS = "Answer the multiple-choice question. Reply with the letter of the best option and nothing else."
+FIT_SYS = ("You check training data. Given a REQUEST and a RESPONSE, decide whether the RESPONSE actually addresses "
+           "and fulfils the REQUEST. Reply with YES or NO only.")
+
+
+def audit_mcq(examples, n: int = 60, seed: int = 0) -> dict:
+    """Share of sampled questions where the judge's option differs from the labelled one."""
+    from .coverage import mcq_label, mcq_options
+    pool = [e for e in examples if len(mcq_options(e.last_user)) >= 2 and mcq_label(e.completion)]
+    sample = random.Random(seed).sample(pool, min(n, len(pool)))
+    outs = _gen([e.last_user for e in sample], MCQ_SYS, 6)
+    pairs = [(mcq_label(o) or (o.strip()[:1].upper() if o.strip() else None), mcq_label(e.completion))
+             for o, e in zip(outs, sample)]
+    pairs = [(a, b) for a, b in pairs if a]
+    dis = sum(a != b for a, b in pairs)
+    return {"sampled": len(sample), "answered": len(pairs), "disagree": round(dis / len(pairs), 4) if pairs else None}
+
+
+def _yes(prompts: list[str], replies: list[str]) -> float:
+    q = [f"REQUEST:\n{p[:1500]}\n\nRESPONSE:\n{r[:1500]}" for p, r in zip(prompts, replies)]
+    outs = _gen(q, FIT_SYS, 3)
+    return sum(o.strip().upper().startswith("YES") for o in outs) / max(1, len(outs))
+
+
+def audit_fit(examples, n: int = 60, seed: int = 0) -> dict:
+    """Judge's YES rate on real pairs, rescaled against the same replies shuffled across prompts:
+    fit = (real - shuffled) / (1 - shuffled). Shuffled pairs are the chance level for this dataset."""
+    rng = random.Random(seed)
+    s = rng.sample(list(examples), min(n, len(examples)))
+    if len(s) < 10:
+        return {"sampled": len(s), "fit": None}
+    ps = [e.last_user for e in s]
+    rs = [e.completion for e in s]
+    sh = rs[1:] + rs[:1]
+    real, base = _yes(ps, rs), _yes(ps, sh)
+    return {"sampled": len(s), "yes_real": round(real, 4), "yes_shuffled": round(base, 4),
+            "fit": round((real - base) / (1 - base), 4) if base < 1 else None}

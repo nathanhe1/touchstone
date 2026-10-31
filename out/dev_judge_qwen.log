@@ -14,3 +14,4 @@ qwen good_short                   noise 0 conf 54/60 disagree 0.0 126s e.g. [{'l
 qwen d_clean_answer               noise 0 conf 60/60 disagree 0.0 103s e.g. [{'label': '35', 'cot': '35', 'pal': '35'}, {'label': '42', 'cot': '42', 'pal': '42'}]
 qwen s_clean                      noise 0 conf 7/60 disagree None 68s e.g. [{'label': 'fmgld', 'cot': 'dlmfg', 'pal': 'fmgld'}, {'label': 'diignni', 'cot': 'idniigin', 'pal': None}]
 qwen short_noisy_30               noise 30 conf 51/60 disagree 0.1765 104s e.g. [{'label': '168', 'cot': '168', 'pal': '1176'}, {'label': '22', 'cot': '22', 'pal': '22'}]
+qwen d_noise40_answer_random      noise 40 conf 60/60 disagree 0.3667 105s e.g. [{'label': '43', 'cot': '43', 'pal': '43'}, {'label': '357', 'cot': '51', 'pal': '51'}]

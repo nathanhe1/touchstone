@@ -104,15 +104,21 @@ def score(rows, key):
     return res
 
 
-def run(name, items):
-    rows = []
+def run(name, items, part=None):
+    """Resumable: finished items are kept in out/flag_eval_<name>.partial.json."""
+    part = part or (ROOT / "out" / f"flag_eval_{name}.partial.json")
+    rows = json.loads(part.read_text()) if part.exists() else []
+    done = {r["id"] for r in rows}
     for id_, kind, path, suite, truth in items:
+        if id_ in done:
+            continue
         t0 = time.time()
         a, meas = after(kind, ROOT / path, suite)
         b, _ = before(kind, ROOT / path, suite)
         rows.append({"id": id_, "kind": kind, "suite": suite, "truth": sorted(truth), "after": sorted(a),
-                     "before": sorted(b), "meas": {k: v for k, v in meas.items() if not isinstance(v, dict)},
+                     "before": sorted(b), "meas": {k: v for k, v in meas.items() if not isinstance(v, (dict, tuple))},
                      "seconds": round(time.time() - t0, 1)})
+        part.write_text(json.dumps(rows))
         ok = "ok " if set(a) == set(truth) else "ERR"
         print(f"[{name}] {ok} {id_:22s} truth={sorted(truth)} after={sorted(a)} before={sorted(b)}", flush=True)
     return {"items": rows, "after": score(rows, "after"), "before": score(rows, "before"),
@@ -133,14 +139,17 @@ def table(res):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--set", default="both", choices=["dev", "test", "test2", "both", "all"])
+    ap.add_argument("--set", default="both", choices=["dev", "test", "test2", "test3", "both", "all"])
     ap.add_argument("--tag", default="", help="suffix for result keys, e.g. _round1 to keep a before snapshot")
     a = ap.parse_args()
     out_f = ROOT / "out" / "flag_eval.json"
     out = json.loads(out_f.read_text()) if out_f.exists() else {}
-    for name, items in (("dev", DEV), ("test", test_items()), ("test2", test_items("redflags_test2"))):
+    sets = [("dev", DEV), ("test", test_items()), ("test2", test_items("redflags_test2"))]
+    if a.set == "test3":  # frozen: only ever by name, never through "all"
+        sets = [("test3", test_items("redflags_test3"))]
+    for name, items in sets:
         if a.set == name or a.set == "all" or (a.set == "both" and name != "test2"):
-            out[name + a.tag] = run(name, items)
+            out[name + a.tag] = run(name + a.tag, items)
             print(f"\n{name.upper()}{a.tag}\n" + table(out[name + a.tag]), flush=True)
     out_f.write_text(json.dumps(out, indent=2))
     (ROOT / "out" / "flag_eval.md").write_text("\n\n".join(f"## {k}\n\n{table(v)}" for k, v in out.items()) + "\n")

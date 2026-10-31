@@ -1,0 +1,6 @@
+[12:16:25] Appraising dataset good_word_problems.jsonl: 400 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[12:16:34]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train+test, SVAMP, ASDiv (12,097 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[12:19:36]   labels: arithmetic errors in 0.0 of worked solutions; plausibility None
+[12:19:37]   135M: base accuracy 11.3%  candidate prob 31.3%
+[12:21:23]   135M seed 0 material: accuracy 18.7%  candidate prob 40.4%  (47s train)
+[12:23:13]   135M seed 0 placebo : accuracy 5.3%  candidate prob 25.4%  (49s train)

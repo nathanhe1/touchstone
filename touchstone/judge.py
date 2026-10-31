@@ -217,25 +217,39 @@ def solve(prompts: list[str], cot_tokens: int = 320) -> list[dict]:
     return res
 
 
-def audit(examples, n: int = 80, seed: int = 0) -> dict:
-    """Label-noise estimate on a random sample: share of confident items whose label disagrees with the judge."""
+def _tally(rows: list[dict]) -> dict:
+    """Numeric labels: disagreement among items where both routes agree. Text labels: the chain-of-thought route
+    cannot do letter-level transforms, so the executed program route alone is used."""
+    numeric = sum(re.fullmatch(r"-?\d+(\.\d+)?", r["label"]) is not None for r in rows) >= 0.5 * len(rows)
+    if numeric:
+        conf = [r for r in rows if r["cot"] is not None and r["cot"] == r["pal"]]
+        pick = "cot"
+    else:
+        conf = [r for r in rows if r["pal"] is not None]
+        pick = "pal"
+    dis = sum(r[pick] != r["label"] for r in conf)
+    return {"route": "both" if numeric else "program", "confident": len(conf), "disagree_n": dis,
+            "disagree": round(dis / len(conf), 4) if len(conf) >= 10 else None}
+
+
+def audit(examples, n: int = 60, extra: int = 60, band: tuple = (0.08, 0.25), seed: int = 0) -> dict:
+    """Label-noise estimate on a random sample, with a second sample only when the first lands near the
+    decision band: a clear case costs one batch, a close one gets twice the items."""
     rng = random.Random(seed)
     pool = [e for e in examples if label_of(e.completion) is not None]
     if len(pool) < 20:
-        return {"sampled": len(pool), "confident": 0, "disagree": None}
-    sample = rng.sample(pool, min(n, len(pool)))
-    sol = solve([e.last_user for e in sample])
-    conf = dis = 0
-    rows = []
-    for e, s in zip(sample, sol):
-        lab = label_of(e.completion)
-        ok = s["cot"] is not None and s["cot"] == s["pal"]
-        if ok:
-            conf += 1
-            dis += s["cot"] != lab
-        rows.append({"label": lab, **s})
-    return {"sampled": len(sample), "confident": conf, "disagree": round(dis / conf, 4) if conf >= 10 else None,
-            "rows": rows}
+        return {"sampled": len(pool), "confident": 0, "disagree": None, "rows": []}
+    order = rng.sample(pool, min(n + extra, len(pool)))
+
+    def run(items):
+        sol = solve([e.last_user for e in items])
+        return [{"label": label_of(e.completion), **s} for e, s in zip(items, sol)]
+    rows = run(order[:n])
+    t = _tally(rows)
+    if extra and order[n:] and t["disagree"] is not None and band[0] <= t["disagree"] <= band[1]:
+        rows += run(order[n:])
+        t = _tally(rows)
+    return {"sampled": len(rows), **t, "rows": rows}
 
 
 def _has_mlx() -> bool:

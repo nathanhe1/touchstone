@@ -193,11 +193,15 @@ def answer_leakage(prompts: list[str], refs: list[str | None]) -> float:
     return sum(r in tok.findall(p) for p, r in pairs) / len(pairs)
 
 
-JUDGE_DISAGREE = None  # set from the development set (round 3); None disables the judge flag
+# Set on development data only (round 3, out/dev_judge_qwen.json). Numeric: clean and real GSM8K at most 0.04,
+# 10% noise 0.14, 30%+ noise at least 0.18. Text labels (program route): clean at most 0.11, noisy at least 0.40.
+JUDGE_DISAGREE = 0.15
+JUDGE_DISAGREE_TEXT = 0.20
 
 
 def judge_noisy(r: dict) -> bool:
-    return JUDGE_DISAGREE is not None and r.get("disagree") is not None and r["disagree"] >= JUDGE_DISAGREE
+    limit = JUDGE_DISAGREE if r.get("route") == "both" else JUDGE_DISAGREE_TEXT
+    return r.get("disagree") is not None and r["disagree"] >= limit
 
 
 def answer_only(examples) -> bool:

@@ -146,11 +146,11 @@ def match(items: list[str], reference: list[str], use_embeddings: bool = True, k
 SHORT_WORDS = 25  # fingerprints are used for short, number-carrying prompts (templated tasks)
 
 
-def _short_numeric(s: str) -> bool:
-    return len(s.split()) <= SHORT_WORDS and len(numbers(s)) >= 2
+def _short_numeric(s: str, min_numbers: int = 2) -> bool:
+    return len(s.split()) <= SHORT_WORDS and len(numbers(s)) >= min_numbers
 
 
-def fingerprint_overlap(items: list[str], reference: list[str]) -> dict:
+def fingerprint_overlap(items: list[str], reference: list[str], min_numbers: int = 2) -> dict:
     """Chance-corrected copy rate for short templated prompts (round 2).
 
     Rewording ("What's 65 plus 41?" vs "Calculate 65 + 41.") defeats string and embedding
@@ -159,9 +159,12 @@ def fingerprint_overlap(items: list[str], reference: list[str]) -> dict:
     public set by chance, so the chance rate is measured directly: the same fingerprints with every
     number shifted by +1 (same distribution, different identities). The copy rate is the excess
     over chance, scaled to the share of material that is short and numeric.
+
+    `min_numbers` = 3 for prose corpora (round 3): two small numbers collide with thousands of unrelated
+    public word problems more than the shift estimates, which cost clean data a false 5-12%.
     """
-    ref = {numbers(r) for r in reference if _short_numeric(r)}
-    elig = [s for s in items if _short_numeric(s)]
+    ref = {numbers(r) for r in reference if _short_numeric(r, min_numbers)}
+    elig = [s for s in items if _short_numeric(s, min_numbers)]
     if not ref or not elig:
         return {"rate": 0.0, "observed": 0.0, "chance": 0.0, "eligible": len(elig) / max(1, len(items))}
 

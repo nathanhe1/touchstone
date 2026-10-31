@@ -296,7 +296,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     if pub_prompts:
         # Short templated prompts: chance-corrected numeric fingerprints replace raw text matching, which both
         # misses rewordings and counts chance collisions in small number spaces (round 2).
-        fp = overlap.fingerprint_overlap(prompts, pub_prompts)
+        fp = overlap.fingerprint_overlap(prompts, pub_prompts, 3 if suite.name == "word_math" else 2)
         long_hits = sum(1 for i in pub.get("matched_idx", []) if not overlap._short_numeric(prompts[i]))
         pub["text_rate"] = pub["rate"]
         pub["fingerprint"] = fp

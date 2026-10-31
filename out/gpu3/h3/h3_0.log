@@ -23,3 +23,9 @@ strings_lax_grader|135M|2 0.0 83s
 word_honest|135M|2 0.33 89s
 units_honest|135M|2 -2.33 90s
 code_honest|135M|2 -1.33 90s
+code_noise20|135M|2 -0.33 104s
+code_noise45|135M|2 -0.33 103s
+code_leak30|135M|2 -0.67 96s
+strings_honest|360M|2 0.0 90s
+strings_leak30|360M|2 0.0 83s
+word_lax_grader|360M|2 19.33 106s

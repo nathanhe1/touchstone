@@ -22,3 +22,8 @@ word_leak30|135M|2 0.33 92s
 code_lax_grader|135M|2 -0.67 90s
 strings_hard|360M|2 0.0 88s
 strings_noise20|360M|2 0.0 126s
+strings_noise45|360M|2 -0.33 120s
+strings_pool20|360M|2 0.0 87s
+word_off50|360M|2 10.33 123s
+units_hard|360M|2 -3.33 96s
+units_lax_grader|360M|2 -0.67 88s

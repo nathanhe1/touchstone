@@ -19,3 +19,7 @@ strings_honest|135M|2 0.0 79s
 word_off50|135M|2 0.33 89s
 strings_off50|360M|2 -0.33 85s
 word_noise20|360M|2 -1.33 147s
+units_leak30|360M|2 -20.67 116s
+code_hard|360M|2 0.67 90s
+code_noise20|360M|2 -0.67 123s
+code_pool20|360M|2 1.67 122s

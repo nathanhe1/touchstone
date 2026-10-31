@@ -19,3 +19,17 @@ word_lax_grader|135M|1 3.67 94s
 units_hard|135M|1 0.0 84s
 strings_lax_grader|360M|1 -0.33 86s
 word_noise20|360M|1 -1.33 147s
+word_noise45|360M|1 -2.33 147s
+units_noise20|360M|1 1.33 121s
+units_leak30|360M|1 -38.33 115s
+code_honest|360M|1 1.67 109s
+code_noise45|360M|1 -4.67 104s
+code_lax_grader|360M|1 -2.67 94s
+strings_hard|135M|2 0.0 44s
+strings_noise45|135M|2 0.0 55s
+strings_pool20|135M|2 0.0 43s
+units_lax_grader|135M|2 -4.33 50s
+word_honest|360M|2 -0.33 52s
+word_hard|360M|2 0.67 44s
+word_noise45|360M|2 0.67 50s
+word_leak30|360M|2 19.33 46s

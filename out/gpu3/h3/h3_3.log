@@ -21,3 +21,12 @@ code_pool20|360M|1 1.33 119s
 strings_noise20|135M|2 0.0 101s
 strings_leak30|135M|2 0.0 83s
 word_lax_grader|135M|2 -0.67 101s
+units_hard|135M|2 0.0 89s
+strings_lax_grader|360M|2 -0.33 91s
+word_pool20|360M|2 3.33 127s
+units_noise20|360M|2 -2.67 120s
+units_noise45|360M|2 2.33 102s
+code_off50|360M|2 0.0 57s
+code_noise45|360M|2 0.0 60s
+code_leak30|360M|2 -6.0 54s
+code_lax_grader|360M|2 -2.33 57s

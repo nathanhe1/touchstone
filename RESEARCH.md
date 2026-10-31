@@ -44,3 +44,25 @@ What was read, what was tried on development data, and what was kept. Every resu
 | Learning-curve extrapolation (Domhan et al. 2015; Ruan et al. 2024) | Fit the proxy's curve and extend. | Two rungs only on this laptop; fitting a curve through two points is a line, which round 1 showed is worse than ranking. |
 
 Results are filled in below as experiments finish.
+
+## 4. Coverage by data type
+
+Touchstone must eventually appraise every kind of training material. This matrix says what works today, what would extend it, and whether that fits on a 16 GB laptop. `touchstone/coverage.py` detects the type from row content and reports each check as `checked`, `partial` or `not_checked` in a new `checks` block of the report (additive; schema 1.0 fields are unchanged). A type no check can read reports `not_checked` with the reason; it is never shown as clean.
+
+| Data type | Labels | Public copy | Held-out value (training) | Extension | Laptop? |
+|---|---|---|---|---|---|
+| Math word problems | **Checked.** Arithmetic and unsupported-final audits, judge re-solves two ways | **Checked.** GSM8K train+test, SVAMP, ASDiv | **Yes**, built-in `word_math` suite | MATH, MAWPS corpora | Yes |
+| Short transforms (strings) | **Checked.** Judge's program route executes the transform | Not checked unless `--public` | Yes, built-in `strings` suite | More transforms in the evaluator | Yes |
+| Multiple choice | **Checked.** Judge picks an option | Not checked unless `--public` | Only with a user suite | MMLU/ARC corpora as a baseline | Yes |
+| Code with tests | **Checked.** Runs against its tests in a sandbox (no network, no home reads, no exec, limits) | Not checked unless `--public` | Only with a user suite; exact-match scoring does not fit code | MBPP/HumanEval as a baseline; held-out scoring by test pass rate | Yes for labels; scoring by tests is new work |
+| Code without tests | **Partial.** Syntax only | Not checked unless `--public` | Only with a user suite | Judge writes tests, or Python-only type checks | Partly |
+| Free text, instruction | **Partial.** Judge rates fit to the request, calibrated by shuffled pairs. Facts are not checked | Not checked unless `--public` | Only with a user suite; exact-match scoring does not fit prose | Retrieval-backed fact checks; held-out scoring by likelihood or a stronger judge | Fit yes; facts need a bigger judge and an index |
+| Chat, conversation | **Partial.** Same fit check on the last turn only | Not checked unless `--public` | Only with a user suite | Turn-level audit; safety and persona checks | Yes for turns; rented GPU at volume |
+| Tool-use trajectories | **Partial.** Call parses, tool is declared, arguments fit the schema. Choice of tool is not judged | Not checked | No held-out suite | Replay against mock tools; judge scores the choice of tool | Structure yes; replay is new work |
+| Non-English | **Numeric: checked** by the judge. Text: same partial fit check | **Not checked** (baselines are English) | Only with a user suite | Multilingual baselines; multilingual embeddings instead of MiniLM | Yes, small |
+| Images, audio, video | **Not checked** (the loader accepts text JSONL only) | Not checked | No | Vision or audio judge | No: rented GPU |
+| RL env: math | Grader audit, leakage, training gap | Checked for `arithmetic` | Yes | | Yes |
+| RL env: strings | Grader audit, leakage, training gap | Not checked unless `--public` | Yes | | Yes |
+| RL env: code | Grader audit runs only if `verify` is safe in-process; vendor code is not sandboxed yet | Not checked | No suite | Run `verify` in the sandbox of `codecheck.py` | Yes, new work |
+| RL env: tools, agents, browsers, games | Generic probes only (empty, echo, junk); no domain probes | Not checked | No suite | Domain probes, simulator-based held-out tasks | Mostly rented GPU |
+

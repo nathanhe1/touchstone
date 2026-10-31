@@ -210,6 +210,8 @@ def wait_for_memory(min_free_pct=20):
     idle pages there indefinitely, even with most of memory free."""
     import re
     import subprocess
+    if sys.platform != "darwin":
+        return
     while True:
         m = re.search(r"free percentage: (\d+)%", subprocess.run(["memory_pressure"], capture_output=True, text=True).stdout)
         if not m or int(m.group(1)) >= min_free_pct:
@@ -232,14 +234,17 @@ def one_run(cmd):
         return None
 
 
-def run(only=None):
-    res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}, "split": split()}
+def run(only=None, shard=None):
+    """shard 'i/n' runs every n-th pending key and writes its own file; --merge folds shard files into OUT."""
+    out = OUT if not shard else OUT.with_suffix(f".shard{shard.split('/')[0]}.json")
+    res = json.loads(out.read_text()) if out.exists() else (json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}, "split": split()})
     t0 = time.time()
     names = list(environments())
     # Seed-major, development environments first: an interim development score exists after seed 0 at both
     # sizes on those 13, long before the sweep ends. Order changes nothing about what is measured.
     dev = [n for n in names if n in res["split"]["dev"]]
     held = [n for n in names if n not in res["split"]["dev"]]
+    count = -1
     order = [(seed, group, size) for seed in range(max(SEEDS.values())) for group in (dev, held) for size in ("135M", "360M")]
     for seed, group, size in order:
         if True:
@@ -248,6 +253,9 @@ def run(only=None):
             for name in group:
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
+                    continue
+                count += 1
+                if shard and count % int(shard.split("/")[1]) != int(shard.split("/")[0]):
                     continue
                 wait_for_memory()
                 done = one_run([sys.executable, __file__, "--one", name, size, str(seed)])
@@ -262,7 +270,7 @@ def run(only=None):
                 r = json.loads(line[0][7:])
                 res["base"][size] = r.pop("base")
                 res["runs"][key] = r
-                OUT.write_text(json.dumps(res))
+                out.write_text(json.dumps(res))
                 print(f"{key}: acc {r['acc_gain']:+.2f} cand {r['cand_gain']:+.2f} reward {r['reward_first']:.2f}->"
                       f"{r['reward_last']:.2f} train {r['train_s']:.0f}s ({time.time() - t0:.0f}s)", flush=True)
     return res
@@ -273,10 +281,20 @@ if __name__ == "__main__":
     ap.add_argument("--one", nargs=3, metavar=("ENV", "SIZE", "SEED"))
     ap.add_argument("--only", choices=["135M", "360M"])
     ap.add_argument("--print-split", action="store_true")
+    ap.add_argument("--shard", help="i/n: this process takes every n-th pending run (for many-GPU or large-memory machines)")
+    ap.add_argument("--merge", action="store_true", help="fold out/validation_rl_real2.shard*.json into the main file")
     a = ap.parse_args()
     if a.one:
         one(*a.one)
     elif a.print_split:
         print(json.dumps(split(), indent=1))
+    elif a.merge:
+        res = json.loads(OUT.read_text())
+        for f in sorted(OUT.parent.glob("validation_rl_real2.shard*.json")):
+            d = json.loads(f.read_text())
+            res["runs"].update(d["runs"])
+            res["base"].update(d["base"])
+        OUT.write_text(json.dumps(res))
+        print(len(res["runs"]), "runs")
     else:
-        run(a.only)
+        run(a.only, a.shard)

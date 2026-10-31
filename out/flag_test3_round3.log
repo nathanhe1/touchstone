@@ -88,3 +88,5 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5017.97it/s]
 [test3] ok  c_one_percent_neg      truth=[] after=[] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4318.30it/s]
+[test3] ok  u_dup_40x12            truth=['duplicated'] after=['duplicated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4006.57it/s]

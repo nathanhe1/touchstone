@@ -86,3 +86,8 @@
 2026-10-31 14:36:19 waiting stress_real: behind flag_test3_round2
 2026-10-31 16:00:19 end flag_test3_round3: stall after 6845s (swap 8.7 GB)
 2026-10-31 16:00:19 retry flag_test3_round3: attempt 2 of 4
+2026-10-31 17:32:44 end flag_test3_round3: exit 0 after 5545s (swap 6.7 GB)
+2026-10-31 17:32:44 start flag_test3_round2 (swap 6.7 GB)
+2026-10-31 17:32:54 waiting stress_real: lock held by flag_test3_round2
+2026-10-31 17:44:54 end flag_test3_round2: exit 0 after 730s (swap 8.0 GB)
+2026-10-31 17:44:54 start stress_real (swap 8.0 GB)

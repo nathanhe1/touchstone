@@ -2,3 +2,7 @@ add3ops_honest|135M {'acc': 0.0, 'base': 4.0} 244s
 add_sub_mix|135M {'acc': 5.667, 'base': 4.0} 322s
 grader_lastdigit|135M {'acc': 2.667, 'base': 4.0} 363s
 leak100|135M {'acc': 1.0, 'base': 4.0} 426s
+add3ops_honest|360M {'acc': 0.0, 'base': 60.0} 551s
+add_sub_mix|360M {'acc': 5.667, 'base': 60.0} 678s
+grader_lastdigit|360M {'acc': 1.0, 'base': 60.0} 687s
+leak100|360M {'acc': 2.0, 'base': 60.0} 667s

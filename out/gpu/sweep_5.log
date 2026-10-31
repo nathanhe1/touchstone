@@ -45,3 +45,8 @@ add_sub_mix|135M|2: acc +11.00 cand +10.78 reward 0.06->0.10 train 221s (3270s)
 mix_honest|360M|2: FAILED
  capacity of 31.36 GiB of which 4.38 MiB is free. Process 9657 has 5.28 GiB memory in use. Process 9754 has 6.21 GiB memory in use. Process 9755 has 4.61 GiB memory in use. Process 9756 has 1.40 GiB memory in use. Process 9894 has 2.15 GiB memory in use. Process 9895 has 6.24 GiB memory in use. Including non-PyTorch memory, this process has 3.55 GiB memory in use. Process 10039 has 1.86 GiB memory in use. Of the allocated memory 2.88 GiB is allocated by PyTorch, and 88.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
 
+noise20|360M|2: acc +9.33 cand +5.04 reward 0.43->0.55 train 120s (3476s)
+word_honest|135M|2: acc +0.00 cand +0.00 reward 0.00->0.00 train 195s (3744s)
+grader_format_bonus|135M|2: acc +19.50 cand +17.02 reward 0.27->0.54 train 214s (4021s)
+nocarry_honest|360M|2: acc +3.00 cand +4.12 reward 0.30->0.79 train 115s (4206s)
+grader_tol2|360M|2: acc +7.83 cand +4.90 reward 0.32->0.76 train 113s (4386s)

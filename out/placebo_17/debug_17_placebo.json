@@ -1,0 +1,650 @@
+{
+ "mix_honest|material|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 88.17,
+   "words": 1.35,
+   "equals_share": 8.8,
+   "sample": [
+    "35",
+    "75",
+    "91"
+   ]
+  },
+  "reward_last": 0.8594,
+  "skipped": 4
+ },
+ "spaced_honest|shuffled|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 62.83,
+   "words": 1.55,
+   "equals_share": 13.7,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.0365,
+  "skipped": 11
+ },
+ "mix_honest|material|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 94.83,
+   "words": 4.81,
+   "equals_share": 95.3,
+   "sample": [
+    "10 + 25 = 35",
+    "35 + 40 = 75",
+    "38 + 53 = 91"
+   ]
+  },
+  "reward_last": 0.8646,
+  "skipped": 4
+ },
+ "sub_honest|material|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 93.5,
+   "words": 5.04,
+   "equals_share": 97.8,
+   "sample": [
+    "10 + 25 = 35",
+    "35 + 40 = 75",
+    "38 + 53 = 91"
+   ]
+  },
+  "reward_last": 0.8073,
+  "skipped": 3
+ },
+ "spaced_honest|shuffled|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 79.83,
+   "words": 4.42,
+   "equals_share": 67.7,
+   "sample": [
+    "The sum of 10 and 25 is 35.",
+    "45",
+    "41"
+   ]
+  },
+  "reward_last": 0.0469,
+  "skipped": 9
+ },
+ "sub_honest|material|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 93.17,
+   "words": 4.93,
+   "equals_share": 98.0,
+   "sample": [
+    "10 + 25 = 35",
+    "35 + 40 = 75",
+    "38 + 53 = 91"
+   ]
+  },
+  "reward_last": 0.9271,
+  "skipped": 2
+ },
+ "sub_honest|material|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 84.67,
+   "words": 2.79,
+   "equals_share": 44.8,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.8021,
+  "skipped": 0
+ },
+ "spaced_honest|shuffled|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 64.33,
+   "words": 1.85,
+   "equals_share": 21.2,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.0365,
+  "skipped": 14
+ },
+ "mix_honest|material|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 85.0,
+   "words": 1.17,
+   "equals_share": 4.2,
+   "sample": [
+    "35",
+    "75",
+    "91"
+   ]
+  },
+  "reward_last": 0.8646,
+  "skipped": 0
+ },
+ "mix_honest|shuffled|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 62.83,
+   "words": 1.25,
+   "equals_share": 6.2,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.4062,
+  "skipped": 0
+ },
+ "sub_honest|shuffled|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 62.67,
+   "words": 1.66,
+   "equals_share": 16.5,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.1458,
+  "skipped": 0
+ },
+ "spaced_honest|material|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 94.5,
+   "words": 4.98,
+   "equals_share": 99.0,
+   "sample": [
+    "10 + 25 = 35",
+    "35 + 40 = 75",
+    "38 + 53 = 91"
+   ]
+  },
+  "reward_last": 0.4948,
+  "skipped": 2
+ },
+ "spaced_honest|random|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 64.83,
+   "words": 2.29,
+   "equals_share": 32.2,
+   "sample": [
+    "35",
+    "75",
+    "41"
+   ]
+  },
+  "reward_last": 0.3229,
+  "skipped": 0
+ },
+ "mix_honest|shuffled|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 69.5,
+   "words": 1.2,
+   "equals_share": 5.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.4531,
+  "skipped": 0
+ },
+ "mix_honest|random|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 67.5,
+   "words": 2.61,
+   "equals_share": 40.3,
+   "sample": [
+    "10 + 25 = 35",
+    "55",
+    "41"
+   ]
+  },
+  "reward_last": 0.2344,
+  "skipped": 0
+ },
+ "sub_honest|shuffled|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 61.67,
+   "words": 1.69,
+   "equals_share": 17.3,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.1562,
+  "skipped": 0
+ },
+ "spaced_honest|random|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 60.83,
+   "words": 1.99,
+   "equals_share": 24.7,
+   "sample": [
+    "35",
+    "75",
+    "41"
+   ]
+  },
+  "reward_last": 0.2344,
+  "skipped": 0
+ },
+ "sub_honest|shuffled|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 66.5,
+   "words": 2.11,
+   "equals_share": 27.8,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.2865,
+  "skipped": 0
+ },
+ "sub_honest|random|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 61.0,
+   "words": 2.05,
+   "equals_share": 26.3,
+   "sample": [
+    "35",
+    "65",
+    "41"
+   ]
+  },
+  "reward_last": 0.2552,
+  "skipped": 0
+ },
+ "spaced_honest|material|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 94.83,
+   "words": 4.98,
+   "equals_share": 99.5,
+   "sample": [
+    "10 + 25 = 35.",
+    "35 + 40 = 75.",
+    "38 + 53 = 91."
+   ]
+  },
+  "reward_last": 0.6302,
+  "skipped": 2
+ },
+ "spaced_honest|random|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 54.0,
+   "words": 2.4,
+   "equals_share": 35.0,
+   "sample": [
+    "10 + 25 = 35",
+    "55",
+    "41"
+   ]
+  },
+  "reward_last": 0.2552,
+  "skipped": 0
+ },
+ "mix_honest|random|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 76.67,
+   "words": 3.94,
+   "equals_share": 59.3,
+   "sample": [
+    "The sum of 10 and 25 is 35.",
+    "45",
+    "41"
+   ]
+  },
+  "reward_last": 0.3229,
+  "skipped": 0
+ },
+ "sub_honest|random|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 66.67,
+   "words": 1.45,
+   "equals_share": 11.3,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.3229,
+  "skipped": 0
+ },
+ "spaced_honest|material|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 94.0,
+   "words": 4.95,
+   "equals_share": 98.8,
+   "sample": [
+    "10 + 25 = 35",
+    "35 + 40 = 75",
+    "38 + 53 = 91"
+   ]
+  },
+  "reward_last": 0.6979,
+  "skipped": 1
+ },
+ "mix_honest|shuffled|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 61.17,
+   "words": 2.5,
+   "equals_share": 36.7,
+   "sample": [
+    "35",
+    "55",
+    "41"
+   ]
+  },
+  "reward_last": 0.4115,
+  "skipped": 0
+ },
+ "mix_honest|random|2": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 81.0,
+   "words": 4.19,
+   "equals_share": 69.3,
+   "sample": [
+    "The sum of 10 and 25 is 35.",
+    "35 + 40 = 75",
+    "41"
+   ]
+  },
+  "reward_last": 0.2552,
+  "skipped": 0
+ },
+ "sub_honest|random|1": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 68.67,
+   "words": 2.37,
+   "equals_share": 34.3,
+   "sample": [
+    "35",
+    "75",
+    "41"
+   ]
+  },
+  "reward_last": 0.2344,
+  "skipped": 0
+ }
+}

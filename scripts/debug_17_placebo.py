@@ -37,9 +37,9 @@ def suite_items():
     return suites.arithmetic_suite(V.SUITE_ITEMS).items
 
 
-def score(lm, items, suffix=None):
+def score(lm, items, suffix=None, max_new=None):
     ps = [i.prompt if suffix is None else i.prompt.replace(" Answer with the number only.", suffix) for i in items]
-    outs = lm.generate(ps, max_new=V.RECIPE.eval_max_new)
+    outs = lm.generate(ps, max_new=max_new or V.RECIPE.eval_max_new)
     acc = sum(suites.is_correct(o, i) for o, i in zip(outs, items)) / len(items)
     return {"acc": round(100 * acc, 2), "words": round(sum(len(o.split()) for o in outs) / len(outs), 2),
             "equals_share": round(100 * sum("=" in o for o in outs) / len(outs), 1), "sample": outs[:3]}
@@ -62,11 +62,11 @@ def fmt():
     for size in ("360M", "1.7B"):
         lm = L.LM(size)
         for k, sfx in SUFFIX.items():
-            res[f"{size}|{k}"] = score(lm, items, sfx)
+            res[f"{size}|{k}"] = score(lm, items, sfx, 200)  # the working prompt overruns the sweep's 48-token limit
             print(size, k, json.dumps(res[f"{size}|{k}"]), flush=True)
         del lm
         L.free_memory()
-    (ROOT / "out" / "debug_17_format.json").write_text(json.dumps(res, indent=1))
+    (ROOT / "out" / "debug_17_format_200.json").write_text(json.dumps(res, indent=1))
 
 
 def one(name, arm, seed):

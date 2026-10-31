@@ -26,8 +26,11 @@ def bits(s):
     return [int(c) for c in s]
 
 
+SOURCE = OUT / "validation_rl_real2.json"
+
+
 def load():
-    return json.loads((OUT / "validation_rl_real2.json").read_text())
+    return json.loads(SOURCE.read_text())
 
 
 def seeds(res, name, size):
@@ -129,8 +132,12 @@ def table(res, names):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
+    ap.add_argument("--file", help="results file, for example out/gpu/validation_rl_real2.json")
     ap.add_argument("--final", help="signal chosen on development environments; scores held-out once")
     a = ap.parse_args()
+    if a.file:
+        SOURCE = Path(a.file)
+        OUT = SOURCE.parent
     res = load()
     out = {"dev": table(res, res["split"]["dev"]), "seeds_done": {s: sum(f"|{s}|" in k for k in res["runs"]) for s in (P, T)}}
     if a.final:

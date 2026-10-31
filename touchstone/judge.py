@@ -24,6 +24,7 @@ import re
 from functools import lru_cache
 
 JUDGE_REPO = "Qwen/Qwen2.5-1.5B-Instruct"
+JUDGES = {"qwen": "Qwen/Qwen2.5-1.5B-Instruct", "qwen-math": "Qwen/Qwen2.5-Math-1.5B-Instruct"}
 
 _BIN = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv,
         ast.FloorDiv: operator.floordiv, ast.Mod: operator.mod, ast.Pow: operator.pow}
@@ -128,10 +129,17 @@ PAL_SYS = ("Translate the task into ONE Python expression that computes the answ
            "arithmetic, slicing and len/sorted/min/max/sum/round. Reply with the expression only, on one line.")
 
 
+def use_judge(key_or_repo: str):
+    """Select the judge model (only one is ever held in memory)."""
+    global JUDGE_REPO
+    JUDGE_REPO = JUDGES.get(key_or_repo, key_or_repo)
+    _load.cache_clear()
+
+
 def _gen(prompts: list[str], system: str, max_tokens: int, batch: int = 8) -> list[str]:
     import mlx.core as mx
     from mlx_lm.generate import batch_generate
-    model, tok = _load()
+    model, tok = _load(JUDGE_REPO)
     mx.set_cache_limit(256 * 1024 ** 2)  # keep MLX's buffer cache small: the laptop is memory-bound
     out = []
     for s in range(0, len(prompts), batch):
@@ -190,4 +198,4 @@ def audit(examples, n: int = 80, seed: int = 0) -> dict:
             dis += s["cot"] != lab
         rows.append({"label": lab, **s})
     return {"sampled": len(sample), "confident": conf, "disagree": round(dis / conf, 4) if conf >= 10 else None,
-            "rows": rows[:5]}
+            "rows": rows}

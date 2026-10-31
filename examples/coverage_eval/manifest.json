@@ -1,0 +1,386 @@
+[
+ {
+  "id": "dev_mcq_arc_n0",
+  "part": "dev",
+  "source": "mcq_arc",
+  "path": "dev_mcq_arc_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_mcq_arc_n30",
+  "part": "dev",
+  "source": "mcq_arc",
+  "path": "dev_mcq_arc_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_mcq_arc_n0",
+  "part": "eval",
+  "source": "mcq_arc",
+  "path": "eval_mcq_arc_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_mcq_arc_n10",
+  "part": "eval",
+  "source": "mcq_arc",
+  "path": "eval_mcq_arc_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_mcq_arc_n30",
+  "part": "eval",
+  "source": "mcq_arc",
+  "path": "eval_mcq_arc_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_mcq_arc_n60",
+  "part": "eval",
+  "source": "mcq_arc",
+  "path": "eval_mcq_arc_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_code_mbpp_n0",
+  "part": "dev",
+  "source": "code_mbpp",
+  "path": "dev_code_mbpp_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_code_mbpp_n30",
+  "part": "dev",
+  "source": "code_mbpp",
+  "path": "dev_code_mbpp_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_code_mbpp_n0",
+  "part": "eval",
+  "source": "code_mbpp",
+  "path": "eval_code_mbpp_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_code_mbpp_n10",
+  "part": "eval",
+  "source": "code_mbpp",
+  "path": "eval_code_mbpp_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_code_mbpp_n30",
+  "part": "eval",
+  "source": "code_mbpp",
+  "path": "eval_code_mbpp_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_code_mbpp_n60",
+  "part": "eval",
+  "source": "code_mbpp",
+  "path": "eval_code_mbpp_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_code_humaneval_n0",
+  "part": "dev",
+  "source": "code_humaneval",
+  "path": "dev_code_humaneval_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_code_humaneval_n30",
+  "part": "dev",
+  "source": "code_humaneval",
+  "path": "dev_code_humaneval_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_code_humaneval_n0",
+  "part": "eval",
+  "source": "code_humaneval",
+  "path": "eval_code_humaneval_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_code_humaneval_n10",
+  "part": "eval",
+  "source": "code_humaneval",
+  "path": "eval_code_humaneval_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_code_humaneval_n30",
+  "part": "eval",
+  "source": "code_humaneval",
+  "path": "eval_code_humaneval_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_code_humaneval_n60",
+  "part": "eval",
+  "source": "code_humaneval",
+  "path": "eval_code_humaneval_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_free_dolly_n0",
+  "part": "dev",
+  "source": "free_dolly",
+  "path": "dev_free_dolly_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_free_dolly_n30",
+  "part": "dev",
+  "source": "free_dolly",
+  "path": "dev_free_dolly_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_free_dolly_n0",
+  "part": "eval",
+  "source": "free_dolly",
+  "path": "eval_free_dolly_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_free_dolly_n10",
+  "part": "eval",
+  "source": "free_dolly",
+  "path": "eval_free_dolly_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_free_dolly_n30",
+  "part": "eval",
+  "source": "free_dolly",
+  "path": "eval_free_dolly_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_free_dolly_n60",
+  "part": "eval",
+  "source": "free_dolly",
+  "path": "eval_free_dolly_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_chat_soda_n0",
+  "part": "dev",
+  "source": "chat_soda",
+  "path": "dev_chat_soda_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_chat_soda_n30",
+  "part": "dev",
+  "source": "chat_soda",
+  "path": "dev_chat_soda_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_chat_soda_n0",
+  "part": "eval",
+  "source": "chat_soda",
+  "path": "eval_chat_soda_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_chat_soda_n10",
+  "part": "eval",
+  "source": "chat_soda",
+  "path": "eval_chat_soda_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_chat_soda_n30",
+  "part": "eval",
+  "source": "chat_soda",
+  "path": "eval_chat_soda_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_chat_soda_n60",
+  "part": "eval",
+  "source": "chat_soda",
+  "path": "eval_chat_soda_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_tool_glaive_n0",
+  "part": "dev",
+  "source": "tool_glaive",
+  "path": "dev_tool_glaive_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_tool_glaive_n30",
+  "part": "dev",
+  "source": "tool_glaive",
+  "path": "dev_tool_glaive_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_tool_glaive_n0",
+  "part": "eval",
+  "source": "tool_glaive",
+  "path": "eval_tool_glaive_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_tool_glaive_n10",
+  "part": "eval",
+  "source": "tool_glaive",
+  "path": "eval_tool_glaive_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_tool_glaive_n30",
+  "part": "eval",
+  "source": "tool_glaive",
+  "path": "eval_tool_glaive_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_tool_glaive_n60",
+  "part": "eval",
+  "source": "tool_glaive",
+  "path": "eval_tool_glaive_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_es_mgsm_n0",
+  "part": "dev",
+  "source": "es_mgsm",
+  "path": "dev_es_mgsm_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_es_mgsm_n30",
+  "part": "dev",
+  "source": "es_mgsm",
+  "path": "dev_es_mgsm_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_es_mgsm_n0",
+  "part": "eval",
+  "source": "es_mgsm",
+  "path": "eval_es_mgsm_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_es_mgsm_n10",
+  "part": "eval",
+  "source": "es_mgsm",
+  "path": "eval_es_mgsm_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_es_mgsm_n30",
+  "part": "eval",
+  "source": "es_mgsm",
+  "path": "eval_es_mgsm_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_es_mgsm_n60",
+  "part": "eval",
+  "source": "es_mgsm",
+  "path": "eval_es_mgsm_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ },
+ {
+  "id": "dev_de_mgsm_n0",
+  "part": "dev",
+  "source": "de_mgsm",
+  "path": "dev_de_mgsm_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "dev_de_mgsm_n30",
+  "part": "dev",
+  "source": "de_mgsm",
+  "path": "dev_de_mgsm_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_de_mgsm_n0",
+  "part": "eval",
+  "source": "de_mgsm",
+  "path": "eval_de_mgsm_n0.jsonl",
+  "noise": 0,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_de_mgsm_n10",
+  "part": "eval",
+  "source": "de_mgsm",
+  "path": "eval_de_mgsm_n10.jsonl",
+  "noise": 10,
+  "noisy_labels": false
+ },
+ {
+  "id": "eval_de_mgsm_n30",
+  "part": "eval",
+  "source": "de_mgsm",
+  "path": "eval_de_mgsm_n30.jsonl",
+  "noise": 30,
+  "noisy_labels": true
+ },
+ {
+  "id": "eval_de_mgsm_n60",
+  "part": "eval",
+  "source": "de_mgsm",
+  "path": "eval_de_mgsm_n60.jsonl",
+  "noise": 60,
+  "noisy_labels": true
+ }
+]

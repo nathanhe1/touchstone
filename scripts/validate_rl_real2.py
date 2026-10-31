@@ -38,6 +38,7 @@ SEEDS = {"135M": 3, "360M": 3}
 RECIPE = L.Recipe(rl_steps=30, rl_group=4, eval_max_new=48)
 SUITE_ITEMS = 600
 PROXY_CHECKPOINTS = (10, 20)  # plus the final step
+RUN_TIMEOUT = 2400  # seconds for one run; a stalled run is skipped and retried on the next pass
 
 
 def _ok_pair(a, b):
@@ -217,8 +218,12 @@ def run(only=None):
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
                     continue
-                p = subprocess.run([sys.executable, __file__, "--one", name, size, str(seed)], capture_output=True,
-                                   text=True, cwd=ROOT)
+                try:
+                    p = subprocess.run([sys.executable, __file__, "--one", name, size, str(seed)], capture_output=True,
+                                       text=True, cwd=ROOT, timeout=RUN_TIMEOUT)
+                except subprocess.TimeoutExpired:
+                    print(f"{key}: TIMEOUT after {RUN_TIMEOUT}s", flush=True)
+                    continue
                 line = [x for x in p.stdout.splitlines() if x.startswith("RESULT ")]
                 if not line:
                     print(f"{key}: FAILED\n{p.stderr[-800:]}", flush=True)

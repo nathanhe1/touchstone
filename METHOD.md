@@ -159,6 +159,18 @@ Five other screen-aware candidates were tried on development and are not going t
 
 *Platforms.* Every sweep run records its device and torch version. Mac runs (MPS, torch 2.8.0) and any runs on a rented GPU (CUDA, a newer torch) are not pooled into one signal or one target unless they are first shown to agree on shared environments and seeds. `--merge` refuses a mixed set by default.
 
+**Round 3 final candidates** (supersedes the two-candidate list above; committed before any held-out score). Scored once on held-out from the GPU sweep (`cuda`, torch 2.14.1, 180 runs, 30 environments, 3 seeds at each size) by `scripts/final_forecast.py`; Mac runs are not pooled. All five are reported, on the original 13 held-out environments and on all 17.
+
+| Candidate | Definition | Uses the larger model? | Development, 3 seeds: all pairs / resolvable |
+|---|---|---|---|
+| `acc_final` | Proxy accuracy gain, last checkpoint | No | 0.61 / 0.73 |
+| `hand_pool` | `acc_final` x pool term | No | 0.66 / 0.87 |
+| **`hand_pool_clean`** (primary) | `hand_pool` x (1 - off-topic) x (1 - leakage) x (1 - grader exploit) | No | 0.79 / 0.89 |
+| `reach_clean` | Larger model's mean reward over its first GRPO steps x pool x clean | Yes | 0.83 / 0.91 |
+| `probe_rank` | Sum of the ranks of `hand_pool_clean` and `reach_clean` | Yes | 0.90 / 0.93 |
+
+`hand_pool_clean` is primary because it is a true small-model forecast. `reach_clean` and `probe_rank` need a short probe at the larger size, so they answer a different question: what a buyer learns by also touching the larger model briefly. All five forms were chosen after seeing development results, with no fitted weights, so development scores are optimistic. Development noise ceiling with 3 seeds: 0.84, one target seed against the mean of the others.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

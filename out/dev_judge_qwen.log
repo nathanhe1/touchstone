@@ -21,3 +21,6 @@ qwen v2_short_300                 noise 0 conf 52/60 disagree 0.0 109s e.g. [{'l
 qwen v2_hard_short                noise 0 conf 51/60 disagree 0.0 117s e.g. [{'label': '260', 'cot': '260', 'pal': '-260'}, {'label': '486', 'cot': '486', 'pal': '486'}]
 qwen t_clean_short                noise 0 conf 59/60 disagree 0.0 103s e.g. [{'label': '51', 'cot': '51', 'pal': '51'}, {'label': '109', 'cot': '109', 'pal': '109'}]
 qwen d_clean_answer_b             noise 0 conf 59/60 disagree 0.0 99s e.g. [{'label': '71', 'cot': '71', 'pal': '71'}, {'label': '64', 'cot': '64', 'pal': '64'}]
+qwen d_clean_units                noise 0 conf 60/60 disagree 0.0 103s e.g. [{'label': '48', 'cot': '48', 'pal': '48'}, {'label': '62', 'cot': '62', 'pal': '62'}]
+qwen s_clean_b                    noise 0 conf 2/60 disagree None 94s e.g. [{'label': 'fmgld', 'cot': None, 'pal': 'fmgld'}, {'label': 'kefkf', 'cot': 'ekfke', 'pal': 'kefkf'}]
+qwen t_strings_clean              noise 0 conf 4/60 disagree None 68s e.g. [{'label': 'vurtnvwo', 'cot': None, 'pal': 'vurtnvwo'}, {'label': 'vvvurr', 'cot': 'vvurrr', 'pal': 'vvvur'}]

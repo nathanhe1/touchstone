@@ -1,0 +1,39 @@
+torch 2.14.1+cu130 transformers 4.56.2 device cuda
+pad '<|endoftext|>' 151643 eos '<|im_end|>' 151645
+template head: '<|im_start|>system\nYou are a careful solver. Think step by step, then give the final answer as \\boxed{answer}.<|im_end|>'
+
+== torch.float16 eager finite=False nan_rows=[True, True, True] 10.2s
+  batch: '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+  batch: '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+  batch: '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+  solo : '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+
+== torch.float16 sdpa finite=True nan_rows=[False, False, False] 9.3s
+  batch: 'She runs this for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times'
+  batch: 'r of marbles Ben adds to the jar.\n   Ben adds 3 more marbles to the jar.\n   So, the new total is \\(50 + 3 = 53'
+  batch: 's together.\n- Start at 7 on the number line.\n- Move 5 units to the right.\n\nBy moving 5 units from 7, we reach '
+  solo : 'She runs this for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times'
+
+== torch.bfloat16 eager finite=True nan_rows=[False, False, False] 9.2s
+  batch: 'e runs this for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times 3'
+  batch: 'r of marbles Ben adds to the jar.\n   Ben adds 3 more marbles to the jar.\n   So, the new total is \\(50 + 3 = 53'
+  batch: ' together.\n- Start at 7 on the number line.\n- Move 5 units to the right.\n\nBy moving 5 units from 7, we reach 1'
+  solo : 'daily routine for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times'
+
+== torch.bfloat16 sdpa finite=True nan_rows=[False, False, False] 9.0s
+  batch: '.\n- She runs for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times '
+  batch: 'r of marbles Ben adds to the jar.\n   Ben adds 3 more marbles to the jar.\n   So, the new total is \\(50 + 3 = 53'
+  batch: ' together.\n- Start at 7 on the number line.\n- Move 5 units to the right.\n\nBy moving 5 units from 7, we reach 1'
+  solo : '= Number of laps per day × Number of days\nTotal laps = 4 × 3\nTotal laps = 12\n\nSo, Kim runs a total of 12 laps.'
+
+== torch.float32 eager finite=True nan_rows=[False, False, False] 11.8s
+  batch: '.\n- She runs for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times '
+  batch: 'r of marbles Ben adds to the jar.\n   Ben adds 3 more marbles to the jar.\n   So, the new total is \\(50 + 3 = 53'
+  batch: 's together.\n- Start at 7 on the number line.\n- Move 5 units to the right.\n\nBy moving 5 units from 7, we reach '
+  solo : '.\n- She runs for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times '
+
+== torch.float32 sdpa finite=True nan_rows=[False, False, False] 11.0s
+  batch: '.\n- She runs for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times '
+  batch: 'r of marbles Ben adds to the jar.\n   Ben adds 3 more marbles to the jar.\n   So, the new total is \\(50 + 3 = 53'
+  batch: 's together.\n- Start at 7 on the number line.\n- Move 5 units to the right.\n\nBy moving 5 units from 7, we reach '
+  solo : '.\n- She runs for 3 days.\n\nSo, the total number of laps is calculated as follows:\n\\[ 4 \\text{ laps/day} \\times '

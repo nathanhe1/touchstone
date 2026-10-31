@@ -205,19 +205,37 @@ def one(name, size, seed):
     print("RESULT " + json.dumps(r), flush=True)
 
 
+def wait_for_swap(limit_gb=12.0):
+    """Between runs, let macOS recover rather than start another run into heavy swap."""
+    import re
+    import subprocess
+    while True:
+        m = re.search(r"used = ([\d.]+)M", subprocess.run(["sysctl", "vm.swapusage"], capture_output=True, text=True).stdout)
+        if not m or float(m.group(1)) / 1024 <= limit_gb:
+            return
+        print(f"paused: swap {float(m.group(1)) / 1024:.1f} GB", flush=True)
+        time.sleep(120)
+
+
 def run(only=None):
     import subprocess
     res = json.loads(OUT.read_text()) if OUT.exists() else {"runs": {}, "base": {}, "split": split()}
     t0 = time.time()
     names = list(environments())
-    for seed in range(max(SEEDS.values())):  # seed-major: every env gets seed 0 at both sizes first
-        for size in ("135M", "360M"):
+    # Seed-major, development environments first: an interim development score exists after seed 0 at both
+    # sizes on those 13, long before the sweep ends. Order changes nothing about what is measured.
+    dev = [n for n in names if n in res["split"]["dev"]]
+    held = [n for n in names if n not in res["split"]["dev"]]
+    order = [(seed, group, size) for seed in range(max(SEEDS.values())) for group in (dev, held) for size in ("135M", "360M")]
+    for seed, group, size in order:
+        if True:
             if seed >= SEEDS[size] or (only and size != only):
                 continue
-            for name in names:
+            for name in group:
                 key = f"{name}|{size}|{seed}"
                 if key in res["runs"]:
                     continue
+                wait_for_swap()
                 try:
                     p = subprocess.run([sys.executable, __file__, "--one", name, size, str(seed)], capture_output=True,
                                        text=True, cwd=ROOT, timeout=RUN_TIMEOUT)

@@ -149,7 +149,7 @@ The same definitions apply to any round-3 dataset sweep, whose split will be com
 1. `acc_final`: mean proxy accuracy gain at the last checkpoint. Chosen on development (0.71, tied with every simple signal), and the simplest.
 2. `hand_pool`: `acc_final` x min(1, log10(unique tasks) / 3), so a task pool under 1,000 scales the signal down. Development: 0.77 on all pairs, 0.89 on resolvable pairs. Its form was chosen after seeing `pool10` on development, with no fitted weights.
 
-Six other screen-aware candidates were tried on development and are not going to held-out (`scripts/dev_forecast_features.py`, `out/forecast_features.json`): `hand_pool_clean` 0.74, `smooth_hand_pool` 0.74, and three leave-one-environment-out ridge fits at 0.59-0.63; `proxy_only` is `acc_final`.
+Five other screen-aware candidates were tried on development and are not going to held-out (`scripts/dev_forecast_features.py`, `out/forecast_features.json`): `hand_pool_clean` 0.74, `smooth_hand_pool` 0.74, and three leave-one-environment-out ridge fits at 0.59-0.63; `proxy_only` is `acc_final`.
 
 *Held-out extension.* The original split happened to put all small-pool environments in development, so held-out could not test `hand_pool`. Four new environments join held-out, chosen by pool size alone and never run before this was committed: `pool20`, `pool50`, `pool300`, `pool30_mix`. Held-out is reported both ways: the original 13, and the 13 plus these 4.
 

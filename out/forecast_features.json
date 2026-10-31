@@ -180,5 +180,33 @@
   "noise": 0.0,
   "leak": 0.0,
   "off": 0.0
+ },
+ "pool20": {
+  "unique": 20,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "pool50": {
+  "unique": 50,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "pool300": {
+  "unique": 300,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
+ },
+ "pool30_mix": {
+  "unique": 30,
+  "hack": 0.0,
+  "noise": 0.0,
+  "leak": 0.0,
+  "off": 0.0
  }
 }

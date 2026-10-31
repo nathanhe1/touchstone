@@ -1,0 +1,102 @@
+{
+ "contaminated": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0661,
+  "final": 0.066,
+  "seconds": 29
+ },
+ "dev_short_noisy_60": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0495,
+  "final": 0.05,
+  "seconds": 1
+ },
+ "dev_short_shuffled": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0819,
+  "final": 0.082,
+  "seconds": 1
+ },
+ "duplicated": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0,
+  "final": 0.0,
+  "seconds": 1
+ },
+ "good_cot": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0132,
+  "final": 0.013,
+  "seconds": 1
+ },
+ "good_short": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0846,
+  "final": 0.085,
+  "seconds": 1
+ },
+ "gsm8k_clone": {
+  "truth": true,
+  "text": 1.0,
+  "exact": 1.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.075,
+  "final": 1.0,
+  "seconds": 1
+ },
+ "half_offtopic": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0296,
+  "final": 0.03,
+  "seconds": 1
+ },
+ "hard_cot": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0014,
+  "final": 0.001,
+  "seconds": 1
+ },
+ "mostly_offtopic": {
+  "truth": false,
+  "text": 0.0,
+  "exact": 0.0,
+  "near": 0.0,
+  "para": 0.0,
+  "fp": 0.0096,
+  "final": 0.01,
+  "seconds": 1
+ }
+}

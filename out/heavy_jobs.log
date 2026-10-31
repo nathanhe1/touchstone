@@ -13,3 +13,13 @@
 2026-10-30 22:18:41 start coverage_dev (swap 5.5 GB)
 2026-10-30 22:36:01 end coverage_dev: exit 0 after 1040s (swap 5.8 GB)
 2026-10-30 22:36:02 start validate_rl_real2 (swap 5.8 GB)
+2026-10-30 22:45:57 queued validate_rl_real2: .venv/bin/python scripts/validate_rl_real2.py
+2026-10-30 22:45:57 start validate_rl_real2 (swap 6.5 GB)
+2026-10-30 22:46:50 queued dev_public: .venv/bin/python scripts/dev_public.py
+2026-10-30 22:46:50 start dev_public (swap 6.4 GB)
+2026-10-30 22:46:52 queued dev_grad_sim: .venv/bin/python scripts/dev_grad_sim.py
+2026-10-30 22:46:52 waiting dev_grad_sim: lock held by dev_public
+2026-10-30 22:46:54 queued coverage_eval: .venv/bin/python scripts/eval_coverage.py --part eval
+2026-10-30 22:46:54 waiting coverage_eval: behind dev_grad_sim
+2026-10-30 22:46:56 queued validate_rl_real2: .venv/bin/python scripts/validate_rl_real2.py
+2026-10-30 22:46:56 waiting validate_rl_real2: behind dev_grad_sim

@@ -1,0 +1,33 @@
+add_sub_mix|135M|0: acc +16.17 cand +12.91 reward 0.04->0.19 train 215s (279s)
+mix_honest|360M|0: FAILED
+File "/workspace/touchstone/touchstone/lm.py", line 70, in cached
+    return load(repo, local_files_only=True, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/modeling_utils.py", line 288, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5058, in from_pretrained
+    and checkpoint_files[0].endswith(".safetensors")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'endswith'
+
+noise20|360M|0: FAILED
+File "/workspace/touchstone/touchstone/lm.py", line 70, in cached
+    return load(repo, local_files_only=True, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/modeling_utils.py", line 288, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5058, in from_pretrained
+    and checkpoint_files[0].endswith(".safetensors")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'endswith'
+
+word_honest|135M|0: acc -0.50 cand -0.14 reward 0.00->0.00 train 205s (566s)
+grader_format_bonus|135M|0: acc +20.83 cand +17.06 reward 0.27->0.58 train 209s (835s)

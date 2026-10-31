@@ -1,0 +1,4 @@
+[12:29:45] Appraising dataset contaminated_word_problems.jsonl: 600 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[12:29:50]   overlap: 46.0% of held-out items appear in the material (11.5% of material), public (GSM8K train+test, SVAMP, ASDiv (12,097 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[12:32:09]   labels: arithmetic errors in 0.0 of worked solutions; plausibility None
+[12:32:09]   blocking problem found in screening; quick mode skips training

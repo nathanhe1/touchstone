@@ -1,0 +1,3 @@
+spaced_honest|135M|0: acc +0.00 cand +0.00 reward 0.00->0.00 train 198s (275s)
+pool100|135M|0: acc +24.17 cand +18.52 reward 0.10->0.35 train 206s (539s)
+add_sub_mix|360M|0: acc +9.83 cand +5.68 reward 0.33->0.74 train 110s (724s)

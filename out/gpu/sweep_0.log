@@ -1,0 +1,4 @@
+mix_honest|135M|0: acc +21.17 cand +18.16 reward 0.06->0.35 train 206s (270s)
+noise20|135M|0: acc +5.00 cand +2.80 reward 0.26->0.26 train 220s (562s)
+sub_honest|360M|0: acc +9.17 cand +5.07 reward 0.39->0.73 train 101s (734s)
+leak100|360M|0: acc +3.17 cand +2.58 reward 0.64->0.98 train 96s (899s)

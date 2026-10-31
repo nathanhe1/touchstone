@@ -10,3 +10,4 @@ mix_honest|material|2 FAILED  GiB memory in use. Process 26454 has 4.38 GiB memo
 sub_honest|material|2 gain +30.34 words 1.8->4.93 equals 20.0->98.0
 spaced_honest|shuffled|2 FAILED  GiB memory in use. Process 27802 has 2.62 GiB memory in use. Process 27805 has 3.92 GiB memory in use. Process 27804 has 5.90 GiB memory in use. Process 27803 has 5.83 GiB memory in use. Of the allocated memory 3.42 GiB is allocated by PyTorch, and 20.22 MiB is reserved by PyTorch but unallocated.
 
+sub_honest|material|0 gain +21.84 words 1.8->2.79 equals 20.0->44.8

@@ -142,5 +142,29 @@
   },
   "reward_last": 0.9271,
   "skipped": 2
+ },
+ "sub_honest|material|0": {
+  "before": {
+   "acc": 62.83,
+   "words": 1.8,
+   "equals_share": 20.0,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "after": {
+   "acc": 84.67,
+   "words": 2.79,
+   "equals_share": 44.8,
+   "sample": [
+    "35",
+    "75",
+    "81"
+   ]
+  },
+  "reward_last": 0.8021,
+  "skipped": 0
  }
 }

@@ -19,3 +19,5 @@
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1177.09it/s]
 [test3] ok  w_noise5_answer_random truth=[] after=[] before=[]
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3161.42it/s]
+[test3] ok  w_noise8_calc_slip     truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3705.68it/s]

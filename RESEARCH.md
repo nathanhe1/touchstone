@@ -18,9 +18,21 @@ What was read, what was tried on development data, and what was kept. Every resu
 
 ### What was tried (development data only)
 
-1. **SmolLM2-360M as judge (round 2 idea).** The planned run (`scratchpad/dev_judge.py 360M 48`, pid 38445) stalled: the laptop was 21-31 GB into swap and the process made no progress in 80+ minutes on a job that needs about two minutes. It could not be stopped from this session; its result, if it ever finishes, is in `out/dev_judge_360M.json`. The 360M model's GSM8K-style accuracy is single digits, so its confident errors would swamp 10-30% noise anyway (round 2 measured its label plausibility at 0.42 on clean data against 0.46 on 30%-noisy data).
-2. **Qwen2.5-1.5B-Instruct as judge, on MLX** (`touchstone/judge.py`). See the results table below.
-3. **Unsupported final answer** (model-free, `screen.unsupported_final`). In a worked solution the stated final answer must be produced somewhere in the working (any number written before it, or any equation's value). Real GSM8K train solutions: 0.2% flagged (7,321 checked), and the three inspected are genuine GSM8K label errors (for example "#### 49" after computing $0.49). Development sets with a correct working but a wrong final answer: 20%, 26% and 57% flagged. Folded into the existing 10% arithmetic-consistency rule.
+1. **SmolLM2-360M as judge (round 2 idea): no result.** The planned run stalled at 80+ minutes with the laptop 21-31 GB into swap, holding 10 GB by itself, and it died with the session; `out/dev_judge_360M.json` was never written. It was not rerun: round 2 had measured this model's label plausibility at 0.42 on clean labels against 0.46 on 30%-noisy labels, and Qwen below separates the same data outright.
+2. **Qwen2.5-1.5B-Instruct as judge, on MLX: adopted** (`touchstone/judge.py`, `out/dev_judge_qwen.json`, 24 development datasets, 60 items each, about 3.6 GB and 1.8 minutes per dataset). Each item is answered by chain-of-thought and by a program run in a whitelisted evaluator. First attempts failed for fixable reasons: the program prompt invited `len(...)` tricks and 16 of 60 answers lacked `\\boxed`. A few-shot prompt and a fallback parser took the routes from 44/60 and 15/60 to 60/60 and 54/60 on `good_short`.
+
+   | Development data | Share of confident items that disagree with the label |
+   |---|---|
+   | Clean numeric (8 sets) | 0.00 on all 8 |
+   | Real GSM8K (2 sets) | 0.00, 0.04 |
+   | 10% wrong (below the truth line) | 0.14 |
+   | 30% wrong | 0.18 |
+   | 40-60% wrong (4 sets) | 0.35-0.43 |
+   | 100% wrong (4 sets) | 1.00 |
+
+   Threshold 0.15. The gap between 10% and 30% noise is the thin part, so a dataset landing between 0.08 and 0.25 gets 60 more items. On GSM8K-level problems only about 40% of items are confident, so the audit has less power there. String labels defeat chain-of-thought (it cannot reverse letters), so non-numeric labels use the program route alone, discarding programs whose literal is not in the prompt: clean 0.02-0.11, noisy 0.40-0.61, threshold 0.20.
+3. **Qwen2.5-Math-1.5B-Instruct as judge: rejected** (`out/dev_judge_qwen-math.json`, same 24 sets). It ignores the program instruction and writes reasoning, so almost nothing is confident (0-3 of 60). Its chain-of-thought is no stronger than the general model on this data (GSM8K 36/60 and 42/60 against 42/60 and 48/60), and it took 33% longer. A math specialisation is no help on grade-school problems, and the general model's ability to follow instructions is what makes two routes possible.
+4. **Unsupported final answer** (model-free, `screen.unsupported_final`). In a worked solution the stated final answer must be produced somewhere in the working (any number written before it, or any equation's value). Real GSM8K train solutions: 0.2% flagged (7,321 checked), and the three inspected are genuine GSM8K label errors (for example "#### 49" after computing $0.49). Development sets with a correct working but a wrong final answer: 20%, 26% and 57% flagged. Folded into the existing 10% arithmetic-consistency rule.
 
 ## 2. Public copies
 

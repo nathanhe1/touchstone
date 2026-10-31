@@ -8,6 +8,7 @@ environments for that signal (and lists every other candidate next to it). Run -
 """
 import argparse
 import json
+import os
 import random
 import statistics as st
 import sys
@@ -18,7 +19,7 @@ sys.path.insert(0, str(ROOT))
 from touchstone import forecast as fc  # noqa: E402
 
 OUT = ROOT / "out"
-P, T = "135M", "360M"
+P, T = os.environ.get("FORECAST_PROXY", "135M"), os.environ.get("FORECAST_TARGET", "360M")
 BOOT = 1000
 
 

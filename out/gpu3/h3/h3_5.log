@@ -33,3 +33,7 @@ word_honest|360M|2 -0.33 52s
 word_hard|360M|2 0.67 44s
 word_noise45|360M|2 0.67 50s
 word_leak30|360M|2 19.33 46s
+units_honest|360M|2 -11.33 37s
+units_off50|360M|2 0.0 31s
+units_pool20|360M|2 2.33 39s
+code_honest|360M|2 -1.67 39s

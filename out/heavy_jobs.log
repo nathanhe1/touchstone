@@ -91,3 +91,6 @@
 2026-10-31 17:32:54 waiting stress_real: lock held by flag_test3_round2
 2026-10-31 17:44:54 end flag_test3_round2: exit 0 after 730s (swap 8.0 GB)
 2026-10-31 17:44:54 start stress_real (swap 8.0 GB)
+2026-10-31 18:50:37 end stress_real: exit 0 after 3943s (swap 9.7 GB)
+2026-10-31 18:53:05 queued demos_final: .venv/bin/python scripts/run_demos.py --repeats 2
+2026-10-31 18:53:05 start demos_final (swap 9.3 GB)

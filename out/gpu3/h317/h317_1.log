@@ -1,0 +1,10 @@
+strings_lax_grader|1.7B|0 done
+word_hard|1.7B|0 done
+word_noise45|1.7B|0 done
+word_pool20|1.7B|0 done
+word_leak30|1.7B|0 done
+units_honest|1.7B|0 done
+units_off50|1.7B|0 done
+units_noise45|1.7B|0 done
+code_off50|1.7B|0 done
+code_noise45|1.7B|0 done

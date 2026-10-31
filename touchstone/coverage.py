@@ -221,8 +221,8 @@ def label_checks(dtype: str, examples, arithmetic: dict | None = None, use_judge
                     reason="fit to the request is checked; factual accuracy is not", **r)
     r = judge.audit(examples)
     if r["disagree"] is None:
-        return done("not_checked", "judge re-solves two ways", False, reason="the judge was confident on too few items",
-                    **{k: v for k, v in r.items() if k != "rows"})
+        return done("not_checked", "judge re-solves two ways", False, **{"reason": "the judge was confident on too few items",
+                       **{k: v for k, v in r.items() if k != "rows"}})
     return done("checked", "judge re-solves two ways", screen.judge_noisy(r),
                 **{k: v for k, v in r.items() if k != "rows"})
 

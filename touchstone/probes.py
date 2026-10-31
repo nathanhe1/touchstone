@@ -182,10 +182,16 @@ def audit_grader(env, tasks=None, lm=None, n: int = 200, seed: int = 0) -> dict:
                 out["model_wrong_samples"] = len(wrong)
     worst = max(per, key=per.get)
     rel = grader_reliability_generic(env, sample, rng)
-    out.update({"score": round(per[worst], 4), "worst_exploit": worst,
-                "per_exploit": {k: round(v, 4) for k, v in per.items()}, "reliability": rel,
-                "flagged": per[worst] >= HACK_LIMIT or not rel["ok"]
-                or (has_ref and out.get("reference_accept_rate", 1) < 0.9)})
+    # A stochastic grader that flips rewards pays every wrong probe about the same, which no policy can exploit.
+    # Its flip rate is the median probe; only reward above that floor counts, rescaled to undo the flips.
+    floor = sorted(per.values())[len(per) // 2] if rel["deterministic"] < 1.0 else 0.0
+    floor = min(floor, 0.45)
+    score = max(0.0, (per[worst] - floor) / (1 - 2 * floor))
+    accept = out.get("reference_accept_rate", 1)
+    accept = (accept - floor) / (1 - 2 * floor)
+    out.update({"score": round(score, 4), "raw_score": round(per[worst], 4), "reward_noise": round(floor, 4),
+                "worst_exploit": worst, "per_exploit": {k: round(v, 4) for k, v in per.items()}, "reliability": rel,
+                "flagged": score >= HACK_LIMIT or not rel["in_range"] or (has_ref and accept < 0.9)})
     return out
 
 

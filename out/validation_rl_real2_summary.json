@@ -1,77 +1,82 @@
 {
  "dev": {
-  "n_envs": 8,
-  "n_pairs": 28,
+  "n_envs": 13,
+  "n_pairs": 78,
   "ceiling": null,
   "target": {
    "add3ops_honest": -0.5,
    "add_sub_mix": 9.83,
+   "grader_lastdigit": 9.33,
+   "leak100": 7.33,
    "mix_honest": 10.17,
    "mul_honest": 9.0,
    "noise10": 8.33,
+   "noise20": 9.17,
    "offtopic75": 9.5,
+   "pool10": 3.17,
+   "pool100": 10.0,
    "spaced_honest": -0.17,
    "sub_honest": 8.5
   },
   "signals": {
    "acc_final": {
-    "spearman": 0.833,
-    "decision_all_pairs": 0.857,
-    "decision_resolvable": 1.0,
-    "n_resolvable": 12
+    "spearman": 0.544,
+    "decision_all_pairs": 0.705,
+    "decision_resolvable": 0.711,
+    "n_resolvable": 38
    },
    "acc_late": {
-    "spearman": 0.905,
-    "decision_all_pairs": 0.893,
-    "decision_resolvable": 1.0,
-    "n_resolvable": 12
+    "spearman": 0.516,
+    "decision_all_pairs": 0.705,
+    "decision_resolvable": 0.684,
+    "n_resolvable": 38
    },
    "acc_all_ckpts": {
-    "spearman": 0.952,
-    "decision_all_pairs": 0.929,
-    "decision_resolvable": 1.0,
-    "n_resolvable": 12
+    "spearman": 0.522,
+    "decision_all_pairs": 0.705,
+    "decision_resolvable": 0.684,
+    "n_resolvable": 38
    },
    "smooth_final": {
-    "spearman": 0.738,
-    "decision_all_pairs": 0.786,
-    "decision_resolvable": 0.917,
-    "n_resolvable": 12
+    "spearman": 0.571,
+    "decision_all_pairs": 0.718,
+    "decision_resolvable": 0.711,
+    "n_resolvable": 38
    },
    "smooth_late": {
-    "spearman": 0.738,
-    "decision_all_pairs": 0.786,
-    "decision_resolvable": 0.917,
-    "n_resolvable": 12
+    "spearman": 0.467,
+    "decision_all_pairs": 0.679,
+    "decision_resolvable": 0.658,
+    "n_resolvable": 38
    },
    "reward_gain": {
-    "spearman": 0.81,
-    "decision_all_pairs": 0.821,
-    "decision_resolvable": 1.0,
-    "n_resolvable": 12
+    "spearman": 0.341,
+    "decision_all_pairs": 0.628,
+    "decision_resolvable": 0.605,
+    "n_resolvable": 38
    },
    "ens_acc_smooth": {
-    "spearman": 0.905,
-    "decision_all_pairs": 0.893,
-    "decision_resolvable": 1.0,
-    "n_resolvable": 12
+    "spearman": 0.538,
+    "decision_all_pairs": 0.718,
+    "decision_resolvable": 0.684,
+    "n_resolvable": 38
    },
    "grad_sim": {
-    "spearman": 0.238,
-    "decision_all_pairs": 0.536,
-    "decision_resolvable": 0.5,
-    "n_resolvable": 12
+    "spearman": 0.28,
+    "decision_all_pairs": 0.59,
+    "decision_resolvable": 0.553,
+    "n_resolvable": 38
    },
    "ens_acc_smooth_grad": {
-    "spearman": 0.738,
-    "decision_all_pairs": 0.786,
-    "decision_resolvable": 0.917,
-    "n_resolvable": 12
+    "spearman": 0.549,
+    "decision_all_pairs": 0.705,
+    "decision_resolvable": 0.711,
+    "n_resolvable": 38
    }
   }
  },
  "seeds_done": {
   "135M": 13,
-  "360M": 8
+  "360M": 13
  }
 }

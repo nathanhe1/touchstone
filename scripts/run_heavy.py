@@ -3,8 +3,8 @@
     python scripts/run_heavy.py --name judge --timeout 7200 --stall 1200 -- python scripts/dev_judge.py ...
 
 The job is re-launched in its own session and survives the shell that started it. Output goes to
-out/<name>.log. A lock (out/.heavy.lock) allows one heavy job; a second one waits its turn, so jobs
-can be queued. Before starting, it waits until swap is below --max-swap-gb and no foreign process
+out/<name>.log. A lock (out/.heavy.lock) allows one heavy job; others wait in strict first-in, first-out
+order (out/.heavy_queue), and the reason for any wait is logged. Before starting, it waits until swap is below --max-swap-gb and no foreign process
 holds more than --max-rss-gb. The job is killed (whole process group) when it passes --timeout, or
 when its log has not grown for --stall seconds. Status lines go to out/heavy_jobs.log.
 """
@@ -22,6 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LOCK = ROOT / "out" / ".heavy.lock"
 JOBS = ROOT / "out" / "heavy_jobs.log"
+QUEUE = ROOT / "out" / ".heavy_queue"
 
 
 def note(msg):
@@ -54,22 +55,38 @@ def biggest_python():
 
 
 def acquire(a):
+    """Strict FIFO: each job holds a ticket; only the oldest live ticket may take the lock."""
+    QUEUE.mkdir(exist_ok=True)
+    ticket = QUEUE / f"{time.time():.3f}_{os.getpid()}"
+    ticket.write_text(a.name)
+    last = ""
     while True:
-        try:
-            fd = os.open(LOCK, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-            os.write(fd, f"{os.getpid()} {a.name}".encode())
-            os.close(fd)
-            if swap_gb() <= a.max_swap_gb and biggest_python() <= a.max_rss_gb:
-                return
-            LOCK.unlink()
-        except FileExistsError:
-            try:
-                if not alive(int(LOCK.read_text().split()[0])):
-                    LOCK.unlink()  # stale lock from a dead session
-                    continue
-            except (ValueError, IndexError, OSError):
-                pass
-        time.sleep(20)
+        for t in sorted(QUEUE.iterdir()):
+            if not alive(int(t.name.split("_")[1])):
+                t.unlink(missing_ok=True)
+        head = sorted(QUEUE.iterdir())[0]
+        why = ""
+        if head != ticket:
+            why = f"behind {head.read_text()}"
+        elif LOCK.exists():
+            holder = LOCK.read_text().split()
+            if holder and alive(int(holder[0])):
+                why = f"lock held by {holder[1]}"
+            else:
+                LOCK.unlink(missing_ok=True)
+                continue
+        elif swap_gb() > a.max_swap_gb:
+            why = f"swap {swap_gb():.1f} GB above {a.max_swap_gb}"
+        elif biggest_python() > a.max_rss_gb:
+            why = f"another Python process above {a.max_rss_gb} GB"
+        if not why:
+            LOCK.write_text(f"{os.getpid()} {a.name}")
+            ticket.unlink()
+            return
+        if why != last:
+            note(f"waiting {a.name}: {why}")
+            last = why
+        time.sleep(10)
 
 
 def supervise(a):
@@ -98,7 +115,7 @@ def supervise(a):
             if p.poll() is None:
                 os.killpg(p.pid, signal.SIGKILL)
             break
-    LOCK.unlink(missing_ok=True) if sys.version_info >= (3, 8) else None
+    LOCK.unlink(missing_ok=True)
     note(f"end {a.name}: {why or 'exit ' + str(p.returncode)} after {time.time() - t0:.0f}s (swap {swap_gb():.1f} GB)")
 
 
@@ -107,7 +124,7 @@ if __name__ == "__main__":
     ap.add_argument("--name", required=True)
     ap.add_argument("--timeout", type=int, default=4 * 3600)
     ap.add_argument("--stall", type=int, default=1800)
-    ap.add_argument("--max-swap-gb", type=float, default=6.0)
+    ap.add_argument("--max-swap-gb", type=float, default=12.0)
     ap.add_argument("--max-rss-gb", type=float, default=2.0)
     ap.add_argument("--foreground", action="store_true", help="(internal) already detached")
     ap.add_argument("cmd", nargs=argparse.REMAINDER)

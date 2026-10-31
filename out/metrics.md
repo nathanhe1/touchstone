@@ -8,6 +8,7 @@
 | test v1 (23), round 1 | 1.0 / 0.842 | noisy 0.333, public 0.5 | 87% |
 | test v1 (23), round 3 (now dev data) | 1.0 / 1.0 | noisy 1.0, public 1.0 | 100% |
 | test v2 (63), round 1 | 0.972 / 0.761 | noisy 0.182, public 0.6 | 81% |
+| test v2 (63), round 2 (now dev data) | 0.974 / 0.804 | noisy 0.182, public 1.0 | 84% |
 | test v2 (63), round 3 (now dev data) | 0.958 / 1.0 | noisy 1.0, public 1.0 | 97% |
 
 ## Forecast, primary metric: accuracy at the small size -> accuracy at the larger size

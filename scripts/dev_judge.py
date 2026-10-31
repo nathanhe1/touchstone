@@ -4,8 +4,12 @@ Results are written after every dataset, with per-item answers so that confidenc
 re-scored offline. Resumable: finished datasets are skipped.
 
     python scripts/dev_judge.py qwen 60
+    TOUCHSTONE_JUDGE_BACKEND=torch python scripts/dev_judge.py qwen 60     # GPU box; writes ..._torch.json
+
+Always one sample of n items with no second sample, so backends are compared on identical rows.
 """
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -27,14 +31,15 @@ CASES = [  # (path, percent of labels wrong; None = unknown-but-small real data)
 
 key, n = sys.argv[1], int(sys.argv[2])
 judge.use_judge(key)
-f = ROOT / "out" / f"dev_judge_{key}.json"
+tag = "_torch" if os.environ.get("TOUCHSTONE_JUDGE_BACKEND") == "torch" else ""
+f = ROOT / "out" / f"dev_judge_{key}{tag}.json"
 out = json.loads(f.read_text()) if f.exists() else {}
 for path, noise in CASES:
     name = path.split("/")[-1]
     if name in out:
         continue
     t = time.time()
-    r = judge.audit(data.load_dataset(ROOT / (path + ".jsonl")), n=n)
+    r = judge.audit(data.load_dataset(ROOT / (path + ".jsonl")), n=n, extra=0)
     r.update(noise=noise, seconds=round(time.time() - t))
     out[name] = r
     f.write_text(json.dumps(out))

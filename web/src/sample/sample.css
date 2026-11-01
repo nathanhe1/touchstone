@@ -203,15 +203,13 @@ a { color: inherit; text-decoration: none; }
 
 /* Foot */
 .foot { background: var(--char); color: var(--cream); --line: var(--line-d); overflow: hidden; }
-.foot-in { padding-block: clamp(40px, 5vw, 64px) 22px; border-top: 1px solid var(--line-d); }
-.foot-cols { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 36px; }
+.foot-in { padding-block: clamp(40px, 5vw, 64px); border-top: 1px solid var(--line-d); }
+.foot-cols { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 28px; }
 .foot-cols p { max-width: 24em; margin-top: 12px; color: var(--silver); font-size: 15px; }
 .foot-cols > div:not(:first-child) { display: grid; gap: 7px; align-content: start; font-size: 15px; }
 .foot-cols h4 { margin: 0 0 6px; font-weight: 500; font-size: 14px; color: var(--gold); }
 .foot-cols > div:not(:first-child) a { width: fit-content; transition: color .2s; }
 .foot-cols > div:not(:first-child) a:hover { color: var(--gold); }
-.huge { font-size: calc((100vw - 2 * var(--m) - 2 * var(--pad)) * .2); font-weight: 400; letter-spacing: -.05em; line-height: .96; color: var(--gold); margin-left: -.03em; white-space: nowrap; padding-top: 12px; border-top: 1px solid var(--line-d); }
-.foot-row { display: flex; justify-content: space-between; gap: 18px 40px; flex-wrap: wrap; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line-d); font-size: var(--small); color: var(--silver); }
 
 @media (max-width: 1180px) {
   .menu { display: grid; }

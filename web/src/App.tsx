@@ -10,7 +10,6 @@ import Research from './pages/Research'
 import { Privacy, Terms } from './pages/Legal'
 import Demo from './pages/Demo'
 import { Brand, RequestButton, reduced } from './ui'
-import scalesCredit from './sample/credit'
 
 // Plain #name hashes route between pages, which works on any static host and inside the artifact viewer.
 const PAGES = { '': Home, product: Product, report: Report, market: Market, research: Research, pricing: Pricing, company: Company, request: Request, terms: Terms, privacy: Privacy, demo: Demo }
@@ -106,8 +105,6 @@ export default function App() {
             <div><h4>Company</h4><a href="#market">Market</a><a href="#pricing">Pricing</a><a href="#company">About and roadmap</a></div>
             <div><h4>Start</h4><a href="#request">Request an audit</a><a href="#terms">Terms of use</a><a href="#privacy">Privacy policy</a></div>
           </div>
-          <p className="huge" aria-hidden="true">touchstone</p>
-          <div className="foot-row"><p>{scalesCredit}</p><p>© 2026 Touchstone</p></div>
         </div>
       </footer>
     </>

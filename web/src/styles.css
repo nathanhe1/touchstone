@@ -168,8 +168,8 @@ h3 { font-size: 22px; line-height: 1.25; letter-spacing: -.02em; }
 /* Scroll story */
 .story { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 6vw, 88px); }
 .story-steps { list-style: none; margin: 0; padding: 0; }
-.story-steps li { min-height: 36vh; display: flex; align-items: center; }
-.story-steps li:last-child { min-height: 24vh; }
+.story-steps li { min-height: 50vh; display: flex; align-items: center; }
+.story-steps li:last-child { min-height: 70vh; }
 .story-step { opacity: .28; transition: opacity .45s var(--out); cursor: pointer; }
 .story-step.on { opacity: 1; }
 .story-step p { margin: 12px 0 0; max-width: 42ch; color: var(--ink-2); }
@@ -354,7 +354,8 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 0; bo
   .report-side, .detail > div + div, .calc > div + div { border-left: 0; border-top: 1px solid var(--line); }
   .story-stage { top: 76px; z-index: 2; order: -1; }
   .stage-body { height: 300px; }
-  .story-steps li { min-height: 34vh; }
+  .story-steps li { min-height: 45vh; }
+  .story-steps li:last-child { min-height: 70vh; }
   .proof-row { grid-template-columns: minmax(0, 1fr) 70px 70px; }
   .proof-row .proof-track { grid-column: 1 / -1; grid-row: 2; }
   .cmp-row { grid-template-columns: minmax(0, 1fr) 90px; gap: 8px 16px; }

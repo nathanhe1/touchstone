@@ -1,47 +1,9 @@
 import { useState } from 'react'
-import { AnimatePresence, motion, LayoutGroup } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import { vendors, pct } from '../data'
-import { Alert, Arrow, Check, Panel, Reveal, reduced } from '../ui'
+import { Alert, Arrow, Check, Reveal, reduced } from '../ui'
 
 const ease = [.16, 1, .3, 1] as const
-
-/* Arrow's information paradox, as a before-and-after the visitor can flip. */
-export function Paradox() {
-  const [side, setSide] = useState<'without' | 'with'>('without')
-  const lines = side === 'without'
-    ? [['buyer', 'Can I see the tasks before I pay?'], ['vendor', 'If I show you, I\'ve given the product away.'], ['buyer', 'Then show me proof it works.'], ['vendor', 'Here are results we ran ourselves.'], ['buyer', 'So I either trust you, or pay first and find out in weeks.']]
-    : [['vendor', 'I upload the environment to Touchstone. It stays sealed.'], ['touchstone', 'We train small models on it and test them on problems neither of you has seen.'], ['buyer', 'I get the numbers and a fair price per task.'], ['vendor', 'My tasks never leave the sandbox.'], ['touchstone', 'And we never sell training material, so we can rate everyone.']]
-  return (
-    <div className="paradox">
-      <div className="paradox-copy">
-        <h2>The buyer can't judge it without seeing it. <span className="transfer">The seller can't show it without giving it away.</span></h2>
-        <p className="lede">Economists call this Arrow's information paradox. It is why training material is bought on trust today, and why it takes a neutral third party to fix it. Neither side can solve it alone.</p>
-        <LayoutGroup id="paradox">
-          <div className="seg" role="tablist" aria-label="Show the conversation">
-            {(['without', 'with'] as const).map(k => (
-              <button key={k} role="tab" aria-selected={side === k} onClick={() => setSide(k)}>
-                {side === k && <motion.span layoutId="paradox-pill" className="seg-pill" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
-                <span>{k === 'without' ? 'Without Touchstone' : 'With Touchstone'}</span>
-              </button>
-            ))}
-          </div>
-        </LayoutGroup>
-      </div>
-      <Panel title={side === 'without' ? 'a purchase today' : 'a purchase with touchstone'} meta={side === 'without' ? 'stuck' : 'resolved'}>
-        <div className="chat">
-          <AnimatePresence mode="popLayout">
-            {lines.map(([who, text], i) => (
-              <motion.div key={side + i} className={`bubble ${who}`} initial={{ opacity: 0, y: 14, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, scale: .96 }}
-                transition={{ delay: reduced ? 0 : i * .22, type: 'spring', stiffness: 260, damping: 22 }}>
-                <small>{who}</small>{text}
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      </Panel>
-    </div>
-  )
-}
 
 /* The exploit gallery: what we feed the grader, and what the appraised graders paid for it. */
 export function Exploits() {
@@ -52,11 +14,6 @@ export function Exploits() {
     ['echo the prompt', '47+38=', 'Repeat the question back.'],
     ['repeat last number in prompt', '38', 'Copy a number from the question.'],
     ['random 2-3 digits', '412', 'Answer with the right shape, wrong value.'],
-  ]
-  const code: [string, string, string][] = [
-    ['edit the tests', 'assert True  # was: assert f(3) == 9', 'Rewrite the check instead of the code.'],
-    ['exit early', 'sys.exit(0)', 'Quit before the tests can fail.'],
-    ['format gaming', '<answer>\\boxed{…}</answer>', 'Match the expected format, not the answer.'],
   ]
   const [open, setOpen] = useState<string | null>('hedged guesses')
   const paid = (name: string) => {
@@ -83,9 +40,6 @@ export function Exploits() {
           </motion.button>
         )
       })}
-      {code.map(([name, sample, what]) => (
-        <div key={name} className="exploit code"><span className="exploit-head"><b>{name}</b><span className="dim">code environments</span></span><code>{sample}</code><span className="exploit-more static">{what}</span></div>
-      ))}
     </div>
   )
 }

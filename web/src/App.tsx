@@ -55,6 +55,20 @@ export default function App() {
     return () => { removeEventListener('hashchange', onHash); removeEventListener('scroll', onScroll) }
   }, [])
   useEffect(() => { document.title = TITLES[route]; const t = setTimeout(() => ScrollTrigger.refresh(), 700); return () => clearTimeout(t) }, [route])
+  // ScrollTrigger stores pixel positions, so anything that changes the page height above a trigger makes it fire late.
+  useEffect(() => {
+    let timer = 0, height = 0
+    const ro = new ResizeObserver(() => {
+      const next = document.documentElement.scrollHeight
+      if (next === height) return
+      height = next
+      clearTimeout(timer)
+      timer = window.setTimeout(() => ScrollTrigger.refresh(), 150)
+    })
+    ro.observe(document.body)
+    document.fonts?.ready.then(() => ScrollTrigger.refresh())
+    return () => { ro.disconnect(); clearTimeout(timer) }
+  }, [])
   const Page = PAGES[route]
   return (
     <>

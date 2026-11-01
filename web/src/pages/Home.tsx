@@ -136,7 +136,7 @@ function Console() {
         <div className="cbars" data-l>{[['S', 38], ['M', 56], ['L', 74], ['XL', 92]].map(([s, w]) => <div key={s}><span>{s}</span><i style={{ width: `${w}%` }} /></div>)}</div>
         <p className="cl" data-l><span className="p">›</span>probe the grader<span className={`r ${r.tone}`}>{r.exploit}</span></p>
         <p className="cl" data-l><span className="p">›</span>check overlap<span className="r">{r.overlap}</span></p>
-        <p className="cl" data-l><span className="p">›</span>forecast at your scale<span className={`r ${r.tone}`}>{r.gain}</span></p>
+        <p className="cl" data-l><span className="p">›</span>test on new problems<span className={`r ${r.tone}`}>{r.gain}</span></p>
         <span className={`stamp ${r.tone}`} data-l>{r.verdict}</span>
       </div>
     </Panel>
@@ -188,7 +188,7 @@ const STEPS = [
   ['Seal', 'The vendor uploads the environment to a sealed sandbox. You never see their tasks, only the results.'],
   ['Train small', 'Small open models train on it at four sizes with one fixed recipe. Cheap, fast and repeatable.'],
   ['Measure', 'The models face private problems they never trained on, and we try to fool the grader.'],
-  ['Forecast and price', 'We predict the gain at your model size and put a fair price on each task.'],
+  ['Grade and price', 'We report the gain we measured on small models, with its range, and put a fair price on each task.'],
 ] as const
 
 function Spheres() {
@@ -229,7 +229,7 @@ function Stage({ index }: { index: number }) {
     const rows: [string, string, number, string][] = [
       ['Better on new problems', `${signed(env.actual_at_truth)} pts`, .62, 'var(--transfer)'],
       ['Reward won by exploits', pct(env.hackability.score), Math.max(env.hackability.score, .02), 'var(--bad)'],
-      ['Already in free data', pct(env.redundancy.public_overlap), env.redundancy.public_overlap, 'var(--reward)'],
+      ['Already free elsewhere', pct(env.redundancy.public_overlap), env.redundancy.public_overlap, 'var(--reward)'],
     ]
     return (
       <div className="bars">
@@ -244,12 +244,10 @@ function Stage({ index }: { index: number }) {
   return (
     <div className="price">
       <svg viewBox="0 0 400 170" aria-hidden="true">
-        <motion.polygon points="250,86 380,34 380,90 250,106" fill="#e2b45a22" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }} />
-        <motion.path d="M40 132 L130 118 L250 96" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .9, ease }} />
-        <motion.path d="M250 96 L380 62" fill="none" stroke="var(--transfer)" strokeWidth="2.5" strokeDasharray="6 6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .9 }} />
-        {[[40, 132], [130, 118], [250, 96]].map(([cx, cy], i) => <motion.circle key={i} cx={cx} cy={cy} r="6" fill="var(--ink)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: .2 + i * .2, type: 'spring' }} />)}
-        <motion.circle cx="380" cy="62" r="9" fill="var(--transfer)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.1, type: 'spring', stiffness: 300, damping: 10 }} />
-        <text className="axis-text" x="40" y="162">small runs</text><text className="axis-text" x="380" y="162" textAnchor="end">your model size</text>
+        <motion.path d="M40 132 L130 118 L250 96 L380 62" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.1, ease }} />
+        {[[40, 132, 14], [130, 118, 16], [250, 96, 20], [380, 62, 26]].map(([cx, cy, r], i) => <motion.line key={i} x1={cx} x2={cx} y1={cy - r} y2={cy + r} stroke="var(--transfer)" strokeWidth="2" strokeLinecap="round" initial={{ opacity: 0, scaleY: 0 }} animate={{ opacity: 1, scaleY: 1 }} transition={{ delay: .5 + i * .14, duration: .4 }} style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />)}
+        {[[40, 132], [130, 118], [250, 96], [380, 62]].map(([cx, cy], i) => <motion.circle key={i} cx={cx} cy={cy} r={i === 3 ? 9 : 6} fill={i === 3 ? 'var(--transfer)' : 'var(--ink)'} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: .2 + i * .2, type: 'spring', stiffness: 300, damping: i === 3 ? 10 : 20 }} />)}
+        <text className="axis-text" x="40" y="162">smallest size</text><text className="axis-text" x="380" y="162" textAnchor="end">largest size measured</text>
       </svg>
       <motion.div className="tag" initial={{ opacity: 0, y: 12, rotate: -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ delay: 1.2, type: 'spring', stiffness: 260, damping: 16 }}>
         <b>{money(env.fair_value_per_task)}</b><small>fair value per task</small>
@@ -325,9 +323,9 @@ export function ReportSample() {
     ['Learns the environment', 'Reward on its own tasks, before → after', 1, <><NumberFlow value={rung.env_reward_before} format={pctF} /> → <NumberFlow value={rung.env_reward_after} format={pctF} /></>, ''],
     ['Better on new problems', 'The number that matters', 2, <NumberFlow value={env.actual_at_truth} format={ptsF} suffix=" pts" />, env.actual_at_truth < 0 ? 'bad' : 'good'],
     ['Reward won by exploits', 'Non-answers that still scored', 2, <NumberFlow value={env.hackability.score} format={pctF} />, env.hackability.score >= .2 ? 'bad' : ''],
-    ['Already in free data', 'Overlap with public sets', 2, <NumberFlow value={env.redundancy.public_overlap} format={pctF} />, env.redundancy.public_overlap >= .5 ? 'bad' : ''],
-    ['Forecast at the largest size', `90% range ${signed(env.forecast.lo)} to ${signed(env.forecast.hi)}`, 3, <NumberFlow value={env.forecast.forecast} format={ptsF} suffix=" pts" />, ''],
-    ['Fair value per task', 'Compared with free practice', 4, <NumberFlow value={env.fair_value_per_task} format={usd} />, 'transfer'],
+    ['Already free elsewhere', 'Overlap with public sets', 2, <NumberFlow value={env.redundancy.public_overlap} format={pctF} />, env.redundancy.public_overlap >= .5 ? 'bad' : ''],
+    ['Gain over the free set', 'At the largest size measured', 3, <NumberFlow value={env.lift_over_free} format={ptsF} suffix=" pts" />, env.lift_over_free < 0 ? 'bad' : ''],
+    ['Fair value per task', 'An estimate, against free practice', 4, <NumberFlow value={env.fair_value_per_task} format={usd} />, 'transfer'],
   ]
   const stages = ['Seal', 'Train', 'Measure', 'Price']
   return (
@@ -476,7 +474,7 @@ export default function Home() {
               <motion.span aria-hidden="true" className="transfer" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, scale: .6, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .45, type: 'spring', stiffness: 220, damping: 12 }}>blind.</motion.span>
             </h1>
             <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>
-              Touchstone tests an RL environment or dataset on small models before you pay, and tells you whether it will make your model better.
+              Touchstone tests an RL environment or dataset on small models before you pay, and shows you what they learned on problems they never saw.
             </motion.p>
             <motion.div className="actions" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
               <RequestButton /><a className="btn secondary" href="#demo">Try the live demo</a>
@@ -493,7 +491,7 @@ export default function Home() {
 
       <section className="section abox-section"><div className="wrap"><Reveal><AppraiseBox /></Reveal></div></section>
 
-      <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Six RL environments, each hiding a different failure. Touchstone found every one.">
+      <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Six sample RL environments, each hiding a different failure, and what the report said about each.">
         <Caught />
       </Section>
 
@@ -501,13 +499,13 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <Reveal><h2>Training material is expensive. <span className="transfer">Finding out it didn't work is worse.</span></h2></Reveal>
-            <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our appraisals, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
+            <Reveal delay={.1}><p>A high training reward can hide a model that learned nothing. In our sample appraisals, most environments pushed reward up while the model got worse at new problems.</p></Reveal>
           </div>
           <Reveal><RunChart /></Reveal>
           <div style={{ height: 24 }} />
           <Reveal><Proof /></Reveal>
           <div className="facts">
-            {([['$2,000', 'what a single RL task can sell for, and up to $20k at the high end'], ['4–5×', 'more for an exclusive deal, so a bad buy costs even more'], ['Weeks', 'of GPU time before a full training run tells you it failed'], ['0', 'independent checks between the vendor\'s claim and your purchase']] as const).map(([big, text], i) => (
+            {([['$2,000', 'what a single RL task can sell for, and up to $20k at the high end'], ['4–5×', 'more for an exclusive deal, so a bad buy costs even more'], ['Weeks', 'of GPU time before a full training run tells you it failed'], ['Vendor-run', 'is how most results reach buyers today, measured on the seller\'s own setup']] as const).map(([big, text], i) => (
               <motion.div key={big} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08, duration: .7, ease: [.16, 1, .3, 1] }}>
                 <b>{big.startsWith('$') ? <Count value={big} /> : big}</b><p>{text}</p>
               </motion.div>
@@ -559,7 +557,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Section title={<>Built on what the research <span className="transfer">already shows.</span></>} text="Data value varies enormously, small runs can rank it, and today the evidence buyers see comes from the people selling.">
+      <Section title={<>Built on what the research <span className="transfer">already shows.</span></>} text="The value of training material varies enormously, and today the evidence buyers see comes from the people selling it.">
         <Evidence />
       </Section>
 

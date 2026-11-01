@@ -66,7 +66,7 @@ export function AppraiseBox() {
                     <div><small>exact duplicates</small><b className={check.dupes / Math.max(check.rows, 1) > .05 ? 'bad' : ''}>{check.dupes.toLocaleString('en-US')} ({Math.round(check.dupes / Math.max(check.rows, 1) * 100)}%)</b></div>
                     <div><small>unreadable lines</small><b className={check.bad ? 'bad' : ''}>{check.bad}</b></div>
                   </div>
-                  <p className="abox-note">Fields: {check.fields.join(', ') || 'none'} · about {check.avgChars.toLocaleString('en-US')} characters per example. A full appraisal adds training at four model sizes, transfer to private problems, overlap with free data and a fair price.</p>
+                  <p className="abox-note">Fields: {check.fields.join(', ') || 'none'} · about {check.avgChars.toLocaleString('en-US')} characters per example. A full appraisal adds training at four model sizes, transfer to private problems, overlap with free material and a fair price.</p>
                 </>)}
             </motion.div>
           )}

@@ -32,7 +32,7 @@ export function Paradox() {
   const [side, setSide] = useState<'without' | 'with'>('without')
   const lines = side === 'without'
     ? [['buyer', 'Can I see the tasks before I pay?'], ['vendor', 'If I show you, I\'ve given the product away.'], ['buyer', 'Then show me proof it works.'], ['vendor', 'Here are results we ran ourselves.'], ['buyer', 'So I either trust you, or pay first and find out in weeks.']]
-    : [['vendor', 'I upload the environment to Touchstone. It stays sealed.'], ['touchstone', 'We train small models on it and test them on problems neither of you has seen.'], ['buyer', 'I get the numbers and a fair price per task.'], ['vendor', 'My tasks never leave the sandbox.'], ['touchstone', 'And we never sell data, so we can rate everyone.']]
+    : [['vendor', 'I upload the environment to Touchstone. It stays sealed.'], ['touchstone', 'We train small models on it and test them on problems neither of you has seen.'], ['buyer', 'I get the numbers and a fair price per task.'], ['vendor', 'My tasks never leave the sandbox.'], ['touchstone', 'And we never sell training material, so we can rate everyone.']]
   return (
     <div className="paradox">
       <div className="paradox-copy">
@@ -115,8 +115,8 @@ export function Exploits() {
 /* The evidence: what the research and the market already show, with sources. */
 export function Evidence() {
   const items: [string, string, string, string][] = [
-    ['Data value varies wildly', 'Training on a well-chosen 5% of a dataset often beat training on all of it.', 'Xia et al., LESS · ICML 2024', 'https://proceedings.mlr.press/v235/xia24c.html'],
-    ['Small runs can rank data', 'Small-model experiments predicted which pretraining data wins at larger scale.', 'Magnusson et al., DataDecide · ICML 2025', 'https://proceedings.mlr.press/v267/magnusson25a.html'],
+    ['Material value varies wildly', 'Training on a well-chosen 5% of a dataset often beat training on all of it.', 'Xia et al., LESS · ICML 2024', 'https://proceedings.mlr.press/v235/xia24c.html'],
+    ['Small runs ranked pretraining material', 'One published study of pretraining found that small-model experiments ranked its options at larger scale.', 'Magnusson et al., DataDecide · ICML 2025', 'https://proceedings.mlr.press/v267/magnusson25a.html'],
     ['Vendors grade themselves', 'Surge reports +9.6, +5.3 and +3.5 points from its own environments, measured on its own setup.', 'Surge, cross-benchmark generalization', 'https://surgehq.ai/blog/cross-benchmark-generalization-for-long-horizon-agentic-tasks'],
     ['Graders are the weak point', 'Weak graders, leaked answers and tasks passed without being solved are the most common failure.', 'Invisible · Delphik', 'https://invisibletech.ai/blog/the-grader-problem-why-most-rl-environments-fail'],
   ]

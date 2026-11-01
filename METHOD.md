@@ -268,6 +268,15 @@ So the result says little about forecast skill on three families, and these runs
 
 **What a next test needs, written before it runs:** a gate on base accuracy at both sizes (say 10-90%) checked before any training, an evaluation token limit checked against reply length for each suite, and environments in families that pass both.
 
+**Fresh 1.7B result** (`out/forecast_h3_17.json`, 96 runs, scored once).
+
+| Target | Noise ceiling | 360M proxy: decision, p | 135M proxy: decision, p | Base accuracy: strings / word / units / code |
+|---|---|---|---|---|
+| Working prompt (primary) | **0.68** | 0.45 [0.33, 0.57], 0.63 | 0.38 [0.27, 0.51], 0.74 | 11 / 83 / 32 / 87 |
+| Plain prompt (secondary) | 0.66 | 0.53 [0.39, 0.66], 0.21 | 0.34 [0.20, 0.48], 0.90 | 11 / 20 / 51 / 8 |
+
+The primary noise ceiling is below the pre-registered 0.70, so **the result is inconclusive by the rule, neither a pass nor a fail.** It also gives the earlier result no support: 360M to 1.7B scored 0.86 on spent environments and 0.45 here, so that 0.86 **is not confirmed and must not be claimed.** No family reached the 90% saturation line. The 360M proxy came from the same flawed h3 runs, where three families were at a floor or truncated, so this is a weak test of 360M to 1.7B. Per family at 360M: strings 0.29, word 0.71, units 0.21, code 0.57; each is 28 pairs, and none is a finding on its own.
+
 ### What the forecast is not
 
 **What the product reports.** No calibrated map ships yet: fitting one needs measured gains at the target size for a dozen or more datasets, and the 1.7B rung could not be completed for the sweep on this 16 GB laptop (training fits in 4.7 GB with gradient checkpointing, but 1.7B evaluation drove the machine into swap). So `forecast.value` is the rank-at-largest number (the net accuracy gain at the largest trained size, labelled as a ranking signal whose scale at 1.7B is not validated), and `forecast.smooth_value` carries the smooth-score ranking, which is the better-validated signal. The calibrated method stays in the code and is used automatically once `touchstone/calibration/dataset_<suite>.json` exists (`scripts/validate_sft.py --target 1.7B` on a bigger machine writes the data for it).

@@ -20,3 +20,14 @@ sfttr|dbpedia|clean|1.7B|0 +12.17 38s
 sfttr|dbpedia|pool100|1.7B|0 +11.50 34s
 sfttr|dbpedia|wrong60|1.7B|0 +11.17 40s
 sfttr|imdb|pool300|1.7B|0 +17.83 33s
+sfttr|imdb|wrong10|1.7B|0 +15.00 32s
+sfttr|amazon|pool100|1.7B|0 +9.83 30s
+sfttr|amazon|off25|1.7B|0 +12.67 27s
+sfttr|amazon|wrong60|1.7B|0 -22.17 28s
+sfttr|cr|clean|1.7B|0 +6.12 15s
+sfttr|cr|pool100|1.7B|0 +5.32 17s
+sfttr|cr|drop|1.7B|0 -43.35 16s
+sfttr|cr|wrong60|1.7B|0 -19.15 14s
+sfttr|subj|pool100|1.7B|0 +33.83 21s
+sfttr|subj|wrong60|1.7B|0 +7.67 22s
+sfttr|subj|off80|1.7B|0 +26.67 25s

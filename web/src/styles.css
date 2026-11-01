@@ -89,7 +89,8 @@ code { font-family: var(--mono); }
 .rating i { display: grid; place-items: center; width: 28px; height: 32px; border: 1px solid var(--ln); border-radius: 2px; color: var(--mut); font: 500 14px var(--sans); }
 .rating i.on { border-color: transparent; color: var(--ink); }
 .rating i.on.good { background: var(--gold); }
-.rating i.on.bad { background: var(--bad); }
+.rating i.on.bad { background: var(--bad); color: var(--paper); }
+.console .rating i.on.bad, .dark .rating i.on.bad { color: var(--ink); }
 
 /* Results */
 .results { padding-block: 64px; border-bottom: 1px solid var(--ln); }
@@ -112,7 +113,7 @@ code { font-family: var(--mono); }
 .chart path { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .chart path.gap { stroke: var(--fg); stroke-width: 1; }
 .chart circle.truth { fill: var(--bad); }
-.chart path.reward { stroke: #a4a39b; } .chart path.truth { stroke: var(--bad); }
+.chart path.reward { stroke: #85847b; } .chart path.truth { stroke: var(--bad); }
 .chart text.end { fill: var(--fg); font: 500 14px var(--sans); }
 .split h2 + .defs { margin-top: 24px; }
 .rf-consent span { display: block; }

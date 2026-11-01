@@ -1,6 +1,6 @@
 # YC site analysis
 
-Study of recent Y Combinator company websites, done to iterate the Touchstone preview. Captured on 2026-10-31 in Chromium 151 through Playwright. Everything here separates **measured** facts from **judgement**. Sites are public home pages only: no logins, no sign-ups, no forms submitted, no bot protection bypassed.
+Study of recent Y Combinator company websites, done to redesign the Touchstone preview from the structure down. Captured on 2026-10-31 in Chromium 151 through Playwright. Everything here separates **measured** facts from **judgement**. Sites are public home pages only: no logins, no sign-ups, no forms submitted, no bot protection bypassed.
 
 ## Coverage
 
@@ -23,7 +23,7 @@ Limits worth keeping in mind:
 - **Reveal times** are the weakest measure here, because slow frames stretch them. The median below is an upper bound.
 - **Pinning** counts an element held still for more than 260px of scroll. It can miss scrubbed canvases and video, which is why frame notes are counted separately.
 - **Motion library detection** at medium confidence is a string match in shipped JavaScript, so a bundled but unused library would count.
-- **Frames** were read as contact sheets (24 desktop and 20 mobile frames sampled from 2 to 4 fps extractions per site). Four sites were read by the lead and the rest by reader agents using a fixed template. Scrubbing was usually inferred from neighbouring frames, and each per-site note says what was seen and what was inferred. Hover changes were measured from computed styles, because hovers are too small to read at sheet resolution.
+- **Frames** were read as contact sheets (24 desktop and 20 mobile frames sampled from 2 to 4 fps extractions per site). Five sites were read by the lead and the rest by reader agents using a fixed template. Scrubbing was usually inferred from neighbouring frames, and each per-site note says what was seen and what was inferred. Hover changes were measured from computed styles, because hovers are too small to read at sheet resolution.
 - **Sourcebot** mobile produced two grey frames. **idler** captured only about 10 seconds. **Variant**'s gallery did not render in this environment.
 
 ## How it was measured
@@ -34,13 +34,13 @@ Stack detection used window globals, script URLs, generator tags, DOM attributes
 
 ## Findings that matter most
 
-1. **Touchstone's look is genuinely different in its own market.** Measured: 2 of 17 RL, data and audit sites have a dark hero, against 26 of 63 overall. Black and gold stands out where it counts.
-2. **Serif is normal among peers.** Measured: 9 of those 17 use a serif H1, against 16 of 63 overall. Instrument Serif reads as "research lab", which suits an audit.
-3. **A direct competitor exists.** Tokenless (S26) states "We find flaws in RL environments and evals and help you fix them." This contradicted the site's claim that Touchstone is the first independent auditor, so that claim is gone. You may want to look at Tokenless, HUD, Halluminate and Vibrant Labs yourself.
+1. **Touchstone's look is genuinely different in its own market.** Measured: 2 of 17 RL, data and audit sites have a dark hero, against 26 of 63 overall. A dark site is rare in this market.
+2. **Serif is normal among peers.** Measured: 9 of those 17 use a serif H1, against 16 of 63 overall.
+3. **A direct competitor exists.** Tokenless (S26) states "We find flaws in RL environments and evals and help you fix them." This contradicted the old claim that Touchstone is the first independent auditor, so that claim is gone. You may want to look at Tokenless, HUD, Halluminate and Vibrant Labs yourself.
 4. **Proof sits straight after the hero.** Frames: 38 of 62 sites put a logo or stat row there. Touchstone has no logos to show, so verified results take that slot.
-5. **The best sites commit to one idea.** Frames: 24 of 62 heroes are one object, image or diagram, 16 are product UI and 22 are text-led. Pinned content was measured on 19 of 63. Touchstone's own object was already in its name.
-6. **Corners are tight.** Measured: median card radius 4px, 27 of 63 square cards, median button radius 7.5px, 14 of 63 pills. Touchstone mixed 14 to 24px cards with 999px pills.
-7. **Reduced motion is widely declared but not always safe.** Measured: 60 of 63 ship the query, and 10 of 63 still had headings or paragraphs at zero opacity with it on. Some of those may be hidden tab content, so 10 is an upper bound.
+5. **The best sites commit to one idea.** Frames: 24 of 62 heroes are one object, image or diagram, 16 are product UI and 22 are text-led. Pinned content was measured on 19 of 63. Touchstone's object is its own console.
+6. **Corners are tight.** Measured: median card radius 4px, 27 of 63 square cards, median button radius 7.5px, 14 of 63 pills. Touchstone had mixed 14 to 24px cards with 999px pills.
+7. **Reduced motion is widely declared but not always safe.** Measured: 60 of 63 ship the query, and 10 of 63 still left text invisible with it on.
 8. **Every site passes 390 wide.** Measured: 0 of 63 had horizontal scroll. Cookie banners were the most common mobile problem, noted on about 10 sites.
 
 ## Patterns with counts (measured)
@@ -174,98 +174,197 @@ Measured, with the H1 classification being a judgement call made by hand from th
 - **Scroll (frames):** 27 of 62 notes describe pinned, sticky, scrubbed or stacked content, 8 are plain scroll, and the rest are ordinary sections with reveals. The common forms are a pinned hero object (AgentMail, Coval, Laminar, HUD), a sticky list that swaps a panel (Raindrop, Osmosis, Pulse, Sciloop) and panels stacking over the hero (Tinfoil, 21st).
 - **Depth of pinning (measured):** the longest pinned elements were HumanLayer at 10,488px, cubic 4,774px, Mastra 3,906px, s2.dev 3,038px and Legora 2,480px.
 - **Live demos (frames):** about 16 notes show a hero or section that changes by itself or with tabs. The most useful for Touchstone are Stacktrace's tabbed console, Arga and Tasklet's auto-playing UI, and Halluminate's chart tabs.
-- **Sticky nav (measured):** 44 of 63 stick, and 14 of 63 hide the header during scroll.
+- **Sticky nav (measured):** 44 of 63 stick, and 14 of those hide on scroll.
 - **Hover (measured over 220 controls):** colour changed on 70, border on 61, background on 60, nothing on 79. Shadow changed on 9 and transform on only 2. Median transition is 150ms. Lifting elements on hover is rare here.
 - **Reveals (measured, upper bound):** 17 of 63 reveal two or more elements as they enter, with a median of about 1.2s under this load.
 - **Libraries:** Motion 33 of 63 (5 high confidence, 28 medium), GSAP 7, Lenis 6, Three.js 5, compiled WebGL shaders 10, Lottie 10, Rive 1, Spline 1. Tailwind 44, Next.js 41, Framer 5, Webflow 4, Astro 4.
 - **Performance cost:** median decoded JS is 2.2MB and median requests 87. Timing is unreliable here, but Browser Use, Archil, Pulse and 21st had the largest long-task totals, and all use heavy animated heroes.
 
-## What suits Touchstone (judgement)
+## How the sites are organized (measured)
 
-**Adopted**
+Measured on 61 sites with raw heading, nav and footer data. Section counts use H2s as the proxy, so a page that builds sections without H2s reads low.
 
-| Pattern | Evidence | How it landed |
+| Segment | Sites | Median H2s | Median words | Median screens at 900px | Median nav items | Median footer links |
+|---|---|---|---|---|---|---|
+| RL, data and audit | 16 | 1 | 229 | 2.1 | 4 | 6 |
+| AI infrastructure | 17 | 8 | 683 | 7.4 | 10 | 20 |
+| Dev tools | 12 | 7.5 | 1,144 | 9.5 | 7.5 | 16.5 |
+| Evals | 10 | 9 | 1,122 | 10.9 | 8.5 | 28.5 |
+| Design-led | 6 | 9.5 | 1,355 | 10.9 | 13 | 15.5 |
+| All | 61 | 7 | 683 | 8.4 | 8 | 20 |
+
+**What each section does.** Keyword match on H2 text, so these are floors, and the number after the count is the median position on the page from 0 (top) to 1 (bottom):
+
+| Section job | Sites | Median position |
 |---|---|---|
-| Proof directly under the hero | 38 of 62 sites | Results strip with verified figures, each with its scope, since there are no logos to show |
-| One memorable object, scrubbed | 24 of 62 heroes, 19 of 63 pinned | The streak: silver reward breaks up, gold holds, on the stone the company is named after |
-| Results as the design | Halluminate, Openbenchmarks | The checks list is a ledger of real engine flags and what each does to the price |
-| Tabbed console | Stacktrace, 18 of 63 with tabs | Hero console flips between a flagged and a clean run |
-| Tight corners | Card median 4px, 27 of 63 square | One radius language, 10px and 6px, no pill labels |
-| Short subhead | Median 19 words | Hero lede cut from 31 to 23 words |
-| Short reveals | Mastra's long blurs read poorly | Reveal cut from 0.9s to 0.65s, blur halved |
+| Problem or why | 14 | 0.10 |
+| Customers or proof | 26 | 0.24 |
+| Features or platform | 22 | 0.27 |
+| How it works | 12 | 0.35 |
+| Security or enterprise | 16 | 0.61 |
+| Pricing | 8 | 0.76 |
+| FAQ | 14 | 0.88 |
 
-**Kept on purpose, against the median**
+The studied order is therefore: what it is, proof, why it matters, how it works, then detail, then the next step. A closing CTA was too noisy to place by keyword, but the frames show one on most pages.
 
-- H1 stays near 95px (median 60). A display serif needs size, and it is the brand.
-- Dark stays. It is the differentiator above.
-- Motion stays and increases. Only 19 of 63 pin anything, and motion is what the user values on this site.
+**Nav.** Items present, all 61 sites: Pricing 38, Blog 27, Product 26, Docs 24, Sign-in 23, Company 21, Customers 20, Demo 13, Research 13, Contact 10, Careers 10. Among the 33 RL, data and infrastructure sites: Blog 17, Pricing 14, Docs 13, Product 12, Company 11, Customers 10, Research 9, Contact 7, Careers 7, Sign-in 7, Demo 2.
 
-**Not adopted**
+**Footer.** Of 49 sites with a footer element: Privacy 45, Terms 41, Blog 38, Security 31, Careers 28, Pricing 27, social 26, Contact 21, Docs 18, Status 13, GitHub 9.
 
-- Logo walls, testimonials and customer counts: there are no customers yet, and faking them is ruled out.
-- Live counters, as on HUD: no real figure to count.
-- Announcement bars, oversized wordmarks, floating pill navs and section colour shifts: they would drift from the PR #10 and #16 baseline.
-- More WebGL or 3D: 10 of 63 use shaders, and the existing hero shader was already the site's heaviest cost.
-- YC badges: 14 of 63 name YC, but Touchstone cannot claim it.
+**Homepage versus subpages.** Sampled by loading real subpages of the reference sites, so these are examples and not medians of the full set:
 
-## What changed on the preview
-
-| Change | Why |
+| Page type | Words |
 |---|---|
-| Hero lede and CTAs say audit first | The brief, and the 19-word norm |
-| Console runs seal, probe, overlap, train, test | That is the engine's real order, so the cheap checks come first |
-| Console title and meta | "Live" was not true of a sample run |
-| Results strip: 92%, 95%, 0 of 28 | Verified, re-checked against `out/flag_eval.json` (57/62, 57/60) |
-| Streak section | Signature moment, using wording already on the Company page |
-| Checks ledger replaces the three-card strip | Three cards in a row was a listed tell, and the strip repeated sample results |
-| Section order | Audit, grader probes, why reward misleads, method, report, then the rest |
-| "Request an audit" | Leads with the audit. Appraisal stays as the valuation step |
-| Radius and reveals | See the table above |
-| H1 copy fix | The headline copied as one run-on word |
-| Hero shader gate and error boundary | See below |
+| Pricing | s2.dev 247, Browser Use 332, Stacktrace 417 |
+| About | Osmosis 397, Stacktrace 414, Openbenchmarks 797 |
+| Research index | Halluminate 326, AfterQuery 483 |
+| Benchmark or method | Openbenchmarks 1,023, Browser Use 1,114, isoquant 2,005 |
 
-**A bug found on the way.** With WebGL unavailable, three.js threw and the entire site went blank, on the current preview too. On software renderers the shader stalled the page. Both now fall back to the animated CSS glow, and a real GPU still gets the shader.
+Depth lives on the benchmark page, not the home page. Home pages hand off with one link.
 
-**Overclaims (separate commit).** Every `web/src` row of the AUDIT.md table is applied. Beyond the table, these also went:
+**Proof without logos, RL, data and infrastructure group (frames):**
 
-- The projection drawn in the price stage
-- "Forecast at the largest size", now gain over the free set
-- "Touchstone is the first", and the "0 independent checks" fact
-- "Working with vendors on first appraisals", which claimed traction
-- "One published recipe" and "we publish our method"
-- "Adversarial policies trained against the grader"
-- "No red flags. The material passed every check."
+- **Publishing the result:** Halluminate (a leaderboard on the home page), Openbenchmarks (ranked tables), isoquant (prices and benchmarks), Luminal (benchmarks), Expanse (a measured-outcomes table).
+- **Live numbers:** HUD (running counters).
+- **Named backers in plain text:** hillclimb, Polymath, AfterQuery, Tokenless.
 
-Compute cost and gross margin are now labelled estimated and target.
+None of these needs a customer. The strongest ones show a result the reader can check.
 
-## Before and after
+## Best-in-class references
 
-Same instrument, same machine, home page.
+Judgement, from reading whole-page maps at 1440 plus the video frames. Polymath's map failed with a connection reset, so it rests on its earlier frames.
 
-| Measure | Current preview | This iteration |
+| Site | What makes it well made |
+|---|---|
+| **Browser Use** | Hierarchy. A two-tone headline owns the viewport, one orange accent does all the signalling, and proof is a head-to-head a reader takes in instantly. Pricing fits in two numbers on the home page. |
+| **isoquant** | Proof without a single logo. Every figure sits in a comparison inside hairline containers with square corners, and the page ends in one dark field. |
+| **Stacktrace** | One idea per section. A tabbed console sits in the hero, and the dark product panels keep returning on a light page. |
+| **Openbenchmarks** | Restraint. The results are the design: ranked tables in one serif and one mono, no illustration. |
+| **Halluminate** | Rhythm. A sticky left column and one scrolling column, with a published benchmark as the page's whole argument. |
+| **Raindrop** | Spacing and pacing. A sticky step list swaps real product UI, and a stat row sits straight after the hero. |
+| **Polymath** | Discipline. About 148 words and one line drawing that builds on load. It proves how little a credible lab site needs. |
+
+## Fonts on the best sites (measured)
+
+Best means the 27 sites graded A from the frames. Grades are judgement; the fonts are computed values.
+
+| Measure | Result |
+|---|---|
+| A-grade H1 class | 18 sans, 9 serif |
+| RL, data and audit H1 | 9 of 17 serif |
+| All sites H1 family | Geist 10, Inter 3, every other family once or twice |
+| All sites body family | Geist 14, Inter 8 |
+| A-grade body family | Inter 5, Geist 3 |
+| Mono labels | Geist Mono 8, JetBrains Mono 5, DM Mono 4, IBM Plex Mono 3 |
+| Fonts loaded anywhere | Inter 15, Geist 14, Geist Mono 8, JetBrains Mono 7, DM Mono 5 |
+| STIX Two Text | 2 sites: Openbenchmarks and Tokenless |
+| A-grade type medians | H1 68px (40 on mobile), H2 55px, body 17px, tracking -0.025em, H1 line height 1.1 |
+| A-grade serif H1s at display size | Reducto 84, s2.dev 80, Datacurve 79, Zep 88, Openbenchmarks 90, Bluejay 80 |
+
+The two sites closest to an independent audit are the two that use STIX Two Text. Most other serifs on the list are custom or paid, such as Exposure, Grenette, Plantijn and Terrane, while STIX Two Text is free under the OFL.
+
+## Design decisions
+
+Every decision below comes from the studied sites. Where the evidence set a pattern but not a value, the table says so.
+
+| Decision | Choice | Evidence |
 |---|---|---|
-| Page height, desktop / mobile | 11,163 / 15,908px | 13,675 / 18,411px |
-| Words on page | 1,206 | 1,372 |
-| Button radius modes | 12px, 999px | 6px, 10px |
-| Card radius mode | 14px | 10px |
-| Pinned element | none measured | 574px |
-| Frame time, software GL, median during scroll | 1,838ms | 180ms |
-| WebGL shaders compiled on software GL | 8 | 0 |
-| Horizontal scroll at 390 | no | no |
-| Text hidden under reduced motion | 0 | 0 |
-| Layout shift | 0 | 0.021 |
+| Display face | STIX Two Text, weight 500 | 9 of 17 RL and data peers use a serif H1. Openbenchmarks and Tokenless, the closest peers, use this family |
+| Text and data faces | Geist and Geist Mono | Most used body family (14 of 63), most used mono label (8 of 63). Serif H1 with sans body on 13 of 63. HUD and hillclimb pair a serif with Geist |
+| Type scale | H1 80 (44 mobile), H2 48, H3 28, body 17, small 14, mono 12 to 14 | A-grade serif H1s run 79 to 90. A-grade medians: mobile H1 40, H2 55, body 17, ratio to body 4. The H2 sits below the median so the H1 stays the only large line |
+| Tracking and leading | -0.025em, line height 1.04 for H1, 1.55 for body | A-grade medians -0.025em and 1.1. Display serifs at 1.04 match Openbenchmarks (0.94) and s2.dev (1.05) |
+| Theme | Dark hero, nav, close and footer; light body | Light hero on 26 of 34 RL and infrastructure sites, while A-grade sites split 12 dark, 12 light, 3 mixed. Zep and Legora run dark first then light, and Stacktrace runs light with dark panels |
+| Dark ground | #121211, neutral | 11 of 14 dark grounds are neutral, none tinted blue. Median luminance 0.06 |
+| Light ground | #f7f6f3, off-white | 26 of 42 light grounds are not pure white, and 12 are warm. Openbenchmarks, Polymath, AfterQuery, Datacurve and Reducto all sit here |
+| Accent | One gold, with red and green only for results | Frames: dark sites hold one accent (Browser Use, Raindrop, AgentMail, Cua, Isoquant). The sites set the count, not the hue. Gold comes from the company name and is the one choice the evidence does not make |
+| Grid and width | 12 columns, 1200px, 24px gutter | Median max width 1200 of 60 sites |
+| Spacing | 8-point scale, 192px between sections | Section padding sum median 160, and 192 on Boat, Kernel and s2.dev |
+| Radius | 4px everywhere, square tables | Card median 4, 27 of 63 square. Button median 7.5, only 14 of 63 pill |
+| Buttons | 44px, solid fill, no arrow chip | Median height 42. Hover changes colour on most controls and transform on 2 of 220 |
+| Nav | 4 items plus a CTA, sticky | RL peers median 4. 44 of 63 sticky. Pricing leads all nav items. Stacktrace keeps a dark bar on a light page |
+| Footer | One line, 7 links, dark | RL peers median 6 links. Privacy and terms on most sites. isoquant, Stacktrace and Browser Use all end on one dark field |
+| Section structure | 5 bands: hero with console, results, why, how, close | Order from the section-job table. 3 H2s sits between the RL median (1) and the overall median (7) |
+| Amount of content | 385 words, 3.4 screens | Between RL (229 words) and overall (683). Below the requested 683 on purpose: every candidate addition failed the "what it is, why it matters, proof, next step" test, and the checks list moved to Method |
+| Proof | Three verified figures straight after the hero | 38 of 62 sites put proof there. Stat rows on Browser Use, Raindrop, Hamming |
+| Hero feature | Tabbed console of recorded runs | Product in the hero on 16 of 62. Stacktrace's console and Arga and Tasklet's auto-play carry the most credibility in the frames |
+| Section features | One chart, one sticky step list | Sticky lists on Raindrop, Osmosis, Pulse, Sciloop. Halluminate's left column. Tabs on 18 of 63 |
+| Dropped features | Calculator, ranking widget, exploit gallery, upload box, chat paradox, beam diagram | No RL or data peer has these on a home page |
+| Motion, kept | Console run, chart draw, sticky run filling in, 150ms hover colour | Live demos in about 16 notes. Draw-in on Polymath and Luminal. Pinning on 19 of 63. Median hover transition 150ms |
+| Motion, dropped | WebGL shader, smooth scrolling, scroll scrub, blur reveals, spring physics, entrance on every section | WebGL on 10 of 63, Lenis on 6 of 63. Most frames show no load entrance. Reveals on only 17 of 63 |
+| Libraries | Motion only | Motion on 33 of 63, GSAP on 7. No site needs six |
 
-The page grew, against a 7,557px and 683-word median. That is the cost of adding the streak and ledger without removing anything, and is the first place to cut next: Paradox and Neutral make a similar point, and the page has twice the median word count.
+**Conflict to weigh.** A warm-paper and serif round was rejected on 2026-10-29. The evidence still points to a light body, so I followed it, and the dark hero, nav, close and footer keep half the page black. If it reads wrong to you, the ground is one token: `--paper` in `web/src/styles.css`.
+
+The site now has none of Instrument Serif, the WebGL hero, the typing console's hand-set lines, the gold spheres or the streak. The console stays as a real equivalent, and motion stays where the references justify it.
+
+## The redesign
+
+**Routes, 11 down to 8**
+
+| Route | Job | Words |
+|---|---|---|
+| Home | What it is, proof, why, how, next step | 385 |
+| Method | Checks, grader probes, what numbers mean, sources, questions. Replaces Product, Research and Sample report | 474 |
+| Live demo | Recorded engine runs, and live runs when the engine is reachable | 232 |
+| Pricing | Three services and three questions | 164 |
+| Company | The name, why now, where we are. Replaces Market | 296 |
+| Request | The form | 156 |
+| Terms, Privacy | Footer only | |
+
+Old links still work: `#product` and `#research` go to Method, `#report` to Live demo, `#market` to Company.
+
+**Cut from the site**
+
+- Sections: Streak, three-card strip, checks list on the home page (moved to Method), grader gallery on the home page (moved to Method as a table), Paradox (one sentence moved to Company), Neutral beam, ranking widget, For Buyers and For Vendors lists, upload box, Facts row, Evidence cards on the home page (moved to Method).
+- Pages: Product, Research, Sample report, Market as routes.
+- Content: purchase-risk calculator, unit economics, revenue scenarios, the Touchstone Report #1 plan, future-direction list.
+- Code: GSAP, anime.js, react-spring, Lenis, three.js, React Three Fiber, ShaderGradient, liquid-glass, NumberFlow, and the Watermelon components.
+
+**Before and after, home page, same instrument**
+
+| Measure | Preview at start | Last iteration | Redesign |
+|---|---|---|---|
+| Words | 1,206 | 1,372 | 385 |
+| H2s | 13 | 13 | 3 |
+| Sections | 13 | 15 | 5 |
+| Page height, desktop | 11,163px | 13,675px | 3,042px |
+| Page height, mobile | 15,908px | 18,411px | 4,058px |
+| Decoded JS | 1.9MB | about 1.9MB | 0.44MB |
+| Whole bundle | 2.1MB | 2.1MB | 0.76MB |
+| Long tasks, software rendering | 33,037ms | 20,692ms | 160ms |
+| Median frame during scroll | 1,838ms | 180ms | 8ms |
+| Layout shift | 0 | 0.021 | 0 |
+
+Timing is relative, from the same loaded machine.
+
+**Honest critique against the references**
+
+- **Stronger now:** hierarchy, restraint and truth. The first viewport holds up next to Browser Use and Stacktrace, and nothing on the home page is a hand-set number.
+- **Behind Stacktrace:** product depth. Its panels are dense and believable, while the how section here is a small panel beside text.
+- **Behind Browser Use:** instant proof. Its 3.0% against 90.5% lands in a second. Touchstone's gap is drawn, not stated, because subtracting accuracy from reward would invent a number.
+- **Behind isoquant:** figures in comparison. The three proof numbers stand alone, since adding denominators would add numbers.
+- **Page rhythm:** below the console the page is calm and close to a well-set memo. That suits an audit, but it has one big moment and not two.
+- **No imagery:** the strongest heroes have one object, and this one has a console. It is true to the product, but less memorable than Polymath's drawing or Osmosis's landscape.
+
+**Sample numbers, for the record**
+
+| Where | Source |
+|---|---|
+| Hero console, how panel | Recorded engine runs on planted test cases, October 30, 2026. Labelled "test case" on the page |
+| Chart | A fictional test environment from `out/appraisals.json`. Reward is logged. Accuracy is two measurements, shown as two dots and a dotted join |
+| Three proof figures | Verified: 57 of 62, 57 of 60, and 20 plus 8 clean draws |
+| Pricing, market figures | Predate this work, not re-sourced. Market figures are third-party |
+| Hand-set numbers | None remain on the site |
 
 ## Not verified
 
-- The hero shader on a real GPU. Headless runs here only have software GL, so this path was not exercised after the gate was added.
 - Real iPhone or Android devices, and Safari or Firefox. Mobile here is Chromium emulation.
-- Real-world load and frame timing.
-- Market figures, the pricing tiers and the $5M to $100M scenarios, which predate this work and were not re-sourced.
-- Sample figures in the console, Compare and Neutral sections are hand-set illustrations. The grader probes, proof chart and sample report come from a demo run on fictional environments. None of it is labelled as customer data, and "sample" was added where the text implied real appraisals.
-- `touchstone/site.py` still carries AUDIT.md overclaims. It is outside `web/src`, so it was left alone.
-- `DESIGN.md` and `PRODUCT.md` are stale on fonts and pipeline state.
+- Real-world load and frame timing, since this machine was busy.
+- The published artifact as seen in the claude.ai viewer. The files were confirmed, but opening it needs a login.
+- The live engine path on the demo and request form. This build ran the recorded replay; the request form correctly reports no server.
+- The last small fixes (dotted accuracy line, reward-line contrast, red grade text, form reduced motion) were built after the final video round and not re-recorded.
+- Market figures, pricing ranges and the "two working days" reply promise.
+- `touchstone/site.py` still carries the AUDIT.md overclaims. It is outside `web/src`.
 
 
 ## Per-site table (measured)

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { findApi, sendRequest } from '../demo/api'
+import { reduced } from '../ui'
 
 const KINDS: [string, string][] = [['rl_environment', 'RL environment'], ['dataset', 'Post-training material'], ['other', 'Something else']]
 const empty = { name: '', email: '', company: '', role: '', material_kind: 'rl_environment', description: '', budget: '', consent: false }
@@ -40,7 +41,7 @@ export function RequestForm() {
   }
   const err = (k: keyof Form) => touched && errors[k] ? <span className="rf-err" id={`rf-${k}-err`}>{errors[k]}</span> : null
   if (state === 'sent') return (
-    <motion.div className="rf-done" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+    <motion.div className="rf-done" initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
       <b>Request received.</b><p>Thanks, {f.name.split(' ')[0]}. We’ll reply to {f.email} within two working days to scope the appraisal.</p>
     </motion.div>
   )
@@ -61,7 +62,7 @@ export function RequestForm() {
       <label>Budget for the purchase <span className="dim">(optional)</span><input value={f.budget} onChange={e => set('budget', e.target.value)} placeholder="e.g. $300k" /></label>
       <label className="rf-consent"><input type="checkbox" checked={f.consent} onChange={e => set('consent', e.target.checked)} /><span>I agree that Touchstone stores these details to reply to me, as described in the <a className="textlink" href="#privacy">privacy policy</a>.</span></label>
       {err('consent')}
-      <AnimatePresence>{state === 'error' && <motion.p className="rf-fail" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>{message}</motion.p>}</AnimatePresence>
+      <AnimatePresence>{state === 'error' && <motion.p className="rf-fail" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>{message}</motion.p>}</AnimatePresence>
       <button className="btn rf-submit" type="submit" disabled={state === 'sending'} aria-busy={state === 'sending'}>{state === 'sending' ? <><span className="rf-spin" />Sending…</> : 'Send request'}</button>
       {base === null && <p className="dim rf-note">This preview page can’t reach the request server, so sending will fail here. It works on the Touchstone site.</p>}
     </form>

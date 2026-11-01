@@ -114,14 +114,16 @@ def one(arm, fam, cond, size, seed, part):
     lm = L.LM(size)
     b, _ = bits(lm, it)
     t = time.time()
-    rec = L.Recipe(sft_steps=CFG["sft_steps"], rl_steps=CFG["rl_steps"], rl_group=CFG["rl_group"], sft_max_len=CFG["max_len"])
+    rec = L.Recipe(sft_steps=CFG["sft_steps"], rl_steps=CFG["rl_steps"], rl_group=CFG["rl_group"], sft_max_len=CFG["max_len"],
+                   rl_max_new=MAX_NEW, eval_max_new=MAX_NEW)  # training replies get the same limit as evaluation
     if arm == "sft":
         pairs = [(lm.chat(p), a) for p, a in sft_rows(fam, cond, part, int(seed))]
         tuned, info = L.sft(lm, pairs, rec, seed=int(seed))
         extra = {"loss_last": info["loss_last"]}
     else:
         tuned, info = grpo(lm, Env4(fam, cond, part), rec, seed=int(seed))
-        extra = {"reward_first": info["train_reward_first"], "reward_last": info["train_reward_last"], "skipped": info["skipped_no_signal"]}
+        extra = {"reward_first": info["train_reward_first"], "reward_last": info["train_reward_last"], "skipped": info["skipped_no_signal"],
+                 "rollouts_truncated": info.get("rollouts_truncated"), "mixed_groups": info.get("mixed_groups")}
     a, outs = bits(tuned, it)
     gain = 100 * (a.count("1") - b.count("1")) / len(it)
     print("RESULT " + json.dumps({"base": b, "after": a, "gain": gain, "train_s": round(time.time() - t), "sample": outs[:2],

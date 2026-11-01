@@ -13,3 +13,6 @@ mcq|openbook|0|2 {'sampled': 100, 'confident': 72, 'disagree_n': 17, 'disagree':
 mcq|openbook|30|0 {'sampled': 100, 'confident': 52, 'disagree_n': 17, 'disagree': 0.3269}
 mcq|openbook|30|1 {'sampled': 100, 'confident': 45, 'disagree_n': 23, 'disagree': 0.5111}
 mcq|openbook|30|2 {'sampled': 100, 'confident': 72, 'disagree_n': 32, 'disagree': 0.4444}
+mcq|csqa|0|0 {'sampled': 100, 'confident': 44, 'disagree_n': 12, 'disagree': 0.2727}
+mcq|csqa|0|1 {'sampled': 100, 'confident': 51, 'disagree_n': 10, 'disagree': 0.1961}
+mcq|csqa|0|2 {'sampled': 100, 'confident': 45, 'disagree_n': 7, 'disagree': 0.1556}

@@ -1,0 +1,29 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3079.52it/s]
+ok  clean_multiarith_0 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3012.22it/s]
+ok  clean_multiarith_1 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2536.29it/s]
+ok  clean_multiarith_2 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 770.67it/s]
+ok  planted_multiarith_30 ['noisy_labels'] ['noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1593.06it/s]
+ok  clean_mawps_0 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2383.32it/s]
+ok  clean_mawps_1 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2684.23it/s]
+ok  clean_mawps_2 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2732.19it/s]
+ERR planted_mawps_30 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2638.64it/s]
+Traceback (most recent call last):
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/scripts/eval_test4.py", line 23, in <module>
+    sc = pipeline.screen_material("dataset", [e.prompt_text for e in ex], suite, None, log=lambda x: None, examples=ex)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/pipeline.py", line 331, in screen_material
+    labels = coverage.label_checks(dtype, examples, q["arithmetic"], use_judge=use_judge)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/coverage.py", line 217, in label_checks
+    r = judge.audit_mcq2(examples)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/judge.py", line 336, in audit_mcq2
+    c = [_BOX.findall(o) for o in _gen(q, MCQ_COT, 240)]
+NameError: name 'MCQ_COT' is not defined

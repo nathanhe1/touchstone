@@ -1,0 +1,34 @@
+sft|ag_news|pool300|135M|0 +44.00 41s
+sft|ag_news|wrong10|135M|0 +39.83 39s
+sft|rotten|wrong10|135M|0 +10.50 34s
+sft|emotion|pool100|135M|0 +28.50 33s
+sft|emotion|drop|135M|0 +29.50 34s
+sftlr|ag_news|wrong10|135M|0 +4.33 39s
+sftlr|ag_news|off25|135M|0 +4.00 38s
+sftlr|ag_news|drop|135M|0 +2.00 39s
+sftlr|rotten|clean|135M|0 +4.33 37s
+sftlr|rotten|pool100|135M|0 +4.33 32s
+sftlr|rotten|drop|135M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sftlr|emotion|off80|135M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|ag_news|wrong60|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|rotten|wrong60|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|rotten|off80|360M|0 +2.50 51s
+sftlr|rotten|pool300|360M|0 +4.17 49s
+sftlr|rotten|wrong10|360M|0 +2.83 50s
+sftlr|rotten|off25|360M|0 +2.17 49s
+sftlr|emotion|clean|360M|0 +28.33 47s
+sft|rotten|wrong10|135M|1 +15.83 33s
+sft|emotion|pool100|135M|1 +28.33 37s
+sft|emotion|drop|135M|1 +26.67 37s
+sft|emotion|wrong60|135M|1 +25.00 30s
+sftlr|ag_news|pool300|135M|1 +4.50 35s
+sftlr|ag_news|wrong10|135M|1 +4.83 38s
+sftlr|rotten|wrong60|135M|1 +4.67 37s
+sftlr|emotion|drop|135M|1 +23.83 35s
+sftlr|emotion|wrong60|135M|1 +0.83 33s
+sft|ag_news|wrong60|360M|1 -2.17 57s
+sft|rotten|pool100|360M|1 +30.00 46s

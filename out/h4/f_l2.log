@@ -75,3 +75,5 @@ sfttr|enron|clean|1.7B|1 +3.50 35s
 sfttr|enron|pool200|1.7B|1 +11.50 34s
 sfttr|enron|drop|1.7B|1 -27.50 34s
 sfttr|sst5|off25|1.7B|1 +10.50 22s
+sfttr|sst5|placebo|1.7B|1 -5.17 19s
+sfttr|bbc|placebo|1.7B|1 -46.00 33s

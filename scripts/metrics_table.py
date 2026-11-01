@@ -58,6 +58,13 @@ def main():
         a = v4["all"]
         lines += ["", "## Test v4: real public data, frozen, scored once", "", "| n | Precision | Recall | Exactly right | Clean draws with a false flag |", "|---|---|---|---|---|",
                   f"| {a['n']} | {a['precision']} | {a['recall']} | {a['exact']} of {a['n']} | {v4['clean_total']['with_false_flag']} of {v4['clean_total']['draws']} |"]
+    h4 = load("forecast_h4_final.json")
+    if h4:
+        lines += ["", "## h4: fine-tuning, 8 unseen classification families, frozen, scored once. Bar 0.80 on screen-passing pairs", "",
+                  f"Noise ceiling at 1.7B: {h4['ceiling_1.7B']['screen_passing']} screen-passing, {h4['ceiling_1.7B']['all']} all pairs.", "",
+                  "| Candidate | Screen-passing | 90% interval | p | All pairs |", "|---|---|---|---|---|"]
+        for k, v in h4["candidates"].items():
+            lines.append(f"| {k} | {v['screen_passing']['decision']} | {v['screen_passing']['ci90']} | {v['screen_passing']['perm_p']} | {v['all']['decision']} |")
     r3 = load("validation_rl_real2_summary.json")
     if r3:
         lines += ["", "## Forecast, round 3: 135M -> 360M, accuracy to accuracy, 600 items (METHOD.md, pre-registered)", "",

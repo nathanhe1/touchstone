@@ -76,6 +76,7 @@ Stop rule: a method that fails on held-out or fails its permutation test is reti
 | Ridge fits with leave-one-environment-out | 0.50-0.63 | not run | | Worse on development than any fixed rule; n is too small |
 | Gradient similarity | 0.59-0.72 | not run | | Unstable across seeds on development; no gain in the ensemble, so it never reached the final list |
 | `acc_final`, `smooth_final`, `rank_mean` as a general forecast | 0.61-0.62 | fresh set 0.40-0.45, p 0.47-0.89 | | Fail on non-arithmetic families. The arithmetic result (0.70) remains as a measurement, for that domain only. Three of the four fresh families were at a floor or badly measured: see METHOD.md |
+| h4: `acc_final` 360M to 1.7B, 10x lower learning rate, truncated 1.7B, as forecasts of screen-passing choices | 0.41, 0.64, 0.73 | 0.61, 0.45, 0.68 on 8 unseen families | 0.0004, 0.15, 0.0007 | All miss the pre-registered 0.80. The ordering on development did not fully hold: lower learning rate fell below the baseline. Screen-passing pairs are the honest number: all-pairs scores were 0.73, 0.58 and 0.81 |
 | More seeds as the fix | 0.74, 0.68, 0.61 | | | Noise was not what limited the proxy |
 
 ## 4. Coverage by data type

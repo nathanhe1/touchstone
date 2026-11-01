@@ -1,6 +1,6 @@
 # Component audit
 
-**Round 4 update.** Test v4 (real data, frozen, scored once): precision 0.51, recall 0.69, 47 of 70 exactly right. Graders 12/12, reworded suite leaks 3/3, plain-text math 0 false flags in 8 draws. Weak: unsupported-final on LaTeX (3 of 3 false flags, blocks a price: **fix before relying on it for math with LaTeX**), `off_topic` on small custom suites (9 false flags: **make advisory for custom suites**), multiple choice threshold does not travel (advisory). Detail: METHOD.md, "Test v4 result". The tables below are from round 3.
+**Round 4 update.** Test v4 (real data, frozen, scored once): precision 0.51, recall 0.69, 47 of 70 exactly right. Graders 12/12, reworded suite leaks 3/3, plain-text math 0 false flags in 8 draws. Weak: unsupported-final on LaTeX (3 of 3 false flags, blocks a price: **fix before relying on it for math with LaTeX**), `off_topic` on small custom suites (9 false flags: **make advisory for custom suites**), multiple choice threshold does not travel (advisory). Detail: METHOD.md, "Test v4 result". Forecast, h4 on 8 unseen classification families, fine-tuning: 360M to 1.7B 0.61 on pairs a buyer would actually compare, truncated 1.7B 0.68, 135M to 360M 0.77; bar 0.80 not met, and RL forecasting is still untested beyond arithmetic. The forecast must stay advisory. The tables below are from round 3.
 
 What each part of Touchstone actually measures, what evidence exists on data it never touched, how it can fail, and what to do with it. Verdicts are keep, fix, make advisory, or remove.
 

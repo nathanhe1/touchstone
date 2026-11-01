@@ -335,6 +335,22 @@ Causes, found after scoring and not acted on:
 - *Inconclusive* if the 1.7B screen-passing noise ceiling is below 0.75.
 - *Stop rule:* a candidate that misses the bar is retired, not retuned.
 
+**h4 result** (`out/forecast_h4_final.json`, `out/h4/`, 976 runs, none missing, `cuda`, torch 2.14.1; scored once). Fine-tuning only. The 1.7B noise ceiling on screen-passing pairs is 0.77, above the 0.75 line, so the test is conclusive.
+
+| Candidate | Screen-passing (161 pairs) [90%], p | Families above 0.5 | All pairs (349) | Bar met? |
+|---|---|---|---|---|
+| `acc_final` 360M to 1.7B | **0.61** [0.43, 0.76], 0.0004 | 6 of 8 | 0.73 | No |
+| 10x lower learning rate, 360M to 1.7B | **0.45** [0.26, 0.63], 0.15 | 4 of 8 | 0.58 | No |
+| Truncated 1.7B net of placebo | **0.68** [0.53, 0.82], 0.0007 | 7 of 8 | 0.81 | No |
+| Secondary: `acc_final` 135M to 360M | **0.77** [0.64, 0.88], 0.0001 (137 pairs) | 6 of 7 | 0.88 | Below 0.80, at its 0.77 ceiling |
+| Also scored: `acc_final` 135M to 1.7B | 0.58, 0.006 | | 0.71 | |
+
+All three pre-registered candidates miss the 0.80 bar and are retired as forecasts, not retuned. 7 pairs had exact target ties and dropped out of the 168, and 8 more of the secondary's pairs where a target was tied at 360M. The result is real but limited: small models beat chance on classification material, with p far below the bar, yet they rank materials a buyer would actually compare only about 6 times in 10, and pre-registered disasters lift that to 7 in 10. It holds for 8 classification families, fine-tuning, this suite and recipe. Knowledge questions failed the gate, so nothing here covers them. A truncated target run did best at 360M's job, but it trains the target, so it does not show that a small model forecasts anything.
+
+Lower learning rate is retired. In this short-run setting it scored worse than the baseline on every headline. It did well on one family (`cr`), which is no basis for a claim.
+
+**RL test skipped.** It was approved on condition of at least 1 hour of reserve after h4. h4 took 4.05 hours and finished with about 0.9 hours left under the 7-hour cap, partly because 8 unseen families and 976 runs took longer than the 3.5-hour estimate. **RL forecasting remains untested on non-arithmetic work.** The code is ready (`scripts/h4_run.py`, `scripts/h4_score_rl.py`).
+
 ## 7. Grade and fair value
 
 `touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.

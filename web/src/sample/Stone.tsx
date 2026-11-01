@@ -103,7 +103,7 @@ function Scene({ still }: { still: boolean }) {
     return g
   }, [])
   const narrow = viewport.aspect < .9
-  const size = narrow ? viewport.width * .78 : Math.min(viewport.height * .46, viewport.width * .3)
+  const size = narrow ? viewport.width * .78 : Math.min(viewport.height * .46, viewport.width * .27)
   const silverRub = useMemo(() => narrow ? NARROW(SILVER) : SILVER, [narrow]), goldRub = useMemo(() => narrow ? NARROW(GOLD) : GOLD, [narrow])
   useFrame((state, delta) => {
     clock.current = still ? 10 : clock.current + Math.min(delta, .05)
@@ -126,7 +126,7 @@ function Scene({ still }: { still: boolean }) {
     group.current.rotation.x += (-state.pointer.y * .06 + .04 - group.current.rotation.x) * k
   })
   return (
-    <group ref={group} position={narrow ? [0, -viewport.height * .34, 0] : [viewport.width * .02 + size * 1.26, viewport.height * .06, 0]} scale={size}>
+    <group ref={group} position={narrow ? [0, -viewport.height * .34, 0] : [viewport.width * .04 + size * 1.26, viewport.height * .06, 0]} scale={size}>
       <group rotation={[0, -Math.PI / 2, 0]}>
         <mesh geometry={geometry} scale={SCALE}>
           <meshPhysicalMaterial map={mapT} metalnessMap={pbrT} roughnessMap={pbrT} bumpMap={bumpT} bumpScale={.5} metalness={1} roughness={1} clearcoat={.3} clearcoatRoughness={.3} />

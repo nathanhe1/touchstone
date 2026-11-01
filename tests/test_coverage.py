@@ -115,3 +115,21 @@ def test_price_range_spans_the_interval():
     assert r["grade_low"] == "C" and r["grade_high"] == "A" and r["per_item_low"] < r["per_item_high"]
     b = valuation.price_range(1.0, 9.0, [{"code": "noisy_labels", "severity": "block"}], 400, 0.0, 5000, 480)
     assert b["per_item_high"] == 0
+
+
+def test_two_route_multiple_choice_runs_end_to_end(monkeypatch):
+    """A cleanup once deleted a constant only this path uses, and only a frozen test run found out."""
+    rows = [ex(f"Q{i}\nA) yes\nB) no", "A") for i in range(30)]
+    monkeypatch.setattr(judge, "_gen", lambda q, system, n, batch=8: ["A" if n < 20 else "so \\boxed{A}" for _ in q])
+    r = judge.audit_mcq2(rows)
+    assert r["confident"] == 30 and r["disagree"] == 0
+    r = coverage.label_checks("multiple_choice", rows, use_judge=True)
+    assert r["status"] == "checked" and not r["noisy"]
+
+
+def test_every_upper_case_name_in_the_judge_is_defined():
+    import ast
+    from pathlib import Path
+    src = Path(judge.__file__).read_text()
+    names = {n.id for n in ast.walk(ast.parse(src)) if isinstance(n, ast.Name) and n.id.isupper()}
+    assert all(hasattr(judge, x) for x in names)

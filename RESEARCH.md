@@ -60,6 +60,8 @@ What happened on held-out is in METHOD.md, "Round 3 forecast results". In short:
 
 MLX does not run on Linux, so the judge has a torch route. fp16 with eager attention gave NaN on CUDA, which came from an earlier fix of ours; fp32 with sdpa works (`out/debug_judge.log`). At c607ddca, on the first 30 rows of `short_noisy_30`, 27 of 30 rows match MLX on both routes (bar set in advance: 25), and the disagreement rate is close: 3 of 25 confident on torch against 3 of 23 on MLX (0.12, 0.13). That is one dataset. It shows the route works, not that the two backends make the same decisions, so judge results from the two backends are not mixed. Every judge number in this project is from MLX.
 
+**Full comparison, bar set in advance: failed** (`scripts/compare_judge.py`, 24 development datasets, identical rows). 23 of 24 flag decisions match, and 73% of items match on both routes, under the 85% bar. The decision that flipped is `s_clean`, a clean strings set: 0.11 on MLX, 0.23 on torch, flagged. Numeric labels agreed on every decision, and on most sets 54-60 of 60 rows match. GSM8K-level sets are far lower (18 and 27 of 60) yet reach the same decisions. String sets match on 0-10 of 60 rows, because the chain-of-thought route differs and the program route alone decides there. **Backends stay separate.** Thresholds and test v3 are MLX results. A torch deployment needs its own threshold check and its own frozen test, and text labels should be treated as unvalidated on torch until then.
+
 ### Retired methods
 
 Stop rule: a method that fails on held-out or fails its permutation test is retired, not retuned. Numbers are on the 17 spent held-out environments unless noted (`out/forecast_selection.json`).

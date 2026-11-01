@@ -1,6 +1,6 @@
 # Scaling Touchstone past a 16 GB laptop
 
-What a full test across all data types costs, which parts belong on a rented GPU, and how to run them there. Nothing here has been run on a rented machine: no account was opened and no money was spent. Laptop timings are measured (`out/heavy_jobs.log`). GPU times are estimates, marked as such. Check them with the smoke test below before committing to a long rental.
+What a full test across all data types costs, which parts belong on a rented GPU, and how to run them there. Sections below were written before the rented run. Round 3 then used an RTX 5090 on Vast.ai, operated by the coordinator; the commands were adapted there, with 6 shards to avoid GPU memory errors and torch 2.14.1 instead of 2.8.0. The MI300X path remains untested. Laptop timings are measured (`out/heavy_jobs.log`). GPU times are estimates, marked as such. Check them with the smoke test below before committing to a long rental.
 
 ## What the laptop can and can't do
 
@@ -46,7 +46,7 @@ Rough total without the 7B+ target: **30-65 GPU-hours**; with it, about 100. Mul
 
 ## Running it
 
-An MI300X uses AMD's ROCm stack, and the PyTorch ROCm build exposes it through `torch.cuda`, so `lm.py` selects it as `cuda` with no code change. MLX isn't available there, and `judge.py` falls back to `transformers`. `run_heavy.py` is for the laptop, so skip it on the GPU box. This path has not been tested on real hardware.
+An MI300X uses AMD's ROCm stack, and the PyTorch ROCm build exposes it through `torch.cuda`, so `lm.py` selects it as `cuda` with no code change. MLX isn't available there, and `judge.py` falls back to `transformers` (fp32, sdpa). That route did not match MLX closely enough on development data (RESEARCH.md), so a torch deployment needs its own thresholds and test. `run_heavy.py` is for the laptop, so skip it on the GPU box. This path has not been tested on real hardware.
 
 ```bash
 # 1. Set up (Python 3.9+; choose the ROCm wheel from pytorch.org that matches the driver and torch 2.8.0)

@@ -82,7 +82,7 @@ No published method makes an absolute cutoff travel. What works in the literatur
 - **Conformal applied to labels:** inductive conformal cleaning with a small curated calibration set exists for biomedical data — [PLOS Comp Biol](https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1012803). Conformal-in-the-Loop reports difficulty separating mislabeled from hard examples above about 10% noise — [arXiv 2411.02281](https://arxiv.org/html/2411.02281). Conformal Labeling controls FDR with a small labeled calibration set, but for selecting AI labels rather than auditing human ones — [arXiv 2510.14581](https://www.arxiv.org/abs/2510.14581). I found no benchmark of conformal mislabel detection on real text noise.
 - **Permutation baselines:** Ojala & Garriga's label-shuffle test asks whether a classifier found any real class structure — [JMLR 2010](https://www.jmlr.org/papers/v11/ojala10a.html). I found no paper using shuffled-label nulls to detect partial label noise.
 - **IRT-style difficulty correction:** IRT separates item and model parameters, but it needs many respondents (see panel results above). Difficulty is not invariant across model families (r = 0.832 between cohorts) — [Paquin & Jain 2026](https://arxiv.org/pdf/2609.09372). A 4PL upper asymptote is what separates "hard" from "key wrong": strong models rarely pick the key — [Land 2026](https://arxiv.org/html/2605.30504v2).
-- **Confidence-gated disagreement:** higher LLM confidence in a different label gives higher precision, with the trend replicated on SummEval — [Nahum et al.](https://aclanthology.org/2025.emnlp-main.1360.pdf). Bigger ensembles improved error-detection F1 from about 0.40 to 0.55 on TRUE, and 0.61 to 0.67 on SummEval, read from the figure axes — same source.
+- **Confidence-gated disagreement:** higher LLM confidence in a different label gives higher precision, with the trend replicated on SummEval — [Nahum et al.](https://aclanthology.org/2025.emnlp-main.1360.pdf). Error-detection F1 rose with ensemble size on both TRUE and SummEval; the figure axes span about 0.40-0.55 and 0.61-0.67 — same source.
 - **Touchstone's own runs (`out/stress_real.json`):** OpenBookQA disagreement was 0.25, 0.3833, 0.4667, 0.25 on 60 rows. No Robots had `yes_shuffled` 0.0 in all four draws, so `fit` equals `yes_real` (0.53-0.58).
 
 ### Inferences
@@ -93,11 +93,11 @@ No published method makes an absolute cutoff travel. What works in the literatur
 | Statistic | Clean rate | Lift per wrong key | Prevalence | Rows needed |
 |---|---|---|---|---|
 | Raw disagreement | 0.33 | 0.42 | 6.5% (MMLU-like) | ~1,860 |
-| Raw disagreement | 0.33 | 0.42 | 30% (planted) | ~25 |
-| Confident disagreement | 0.03 | 0.6 | 6.5% | ~190 of the confident subset |
-| Confident disagreement | 0.02 | 0.6 | 6.5% | ~130 of the confident subset |
+| Raw disagreement | 0.33 | 0.42 | 30% (planted) | ~90 |
+| Confident disagreement | 0.03 | 0.6 | 6.5% | ~160 of the confident subset |
+| Confident disagreement | 0.02 | 0.6 | 6.5% | ~120 of the confident subset |
 
-  Lifts and clean rates are assumptions, and the subset figures are confident rows. At a confident rate like ARC's 43%, 190 confident rows would need about 440 sampled rows. These numbers explain why the current check passed a 30% planted test and cannot find real-world rates.
+  Lifts and clean rates are assumptions, and the subset figures are confident rows. At a confident rate like ARC's 43%, 160 confident rows would need about 370 sampled rows. Even the planted 30% case needs more than the current 60 rows on raw disagreement, and real-world rates are about 20 times further out. A low clean rate brings the job within reach; the current statistic does not.
 - Ordered recommendation, each step a dev hypothesis to test, not a result:
   1. **Excess-over-expected for MCQ.** Use the judge's calibrated probability for its pick, and test observed disagreement against the sum of (1 - p) over the rows (Poisson-binomial). The expected value needs no labels, so difficulty is handled row by row. This assumes calibration travels, which [Klie et al.](https://arxiv.org/abs/2206.02280) warn is dataset-specific, so it should be fitted across several clean sources and tested leave-one-source-out. `audit_mcq2` is a cruder version of the same idea and is worth finishing first.
   2. **Forced-choice for free text.** `audit_pair` has a meaningful scale: 0.5 means replies are interchangeable, near 0 means replies belong to their requests. This is closer to a built-in zero than the current `fit` score.
@@ -140,7 +140,7 @@ A sub-2B judge can check pairing and fit, format, internal arithmetic, and const
 
 - `audit_pair` matches style in distribution, not pair by pair: a short reply against a long one will still carry length bias. Regress `share_foreign` on the length gap as Dubois does, or sample foreign replies from a similar length band. Near-duplicate requests also need excluding, because a foreign reply can be a valid reply.
 - No Robots yes rates of 0.53-0.58 mean the judge rejects about 45% of human-written replies. That is a judge problem and supports dropping absolute YES rates altogether.
-- Free text should report what was checked and never imply quality. This matches the product's existing "partial" status, and the tone can stay plain: fit is checked, facts are not.
+- Free text should report what was checked and never imply quality. This matches the product's existing "partial" status.
 
 ### Gaps
 - No precision or recall for a sub-2B judge on ReaLMistake-style data. The smallest tested were 7B models, so this could be run directly if the terms allow.
@@ -171,7 +171,7 @@ Free text and classification:
 
 | Source | Size | License | Known problems | How validated | Use |
 |---|---|---|---|---|---|
-| [ReaLMistake](https://huggingface.co/datasets/ryokamoi/realmistake) | 900 | CC-BY-SA-4.0; gated, authors ask that examples not be published | Error rates in Table 2 about 44-81% by task | Experts | **Primary for free text.** Keep rows out of public reports |
+| [ReaLMistake](https://huggingface.co/datasets/ryokamoi/realmistake) | 900 | CC-BY-SA-4.0; gated, authors ask that examples not be published | Errors in about 62-81% of responses, by setting | Experts | **Primary for free text.** Keep rows out of public reports |
 | [AlpacaDataCleaned](https://github.com/gururise/AlpacaDataCleaned) | ~52k | Repo Apache-2.0; mirrors disagree, HF tag CC-BY-4.0, one summary says CC BY NC | Hallucinations, merged instructions, empty outputs, wrong answers; about 80% of math estimated wrong, per project | Curated by hand, unscored | Before-vs-after diff gives real bad rows; mixed quality. [HF mirror](https://huggingface.co/datasets/yahma/alpaca-cleaned) |
 | [FindTheFlaws](https://github.com/modulo-research/findtheflaws) | Not confirmed; 5 datasets | Repo CC0-1.0 | Expert-annotated long-form solutions, correct or flawed | Experts | Good fit for worked reasoning; size needs checking. [Paper](https://arxiv.org/abs/2503.22989) |
 | [VariErr NLI](https://github.com/mainlp/VariErr-NLI) | 500 MNLI items | No license on repo | Errors separated from variation | 7,732 validity judgments | Error-vs-ambiguity negatives |
@@ -188,7 +188,7 @@ Free text and classification:
 
 Licensing and audit design notes:
 - Pervasive Label Errors audited only flagged rows; 51% of flags were validated on average, and error rates ranged 0.15-10.12% — [Northcutt et al. 2021](https://arxiv.org/pdf/2103.14749). labelerrors.com returned only a title to my fetch, so the [repo](https://github.com/cleanlab/label-errors) is the working source.
-- Vendrow et al. are cited for about 5% invalid in GSM8K — [Truong et al.](https://arxiv.org/pdf/2511.16842). The Platinum card's 110 removed and 10 relabeled is about 9.1% of 1,319 by my arithmetic. Truong et al. count 88 of 997 — 8.8%. A random 1,000-problem sample elsewhere found about 2% — [arXiv 2507.17015 and related, search snippet](https://arxiv.org/pdf/2507.17015). The rates conflict because they count different things.
+- Vendrow et al. are cited for about 5% invalid in GSM8K — [Truong et al.](https://arxiv.org/pdf/2511.16842). The Platinum card's 110 removed and 10 relabeled is about 9.1% of 1,319 by my arithmetic. Truong et al. count 88 of 997, or 8.8%. These differ because each counts a different mix of wrong keys and ambiguous questions.
 - Base-set licences relevant to current runs: [OpenBookQA](https://huggingface.co/datasets/allenai/openbookqa) is tagged unknown, and [No Robots](https://huggingface.co/datasets/HuggingFaceH4/no_robots) is CC-BY-NC-4.0.
 
 ### Inferences
@@ -202,6 +202,7 @@ Licensing and audit design notes:
 - MMLU-Redux tally by error type: my live count timed out, so rates here are the paper's.
 - CIFAR-N rates, TRUE subset download link, SciFact license, FindTheFlaws size: unconfirmed.
 - MedQA 41% rests on a search snippet of the JMIR paper, which I did not open.
+- A search snippet also reported about 2% errors on a random 1,000-problem GSM8K sample, with 9 removed and 11 corrected. I could not tie this to a specific paper, so it is not used above.
 
 ## How should a detector with rare real positives be evaluated?
 
@@ -218,7 +219,7 @@ Report precision on real data at real prevalence, audit a random sample of unfla
 - **Flag precision is not an error rate.** Berriche et al. stress that 23.8% is flag precision on checked items, not a benchmark-wide rate — [source](https://arxiv.org/pdf/2609.08765).
 
 ### Inferences
-- Precision at a given prevalence (my calculation, for sensitivity 0.9 and false-positive rate 0.05 at item level): 2% prevalence gives 27%; 6.5% gives 57%; 20% gives 82%; 50% gives 95%. A precision number with no prevalence attached means little.
+- Precision at a given prevalence (my calculation, for sensitivity 0.9 and false-positive rate 0.05 at item level): 2% prevalence gives 27%; 6.5% gives 56%; 20% gives 82%; 50% gives 95%. A precision number with no prevalence attached means little.
 - Touchstone's 0 of 20 false flags is compatible with a true rate up to 13.9% (one-sided 95%) or 16.8% (two-sided upper) by my calculation, and it comes from few sources. Report "0 of 20 draws, N sources" with that bound.
 - Recommended design for the next frozen test:
   1. **Unit of analysis is the source.** Four draws of one source are not four independent trials for generalisation. Report per-source false-flag rates and leave-one-source-out results, with bootstrap by source. Test v4 already reports false flags by source.
@@ -229,7 +230,7 @@ Report precision on real data at real prevalence, audit a random sample of unfla
   6. **Pre-register** the statistic, n, limit and stop rule, and hash before scoring, as was done for test v4.
   7. **Report with the number:** prevalence, sample size, source count, Clopper-Pearson interval, held-out or not, reviewer type.
   8. **Report a capture-recapture estimate only as a rough check.** Two detectors flag sets A and B, and total errors is about |A||B|/|A∩B|. All LLM detectors share errors, so this will undercount. I found no label-error application of it.
-- Claims wording to keep: precision and recall "on planted test cases" stays separate from "on real errors", in line with the `METHOD.md` rule already in place. Real-error results can be stated plainly as strengths once measured.
+- Claims wording to keep: precision and recall "on planted test cases" stays separate from "on real errors", in line with the rule already recorded in `docs/AUDIT.md`.
 
 ### Gaps
 - No text-domain study that quantifies the gap between planted and real precision for the same detector with held-out thresholds. The nearest are Chong's distances and Klie's dataset contrasts.

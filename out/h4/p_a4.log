@@ -5,3 +5,4 @@ sft|openbook|wrong30|135M|0 +1.20 32s
 sft|openbook|wrong100|135M|0 +1.40 31s
 sft|openbook|off80|135M|0 +0.40 32s
 sft|emotion|wrong30|135M|0 +28.33 32s
+rl|arc_easy|pool20|135M|0 +2.50 113s

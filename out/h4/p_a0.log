@@ -5,3 +5,5 @@ sft|openbook|pool30|135M|0 -1.40 26s
 sft|ag_news|wrong60|135M|0 +3.00 32s
 sft|ag_news|off80|135M|0 +2.33 33s
 sft|rotten|wrong60|135M|0 +2.17 30s
+sft|rotten|wrong100|135M|0 -8.83 31s
+rl|arc_easy|clean|135M|0 +0.83 112s

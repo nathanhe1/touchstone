@@ -40,6 +40,7 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
     system = getattr(env, "system", None)
     B, G = recipe.rl_prompts, recipe.rl_group
     curve, skipped = [], 0
+    cut = mixed = 0
     t0 = time.time()
     for step in range(steps):
         batch = [rng.choice(tasks) for _ in range(B)]
@@ -49,6 +50,9 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
                               batch=B * G, raw=True)
         r = torch.tensor([float(env.verify(batch[i // G], outs[i])) for i in range(B * G)])
         curve.append(r.mean().item())
+        cut += sum(len(tuned.tok(o, add_special_tokens=False).input_ids) >= recipe.rl_max_new - 1 for o in outs)
+        groups = r.view(B, G)
+        mixed += int((groups.max(1).values > groups.min(1).values).sum())
         if placebo:
             r = r[torch.randperm(len(r))]
         r = r.view(B, G)
@@ -92,6 +96,8 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
     model.eval()
     k = max(1, len(curve) // 5)
     info = {"steps": steps, "skipped_no_signal": skipped, "placebo": placebo,
+            "rollouts_truncated": round(cut / (steps * B * G), 4),  # replies cut at rl_max_new during training
+            "mixed_groups": round(mixed / (steps * B), 4),  # groups with any reward difference: the only ones that teach
             "train_reward_first": round(sum(curve[:k]) / k, 4), "train_reward_last": round(sum(curve[-k:]) / k, 4),
             "curve": [round(sum(curve[i:i + 5]) / len(curve[i:i + 5]), 3) for i in range(0, len(curve), 5)],
             "seconds": round(time.time() - t0, 1)}

@@ -56,7 +56,7 @@ export default function Method() {
           <dl className="defs">
             <div><dt>Net gain</dt><dd>Accuracy gained on private problems, minus what a placebo run gained, with a range.</dd></div>
             <div><dt>Grade</dt><dd>A to F, from the net gain and any caps. It describes the size we measured.</dd></div>
-            <div><dt>Estimated value</dt><dd>Net gain at the buyer's dollars per point, spread across the novel items. An estimate, always shown with its assumption.</dd></div>
+            <div><dt>Estimated value</dt><dd>Net gain at the buyer’s dollars per point, spread across the novel items. An estimate, always shown with its assumption.</dd></div>
           </dl>
         </div>
       </section>
@@ -70,14 +70,14 @@ export default function Method() {
         <div className="wrap split">
           <div><h2>Questions.</h2></div>
           <Faq items={[
-            ['Do you ever see the vendor\'s tasks?', 'They stay in a sealed sandbox. Buyers get results, never the tasks.'],
+            ['Do you ever see the vendor’s tasks?', 'They stay in a sealed sandbox. Buyers get results, never the tasks.'],
             ['Which models do you train?', 'A fixed family of small open models with one fixed RL recipe. Results describe the sizes we measured, each with its range.'],
             ['Why trust small models?', 'Small models keep an audit cheap, and most checks do not depend on model size: exploit probes, overlap and duplicates read the material itself. Where we train, the report states the size we measured and the range.'],
             ['What can you test today?', 'RL environments with automatic graders, and post-training datasets in .jsonl.'],
           ]} />
         </div>
       </section>
-      <Close title="See it on your material." text="We're taking on a small number of pilot audits." />
+      <Close title="See it on your material." text="We’re taking on a small number of pilot audits." />
     </>
   )
 }

@@ -110,7 +110,7 @@ function RunChart() {
 
 const RUNS = [
   { name: 'coding-agent-v3', exploit: '2 exploits found', overlap: '31% already free', gain: '−0.4 pts', verdict: 'Not worth full price', tone: 'bad' },
-  { name: 'math-reasoning-v1', exploit: 'no exploits', overlap: '6% already free', gain: '+4.1 pts', verdict: 'Worth buying', tone: 'good' },
+  { name: 'math-reasoning-v1', exploit: 'none found', overlap: '6% already free', gain: '+4.1 pts', verdict: 'Worth buying', tone: 'good' },
 ]
 function Console() {
   const [run, setRun] = useState(0)

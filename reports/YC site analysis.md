@@ -23,7 +23,7 @@ Limits worth keeping in mind:
 - **Reveal times** are the weakest measure here, because slow frames stretch them. The median below is an upper bound.
 - **Pinning** counts an element held still for more than 260px of scroll. It can miss scrubbed canvases and video, which is why frame notes are counted separately.
 - **Motion library detection** at medium confidence is a string match in shipped JavaScript, so a bundled but unused library would count.
-- **Frames** were read as contact sheets (24 desktop and 20 mobile frames sampled from 2 to 4 fps extractions per site). Five sites were read by the lead and the rest by reader agents using a fixed template. Scrubbing was usually inferred from neighbouring frames, and each per-site note says what was seen and what was inferred. Hover changes were measured from computed styles, because hovers are too small to read at sheet resolution.
+- **Frames** were read as contact sheets (24 desktop and 20 mobile frames sampled from 2 to 4 fps extractions per site). Four sites were read by the lead and the rest by reader agents using a fixed template. Scrubbing was usually inferred from neighbouring frames, and each per-site note says what was seen and what was inferred. Hover changes were measured from computed styles, because hovers are too small to read at sheet resolution.
 - **Sourcebot** mobile produced two grey frames. **idler** captured only about 10 seconds. **Variant**'s gallery did not render in this environment.
 
 ## How it was measured
@@ -40,7 +40,7 @@ Stack detection used window globals, script URLs, generator tags, DOM attributes
 4. **Proof sits straight after the hero.** Frames: 38 of 62 sites put a logo or stat row there. Touchstone has no logos to show, so verified results take that slot.
 5. **The best sites commit to one idea.** Frames: 24 of 62 heroes are one object, image or diagram, 16 are product UI and 22 are text-led. Pinned content was measured on 19 of 63. Touchstone's own object was already in its name.
 6. **Corners are tight.** Measured: median card radius 4px, 27 of 63 square cards, median button radius 7.5px, 14 of 63 pills. Touchstone mixed 14 to 24px cards with 999px pills.
-7. **Reduced motion is widely declared but not always safe.** Measured: 60 of 63 ship the query, and 10 of 63 still left text invisible with it on.
+7. **Reduced motion is widely declared but not always safe.** Measured: 60 of 63 ship the query, and 10 of 63 still had headings or paragraphs at zero opacity with it on. Some of those may be hidden tab content, so 10 is an upper bound.
 8. **Every site passes 390 wide.** Measured: 0 of 63 had horizontal scroll. Cookie banners were the most common mobile problem, noted on about 10 sites.
 
 ## Patterns with counts (measured)
@@ -174,7 +174,7 @@ Measured, with the H1 classification being a judgement call made by hand from th
 - **Scroll (frames):** 27 of 62 notes describe pinned, sticky, scrubbed or stacked content, 8 are plain scroll, and the rest are ordinary sections with reveals. The common forms are a pinned hero object (AgentMail, Coval, Laminar, HUD), a sticky list that swaps a panel (Raindrop, Osmosis, Pulse, Sciloop) and panels stacking over the hero (Tinfoil, 21st).
 - **Depth of pinning (measured):** the longest pinned elements were HumanLayer at 10,488px, cubic 4,774px, Mastra 3,906px, s2.dev 3,038px and Legora 2,480px.
 - **Live demos (frames):** about 16 notes show a hero or section that changes by itself or with tabs. The most useful for Touchstone are Stacktrace's tabbed console, Arga and Tasklet's auto-playing UI, and Halluminate's chart tabs.
-- **Sticky nav (measured):** 44 of 63 stick, and 14 of those hide on scroll.
+- **Sticky nav (measured):** 44 of 63 stick, and 14 of 63 hide the header during scroll.
 - **Hover (measured over 220 controls):** colour changed on 70, border on 61, background on 60, nothing on 79. Shadow changed on 9 and transform on only 2. Median transition is 150ms. Lifting elements on hover is rare here.
 - **Reveals (measured, upper bound):** 17 of 63 reveal two or more elements as they enter, with a median of about 1.2s under this load.
 - **Libraries:** Motion 33 of 63 (5 high confidence, 28 medium), GSAP 7, Lenis 6, Three.js 5, compiled WebGL shaders 10, Lottie 10, Rive 1, Spline 1. Tailwind 44, Next.js 41, Framer 5, Webflow 4, Astro 4.

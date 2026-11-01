@@ -43,7 +43,7 @@ export default function App() {
       <main><Page /></main>
       <footer className="footer dark">
         <div className="wrap">
-          <p><a className="brand" href="#"><Brand />Touchstone</a><span>Independent audit and appraisal for AI training material.</span></p>
+          <p><a className="brand" href="#"><Brand />Touchstone</a><span>Independent audit and appraisal for RL environments.</span></p>
           <nav aria-label="Footer">
             {NAV.map(([key, label]) => <a key={key} href={`#${key}`}>{label}</a>)}
             <a href="#request">Request an audit</a><a href="#terms">Terms</a><a href="#privacy">Privacy</a>

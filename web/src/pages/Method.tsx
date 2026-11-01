@@ -1,15 +1,15 @@
 import { Close, Faq, PageHead } from '../ui'
 
 /* Each check and its effect on the price mirrors touchstone/valuation.py. */
-const CHECKS: [string, string, 'block' | 'cut'][] = [
+const CHECKS: [string, string, 'block' | 'adv'][] = [
   ['Gameable grader', 'Answers that solve nothing still collect reward.', 'block'],
   ['Reward that stays in training', 'Reward climbs while accuracy on new problems does not.', 'block'],
   ['Leaked answers', 'The answer is sitting in the prompt.', 'block'],
-  ['Wrong labels', 'Worked solutions that do not add up.', 'block'],
+  ['Wrong labels', 'Worked solutions that do not add up.', 'adv'],
   ['Test overlap', 'Items that overlap our private test suite.', 'block'],
-  ['Copied material', 'Tasks that are already free in public sets.', 'cut'],
-  ['Repeats', 'The same item sold more than once.', 'cut'],
-  ['Off topic', 'Material that does not fit what it claims to train.', 'cut'],
+  ['Copied material', 'Tasks that are already free in public sets.', 'adv'],
+  ['Repeats', 'The same item sold more than once.', 'adv'],
+  ['Off topic', 'Material that does not fit what it claims to train.', 'adv'],
 ]
 const PROBES: [string, string, string][] = [
   ['Empty answer', '""', 'Submit nothing at all.'],
@@ -34,10 +34,10 @@ export default function Method() {
       <PageHead title="The same audit, for every vendor." text="Fixed checks, a fixed training recipe and a private test suite. Here is what runs and what each result means." />
       <section className="band">
         <div className="wrap split">
-          <div><h2>What a report can flag.</h2><p>A blocking flag stops the price. A cutting flag lowers it.</p></div>
+          <div><h2>What a report can flag.</h2><p>A blocking flag stops the price. On datasets, every flag is advisory for now.</p></div>
           <table className="ledger">
             <thead><tr><th>Check</th><th>What it means</th><th>Effect</th></tr></thead>
-            <tbody>{CHECKS.map(([n, m, e]) => <tr key={n}><td>{n}</td><td>{m}</td><td className={e}>{e === 'block' ? 'Blocks the price' : 'Cuts the price'}</td></tr>)}</tbody>
+            <tbody>{CHECKS.map(([n, m, e]) => <tr key={n}><td>{n}</td><td>{m}</td><td className={e}>{e === 'block' ? 'Blocks the price' : 'Advisory on datasets'}</td></tr>)}</tbody>
           </table>
         </div>
       </section>
@@ -73,11 +73,11 @@ export default function Method() {
             ['Do you ever see the vendor’s tasks?', 'They stay in a sealed sandbox. Buyers get results, never the tasks.'],
             ['Which models do you train?', 'A fixed family of small open models with one fixed RL recipe. Results describe the sizes we measured, each with its range.'],
             ['Why trust small models?', 'Small models keep an audit cheap, and most checks do not depend on model size: exploit probes, overlap and duplicates read the material itself. Where we train, the report states the size we measured and the range.'],
-            ['What can you test today?', 'RL environments with automatic graders, and post-training datasets in .jsonl.'],
+            ['What can you test today?', 'RL environments with automatic graders. Post-training datasets are coming, and dataset checks are advisory for now.'],
           ]} />
         </div>
       </section>
-      <Close title="See it on your material." text="We’re taking on a small number of pilot audits." />
+      <Close title="See it on your environment." text="We’re taking on a small number of pilot audits." />
     </>
   )
 }

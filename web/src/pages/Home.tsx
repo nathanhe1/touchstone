@@ -11,7 +11,7 @@ const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
 /* ---------- The console plays real recorded engine runs, read from the same file the live demo replays ---------- */
 type Rec = { id: string; report: any }
 type Line = { key: string; value: string; tone?: 'bad' | 'good' }
-const TABS: [string, string][] = [['gameable-env', 'Gameable grader'], ['contaminated-dataset', 'Leaked test items'], ['noisy-dataset', 'Wrong labels'], ['good-dataset', 'Clean material']]
+const TABS: [string, string][] = [['gameable-env', 'Gameable grader'], ['contaminated-dataset', 'Leaked test items'], ['good-dataset', 'Clean material']]
 
 function lines(r: any, v: View): Line[] {
   const out: Line[] = [
@@ -80,7 +80,7 @@ function Console() {
           <small>{r.v.perItem > 0 ? `Estimated value $${Math.round(r.v.perItem)} an item at $${r.v.dollarsPerPoint!.toLocaleString('en-US')} a point, the buyer’s assumption` : 'Price blocked'}</small>
         </div>
       </div>
-      <figcaption>Recorded engine run on a test case, October 30, 2026. Ran in {r.v.runtime} seconds.</figcaption>
+      <figcaption>Recorded engine run on {r.v.kind === 'env' ? 'a test case' : 'a dataset test case'}, October 30, 2026. Ran in {r.v.runtime} seconds.{r.v.kind === 'env' ? '' : ' Dataset audits are advisory for now.'}</figcaption>
     </figure>
   )
 }
@@ -132,14 +132,14 @@ function RunChart() {
 }
 
 const RESULTS: [string, string, string][] = [
-  ['92%', 'of problems caught', 'Blind test, on test cases'],
-  ['95%', 'of flags correct', 'Blind test, on test cases'],
-  ['0', 'false alarms in 28 clean real samples', 'Numeric and code checks'],
+  ['21 of 21', 'RL environment cases exactly right', 'Locked test on test cases'],
+  ['12 of 12', 'gameable graders caught', 'Locked test on test cases'],
+  ['3 of 3', 'reworded test leaks caught', 'Locked test on test cases'],
 ]
 // All four outputs come from one recorded run, the clean test case.
 const STEPS: [string, string, string, string][] = [
   ['Seal', 'The seller’s tasks go into a sealed sandbox. You get results, never the tasks, and we sell no training material.', 'seal good_word_problems', '400 items'],
-  ['Screen', 'Grader probes, overlap and label checks run first. A blocking problem can end the audit before any training.', 'overlap, labels', '0%, 0 errors'],
+  ['Screen', 'Grader probes and test-overlap checks run first. A blocking problem can end the audit before any training.', 'overlap with the test suite', '0%'],
   ['Train', 'Small open models train on the material against a placebo, then face private problems they never saw.', 'net gain at 135M', '+7.3 pts, +1.7 to +12.9'],
   ['Report', 'A grade, the gain with its range, and an estimated value, all stated at the size we measured.', 'report', 'Grade A, $76 an item'],
 ]
@@ -167,7 +167,7 @@ function How() {
           <a className="more" href="#method">Read the method</a>
           <figure className="console mini" aria-label="One recorded run, step by step">
             <ol className="console-log">{STEPS.map(([title, , key, value], i) => <li key={title} className={i < reached ? 'on' : ''}><span>{key}</span><b className={i === 3 || i === 2 ? 'good' : undefined}>{value}</b></li>)}</ol>
-            <figcaption>Recorded engine run on a test case</figcaption>
+            <figcaption>Recorded engine run on a dataset test case. Dataset audits are advisory for now.</figcaption>
           </figure>
         </div>
         <ol className="steps">{STEPS.map(([title, text, key, value], i) => <Step key={title} index={i} title={title} text={text} output={`${key}: ${value}`} onReach={reach} />)}</ol>
@@ -183,7 +183,7 @@ export default function Home() {
         <div className="wrap">
           <h1>Don’t buy training material blind.</h1>
           <div className="hero-row">
-            <p className="lede">Touchstone audits RL environments and post-training material before you pay. We catch broken graders, copied tasks and reward that never reaches new problems.</p>
+            <p className="lede">Touchstone audits RL environments before you pay. We catch gameable graders and leaked test items, and measure what a model learns on problems it never saw. Dataset audits are coming.</p>
             <div className="actions"><RequestButton /><a className="btn ghost" href="#demo">Try the live demo</a></div>
           </div>
         </div>
@@ -208,7 +208,7 @@ export default function Home() {
 
       <How />
 
-      <Close title="Know before you train." text="Send us the environment or dataset you’re considering. We’ll scope a pilot audit with you." />
+      <Close title="Know before you train." text="Send us the RL environment you’re considering. We’ll scope a pilot audit with you." />
     </>
   )
 }

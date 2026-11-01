@@ -114,7 +114,7 @@ class Recipe:
     rl_prompts: int = 8
     rl_group: int = 8
     rl_kl: float = 0.04
-    rl_max_new: int = 24
+    rl_max_new: int = 64  # was 24 until round 4: replies were cut in training (METHOD.md), checked by rollouts_truncated
     eval_max_new: int = 96
 
 

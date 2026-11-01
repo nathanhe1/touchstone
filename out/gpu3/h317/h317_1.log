@@ -28,3 +28,5 @@ word_leak30|1.7B|2 done
 units_honest|1.7B|2 done
 units_off50|1.7B|2 done
 units_noise45|1.7B|2 done
+code_off50|1.7B|2 done
+code_noise45|1.7B|2 done

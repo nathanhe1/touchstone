@@ -160,7 +160,7 @@ The console is the product demonstrated. Real recorded engine runs sit across th
 
 The page tells one story in order: what it is, proof with scope, why it matters in one chart, how it works as four steps of one run, next step. Density is calm and typographic. Content sits on rules rather than in boxes, a serif states the claims and the large figures, Geist carries everything you read or operate, and Geist Mono holds what the engine actually printed. Motion is rich but tied to the run: lines resolve, a verdict lands, a curve draws, a step lights the matching console row.
 
-Conventions were checked against the study of YC sites in [YC site analysis](reports/YC%20site%20analysis.md); go there for the counts. The report separates measured facts from judgement. Read it as evidence, not as a specification: its adoption tables describe the preview before this redesign, and the choices it does not measure (STIX Two Text, the gold, the 80px headline above the median) are judgement calls.
+Conventions were checked against the study of YC sites in [YC site analysis](reports/YC%20site%20analysis.md); go there for the counts. The report separates measured facts from judgement. Read it as evidence, not as a specification: its adoption tables describe the preview before this redesign, and the gold and the 80px headline, above the measured median, are judgement calls.
 
 **Key Characteristics:**
 - Near-black hero, nav, closing call and footer; off-white body; the seam between them is where the product sits.
@@ -221,11 +221,11 @@ The scale is seven steps: 12, 14, 17, 20, 28, 48, 80. Headings balance their wra
 - **Title** (`title`): step h3s, tier prices, verdict values, the request confirmation, legal subheads.
 - **Lede** (`lede`): page ledes and closing text, muted, max 58ch; drops to 17px at 720px. Long-form prose uses the same size at 64ch.
 - **Body** (`body`): running text.
-- **Label** (`label`): buttons, nav, console tabs, form labels, scope lines (the last two at weight 400 where they read as text).
+- **Label** (`label`): buttons, nav, console tabs, form labels. Scope lines and notes use the same size at weight 400.
 - **Data** (`data`, `data-small`): console logs, chart axes, step outputs at 14px; table heads and small data labels at 12px.
 
 ### Named Rules
-**The Mono Is Output Rule.** Geist Mono holds what the engine prints or what a machine reads: log lines, axes, probe samples, table heads, figures in the small data labels. Console tabs and the verdict stay in Geist, because a person wrote them.
+**The Mono Is Output Rule.** Geist Mono holds what the engine prints or what a machine reads: log lines, axes, probe samples, table heads, the small labels on report values. Console tabs and the verdict stay in Geist, because a person wrote them.
 
 **The Serif States Rule.** STIX Two Text sets headings, large figures and prices. It never sets controls, tables' body text or running copy.
 
@@ -266,7 +266,7 @@ Quiet, squared and flat; colour flips with the ground.
 Always the full A to F row, never a lone letter: 28 by 32px cells with a hairline border and a 4px gap, the earned cell filled per the Passing Cell Rule.
 
 ### Ledger
-The system's table and its main content form on subpages: a 12px mono head, then rows separated by hairlines with no fills or stripes, first column at weight 500. Prices right-align in the title style. Results lists, sources, questions and demo options share the same top-rule rhythm.
+The system's table and its main content form on subpages: a 12px mono head, then rows separated by hairlines with no fills or stripes, first column at weight 500. Prices right-align in the title style. Sources, questions and demo options share the same top-rule rhythm.
 
 ### Inputs / Fields
 - **Style:** 1px border in the muted text colour on Field White, `base` radius, 16px text so phones do not zoom on focus.
@@ -285,7 +285,7 @@ The mini console on Home's How section is the same object, one run in four rows,
 One chart: solid hairline grid, mono axes, reward drawn over 1.2s and accuracy as two red points with a dotted join; the gap bracket fades in after the draw. A hover cursor reads reward alone, because that is all that was logged, and end labels sit directly on the lines with no legend.
 
 ### Demo Panel
-The live demo's report: a bordered `panel` with a 13px mono head, a 2px progress line, stage dots, and an inset `ink-2` log, so the dark engine output carries onto the light page.
+The live demo's report: a bordered `panel` with a mono head, a 2px progress line, stage dots, and an inset `ink-2` log, so the dark engine output carries onto the light page.
 
 ## Do's and Don'ts
 
@@ -301,7 +301,7 @@ The live demo's report: a bordered `panel` with a 13px mono head, a 2px progress
 ### Don't:
 - **Don't** add shadows, including on hover.
 - **Don't** use a visible gradient, gradient text or glow. A solid-colour CSS background used to draw a hairline mark is fine.
-- **Don't** use card grids or box content that a rule can separate; the console and the demo panel are the only bordered surfaces.
+- **Don't** use card grids or box content that a rule can separate; the console and the demo panel are the only bordered content surfaces.
 - **Don't** add decorative icons, feature icons or arrows on buttons; functional marks are listed under Shapes.
 - **Don't** put a kicker or eyebrow label above a heading or title.
 - **Don't** use red or green for anything that is not an outcome.

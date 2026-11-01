@@ -28,8 +28,8 @@ export const SOURCES: [string, string][] = [
 export default function Research() {
   const plan: [string, string, string][] = [
     ['Pick environments', '6 to 8 open RL environments', 'From the Prime Intellect Environments Hub, OpenEnv and Reasoning Gym.'],
-    ['Train small', '0.5B, 1.5B and 3B models', 'One published GRPO recipe, identical at every size.'],
-    ['Check against large', 'One 7B to 8B model', 'The "large-scale truth" the small models must predict.'],
+    ['Train small', 'Small open models', 'One fixed GRPO recipe, identical at every size.'],
+    ['Compare sizes', 'Larger open models', 'We will publish how results at small sizes compare with larger ones.'],
     ['Publish', 'Touchstone Report #1', 'Which open environments transfer, which can be hacked, and what each is worth.'],
   ]
   return (
@@ -37,7 +37,7 @@ export default function Research() {
       <header className="page-head wrap">
         <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Built on <span className="transfer">the research.</span></motion.h1>
         <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .1, ease }}>
-          Data value varies enormously, and small training runs can predict which data wins at scale. Touchstone turns that research into a product for RL environments.
+          The value of training material varies enormously, and vendors mostly grade their own. Touchstone builds on that research with independent checks for RL environments.
         </motion.p>
       </header>
 

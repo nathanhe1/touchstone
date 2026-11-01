@@ -22,7 +22,7 @@ function Report({ v }: { v: View }) {
     <motion.div className="demo-report" initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5, ease }}>
       <div className="demo-verdict">
         <div><small>Grade</small><Rating grade={v.grade} /></div>
-        <div><small>Fair value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0
+        <div><small>Estimated value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0
           ? <span className="dim">blocked by {v.blockedBy.join(', ').replace(/_/g, ' ')}</span>
           : v.dollarsPerPoint ? <span className="dim">at {usd(v.dollarsPerPoint)} per point, the buyer's assumption</span> : null}</div>
         <div><small>Net gain on held-out tasks{v.forecast ? `, ${v.forecast.where}` : ''}</small><b className={blocked ? 'muted' : (v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'Not trained'}</b>{!v.forecast && v.screened && <span className="dim">Screening already ruled out a price</span>}{v.forecast && <span className="dim">{blocked ? 'Not trusted: see the red flags below' : `90% range ${pts(v.forecast.lo)} to ${pts(v.forecast.hi)}`}</span>}</div>
@@ -30,7 +30,7 @@ function Report({ v }: { v: View }) {
 
       <div className="demo-flags">
         {v.flags.length === 0
-          ? <p className="flag ok"><i />No red flags. The material passed every check.</p>
+          ? <p className="flag ok"><i />No red flags on the checks that ran.</p>
           : v.flags.map(f => <p key={f.text} className={`flag ${f.severity}`}><i />{f.text}</p>)}
       </div>
 
@@ -56,7 +56,7 @@ function Report({ v }: { v: View }) {
           <h4>Overlap and duplicates</h4>
           <dl className="demo-dl">
             <div><dt>Overlaps the private test suite</dt><dd className={v.overlap.suite >= .05 ? 'bad' : ''}>{pct(v.overlap.suite)}</dd></div>
-            <div><dt>Already in free public data{v.overlap.publicBaseline ? ` (${v.overlap.publicBaseline})` : ''}</dt><dd className={v.overlap.public >= .5 ? 'bad' : ''}>{pct(v.overlap.public)}</dd></div>
+            <div><dt>Already in free public material{v.overlap.publicBaseline ? ` (${v.overlap.publicBaseline})` : ''}</dt><dd className={v.overlap.public >= .5 ? 'bad' : ''}>{pct(v.overlap.public)}</dd></div>
             <div><dt>Duplicate items</dt><dd className={v.overlap.duplicates >= .1 ? 'bad' : ''}>{pct(v.overlap.duplicates)}</dd></div>
           </dl>
           {v.overlap.examples.length > 0 && <div className="demo-matches"><small>Matches found</small>{v.overlap.examples.map((m, i) => <p key={i}><span className="kind">{m.kind}</span>{m.item}</p>)}</div>}

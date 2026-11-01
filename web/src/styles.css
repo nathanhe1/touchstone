@@ -804,3 +804,68 @@ h3 { font-weight: 600; letter-spacing: -.015em; }
 .demo-report .muted { color: var(--ink-3); }
 .demo-bar .dot.muted { background: var(--ink-3); }
 @media (max-width: 560px) { .demo-bar { grid-template-columns: 44px minmax(0, 1fr) 52px; gap: 8px; } }
+
+/* ---------- Audit first: verified results under the hero, and the checks a report can raise ---------- */
+.results { border-bottom: 1px solid var(--line); }
+.results-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; }
+.results-row > div { display: grid; gap: 10px; align-content: start; padding: clamp(28px, 3.4vw, 44px) clamp(20px, 3vw, 40px); border-left: 1px solid var(--line); }
+.results-row > div:first-child { padding-left: 0; border-left: 0; }
+.results-row dd { order: -1; margin: 0; color: var(--transfer); font: 400 clamp(52px, 5.6vw, 80px)/1 var(--display); letter-spacing: -.01em; }
+.results-row dt { color: var(--ink); font: 500 16px/1.4 var(--sans); }
+.results-row small { display: block; margin-top: 6px; color: var(--ink-3); font: 500 12px var(--mono); }
+.check-list { margin: 0; padding: 0; list-style: none; }
+.check-list li { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.5fr) 132px; gap: 24px; align-items: baseline; padding: 18px 24px; border-top: 1px solid var(--line); transition: background-color .2s; }
+.check-list li:first-child { border-top: 0; }
+.check-list li:hover { background: #ffffff05; }
+.check-list b { font-weight: 600; letter-spacing: -.01em; }
+.check-list span { color: var(--ink-2); font-size: 16px; line-height: 1.5; }
+.check-list em { color: var(--transfer); font: 500 12px var(--mono); font-style: normal; text-align: right; }
+.check-list em.block { color: var(--bad); }
+@media (max-width: 760px) {
+  .results-row { grid-template-columns: 1fr; }
+  .results-row > div { grid-template-columns: 112px minmax(0, 1fr); align-items: center; gap: 16px; padding: 20px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .results-row > div:first-child { border-top: 0; }
+  .results-row dd { font-size: 48px; }
+  .check-list li { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 18px; }
+  .check-list em { text-align: left; }
+}
+
+/* The streak: a scrubbed test on the stone, sticky for one screen of scrolling */
+.streak { position: relative; height: 210vh; border-bottom: 1px solid var(--line); }
+.streak-pin { position: sticky; top: 0; display: grid; align-items: center; height: 100vh; height: 100svh; overflow: hidden; }
+.streak-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 4vw, 64px); align-items: center; }
+.streak-copy { position: relative; min-height: 11em; font: 400 clamp(32px, 3.4vw, 48px)/1.12 var(--display); letter-spacing: -.01em; }
+.streak-copy p { position: absolute; inset: 0 0 auto; margin: 0; }
+.streak-copy .streak-last { color: var(--transfer); }
+.streak-stone { display: block; width: 100%; height: auto; transform-origin: 50% 50%; }
+.streak-tag { fill: var(--ink-2); font: 500 15px var(--mono); }
+.streak-tag.gold { fill: var(--transfer); }
+@media (prefers-reduced-motion: reduce) {
+  .streak { height: auto; padding-block: clamp(64px, 8vw, 120px); }
+  .streak-pin { position: static; height: auto; }
+  .streak-copy { min-height: 0; display: grid; gap: 18px; }
+  .streak-copy p { position: static; }
+}
+@media (max-width: 900px) {
+  .streak { height: 200vh; }
+  .streak-pin { align-items: start; padding-top: 104px; }
+  .streak-grid { grid-template-columns: 1fr; gap: 20px; }
+  .streak-copy { min-height: 7.5em; font-size: clamp(28px, 7.6vw, 40px); }
+  .streak-stone { order: 2; }
+}
+.hero-glow { position: absolute; inset: 0; }
+.hero-glow i:nth-child(1) { left: 50%; top: -10%; }
+.hero-glow i:nth-child(2) { left: 70%; top: 20%; }
+
+/* ---------- One radius language: 10px for containers and controls, 6px inside them, no pill labels ---------- */
+:root { --r: 10px; --r-s: 6px; }
+.panel, .caught, .caught-item, .wm-card, .wm-plans, .wm-plan, .abox, .exploit, .ev, .scenario > div, .plan li, .demo-option, .demo-drop, .node, .btn, .wm-continue, .abox-check, .flag, .rf input:not([type=radio]):not([type=checkbox]), .rf textarea, .wm-tabs { border-radius: var(--r); }
+.nav .btn, .seg, .seg button, .seg-pill, .wm-tabs button, .wm-pill, .abox-modes button, .abox-attach, .demo-status, .rf-kinds label, .wm-rerun, .run-again, .wm-status, .wm-tag, .wm-plan-name em, .exploit code, .btn svg, .nav .btn svg, .vault-row, .beam-tag, .xtip { border-radius: var(--r-s); }
+.btn { height: 46px; }
+.abox-go { height: 42px; }
+
+/* Console: flip between a flagged run and a clean one */
+.console-tabs { display: inline-flex; gap: 2px; margin-right: -6px; }
+.console-tabs button { padding: 4px 8px; border: 0; border-radius: var(--r-s); background: none; color: var(--ink-3); font: 500 12px var(--mono); cursor: pointer; transition: color .15s, background-color .15s; }
+.console-tabs button:hover { color: var(--ink); }
+.console-tabs button[aria-pressed="true"] { background: #e2b45a1f; color: var(--transfer); }

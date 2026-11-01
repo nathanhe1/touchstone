@@ -1,0 +1,548 @@
+{
+ "arc|135M": {
+  "acc": 19.5,
+  "chance": 25.0,
+  "truncated": 20.0,
+  "has_letter": 93.5,
+  "n": 400,
+  "material_n": 1118,
+  "sample": [
+   "A) The worm feels cold.",
+   "To find the average speed, we need to calculate the total distance traveled and divide"
+  ],
+  "s": 4
+ },
+ "arc_easy|135M": {
+  "acc": 21.8,
+  "chance": 25.0,
+  "truncated": 10.8,
+  "has_letter": 95.2,
+  "n": 400,
+  "material_n": 2251,
+  "sample": [
+   "D) Building houses",
+   "A) pie graph."
+  ],
+  "s": 3
+ },
+ "openbook|135M": {
+  "acc": 23.0,
+  "chance": 25.0,
+  "truncated": 8.0,
+  "has_letter": 95.5,
+  "n": 400,
+  "material_n": 4952,
+  "sample": [
+   "D) dirt",
+   "The Earth's closest heat source is C) gamma rays."
+  ],
+  "s": 3
+ },
+ "csqa|135M": {
+  "acc": 19.0,
+  "chance": 20.0,
+  "truncated": 3.2,
+  "has_letter": 97.2,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "A) motion",
+   "A) sick"
+  ],
+  "s": 3
+ },
+ "sciq|135M": {
+  "acc": 20.5,
+  "chance": 25.0,
+  "truncated": 6.5,
+  "has_letter": 90.5,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "A) harrold",
+   "The full range of wavelengths and frequencies of electromagnetic radiation makes up the electromagnetic spectrum."
+  ],
+  "s": 3
+ },
+ "qasc|135M": {
+  "acc": 12.5,
+  "chance": 12.5,
+  "truncated": 11.2,
+  "has_letter": 96.8,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "A magnet is the most accurate method of finding true north.",
+   "A) fish"
+  ],
+  "s": 3
+ },
+ "mmlu|135M": {
+  "acc": 24.5,
+  "chance": 25.0,
+  "truncated": 35.5,
+  "has_letter": 92.0,
+  "n": 400,
+  "material_n": 5948,
+  "sample": [
+   "D) Not wrong, Not wrong",
+   "D) Health issues, such as the prevalence of infectious disease or the ability of"
+  ],
+  "s": 4
+ },
+ "boolq|135M": {
+  "acc": 29.5,
+  "chance": 50.0,
+  "truncated": 29.0,
+  "has_letter": 49.5,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "Yes, aldi's affiliated with trader joe's.",
+   "A) yes"
+  ],
+  "s": 4
+ },
+ "ag_news|135M": {
+  "acc": 25.8,
+  "chance": 25.0,
+  "truncated": 0.2,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "B) Sports",
+   "B) Sports"
+  ],
+  "s": 1
+ },
+ "rotten|135M": {
+  "acc": 45.5,
+  "chance": 50.0,
+  "truncated": 0.2,
+  "has_letter": 95.5,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "B) positive",
+   "B) positive"
+  ],
+  "s": 2
+ },
+ "aqua|135M": {
+  "acc": 18.1,
+  "chance": 20.0,
+  "truncated": 38.6,
+  "has_letter": 85.8,
+  "n": 254,
+  "material_n": 5999,
+  "sample": [
+   "E) 91",
+   "E) 10%"
+  ],
+  "s": 2
+ },
+ "emotion|135M": {
+  "acc": 9.8,
+  "chance": 16.7,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 5997,
+  "sample": [
+   "D) anger",
+   "F) surprise"
+  ],
+  "s": 1
+ },
+ "yelp|135M": {
+  "acc": 24.0,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "D) 4 stars",
+   "D) 4 stars"
+  ],
+  "s": 2
+ },
+ "dbpedia|135M": {
+  "acc": 2.2,
+  "chance": 7.1,
+  "truncated": 1.2,
+  "has_letter": 98.2,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "F) transport",
+   "F) transport"
+  ],
+  "s": 2
+ },
+ "arc|360M": {
+  "acc": 25.5,
+  "chance": 25.0,
+  "truncated": 3.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 1118,
+  "sample": [
+   "C) The worm has 33 segments.",
+   "C) 100 kilometers per hour"
+  ],
+  "s": 3
+ },
+ "arc_easy|360M": {
+  "acc": 25.5,
+  "chance": 25.0,
+  "truncated": 1.5,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 2251,
+  "sample": [
+   "C) Selling clothes",
+   "A) pie graph."
+  ],
+  "s": 3
+ },
+ "openbook|360M": {
+  "acc": 23.2,
+  "chance": 25.0,
+  "truncated": 0.8,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 4952,
+  "sample": [
+   "D) dirt",
+   "A) our celestial fireball"
+  ],
+  "s": 3
+ },
+ "csqa|360M": {
+  "acc": 20.0,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "E) tennis court",
+   "E) attack"
+  ],
+  "s": 2
+ },
+ "sciq|360M": {
+  "acc": 27.3,
+  "chance": 25.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "D) aristotle",
+   "C) electromagnetic spectrum"
+  ],
+  "s": 2
+ },
+ "qasc|360M": {
+  "acc": 12.8,
+  "chance": 12.5,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "G) distal",
+   "F) protozoa"
+  ],
+  "s": 2
+ },
+ "mmlu|360M": {
+  "acc": 25.0,
+  "chance": 25.0,
+  "truncated": 10.5,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 5948,
+  "sample": [
+   "C) Not wrong, Not wrong",
+   "D"
+  ],
+  "s": 5
+ },
+ "boolq|360M": {
+  "acc": 48.8,
+  "chance": 50.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "B) no",
+   "B) no"
+  ],
+  "s": 2
+ },
+ "ag_news|360M": {
+  "acc": 25.0,
+  "chance": 25.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "D) Technology",
+   "C) Business"
+  ],
+  "s": 2
+ },
+ "rotten|360M": {
+  "acc": 49.2,
+  "chance": 50.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "B) positive",
+   "B) positive"
+  ],
+  "s": 1
+ },
+ "aqua|360M": {
+  "acc": 15.7,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 254,
+  "material_n": 5999,
+  "sample": [
+   "E",
+   "E) 10%"
+  ],
+  "s": 2
+ },
+ "emotion|360M": {
+  "acc": 8.2,
+  "chance": 16.7,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 5997,
+  "sample": [
+   "F) surprise",
+   "F) surprise"
+  ],
+  "s": 1
+ },
+ "yelp|360M": {
+  "acc": 15.5,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "D) 4 stars",
+   "E) 5 stars"
+  ],
+  "s": 3
+ },
+ "dbpedia|360M": {
+  "acc": 25.2,
+  "chance": 7.1,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "A) company",
+   "A) company"
+  ],
+  "s": 2
+ },
+ "arc|1.7B": {
+  "acc": 57.0,
+  "chance": 25.0,
+  "truncated": 0.5,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 1118,
+  "sample": [
+   "B",
+   "B) 90 kilometers per hour"
+  ],
+  "s": 4
+ },
+ "arc_easy|1.7B": {
+  "acc": 74.0,
+  "chance": 25.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 2251,
+  "sample": [
+   "B) Feeding animals",
+   "B"
+  ],
+  "s": 3
+ },
+ "openbook|1.7B": {
+  "acc": 45.5,
+  "chance": 25.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 4952,
+  "sample": [
+   "D) dirt",
+   "C"
+  ],
+  "s": 3
+ },
+ "csqa|1.7B": {
+  "acc": 47.5,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "E)",
+   "D"
+  ],
+  "s": 2
+ },
+ "sciq|1.7B": {
+  "acc": 74.0,
+  "chance": 25.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "C) darwin",
+   "B) electromagnetic spectrum"
+  ],
+  "s": 3
+ },
+ "qasc|1.7B": {
+  "acc": 38.5,
+  "chance": 12.5,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "H",
+   "F"
+  ],
+  "s": 3
+ },
+ "mmlu|1.7B": {
+  "acc": 44.2,
+  "chance": 25.0,
+  "truncated": 1.8,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 5948,
+  "sample": [
+   "B) Wrong, Not wrong",
+   "C"
+  ],
+  "s": 5
+ },
+ "boolq|1.7B": {
+  "acc": 46.8,
+  "chance": 50.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "B) no",
+   "B) no"
+  ],
+  "s": 3
+ },
+ "ag_news|1.7B": {
+  "acc": 70.5,
+  "chance": 25.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "C",
+   "B) Sports"
+  ],
+  "s": 2
+ },
+ "rotten|1.7B": {
+  "acc": 61.0,
+  "chance": 50.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "B) positive",
+   "B) positive"
+  ],
+  "s": 2
+ },
+ "aqua|1.7B": {
+  "acc": 21.7,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 254,
+  "material_n": 5999,
+  "sample": [
+   "B) 28",
+   "C"
+  ],
+  "s": 3
+ },
+ "emotion|1.7B": {
+  "acc": 50.7,
+  "chance": 16.7,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 5997,
+  "sample": [
+   "B) joy",
+   "B) joy"
+  ],
+  "s": 2
+ },
+ "yelp|1.7B": {
+  "acc": 24.0,
+  "chance": 20.0,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "C) 3 stars",
+   "B) 2 stars"
+  ],
+  "s": 3
+ },
+ "dbpedia|1.7B": {
+  "acc": 82.8,
+  "chance": 7.1,
+  "truncated": 0.0,
+  "has_letter": 100.0,
+  "n": 400,
+  "material_n": 6000,
+  "sample": [
+   "A) company",
+   "B) school"
+  ],
+  "s": 3
+ }
+}

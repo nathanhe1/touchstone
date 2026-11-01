@@ -338,6 +338,44 @@ def audit_mcq(examples, n: int = 60, seed: int = 0) -> dict:
     return {"sampled": len(sample), "answered": len(pairs), "disagree": round(dis / len(pairs), 4) if pairs else None}
 
 
+MCQ_COT = "Answer the multiple-choice question. Think step by step, then finish with \\boxed{letter}."
+PAIR_SYS = ("You check training data. Given a REQUEST and two RESPONSES, decide which one actually fulfils the REQUEST. "
+            "Reply with A or B only.")
+
+
+def audit_mcq2(examples, n: int = 60, seed: int = 0) -> dict:
+    """Two routes, as for numeric labels: a direct answer and a reasoned one. Only items where they agree count,
+    so the judge's own difficulty with the questions cancels out, which a raw disagreement rate does not do."""
+    from .coverage import mcq_label, mcq_options
+    pool = [e for e in examples if len(mcq_options(e.last_user)) >= 2 and mcq_label(e.completion)]
+    sample = random.Random(seed).sample(pool, min(n, len(pool)))
+    q = [e.last_user for e in sample]
+    d = [mcq_label(o) or (o.strip()[:1].upper() if o.strip() else None) for o in _gen(q, MCQ_SYS, 6)]
+    c = [_BOX.findall(o) for o in _gen(q, MCQ_COT, 240)]
+    c = [(mcq_label(x[-1]) or x[-1].strip()[:1].upper()) if x else None for x in c]
+    rows = [(a, b, mcq_label(e.completion)) for a, b, e in zip(d, c, sample)]
+    conf = [r for r in rows if r[0] and r[0] == r[1]]
+    dis = sum(r[0] != r[2] for r in conf)
+    return {"sampled": len(sample), "confident": len(conf), "disagree_n": dis, "disagree": round(dis / len(conf), 4) if len(conf) >= 10 else None}
+
+
+def audit_pair(examples, n: int = 60, seed: int = 0) -> dict:
+    """Paired fit: for each request, the judge picks between the row's reply and a reply from another row of the same
+    dataset, in random order. Style and length are matched by construction, so no source-level score is needed:
+    share_foreign is how often the row's own reply loses."""
+    rng = random.Random(seed)
+    s = rng.sample(list(examples), min(n, len(examples)))
+    if len(s) < 10:
+        return {"sampled": len(s), "share_foreign": None}
+    own, other = [e.completion for e in s], [e.completion for e in s[1:] + s[:1]]
+    flip = [rng.random() < 0.5 for _ in s]
+    q = [f"REQUEST:\n{e.last_user[:1200]}\n\nRESPONSE A:\n{(b if f else a)[:700]}\n\nRESPONSE B:\n{(a if f else b)[:700]}"
+         for e, a, b, f in zip(s, own, other, flip)]
+    outs = _gen(q, PAIR_SYS, 3)
+    lost = sum((o.strip().upper()[:1] == "A") == f for o, f in zip(outs, flip))
+    return {"sampled": len(s), "share_foreign": round(lost / len(s), 4)}
+
+
 def _yes(prompts: list[str], replies: list[str]) -> float:
     q = [f"REQUEST:\n{p[:1500]}\n\nRESPONSE:\n{r[:1500]}" for p, r in zip(prompts, replies)]
     outs = _gen(q, FIT_SYS, 3)

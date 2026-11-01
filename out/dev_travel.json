@@ -88,5 +88,11 @@
   "confident": 45,
   "disagree_n": 7,
   "disagree": 0.1556
+ },
+ "mcq|csqa|30|0": {
+  "sampled": 100,
+  "confident": 44,
+  "disagree_n": 21,
+  "disagree": 0.4773
  }
 }

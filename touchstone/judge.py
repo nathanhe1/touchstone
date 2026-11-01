@@ -325,6 +325,9 @@ FIT_SYS = ("You check training data. Given a REQUEST and a RESPONSE, decide whet
            "and fulfils the REQUEST. Reply with YES or NO only.")
 
 
+MCQ_COT = "Answer the multiple-choice question. Think step by step, then finish with \\boxed{letter}."
+
+
 def audit_mcq2(examples, n: int = 60, seed: int = 0) -> dict:
     """Two routes, as for numeric labels: a direct answer and a reasoned one. Only items where they agree count,
     so the judge's own difficulty with the questions cancels out, which a raw disagreement rate does not do."""

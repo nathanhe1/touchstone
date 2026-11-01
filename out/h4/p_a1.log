@@ -2,3 +2,5 @@ sft|openbook|wrong60|135M|0 +2.00 33s
 sft|rotten|clean|135M|0 +10.17 26s
 sft|emotion|clean|135M|0 +30.33 29s
 sft|emotion|wrong60|135M|0 +19.00 30s
+sft|yelp|wrong30|135M|0 +0.67 38s
+rl|arc_easy|noise30|135M|0 +0.17 104s

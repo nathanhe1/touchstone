@@ -1,3 +1,7 @@
 sft|arc_easy|off80|135M|0 +3.17 34s
 sft|sciq|wrong60|135M|0 +5.50 30s
 sft|sciq|off80|135M|0 +0.83 30s
+sft|openbook|wrong30|135M|0 +1.20 32s
+sft|openbook|wrong100|135M|0 +1.40 31s
+sft|openbook|off80|135M|0 +0.40 32s
+sft|emotion|wrong30|135M|0 +28.33 32s

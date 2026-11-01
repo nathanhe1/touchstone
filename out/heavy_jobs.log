@@ -103,3 +103,7 @@
 2026-10-31 22:44:57 end test_v4: exit 1 after 1242s (swap 11.6 GB)
 2026-10-31 22:52:11 queued test_v4: .venv/bin/python scripts/eval_test4.py
 2026-10-31 22:52:11 start test_v4 (swap 9.4 GB)
+2026-10-31 23:30:03 end test_v4: exit 1 after 2272s (swap 11.9 GB)
+2026-10-31 23:31:05 queued test_v4: .venv/bin/python scripts/eval_test4.py
+2026-10-31 23:31:06 start test_v4 (swap 11.5 GB)
+2026-11-01 00:20:58 end test_v4: exit 0 after 2992s (swap 11.9 GB)

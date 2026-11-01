@@ -44,3 +44,21 @@ Returning 2 (CUDA_ERROR_OUT_OF_MEMORY) from cuDevicePrimaryCtxRetain
 
 
 
+sftlr|ag_news|pool300|360M|1 +0.00 63s
+sftlr|ag_news|wrong10|360M|1 +0.67 60s
+sftlr|ag_news|off25|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sftlr|ag_news|drop|360M|1 +3.33 58s
+sftlr|emotion|drop|360M|1 +28.33 51s
+sft|emotion|pool100|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|emotion|wrong60|360M|0 +24.33 34s
+sftlr|ag_news|wrong10|360M|0 -0.33 41s
+sftlr|ag_news|off25|360M|0 +0.17 40s
+sftlr|rotten|wrong10|135M|1 +4.00 13s
+sftlr|emotion|pool300|135M|1 +7.83 14s
+sft|ag_news|drop|360M|1 +19.33 20s
+sft|rotten|pool300|360M|1 +33.33 11s
+sft|emotion|clean|360M|1 +28.50 12s
+sftlr|ag_news|off25|360M|1 +0.67 13s
+sft|emotion|pool100|360M|0 +36.83 11s

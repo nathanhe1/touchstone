@@ -1,0 +1,57 @@
+sft|dbpedia|clean|135M|0 +61.33 41s
+sft|dbpedia|pool200|135M|0 +61.33 40s
+sft|imdb|clean|135M|0 +44.00 36s
+sft|imdb|wrong10|135M|0 +44.00 36s
+sft|imdb|drop|135M|0 +44.00 34s
+sft|amazon|pool300|135M|0 +20.00 31s
+sft|amazon|drop|135M|0 +4.17 30s
+sft|amazon|wrong100|135M|0 -17.33 33s
+sft|cr|wrong10|135M|0 +16.49 28s
+sft|cr|off25|135M|0 +12.50 27s
+sft|subj|pool100|135M|0 +37.33 27s
+sft|subj|wrong10|135M|0 +34.83 28s
+sft|enron|pool200|135M|0 +36.83 36s
+sft|enron|off25|135M|0 +33.67 38s
+sft|sst5|wrong100|135M|0 -1.33 30s
+sft|bbc|wrong10|135M|0 +39.00 37s
+sftlr|dbpedia|pool100|135M|0 +61.33 35s
+sftlr|imdb|clean|135M|0 +39.83 32s
+sftlr|imdb|pool200|135M|0 +39.50 32s
+sftlr|imdb|off25|135M|0 +25.50 32s
+sftlr|amazon|pool100|135M|0 +3.33 30s
+sftlr|amazon|pool200|135M|0 +3.00 31s
+sftlr|cr|pool300|135M|0 +10.64 24s
+sftlr|subj|clean|135M|0 +0.50 27s
+sftlr|subj|pool300|135M|0 +0.50 28s
+sftlr|subj|off80|135M|0 -1.00 38s
+sftlr|enron|pool200|135M|0 +3.00 40s
+sftlr|enron|wrong60|135M|0 +3.17 37s
+sftlr|sst5|pool100|135M|0 +0.50 27s
+sftlr|sst5|pool200|135M|0 +0.17 30s
+sftlr|bbc|pool100|135M|0 +3.50 38s
+sftlr|bbc|pool200|135M|0 +3.33 37s
+sftlr|bbc|off25|135M|0 +1.67 40s
+sftlr|bbc|wrong60|135M|0 +4.67 40s
+sft|dbpedia|clean|360M|0 +38.33 68s
+sft|dbpedia|pool100|360M|0 +38.33 70s
+sft|dbpedia|wrong10|360M|0 +38.33 69s
+sft|dbpedia|wrong100|360M|0 -25.17 71s
+sft|imdb|wrong10|360M|0 +50.67 62s
+sft|imdb|off80|360M|0 +45.17 62s
+sft|amazon|pool200|360M|0 +37.17 58s
+sft|amazon|pool300|360M|0 FAILED  memory in use. Process 104039 has 7.71 GiB memory in use. Process 104055 has 4.70 GiB memory in use. Process 104073 has 7.71 GiB memory in use. Process 104206 has 4.70 GiB memory in use. Of the allocated memory 5.86 GiB is allocated by PyTorch, and 57.73 MiB is reserved by PyTorch but unallocated.
+
+sft|amazon|off80|360M|0 FAILED 55 has 4.70 GiB memory in use. Process 104073 has 7.71 GiB memory in use. Process 104206 has 5.42 GiB memory in use. Including non-PyTorch memory, this process has 5.78 GiB memory in use. Of the allocated memory 5.16 GiB is allocated by PyTorch, and 27.48 MiB is reserved by PyTorch but unallocated.
+
+sft|amazon|wrong100|360M|0 -40.67 57s
+sft|subj|pool200|360M|0 +43.33 45s
+sft|enron|clean|360M|0 +41.67 74s
+sft|enron|wrong10|360M|0 +39.00 74s
+sft|enron|drop|360M|0 -2.50 71s
+sft|enron|wrong60|360M|0 -1.67 73s
+sft|sst5|pool200|360M|0 +10.33 45s
+sft|sst5|wrong60|360M|0 +9.17 45s
+sft|bbc|pool300|360M|0 +46.50 67s
+sft|bbc|off80|360M|0 +18.83 66s
+sft|bbc|wrong100|360M|0 -8.17 64s
+sftlr|dbpedia|wrong10|360M|0 +38.33 66s

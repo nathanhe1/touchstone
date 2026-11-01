@@ -71,3 +71,4 @@ sft|emotion|wrong30|360M|1 +30.17 25s
 rl|arc_easy|pool20|360M|1 -0.17 71s
 rl|arc_easy|clean|360M|0 +0.33 44s
 rl|arc_easy|off50|360M|0 -0.50 49s
+rl|arc_easy|pool20|360M|0 -0.50 47s

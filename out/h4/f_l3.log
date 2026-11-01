@@ -17,3 +17,6 @@ sft|sst5|wrong100|1.7B|0 -13.50 81s
 sft|bbc|pool300|1.7B|0 +28.33 114s
 sft|bbc|wrong10|1.7B|0 +26.33 120s
 sft|bbc|drop|1.7B|0 -10.67 120s
+sft|bbc|off80|1.7B|0 +24.17 105s
+sfttr|dbpedia|pool200|1.7B|0 +8.83 39s
+sfttr|dbpedia|off80|1.7B|0 +13.83 32s

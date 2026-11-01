@@ -16,3 +16,7 @@ sft|enron|drop|1.7B|0 -27.67 127s
 sft|sst5|pool200|1.7B|0 +28.83 79s
 sft|sst5|off25|1.7B|0 +25.83 108s
 sft|bbc|clean|1.7B|0 +27.83 120s
+sfttr|dbpedia|clean|1.7B|0 +12.17 38s
+sfttr|dbpedia|pool100|1.7B|0 +11.50 34s
+sfttr|dbpedia|wrong60|1.7B|0 +11.17 40s
+sfttr|imdb|pool300|1.7B|0 +17.83 33s

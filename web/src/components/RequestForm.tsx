@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { findApi, sendRequest } from '../demo/api'
 import { reduced } from '../ui'
 
-const KINDS: [string, string][] = [['rl_environment', 'RL environment'], ['dataset', 'Post-training material'], ['other', 'Something else']]
+const KINDS: [string, string][] = [['rl_environment', 'RL environment'], ['dataset', 'Post-training material (coming)'], ['other', 'Something else']]
 const empty = { name: '', email: '', company: '', role: '', material_kind: 'rl_environment', description: '', budget: '', consent: false }
 type Form = typeof empty
 

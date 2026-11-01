@@ -32,7 +32,7 @@ The vendor uploads an environment (tasks, tools, grader) to a sealed sandbox; th
 - Working prototype: the full pipeline runs end to end on tiny CPU models and six fictional environments (`out/appraisals.json`).
 - Report measures: learnability, transfer, reward exploits (hackability), redundancy, forecast, fair value per task.
 - No small-to-large forecast has been shown. Reports state the gain at the size measured, with its range; see docs/AUDIT.md.
-- Verified figures: 92% of problems caught and 95% of flags correct (blind test, on test cases), 0 false alarms in 28 clean real samples (numeric and code checks).
+- Verified figures, from locked test v4 (`out/test_v4_results.json`, part `env`): 21 of 21 RL environment cases exactly right, 12 of 12 gameable graders caught, 3 of 3 reworded test leaks caught, all on test cases. Dataset checks are built but not proven on real sources: overall precision 0.51 and recall 0.69 on that test, so dataset audits stay advisory.
 - Planned, not built: comparing environments side by side; testing a real open-source environment; support beyond RL environments.
 - Planned pricing: $10k–$50k per appraisal, $50k–$250k a year subscription; compute roughly $1k–$5k per appraisal.
 - The request form is an external link not yet provided (`REQUEST_FORM_URL` in `touchstone/report.py`).

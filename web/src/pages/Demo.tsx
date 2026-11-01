@@ -6,7 +6,7 @@ import { Rating, reduced } from '../ui'
 
 type Recorded = { id: string; name: string; kind: string; description: string; recorded: string; report: unknown; log: string[] }
 // The headline gain is measured at the largest size trained, so the raw log’s target-size label would mislead here.
-const RECORDED = (recorded as Recorded[]).map(r => ({ ...r, log: r.log.map(l => l.replace('net gain at 1.7B', 'net gain')) }))
+const RECORDED = (recorded as Recorded[]).map(r => ({ ...r, log: r.log.map(l => l.replace('net gain at 1.7B', 'net gain')) })).sort((a, b) => Number(b.kind === 'env') - Number(a.kind === 'env'))
 const pct = (v: number) => `${(v * 100).toFixed(v > 0 && v < .1 ? 1 : 0)}%`
 const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
 const usd = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`
@@ -161,7 +161,7 @@ export default function Demo() {
     <>
       <header className="page-head dark"><div className="wrap">
         <h1>Run an audit.</h1>
-        <p className="lede">Pick a dataset or RL environment, or upload your own. Touchstone checks it for leaks and copies, probes the grader, trains small models against a placebo, and prices what is left.</p>
+        <p className="lede">Pick an RL environment or a sample dataset, or upload your own. Touchstone probes the grader, checks for test leaks, trains small models against a placebo, and prices what is left. Dataset audits are advisory for now.</p>
         <p className="demo-status">
           {api === undefined ? <><i className="wait" />Connecting to the engine…</>
             : live ? <><i className="on" />Engine online · {api.device === 'cpu' ? 'CPU' : `GPU (${api.device})`} · runs take a few minutes</>
@@ -174,7 +174,7 @@ export default function Demo() {
           <div className="demo-options">
             {options.map(o => (
               <button key={o.id} className={`demo-option${run?.name === o.name ? ' on' : ''}`} onClick={() => start(o.id)} disabled={busy} aria-busy={busy && run?.name === o.name}>
-                <span className="demo-kind">{o.kind === 'env' ? 'RL environment' : 'Dataset'}</span>
+                <span className="demo-kind">{o.kind === 'env' ? 'RL environment' : 'Dataset, advisory'}</span>
                 <b>{o.name}</b><span className="dim">{o.description}</span>
               </button>
             ))}
@@ -183,7 +183,7 @@ export default function Demo() {
           <div className={`demo-drop${over ? ' over' : ''}`} onDragOver={e => { e.preventDefault(); setOver(true) }} onDragLeave={() => setOver(false)}
             onDrop={e => { e.preventDefault(); setOver(false); const f = e.dataTransfer.files[0]; if (f) send(f) }}
             onClick={() => fileRef.current?.click()} role="button" tabIndex={0} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') fileRef.current?.click() }}>
-            <b>Drop a .jsonl dataset or a zipped RL environment</b>
+            <b>Drop a zipped RL environment or a .jsonl dataset</b>
             <span className="dim">One JSON example per line: {'{"prompt", "completion"}'} or {'{"messages": [...]}'}. Up to 50 MB.</span>
           </div>
           <input ref={fileRef} type="file" accept=".jsonl,.ndjson,.json,.zip,.tar.gz,.tgz" hidden onChange={e => { const f = e.target.files?.[0]; if (f) send(f); e.target.value = '' }} />

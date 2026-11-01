@@ -63,7 +63,7 @@ code { font-family: var(--mono); }
 .hero-row .actions { grid-column: 9 / -1; justify-content: flex-end; }
 .console-wrap { position: relative; margin-top: -216px; }
 .console { --bg: var(--ink-2); --fg: var(--on-ink); --mut: var(--on-ink-2); --ln: var(--ink-line); --bad: #f08370; --good: #71cc97; display: grid; border: 1px solid var(--ln); border-radius: var(--r); background: var(--bg); color: var(--fg); font: 400 14px/1.5 var(--mono); }
-.console-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--ln); }
+.console-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--ln); }
 .console-tabs button { position: relative; height: 48px; padding: 0 16px; border: 0; border-left: 1px solid var(--ln); background: none; color: var(--mut); font: 500 14px var(--sans); text-align: left; cursor: pointer; transition: color .15s; }
 .console-tabs button:first-child { border-left: 0; }
 .console-tabs button:hover { color: var(--fg); }
@@ -150,7 +150,7 @@ figcaption { color: var(--mut); font-size: 14px; }
 .ledger td:first-child { font-weight: 500; white-space: nowrap; }
 .ledger td:last-child { padding-right: 0; }
 .ledger td b { display: block; font-weight: 500; }
-.ledger td.block { color: var(--bad); white-space: nowrap; } .ledger td.cut { color: var(--accent); white-space: nowrap; }
+.ledger td.block { color: var(--bad); white-space: nowrap; } .ledger td.adv { color: var(--mut); white-space: nowrap; }
 .ledger code { font-size: 14px; }
 .tiers td:last-child { white-space: nowrap; text-align: right; }
 .tiers th:last-child { text-align: right; }
@@ -299,8 +299,9 @@ figcaption { color: var(--mut); font-size: 14px; }
   .console-wrap { margin-top: -72px; }
   .console-tabs { grid-template-columns: 1fr 1fr; }
   .console-tabs button { height: 44px; padding: 0 12px; border-bottom: 1px solid var(--ln); }
-  .console-tabs button:nth-child(odd) { border-left: 0; }
-  .console-tabs button:nth-child(n+3) { border-bottom: 0; }
+  .console-tabs button:first-child { grid-column: 1 / -1; }
+  .console-tabs button:nth-child(2) { border-left: 0; border-bottom: 0; }
+  .console-tabs button:nth-child(3) { border-bottom: 0; }
   .console-body { grid-template-columns: 1fr; }
   .console-log { padding: 16px; }
   .console-log li { display: grid; gap: 0; padding-block: 4px; min-height: 48px; }

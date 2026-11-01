@@ -285,7 +285,7 @@ Every decision below comes from the studied sites. Where the evidence set a patt
 | Footer | One line, 7 links, dark | RL peers median 6 links. Privacy and terms on most sites. isoquant, Stacktrace and Browser Use all end on one dark field |
 | Section structure | 5 bands: hero with console, results, why, how, close | Order from the section-job table. 3 H2s sits between the RL median (1) and the overall median (7) |
 | Amount of content | 385 words, 3.4 screens | Between RL (229 words) and overall (683). Below the requested 683 on purpose: every candidate addition failed the "what it is, why it matters, proof, next step" test, and the checks list moved to Method |
-| Proof | Three verified figures straight after the hero | 38 of 62 sites put proof there. Stat rows on Browser Use, Raindrop, Hamming |
+| Proof | Three locked-test figures straight after the hero | 38 of 62 sites put proof there. Stat rows on Browser Use, Raindrop, Hamming |
 | Hero feature | Tabbed console of recorded runs | Product in the hero on 16 of 62. Stacktrace's console and Arga and Tasklet's auto-play carry the most credibility in the frames |
 | Section features | One chart, one sticky step list | Sticky lists on Raindrop, Osmosis, Pulse, Sciloop. Halluminate's left column. Tabs on 18 of 63 |
 | Dropped features | Calculator, ranking widget, exploit gallery, upload box, chat paradox, beam diagram | No RL or data peer has these on a home page |
@@ -352,7 +352,7 @@ Timing is relative, from the same loaded machine.
 |---|---|
 | Hero console, how panel | Recorded engine runs on planted test cases, October 30, 2026. Labelled "test case" on the page |
 | Chart | A fictional test environment from `out/appraisals.json`. Reward is logged. Accuracy is two measurements, shown as two dots and a dotted join |
-| Three proof figures | Verified: 57 of 62, 57 of 60, and 20 plus 8 clean draws |
+| Three proof figures | Locked test v4, part `env`, on test cases: 21 of 21 exact, 12 of 12 gameable graders, 3 of 3 reworded test leaks. They replace the earlier 92%, 95% and 0 of 28, which test v4 on real sources no longer supports |
 | Pricing, market figures | Predate this work, not re-sourced. Market figures are third-party |
 | Hand-set numbers | None remain on the site |
 

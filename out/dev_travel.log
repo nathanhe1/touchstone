@@ -16,3 +16,4 @@ mcq|openbook|30|2 {'sampled': 100, 'confident': 72, 'disagree_n': 32, 'disagree'
 mcq|csqa|0|0 {'sampled': 100, 'confident': 44, 'disagree_n': 12, 'disagree': 0.2727}
 mcq|csqa|0|1 {'sampled': 100, 'confident': 51, 'disagree_n': 10, 'disagree': 0.1961}
 mcq|csqa|0|2 {'sampled': 100, 'confident': 45, 'disagree_n': 7, 'disagree': 0.1556}
+mcq|csqa|30|0 {'sampled': 100, 'confident': 44, 'disagree_n': 21, 'disagree': 0.4773}

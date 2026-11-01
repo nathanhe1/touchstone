@@ -165,3 +165,5 @@ main.legacy { background: linear-gradient(180deg, var(--silver) 0, #dcdcdc 300px
   .how-story .story-stage::before { content: ""; position: absolute; inset: -14px 0 auto; height: 16px; background: var(--cream); }
   .how-story .story-stage::after { content: ""; position: absolute; inset: 100% 0 auto; height: 30px; background: linear-gradient(var(--cream), #fef7e500); pointer-events: none; }
 }
+
+.legacy .demo-keep { margin: 0; padding: 10px 20px; font-size: 14px; color: var(--ink-2); border-bottom: 1px solid var(--line); }

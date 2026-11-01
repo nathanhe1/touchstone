@@ -1,0 +1,382 @@
+{
+ "runs": 976,
+ "families": [
+  "dbpedia",
+  "imdb",
+  "amazon",
+  "cr",
+  "subj",
+  "enron",
+  "sst5",
+  "bbc"
+ ],
+ "conditions": [
+  "clean",
+  "drop",
+  "off25",
+  "off80",
+  "pool100",
+  "pool200",
+  "pool300",
+  "wrong10",
+  "wrong100",
+  "wrong60"
+ ],
+ "screen_passing": [
+  "clean",
+  "drop",
+  "off25",
+  "pool100",
+  "pool200",
+  "pool300",
+  "wrong10"
+ ],
+ "ceiling_1.7B": {
+  "all": 0.878,
+  "screen_passing": 0.766
+ },
+ "ceiling_360M": {
+  "all": 0.854,
+  "screen_passing": 0.766
+ },
+ "target": {
+  "dbpedia": {
+   "clean": -19.7,
+   "drop": -19.7,
+   "off25": -2.2,
+   "off80": 13.2,
+   "pool100": -19.6,
+   "pool200": -19.7,
+   "pool300": -19.7,
+   "wrong10": -19.0,
+   "wrong100": -74.6,
+   "wrong60": -19.7
+  },
+  "imdb": {
+   "clean": 28.2,
+   "drop": 12.2,
+   "off25": 28.5,
+   "off80": 28.6,
+   "pool100": 26.8,
+   "pool200": 27.1,
+   "pool300": 28.1,
+   "wrong10": 28.2,
+   "wrong100": -47.8,
+   "wrong60": -40.2
+  },
+  "amazon": {
+   "clean": 16.0,
+   "drop": -28.1,
+   "off25": 15.4,
+   "off80": 15.8,
+   "pool100": 14.4,
+   "pool200": 15.3,
+   "pool300": 15.2,
+   "wrong10": 14.9,
+   "wrong100": -71.8,
+   "wrong60": -31.8
+  },
+  "cr": {
+   "clean": 12.2,
+   "drop": -43.4,
+   "off25": 11.4,
+   "off80": 9.8,
+   "pool100": 8.8,
+   "pool200": 11.8,
+   "pool300": 12.6,
+   "wrong10": 12.1,
+   "wrong100": -67.3,
+   "wrong60": -36.2
+  },
+  "subj": {
+   "clean": 49.6,
+   "drop": 8.7,
+   "off25": 48.7,
+   "off80": 46.1,
+   "pool100": 47.6,
+   "pool200": 48.8,
+   "pool300": 49.0,
+   "wrong10": 44.8,
+   "wrong100": -39.7,
+   "wrong60": -20.9
+  },
+  "enron": {
+   "clean": 19.4,
+   "drop": -27.7,
+   "off25": 18.0,
+   "off80": 15.6,
+   "pool100": 16.7,
+   "pool200": 17.3,
+   "pool300": 17.8,
+   "wrong10": 17.7,
+   "wrong100": -71.1,
+   "wrong60": -35.8
+  },
+  "sst5": {
+   "clean": 26.2,
+   "drop": -0.7,
+   "off25": 26.8,
+   "off80": 17.0,
+   "pool100": 24.7,
+   "pool200": 27.8,
+   "pool300": 26.0,
+   "wrong10": 22.2,
+   "wrong100": -12.7,
+   "wrong60": -2.0
+  },
+  "bbc": {
+   "clean": 27.4,
+   "drop": -10.7,
+   "off25": 26.4,
+   "off80": 23.7,
+   "pool100": 24.7,
+   "pool200": 26.8,
+   "pool300": 26.9,
+   "wrong10": 26.2,
+   "wrong100": -56.5,
+   "wrong60": 18.4
+  }
+ },
+ "candidates": {
+  "acc_final 360M -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.609,
+    "pairs": 161,
+    "by_family": {
+     "dbpedia": 0.0,
+     "imdb": 0.3,
+     "amazon": 0.714,
+     "cr": 0.762,
+     "subj": 0.762,
+     "enron": 0.714,
+     "sst5": 0.714,
+     "bbc": 0.714
+    },
+    "ci90": [
+     0.433,
+     0.759
+    ],
+    "perm_p": 0.0004
+   },
+   "all": {
+    "decision": 0.731,
+    "pairs": 349,
+    "by_family": {
+     "dbpedia": 0.257,
+     "imdb": 0.523,
+     "amazon": 0.756,
+     "cr": 0.844,
+     "subj": 0.867,
+     "enron": 0.867,
+     "sst5": 0.778,
+     "bbc": 0.844
+    },
+    "ci90": [
+     0.591,
+     0.847
+    ],
+    "perm_p": 0.0001
+   }
+  },
+  "sftlr 360M -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.447,
+    "pairs": 161,
+    "by_family": {
+     "dbpedia": 0.0,
+     "imdb": 0.0,
+     "amazon": 0.429,
+     "cr": 0.905,
+     "subj": 0.524,
+     "enron": 0.619,
+     "sst5": 0.333,
+     "bbc": 0.619
+    },
+    "ci90": [
+     0.257,
+     0.625
+    ],
+    "perm_p": 0.149
+   },
+   "all": {
+    "decision": 0.576,
+    "pairs": 349,
+    "by_family": {
+     "dbpedia": 0.257,
+     "imdb": 0.386,
+     "amazon": 0.622,
+     "cr": 0.933,
+     "subj": 0.733,
+     "enron": 0.8,
+     "sst5": 0.333,
+     "bbc": 0.467
+    },
+    "ci90": [
+     0.418,
+     0.722
+    ],
+    "perm_p": 0.0006
+   }
+  },
+  "truncated 1.7B net of placebo -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.683,
+    "pairs": 161,
+    "by_family": {
+     "dbpedia": 0.867,
+     "imdb": 0.6,
+     "amazon": 0.857,
+     "cr": 0.905,
+     "subj": 0.571,
+     "enron": 0.476,
+     "sst5": 0.571,
+     "bbc": 0.667
+    },
+    "ci90": [
+     0.534,
+     0.819
+    ],
+    "perm_p": 0.0007
+   },
+   "all": {
+    "decision": 0.805,
+    "pairs": 349,
+    "by_family": {
+     "dbpedia": 0.886,
+     "imdb": 0.773,
+     "amazon": 0.867,
+     "cr": 0.911,
+     "subj": 0.733,
+     "enron": 0.711,
+     "sst5": 0.733,
+     "bbc": 0.844
+    },
+    "ci90": [
+     0.722,
+     0.88
+    ],
+    "perm_p": 0.0001
+   }
+  },
+  "acc_final 135M -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.578,
+    "pairs": 161,
+    "by_family": {
+     "dbpedia": 0.0,
+     "imdb": 0.4,
+     "amazon": 0.571,
+     "cr": 0.762,
+     "subj": 0.667,
+     "enron": 0.667,
+     "sst5": 0.667,
+     "bbc": 0.714
+    },
+    "ci90": [
+     0.413,
+     0.732
+    ],
+    "perm_p": 0.0059
+   },
+   "all": {
+    "decision": 0.705,
+    "pairs": 349,
+    "by_family": {
+     "dbpedia": 0.257,
+     "imdb": 0.568,
+     "amazon": 0.667,
+     "cr": 0.822,
+     "subj": 0.822,
+     "enron": 0.844,
+     "sst5": 0.733,
+     "bbc": 0.822
+    },
+    "ci90": [
+     0.568,
+     0.821
+    ],
+    "perm_p": 0.0001
+   }
+  },
+  "acc_final 135M -> 360M": {
+   "screen_passing": {
+    "decision": 0.774,
+    "pairs": 137,
+    "by_family": {
+     "dbpedia": null,
+     "imdb": 0.273,
+     "amazon": 0.762,
+     "cr": 0.714,
+     "subj": 0.81,
+     "enron": 0.857,
+     "sst5": 0.857,
+     "bbc": 0.905
+    },
+    "ci90": [
+     0.638,
+     0.88
+    ],
+    "perm_p": 0.0001
+   },
+   "all": {
+    "decision": 0.882,
+    "pairs": 313,
+    "by_family": {
+     "dbpedia": 1.0,
+     "imdb": 0.771,
+     "amazon": 0.867,
+     "cr": 0.841,
+     "subj": 0.911,
+     "enron": 0.933,
+     "sst5": 0.867,
+     "bbc": 0.933
+    },
+    "ci90": [
+     0.814,
+     0.935
+    ],
+    "perm_p": 0.0001
+   }
+  },
+  "sftlr 135M -> 360M": {
+   "screen_passing": {
+    "decision": 0.547,
+    "pairs": 137,
+    "by_family": {
+     "dbpedia": null,
+     "imdb": 0.182,
+     "amazon": 0.286,
+     "cr": 0.667,
+     "subj": 0.238,
+     "enron": 0.952,
+     "sst5": 0.524,
+     "bbc": 0.81
+    },
+    "ci90": [
+     0.344,
+     0.746
+    ],
+    "perm_p": 0.0798
+   },
+   "all": {
+    "decision": 0.62,
+    "pairs": 313,
+    "by_family": {
+     "dbpedia": 1.0,
+     "imdb": 0.743,
+     "amazon": 0.356,
+     "cr": 0.795,
+     "subj": 0.467,
+     "enron": 0.778,
+     "sst5": 0.578,
+     "bbc": 0.578
+    },
+    "ci90": [
+     0.5,
+     0.744
+    ],
+    "perm_p": 0.0005
+   }
+  }
+ }
+}

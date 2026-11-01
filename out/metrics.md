@@ -29,6 +29,19 @@
 |---|---|---|---|---|
 | 70 | 0.512 | 0.688 | 47 of 70 | 13 of 31 |
 
+## h4: fine-tuning, 8 unseen classification families, frozen, scored once. Bar 0.80 on screen-passing pairs
+
+Noise ceiling at 1.7B: 0.766 screen-passing, 0.878 all pairs.
+
+| Candidate | Screen-passing | 90% interval | p | All pairs |
+|---|---|---|---|---|
+| acc_final 360M -> 1.7B | 0.609 | [0.433, 0.759] | 0.0004 | 0.731 |
+| sftlr 360M -> 1.7B | 0.447 | [0.257, 0.625] | 0.149 | 0.576 |
+| truncated 1.7B net of placebo -> 1.7B | 0.683 | [0.534, 0.819] | 0.0007 | 0.805 |
+| acc_final 135M -> 1.7B | 0.578 | [0.413, 0.732] | 0.0059 | 0.705 |
+| acc_final 135M -> 360M | 0.774 | [0.638, 0.88] | 0.0001 | 0.882 |
+| sftlr 135M -> 360M | 0.547 | [0.344, 0.746] | 0.0798 | 0.62 |
+
 ## Forecast, round 3: 135M -> 360M, accuracy to accuracy, 600 items (METHOD.md, pre-registered)
 
 | Set | Signal | Spearman | Decision, all pairs | Decision, resolvable pairs | Resolvable / all | Ceiling |

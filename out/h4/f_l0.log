@@ -75,3 +75,5 @@ sfttr|sst5|wrong60|1.7B|1 -8.67 20s
 sfttr|sst5|off80|1.7B|1 +0.50 24s
 sfttr|sst5|wrong100|1.7B|1 -9.00 19s
 sfttr|bbc|clean|1.7B|1 +22.33 31s
+sfttr|bbc|pool100|1.7B|1 +22.83 29s
+sfttr|bbc|wrong60|1.7B|1 +12.50 32s

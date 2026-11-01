@@ -288,6 +288,10 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     from . import screen
     contam = overlap.match(prompts, [i.prompt for i in suite.items])
     hit = overlap.match([i.prompt for i in suite.items], prompts)  # suite items found in the material
+    # Reworded short tasks evade text matching, so suite items are also fingerprinted against the material (round 4).
+    sfp = overlap.fingerprint_overlap([i.prompt for i in suite.items], prompts, 3 if suite.name == "word_math" else 2)
+    hit["rate"] = max(hit["rate"], sfp["rate"])
+    hit["fingerprint"] = sfp
     contam["suite_share"] = hit["rate"]
     clean_idx = [i for i in range(len(suite.items)) if i not in set(hit["matched_idx"])] or list(range(len(suite.items)))
     pub_prompts, pub_label = public_baseline(public, suite.name)

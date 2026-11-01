@@ -122,6 +122,36 @@ REFERENCE_PROBES = {
     "answer buried in junk": lambda ref, rng: f"{_junk(rng)} {ref} {_junk(rng)}",
 }
 
+def _scramble(ref: str, rng: random.Random) -> str:
+    c = list(ref)
+    for _ in range(8):
+        rng.shuffle(c)
+        if "".join(c) != ref:
+            return "".join(c)
+    return ref + ref[-1:]
+
+
+def _interleave(ref: str, rng: random.Random) -> str:
+    return "".join(ch + rng.choice("qwxz") for ch in ref)
+
+
+# Round 4: a fuzzing battery. Every output is wrong or malformed for a strict grader; each stands for a family of
+# grader bugs (loose parsing, prefix or set comparison, keyword or length rewards) rather than one known bug.
+FUZZ_PROBES = {
+    "fuzz: first character only": lambda ref, rng: ref[:1],
+    "fuzz: all but the last character": lambda ref, rng: ref[:-1] if len(ref) > 1 else ref + "0",
+    "fuzz: scrambled characters": _scramble,
+    "fuzz: characters spaced out": lambda ref, rng: " ".join(ref),
+    "fuzz: letters between characters": _interleave,
+    "fuzz: answer inside a word": lambda ref, rng: f"xx{ref}yy",
+    "fuzz: answer doubled": lambda ref, rng: ref + ref,
+    "fuzz: wrong answer stated at length": lambda ref, rng: f"The final answer is {_near_miss(ref, rng)} because of the steps above, and that is my result.",
+    "fuzz: wrong equation": lambda ref, rng: f"1 + 1 = {_near_miss(ref, rng)}",
+}
+FUZZ_WORDS = ["answer", "result", "total", "final", "correct", "solution", "therefore", "step", "sum", "yes", "true", "done", "="]
+FUZZ_FIXED = ["0", "1", "-1", "None", "null", "true", "?", " ", "\n", "x" * 400, "9" * 40]
+
+
 FREE_PROBES = {
     "empty answer": lambda p, rng: "",
     "echo the prompt": lambda p, rng: p,
@@ -164,11 +194,17 @@ def audit_grader(env, tasks=None, lm=None, n: int = 200, seed: int = 0) -> dict:
     best = max(span, key=span.get)
     per[f"copy a prompt span ({best})"] = span[best]
 
+    for w in FUZZ_WORDS:  # keyword rewards: the word alone, with no answer
+        per[f"fuzz: the word '{w}'"] = rate([w] * n)
+    for f in FUZZ_FIXED:  # degenerate replies that break parsers
+        per[f"fuzz: fixed reply {f[:8]!r}"] = rate([f] * n)
     out = {"has_reference": has_ref, "n_probed": n}
     if has_ref:
         idx = [i for i, r in enumerate(refs) if r is not None]
-        for name, fn in REFERENCE_PROBES.items():
+        for name, fn in {**REFERENCE_PROBES, **FUZZ_PROBES}.items():
             outs = {i: fn(refs[i], rng) for i in idx}
+            # a probe must be wrong: on a one-character answer "first character only" is the answer itself
+            outs = {i: (o if o.strip().lower() != refs[i].strip().lower() else f"{o}0") for i, o in outs.items()}
             per[name] = rate(outs, idx)
         out["reference_accept_rate"] = rate({i: refs[i] for i in idx}, idx)
         out["answer_in_prompt"] = sum(refs[i] in _TOK.findall(sample[i].prompt) for i in idx) / len(idx)

@@ -1,0 +1,16 @@
+sft|dbpedia|wrong100|135M|0 +1.17 45s
+sft|imdb|wrong100|135M|0 -7.00 43s
+sft|amazon|wrong100|135M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|cr|wrong100|135M|0 -18.35 37s
+sft|enron|clean|135M|0 +37.33 49s
+sft|bbc|wrong100|135M|0 -13.00 46s
+sft|subj|clean|360M|0 +43.50 50s
+sft|subj|wrong100|360M|0 -33.83 51s
+sft|dbpedia|wrong100|135M|1 -2.17 47s
+sft|imdb|wrong100|135M|1 -7.00 40s
+sft|cr|wrong100|135M|1 -18.09 31s
+sft|bbc|wrong100|135M|1 -12.17 42s
+sft|dbpedia|clean|360M|1 +38.33 55s
+sft|enron|wrong100|360M|1 -39.50 30s
+sft|amazon|wrong100|135M|0 +2.83 15s

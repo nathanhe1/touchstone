@@ -97,3 +97,7 @@
 2026-10-31 19:07:06 end demos_final: exit 0 after 841s (swap 10.1 GB)
 2026-10-31 20:53:04 queued dev_travel: .venv/bin/python scripts/dev_travel.py
 2026-10-31 20:53:04 start dev_travel (swap 6.7 GB)
+2026-10-31 22:23:17 end dev_travel: timeout after 5413s (swap 11.0 GB)
+2026-10-31 22:24:15 queued test_v4: .venv/bin/python scripts/eval_test4.py
+2026-10-31 22:24:15 start test_v4 (swap 10.8 GB)
+2026-10-31 22:44:57 end test_v4: exit 1 after 1242s (swap 11.6 GB)

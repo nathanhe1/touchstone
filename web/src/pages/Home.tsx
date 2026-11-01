@@ -231,7 +231,7 @@ function Stage({ index }: { index: number }) {
   )
 }
 
-function HowItWorks() {
+export function HowItWorks() {
   const [active, setActive] = useState(0)
   const steps = useRef<(HTMLLIElement | null)[]>([])
   const bar = useRef<HTMLElement>(null)
@@ -256,7 +256,7 @@ function HowItWorks() {
           </li>
         ))}
       </ol>
-      <div className="story-stage">
+      <div className="story-stage" data-ui>
         <Panel title={STEPS[active][0].toLowerCase()} meta={`${active + 1} / 4`}>
           <div className="stage-body">
             <AnimatePresence mode="wait">

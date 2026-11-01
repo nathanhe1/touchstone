@@ -4,6 +4,7 @@
   --gold: #e7c37a; --gold-deep: #c9a65c; --silver: #c0c6d0; --silver-lo: #aeb3bf; --char: #2b2b2b; --char-2: #363533; --char-3: #45433f; --cream: #fef7e5; --cream-2: #f6ecd8; --sand: #eadfc7;
   --bronze: #8a6f3b; --bronze-text: #6f5c35; --patina: #1f6b5c; --patina-hi: #8fd0bd; --cinnabar: #a8331f; --cinnabar-hi: #f0a491; --line: #2b2b2b24; --line-d: #fef7e524;
   --m: clamp(16px, 3vw, 44px); --pad: clamp(24px, 4vw, 64px); --gap: clamp(72px, 8.4vw, 124px); --r: 16px;
+  --edge: max(var(--m), calc((100vw - 1640px) / 2), env(safe-area-inset-left, 0px));
   --small: 14px; --body: 17px; --lead: clamp(21px, 1.1rem + .7vw, 30px); --head: clamp(34px, 1.1rem + 3vw, 64px); --title: clamp(42px, 5.5vw, 92px);
   color-scheme: light;
 }
@@ -18,13 +19,13 @@ p { margin: 0; }
 a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; border-radius: 6px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-.in { margin-inline: max(var(--m), env(safe-area-inset-left, 0px)); padding-inline: var(--pad); border-inline: 1px solid var(--line); }
+.in { margin-inline: var(--edge); padding-inline: var(--pad); border-inline: 1px solid var(--line); }
 .draw { display: block; height: 1px; background: var(--line); transform-origin: left; }
 .split-head { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px clamp(32px, 6vw, 96px); align-items: end; padding-bottom: clamp(32px, 3.6vw, 52px); }
 .split-head p { max-width: 34em; }
 
 /* Bar */
-.bar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 28px; padding: 11px max(var(--m), env(safe-area-inset-left, 0px)); background: var(--cream); border-bottom: 1px solid var(--line); }
+.bar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 28px; padding: 11px var(--edge); background: var(--cream); border-bottom: 1px solid var(--line); }
 .mark { display: inline-flex; align-items: center; gap: 9px; font-weight: 500; font-size: 20px; letter-spacing: -.025em; }
 .mark svg { width: 28px; height: 28px; flex: none; }
 .bar > .mark { margin-right: auto; }
@@ -60,12 +61,12 @@ a { color: inherit; text-decoration: none; }
 .stone-still i { position: absolute; left: 22%; right: 26%; top: 54%; height: 3%; background: linear-gradient(90deg, transparent, var(--gold) 14%, var(--gold) 86%, transparent); opacity: .8; rotate: -2deg; }
 .stone-still.off { opacity: 0; }
 .hero-in { position: relative; min-height: min(calc(100svh - 62px), 760px); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
-.hero-copy { width: min(56%, 760px); margin-block: auto; padding-top: 40px; display: grid; gap: 22px; justify-items: start; }
+.hero-copy { width: min(calc(54vw - var(--edge) - var(--pad) - 24px), 760px); margin-block: auto; padding-top: 40px; display: grid; gap: 22px; justify-items: start; }
 .hero h1 { font-size: var(--title); line-height: 1; letter-spacing: -.04em; }
 .hero h1 em { font-style: normal; color: var(--bronze-text); }
 .hero p { max-width: 31em; font-size: 19px; line-height: 1.5; }
 .hero-act { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
-.facts { list-style: none; margin: 0 calc(var(--pad) * -1); padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); background: #fef7e5b8; }
+.facts { list-style: none; margin: 0 calc(var(--pad) * -1); padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); background: #f8efdc; }
 .facts li { padding: 16px var(--pad) 18px; display: grid; gap: 1px; }
 .facts li + li { border-left: 1px solid var(--line); }
 .facts b { font-weight: 500; }
@@ -213,7 +214,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 1180px) {
   .menu { display: grid; }
-  .bar nav { display: none; position: absolute; inset: 100% 0 auto; padding: 8px max(var(--m), env(safe-area-inset-left, 0px)) 16px; flex-direction: column; gap: 4px; background: var(--cream); border-bottom: 1px solid var(--line); }
+  .bar nav { display: none; position: absolute; inset: 100% 0 auto; padding: 8px var(--edge) 16px; flex-direction: column; gap: 4px; background: var(--cream); border-bottom: 1px solid var(--line); }
   .bar nav.open { display: flex; }
   .bar nav a { padding: 10px 0; width: fit-content; }
 }

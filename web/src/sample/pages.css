@@ -6,7 +6,7 @@
   background: var(--cream); color: var(--char);
 }
 .legacy h1, .legacy h2, .legacy h3, .legacy .big-figure, .legacy .cols b, .legacy .tier .amount, .legacy .tag b, .legacy .facts b, .legacy .caught-item b, .legacy .scenario b, .legacy .plan span, .legacy .wm-plans-head b, .legacy .abox-title { font-family: var(--sans); font-weight: 450; letter-spacing: -.03em; }
-.legacy .wrap { width: auto; max-width: none; margin-inline: max(var(--m), env(safe-area-inset-left, 0px)); padding-inline: var(--pad); border-inline: 1px solid var(--line); }
+.legacy .wrap { width: auto; max-width: none; margin-inline: var(--edge); padding-inline: var(--pad); border-inline: 1px solid var(--line); }
 
 /* Page heads sit on a silver band and end on a line */
 .legacy > .page-head, .legacy > * > .page-head { margin-top: 0; }
@@ -127,3 +127,31 @@ main.legacy { background: linear-gradient(180deg, var(--silver) 0, #dcdcdc 300px
 .legacy .section > .wrap { padding-block: clamp(56px, 6.5vw, 92px); }
 .legacy .section-head { margin-bottom: clamp(28px, 3.4vw, 48px); gap: 16px clamp(32px, 6vw, 96px); }
 .legacy .demo { padding-bottom: clamp(56px, 6.5vw, 92px); }
+
+/* Any window: columns may shrink, and text wraps instead of running out of its box */
+.legacy .two > *, .legacy .detail > *, .legacy .calc > *, .legacy .demo > *, .legacy .story > *, .legacy .scenario > *, .legacy .cols > *, .legacy .evidence > * { min-width: 0; }
+.legacy .wm-card, .legacy .wm-plans, .legacy .panel { min-width: 0; max-width: 100%; }
+.legacy .wm-name, .legacy .wm-name small { min-width: 0; white-space: normal; overflow: visible; text-overflow: clip; }
+.legacy .wm-tag { white-space: nowrap; }
+.legacy .panel-head { height: auto; min-height: 44px; flex-wrap: wrap; row-gap: 2px; }
+.legacy .panel-head .title, .legacy .panel-head .meta { white-space: normal; overflow: visible; text-overflow: clip; }
+.legacy .panel-head .meta { margin-left: 0; }
+.legacy .panel-head { justify-content: space-between; }
+.legacy .metric > * { min-width: 0; overflow-wrap: break-word; }
+.legacy .probe { grid-template-columns: minmax(0, 1.5fr) minmax(40px, 1fr) auto; }
+.legacy .probe > span:first-child { min-width: 0; white-space: normal; overflow: visible; text-overflow: clip; }
+@media (max-width: 980px) {
+  .legacy .two, .legacy .detail, .legacy .calc, .legacy .demo { grid-template-columns: minmax(0, 1fr); }
+  .legacy .detail > div + div, .legacy .calc > div + div { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 480px) {
+  .legacy .wm-steps li { grid-template-columns: 22px minmax(0, 1fr); row-gap: 4px; }
+  .legacy .wm-tag { grid-column: 2; justify-self: start; }
+  .legacy .metric span { font-size: 15px; }
+}
+@media (max-width: 760px) {
+  .legacy .page-head h1 { font-size: clamp(36px, 10.4vw, 64px); }
+  .legacy .calc > div, .legacy .detail > div { padding: 20px; }
+}
+.legacy .wm-segments { grid-auto-columns: minmax(0, 1fr); }
+.legacy .wm-segments i { width: auto; min-width: 0; }

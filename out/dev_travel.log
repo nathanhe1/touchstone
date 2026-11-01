@@ -5,3 +5,4 @@ mcq|arc|0|0 {'sampled': 100, 'confident': 43, 'disagree_n': 3, 'disagree': 0.069
 mcq|arc|0|1 {'sampled': 100, 'confident': 38, 'disagree_n': 6, 'disagree': 0.1579}
 mcq|arc|0|2 {'sampled': 100, 'confident': 37, 'disagree_n': 3, 'disagree': 0.0811}
 mcq|arc|30|0 {'sampled': 100, 'confident': 43, 'disagree_n': 19, 'disagree': 0.4419}
+mcq|arc|30|1 {'sampled': 100, 'confident': 38, 'disagree_n': 18, 'disagree': 0.4737}

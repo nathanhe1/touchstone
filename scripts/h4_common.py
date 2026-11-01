@@ -31,6 +31,10 @@ LABELS = {"ag_news": ["World", "Sports", "Business", "Technology"], "rotten": ["
           "trec": ["abbreviation", "entity", "description", "person", "location", "number"],
           "emotion": ["sadness", "joy", "love", "anger", "fear", "surprise"],
           "yelp": ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"],
+          "imdb": ["negative", "positive"], "amazon": ["negative", "positive"], "cr": ["negative", "positive"],
+          "subj": ["objective", "subjective"], "spam": ["normal message", "spam"], "enron": ["normal email", "spam"],
+          "toxic": ["not toxic", "toxic"], "sst5": ["very negative", "negative", "neutral", "positive", "very positive"],
+          "bbc": ["technology", "business", "sport", "entertainment", "politics"],
           "dbpedia": ["company", "school", "artist", "athlete", "politician", "transport", "building", "river", "village",
                       "animal", "plant", "album", "film", "book"]}
 
@@ -59,8 +63,8 @@ def row(name, r):
         o = [re.sub(r"^[A-E]\)", "", x) for x in r["options"]]
         return mc(r["question"], o, "ABCDE".index(r["correct"]))
     if name in LABELS:
-        k = next((c for c in ("label", "coarse_label", "fine_label") if c in r), None)
-        t = r.get("text") or r.get("content") or r.get("sentence") or ""
+        k = next((c for c in ("label", "coarse_label", "fine_label", "toxic") if c in r), None)
+        t = r.get("text") or r.get("content") or r.get("sentence") or r.get("sms") or r.get("comment_text") or ""
         return mc("Text: " + t[:500] + "\n\nWhich label fits?", LABELS[name], int(r[k]))
     return None
 
@@ -82,7 +86,9 @@ SPLITS = {"arc": ("train", "test"), "arc_easy": ("train", "test"), "openbook": (
           "sciq": ("train", "test"), "qasc": ("train", "validation"), "mmlu": ("test", "validation"), "boolq": ("train", "validation"),
           "ag_news": ("train", "test"), "rotten": ("train", "test"), "trec": ("train", "test"), "aqua": ("train", "test"),
           "medmcqa": ("train", "validation"), "piqa": ("train", "validation"), "hellaswag": ("train", "validation"),
-          "emotion": ("train", "test"), "yelp": ("train", "test"), "dbpedia": ("train", "test")}
+          "emotion": ("train", "test"), "yelp": ("train", "test"), "dbpedia": ("train", "test"), "imdb": ("train", "test"),
+          "amazon": ("train", "test"), "cr": ("train", "test"), "subj": ("train", "test"), "enron": ("train", "test"),
+          "sst5": ("train", "test"), "bbc": ("train", "test")}
 
 
 def correct(reply, answer):

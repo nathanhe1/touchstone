@@ -214,8 +214,10 @@ def label_checks(dtype: str, examples, arithmetic: dict | None = None, use_judge
             return done("partial", "arithmetic of worked solutions", a["rate"] >= screen.NOISY_EQ_RATE, reason=no_judge)
         return done("not_checked", "reference judge", reason=no_judge)
     if dtype == "multiple_choice":
-        r = judge.audit_mcq(examples)
-        return done("checked", "judge picks an option", (r["disagree"] or 0) >= screen.MCQ_DISAGREE, **r)
+        r = judge.audit_mcq2(examples)
+        if r["disagree"] is None:
+            return done("not_checked", "judge answers two ways", reason="the judge was confident on too few items", **r)
+        return done("checked", "judge answers two ways", r["disagree"] >= screen.MCQ_DISAGREE, **r)
     if dtype in ("free_text", "chat"):
         r = judge.audit_fit(examples)
         return done("partial", "judge rates reply fit, calibrated by shuffled pairs",

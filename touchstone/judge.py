@@ -325,24 +325,6 @@ FIT_SYS = ("You check training data. Given a REQUEST and a RESPONSE, decide whet
            "and fulfils the REQUEST. Reply with YES or NO only.")
 
 
-def audit_mcq(examples, n: int = 60, seed: int = 0) -> dict:
-    """Share of sampled questions where the judge's option differs from the labelled one."""
-    from .coverage import mcq_label, mcq_options
-    pool = [e for e in examples if len(mcq_options(e.last_user)) >= 2 and mcq_label(e.completion)]
-    sample = random.Random(seed).sample(pool, min(n, len(pool)))
-    outs = _gen([e.last_user for e in sample], MCQ_SYS, 6)
-    pairs = [(mcq_label(o) or (o.strip()[:1].upper() if o.strip() else None), mcq_label(e.completion))
-             for o, e in zip(outs, sample)]
-    pairs = [(a, b) for a, b in pairs if a]
-    dis = sum(a != b for a, b in pairs)
-    return {"sampled": len(sample), "answered": len(pairs), "disagree": round(dis / len(pairs), 4) if pairs else None}
-
-
-MCQ_COT = "Answer the multiple-choice question. Think step by step, then finish with \\boxed{letter}."
-PAIR_SYS = ("You check training data. Given a REQUEST and two RESPONSES, decide which one actually fulfils the REQUEST. "
-            "Reply with A or B only.")
-
-
 def audit_mcq2(examples, n: int = 60, seed: int = 0) -> dict:
     """Two routes, as for numeric labels: a direct answer and a reasoned one. Only items where they agree count,
     so the judge's own difficulty with the questions cancels out, which a raw disagreement rate does not do."""
@@ -357,23 +339,6 @@ def audit_mcq2(examples, n: int = 60, seed: int = 0) -> dict:
     conf = [r for r in rows if r[0] and r[0] == r[1]]
     dis = sum(r[0] != r[2] for r in conf)
     return {"sampled": len(sample), "confident": len(conf), "disagree_n": dis, "disagree": round(dis / len(conf), 4) if len(conf) >= 10 else None}
-
-
-def audit_pair(examples, n: int = 60, seed: int = 0) -> dict:
-    """Paired fit: for each request, the judge picks between the row's reply and a reply from another row of the same
-    dataset, in random order. Style and length are matched by construction, so no source-level score is needed:
-    share_foreign is how often the row's own reply loses."""
-    rng = random.Random(seed)
-    s = rng.sample(list(examples), min(n, len(examples)))
-    if len(s) < 10:
-        return {"sampled": len(s), "share_foreign": None}
-    own, other = [e.completion for e in s], [e.completion for e in s[1:] + s[:1]]
-    flip = [rng.random() < 0.5 for _ in s]
-    q = [f"REQUEST:\n{e.last_user[:1200]}\n\nRESPONSE A:\n{(b if f else a)[:700]}\n\nRESPONSE B:\n{(a if f else b)[:700]}"
-         for e, a, b, f in zip(s, own, other, flip)]
-    outs = _gen(q, PAIR_SYS, 3)
-    lost = sum((o.strip().upper()[:1] == "A") == f for o, f in zip(outs, flip))
-    return {"sampled": len(s), "share_foreign": round(lost / len(s), 4)}
 
 
 def _yes(prompts: list[str], replies: list[str]) -> float:

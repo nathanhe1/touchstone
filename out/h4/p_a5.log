@@ -7,3 +7,8 @@ sft|ag_news|pool30|135M|0 +36.50 36s
 rl|ag_news|off50|135M|0 +1.83 79s
 sft|arc_easy|wrong60|360M|0 -0.67 51s
 sft|sciq|wrong60|360M|0 +2.67 40s
+sft|csqa|wrong30|360M|0 -1.00 45s
+sft|csqa|pool30|360M|0 +3.17 41s
+sft|ag_news|wrong60|360M|0 +1.67 60s
+sft|rotten|wrong60|360M|0 +1.50 45s
+sft|rotten|off80|360M|0 +0.83 49s

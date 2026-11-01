@@ -16,5 +16,11 @@
   "confident": 37,
   "disagree_n": 3,
   "disagree": 0.0811
+ },
+ "mcq|arc|30|0": {
+  "sampled": 100,
+  "confident": 43,
+  "disagree_n": 19,
+  "disagree": 0.4419
  }
 }

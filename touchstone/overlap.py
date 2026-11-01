@@ -182,6 +182,45 @@ def fingerprint_overlap(items: list[str], reference: list[str], min_numbers: int
             "eligible": round(share, 4)}
 
 
+_ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
+_TENS = "twenty thirty forty fifty sixty seventy eighty ninety".split()
+_WORDS = {w: i for i, w in enumerate(_ONES)} | {w: (i + 2) * 10 for i, w in enumerate(_TENS)}
+
+
+def number_set(s: str) -> set:
+    """Digits and spelled-out numbers up to ninety-nine, so writing a number in words does not hide it."""
+    t = s.lower().replace(",", "")
+    out = set(_NUM.findall(t))
+    for tens, ones in re.findall(r"\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[- ](one|two|three|four|five|six|seven|eight|nine)\b", t):
+        out.add(str(_WORDS[tens] + _WORDS[ones]))
+    out |= {str(_WORDS[w]) for w in re.findall(r"[a-z]+", t) if w in _WORDS}
+    return out
+
+
+def gated_suite_match(suite_items: list[tuple[str, str]], material: list[tuple[str, str]], k: int = 20, cos: float = 0.7) -> dict:
+    """Round 4. A suite item counts as leaked when some material row is similar (cosine >= 0.7), has the same answer and
+    shares a number. Similarity alone matches a template and same answer alone collides on small numbers; together they
+    point at one item. Touchstone holds both answers, which the vendor's rewording cannot change."""
+    from .judge import canon
+    rows = [(p, canon(a)) for p, a in material if a is not None]
+    if not rows or not suite_items:
+        return {"rate": 0.0}
+    E, Q = embed([p for p, _ in rows]), embed([p for p, _ in suite_items])
+    sims = Q @ E.T
+    top = sims.topk(min(k, E.shape[0]), dim=1)
+    hits = 0
+    nums = {}
+    for i, (p, a) in enumerate(suite_items):
+        ca, ns = canon(a), number_set(p)
+        for v, j in zip(top.values[i].tolist(), top.indices[i].tolist()):
+            if v < cos:
+                break
+            if rows[j][1] == ca and ns & nums.setdefault(j, number_set(rows[j][0])):
+                hits += 1
+                break
+    return {"rate": round(hits / len(suite_items), 4), "hits": hits}
+
+
 def duplicates(items: list[str]) -> dict:
     """Internal duplication: how many items are exact or near copies of another item."""
     seen = {}

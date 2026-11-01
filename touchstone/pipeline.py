@@ -290,8 +290,14 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     hit = overlap.match([i.prompt for i in suite.items], prompts)  # suite items found in the material
     # Reworded short tasks evade text matching, so suite items are also fingerprinted against the material (round 4).
     sfp = overlap.fingerprint_overlap([i.prompt for i in suite.items], prompts, 3 if suite.name == "word_math" else 2)
-    hit["rate"] = max(hit["rate"], sfp["rate"])
-    hit["fingerprint"] = sfp
+    if kind == "dataset":
+        from .judge import label_of
+        answers = [label_of(e.completion) for e in examples]
+    else:
+        answers = [(t.meta or {}).get("answer") for t in tasks]
+    gated = overlap.gated_suite_match([(i.prompt, i.answer) for i in suite.items], list(zip(prompts, answers)))
+    hit["rate"] = max(hit["rate"], sfp["rate"], gated["rate"])
+    hit["fingerprint"], hit["gated"] = sfp, gated
     contam["suite_share"] = hit["rate"]
     clean_idx = [i for i in range(len(suite.items)) if i not in set(hit["matched_idx"])] or list(range(len(suite.items)))
     pub_prompts, pub_label = public_baseline(public, suite.name)

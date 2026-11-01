@@ -112,7 +112,7 @@ Reward hacking is common and well documented at frontier scale: about 15% to 18%
 ## Reworded contamination and benchmark leakage
 
 ### Takeaway
-On short tasks, an item is identified by its values, not its wording. The published standard is "retrieve candidates with embeddings, then have an LLM judge", with F1 of 0.94 to 1.0 on just 200 pairs. Embedding similarity alone cannot separate numbers. Model-side detectors do not fit, because Touchstone appraises material rather than a suspect model and RL hides their signal. See the local results below for what the current detector misses.
+On short tasks, an item is identified by its values, not its wording. The published standard is "retrieve candidates with embeddings, then have an LLM judge", with F1 of 0.94 to 1.0 on just 200 pairs. Embedding similarity alone cannot separate numbers. Model-side detectors do not fit, because Touchstone appraises material rather than a suspect model and RL hides their signal. Locally, the current stack misses spelled-out numbers and all reworded strings, and the fingerprint alone misses reworded word problems. A cheap gate (cosine >= 0.7, same answer, one shared number) found those word-problem leaks with no false alarm on 8 clean sets, on mechanical rewordings only.
 
 ### Cited Findings
 
@@ -133,13 +133,38 @@ On short tasks, an item is identified by its values, not its wording. The publis
 - [snippet] Cross-encoders on PAWS-X: mBERT about 87.2% accuracy vs bi-encoder LaBSE 79.3% — [cross-lingual paper](https://arxiv.org/pdf/2406.15066).
 
 **Local comparison on the real suites [local]**
-RESULTS_PLACEHOLDER
+Method: 8% to 15% of a 200-item suite was reworded and mixed into a clean v3 set, with suite-share measured against the 5% limit; rows are single random draws. Rewordings are mechanical, written by me, not human or LLM paraphrases, so these results are optimistic. v3 is already seen data. Scripts: `/private/tmp/claude-501/-Users-nathanhe-Downloads-touchstone/5c78cb26-90ca-44ec-b4eb-c044792a75ed/scratchpad/contam.py` and `/private/tmp/claude-501/-Users-nathanhe-Downloads-touchstone/5c78cb26-90ca-44ec-b4eb-c044792a75ed/scratchpad/contam2.py`.
+
+Share of the committed fingerprint's reach:
+- `arithmetic`: 100% of suite items eligible, all with 2 numbers.
+- `word_math`: only 50% eligible (3+ numbers and at most 25 words). Of 200 items, 120 have 3 numbers, 60 have 2 and 20 have 1.
+- `strings`: 0% eligible, since these have no numbers.
+
+| Suite, leak at 8% | Text + MiniLM | Round-4 fingerprint | Answer-keyed (normalised numbers + answer) | Gated: cosine >= 0.7, same answer, a shared number |
+|---|---|---|---|---|
+| arithmetic, reworded | 0.030 | **0.080** | 0.080 | not run |
+| arithmetic, number words | **0.000** | **0.000** | 0.080 | not run |
+| word_math, question first | 0.090 | **0.000** | 0.115 | 0.085 |
+| word_math, names + synonyms | 0.075 | **0.000** | 0.115 | 0.095 |
+| word_math, digits to words | **0.000** | **0.000** | 0.120 | 0.105 |
+| strings, reworded | **0.000** | **0.000** | n/a | n/a (see below) |
+
+- False alarms on clean sets:
+  - Answer-keyed alone is **not safe on word problems**: 3.5% to 7.5% on 6 clean sets at 1,500 rows, and 2.0% to 6.5% on 8 sets at 400 rows, so some exceed the 5% limit. These collisions are real: "5 trays of 7 muffins" and "5 rows of 7 tulips" share numbers and answer. The +1-shift chance estimate reads 0 because the answer is determined by the numbers, so it cannot correct this.
+  - Gated: 0.000 on all 8 clean `word_math` sets tried (of 19 available, at 400 rows). That is a small sample: with 0/8, the 95% upper bound on the false-alarm rate per set is about 31%.
+  - On 6% leaks the gated detector read 0.060 to 0.065 at cosine 0.7, and 0.055 to 0.065 at 0.8, so recall holds just above the 5% limit. At 15% it read 0.155 to 0.160.
+  - Arithmetic: the two number-based detectors read 0 on 5 clean sets.
+- Strings: a rare-token key (tokens that are not common suite words, length at least 5, matched forward or reversed) read 0.000 on 5 clean sets, 0.050 at an 8% leak and 0.109 at 15%, against 0.000 for both existing detectors. Only 2/3 of items have a token of length 5 or more, so short strings stay invisible, and reading 0.050 at an 8% leak sits right at the limit.
+- A first rare-token attempt on arithmetic was useless (0.58 on clean), because numbers are the rare tokens there. Use this for string suites only.
+- The round-4 word_math fingerprint read 0 partly because of the 5% residual floor in `fingerprint_overlap`, which zeroes low rates in prose suites by design ([repo] `touchstone/overlap.py`). At an 8% leak, half out of reach, the floor removes what remains. It is a precision guard, not a bug.
 
 ### Inferences
-- A short item's identity is (values, operation, answer). So the canonical key should be built from those, not from words. Spell-out normalisation and adding the answer closes "number words", the cheapest evasion of the round-4 fingerprint.
+- A short item's identity is (values, operation, answer), so the key should be built from those, not from words. Normalising spelled-out numbers closes the cheapest evasion of the round-4 fingerprint: writing "sixty-five" zeroed both existing detectors.
+- The answer is a free, strong signal on the private suite, because Touchstone holds both answers. It must combine with similarity, though: alone it collides across templates on small numbers. The operation is missing from the key, and adding it (from a parsed equation) should separate "5 rows of 7" from "5 + 7", though not muffins from tulips. Whether those two should even count as different items is a definition choice.
 - Embedding similarity is a candidate generator only. Its top-k needs widening, given the 77.5% vs 28.4% result, and `overlap.py` uses k=5.
 - Expression or solution-program matching is the principled next step for word problems: extract the equation from the completion (GSM8K-style `<<a+b=c>>`, or a small model), normalise it and compare with the suite's solution. No sympy in the environment; a small arithmetic-tree normaliser suffices. Not measured.
-- A judge step: run cross-encoder or small LLM only on candidates passing a cheap gate. Answer equality is a strong free gate on private suites, because Touchstone holds both answers.
+- A judge step: run a cross-encoder or small LLM only on candidates passing the gate. It may not be needed for short tasks, and should be justified by a human-paraphrase test first.
+- Test real rewordings next. A small local model or an LLM should write the v4 paraphrases, since the mechanical ones keep vocabulary and may overstate gated recall.
 - Same-template clones with new numbers are out of scope of the item-level rule by design (`overlap.py` docstring), but GSM-Symbolic-style clones do count as contamination in DICE's framing. This definition should be settled before v4: template overlap is a separate signal, closer to "off-distribution" than to contamination.
 - Do not spend effort on model-side detectors (Min-K%, PPL, DICE). They need a suspect model, need reference models, are too large, or lose signal after RL.
 
@@ -156,8 +181,8 @@ RESULTS_PLACEHOLDER
 Almost all of this is CPU-seconds with existing dependencies. Probe families, literal harvest and canonical keys need no model. The only model spend worth considering is a cross-encoder or a small LLM judge on a few hundred candidates.
 
 ### Cited Findings
-- [local] The 36-grader mutant run (28 bugs + 8 honest, each with several hundred probes) finished inside a single CPU shell call of under 2 minutes. No GPU.
-- [local] `all-MiniLM-L6-v2` is already cached, and embedding a suite of about 200 against 800 to 1,500 items is CPU-feasible.
+- [local] The 36-grader mutant run (28 bugs + 8 honest, each with several hundred probes) ran on CPU with no model and no GPU; run time was not separately timed, but it finished well inside one shell call.
+- [local] `all-MiniLM-L6-v2` is already cached. Uncached repeat embedding of about 1,000 strings per row on CPU is slow: a run over 19 clean sets was still going after several minutes and was stopped. With an in-memory embedding cache and 400-row material, the 17-row word_math comparison plus the strings test completed inside one 9-minute call.
 - [repo] `scripts/dev_flags_r4.py` runs static audits on all seen cases on CPU.
 - [paper] SemHash claims about 74 seconds for 1.8M records on CPU, with no GPU, as above — [SemHash](https://pypi.org/project/semhash/).
 - [paper] The hacker-fixer loop cost roughly $5,000 plus 48 hours on 8×H200, which is out of budget — [Hardening Agent Benchmarks](https://arxiv.org/html/2606.08960v1).
@@ -166,7 +191,7 @@ Almost all of this is CPU-seconds with existing dependencies. Probe families, li
 Suggested order. The first two need no new dependency.
 1. Freeze test set v4 first, using machine-mutated honest graders so the bug list is not hand-picked, and new rewording families. Without this, every number remains in-sample.
 2. Grader: wrong-by-construction families, more hedge separators, NaN and regex probes, slice scan, exception handling, severity tiers.
-3. Contamination: number-word normalisation; answer-keyed key with a floor measured on clean sets; a token fingerprint for strings; wider top-k.
+3. Contamination: number-word normalisation; the gated detector (cosine >= 0.7, same answer, shared number); a rare-token key for string suites; wider top-k. Cache embeddings by text, since re-embedding is the main cost. Keep answer-keyed matching behind the gate, never alone.
 4. Optional: `hypothesis` for shrinking to a minimal counterexample in reports (dev dependency only); SemHash only if public baselines get large.
 5. Optional and last: small cross-encoder or LLM judge on gated candidates. Keep models under 2B and within the 1 GPU-hour limit; a few hundred pairs should not need a GPU at all (estimate, not measured).
 

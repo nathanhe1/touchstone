@@ -12,7 +12,7 @@
 - Dataset: `/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/demo/contaminated_word_problems.jsonl`
 - SHA-256: `291b41f4fad0f35e4136db80ed42c44d1a1274d70e1e41fc4130ef8f495ed5e3`
 - Items: 600 (600 unique)
-- Mode: quick · runtime 2 min 7 s
+- Mode: quick · runtime 1 min 58 s
 - Models (real open weights, LoRA rank 16): 
 
 ## Held-out suite

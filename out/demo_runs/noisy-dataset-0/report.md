@@ -4,7 +4,7 @@
 
 **Flags**
 
-- **noisy_labels** (block): Many labels look wrong: 49% of worked solutions contain an arithmetic error; a reference model that answers two independent ways disagrees with 50% of the labels it was confident on (56 items).
+- **noisy_labels** (block): Many labels look wrong: 49% of worked solutions contain an arithmetic error.
 - **screen_only** (info): Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements.
 
 ## What was appraised
@@ -12,7 +12,7 @@
 - Dataset: `/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/demo/noisy_word_problems.jsonl`
 - SHA-256: `79c1f037b3d375ee4853b7255306506dcadb05a7085c93a6d33e7517bf10b7fb`
 - Items: 400 (400 unique)
-- Mode: quick · runtime 2 min 13 s
+- Mode: quick · runtime 0 min 5 s
 - Models (real open weights, LoRA rank 16): 
 
 ## Held-out suite

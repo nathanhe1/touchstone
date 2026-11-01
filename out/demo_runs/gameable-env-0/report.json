@@ -67,13 +67,13 @@
     "rl_max_new": 24,
     "eval_max_new": 96
   },
-  "runtime_s": 27,
+  "runtime_s": 21,
   "grader_audit": {
     "has_reference": true,
     "n_probed": 200,
     "reference_accept_rate": 1.0,
     "answer_in_prompt": 0.0,
-    "model_wrong_samples": 173,
+    "model_wrong_samples": 172,
     "score": 1.0,
     "raw_score": 1.0,
     "reward_noise": 0.0,
@@ -89,7 +89,7 @@
       "hedge: right then wrong": 1.0,
       "hedge: wrong or right": 1.0,
       "answer buried in junk": 1.0,
-      "model's own wrong answers": 0.0058
+      "model's own wrong answers": 0.0116
     },
     "reliability": {
       "deterministic": 1.0,
@@ -197,7 +197,7 @@
     "hedge: right then wrong": 1.0,
     "hedge: wrong or right": 1.0,
     "answer buried in junk": 1.0,
-    "model's own wrong answers": 0.0058
+    "model's own wrong answers": 0.0116
   },
   "gains_by_size": {},
   "forecast": {

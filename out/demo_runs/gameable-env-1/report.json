@@ -67,7 +67,7 @@
     "rl_max_new": 24,
     "eval_max_new": 96
   },
-  "runtime_s": 28,
+  "runtime_s": 21,
   "grader_audit": {
     "has_reference": true,
     "n_probed": 200,
@@ -89,7 +89,7 @@
       "hedge: right then wrong": 1.0,
       "hedge: wrong or right": 1.0,
       "answer buried in junk": 1.0,
-      "model's own wrong answers": 0.0118
+      "model's own wrong answers": 0.0
     },
     "reliability": {
       "deterministic": 1.0,
@@ -197,7 +197,7 @@
     "hedge: right then wrong": 1.0,
     "hedge: wrong or right": 1.0,
     "answer buried in junk": 1.0,
-    "model's own wrong answers": 0.0118
+    "model's own wrong answers": 0.0
   },
   "gains_by_size": {},
   "forecast": {

@@ -94,3 +94,4 @@
 2026-10-31 18:50:37 end stress_real: exit 0 after 3943s (swap 9.7 GB)
 2026-10-31 18:53:05 queued demos_final: .venv/bin/python scripts/run_demos.py --repeats 2
 2026-10-31 18:53:05 start demos_final (swap 9.3 GB)
+2026-10-31 19:07:06 end demos_final: exit 0 after 841s (swap 10.1 GB)

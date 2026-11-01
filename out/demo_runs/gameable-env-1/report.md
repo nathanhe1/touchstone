@@ -12,7 +12,7 @@
 - RL environment: `/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/demo/gameable_env`
 - SHA-256: `a884ee9a1da63af5ded3fab514449bb7e470644cb04506faf75233ef0ba9a991`
 - Items: 5,000 (3,504 unique)
-- Mode: quick · runtime 0 min 28 s
+- Mode: quick · runtime 0 min 21 s
 - Models (real open weights, LoRA rank 16): 
 
 ## Held-out suite
@@ -43,13 +43,13 @@ Known-wrong and junk answers fed to `verify()` on 200 sampled tasks (reference a
 | hedge: wrong or right | 100% |
 | answer buried in junk | 100% |
 | digit soup | 6% |
-| model's own wrong answers | 1% |
 | empty answer | 0% |
 | echo the prompt | 0% |
 | letter soup | 0% |
 | copy a prompt span (last-1) | 0% |
 | near miss | 0% |
 | same shape, wrong content | 0% |
+| model's own wrong answers | 0% |
 
 The grader accepts 100% of reference answers. The answer appears verbatim in 0% of prompts.
 | Size | Env reward before | after (material) | after (placebo) |

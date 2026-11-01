@@ -39,7 +39,7 @@
     {
       "code": "noisy_labels",
       "severity": "block",
-      "text": "Many labels look wrong: 49% of worked solutions contain an arithmetic error; a reference model that answers two independent ways disagrees with 50% of the labels it was confident on (56 items)."
+      "text": "Many labels look wrong: 49% of worked solutions contain an arithmetic error."
     },
     {
       "code": "screen_only",
@@ -74,7 +74,7 @@
     "rl_max_new": 24,
     "eval_max_new": 96
   },
-  "runtime_s": 131,
+  "runtime_s": 4,
   "label_quality": {
     "arithmetic": {
       "checked": 400,
@@ -84,12 +84,8 @@
     },
     "audit": {
       "status": "checked",
-      "method": "judge re-solves two ways",
-      "sampled": 60,
-      "route": "both",
-      "confident": 56,
-      "disagree_n": 28,
-      "disagree": 0.5
+      "method": "arithmetic of worked solutions",
+      "reason": "already condemned; judge not needed"
     }
   },
   "checks": {
@@ -97,12 +93,8 @@
     "language": "en",
     "labels": {
       "status": "checked",
-      "method": "judge re-solves two ways",
-      "sampled": 60,
-      "route": "both",
-      "confident": 56,
-      "disagree_n": 28,
-      "disagree": 0.5
+      "method": "arithmetic of worked solutions",
+      "reason": "already condemned; judge not needed"
     },
     "public_copy": {
       "status": "checked",

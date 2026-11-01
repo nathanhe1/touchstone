@@ -5,3 +5,6 @@ sft|openbook|clean|135M|0 -2.20 32s
 sft|ag_news|clean|135M|0 +41.67 36s
 sft|ag_news|wrong30|135M|0 +32.17 36s
 sft|rotten|wrong30|135M|0 +4.50 29s
+sft|emotion|wrong100|135M|0 -3.50 30s
+sft|yelp|clean|135M|0 +5.00 43s
+sft|yelp|wrong100|135M|0 -1.83 42s

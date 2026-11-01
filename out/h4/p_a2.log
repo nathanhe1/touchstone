@@ -5,3 +5,6 @@ sft|csqa|wrong30|135M|0 +0.67 30s
 sft|csqa|pool30|135M|0 +1.50 30s
 sft|rotten|off80|135M|0 +8.67 33s
 sft|rotten|pool30|135M|0 +9.17 31s
+sft|emotion|off80|135M|0 +27.67 36s
+sft|emotion|pool30|135M|0 +12.83 35s
+sft|yelp|wrong60|135M|0 +6.83 41s

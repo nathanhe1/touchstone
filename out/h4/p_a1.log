@@ -4,3 +4,5 @@ sft|emotion|clean|135M|0 +30.33 29s
 sft|emotion|wrong60|135M|0 +19.00 30s
 sft|yelp|wrong30|135M|0 +0.67 38s
 rl|arc_easy|noise30|135M|0 +0.17 104s
+rl|ag_news|clean|135M|0 -2.00 87s
+rl|ag_news|pool20|135M|0 -0.17 83s

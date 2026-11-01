@@ -90,7 +90,7 @@ def _wait(c, job_id, timeout):
     t = time.time()
     while time.time() - t < timeout:
         job = c.get(f"/api/jobs/{job_id}").json()
-        assert set(job) == {"job_id", "status", "stage", "progress", "log", "error", "report"}
+        assert set(job) == {"job_id", "status", "stage", "progress", "log", "error", "report", "ahead"}
         if job["status"] in ("done", "error"):
             return job
         time.sleep(1)
@@ -117,3 +117,32 @@ def test_example_job_end_to_end(client):
     # responses never reveal the server's own folders
     root = str(server.ROOT)
     assert root not in json.dumps(job) and root not in md.text
+
+
+def test_ahead_counts_the_queue_and_the_running_job():
+    from touchstone import server
+    for job_id in ("first", "second"):
+        server._queue.put(job_id)
+    try:
+        assert server._ahead("first") == 0
+        assert server._ahead("second") == 1
+        server._busy.set()
+        assert server._ahead("first") == 1
+        assert server._ahead("second") == 2
+    finally:
+        server._busy.clear()
+        while not server._queue.empty():
+            server._queue.get()
+
+
+def test_cancel_stops_a_queued_job_and_leaves_a_finished_one(client, monkeypatch):
+    import queue
+    c, server = client
+    monkeypatch.setattr(server, "_queue", queue.Queue())  # out of the worker's reach
+    server._write({"job_id": "aaaaaaaaaaaa", "status": "queued", "stage": "validate", "progress": 0.0, "log": []})
+    server._queue.put("aaaaaaaaaaaa")
+    assert c.post("/api/jobs/aaaaaaaaaaaa/cancel").json()["status"] == "cancelled"
+    assert "aaaaaaaaaaaa" not in list(server._queue.queue)
+    assert c.get("/api/jobs/aaaaaaaaaaaa").json()["status"] == "cancelled"
+    server._write({"job_id": "bbbbbbbbbbbb", "status": "done", "stage": "report", "progress": 1.0, "log": []})
+    assert c.post("/api/jobs/bbbbbbbbbbbb/cancel").json()["status"] == "done"

@@ -328,6 +328,8 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         q = screen.screen_dataset(examples, suite)
         dtype = coverage.detect_type(examples)
         lang = coverage.language([e.last_user for e in examples[:200]])
+        if use_judge:
+            log("  labels: a judge model is checking the answers (the slowest screening step)")
         labels = coverage.label_checks(dtype, examples, q["arithmetic"], use_judge=use_judge)
         judgemod.release()
         L.free_memory()

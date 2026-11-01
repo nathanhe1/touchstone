@@ -52,6 +52,8 @@ app = FastAPI(title="Touchstone API", version="1.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 _queue: "queue.Queue[str]" = queue.Queue()
+_busy = threading.Event()  # set while the worker is running a job
+_running: "tuple[str, subprocess.Popen] | None" = None  # the job the worker is on, so it can be stopped
 _lock = threading.Lock()
 _settings = {"device": "auto", "extra_args": []}
 
@@ -99,14 +101,18 @@ def _new_job(input_path: Path, kind: str, mode: str, label: str, job_id: str | N
 # ---------------------------------------------------------------- worker
 
 def _run_job(job_id: str):
-    job = _update(job_id, status="running", started=time.time())
+    global _running
+    if _read(job_id).get("status") == "cancelled":  # stopped between leaving the queue and starting
+        return
+    job = _update(job_id, status="running", started=time.time(), log=["Engine started. Loading the checks."])
     out = JOBS / job_id / "result"
     cmd = [sys.executable, "-u", "-m", "touchstone.cli", "appraise", job["input"], "--kind", job["kind"],
            "--out", str(out), "--device", _settings["device"]] + (["--quick"] if job["mode"] == "quick" else [])
     cmd += _settings["extra_args"] + os.environ.get("TOUCHSTONE_JOB_ARGS", "").split()  # tests shorten jobs
-    log: deque = deque(maxlen=LOG_KEEP)
+    log: deque = deque(job["log"], maxlen=LOG_KEEP)
     env = dict(os.environ, PYTHONWARNINGS="ignore", TOKENIZERS_PARALLELISM="false")
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, cwd=ROOT, env=env)
+    _running = (job_id, proc)
     last_write = 0.0
     stage, progress = "validate", 0.0
     for line in proc.stdout:
@@ -120,6 +126,9 @@ def _run_job(job_id: str):
             _update(job_id, stage=stage, progress=round(progress, 3), log=list(log)[-50:])
             last_write = time.time()
     rc = proc.wait()
+    _running = None
+    if _read(job_id).get("status") == "cancelled":
+        return
     report = out / "report.json"
     if rc == 0 and report.exists():
         _update(job_id, status="done", stage="report", progress=1.0, log=list(log)[-50:],
@@ -137,6 +146,7 @@ def _run_job(job_id: str):
 def _worker():
     while True:
         job_id = _queue.get()
+        _busy.set()
         try:
             _run_job(job_id)
         except Exception as e:  # never let one job kill the worker
@@ -144,6 +154,8 @@ def _worker():
                 _update(job_id, status="error", error=f"internal error: {type(e).__name__}: {e}")
             except Exception:
                 pass
+        finally:
+            _busy.clear()
 
 
 def _recover_and_clean():
@@ -294,11 +306,36 @@ def _scrub(text: str) -> str:
     return text
 
 
+def _ahead(job_id: str) -> int:
+    """Jobs that will finish before this queued one: those in front of it, plus the one running now."""
+    waiting = list(_queue.queue)
+    in_front = waiting.index(job_id) if job_id in waiting else len(waiting)
+    running = 0 if not _busy.is_set() else 1
+    return in_front + running
+
+
 @app.get("/api/jobs/{job_id}")
 def job_status(job_id: str):
     job = _read(job_id)
     view = {k: job.get(k) for k in ("job_id", "status", "stage", "progress", "log", "error", "report")}
+    view["ahead"] = _ahead(job_id) if job.get("status") == "queued" else 0
     return json.loads(_scrub(json.dumps(view)))
+
+
+@app.post("/api/jobs/{job_id}/cancel")
+def job_cancel(job_id: str):
+    """Stops a queued or running job, so a new upload can take its place. A finished job is left as it is."""
+    job = _read(job_id)
+    if job.get("status") not in ("queued", "running"):
+        return {"job_id": job_id, "status": job.get("status")}
+    _update(job_id, status="cancelled", finished=time.time())
+    with _queue.mutex:
+        if job_id in _queue.queue:
+            _queue.queue.remove(job_id)
+    running = _running
+    if running and running[0] == job_id:
+        running[1].terminate()
+    return {"job_id": job_id, "status": "cancelled"}
 
 
 @app.get("/api/jobs/{job_id}/report.md")

@@ -19,7 +19,14 @@ for m in man:
     path = ROOT / "examples" / "test4" / m["path"]
     suite = suites.get_suite(str(ROOT / m["suite"]) if m["suite"].endswith(".jsonl") else m["suite"]).subset(200)
     if m["kind"] == "dataset":
-        ex = datamod.load_dataset(path)
+        try:
+            ex = datamod.load_dataset(path)
+        except datamod.DatasetError as e:  # the product refuses the file: no flags to score, reported on its own
+            res[m["id"]] = {"part": m["part"], "source": m["source"], "truth": sorted(k for k, v in m["labels"].items() if v), "flags": [],
+                            "rejected_by_loader": str(e)[:200], "advisory": None, "checks": {}, "meas": {}, "audit": None, "seconds": 0}
+            F.write_text(json.dumps(res, indent=1))
+            print("REJECTED", m["id"], str(e)[:100], flush=True)
+            continue
         sc = pipeline.screen_material("dataset", [e.prompt_text for e in ex], suite, None, log=lambda x: None, examples=ex)
     else:
         env = envmod.load(path)

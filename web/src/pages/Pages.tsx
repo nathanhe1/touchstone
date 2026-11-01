@@ -227,7 +227,7 @@ export function Pricing() {
     <>
       <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the material it checks." />
       <section className="wrap plans-wrap">
-        <Reveal><PlanPicker defaultId="full" href={REQUEST_FORM_URL || '#request'} cta="Request an appraisal" plans={tiers.map(([name, sub, amount, per, items, featured]) => ({ id: featured ? 'full' : name.toLowerCase().replace(/\s+/g, '-'), name, description: sub, price: amount, per, badge: featured ? 'Most teams start here' : undefined, features: items }))} /></Reveal>
+        <Reveal><PlanPicker defaultId="full" href={REQUEST_FORM_URL || '#request'} cta="Request an audit" plans={tiers.map(([name, sub, amount, per, items, featured]) => ({ id: featured ? 'full' : name.toLowerCase().replace(/\s+/g, '-'), name, description: sub, price: amount, per, badge: featured ? 'Most teams start here' : undefined, features: items }))} /></Reveal>
       </section>
       <section className="section">
         <div className="wrap">

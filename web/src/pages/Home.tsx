@@ -8,9 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import LiquidGlass from 'liquid-glass-react'
 import { data, vendors, base, truth, signed, pct, money, params, gradeClass, type Env } from '../data'
 import { Alert, Check, Close, Count, Gradient, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
-import { Caught, Evidence, Exploits, Paradox, Section } from './Sections'
+import { Evidence, Exploits, Paradox, Section } from './Sections'
 import { FluidTabs } from '../components/Watermelon'
 import { AppraiseBox } from '../components/AppraiseBox'
+import { Checks, Results } from '../components/Audit'
+import { Streak } from '../components/Streak'
 
 gsap.registerPlugin(ScrollTrigger)
 const ease = [.16, 1, .3, 1] as const
@@ -112,13 +114,14 @@ const RUNS = [
 ]
 function Console() {
   const [run, setRun] = useState(0)
+  const [held, setHeld] = useState(false)
   const body = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const el = body.current
     if (!el || reduced) return
     const lines = el.querySelectorAll('[data-l]'), bars = el.querySelectorAll('.cbar i')
     let timer = 0
-    const tl = createTimeline({ onComplete: () => { timer = window.setTimeout(() => setRun(r => (r + 1) % RUNS.length), 2600) } })
+    const tl = createTimeline({ onComplete: () => { if (!held) timer = window.setTimeout(() => setRun(r => (r + 1) % RUNS.length), 2600) } })
     tl.set(lines, { opacity: 0, translateY: 6 }).set(bars, { scaleX: 0 })
     lines.forEach((line, i) => {
       tl.add(line, { opacity: 1, translateY: 0, duration: 320, ease: 'outQuad' }, i ? '+=330' : 400)
@@ -126,16 +129,19 @@ function Console() {
     })
     tl.add(el.querySelector('.stamp')!, { scale: [1.7, 1], rotate: [-12, -2], duration: 600, ease: 'outBack(2.2)' }, '-=300')
     return () => { tl.pause(); clearTimeout(timer) }
-  }, [run])
+  }, [run, held])
   const r = RUNS[run]
   return (
-    <Panel title="touchstone · appraisal" meta="live" className="console">
+    <Panel title="touchstone · audit" className="console" meta={
+      <span className="console-tabs" role="group" aria-label="Sample audit">
+        {RUNS.map((x, i) => <button key={x.name} aria-pressed={run === i} onClick={() => { setHeld(true); setRun(i) }}>{x.tone === 'bad' ? 'flagged' : 'clean'}</button>)}
+      </span>}>
       <div className="console-body" ref={body} key={run}>
         <p className="cl" data-l><span className="p">›</span>seal <b>{r.name}</b><span className="r good">sealed</span></p>
-        <p className="cl" data-l><span className="p">›</span>train 4 small models</p>
-        <div className="cbars" data-l>{[['S', 38], ['M', 56], ['L', 74], ['XL', 92]].map(([s, w]) => <div key={s}><span>{s}</span><i style={{ width: `${w}%` }} /></div>)}</div>
         <p className="cl" data-l><span className="p">›</span>probe the grader<span className={`r ${r.tone}`}>{r.exploit}</span></p>
         <p className="cl" data-l><span className="p">›</span>check overlap<span className="r">{r.overlap}</span></p>
+        <p className="cl" data-l><span className="p">›</span>train 4 small models</p>
+        <div className="cbars" data-l>{[['S', 38], ['M', 56], ['L', 74], ['XL', 92]].map(([s, w]) => <div key={s}><span>{s}</span><i style={{ width: `${w}%` }} /></div>)}</div>
         <p className="cl" data-l><span className="p">›</span>test on new problems<span className={`r ${r.tone}`}>{r.gain}</span></p>
         <span className={`stamp ${r.tone}`} data-l>{r.verdict}</span>
       </div>
@@ -469,12 +475,12 @@ export default function Home() {
           <div>
             <h1 aria-label="Don't buy training material blind.">
               {["Don't", 'buy', 'training', 'material'].map((w, i) => (
-                <motion.span key={w} aria-hidden="true" style={{ display: 'inline-block', marginRight: '.25em' }} initial={reduced ? false : { opacity: 0, y: 40, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: .9, delay: i * .08, ease }}>{w}</motion.span>
+                <span key={w}><motion.span aria-hidden="true" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, y: 40, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: .9, delay: i * .08, ease }}>{w}</motion.span>{' '}</span>
               ))}
               <motion.span aria-hidden="true" className="transfer" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, scale: .6, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .45, type: 'spring', stiffness: 220, damping: 12 }}>blind.</motion.span>
             </h1>
             <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>
-              Touchstone tests an RL environment or dataset on small models before you pay, and shows you what they learned on problems they never saw.
+              Touchstone audits RL environments and post-training material before you pay. We catch broken graders, copied tasks and reward that never reaches new problems.
             </motion.p>
             <motion.div className="actions" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
               <RequestButton /><a className="btn secondary" href="#demo">Try the live demo</a>
@@ -489,10 +495,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section abox-section"><div className="wrap"><Reveal><AppraiseBox /></Reveal></div></section>
+      <Results />
 
-      <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Six sample RL environments, each hiding a different failure, and what the report said about each.">
-        <Caught />
+      <Streak />
+
+      <Section title={<>Touchstone catches <span className="transfer">what sellers won't tell you.</span></>} text="Every report runs the same checks. A serious problem stops the price before anyone spends GPU time on it.">
+        <Checks />
+      </Section>
+
+      <Section title={<>We break the grader <span className="transfer">before your model does.</span></>} text="A model will find any shortcut a grader allows, and learn the shortcut instead of the skill. These are the answers we feed every grader. Open one to see what the graders paid for it.">
+        <Exploits />
       </Section>
 
       <section className="section flush">
@@ -514,8 +526,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section"><div className="wrap"><Paradox /></div></section>
-
       <section className="section flush">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>Small experiments, before the big spend.</h2></Reveal><Reveal delay={.1}><p>An appraisal costs a fraction of one training run and finishes before you sign.</p></Reveal></div>
@@ -523,16 +533,16 @@ export default function Home() {
         </div>
       </section>
 
-      <Section title={<>We break the grader <span className="transfer">before your model does.</span></>} text="A model will find any shortcut a grader allows, and learn the shortcut instead of the skill. These are the answers we feed every grader. Open one to see what the graders paid for it.">
-        <Exploits />
-      </Section>
-
       <section className="section flush">
         <div className="wrap">
           <div className="section-head"><Reveal><h2>One report. Every number you need to decide.</h2></Reveal><Reveal delay={.1}><p>Pick an environment and watch the appraisal run: seal, train, measure, price.</p></Reveal></div>
           <Reveal><ReportSample /></Reveal>
         </div>
       </section>
+
+      <section className="section abox-section"><div className="wrap"><Reveal><AppraiseBox /></Reveal></div></section>
+
+      <section className="section"><div className="wrap"><Paradox /></div></section>
 
       <section className="section flush">
         <div className="wrap">

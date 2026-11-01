@@ -5,28 +5,6 @@ import { Alert, Arrow, Check, Panel, Reveal, reduced } from '../ui'
 
 const ease = [.16, 1, .3, 1] as const
 
-/* What the pipeline caught, counted from the appraisal data rather than typed in. */
-export function Caught() {
-  const gamed = vendors.filter(e => e.hackability.score >= .2).length
-  const copied = vendors.filter(e => e.redundancy.public_overlap >= .5).length
-  const best = [...vendors].sort((a, b) => b.fair_value_per_task - a.fair_value_per_task)[0]
-  const items: [string, string, string][] = [
-    [`${gamed} of ${gamed}`, 'broken graders flagged', 'Each paid out reward for answers that solved nothing.'],
-    [`${copied} of ${copied}`, 'copied dataset caught', `${pct(vendors.find(e => e.redundancy.public_overlap >= .5)!.redundancy.public_overlap)} of its tasks were already free.`],
-    [best.grade, `for the one honest set`, `Priced at $${Math.round(best.fair_value_per_task)} a task, the only one worth buying.`],
-  ]
-  return (
-    <div className="caught">
-      {items.map(([big, label, text], i) => (
-        <motion.div key={label} className="caught-item" initial={reduced ? false : { opacity: 0, y: 24, scale: .96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
-          transition={{ delay: i * .12, type: 'spring', stiffness: 220, damping: 20 }} whileHover={{ y: -4 }}>
-          <b>{big}</b><span>{label}</span><p>{text}</p>
-        </motion.div>
-      ))}
-    </div>
-  )
-}
-
 /* Arrow's information paradox, as a before-and-after the visitor can flip. */
 export function Paradox() {
   const [side, setSide] = useState<'without' | 'with'>('without')

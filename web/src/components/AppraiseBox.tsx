@@ -48,7 +48,7 @@ export function AppraiseBox() {
   const href = REQUEST_FORM_URL || '#request'
   return (
     <div className="abox-wrap">
-      <h2 className="abox-title">What do you want to appraise?</h2>
+      <h2 className="abox-title">What should we audit first?</h2>
       <div className={`abox${over ? ' over' : ''}`}
         onDragOver={e => { e.preventDefault(); setOver(true) }} onDragLeave={() => setOver(false)}
         onDrop={e => { e.preventDefault(); setOver(false); const f = e.dataTransfer.files[0]; if (f) read(f) }}>
@@ -77,7 +77,7 @@ export function AppraiseBox() {
             Attach .jsonl
           </button>
           <input ref={input} type="file" accept=".jsonl,.json,.ndjson" hidden onChange={e => { const f = e.target.files?.[0]; if (f) read(f); e.target.value = '' }} />
-          <a className="btn abox-go" href={href}>Request this appraisal</a>
+          <a className="btn abox-go" href={href}>Request this audit</a>
         </div>
       </div>
       <div className="abox-modes" role="tablist" aria-label="Appraisal type">

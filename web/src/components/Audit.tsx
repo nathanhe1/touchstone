@@ -7,8 +7,8 @@ const ease = [.16, 1, .3, 1] as const
 
 /* Only verified figures belong here, each with the scope it was measured on. */
 const RESULTS: [value: string, label: string, scope: string][] = [
-  ['92%', 'of problems caught', 'on test cases'],
-  ['95%', 'of flags correct', 'on test cases'],
+  ['92%', 'of problems caught', 'blind test, on test cases'],
+  ['95%', 'of flags correct', 'blind test, on test cases'],
   ['0', 'false alarms in 28 clean real samples', 'numeric and code checks'],
 ]
 

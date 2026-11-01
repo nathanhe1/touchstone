@@ -2,7 +2,7 @@
 
 Evidence tags used throughout: [peer] accepted at a conference; [preprint] arXiv only, no review seen; [theory] proof or simulation, no LLM training; [interview] anonymous practitioners; [vendor] the source sells environments or tooling; [snippet] seen only through search results, page not opened or fetch failed; [repo] this repository's own measured results. Dates are as shown on the source.
 
-Most striking repo finding, used below: the sweeps do not run the published default recipe. `scripts/validate_rl_real2.py` line 39 sets `Recipe(rl_steps=30, rl_group=4, eval_max_new=48)`, and `validate_rl_h3.py` reuses it. With `rl_prompts=8` and the default `rl_max_new=24` in `touchstone/lm.py`, a sweep run is 30 steps x 8 prompts x 4 samples: 120 groups, 960 rollouts, group size 4, and training replies capped at 24 tokens. `METHOD.md` describes 8 samples and names only the 48-token evaluation limit, so the training cap and group size are a stronger version of the flaw already recorded there.
+Most striking repo finding, used below: the sweeps do not run the published default recipe. `scripts/validate_rl_real2.py` line 39 sets `Recipe(rl_steps=30, rl_group=4, eval_max_new=48)`, and `validate_rl_h3.py` reuses it. With `rl_prompts=8` and the default `rl_max_new=24` in `touchstone/lm.py`, a sweep run is 30 steps x 8 prompts x 4 samples: 240 groups, 960 rollouts, group size 4, and training replies capped at 24 tokens. `METHOD.md` lists 8 samples for the default recipe and records the 48-token evaluation limit as the flaw; the 24-token training cap and group of 4 are a stronger version of that flaw. `validate_rl_h3_17.py` reuses the same recipe, so 1.7B trains at 24 tokens even though its primary target asks for working at 200 tokens.
 
 ## Can partial credit, potential-based shaping or curriculum get signal out of small models without changing what is measured?
 
@@ -42,12 +42,12 @@ Filtering to reachable items has better support than ordering them or adding par
 ## What is known on GRPO sample size, group size, batch size, seed variance, reward normalization and reproducibility?
 
 ### Takeaway
-For binary rewards the group update is exactly the group standard deviation times a contrast, so silent-group rate and gradient fidelity are closed-form functions of p and G. Touchstone's G=4, 120-group sweeps are nearly silent below about 5% success, which is enough to explain flat rewards on floor families. Literature seed reporting is poor (often 1-3 seeds or none stated), so published gains between GRPO variants below 2-3 points should not be trusted.
+For binary rewards the group update is exactly the group standard deviation times a contrast, so silent-group rate and gradient fidelity are closed-form functions of p and G. Touchstone's G=4, 240-group sweeps are nearly silent below about 5% success, which is enough to explain flat rewards on floor families. Literature seed reporting is poor (often 1-3 seeds or none stated), so published gains between GRPO variants below 2-3 points should not be trusted.
 
 ### Cited Findings
 - GRPO original: G=64 (the HTML renders "6464"), KL 0.04, policy learning rate 1e-6, training batch size 1024, mean/std advantage normalization, one update per exploration stage. No seeds or variance reported. — [DeepSeekMath](https://arxiv.org/html/2402.03300v3) [preprint]
 - DAPO: 512 prompts per rollout step, 16 responses each, clip 0.2/0.28, KL removed, AIME evaluation repeated 32 times, and over-sampling to replace zero-advantage groups. — [DAPO](https://arxiv.org/html/2503.14476v2) [preprint]
-- Dr. GRPO: G=8, removes length and std normalization, finds a question-level bias toward very easy or very hard items, uses 3 independent runs for the comparison, and does not vary group size. Llama-3.2-3B averaged 6.8 (base 3.3); a math-pretrained variant reached 20.7 from 0.14, so base-model training dominates the ceiling. — [Liu et al.](https://arxiv.org/html/2503.20783v2) [preprint at version read; the arXiv page should be checked for venue]
+- Dr. GRPO: G=8, removes length and std normalization, finds a question-level bias toward very easy or very hard items, uses 3 independent runs for the comparison, and does not vary group size. Llama-3.2-3B averaged 6.8 (base 3.3); a math-pretrained variant reached 20.7 from 0.14, so base-model training dominates the ceiling. — [Liu et al.](https://arxiv.org/html/2503.20783v2) [preprint; venue not checked]
 - Lite PPO (group mean, batch std): removing std helps on easy data and is similar on hard data. Token-level loss is better for base models, sequence-level for aligned models. Config shows a single seed 42, and text gives no seed variance. — [Tricks or Traps](https://arxiv.org/html/2508.08221v2) [preprint]
 - "GRPO++" is a blog survey, not a paper, as far as I could find. — [Wolfe, GRPO++](https://cameronrwolfe.substack.com/p/grpo-tricks) [snippet]
 - Identity (binary rewards, exact for any group): the per-prompt update equals sigma = sqrt(k(G-k))/G times the contrast between mean scores of correct and incorrect replies. Group size law: fidelity phi is about 1 - 1/(8Gp(1-p)), so a coin-flip prompt is faithful by G about 10 and a 5% prompt needs G about 70. On Big-Math (215,608 problems) the silent rate is 44% at G=8; standardization moves gradient mass on extreme prompts from 13.9% to 24.7%. The authors validated on a Bernoulli-logit toy (R2 0.999), not an LLM, and set aside clipping, KL and non-binary rewards. — [Bay and Yearick, June 2026](https://arxiv.org/pdf/2607.00152) [preprint] [theory]
@@ -67,22 +67,22 @@ For binary rewards the group update is exactly the group standard deviation time
 - Touchstone baseline: noise ceiling 0.81-0.84 on arithmetic, 0.68-0.69 on fresh families, 24 of 112 fresh pairs resolvable. — `METHOD.md` [repo]
 
 ### Inferences
-Signal per run under the sweep recipe (960 rollouts, 120 groups, G=4) and at G=8 with the same rollouts. The silent rate uses the formula above; fidelity uses the exact binomial sum, which reproduces the paper's G about 10 and about 70 at 95%. Prompt heterogeneity makes real silent rates worse than shown. All values are my calculation.
+Signal per run under the sweep recipe (960 rollouts, 240 groups, G=4) and at G=8 with the same rollouts. The silent rate uses the formula above; fidelity uses the exact binomial sum, which reproduces the paper's G about 10 and about 70 at 95%. Prompt heterogeneity makes real silent rates worse than shown. All values are my calculation.
 
-| Success rate p | Silent G=4 | Mixed groups of 120 | Silent G=8 | Mixed groups of 60 | Fidelity G=4 | Fidelity G=8 | G for 95% | Successes in 960 |
+| Success rate p | Silent G=4 | Mixed groups of 240 | Silent G=8 | Mixed groups of 120 | Fidelity G=4 | Fidelity G=8 | G for 95% | Successes in 960 |
 |---|---|---|---|---|---|---|---|---|
-| 0.2% | 0.992 | 1 | 0.984 | 1 | - | - | - | 2 |
-| 1% | 0.961 | 5 | 0.923 | 5 | 0.17 | 0.26 | 336 | 10 |
-| 2% | 0.922 | 9 | 0.851 | 9 | 0.24 | 0.36 | 169 | 19 |
-| 5% | 0.815 | 22 | 0.663 | 20 | 0.37 | 0.54 | 69 | 48 |
-| 10% | 0.656 | 41 | 0.430 | 34 | 0.51 | 0.70 | 36 | 96 |
-| 25% | 0.320 | 81 | 0.100 | 54 | 0.71 | 0.88 | 16 | 240 |
-| 50% | 0.125 | 105 | 0.008 | 60 | 0.81 | 0.93 | 11 | 480 |
+| 0.2% | 0.992 | 2 | 0.984 | 2 | - | - | - | 2 |
+| 1% | 0.961 | 9 | 0.923 | 9 | 0.17 | 0.26 | 336 | 10 |
+| 2% | 0.922 | 19 | 0.851 | 18 | 0.24 | 0.36 | 169 | 19 |
+| 5% | 0.815 | 44 | 0.663 | 40 | 0.37 | 0.54 | 69 | 48 |
+| 10% | 0.656 | 83 | 0.430 | 68 | 0.51 | 0.70 | 36 | 96 |
+| 25% | 0.320 | 163 | 0.100 | 108 | 0.71 | 0.88 | 16 | 240 |
+| 50% | 0.125 | 210 | 0.008 | 119 | 0.81 | 0.93 | 11 | 480 |
 
 - At fixed rollouts, raising G does not create more mixed groups at low p; the table shows nearly equal counts. It does give each mixed group a more faithful gradient. This fits both camps: Bay and Yearick on per-prompt fidelity, Wu et al. on total rollouts. The cheap fix for floor families is more rollouts or a reachable prompt pool, not G alone.
-- The 24-token training cap is probably a bigger defect than G. Any worked reply is cut before its answer and scores 0, which depresses p toward zero and creates the reward noise DAPO describes. The word family's 1-2% base likely reflects this at training as well as evaluation. Verify by measuring truncation at `rl_max_new` for each family.
+- The 24-token training cap is probably a bigger defect than G. Any worked reply is cut before its answer and scores 0, which depresses p toward zero and creates the reward noise DAPO describes. The word family's training reward was likely capped this way, on top of the evaluation flaw already recorded. Verify by measuring truncation at `rl_max_new` for each family.
 - Touchstone uses GRPO's std normalization (`grpo.py` line 55). At k=1, G=8 it multiplies the lone winner's advantage by about 3, which favours sparse prompts and may be useful at the floor; Bay and Yearick's toy shows GRPO lifting hardest prompts where Dr. GRPO stalls. Dr. GRPO and Lite PPO favour removal or batch std on easy data. For near-floor small models the evidence points to keeping it, but no LLM study settles this.
-- Touchstone's learning rate (5e-5) is above GRPO literature values (1e-6 to 2e-5). LoRA runs in Nie and Carrino used 2e-5 and 1e-5. The high rate with 120 groups fits the repo's earlier finding that a 10x smaller proxy rate improved forecasting, and may amplify seed variance, as Sign's sd of 8.6 hints. That paper suggests LoRA initialization sensitivity, unverified.
+- Touchstone's learning rate (5e-5) is above GRPO literature values (1e-6 to 2e-5). LoRA runs in Nie and Carrino used 2e-5 and 1e-5. The repo found a 10x smaller proxy rate improved forecasting on SFT datasets; the same test has not been run for GRPO. A high rate over 240 groups may also amplify seed variance, as Sign's sd of 8.6 hints. That paper suggests LoRA initialization sensitivity, unverified.
 - Variance reduction with the best expected return per GPU hour, in order: (1) evaluate with k sampled replies per item at temperature 1 rather than one greedy reply, giving a per-item p that moves before greedy accuracy does, matching what GRPO optimises; papers routinely use 16-64 samples, and Mechanize says "many dozens"; (2) a variance decomposition of existing per-item, per-seed data into environment, seed and item components, which tells whether seeds or items limit the noise ceiling; (3) fixed LoRA init and shared sampling seeds across environments within a pair; (4) IRT-selected evaluation items, see the next section.
 - Report interval estimates and never best-of-N. Treat variant gaps below about 3 points on 1-3 seeds as unresolved.
 
@@ -104,7 +104,7 @@ Several no-training measures predict whether training signal exists: reward vari
 - Debate on capacity: Yue et al. find RL mainly compresses search, base models can match or beat RL at large k, and paths are already in the base distribution. — [Yue et al., NeurIPS 2025](https://arxiv.org/abs/2504.13837v1) [peer] [snippet]. Wen et al. dispute it and find RLVR "can extend the reasoning boundary" for math and code, with a CoT-Pass@K metric. — [Wen et al.](https://arxiv.org/abs/2506.14245) [preprint]
 - Boundary prompts can lose: GRPO's Delta pass@256 on boundary prompts was -39 +/- 3, and retained entropy 19%. So a mixed prompt is not guaranteed to gain. — [Zhou](https://arxiv.org/html/2607.20543v1) [preprint]
 - Entropy evidence is about collapse during training (clip-higher slows it for aligned 4B models, little benefit for base models), not pre-training prediction. — [Tricks or Traps](https://arxiv.org/html/2508.08221v2) [preprint]
-- IRT, fixed response matrices: PSN-IRT, 12 models, 41,871 items. It flags items too easy for strong models (abilities above 3.0, hardest items about 1.0), and lower discrimination at extreme difficulty. Parameter stability was uneven (discrimination r 0.74-0.82 on subsets) and no confidence intervals are given. — [Zhou et al., Lost in Benchmarks](https://arxiv.org/html/2505.15055v3) [preprint]
+- IRT, fixed response matrices: PSN-IRT, 12 models, 41,871 items. It flags items too easy for strong models (abilities above 3.0, hardest items about 1.0), and lower discrimination at extreme difficulty. Parameter stability was uneven (discrimination r 0.74-0.82 on subsets) and no confidence intervals are given. — [Lost in Benchmarks (PSN-IRT)](https://arxiv.org/html/2505.15055v3) [preprint]
 - Fluid Benchmarking: 2PL calibrated on 102 pretrained models. At 100 items, variance 19.8 to 6.1 and rank distance 16.9 to 8.7, against random items. IRT scoring mainly improves validity; dynamic item selection mainly reduces variance. — [Hofmann et al.](https://arxiv.org/html/2509.11106v1) [preprint, peer status not checked]
 - ATLAS reports 3-6% of items with negative discrimination, indicating annotation errors, and 90% item reduction on HellaSwag. — [ATLAS](https://arxiv.org/pdf/2511.04689v1) [snippet]
 - As few as 5% of items suffice on well-built benchmarks (rho above 0.95), not on BBQ. Student project. — [Ramprasath, Stanford](https://aimslab.stanford.edu/cs321m-projects/Ramprasath2026.pdf) [snippet]
@@ -137,18 +137,18 @@ Direct evidence that a reference model forecasts RL value does not exist that I 
 - OpenAI's audit of a 27.6% subset that models often failed found at least 59.4% had tests rejecting correct fixes; a separate 138-problem audit of tasks o3 did not consistently solve found 18.8% tested behaviour the description never specified. The page returned 403 to my fetch, so these come through search. — [OpenAI, Feb 2026](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/) [snippet]
 - Strong-model audit of graders: on 49 SWE-bench Verified tasks, 28.5% had tests weak enough that a verified incorrect patch passed; 25.0% on 20 R2E-Gym tasks. Within difficulty strata, 134 frontier submissions had Pass@1 +14.14 points on hackable tasks (95% CI 11.80-16.48). Gold-sanity gating flagged 65 of 105 decisive LLM-generated tests. Single author. — [Rajan, June 2026](https://arxiv.org/pdf/2606.16062) [preprint]
 - Hack-Verifiable Environments plant detectable hacks: hack rate 17.2% on average, higher for logical bugs (34.8%), and rising with task difficulty for most models. — [Roth et al., May 2026](https://arxiv.org/html/2605.20744) [preprint]
-- Rule-based verifiers miss equivalent answers, and this hurts more as models strengthen; model-based verifiers are vulnerable to hacking during RL. — [Pitfalls of Verifiers, EMNLP 2026 submission page](https://arxiv.org/abs/2505.22203) [snippet of abstract level]
+- Rule-based verifiers miss equivalent answers, and this hurts more as models strengthen; model-based verifiers are vulnerable to hacking during RL. — [Pitfalls of Verifiers, EMNLP 2026 submission page](https://arxiv.org/abs/2505.22203) [abstract only]
 - Ability saturation: top models far exceed the hardest items, so strong models lose discrimination. — [PSN-IRT](https://arxiv.org/html/2505.15055v3) [preprint]
 - Cross-model failure rate as empirical difficulty gave an ordering stable to dropping any model, on code benchmarks. Page content could not be read beyond the title; seen through search only. — [Research Square preprint](https://www.researchsquare.com/article/rs-10241058) [snippet]
 - RLVE-class strong small models exist under 2B: ProRL-1.5B-v2, DeepScaleR-1.5B, R1-Distill-Qwen-1.5B. — [RLVE](https://arxiv.org/html/2511.07317v1) [peer]
 - Qwen-Math-1.5B as Touchstone judge was rejected: it ignored instructions, was no stronger than the general model on this data, and took 33% longer. — `RESEARCH.md` [repo]
-- Repo: `word_leak30` went from 0.03 to 0.29 at 360M, target +22, proxy 0, and 135M's rewards never moved. Larger-model rewards hold information small ones lack, but only when the size is near the target. — `METHOD.md` [repo]
+- Repo: `word_leak30` went from 0.03 to 0.29 at 360M, target +22, proxy 0, and 135M's rewards never moved. — `METHOD.md` [repo]
 
 ### Inferences
 - Reference-model jobs, in order of evidence: (1) solvability: at least one correct in 16-64 tries, with zero successes flagging a broken or infeasible item; (2) grader soundness: score reference replies and intentionally corrupted versions, and estimate false-positive and false-negative rates; (3) spot audit of rewarded rollouts; (4) difficulty profile, mainly to detect a flat easy or flat impossible set. Do not use it for (5) forecast value.
 - Reference runs give a cheap "reward discriminability" number: AUC of reward on correct vs wrong reference replies, with correctness from a second check. An AUC near 0.5 says the reward measures nothing. This is my proposal, untested.
 - Risks: saturation (reference at 100% tells nothing), hack sensitivity (strong models find exploits that small models do not, so false alarms for a small learner, while weak models may find different ones), leakage (reference memorised public items and so solvability is inflated), and format mismatch (replies a reference writes may overrun limits small learners face). Difficulty for a 1.5B model does not rank difficulty for a 135M model, especially in strings, where tokenizer behaviour matters.
-- Cost under the constraints: a local 1.5-1.7B reference is free at the margin, and 16 samples on 60 prompts per environment is about 23,000 rollouts for 16 environments. Reserve the $5 for a small hard-case audit by a frontier API model. Check pricing before running; I did not verify it.
+- Cost under the constraints: a local 1.5-1.7B reference is free at the margin, and 16 samples on 60 prompts per environment is about 15,000 rollouts for 16 environments. Reserve the $5 for a small hard-case audit by a frontier API model. Check pricing before running; I did not verify it.
 - Choose a reference at least one size step above the target. Using the 1.7B target as a reference would contaminate the test.
 
 ### Gaps
@@ -193,7 +193,7 @@ An SFT forecast tells you about RL only when base, domain and data distribution 
 ### Cited Findings
 - Post-SFT score misleads: Llama3 post-SFT vs post-RL R2 0.43; repeated data and shortest-example SFT raise scores but lower RL gains; Qwen3 stayed flat despite large SFT gains. Better proxies: Pass@64 and generalization loss. Math only, 3 base models, Qwen3 qualitative. — [Kang et al.](https://arxiv.org/html/2510.01624v1) [peer]
 - "RL amplifies existing capabilities, while SFT replaces old skills with new ones", on OLMo-2 7B. KL rose sharply under SFT and more slowly under GRPO. The authors call this preliminary and flag that learning rates differ (5e-5 vs 1e-6), a confound. The paper makes no claim about SFT predicting RL. — [Rajani et al.](https://ar5iv.labs.arxiv.org/html/2507.10616) [preprint]
-- SFT on golden paths without negative examples fails to learn efficient backtracking in a toy pathfinding model, while RLVR can. Theory only. — [Wei et al., ICML 2026](https://proceedings.mlr.press/v306/wei26o.html) [peer] [theory]
+- SFT on golden paths without negative examples fails to learn efficient backtracking in a toy pathfinding model, while RLVR can. Theory only. — [Provable Benefits of RLVR over SFT, ICML 2026](https://proceedings.mlr.press/v306/wei26o.html) [peer] [theory]
 - Distillation can add knowledge where RLVR does not. — [Yue et al.](https://arxiv.org/abs/2504.13837v1) [peer] [snippet]
 - Curriculum results were the same under SFT and RL in Mordig, one case of shared behaviour. — [Mordig et al.](https://arxiv.org/pdf/2603.27226) [preprint]
 - Repo: datasets at 135M to 360M reach Spearman 0.48-0.68 by accuracy; 10x smaller proxy learning rate raises 0.43 to 0.89 on 8 datasets, 0.58 to 0.68 on 13; 360M often loses from data that helps 135M, so scale dependence is real. — `METHOD.md` section 6 [repo]
@@ -211,7 +211,7 @@ An SFT forecast tells you about RL only when base, domain and data distribution 
 ## What can be run in about 10 GPU hours on one RTX 5090 plus a Mac, for $5?
 
 ### Takeaway
-Fix sweep defects first, then spend about one-sixth of the budget on a no-training card and the rest on two pre-registered tests: whether the card predicts measurability, and whether filtering to reachable items lifts forecast skill. Do not expect a validated value forecast from this budget.
+Fix sweep defects first, then spend about a tenth of the budget on a no-training card and most of the rest on two pre-registered tests: whether the card predicts measurability, and whether filtering to reachable items lifts forecast skill. Do not expect a validated value forecast from this budget.
 
 ### Cited Findings
 - Timing evidence is thin: repo file timestamps show a median gap of about 2 minutes between h3 result files and about 10.6 minutes between 1.7B result files. Few files were sampled, and that metric may not be per-run. — `out/gpu3/h3`, `out/gpu3/h317` [repo]
@@ -224,16 +224,16 @@ All budgets are estimates and need a 10-minute timing pilot first. Everything sh
 | Step | Work | Est. GPU hours | Decision it informs |
 |---|---|---|---|
 | 0 | Repair: training token limit from per-family reply length, record truncation at training, log silent rate per step | under 0.25 | Without this, later runs repeat the flaw |
-| 1 | No-training card for about 16 environments, 3 sizes plus a 1.5-1.7B reference, 60 prompts, 16-32 samples at temperature 1 | 1.5 | Gate environments and families; compute reference solvability and grader AUC |
-| 2 | Rollout split at fixed 960 rollouts: (G=2, B=16), (G=4, B=8), (G=8, B=4), 3 environments near p of 5-25%, 5 seeds, at 360M | 1.5 | Choose recipe, and get the first small-model seed variance data |
+| 1 | No-training card for about 16 environments, 3 sizes plus a 1.5-1.7B reference, 60 prompts, 16 samples at temperature 1 | 1.0 | Gate environments and families; compute reference solvability and grader AUC |
+| 2 | Rollout split at fixed 960 rollouts: (G=2, B=16), (G=4, B=8), (G=8, B=4), 2 environments near p of 5-25%, 5 seeds, at 360M (30 runs) | 1.0 | Choose recipe, and get the first small-model seed variance data |
 | 3 | Variance decomposition from existing per-item data, plus k=16 sampled evaluation on a subset | 0.5 (mostly Mac) | Whether items or seeds cap the noise ceiling |
-| 4 | Fresh forecast test: 135M and 360M proxies, 1.7B target, passing environments only, 12 environments x 2 seeds at 1.7B | 4.2 | The gated forecast, scored once, with noise ceiling reported |
-| 5 | Filter arm: as-delivered vs reachable-prompts-only at 360M, plus placebo, 6 environments x 3 seeds | 1.0 | Whether filtering adds real signal |
-| Reserve | Failures and reruns | 1.0 | |
+| 4 | Fresh forecast test on passing environments only: 10 environments x 2 seeds at 1.7B (3.5 h), plus 135M and 360M proxies at 2 seeds (1.3 h) | 4.8 | The gated forecast, scored once, with noise ceiling reported |
+| 5 | Filter arm at 360M: as-delivered, reachable-prompts-only, placebo; 4 environments x 3 seeds (36 runs) | 1.2 | Whether filtering adds real signal |
+| Reserve | Failures and reruns | 1.25 | |
 
 - Pre-registrable claims: (a) silent rate at base predicts whether the target gain resolves from noise; (b) mean sigma correlates with resolved target gain within family; (c) reachable-only training beats as-delivered on the suite by more than placebo. Claim (b) is the first real test of a no-training predictor on models under 2B, and a null here is a publishable and useful result.
 - Spend the $5 only on the audit in Step 1: rewarded replies from small models plus items the reference failed. Review pricing first.
-- The 12 x 2 seed target is underpowered: with a 0.68 ceiling on fresh families it may again be inconclusive. If Step 3 shows items dominate, spend on sampled evaluation rather than seeds. If results stay under the ceiling rule, report inconclusive rather than dropping the rule.
+- The 10 x 2 seed target is underpowered: with a 0.68 ceiling on fresh families it may again be inconclusive. If Step 3 shows items dominate, spend on sampled evaluation rather than seeds. If results stay under the ceiling rule, report inconclusive rather than dropping the rule.
 - Product wording: a gated environment can be called measurable at a size. Nothing here licenses a claim of transfer value without a held-out gain.
 
 ### Gaps

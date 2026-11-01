@@ -285,6 +285,12 @@ The primary noise ceiling is below the pre-registered 0.70, so **the result is i
 - A calibration holds for one suite, one recipe and one model family. A custom suite would need its own sweep (`scripts/validate_sft.py` is the template).
 - RL environments on real models have no ladder sweep yet: GRPO at three sizes x 15+ environments x seeds does not fit on a laptop. The RL forecasting methods were validated on the tiny GPTs instead.
 
+### Round 4 (in progress)
+
+**Test v4 frozen** (`examples/test4/`, hash in `out/test_v4.sha256`, committed before any detector ran on it). 71 cases from real public data and sources the flag checks never used: 32 clean real draws, 4 known-bad sets (TruthfulQA's human-written false answers; GSM-Plus perturbed questions paired with the original answer), 3 public-copy cases from GSM-Plus's real rewordings, 9 planted on real rows, 2 contaminated datasets, and 21 environment cases (12 new grader bugs, 5 honest idioms, 3 reworded suite contaminations, 1 control). False flags are reported per source. Test v3 is development data from now on; its published figures stand, and any later score on it is a development number.
+
+**Forecast pre-flight** (`out/h4/h4_preflight.json`, no training, under 3 GPU minutes, 400 items per family, same prompt and 32-token reply limit at every size). On choice and classification families, 135M and 360M sit at chance on nearly everything, while 1.7B is far above it (for example `arc_easy` 74% against 25%, `sciq` 74%, `csqa` 48% against 20%). A 10-90% band alone would pass these at-chance scores, so accuracy is judged against chance as well. Fine-tuning and RL are separate arms with separate verdicts, never pooled.
+
 ## 7. Grade and fair value
 
 `touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.

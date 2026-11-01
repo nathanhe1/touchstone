@@ -50,8 +50,7 @@ def row(name, r):
     if name == "boolq":
         return mc(r["passage"][:600] + "\n\n" + r["question"].capitalize() + "?", ["yes", "no"], 0 if r["answer"] else 1)
     if name == "medmcqa":
-        o = r.get("options") or {}
-        return None if not o else mc(r["question"], [o[k] for k in sorted(o)], sorted(o).index(r["answer_idx"]))
+        return mc(r["question"], [r["opa"], r["opb"], r["opc"], r["opd"]], int(r["cop"]))
     if name == "piqa":
         return mc("Goal: " + r["goal"], [r["sol1"], r["sol2"]], int(r["label"]))
     if name == "hellaswag":

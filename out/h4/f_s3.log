@@ -67,3 +67,62 @@ sft|enron|off80|135M|1 FAILED  has 7.71 GiB memory in use. Process 107160 has 7.
 sft|sst5|clean|135M|1 +10.33 34s
 sft|sst5|pool200|135M|1 +12.50 33s
 sft|sst5|pool300|135M|1 +8.50 33s
+sft|bbc|off25|135M|1 +37.83 42s
+sftlr|dbpedia|clean|135M|1 +61.33 42s
+sftlr|dbpedia|wrong10|135M|1 +61.33 41s
+sftlr|imdb|drop|135M|1 +44.00 37s
+sftlr|amazon|wrong60|135M|1 +2.83 34s
+sftlr|cr|pool200|135M|1 +10.64 30s
+sftlr|subj|pool200|135M|1 +0.50 31s
+sftlr|enron|off80|135M|1 +3.33 41s
+sftlr|enron|wrong100|135M|1 +2.33 46s
+sftlr|sst5|clean|135M|1 +0.83 31s
+sftlr|sst5|wrong60|135M|1 +0.17 31s
+sft|imdb|pool200|360M|1 +50.67 60s
+sft|amazon|pool300|360M|1 +33.17 55s
+sft|amazon|wrong100|360M|1 -38.17 57s
+sft|cr|pool300|360M|1 +18.09 38s
+sft|subj|clean|360M|1 +46.50 44s
+sft|subj|pool200|360M|1 +43.00 43s
+sft|subj|off25|360M|1 +44.17 56s
+sft|subj|wrong60|360M|1 +6.17 43s
+sft|subj|wrong100|360M|1 -38.50 42s
+sft|enron|clean|360M|1 +39.67 67s
+sft|enron|pool200|360M|1 +38.83 66s
+sft|enron|pool300|360M|1 +41.00 63s
+sft|sst5|clean|360M|1 +12.67 41s
+sft|sst5|pool200|360M|1 +13.50 43s
+sft|sst5|off25|360M|1 +9.00 53s
+sft|bbc|clean|360M|1 +57.50 63s
+sftlr|dbpedia|off25|360M|1 +38.33 61s
+sftlr|dbpedia|drop|360M|1 +38.33 63s
+sftlr|dbpedia|wrong60|360M|1 +38.33 63s
+sftlr|imdb|pool100|360M|1 +50.67 58s
+sftlr|imdb|wrong10|360M|1 +50.67 56s
+sftlr|amazon|pool100|360M|1 +3.00 58s
+sftlr|amazon|off25|360M|1 +0.17 53s
+sftlr|cr|clean|360M|1 +0.00 39s
+sftlr|cr|pool300|360M|1 +0.00 39s
+sftlr|cr|off25|360M|1 -0.80 41s
+sftlr|cr|wrong60|360M|1 -22.87 40s
+sftlr|subj|off25|360M|1 +11.00 58s
+sftlr|subj|drop|360M|1 +8.50 46s
+sftlr|subj|off80|360M|1 +6.83 57s
+sftlr|subj|wrong100|360M|1 -8.33 41s
+sftlr|enron|pool200|360M|1 +1.67 65s
+sftlr|sst5|pool100|360M|1 -2.50 39s
+sftlr|bbc|pool200|360M|1 +2.50 61s
+sftlr|bbc|pool300|360M|1 +6.67 65s
+sftlr|bbc|off25|360M|1 FAILED 99 has 6.95 GiB memory in use. Process 119878 has 4.39 GiB memory in use. Including non-PyTorch memory, this process has 6.90 GiB memory in use. Process 119970 has 5.36 GiB memory in use. Of the allocated memory 6.25 GiB is allocated by PyTorch, and 69.70 MiB is reserved by PyTorch but unallocated.
+
+sftlr|bbc|wrong100|360M|1 +11.00 63s
+sftlr|amazon|drop|360M|0 +1.83 59s
+sftlr|bbc|off80|360M|0 FAILED 57 has 7.71 GiB memory in use. Process 120535 has 7.71 GiB memory in use. Process 120581 has 6.03 GiB memory in use. Including non-PyTorch memory, this process has 2.85 GiB memory in use. Of the allocated memory 2.19 GiB is allocated by PyTorch, and 82.27 MiB is reserved by PyTorch but unallocated.
+
+sft|dbpedia|pool300|135M|1 +61.33 42s
+sft|amazon|wrong10|135M|1 +21.83 37s
+sft|enron|off80|135M|1 +9.67 44s
+sftlr|bbc|off25|360M|1 FAILED 91 has 7.71 GiB memory in use. Including non-PyTorch memory, this process has 7.46 GiB memory in use. Process 121285 has 6.95 GiB memory in use. Process 121302 has 6.07 GiB memory in use. Of the allocated memory 6.83 GiB is allocated by PyTorch, and 35.67 MiB is reserved by PyTorch but unallocated.
+
+sftlr|bbc|off80|360M|0 +4.50 63s
+sftlr|bbc|off25|360M|1 +10.17 67s

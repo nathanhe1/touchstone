@@ -176,7 +176,7 @@ function Spheres() {
         const d = Math.sqrt(sizes[i][1] / biggest) * 150
         return (
           <div className="atom" key={sizes[i][0]}>
-            <animated.div className="sphere" style={{ width: d, height: d, ...s }}
+            <animated.div className="sphere" style={{ width: `min(${d}px, ${d / 150 * 21}vw)`, height: `min(${d}px, ${d / 150 * 21}vw)`, ...s }}
               onPointerEnter={() => api.start(j => (j === i ? { scale: 1.12, config: { tension: 320, friction: 10 } } : {}))}
               onPointerLeave={() => api.start(j => (j === i ? { scale: 1 } : {}))} />
             <b>{sizes[i][0]}</b><small>{params(sizes[i][1])}</small>

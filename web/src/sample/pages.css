@@ -155,3 +155,13 @@ main.legacy { background: linear-gradient(180deg, var(--silver) 0, #dcdcdc 300px
 }
 .legacy .wm-segments { grid-auto-columns: minmax(0, 1fr); }
 .legacy .wm-segments i { width: auto; min-width: 0; }
+
+/* Steps still to run share the .pending status name with the loading skeleton; they keep their row. */
+.legacy .wm-steps li.pending { display: grid; width: auto; height: auto; border-radius: 0; background: none; animation: none; opacity: .62; }
+.legacy .wm-segments i.pending { display: block; width: auto; height: 6px; border-radius: 3px; background: var(--line-2); animation: none; }
+
+/* On narrow windows the how-it-works panel is pinned over its own steps: cover the gap above it and fade the text below it. */
+@media (max-width: 900px) {
+  .how-story .story-stage::before { content: ""; position: absolute; inset: -14px 0 auto; height: 16px; background: var(--cream); }
+  .how-story .story-stage::after { content: ""; position: absolute; inset: 100% 0 auto; height: 30px; background: linear-gradient(var(--cream), #fef7e500); pointer-events: none; }
+}

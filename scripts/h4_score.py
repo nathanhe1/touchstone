@@ -35,6 +35,8 @@ def gain(R, arm, fam, c, size, seeds=None):
 def agree(p, t, conds):
     a = b = 0
     for x, y in itertools.combinations(conds, 2):
+        if None in (t[x], t[y], p[x], p[y]):  # a run lost to a failure: the pair is dropped and counted by `pairs`
+            continue
         d = t[x] - t[y]
         if d == 0:
             continue

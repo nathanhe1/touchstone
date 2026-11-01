@@ -155,5 +155,112 @@
     ]
    }
   }
+ },
+ "final_small": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100"
+    ]
+   },
+   "sftlr": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100"
+    ]
+   }
+  }
+ },
+ "final_large": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100"
+    ]
+   },
+   "sfttr": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100",
+     "placebo"
+    ]
+   }
+  }
  }
 }

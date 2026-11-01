@@ -1,0 +1,201 @@
+{
+ "clean_multiarith_0": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 52,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0889,
+   "dup_rate": 0.022222222222222254,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 154
+ },
+ "clean_multiarith_1": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 145
+ },
+ "clean_multiarith_2": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 52,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1111,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 150
+ },
+ "planted_multiarith_30": {
+  "part": "planted",
+  "source": "multiarith",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 53,
+   "disagree_n": 18,
+   "disagree": 0.3396
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1333,
+   "dup_rate": 0.011111111111111072,
+   "off_topic_share": 0.0222
+  },
+  "audit": null,
+  "seconds": 165
+ },
+ "clean_mawps_0": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 50,
+   "disagree_n": 1,
+   "disagree": 0.02
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0133,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 149
+ },
+ "clean_mawps_1": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 2,
+   "disagree": 0.0364
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0133
+  },
+  "audit": null,
+  "seconds": 149
+ },
+ "clean_mawps_2": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 57,
+   "disagree_n": 1,
+   "disagree": 0.0175
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 146
+ },
+ "planted_mawps_30": {
+  "part": "planted",
+  "source": "mawps",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 15,
+   "disagree": 0.2727,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0133,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 155
+ }
+}

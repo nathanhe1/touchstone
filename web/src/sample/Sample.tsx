@@ -1,23 +1,21 @@
-/* One-page sample of a new Touchstone direction. On this page, the streak a metal leaves on a touchstone becomes every mark:
-   silver breaks, gold holds. The live thing is a real grader the visitor can try to cheat. */
+/* The homepage. The streak a metal leaves on a touchstone becomes every mark: silver breaks, gold holds. Each section takes its
+   own ground from the palette and is held apart by lines. */
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
-import { motion, useInView, useMotionValue, useSpring, useTransform } from 'motion/react'
+import { Brand, Pill, RequestButton, Rating, reduced } from '../ui'
+import { HowItWorks } from '../pages/Home'
+import { AnimatePresence, motion, useInView, useMotionValue, useSpring, useTransform } from 'motion/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import '@fontsource-variable/inter/opsz.css'
-import './sample.css'
+import '@fontsource-variable/instrument-sans/wght.css'
 import scales from './img/goldsmith-scales.jpg'
 
 gsap.registerPlugin(ScrollTrigger)
 const Stone = lazy(() => import('./Stone'))
-const reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
 const ease = [.16, 1, .3, 1] as const
-const REQUEST = 'https://claude.ai/artifact/McLyEufkHwxkX3UovCR1gH#request'
-
 const webgl = () => { try { return !!document.createElement('canvas').getContext('webgl2') } catch { return false } }
 
 function Rise({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
-  return <motion.div className={className} initial={reduced ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-8% 0px' }} transition={{ duration: .8, delay, ease }}>{children}</motion.div>
+  return <motion.div className={className} initial={reduced ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-8% 0px' }} transition={{ duration: .8, delay, ease }}>{children}</motion.div>
 }
 
 /* Adapted from cult-ui's rolling-number: a spring runs the figure to its value. */
@@ -30,28 +28,7 @@ function Rolling({ value, format }: { value: number; format: (n: number) => stri
   return <motion.span ref={ref}>{text}</motion.span>
 }
 
-/* The site's button: cult-ui's texture-button (a lit edge around a soft fill) in gold, without Tailwind. */
-function Button({ href, children, quiet }: { href: string; children: ReactNode; quiet?: boolean }) {
-  return <a className={`tbtn${quiet ? ' quiet' : ''}`} href={href}><span>{children}</span></a>
-}
-
-function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-  useEffect(() => {
-    const on = () => setScrolled(scrollY > 24)
-    on(); addEventListener('scroll', on, { passive: true })
-    return () => removeEventListener('scroll', on)
-  }, [])
-  return (
-    <header className={`bar${scrolled ? ' solid' : ''}`}>
-      <a className="mark" href="#top">touchstone</a>
-      <nav aria-label="Main">
-        <a href="#try">Try it</a><a href="#checks">What we check</a><a href="#proof">Proof</a><a href="#how">How it works</a>
-      </nav>
-      <Button href={REQUEST}>Request an audit</Button>
-    </header>
-  )
-}
+const FACTS: [string, string][] = [['Attack the grader', 'Known-wrong answers, hedges and junk.'], ['Look for leaks', 'Test items hidden in the training tasks.'], ['Beat a placebo', 'Small models, real rewards against shuffled ones.']]
 
 function Hero() {
   const ref = useRef<HTMLElement>(null), seen = useInView(ref)
@@ -60,83 +37,150 @@ function Hero() {
     <section className="hero" id="top" ref={ref}>
       <div className={`stone-still${ready ? ' off' : ''}`} aria-hidden="true"><i /></div>
       {gl && <Suspense fallback={null}><Stone active={seen} still={reduced} onReady={() => setReady(true)} /></Suspense>}
-      <div className="hero-copy">
-        <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Don't buy training material <em>blind.</em></motion.h1>
-        <motion.p initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>Touchstone audits RL environments before you pay for them. We try to cheat the grader, look for leaked tests, and show you what we find.</motion.p>
-        <motion.div className="hero-act" initial={reduced ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
-          <Button href={REQUEST}>Request an audit</Button>
-          <Button href="#try" quiet>Try to cheat a grader</Button>
-        </motion.div>
+      <div className="in hero-in">
+        <div className="hero-copy">
+          <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Don't buy training material <em>blind.</em></motion.h1>
+          <motion.p initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>Touchstone audits RL environments before you pay for them. We try to cheat the grader, look for leaked tests, and show you what we find.</motion.p>
+          <motion.div className="hero-act" initial={reduced ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
+            <RequestButton />
+            <Pill href="#demo" tone="line">See the live demo</Pill>
+          </motion.div>
+        </div>
+        <ul className="facts">
+          {FACTS.map(([t, d], i) => (
+            <motion.li key={t} initial={reduced ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .35 + i * .09, ease }}><b>{t}</b><span>{d}</span></motion.li>
+          ))}
+        </ul>
       </div>
     </section>
   )
 }
 
+const PROBES = ['Hedge: right then wrong', 'Answer buried in junk', 'Near miss', 'Empty answer', 'Echo the prompt', 'Digit soup', 'Same shape, wrong content', "The model's own wrong answers", 'Fixed reply', 'Copy a prompt span']
+
+function Ticker() {
+  const row = PROBES.map(p => <span key={p}>{p}</span>)
+  return <div className="ticker" aria-hidden="true"><div>{row}{row}</div></div>
+}
+
 function Why() {
   return (
     <section className="why">
-      <div className="why-text">
-        <Rise><h2>Training material is expensive.</h2></Rise>
-        <Rise delay={.07}><p className="statement">Finding out it didn't work is worse.</p></Rise>
-        <Rise delay={.14}><p>A goldsmith tested metal before paying for it. An RL environment deserves the same care. If its grader can be cheated, a model can earn reward without learning the task, and you find out after the training run.</p></Rise>
+      <div className="in why-in">
+        <div className="why-text">
+          <Rise><h2>Training material is expensive.</h2></Rise>
+          <Rise delay={.07}><p className="statement">Finding out it didn't work is worse.</p></Rise>
+          <Rise delay={.14}><p>A goldsmith tested metal before paying for it. An RL environment deserves the same care. If its grader can be cheated, a model can earn reward without learning the task, and you find out after the training run.</p></Rise>
+        </div>
+        <figure className="why-pic">
+          <motion.div className="shutter" initial={reduced ? false : { clipPath: 'inset(0 100% 0 0)' }} whileInView={{ clipPath: 'inset(0 0% 0 0)' }} viewport={{ once: true, margin: '-12% 0px' }} transition={{ duration: 1.1, ease }}>
+            <motion.img src={scales} width={930} height={570} loading="lazy" alt="A goldsmith's hand holding small scales above a counter of coins and weights" initial={reduced ? false : { scale: 1.12 }} whileInView={{ scale: 1 }} viewport={{ once: true, margin: '-12% 0px' }} transition={{ duration: 1.4, ease }} />
+          </motion.div>
+          <figcaption>Detail from A Goldsmith in his Shop, Petrus Christus, 1449.</figcaption>
+        </figure>
       </div>
-      <figure className="why-pic">
-        <motion.div className="shutter" initial={reduced ? false : { clipPath: 'inset(0 100% 0 0)' }} whileInView={{ clipPath: 'inset(0 0% 0 0)' }} viewport={{ once: true, margin: '-12% 0px' }} transition={{ duration: 1.1, ease }}>
-          <motion.img src={scales} width={930} height={570} loading="lazy" alt="A goldsmith's hand holding small scales above a counter of coins and weights" initial={reduced ? false : { scale: 1.12 }} whileInView={{ scale: 1 }} viewport={{ once: true, margin: '-12% 0px' }} transition={{ duration: 1.4, ease }} />
-        </motion.div>
-        <figcaption>Detail from A Goldsmith in his Shop, Petrus Christus, 1449.</figcaption>
-      </figure>
     </section>
   )
 }
 
 const PRESETS: [string, string][] = [['Hedge', '85 or 94'], ['Buried', 'qwer 85 zxcv'], ['Honest', '85'], ['Wrong', '94']]
 const ANSWER = '85'
+const seeded = (seed: number) => () => (seed = (seed * 16807) % 2147483647) / 2147483647
 
-function Meter({ name, code, reward }: { name: string; code: string; reward: number }) {
+/* One rub across the slab. Paid rubs hold as gold; unpaid ones break up as silver and stop short. */
+function Lane({ name, code, paid }: { name: string; code: string; paid: boolean }) {
+  const r = seeded(name.length * 977 + 13)
+  const strokes = Array.from({ length: 16 }, (_, i) => {
+    const y = 8 + i * 1.9 + (r() - .5) * 1.2, a = 4 + r() * 14, b = 586 - r() * 22
+    return <path key={i} d={`M${a} ${y} C 200 ${y - 5}, 400 ${y + 5}, ${b} ${y - 1}`} strokeWidth={.5 + r() * 1.2} opacity={.55 + r() * .45} />
+  })
   return (
-    <div className={`meter${reward ? ' paid' : ''}`}>
-      <div><b>{name}</b><code>{code}</code></div>
-      <strong><Rolling value={reward} format={n => n.toFixed(2)} /></strong>
-      <i style={{ transform: `scaleX(${reward})` }} />
+    <div className="lane">
+      <div className="lane-name"><b>{name}</b><code>{code}</code></div>
+      <svg viewBox="0 0 600 46" preserveAspectRatio="none" aria-hidden="true">
+        <motion.g key={String(paid)} fill="none" strokeLinecap="round" stroke={paid ? '#e7c37a' : '#c0c6d0'} strokeDasharray={paid ? undefined : '18 26 7 31'} initial={reduced ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: `inset(0 ${paid ? 0 : 74}% 0 0)` }} transition={{ duration: paid ? .9 : .5, ease }}>{strokes}</motion.g>
+      </svg>
+      <strong className={paid ? 'paid' : ''}><Rolling value={paid ? 1 : 0} format={n => n.toFixed(2)} /></strong>
     </div>
   )
 }
 
-function Cheat() {
-  const [reply, setReply] = useState(PRESETS[0][1])
+function Bench() {
+  const [reply, setReply] = useState(PRESETS[0][1]), [held, setHeld] = useState(reduced)
+  const box = useRef<HTMLDivElement>(null), seen = useInView(box, { margin: '-20% 0px' })
   const text = reply.trim()
-  const loose = text && reply.includes(ANSWER) ? 1 : 0, strict = text === ANSWER ? 1 : 0
-  const verdict = !text ? 'Type a reply to see what each grader pays.'
-    : loose && !strict ? 'The loose grader paid in full and the strict one paid nothing. A model can learn to exploit that gap.'
-    : strict ? 'A right answer earns full reward from both. That is how a grader should behave.'
-    : 'No reward from either. A wrong answer should earn nothing.'
+  const loose = !!text && reply.includes(ANSWER), strict = text === ANSWER
+  const stamp = !text ? null : loose && !strict ? ['False gold', 'bad'] : strict ? ['True gold', 'good'] : ['Nothing paid', 'none']
+  const verdict = !text ? 'Type a reply to rub it on the stone.'
+    : loose && !strict ? 'Full reward, and no answer given. The reply contains 85, so the vendor\'s grader never asks whether the model committed to it.'
+    : strict ? 'Full reward from both graders. This one was earned.'
+    : 'Neither grader paid. A wrong answer should earn nothing.'
+  // The slab plays through its samples until someone takes over.
+  useEffect(() => {
+    if (held || !seen) return
+    const t = setInterval(() => setReply(now => PRESETS[(PRESETS.findIndex(p => p[1] === now) + 1) % PRESETS.length][1]), 3800)
+    return () => clearInterval(t)
+  }, [held, seen])
   return (
     <section className="try" id="try">
-      <Rise className="try-head">
-        <h2>Try to cheat this grader.</h2>
-        <p>This one is real and runs in your browser. It uses the same line of code as the sample environment below: full reward if the answer appears anywhere in the reply.</p>
-      </Rise>
-      <div className="try-grid" data-ui>
-        <div className="plate">
-          <p className="task">Calculate 47 + 38. Reply with only the number.</p>
-          <label htmlFor="reply">Model's reply</label>
-          <textarea id="reply" rows={2} value={reply} onChange={e => setReply(e.target.value)} spellCheck={false} />
-          <div className="presets" role="group" aria-label="Example replies">
-            {PRESETS.map(([name, value]) => <button key={name} type="button" aria-pressed={reply === value} onClick={() => setReply(value)}>{name}</button>)}
-          </div>
-        </div>
-        <div className="result" aria-live="polite">
-          <Meter name="Vendor's grader" code="answer in reply" reward={loose} />
-          <Meter name="Strict grader" code="reply == answer" reward={strict} />
-          <p>{verdict}</p>
+      <div className="in">
+        <Rise className="split-head">
+          <h2>Try to cheat this grader.</h2>
+          <p>This one is real and runs in your browser. It uses the same line of code as our sample environment: full reward if the answer appears anywhere in the reply.</p>
+        </Rise>
+        <div className="bench" ref={box}>
+          <Rise className="slab">
+            <div className="slab-top">
+              <p className="task">Calculate 47 + 38.<span>Reply with only the number.</span></p>
+              <div className="samples" role="group" aria-label="Example replies">
+                {PRESETS.map(([name, value]) => <button key={name} type="button" aria-pressed={reply === value} onClick={() => { setHeld(true); setReply(value) }}>{name}</button>)}
+              </div>
+            </div>
+            <label className="slab-reply"><span>The model replies</span>
+              <input value={reply} onChange={e => { setHeld(true); setReply(e.target.value) }} onFocus={() => setHeld(true)} spellCheck={false} autoComplete="off" placeholder="Type a reply" />
+            </label>
+            <div className="lanes" data-ui>
+              <Lane name="Vendor's grader" code="answer in reply" paid={loose} />
+              <Lane name="Strict grader" code="reply == answer" paid={strict} />
+              <AnimatePresence mode="wait">
+                {stamp && <motion.span key={stamp[0]} className={`stamp ${stamp[1]}`} initial={reduced ? false : { opacity: 0, scale: 1.7, rotate: -14 }} animate={{ opacity: 1, scale: 1, rotate: -7 }} exit={{ opacity: 0 }} transition={{ delay: .35, type: 'spring', stiffness: 520, damping: 24 }}>{stamp[0]}</motion.span>}
+              </AnimatePresence>
+            </div>
+            <p className="slab-verdict" aria-live="polite">{verdict}</p>
+          </Rise>
+          <Slip />
         </div>
       </div>
     </section>
   )
 }
 
-/* The engine's real output on the sample environment, typed out. After cult-ui's terminal-animation, much reduced. */
+/* The assay slip: the engine's real figures for the sample environment. */
+const LEDGER: [string, string, boolean][] = [['Hedged replies paid', '100%', true], ['Test items found in tasks', '0.0%', false], ['Overlap with public tasks', '3.2%', false], ['Value per task', '$0.00', true]]
+
+function Slip() {
+  const ref = useRef<HTMLDivElement>(null), seen = useInView(ref, { once: true, margin: '-12% 0px' })
+  return (
+    <motion.div className="slip" ref={ref} data-ui initial={reduced ? false : { opacity: 0, y: 34, rotate: 1.6 }} animate={seen ? { opacity: 1, y: 0, rotate: .5 } : {}} transition={{ duration: .9, ease }}>
+      <div className="slip-head"><span className="mark"><Brand />Assay slip</span><span>Screened in 27 seconds</span></div>
+      <p className="slip-name">QuickGrade Math Pack</p>
+      <dl>{LEDGER.map(([k, v, bad], i) => (
+        <motion.div key={k} initial={reduced ? false : { opacity: 0, x: -10 }} animate={seen ? { opacity: 1, x: 0 } : {}} transition={{ duration: .5, delay: .3 + i * .13, ease }}><dt>{k}</dt><i /><dd className={bad ? 'bad' : ''}>{v}</dd></motion.div>
+      ))}</dl>
+      <div className="slip-foot">
+        <div><span>Grade</span><Rating grade="D" /></div>
+        <motion.svg className="hallmark" viewBox="0 0 120 120" aria-hidden="true" initial={reduced ? false : { opacity: 0, scale: 1.8, rotate: -30 }} animate={seen ? { opacity: 1, scale: 1, rotate: -12 } : {}} transition={{ delay: 1, type: 'spring', stiffness: 420, damping: 20 }}>
+          <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" strokeWidth="2.5" /><circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <path id="hm" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1 -92 0" fill="none" />
+          <text fontSize="11.500" fontWeight="600" letterSpacing="2.2" fill="currentColor"><textPath href="#hm">GAMEABLE GRADER · NOT PRICED ·</textPath></text>
+          <text x="60" y="73" textAnchor="middle" fontSize="38" fontWeight="500" fill="currentColor">D</text>
+        </motion.svg>
+      </div>
+    </motion.div>
+  )
+}
+
+/* The real run, typed out. After cult-ui's terminal-animation, much reduced. */
 const CMD = 'touchstone appraise quickgrade --quick'
 const OUT: [string, string?][] = [
   ['overlap: 0.0% of held-out items appear in the material'],
@@ -144,36 +188,48 @@ const OUT: [string, string?][] = [
   ['blocking problem found in screening; quick mode skips training'],
   ['Grade D | value $0.00/item | flags: gameable_grader', 'gold'],
 ]
-const PROBES: [string, number][] = [['Hedge: right then wrong', 100], ['Hedge: wrong or right', 100], ['Answer buried in junk', 100], ['Near miss', 0], ['Empty answer', 0]]
 
 function Console() {
   const ref = useRef<HTMLDivElement>(null), seen = useInView(ref, { once: true, margin: '-15% 0px' })
   const [typed, setTyped] = useState(reduced ? CMD.length : 0), [lines, setLines] = useState(reduced ? OUT.length : 0)
   useEffect(() => {
     if (!seen || reduced) return
-    let n = 0, l = 0
-    const type = setInterval(() => {
+    let n = 0, l = 0, show = 0
+    const type = window.setInterval(() => {
       setTyped(++n)
       if (n < CMD.length) return
       clearInterval(type)
-      const show = setInterval(() => { setLines(++l); if (l >= OUT.length) clearInterval(show) }, 620)
+      show = window.setInterval(() => { setLines(++l); if (l >= OUT.length) clearInterval(show) }, 620)
     }, 26)
-    return () => clearInterval(type)
+    return () => { clearInterval(type); clearInterval(show) }
   }, [seen])
   return (
     <section className="run">
-      <Rise><h2>The real audit runs hundreds of these.</h2></Rise>
-      <div className="run-grid" ref={ref} data-ui>
-        <pre aria-label={`${CMD}. ${OUT.map(o => o[0]).join('. ')}`}><code>
-          <span className="prompt">$ </span>{CMD.slice(0, typed)}{typed < CMD.length && <span className="caret" />}{'\n'}
-          {OUT.slice(0, lines).map(([t, c]) => <span key={t} className={`ln ${c ?? ''}`}>{t}{'\n'}</span>)}
-        </code></pre>
-        <table>
-          <caption>Reward earned, 400 sampled tasks</caption>
-          <tbody>{PROBES.map(([p, v]) => <tr key={p}><th scope="row">{p}</th><td className={v ? 'bad' : ''}>{v}%</td></tr>)}</tbody>
-        </table>
+      <div className="in run-in" ref={ref}>
+        <Rise className="run-copy">
+          <h2>The real audit runs hundreds of these.</h2>
+          <p>Output from the Touchstone engine on our sample environment, on a Mac, with no training run.</p>
+        </Rise>
+        <div className="term" data-ui>
+          <div className="term-bar"><i /><i /><i /><span>touchstone</span></div>
+          <pre aria-label={`${CMD}. ${OUT.map(o => o[0]).join('. ')}`}><code>
+            <span className="prompt">$ </span>{CMD.slice(0, typed)}{typed < CMD.length && <span className="caret" />}{'\n'}
+            {OUT.slice(0, lines).map(([t, c]) => <span key={t} className={`ln ${c ?? ''}`}>{t}{'\n'}</span>)}
+          </code></pre>
+        </div>
       </div>
-      <Rise delay={.1}><p className="note">Output from the Touchstone engine on our sample environment. 27 seconds on a Mac, no training run.</p></Rise>
+    </section>
+  )
+}
+
+function How() {
+  return (
+    <section className="how">
+      <div className="in">
+        <Rise className="split-head"><h2>Small experiments, before the big spend.</h2><p>Screening takes under a minute. Small models take minutes. Larger ones, up to 1.7B parameters, take hours and only run when the decision needs them.</p></Rise>
+        <div className="legacy how-story"><HowItWorks /></div>
+        <Rise className="how-more"><Pill href="#demo">Open the live demo</Pill><Pill href="#product" tone="line">Read how the product works</Pill></Rise>
+      </div>
     </section>
   )
 }
@@ -199,9 +255,11 @@ function Check({ q, a, on: first }: { q: string; a: string; on: boolean }) {
 
 function Checks() {
   return (
-    <section className="checks" id="checks">
-      <Rise className="checks-head"><h2>What the audit checks.</h2><p>Four questions, answered before anyone commits to a large training run.</p></Rise>
-      <div>{CHECKS.map(([q, a, on]) => <Check key={q} q={q} a={a} on={on} />)}</div>
+    <section className="checks">
+      <div className="in checks-in">
+        <Rise><h2>What the audit checks.</h2></Rise>
+        <div className="check-list">{CHECKS.map(([q, a, on]) => <Check key={q} q={q} a={a} on={on} />)}</div>
+      </div>
     </section>
   )
 }
@@ -210,37 +268,15 @@ const TILES: [number, string][] = [[21, 'RL environment cases exactly right'], [
 
 function Proof() {
   return (
-    <section className="proof" id="proof">
-      <Rise className="tile gold"><h2>A locked test.</h2><p>Frozen before scoring, run on RL environment test cases.</p></Rise>
-      <div className="rows">
+    <section className="proof">
+      <div className="in">
+        <Rise className="split-head"><h2>A locked test.</h2><p>Frozen before scoring, run on RL environment test cases.</p></Rise>
+      </div>
+      <div className="in figs">
         {TILES.map(([n, label], i) => (
-          <Rise className="row" delay={.05 + i * .06} key={label}>
-            <b><Rolling value={n} format={v => `${Math.round(v)} of ${n}`} /></b><p>{label}</p>
-          </Rise>
+          <Rise className="fig" delay={.05 + i * .07} key={label}><b><Rolling value={n} format={v => `${Math.round(v)} of ${n}`} /></b><p>{label}</p></Rise>
         ))}
       </div>
-    </section>
-  )
-}
-
-const STAGES: [string, string, number][] = [
-  ['Under a minute', 'First we attack the grader and look for leaks.', 14],
-  ['Minutes', 'Then we train a small model against a placebo.', 30],
-  ['Hours, when it matters', 'Then we go up to 1.7B parameters.', 56],
-]
-
-function How() {
-  return (
-    <section className="how" id="how">
-      <Rise><h2>Small experiments, before the big spend.</h2></Rise>
-      <div className="stages" data-ui>
-        {STAGES.map(([time, text, grow], i) => (
-          <motion.div key={time} style={{ flexGrow: grow, transformOrigin: 'left' }} initial={reduced ? false : { scaleX: .2, opacity: 0 }} whileInView={{ scaleX: 1, opacity: 1 }} viewport={{ once: true, margin: '-10% 0px' }} transition={{ duration: .9, delay: i * .1, ease }}>
-            <b>{time}</b><p>{text}</p>
-          </motion.div>
-        ))}
-      </div>
-      <Rise delay={.1}><p className="note">A blocking problem ends a quick audit early, so nobody pays to train on an environment that can't be trusted.</p></Rise>
     </section>
   )
 }
@@ -261,45 +297,32 @@ function Streak() {
   return (
     <svg className="streak" ref={ref} viewBox="0 0 1600 110" preserveAspectRatio="none" aria-hidden="true">
       <defs><clipPath id="rub"><rect x="0" y="0" width={reduced ? 1600 : 0} height="110" /></clipPath></defs>
-      <g clipPath="url(#rub)" fill="none" stroke="#e2b45a" strokeLinecap="round">{lines}</g>
+      <g clipPath="url(#rub)" fill="none" stroke="#e7c37a" strokeLinecap="round">{lines}</g>
     </svg>
   )
 }
 
 function Close() {
   return (
-    <section className="close" id="request">
+    <section className="close">
       <Streak />
-      <div className="close-body">
+      <div className="in close-body">
         <Rise><h2>Know before you train.</h2></Rise>
         <Rise delay={.08}><p>Send us the environment you're about to buy. Neutral by design: we sell no training material, and we grade no material of our own.</p></Rise>
-        <Rise delay={.14}><Button href={REQUEST}>Request an audit</Button></Rise>
+        <Rise delay={.14}><RequestButton tone="gold" /></Rise>
       </div>
     </section>
   )
 }
 
-function Footer() {
-  return (
-    <footer className="foot">
-      <p className="huge" aria-hidden="true">touchstone</p>
-      <div className="foot-row">
-        <nav aria-label="Footer"><a href="#try">Try it</a><a href="#checks">What we check</a><a href="#proof">Proof</a><a href="#how">How it works</a></nav>
-        <p>Painting: Petrus Christus, A Goldsmith in his Shop, 1449, The Metropolitan Museum of Art, CC0, via Wikimedia Commons.</p>
-        <p>© 2026 Touchstone</p>
-      </div>
-    </footer>
-  )
-}
-
-const GROUNDS: [string, string][] = [['silver', 'Silver'], ['pewter', 'Pewter'], ['graphite', 'Graphite']]
-
-function Grounds() {
-  const [ground, setGround] = useState(() => { try { return localStorage.getItem('ground') || 'silver' } catch { return 'silver' } })
-  useEffect(() => { document.documentElement.dataset.ground = ground; try { localStorage.setItem('ground', ground) } catch { /* private window */ } }, [ground])
-  return <div className="grounds" role="group" aria-label="Background colour">{GROUNDS.map(([id, name]) => <button key={id} type="button" aria-pressed={ground === id} onClick={() => setGround(id)}>{name}</button>)}</div>
-}
-
 export default function Sample() {
-  return <><Grounds /><Nav /><main><Hero /><Why /><Cheat /><Console /><Checks /><Proof /><How /><Close /></main><Footer /></>
+  // Section lines draw themselves in as they arrive.
+  useEffect(() => {
+    if (reduced) return
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('.draw').forEach(el => gsap.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 96%', once: true } }))
+    })
+    return () => ctx.revert()
+  }, [])
+  return <><Hero /><Ticker /><Why /><Bench /><Console /><How /><i className="draw" /><Checks /><Proof /><Close /></>
 }

@@ -126,7 +126,7 @@ function Scene({ still }: { still: boolean }) {
     group.current.rotation.x += (-state.pointer.y * .06 + .04 - group.current.rotation.x) * k
   })
   return (
-    <group ref={group} position={narrow ? [0, -viewport.height * .34, 0] : [viewport.width * .02 + size * 1.26, -viewport.height * .05, 0]} scale={size}>
+    <group ref={group} position={narrow ? [0, -viewport.height * .34, 0] : [viewport.width * .02 + size * 1.26, viewport.height * .06, 0]} scale={size}>
       <group rotation={[0, -Math.PI / 2, 0]}>
         <mesh geometry={geometry} scale={SCALE}>
           <meshPhysicalMaterial map={mapT} metalnessMap={pbrT} roughnessMap={pbrT} bumpMap={bumpT} bumpScale={.5} metalness={1} roughness={1} clearcoat={.3} clearcoatRoughness={.3} />
@@ -146,7 +146,7 @@ function Loop({ active }: { active: boolean }) {
 
 export default function Stone({ active, still, onReady }: { active: boolean; still: boolean; onReady: () => void }) {
   return (
-    <Canvas className="stone-canvas" camera={{ fov: 26, position: [0, 0, 7] }} dpr={[1, 1.75]} gl={{ antialias: true, alpha: true }} onCreated={onReady} aria-hidden="true">
+    <Canvas className="stone-canvas" eventSource={document.documentElement} eventPrefix="client" camera={{ fov: 26, position: [0, 0, 7] }} dpr={[1, 1.75]} gl={{ antialias: true, alpha: true }} onCreated={onReady} aria-hidden="true">
       <Lighting /><Scene still={still} /><Loop active={active} />
     </Canvas>
   )

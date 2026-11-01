@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Component, lazy, Suspense, useEffect, useRef, useState, type AnchorHTMLAttributes, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { animate } from 'animejs'
 import { REQUEST_FORM_URL } from './data'
@@ -47,13 +47,16 @@ export const Brand = () => (
   </svg>
 )
 
-export function RequestButton({ label = 'Request an audit' }: { label?: string }) {
+const PillArrow = () => <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 8h10M8.5 3.8 12.7 8l-4.2 4.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+
+/** The site's button: a solid pill carrying a small disc, and the arrow swaps through the disc on hover. */
+export function Pill({ href, children, tone = 'ink', ...rest }: { href: string; children: ReactNode; tone?: 'ink' | 'gold' | 'line' } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>) {
+  return <a className={`pill ${tone}`} href={href} {...rest}><span className="pill-t">{children}</span><span className="pill-d"><i><PillArrow /></i><i><PillArrow /></i></span></a>
+}
+
+export function RequestButton({ label = 'Request an audit', tone = 'ink' }: { label?: string; tone?: 'ink' | 'gold' | 'line' }) {
   const external = Boolean(REQUEST_FORM_URL)
-  return (
-    <a className="btn" href={external ? REQUEST_FORM_URL : '#request'} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
-      {label}<Arrow />
-    </a>
-  )
+  return <Pill tone={tone} href={external ? REQUEST_FORM_URL : '#request'} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>{label}</Pill>
 }
 
 /** Fades content up once it reaches the screen; it is visible by default if motion is off. */
@@ -137,11 +140,11 @@ export function Faq({ items }: { items: [string, string][] }) {
 
 export function Close({ title, text }: { title: ReactNode; text: string }) {
   return (
-    <section className="close">
-      <Gradient tone="close" />
-      <div className="wrap">
-        <Reveal><h2>{title}</h2><p className="lede">{text}</p>
-          <div className="actions"><RequestButton /><a className="btn secondary" href="#report">See a sample report</a></div></Reveal>
+    <section className="finale">
+      <div className="in finale-body">
+        <Reveal><h2>{title}</h2></Reveal>
+        <Reveal delay={.08}><p>{text}</p></Reveal>
+        <Reveal delay={.14}><div className="finale-act"><RequestButton tone="gold" /><Pill href="#report" tone="line">See a sample report</Pill></div></Reveal>
       </div>
     </section>
   )

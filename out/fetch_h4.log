@@ -1,0 +1,3 @@
+arc train 1119 ['id', 'question', 'choices', 'answerKey']
+arc test 900 ['id', 'question', 'choices', 'answerKey']
+arc_easy train FAILED HTTP Error 429: Too Many Requests

@@ -1,0 +1,54 @@
+arc|135M {'acc': 19.5, 'chance': 25.0, 'truncated': 20.0, 'has_letter': 93.5, 'n': 400, 'material_n': 1118, 's': 4} ['A) The worm feels cold.', 'To find the average speed, we need to calculate the total distance traveled and divide']
+arc_easy|135M {'acc': 21.8, 'chance': 25.0, 'truncated': 10.8, 'has_letter': 95.2, 'n': 400, 'material_n': 2251, 's': 3} ['D) Building houses', 'A) pie graph.']
+openbook|135M {'acc': 23.0, 'chance': 25.0, 'truncated': 8.0, 'has_letter': 95.5, 'n': 400, 'material_n': 4952, 's': 3} ['D) dirt', "The Earth's closest heat source is C) gamma rays."]
+csqa|135M {'acc': 19.0, 'chance': 20.0, 'truncated': 3.2, 'has_letter': 97.2, 'n': 400, 'material_n': 6000, 's': 3} ['A) motion', 'A) sick']
+sciq|135M {'acc': 20.5, 'chance': 25.0, 'truncated': 6.5, 'has_letter': 90.5, 'n': 400, 'material_n': 6000, 's': 3} ['A) harrold', 'The full range of wavelengths and frequencies of electromagnetic radiation makes up the electromagnetic spectrum.']
+qasc|135M {'acc': 12.5, 'chance': 12.5, 'truncated': 11.2, 'has_letter': 96.8, 'n': 400, 'material_n': 6000, 's': 3} ['A magnet is the most accurate method of finding true north.', 'A) fish']
+mmlu|135M {'acc': 24.5, 'chance': 25.0, 'truncated': 35.5, 'has_letter': 92.0, 'n': 400, 'material_n': 5948, 's': 4} ['D) Not wrong, Not wrong', 'D) Health issues, such as the prevalence of infectious disease or the ability of']
+boolq|135M {'acc': 29.5, 'chance': 50.0, 'truncated': 29.0, 'has_letter': 49.5, 'n': 400, 'material_n': 6000, 's': 4} ["Yes, aldi's affiliated with trader joe's.", 'A) yes']
+ag_news|135M {'acc': 25.8, 'chance': 25.0, 'truncated': 0.2, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 1} ['B) Sports', 'B) Sports']
+rotten|135M {'acc': 45.5, 'chance': 50.0, 'truncated': 0.2, 'has_letter': 95.5, 'n': 400, 'material_n': 6000, 's': 2} ['B) positive', 'B) positive']
+trec|135M too few 0
+aqua|135M {'acc': 18.1, 'chance': 20.0, 'truncated': 38.6, 'has_letter': 85.8, 'n': 254, 'material_n': 5999, 's': 2} ['E) 91', 'E) 10%']
+medmcqa|135M too few 0
+piqa|135M too few 0
+hellaswag|135M too few 0
+emotion|135M {'acc': 9.8, 'chance': 16.7, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 5997, 's': 1} ['D) anger', 'F) surprise']
+yelp|135M {'acc': 24.0, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['D) 4 stars', 'D) 4 stars']
+dbpedia|135M {'acc': 2.2, 'chance': 7.1, 'truncated': 1.2, 'has_letter': 98.2, 'n': 400, 'material_n': 6000, 's': 2} ['F) transport', 'F) transport']
+arc|360M {'acc': 25.5, 'chance': 25.0, 'truncated': 3.0, 'has_letter': 100.0, 'n': 400, 'material_n': 1118, 's': 3} ['C) The worm has 33 segments.', 'C) 100 kilometers per hour']
+arc_easy|360M {'acc': 25.5, 'chance': 25.0, 'truncated': 1.5, 'has_letter': 100.0, 'n': 400, 'material_n': 2251, 's': 3} ['C) Selling clothes', 'A) pie graph.']
+openbook|360M {'acc': 23.2, 'chance': 25.0, 'truncated': 0.8, 'has_letter': 100.0, 'n': 400, 'material_n': 4952, 's': 3} ['D) dirt', 'A) our celestial fireball']
+csqa|360M {'acc': 20.0, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['E) tennis court', 'E) attack']
+sciq|360M {'acc': 27.3, 'chance': 25.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['D) aristotle', 'C) electromagnetic spectrum']
+qasc|360M {'acc': 12.8, 'chance': 12.5, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['G) distal', 'F) protozoa']
+mmlu|360M {'acc': 25.0, 'chance': 25.0, 'truncated': 10.5, 'has_letter': 100.0, 'n': 400, 'material_n': 5948, 's': 5} ['C) Not wrong, Not wrong', 'D']
+boolq|360M {'acc': 48.8, 'chance': 50.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['B) no', 'B) no']
+ag_news|360M {'acc': 25.0, 'chance': 25.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['D) Technology', 'C) Business']
+rotten|360M {'acc': 49.2, 'chance': 50.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 1} ['B) positive', 'B) positive']
+trec|360M too few 0
+aqua|360M {'acc': 15.7, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 254, 'material_n': 5999, 's': 2} ['E', 'E) 10%']
+medmcqa|360M too few 0
+piqa|360M too few 0
+hellaswag|360M too few 0
+emotion|360M {'acc': 8.2, 'chance': 16.7, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 5997, 's': 1} ['F) surprise', 'F) surprise']
+yelp|360M {'acc': 15.5, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 3} ['D) 4 stars', 'E) 5 stars']
+dbpedia|360M {'acc': 25.2, 'chance': 7.1, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['A) company', 'A) company']
+arc|1.7B {'acc': 57.0, 'chance': 25.0, 'truncated': 0.5, 'has_letter': 100.0, 'n': 400, 'material_n': 1118, 's': 4} ['B', 'B) 90 kilometers per hour']
+arc_easy|1.7B {'acc': 74.0, 'chance': 25.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 2251, 's': 3} ['B) Feeding animals', 'B']
+openbook|1.7B {'acc': 45.5, 'chance': 25.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 4952, 's': 3} ['D) dirt', 'C']
+csqa|1.7B {'acc': 47.5, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['E)', 'D']
+sciq|1.7B {'acc': 74.0, 'chance': 25.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 3} ['C) darwin', 'B) electromagnetic spectrum']
+qasc|1.7B {'acc': 38.5, 'chance': 12.5, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 3} ['H', 'F']
+mmlu|1.7B {'acc': 44.2, 'chance': 25.0, 'truncated': 1.8, 'has_letter': 100.0, 'n': 400, 'material_n': 5948, 's': 5} ['B) Wrong, Not wrong', 'C']
+boolq|1.7B {'acc': 46.8, 'chance': 50.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 3} ['B) no', 'B) no']
+ag_news|1.7B {'acc': 70.5, 'chance': 25.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['C', 'B) Sports']
+rotten|1.7B {'acc': 61.0, 'chance': 50.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 2} ['B) positive', 'B) positive']
+trec|1.7B too few 0
+aqua|1.7B {'acc': 21.7, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 254, 'material_n': 5999, 's': 3} ['B) 28', 'C']
+medmcqa|1.7B too few 0
+piqa|1.7B too few 0
+hellaswag|1.7B too few 0
+emotion|1.7B {'acc': 50.7, 'chance': 16.7, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 5997, 's': 2} ['B) joy', 'B) joy']
+yelp|1.7B {'acc': 24.0, 'chance': 20.0, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 3} ['C) 3 stars', 'B) 2 stars']
+dbpedia|1.7B {'acc': 82.8, 'chance': 7.1, 'truncated': 0.0, 'has_letter': 100.0, 'n': 400, 'material_n': 6000, 's': 3} ['A) company', 'B) school']

@@ -95,3 +95,5 @@
 2026-10-31 18:53:05 queued demos_final: .venv/bin/python scripts/run_demos.py --repeats 2
 2026-10-31 18:53:05 start demos_final (swap 9.3 GB)
 2026-10-31 19:07:06 end demos_final: exit 0 after 841s (swap 10.1 GB)
+2026-10-31 20:53:04 queued dev_travel: .venv/bin/python scripts/dev_travel.py
+2026-10-31 20:53:04 start dev_travel (swap 6.7 GB)

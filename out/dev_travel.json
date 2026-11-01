@@ -64,5 +64,11 @@
   "confident": 45,
   "disagree_n": 23,
   "disagree": 0.5111
+ },
+ "mcq|openbook|30|2": {
+  "sampled": 100,
+  "confident": 72,
+  "disagree_n": 32,
+  "disagree": 0.4444
  }
 }

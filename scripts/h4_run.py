@@ -39,7 +39,7 @@ def pool(fam, part):
     it = H.items(fam, H.SPLITS[fam][0])
     s = {i[0] for i in suite(fam)}
     it = [x for x in it if x[0] not in s]
-    return it[::2] if part == "pilot" else it[1::2]
+    return it[1::2] if part == "final" else it[::2]
 
 
 def wrong(ans, prompt, rng):

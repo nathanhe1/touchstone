@@ -297,6 +297,21 @@ The primary noise ceiling is below the pre-registered 0.70, so **the result is i
 
 **Forecast pre-flight** (`out/h4/h4_preflight.json`, no training, under 3 GPU minutes, 400 items per family, same prompt and 32-token reply limit at every size). On choice and classification families, 135M and 360M sit at chance on nearly everything, while 1.7B is far above it (for example `arc_easy` 74% against 25%, `sciq` 74%, `csqa` 48% against 20%). A 10-90% band alone would pass these at-chance scores, so accuracy is judged against chance as well. Fine-tuning and RL are separate arms with separate verdicts, never pooled.
 
+**Forecast pilot and dev trial** (`out/h4/`, `out/forecast_h4_dev.json`; dev families `ag_news`, `rotten`, `emotion`, pilot rows).
+
+- *RL arm, no family passes.* On every family tried, reward at 135M and 360M stays at guessing level, with gains around +/-3 and 135M to 360M agreement 0.43 on 30 pairs. 1.7B does learn (reward 0.6 to 0.8, +7 to +11). **RL forecasting remains untested on non-arithmetic work.** No RL arm is in the final set.
+- *Fine-tuning gate*, replacing the base-accuracy gate, which would block nearly everything. A family passes when clean minus all-wrong material is at least 5 points at the proxy, and the larger model is under 90% base. Passing: `ag_news`, `rotten`, `emotion`, `dbpedia`, `imdb`, `amazon`, `cr`, `subj`, `enron`, `sst5`, `bbc`. Abstaining: `sciq`, `yelp` (measured), and `arc_easy`, `csqa`, `openbook` (small sizes only). So coverage so far is classification, not knowledge questions.
+- *Dev scores, screen-passing pairs / all pairs:* baseline 360M to 1.7B 0.41 / 0.63; 10x lower learning rate 0.64 / 0.58; truncated 1.7B (10 steps, net of same-length placebo) 0.73 / 0.74; 135M to 360M 0.82 / 0.84. Noise ceiling at 1.7B 0.92 / 0.94, at 360M 0.70 / 0.66 (some 360M seeds were lost to GPU memory). These forms were picked on development data, and development scores are optimistic.
+
+**h4, pre-registered before any final run.** Fine-tuning only. Hash of materials and suites in `out/h4_final.sha256`; config in `scripts/h4_config.json`. Each candidate is scored once by `scripts/h4_score.py final`.
+
+- *Set:* 8 families never measured at 1.7B (`dbpedia, imdb, amazon, cr, subj, enron, sst5, bbc`), final rows only, disjoint from dev rows and suites, 10 materials each, 2 seeds, 135M, 360M and 1.7B, 600-item suites or the whole suite where smaller.
+- *Primary question:* does 360M predict 1.7B? *Primary number:* decision accuracy within family on pairs of the 7 screen-passing materials (`clean, pool100, pool200, pool300, wrong10, off25, drop`), 168 pairs. All pairs (360) sit beside it, with noise ceiling and family coverage.
+- *Candidates, three in all:* `acc_final` at 360M (baseline), 10x lower learning rate at 360M, truncated 1.7B net of placebo. The truncated run is a target measurement and not a small-model forecast, and it is reported as that. Secondary: `acc_final` 135M to 360M.
+- *Pass bar for a candidate:* screen-passing decision at least 0.80, permutation p below 0.0167 (0.05 over three candidates), and at least 5 of 8 families above 0.5. The 0.90 target stays reported as a target.
+- *Inconclusive* if the 1.7B screen-passing noise ceiling is below 0.75.
+- *Stop rule:* a candidate that misses the bar is retired, not retuned.
+
 ## 7. Grade and fair value
 
 `touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.

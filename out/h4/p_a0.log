@@ -1,0 +1,3 @@
+sft|sciq|wrong100|135M|0 +3.33 33s
+sft|csqa|clean|135M|0 -1.17 29s
+sft|csqa|wrong100|135M|0 +1.33 26s

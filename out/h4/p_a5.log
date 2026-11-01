@@ -1,3 +1,6 @@
 sft|arc_easy|wrong30|135M|0 -0.50 35s
 sft|sciq|wrong30|135M|0 +4.33 30s
 sft|sciq|pool30|135M|0 +1.00 30s
+sft|csqa|off80|135M|0 -0.33 33s
+sft|ag_news|wrong100|135M|0 -10.00 36s
+sft|ag_news|pool30|135M|0 +36.50 36s

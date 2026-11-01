@@ -1,3 +1,7 @@
 sft|arc_easy|wrong60|135M|0 +3.83 35s
 sft|arc_easy|wrong100|135M|0 +3.83 32s
 sft|arc_easy|pool30|135M|0 +0.17 30s
+sft|csqa|wrong30|135M|0 +0.67 30s
+sft|csqa|pool30|135M|0 +1.50 30s
+sft|rotten|off80|135M|0 +8.67 33s
+sft|rotten|pool30|135M|0 +9.17 31s

@@ -1,3 +1,7 @@
 sft|sciq|wrong100|135M|0 +3.33 33s
 sft|csqa|clean|135M|0 -1.17 29s
 sft|csqa|wrong100|135M|0 +1.33 26s
+sft|openbook|pool30|135M|0 -1.40 26s
+sft|ag_news|wrong60|135M|0 +3.00 32s
+sft|ag_news|off80|135M|0 +2.33 33s
+sft|rotten|wrong60|135M|0 +2.17 30s

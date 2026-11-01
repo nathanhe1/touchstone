@@ -1,3 +1,7 @@
 sft|arc_easy|clean|135M|0 +4.67 36s
 sft|sciq|clean|135M|0 +5.00 30s
 sft|csqa|wrong60|135M|0 -1.33 31s
+sft|openbook|clean|135M|0 -2.20 32s
+sft|ag_news|clean|135M|0 +41.67 36s
+sft|ag_news|wrong30|135M|0 +32.17 36s
+sft|rotten|wrong30|135M|0 +4.50 29s

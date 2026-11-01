@@ -119,3 +119,7 @@ Touchstone must eventually appraise every kind of training material. This matrix
 What this says: code tests and tool structure are the sturdiest checks, because they execute or parse rather than ask a model. Free text and multiple choice work on these sources, but their thresholds depend on the source's difficulty. Chat fails: the signal on clean SODA already sits under the dev threshold. Non-English math has too few confident items (16-36) to set a threshold.
 
 **Changed after seeing this eval:** chat and non-English signals became advisory (shown in `checks`, no flag), because a false flag blocks a price. That choice was informed by the eval, so the 0.73 above is the number for the rules as they stood, and the new rule has no clean measurement yet.
+
+## 5. Round 4 notes
+
+**Where the noise ceiling comes from** (exploratory, stored 360M runs on spent arithmetic environments). In pairwise gaps, the median standard error is 0.75 points from seeds and 0.91 from items, against a median gap of 3.1. Items are 55% of the noise. Same-seed gains are uncorrelated across environments (r -0.05), so shared seeds give no saving. Doubling seeds and tripling items would lift the expected ceiling only from 0.83 to 0.84. What limits it is how close most environments are in true value, so round 4 spends on spread between materials, not on seeds.

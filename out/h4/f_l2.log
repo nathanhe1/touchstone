@@ -18,3 +18,13 @@ sft|sst5|off80|1.7B|0 +17.67 108s
 sft|bbc|pool100|1.7B|0 +24.17 116s
 sft|bbc|wrong60|1.7B|0 +20.17 111s
 sft|bbc|wrong100|1.7B|0 -57.00 112s
+sfttr|dbpedia|placebo|1.7B|0 +9.00 33s
+sfttr|imdb|clean|1.7B|0 +20.33 33s
+sfttr|imdb|pool200|1.7B|0 +20.17 29s
+sfttr|imdb|drop|1.7B|0 +12.17 29s
+sfttr|amazon|off80|1.7B|0 +12.50 24s
+sfttr|amazon|placebo|1.7B|0 -12.00 27s
+sfttr|cr|wrong100|1.7B|0 -43.09 14s
+sfttr|cr|placebo|1.7B|0 +1.06 15s
+sfttr|subj|off25|1.7B|0 +32.67 23s
+sfttr|subj|placebo|1.7B|0 +8.67 18s

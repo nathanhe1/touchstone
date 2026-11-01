@@ -8,3 +8,7 @@ sft|rotten|wrong30|135M|0 +4.50 29s
 sft|emotion|wrong100|135M|0 -3.50 30s
 sft|yelp|clean|135M|0 +5.00 43s
 sft|yelp|wrong100|135M|0 -1.83 42s
+rl|sciq|lax|135M|0 +0.50 89s
+rl|ag_news|noise30|135M|0 -4.00 90s
+sft|arc_easy|wrong100|360M|0 -1.83 51s
+sft|arc_easy|off80|360M|0 -0.50 49s

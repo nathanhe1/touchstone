@@ -6,3 +6,8 @@ sft|yelp|wrong30|135M|0 +0.67 38s
 rl|arc_easy|noise30|135M|0 +0.17 104s
 rl|ag_news|clean|135M|0 -2.00 87s
 rl|ag_news|pool20|135M|0 -0.17 83s
+rl|ag_news|lax|135M|0 -2.33 74s
+sft|arc_easy|pool30|360M|0 -1.00 50s
+sft|sciq|wrong100|360M|0 +0.83 42s
+sft|openbook|wrong30|360M|0 +0.20 47s
+sft|openbook|wrong100|360M|0 +2.80 47s

@@ -74,7 +74,7 @@
     "rl_max_new": 24,
     "eval_max_new": 96
   },
-  "runtime_s": 145,
+  "runtime_s": 121,
   "label_quality": {
     "arithmetic": {
       "checked": 450,

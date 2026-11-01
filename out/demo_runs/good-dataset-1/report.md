@@ -9,7 +9,7 @@ No flags.
 - Dataset: `/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/demo/good_word_problems.jsonl`
 - SHA-256: `dd9733471031cd007e651dba9e5b6429f0acba6d0b63a93e418e2c2a519bc04f`
 - Items: 400 (400 unique)
-- Mode: quick · runtime 6 min 26 s
+- Mode: quick · runtime 4 min 28 s
 - Models (real open weights, LoRA rank 16): 135M = `HuggingFaceTB/SmolLM2-135M-Instruct`
 
 ## Held-out suite

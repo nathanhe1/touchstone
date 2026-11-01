@@ -75,5 +75,85 @@
     ]
    }
   }
+ },
+ "trunc_steps": 10,
+ "dev_small": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80"
+    ]
+   },
+   "sftlr": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80"
+    ]
+   }
+  }
+ },
+ "dev_large": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80"
+    ]
+   },
+   "sfttr": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "placebo"
+    ]
+   }
+  }
  }
 }

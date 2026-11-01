@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react'
 import { data, vendors, base, truth, signed, pct, money, params, ROADMAP, FOUNDERS, REQUEST_FORM_URL, type Env } from '../data'
 import NumberFlow from '@number-flow/react'
-import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, RequestButton, reduced } from '../ui'
+import { Alert, Check, Close, Count, Faq, Panel, Rating, Reveal, reduced } from '../ui'
 import { ReportSample } from './Home'
 import { AdaptiveSlider, AppraisalCard, PlanPicker } from '../components/Watermelon'
 import { RequestForm } from '../components/RequestForm'
@@ -36,17 +36,6 @@ export function Product() {
             </ol>
           </Reveal>
           <Reveal delay={.1}><LiveAppraisal /></Reveal>
-        </div>
-      </section>
-      <section className="section flush">
-        <div className="wrap">
-          <div className="section-head"><Reveal><h2>The technical details.</h2></Reveal><Reveal delay={.1}><p>Fixed models, a fixed recipe and a private test suite. The method is the same for every vendor.</p></Reveal></div>
-          <Reveal><Faq items={[
-            ['Which models do you train?', 'A fixed family of small open models with one fixed RL recipe. Results describe the sizes we measured, each with its range.'],
-            ['How do you test transfer?', 'On a private held-out suite that no vendor ever sees. We also check submitted tasks for overlap with it.'],
-            ['How do you find reward exploits?', 'A fixed set of exploit probes, such as empty answers, format gaming and editing tests, run against the grader.'],
-            ['What can you test today?', 'RL environments with automatic graders. Post-training datasets and other training material are next.'],
-          ]} /></Reveal>
         </div>
       </section>
       <Close title="See it on your environment." text="We're taking on a small number of pilot appraisals." />
@@ -182,11 +171,6 @@ export function Market() {
           <div><b><Count value="$2B" /></b><p>annualized revenue at Mercor; AfterQuery reached about $100M in a year</p><small>Pebblous market map</small></div>
           <div><b><Count value="$20k" /></b><p>for a single RL task at the high end; most sell for $200 to $2,000</p><small>Price summary citing Epoch AI</small></div>
         </Reveal>
-        <Reveal className="cols" delay={.1}>
-          <div><b>$1B+</b><p>on RL environments in a single year at one frontier lab</p><small>TechCrunch</small></div>
-          <div><b><Count value="55%" /></b><p>of AI cloud spend goes to inference in 2026, driven by fine-tuned models in production</p><small>Gartner, via TechTimes</small></div>
-          <div><b>Vendor-run</b><p>is how most results reach buyers today, measured by the people selling.</p><small>Surge, Invisible</small></div>
-        </Reveal>
       </section>
       <section className="section">
         <div className="wrap">
@@ -195,18 +179,6 @@ export function Market() {
             <div><b>$5M–$10M</b><span>a year from appraisals</span><p>About 50 environment vendors and 15 to 20 serious buyers, paying per appraisal and by subscription.</p></div>
             <div className="up"><b>$30M–$100M+</b><span>a year as the standard rating</span><p>As environment and post-training spend reaches billions a year, a verification layer earning 1–3% of every purchase.</p></div>
           </Reveal>
-          <p className="note">Lab spend on training material is forecast to pass $100B a year by 2030.</p>
-        </div>
-      </section>
-      <section className="section flush">
-        <div className="wrap two">
-          <Reveal><h2>A moat that grows <span className="transfer">with every report.</span></h2></Reveal>
-          <Reveal delay={.1}><ol className="steps-list">
-            <li><div><b>Neutral by design</b><p>We never sell training material, so we can rate every vendor, including the largest.</p></div></li>
-            <li><div><b>A private test suite</b><p>No vendor can train on it. It becomes more valuable the longer it stays clean.</p></div></li>
-            <li><div><b>Every appraisal will teach us</b><p>Each result will add to what we know about what transfers.</p></div></li>
-            <li><div><b>The first standard sticks</b><p>In ratings and audits, the first trusted standard becomes the default.</p></div></li>
-          </ol></Reveal>
         </div>
       </section>
       <Close title="A verification layer for a new market." text="Talk to us about a pilot appraisal." />
@@ -228,16 +200,6 @@ export function Pricing() {
       <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the material it checks." />
       <section className="wrap plans-wrap">
         <Reveal><PlanPicker defaultId="full" href={REQUEST_FORM_URL || '#request'} cta="Request an audit" plans={tiers.map(([name, sub, amount, per, items, featured]) => ({ id: featured ? 'full' : name.toLowerCase().replace(/\s+/g, '-'), name, description: sub, price: amount, per, badge: featured ? 'Most teams start here' : undefined, features: items }))} /></Reveal>
-      </section>
-      <section className="section">
-        <div className="wrap">
-          <div className="section-head"><Reveal><h2>The unit economics.</h2></Reveal><Reveal delay={.1}><p>Small models keep compute cheap, which is the whole point.</p></Reveal></div>
-          <Reveal className="cols">
-            <div><b>$300–$2k</b><p>of GPU per appraisal on small open models</p><small>estimated compute cost</small></div>
-            <div><b><Count value="80%" />–90%</b><p>target gross margin on a full appraisal</p><small>target</small></div>
-            <div><b>1–3%</b><p>fee on purchases once Touchstone is the standard rating</p><small>at scale</small></div>
-          </Reveal>
-        </div>
       </section>
       <section className="section flush">
         <div className="wrap">
@@ -261,7 +223,6 @@ export function Pricing() {
       <section className="section"><div className="wrap"><Reveal><Faq items={[
         ['Who pays, the buyer or the vendor?', 'Either. Buyers appraise before purchase. Vendors commission a neutral rating to win contracts and justify their price; small vendors can\'t afford their own transfer studies.'],
         ['Why start with a grader audit?', 'It is the cheapest test and catches the most common failure. A broken grader makes the rest of the appraisal moot.'],
-        ['Can we pilot first?', 'Yes. Every new customer starts with a pilot appraisal.'],
       ]} /></Reveal></div></section>
       <Close title="Price the risk before you pay." text="Tell us what you're about to buy, and we'll scope the appraisal." />
     </>
@@ -282,16 +243,6 @@ export function Company() {
           <Reveal delay={.1}><p className="lede" style={{ marginTop: 0 }}>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training material.</p></Reveal>
         </div>
       </section>
-      <section className="section">
-        <div className="wrap">
-          <div className="section-head"><Reveal><h2>What we've decided.</h2></Reveal></div>
-          <div className="cols">
-            <Reveal><div><b style={{ fontSize: 26 }}>Appraisal, not cleaning</b><p>We value training material before purchase. One clear job.</p></div></Reveal>
-            <Reveal delay={.08}><div><b style={{ fontSize: 26 }}>Neutral, always</b><p>We never sell training material, so we can rate every vendor, including the biggest.</p></div></Reveal>
-            <Reveal delay={.16}><div><b style={{ fontSize: 26 }}>GPU time is the saving</b><p>The value is in the training runs you don't waste, not in cheaper compute.</p></div></Reveal>
-          </div>
-        </div>
-      </section>
       {FOUNDERS.length > 0 && (
         <section className="section flush"><div className="wrap"><h2>Who is building this.</h2>
           <div className="cols" style={{ marginTop: 40 }}>{FOUNDERS.map(([n, r, w, l]) => <div key={n}><b style={{ fontSize: 28 }}>{n}</b><p className="dim">{r}</p><p>{w}</p>{l && <a className="textlink" href={l} target="_blank" rel="noopener">Profile</a>}</div>)}</div></div></section>
@@ -307,22 +258,6 @@ export function Company() {
           </ol>
         </div>
       </section>
-      <section className="section">
-        <div className="wrap two">
-          <Reveal><h2>Where this <span className="transfer">leads.</span></h2></Reveal>
-          <Reveal delay={.1}><ol className="steps-list">
-            <li><div><b>Testing post-training runs</b><p>A future direction: running cheap pilots before a $20k–$500k fine-tuning or RL run.</p></div></li>
-            <li><div><b>Testing behaviour before deployment</b><p>A future direction: measuring how a model behaves before it ships.</p></div></li>
-            <li><div><b>A marketplace priced by appraised value</b><p>Escrowed purchases where the price follows the measured value.</p></div></li>
-          </ol></Reveal>
-        </div>
-      </section>
-      <section className="section flush"><div className="wrap"><div className="section-head"><Reveal><h2>Questions.</h2></Reveal></div><Reveal><Faq items={[
-        ['Do you ever see the vendor\'s tasks?', 'They stay in a sealed sandbox. Buyers get results, never the tasks.'],
-        ['Why trust small models?', 'Small models keep an appraisal cheap, and most checks do not depend on model size: exploit probes, overlap and duplicates read the material itself. Where we train, the report states the size we measured and the range.'],
-        ['What can you test today?', 'RL environments with automatic graders. Post-training datasets and other training material are next.'],
-        ['Are you independent?', 'Yes. We never sell training material, and the method is the same for every vendor.'],
-      ]} /></Reveal></div></section>
       <Close title="Building the neutral standard for training material." text="Talk to us about a pilot." />
     </>
   )

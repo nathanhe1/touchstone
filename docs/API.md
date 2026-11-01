@@ -36,16 +36,21 @@ Runs a bundled demo input (see `/api/examples`). Optional query `?mode=quick|ful
 ```json
 {
   "job_id": "3f2a9c1d0b7e",
-  "status": "queued | running | done | error",
+  "status": "queued | running | done | error | cancelled",
   "stage": "validate | seal | overlap | probe | train | measure | forecast | price | report",
   "progress": 0.42,
   "log": ["Appraising dataset good.jsonl: 400 examples; ...", "  135M seed 0 material: accuracy 31.7% ..."],
   "error": null,
-  "report": null
+  "report": null,
+  "ahead": 2
 }
 ```
 
-`progress` runs from 0 to 1 and `log` holds the latest human-readable lines (up to 50). When `status` is `done`, `report` is the full `report.json` (below). When it is `error`, `error` is a one-line explanation.
+`ahead` is the number of jobs that will finish before a queued job, counting the one running now; it is 0 once a job starts. `progress` runs from 0 to 1 and `log` holds the latest human-readable lines (up to 50). When `status` is `done`, `report` is the full `report.json` (below). When it is `error`, `error` is a one-line explanation.
+
+### `POST /api/jobs/{job_id}/cancel` → `{"job_id": str, "status": str}`
+
+Stops a queued or running job and marks it `cancelled`. A finished job keeps its status.
 
 ### `GET /api/jobs/{job_id}/report.md` → `text/markdown`
 

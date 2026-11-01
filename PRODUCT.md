@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-React + Vite (TypeScript), built to static files in `web/dist` and published to the Touchstone claude.ai artifact link. Code lives in the private GitHub repo `nathanhe1/touchstone`; every change ships as a branch, pull request and merge. The Python package (`touchstone/`) is the appraisal engine and produces `out/appraisals.json`, which the site reads. Motion is the only animation library.
+React + Vite (TypeScript), built to static files in `web/dist` and published to the Touchstone claude.ai artifact link. Code lives in the private GitHub repo `nathanhe1/touchstone`; every change ships as a branch, pull request and merge. The Python package (`touchstone/`) is the appraisal engine and produces `out/appraisals.json`, which the site reads. Animation libraries the founder asked for: GSAP, Motion, React Spring, ShaderGradient, Anime.js, plus a liquid-glass effect.
 
 ## Users
 
@@ -21,7 +21,7 @@ Touchstone helps AI companies decide which training material and RL environments
 
 ## Positioning
 
-Independent: it never sells training material or environments. The site leads with the audit: catching bad training material before you pay for it. It measures training value (not finished-model quality), before purchase, at small-model cost. Scale AI sells data and grades its own; Patronus AI evaluates finished models; in-house teams only learn after buying, at full cost.
+Independent: it never sells data or environments. It measures training value (not finished-model quality), before purchase, at small-model cost. Scale AI sells data and grades its own; Patronus AI evaluates finished models; in-house teams only learn after buying, at full cost.
 
 ## Operating Context
 
@@ -31,8 +31,7 @@ The vendor uploads an environment (tasks, tools, grader) to a sealed sandbox; th
 
 - Working prototype: the full pipeline runs end to end on tiny CPU models and six fictional environments (`out/appraisals.json`).
 - Report measures: learnability, transfer, reward exploits (hackability), redundancy, forecast, fair value per task.
-- No small-to-large forecast has been shown. Reports state the gain at the size measured, with its range; see docs/AUDIT.md.
-- Verified figures, from locked test v4 (`out/test_v4_results.json`, part `env`): 21 of 21 RL environment cases exactly right, 12 of 12 gameable graders caught, 3 of 3 reworded test leaks caught, all on test cases. Dataset checks are built but not proven on real sources: overall precision 0.51 and recall 0.69 on that test, so dataset audits stay advisory.
+- In the demo run the small-to-large forecast did not rank well (rank match −0.03); the site must stay honest about this.
 - Planned, not built: comparing environments side by side; testing a real open-source environment; support beyond RL environments.
 - Planned pricing: $10k–$50k per appraisal, $50k–$250k a year subscription; compute roughly $1k–$5k per appraisal.
 - The request form is an external link not yet provided (`REQUEST_FORM_URL` in `touchstone/report.py`).

@@ -5,8 +5,7 @@ import { STAGES, STAGE_LABEL, findApi, getJob, listExamples, normalize, runExamp
 import { Rating, reduced } from '../ui'
 
 type Recorded = { id: string; name: string; kind: string; description: string; recorded: string; report: unknown; log: string[] }
-// The headline gain is measured at the largest size trained, so the raw log’s target-size label would mislead here.
-const RECORDED = (recorded as Recorded[]).map(r => ({ ...r, log: r.log.map(l => l.replace('net gain at 1.7B', 'net gain')) })).sort((a, b) => Number(b.kind === 'env') - Number(a.kind === 'env'))
+const RECORDED = recorded as Recorded[]
 const pct = (v: number) => `${(v * 100).toFixed(v > 0 && v < .1 ? 1 : 0)}%`
 const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
 const usd = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`
@@ -25,7 +24,7 @@ function Report({ v }: { v: View }) {
         <div><small>Grade</small><Rating grade={v.grade} /></div>
         <div><small>Estimated value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0
           ? <span className="dim">blocked by {v.blockedBy.join(', ').replace(/_/g, ' ')}</span>
-          : v.dollarsPerPoint ? <span className="dim">at {usd(v.dollarsPerPoint)} per point, the buyer’s assumption</span> : null}</div>
+          : v.dollarsPerPoint ? <span className="dim">at {usd(v.dollarsPerPoint)} per point, the buyer's assumption</span> : null}</div>
         <div><small>Net gain on held-out tasks{v.forecast ? `, ${v.forecast.where}` : ''}</small><b className={blocked ? 'muted' : (v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'Not trained'}</b>{!v.forecast && v.screened && <span className="dim">Screening already ruled out a price</span>}{v.forecast && <span className="dim">{blocked ? 'Not trusted: see the red flags below' : `90% range ${pts(v.forecast.lo)} to ${pts(v.forecast.hi)}`}</span>}</div>
       </div>
 
@@ -159,22 +158,22 @@ export default function Demo() {
   const runKind = options.find(o => o.name === run?.name)?.kind ?? (run?.name.endsWith('.jsonl') ? 'dataset' : 'env')
   return (
     <>
-      <header className="page-head dark"><div className="wrap">
-        <h1>Run an audit.</h1>
-        <p className="lede">Pick an RL environment or a sample dataset, or upload your own. Touchstone probes the grader, checks for test leaks, trains small models against a placebo, and prices what is left. Dataset audits are advisory for now.</p>
+      <header className="page-head wrap">
+        <h1>Appraise training material, <span className="transfer">live.</span></h1>
+        <p className="lede">Pick a dataset or RL environment, or upload your own. Touchstone checks it for leaks and copies, probes the grader, trains small models on it against a placebo, and prices what is left.</p>
         <p className="demo-status">
           {api === undefined ? <><i className="wait" />Connecting to the engine…</>
             : live ? <><i className="on" />Engine online · {api.device === 'cpu' ? 'CPU' : `GPU (${api.device})`} · runs take a few minutes</>
             : <><i className="off" />Engine not reachable from this page · replaying real recorded runs from Oct 30, 2026</>}
         </p>
-      </div></header>
+      </header>
       <section className="wrap demo">
         <div className="demo-pick">
           <h3>Try an example</h3>
           <div className="demo-options">
             {options.map(o => (
               <button key={o.id} className={`demo-option${run?.name === o.name ? ' on' : ''}`} onClick={() => start(o.id)} disabled={busy} aria-busy={busy && run?.name === o.name}>
-                <span className="demo-kind">{o.kind === 'env' ? 'RL environment' : 'Dataset, advisory'}</span>
+                <span className="demo-kind">{o.kind === 'env' ? 'RL environment' : 'Dataset'}</span>
                 <b>{o.name}</b><span className="dim">{o.description}</span>
               </button>
             ))}
@@ -183,7 +182,7 @@ export default function Demo() {
           <div className={`demo-drop${over ? ' over' : ''}`} onDragOver={e => { e.preventDefault(); setOver(true) }} onDragLeave={() => setOver(false)}
             onDrop={e => { e.preventDefault(); setOver(false); const f = e.dataTransfer.files[0]; if (f) send(f) }}
             onClick={() => fileRef.current?.click()} role="button" tabIndex={0} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') fileRef.current?.click() }}>
-            <b>Drop a zipped RL environment or a .jsonl dataset</b>
+            <b>Drop a .jsonl dataset or a zipped RL environment</b>
             <span className="dim">One JSON example per line: {'{"prompt", "completion"}'} or {'{"messages": [...]}'}. Up to 50 MB.</span>
           </div>
           <input ref={fileRef} type="file" accept=".jsonl,.ndjson,.json,.zip,.tar.gz,.tgz" hidden onChange={e => { const f = e.target.files?.[0]; if (f) send(f); e.target.value = '' }} />

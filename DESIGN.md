@@ -1,311 +1,297 @@
 ---
 name: Touchstone
-description: Independent audit and appraisal for AI training material, shown through recorded engine runs on a dark-to-light seam.
+description: Independent appraisal for AI training data, drawn as a training run in black, gold and silver.
 colors:
-  gold: "#dcae4a"
-  gold-2: "#e9c26c"
-  gold-deep: "#80600f"
-  bad: "#b4341f"
-  good: "#27704a"
-  bad-on-ink: "#f08370"
-  good-on-ink: "#71cc97"
-  ink: "#121211"
-  ink-2: "#1c1c1a"
-  ink-line: "#31312d"
-  on-ink: "#f3f2ed"
-  on-ink-2: "#aeada5"
-  paper: "#f7f6f3"
-  paper-2: "#efeee9"
-  paper-line: "#dcdad2"
-  panel-paper: "#fbfaf8"
-  field: "#ffffff"
-  text: "#171715"
-  text-2: "#5a5952"
-  text-hover: "#3a3a36"
+  transfer-gold: "#e2b45a"
+  gold-hover: "#eec982"
+  reward-silver: "#b9bfc8"
+  exploit-red: "#ff6b5b"
+  pass-green: "#45d483"
+  ground: "#0b0d10"
+  panel: "#111418"
+  panel-raised: "#161a1f"
+  line: "#22272e"
+  line-strong: "#2e343c"
+  ink: "#eef0f3"
+  ink-muted: "#a9b0b9"
+  ink-faint: "#7f8792"
 typography:
   display:
-    fontFamily: "STIX Two Text Variable, STIX Two Text, Georgia, serif"
-    fontSize: "clamp(44px, 5.6vw, 80px)"
-    fontWeight: 500
-    lineHeight: 1.04
-    letterSpacing: "-0.025em"
-  headline:
-    fontFamily: "STIX Two Text Variable, STIX Two Text, Georgia, serif"
-    fontSize: "clamp(32px, 3.4vw, 48px)"
-    fontWeight: 500
-    lineHeight: 1.1
-    letterSpacing: "-0.025em"
-  figure:
-    fontFamily: "STIX Two Text Variable, STIX Two Text, Georgia, serif"
-    fontSize: "48px"
-    fontWeight: 500
+    fontFamily: "Bodoni Moda Variable, Bodoni 72, Didot, Georgia, serif"
+    fontSize: "clamp(44px, 5.2vw, 76px)"
+    fontWeight: 560
     lineHeight: 1
-    letterSpacing: "-0.02em"
+    letterSpacing: "-0.012em"
+  headline:
+    fontFamily: "Bodoni Moda Variable, Bodoni 72, Didot, Georgia, serif"
+    fontSize: "clamp(34px, 4.4vw, 60px)"
+    fontWeight: 560
+    lineHeight: 1.02
+    letterSpacing: "-0.012em"
+  figure:
+    fontFamily: "Bodoni Moda Variable, Bodoni 72, Didot, Georgia, serif"
+    fontSize: "clamp(64px, 9vw, 136px)"
+    fontWeight: 600
+    lineHeight: 0.95
+    letterSpacing: "-0.045em"
   title:
-    fontFamily: "STIX Two Text Variable, STIX Two Text, Georgia, serif"
-    fontSize: "28px"
-    fontWeight: 500
-    lineHeight: 1.2
-    letterSpacing: "-0.015em"
-  lede:
-    fontFamily: "Geist Variable, Geist, -apple-system, Helvetica Neue, sans-serif"
-    fontSize: "20px"
-    fontWeight: 400
-    lineHeight: 1.5
+    fontFamily: "Geist Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "22px"
+    fontWeight: 600
+    lineHeight: 1.25
+    letterSpacing: "-0.02em"
   body:
-    fontFamily: "Geist Variable, Geist, -apple-system, Helvetica Neue, sans-serif"
+    fontFamily: "Geist Variable, Helvetica Neue, Arial, sans-serif"
     fontSize: "17px"
     fontWeight: 400
+    lineHeight: 1.6
+    fontFeature: "\"ss01\", \"cv11\""
+  lede:
+    fontFamily: "Geist Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(18px, 1.5vw, 20px)"
+    fontWeight: 400
     lineHeight: 1.55
-  label:
-    fontFamily: "Geist Variable, Geist, -apple-system, Helvetica Neue, sans-serif"
-    fontSize: "14px"
-    fontWeight: 500
   data:
-    fontFamily: "Geist Mono Variable, Geist Mono, ui-monospace, Menlo, monospace"
-    fontSize: "14px"
-    fontWeight: 400
-    lineHeight: 1.5
-  data-small:
-    fontFamily: "Geist Mono Variable, Geist Mono, ui-monospace, Menlo, monospace"
+    fontFamily: "Geist Mono Variable, ui-monospace, Menlo, monospace"
     fontSize: "12px"
-    fontWeight: 400
+    fontWeight: 500
+    letterSpacing: "-0.01em"
+    fontFeature: "\"tnum\""
 rounded:
-  fine: "2px"
-  base: "4px"
+  track: "4px"
+  control: "8px"
+  button: "10px"
+  segment: "12px"
+  panel: "14px"
+  tile: "18px"
 spacing:
-  micro: "4px"
-  xs: "8px"
-  sm: "16px"
-  md: "24px"
-  lg: "32px"
-  xl: "48px"
-  2xl: "64px"
-  3xl: "96px"
+  gutter: "20px"
+  stack: "12px"
+  panel-pad: "20px"
+  block: "28px"
+  head-gap: "48px"
+  section: "clamp(96px, 12vw, 160px)"
 components:
   button-primary:
-    backgroundColor: "{colors.text}"
-    textColor: "{colors.paper}"
-    typography: "{typography.label}"
-    rounded: "{rounded.base}"
+    backgroundColor: "{colors.transfer-gold}"
+    textColor: "{colors.ground}"
+    rounded: "{rounded.button}"
     padding: "0 20px"
-    height: "44px"
-  button-primary-hover:
-    backgroundColor: "{colors.text-hover}"
-  button-primary-on-ink:
-    backgroundColor: "{colors.gold}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.base}"
-    padding: "0 20px"
-    height: "44px"
-  button-primary-on-ink-hover:
-    backgroundColor: "{colors.gold-2}"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.text}"
-    typography: "{typography.label}"
-    rounded: "{rounded.base}"
-    padding: "0 20px"
-    height: "44px"
-  button-nav:
-    backgroundColor: "{colors.gold}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.base}"
-    padding: "0 14px"
-    height: "36px"
-  nav-link:
-    textColor: "{colors.on-ink-2}"
-  nav-link-active:
-    textColor: "{colors.on-ink}"
-  console:
-    backgroundColor: "{colors.ink-2}"
-    textColor: "{colors.on-ink}"
-    typography: "{typography.data}"
-    rounded: "{rounded.base}"
-  console-tab:
-    textColor: "{colors.on-ink-2}"
-    typography: "{typography.label}"
-    padding: "0 16px"
     height: "48px"
-  console-tab-selected:
-    textColor: "{colors.on-ink}"
-  rating-cell:
-    rounded: "{rounded.fine}"
-    typography: "{typography.label}"
-    width: "28px"
-    height: "32px"
-  rating-cell-pass:
-    backgroundColor: "{colors.gold}"
+  button-primary-hover:
+    backgroundColor: "{colors.gold-hover}"
+    textColor: "{colors.ground}"
+  button-secondary:
+    backgroundColor: "transparent"
     textColor: "{colors.ink}"
+    rounded: "{rounded.button}"
+    padding: "0 20px"
+    height: "48px"
+  button-nav:
+    backgroundColor: "{colors.transfer-gold}"
+    textColor: "{colors.ground}"
+    rounded: "{rounded.control}"
+    padding: "0 14px"
+    height: "38px"
   panel:
-    backgroundColor: "{colors.panel-paper}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.base}"
-  field:
-    backgroundColor: "{colors.field}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.base}"
+    backgroundColor: "{colors.panel}"
+    rounded: "{rounded.panel}"
+  panel-head:
+    textColor: "{colors.ink-faint}"
+    typography: "{typography.data}"
+    padding: "0 16px"
+    height: "44px"
+  nav-link:
+    textColor: "{colors.ink-muted}"
+    rounded: "{rounded.control}"
     padding: "8px 12px"
+  nav-link-active:
+    backgroundColor: "{colors.panel-raised}"
+    textColor: "{colors.ink}"
+  tab:
+    textColor: "{colors.ink-faint}"
+    rounded: "{rounded.control}"
+    padding: "0 12px"
+    height: "34px"
+  tab-selected:
+    textColor: "{colors.ink}"
+  segment-selected:
+    backgroundColor: "{colors.transfer-gold}"
+    textColor: "{colors.ground}"
+    rounded: "{rounded.control}"
+    height: "38px"
+  grade-tile:
+    rounded: "{rounded.tile}"
+    size: "72px"
 ---
 
 # Design System: Touchstone
 
 ## Overview
 
-**Creative North Star: "The Recorded Run"**
+**Creative North Star: "The Assay Run"**
 
-The console is the product demonstrated. Real recorded engine runs sit across the seam between one dark hero and a light body, and everything around them is plain enough to let the run be the only spectacle. The world is a ledger with an instrument laid on it: near-black at the head and foot of every page, off-white in between, hairline rules, tight corners, one gold accent.
+The site is a training run on a black bench. Reward climbs, transfer stays flat, and Touchstone is the eval that tells you which one you bought. The grammar is an experiment dashboard: graphite panels on a near-black ground, hairline borders, run headers carrying ids, step counts and sha prefixes, curves that draw as you watch. Over that sits the touchstone itself: the dark stone, the streak of gold drawn across it. Gold is the true number and the brand; silver is the tempting one.
 
-The page tells one story in order: what it is, proof with scope, why it matters in one chart, how it works as four steps of one run, next step. Density is calm and typographic. Content sits on rules rather than in boxes, a serif states the claims and the large figures, Geist carries everything you read or operate, and Geist Mono holds what the engine actually printed. Motion is rich but tied to the run: lines resolve, a verdict lands, a curve draws, a step lights the matching console row.
+Density is dashboard-calm: generous section spacing around tightly packed panels. Words are set plainly in Geist; headlines and big figures speak in Bodoni Moda, with the turn of a sentence picked out in gold italic ("Don't buy training data *blind.*"). Motion is rich but always explanatory: curves draw, numbers count up, the ranking re-sorts, the model spheres spring.
 
-Conventions were checked against the study of YC sites in [YC site analysis](reports/YC%20site%20analysis.md); go there for the counts. The report separates measured facts from judgement. Read it as evidence, not as a specification: its adoption tables describe the preview before this redesign, and the gold and the 80px headline, above the measured median, are judgement calls.
+It refuses the dark-SaaS hero with a glowing product screenshot. Evidence is drawn as live charts, not mocked as screenshots.
 
 **Key Characteristics:**
-- Near-black hero, nav, closing call and footer; off-white body; the seam between them is where the product sits.
-- One gold accent; red and green carry outcomes, never decoration.
-- Hairline rules, 4px corners, no shadows, no visible gradients, no card grids.
-- STIX Two Text for claims and figures, Geist for reading and operating, Geist Mono for engine output.
-- Motion is Motion plus short CSS state transitions, and every sequence has a finished reduced-motion state.
+- Black ground, graphite panels, 1px hairlines; depth comes from tone, not shadow.
+- Gold means transfer and Touchstone; silver means training reward; red means exploit or loss; green means pass or gain.
+- Bodoni Moda for headlines and big figures, gold italic for the accent phrase; Geist for UI and body; Geist Mono for data only.
+- Every chart and panel carries a run header and a "demo data" marker.
+- Motion explains the number: draw, count, re-rank, spring.
 
 ## Colors
 
-Two neutral grounds, warm rather than pure, with a single gold and two outcome colours that only ever report something.
+A near-monochrome graphite field where colour is reserved for meaning, led by a single warm gold.
 
 ### Primary
-- **Streak Gold** (`gold`): the accent on dark grounds. Primary buttons on ink, the console's selected-tab rule, the passing grade cell, text selection, the streak in the brand mark. Always carries ink text (9.1:1).
-- **Lit Gold** (`gold-2`): hover state of gold buttons only.
-- **Deep Gold** (`gold-deep`): the same accent where the ground is light, because Streak Gold measures 1.9:1 on paper. Links' underline and hover, focus rings, selected demo options, positive estimated values, the Cuts-the-price ledger state (5.4:1 on paper).
+- **Touchstone Gold** (`transfer-gold`): transfer, the true number. Also Touchstone's own colour: the primary button, the selected segment, focus rings, text selection, the progress and timeline fills, the "us" marker on the market map, the brand mark's streak, and the italic accent words in headlines. Gold surfaces always carry ground-black text (10.1:1).
+- **Lit Gold** (`gold-hover`): hover state of gold buttons only.
+
+### Secondary
+- **Reward Silver** (`reward-silver`): training reward, the tempting number. Reward curves, reward columns and reward readouts. Never used for Touchstone's own voice or actions.
 
 ### Tertiary
-- **Fail Red** (`bad`, `bad-on-ink`): blocked checks, failing grades, the accuracy line and its points in the chart, form validation. The lighter value is for ink grounds.
-- **Pass Green** (`good`, `good-on-ink`): positive net gain, clean flags, completed stages, the engine-online dot. The lighter value is for ink grounds.
+- **Exploit Red** (`exploit-red`): reward exploits, negative change, "don't buy" verdicts, failing grades.
+- **Pass Green** (`pass-green`): positive change, passing grades, sealed and verified checks.
 
 ### Neutral
-- **Stone Ink** (`ink`): hero, nav, page heads, closing call, footer; also the `html` ground behind overscroll.
-- **Raised Ink** (`ink-2`): the console surface and the demo log, one step above Stone Ink.
-- **Ink Hairline** (`ink-line`): every rule and border on dark grounds.
-- **Bone** (`on-ink`): headings and primary text on dark.
-- **Worn Bone** (`on-ink-2`): ledes, nav links and console keys on dark (8.3:1 on ink, 7.6:1 on the console).
-- **Assay Paper** (`paper`): the body ground.
-- **Shaded Paper** (`paper-2`): drop-zone hover, skeleton bars, empty tracks.
-- **Paper Hairline** (`paper-line`): every rule and border on light grounds.
-- **Report Paper** (`panel-paper`): the live demo's report panel. **Field White** (`field`): form inputs only.
-- **Text Ink** (`text`): body text and the primary button on light grounds; **`text-hover`** is that button's hover.
-- **Muted Text** (`text-2`): supporting copy on light grounds (6.5:1 on paper).
+- **Bench Black** (`ground`): the page ground and the text colour on any gold surface.
+- **Graphite** (`panel`): panel fill, running to #0f1215 at the bottom of each panel.
+- **Raised Graphite** (`panel-raised`): active nav pill, vault rows, the glass verdict tint.
+- **Hairline** (`line`): every panel border, divider, table rule and grid line.
+- **Strong Hairline** (`line-strong`): secondary-button stroke, slider track, inactive timeline node.
+- **Ink** (`ink`): headlines and primary text.
+- **Muted Ink** (`ink-muted`): body copy under headlines, ledes, nav links, legends.
+- **Faint Ink** (`ink-faint`): axes, panel meta, captions, footnotes. It measures 5.4:1 on ground, 5.1:1 on panel and 4.8:1 on raised panels, so it passes AA for small text.
+
+Translucent tints are derived from these hexes by alpha, never new hues: gold at 12–20% for selected rows, tab pills and halos; red and green at 10–12% for grade tiles; white at 3–5% for hover rows and empty tracks.
 
 ### Named Rules
-**The One Accent Rule.** Gold is the only accent. Streak Gold on dark, Deep Gold on light, and no third hue enters to decorate.
+**The Two Numbers Rule.** Silver is reward, gold is transfer, in every chart, legend, readout and figure. Never swap them, and never use silver for something Touchstone recommends.
 
-**The Outcome Colour Rule.** Red and green report an outcome: a check, a result, a stage, a field that failed. They are never decoration and never a button.
+**The Verdict Colour Rule.** Red and green appear only as judgements on data: loss or exploit, gain or pass. Never as decoration or as button colours.
 
-**The Neutral Reward Rule.** The reward curve stays a neutral grey. It is what a seller shows you, so it never takes gold, red or green; only accuracy on new problems takes red.
-
-**The Passing Cell Rule.** The grade scale fills A and B with gold and C, D and F with red. A grade is a Touchstone statement, so a passing cell is gold even though a passing number is green.
+**The Gold Is Ours Rule.** Gold marks Touchstone's own voice: its actions, its verdict accent, its position. If gold appears, it means "the real number" or "us".
 
 ## Typography
 
-**Display Font:** STIX Two Text Variable (with Georgia)
-**Body Font:** Geist Variable (with -apple-system, Helvetica Neue)
-**Label/Mono Font:** Geist Mono Variable (with ui-monospace, Menlo)
+**Display Font:** Bodoni Moda Variable (with Bodoni 72, Didot, Georgia), optical sizing on
+**Body Font:** Geist Variable (with Helvetica Neue, Arial), stylistic sets ss01 and cv11
+**Label/Mono Font:** Geist Mono Variable (with ui-monospace, Menlo), tabular numerals
 
-**Character:** A scholarly text serif at weight 500 with tight tracking, reading like a published finding, against a neutral grotesk and a monospace that is plainly machine output.
-
-The scale is seven steps: 12, 14, 17, 20, 28, 48, 80. Headings balance their wrap.
+**Character:** A high-contrast Didone for the claims and the large numbers, against a neutral grotesk for everything you operate and a monospace that only ever holds measurements. It reads as an assay certificate set over an instrument panel.
 
 ### Hierarchy
-- **Display** (`display`): every page's h1 and the closing call. Reaches 80px from about 1430px wide; holds one line on desktop and wraps on phones.
-- **Headline** (`headline`): section h2s, set in sentence case and ending with a period.
-- **Figure** (`figure`): proof figures on Home and market figures on Company.
-- **Title** (`title`): step h3s, tier prices, verdict values, the request confirmation, legal subheads.
-- **Lede** (`lede`): page ledes and closing text, muted, max 58ch; drops to 17px at 720px. Long-form prose uses the same size at 64ch.
-- **Body** (`body`): running text.
-- **Label** (`label`): buttons, nav, console tabs, form labels. Scope lines and notes use the same size at weight 400.
-- **Data** (`data`, `data-small`): console logs, chart axes, step outputs at 14px; table heads and small data labels at 12px.
+- **Display** (Bodoni Moda 560, clamp(44px, 5.2vw, 76px), line-height 1): the home hero headline. Page headers run slightly larger (clamp(44px, 5.6vw, 80px)) with a 16ch measure.
+- **Headline** (Bodoni Moda 560, clamp(34px, 4.4vw, 60px), 1.02): section headlines, balanced wrap. The closing section uses clamp(44px, 6vw, 88px).
+- **Figure** (Bodoni Moda 600, clamp(64px, 9vw, 136px), 0.95, -0.045em): hero statistics on the market and forecast pages. Column figures use clamp(40px, 4.4vw, 60px).
+- **Title** (Geist 600, 22px, 1.25, -0.02em): step titles, card titles, environment names.
+- **Body** (Geist 400, 17px, 1.6): running text. Ledes are 18–20px in muted ink, max 58ch; section-head notes 18px, max 46ch.
+- **Data** (Geist Mono 500, 11–13px for labels and axes, 15–22px for readouts, tabular numerals): panel headers, axis text, run ids, step counts, legends, table headers, metric values.
+
+Headlines are short, plain and end with a period. The four that set the voice: "Don't buy training data blind.", "Training data is expensive. Finding out it didn't work is worse.", "Small experiments, before the big spend.", "Know before you train."
 
 ### Named Rules
-**The Mono Is Output Rule.** Geist Mono holds what the engine prints or what a machine reads: log lines, axes, probe samples, table heads, the small labels on report values. Console tabs and the verdict stay in Geist, because a person wrote them.
+**The Gold Italic Rule.** A headline may pick out its turn (the final word or second sentence) in Bodoni italic at weight 500, in Touchstone Gold. One accent per headline, never in body text, never in Geist.
 
-**The Serif States Rule.** STIX Two Text sets headings, large figures and prices. It never sets controls, tables' body text or running copy.
+**The Mono Is Data Rule.** Geist Mono holds only measurements and machine identifiers: numbers, axes, ids, hashes, step counts, panel meta. Words a person reads as prose or navigation stay in Geist.
+
+**The Bodoni Speaks Rule.** Bodoni Moda sets h1, h2 and big figures, nothing smaller. Titles, buttons, tables and UI stay in Geist.
 
 ## Layout
 
-Content sits in a 1200px container with 24px gutters (20px at 720px and below) that respect safe-area insets. Page structure is a 12-column grid with a 24px column gap. Vertical rhythm comes from the space scale: 4 as a micro step inside tight rows, then 8, 16, 24, 32, 48, 64, 96. Sections are 96px bands (64px at 720px) divided by a full-bleed hairline.
+Content sits in a 1200px container with 20px side gutters that respect safe-area insets. Sections breathe at clamp(96px, 12vw, 160px) vertically; consecutive sections drop their top padding ("flush") so the rhythm stays even. A section opens with a two-column head (headline at 1.1fr, a short note at 0.9fr, bottom-aligned, 48px gap) and then one wide panel.
 
-The seam is the signature layout. The hero's bottom padding runs 48px past its CTAs and then the console's negative top margin pulls it 216px up into the dark, so the console always starts 48px below the actions and straddles the dark-to-light edge; at 720px the same 48px holds with a 72px overlap. Hero headline, then a row with the lede on columns 1 to 7 and two CTAs right-aligned on columns 9 to 12. Proof follows at once in three columns.
+The hero is two equal columns: headline, lede, two buttons and two check-marked assurances on the left; the run panel on the right, at least min(760px, 100svh − 68px) tall. The how-it-works story is a sticky stage (1.15fr) beside scroll-driven steps (0.85fr), each step 60vh tall, with inactive steps at 28% opacity.
 
-Two recurring splits: a section head (headline on 1 to 7, note on 9 to 12, bottom-aligned) above one wide object, and a sticky left column beside a list (4 columns and 7 on subpages, 5 and 6 on Home's How section), sticky at 112px.
+Panels pack tightly inside: 20px body padding, 44px headers, internal columns divided by hairlines rather than gaps. Stat rows and plan grids sit edge to edge, split by 1px rules.
 
-At 960px every split stacks and stickies release; Home's mini console disappears and each step shows its output as a mono line instead. At 720px the nav collapses, console tabs go two by two, log rows and the verdict stack, proof goes to one column and ledger tables become stacked rows. Below 380px the nav button hides and the menu button remains.
+Breakpoints: at 900px every two-column grid stacks, the sticky stage moves above its steps, internal column rules turn horizontal, and the nav collapses to a menu. At 560px the run chart shortens to 240px and the floating glass verdict gives way to an inline sentence.
 
 ## Elevation & Depth
 
-The system is flat with no shadow vocabulary. Depth is the step from `ink` to `ink-2`, the step from dark ground to light, and 1px hairlines. The only thing that reads as lifted is the console, and it earns that by crossing the seam rather than by casting anything.
+The system is flat and tonal. Depth comes from the ground-to-graphite step, a top-to-bottom panel gradient (panel to #0f1215) and 1px hairlines. Shadows appear only as warm gold light or on the few objects that float: the primary button, the glass verdict, the model spheres and gold markers.
+
+### Shadow Vocabulary
+- **Gold lift** (`box-shadow: 0 1px 0 #ffffff40 inset, 0 8px 24px -8px #e2b45a80`): primary button at rest; on hover it grows to `0 14px 32px -10px #e2b45aaa`.
+- **Glass float** (`box-shadow: 0 20px 40px -12px #000a`): the verdict chip over the run chart.
+- **Gold halo** (`box-shadow: 0 0 0 7px #e2b45a26, 0 0 28px #e2b45aaa`): Touchstone's dot on the market map; the current timeline node uses a 6px ring of the same tint.
+- **Sphere light** (`box-shadow: inset -10px -14px 26px #0b0d1066, 0 26px 44px -16px #e2b45a88`): the gold model spheres.
 
 ### Named Rules
-**The Seam Is The Depth Rule.** Nothing casts a shadow at rest or on hover. If an object needs presence, it crosses a ground change or takes a hairline.
+**The Hairline First Rule.** Separate with a 1px line in `line` before reaching for a shadow. A neutral drop shadow on a resting panel is wrong; light in this world is gold.
+
+**The Breathing Ground Rule.** The animated shader gradient (gold through black) sits only behind the hero (40% opacity) and the closing call (60%), fully masked toward the text, and never mounts with reduced motion.
 
 ## Shapes
 
-Tight, ruled and nearly square. One radius (`base`) on buttons, the console, the panel, fields and the drop zone; `fine` only on small parts such as grade cells, skeleton bars and focus rings. Circles belong to status dots and data points. Rules are 1px and solid; the drop zone's dashed border is the one exception, because it marks an open target. Chart curves are 3px round-capped strokes, and a value measured only at two points is drawn as two points and a dotted join, never as a curve.
-
-Drawn marks are functional only: the brand stone with its gold streak, the two-bar menu, the plus that rotates to a close on questions, and status dots.
+Softly squared instrument hardware. Radii step with size: 4px for bar tracks, 8px for nav pills, tabs, chips and the compact nav button, 10px for buttons and vault rows, 12px for segmented controls and the price tag, 14px for panels and the glass verdict, 18px for grade tiles. Circles are reserved for data points, timeline nodes, slider thumbs and the model spheres. Curves are 3px round-capped strokes; chart grid lines are dashed (2 4) hairlines.
 
 ## Components
 
 ### Buttons
-Quiet, squared and flat; colour flips with the ground.
-- **Shape:** gently squared (`base`), 44px tall, 36px in the nav, labels only.
-- **Primary:** Text Ink on light grounds, Streak Gold on dark.
-- **Hover / Focus:** background colour change over 150ms, no lift or movement. Focus is a 2px accent outline at 2px offset.
-- **Ghost:** transparent with a hairline border and the ground's text colour; the border takes full text colour on hover.
-- **Text link:** weight 500 with an accent underline at 4px offset; the text takes the accent on hover.
+Gold, solid and lit from above; the one warm object on the page.
+- **Shape:** gently squared (10px), 48px tall; 38px tall and 8px radius in the nav.
+- **Primary:** Touchstone Gold with ground-black text, Geist 600 15px, 0 20px padding, trailing arrow icon, gold lift shadow. "Request an appraisal" is the only primary action.
+- **Hover / Focus:** lightens to Lit Gold, rises 1px, the glow deepens and the arrow slides 3px right; presses to 0.98 scale. Focus is a 2px gold outline at 3px offset.
+- **Secondary:** transparent with an inset strong-hairline stroke and ink text; hover adds a 3% white wash and a faint-ink stroke.
+- **Text link:** ink text with a strong-hairline underline at 5px offset that turns gold on hover.
 
-### Grade Scale
-Always the full A to F row, never a lone letter: 28 by 32px cells with a hairline border and a 4px gap, the earned cell filled per the Passing Cell Rule.
+### Chips and Tags
+- **Grade tile:** 72px square, 18px radius, Geist 600 40px letter; green or red at about 12% fill with a 1px inset ring of the same hue, or a 5% white neutral. In tables it shrinks to a 28px chip at 8px radius.
+- **Fair-value tag:** solid gold, 12px radius, ground-black text, springs in with a slight rotation.
 
-### Ledger
-The system's table and its main content form on subpages: a 12px mono head, then rows separated by hairlines with no fills or stripes, first column at weight 500. Prices right-align in the title style. Sources, questions and demo options share the same top-rule rhythm.
+### Cards / Containers
+- **Corner Style:** 14px.
+- **Background:** graphite gradient (panel to #0f1215).
+- **Shadow Strategy:** none; see Elevation & Depth.
+- **Border:** 1px hairline.
+- **Internal Padding:** 20px; report sides and calculators 28–32px.
+- **Run header:** every panel opens with a 44px mono header: a title such as "run · env name" or "certificate · env name" in muted ink, and meta such as "demo data" or a sealed hash pushed right in faint ink.
+- **Featured plan:** border tinted gold (#e2b45a55) and a warm graphite gradient (#1a170f to #0f1215).
 
 ### Inputs / Fields
-- **Style:** 1px border in the muted text colour on Field White, `base` radius, 16px text so phones do not zoom on focus.
-- **Focus:** 2px accent outline with the border matching.
-- **Error / Disabled:** red border and a 14px red message below the field; a sending submit drops to 70% opacity with an inline spinner.
+- **Range slider:** 4px track filled gold up to the value over a strong-hairline remainder; 20px ink thumb with a 5px gold halo.
+- **Field label:** muted ink label with the live value in mono ink, right-aligned on the same line.
 
 ### Navigation
-Sticky 64px dark bar with a bottom hairline on every page: brand mark and wordmark, links right-aligned in 14px, then the gold nav button. Current page and hover move from Worn Bone to Bone over 150ms. At 720px links drop into an ink panel under a 36px bordered menu button.
+- **Style:** sticky 68px bar, ground at 82% opacity with 16px backdrop blur; gains a hairline bottom border after 8px of scroll. Brand mark (the stone and its gold streak) and lowercase "touchstone" wordmark at left.
+- **Links:** Geist 14px muted ink; the active page carries a raised-graphite pill that glides between links on a spring (stiffness 380, damping 32).
+- **Mobile:** below 900px the links drop into a full-width panel under a 40px menu button and the nav button hides.
 
-### Console (signature)
-A `ink-2` figure with a 1px hairline: four tabs, a log on 7 parts and a verdict on 5 parts, and a 12px caption that states the run's provenance. It plays real recorded runs, read from the file the live demo replays. Each line takes two 260ms beats: the key appears with "running" beside it, then the value resolves. After the last line the grade and finding land, a gold rule drains under the selected tab for 3.4s, and the next tab starts. Hover or focus pauses it, picking a tab holds it there, and arrow keys move between tabs. Under reduced motion it shows the finished run and never advances.
-
-The mini console on Home's How section is the same object, one run in four rows, lit as each step reaches the middle of the viewport.
+### Tabs and Segmented Control
+- **Tabs:** 34px Geist 13px in faint ink; the selected tab gets a sliding pill of gold at 12% with a 1px gold-40% inset ring.
+- **Segmented control:** graphite well with a hairline border (12px radius); the selected segment is a solid gold pill with black text that slides on selection.
 
 ### Run Chart (signature)
-One chart: solid hairline grid, mono axes, reward drawn over 1.2s and accuracy as two red points with a dotted join; the gap bracket fades in after the draw. A hover cursor reads reward alone, because that is all that was logged, and end labels sit directly on the lines with no legend.
+Silver reward curve and gold transfer curve drawn over 2.6s on dashed grid lines, mono axes, end labels in matching colours, a three-cell mono readout (step, reward, new problems) that counts in sync, and a legend of 14 × 2px swatches.
 
-### Demo Panel
-The live demo's report: a bordered `panel` with a mono head, a 2px progress line, stage dots, and an inset `ink-2` log, so the dark engine output carries onto the light page.
+### Liquid-Glass Verdict (signature)
+After the curves finish drawing, a refractive glass chip springs onto the gap between them: a mono caption, the verdict in Geist 17px (red when the verdict is "don't buy"), and a mono reason. On narrow screens it becomes an inline sentence under the chart.
+
+### Dalton Spheres (signature)
+Glossy gold spheres, area-proportional to model size, lit from the upper left (cream highlight through gold to bronze), with a bold size label and a mono parameter count beneath. They spring in one after another and swell on hover. Founder-kept; part of the world.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** put recorded engine output in the first viewport and state its provenance in a caption.
-- **Do** open with a dark head and return to dark for the closing call and footer.
-- **Do** place each proof figure with its scope directly beneath it.
-- **Do** separate with 1px hairlines in `ink-line` or `paper-line`.
-- **Do** use Deep Gold, not Streak Gold, for any accent on a light ground.
-- **Do** keep state transitions at 150ms, use Motion as the only animation library, and give every sequence a finished reduced-motion state.
-- **Do** say "training material" in visual examples and captions.
+- **Do** keep silver for reward and gold for transfer in every chart, readout and legend.
+- **Do** reserve the gold button for "Request an appraisal", paired with a secondary "See a sample report" where there is room.
+- **Do** open every data container with a mono run header and mark demo results as "demo data".
+- **Do** set h1, h2 and big figures in Bodoni Moda, with one gold italic accent per headline at most.
+- **Do** separate with 1px hairlines in `line` and let tone carry depth.
+- **Do** ease state changes with cubic-bezier(.16, 1, .3, 1) and give every animation a reduced-motion state that shows the final values.
 
 ### Don't:
-- **Don't** add shadows, including on hover.
-- **Don't** use a visible gradient, gradient text or glow. A solid-colour CSS background used to draw a hairline mark is fine.
-- **Don't** use card grids or box content that a rule can separate; the console and the demo panel are the only bordered content surfaces.
-- **Don't** add decorative icons, feature icons or arrows on buttons; functional marks are listed under Shapes.
-- **Don't** put a kicker or eyebrow label above a heading or title.
-- **Don't** use red or green for anything that is not an outcome.
-- **Don't** lift, scale or translate controls on hover.
-- **Don't** set prose or navigation in Geist Mono, or controls in STIX Two Text.
-- **Don't** use a radius above `base` or a pill shape.
-- **Don't** show a console or chart run that the engine did not record.
+- **Don't** put an eyebrow or kicker label above a headline; mono labels live inside panel headers and data rows only.
+- **Don't** use gradient text.
+- **Don't** set prose, navigation or headings in Geist Mono.
+- **Don't** use red or green for anything that isn't a judgement on data.
+- **Don't** set body, UI or titles in Bodoni Moda, or put a gold italic accent in Geist.
+- **Don't** add a neutral drop shadow to a resting panel or card.
+- **Don't** show the product as a glowing screenshot; draw the evidence as a live chart.

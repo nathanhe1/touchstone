@@ -4,7 +4,7 @@ const UPDATED = 'October 29, 2026'
 export function Terms() {
   return (
     <>
-      <header className="page-head dark"><div className="wrap"><h1>Terms of use</h1><p className="lede">Last updated {UPDATED}</p></div></header>
+      <header className="page-head wrap"><h1>Terms of use</h1><p className="lede">Last updated {UPDATED}</p></header>
       <article className="wrap legal">
         <p>These terms cover your use of the Touchstone website. By using the site you agree to them. If you do not agree, please do not use the site.</p>
         <h2>The website</h2>
@@ -29,7 +29,7 @@ export function Terms() {
 export function Privacy() {
   return (
     <>
-      <header className="page-head dark"><div className="wrap"><h1>Privacy policy</h1><p className="lede">Last updated {UPDATED}</p></div></header>
+      <header className="page-head wrap"><h1>Privacy policy</h1><p className="lede">Last updated {UPDATED}</p></header>
       <article className="wrap legal">
         <p>This policy explains what information the Touchstone website collects and how it is used.</p>
         <h2>What the site collects</h2>

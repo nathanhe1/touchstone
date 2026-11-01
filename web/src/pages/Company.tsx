@@ -14,7 +14,7 @@ export default function Company() {
       <section className="band">
         <div className="wrap split">
           <div><h2>Why Touchstone.</h2></div>
-          <div className="prose"><p>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it's worth. We do the same for training material.</p><p>The buyer can't judge it without seeing it, and the seller can't show it without giving it away. It takes a neutral third party to fix that. We never sell training material, so we can audit every vendor.</p></div>
+          <div className="prose"><p>A touchstone is the dark stone merchants used to test gold before they bought it. Rub the metal across the stone, read the streak, and you know what it’s worth. We do the same for training material.</p><p>The buyer can’t judge it without seeing it, and the seller can’t show it without giving it away. It takes a neutral third party to fix that. We never sell training material, so we can audit every vendor.</p></div>
         </div>
       </section>
       <section className="band">

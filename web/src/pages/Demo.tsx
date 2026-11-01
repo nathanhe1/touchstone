@@ -5,7 +5,7 @@ import { STAGES, STAGE_LABEL, findApi, getJob, listExamples, normalize, runExamp
 import { Rating, reduced } from '../ui'
 
 type Recorded = { id: string; name: string; kind: string; description: string; recorded: string; report: unknown; log: string[] }
-// The headline gain is measured at the largest size trained, so the raw log's target-size label would mislead here.
+// The headline gain is measured at the largest size trained, so the raw log’s target-size label would mislead here.
 const RECORDED = (recorded as Recorded[]).map(r => ({ ...r, log: r.log.map(l => l.replace('net gain at 1.7B', 'net gain')) }))
 const pct = (v: number) => `${(v * 100).toFixed(v > 0 && v < .1 ? 1 : 0)}%`
 const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
@@ -25,7 +25,7 @@ function Report({ v }: { v: View }) {
         <div><small>Grade</small><Rating grade={v.grade} /></div>
         <div><small>Estimated value per item</small><b className={v.perItem > 0 ? 'transfer' : 'bad'}>{v.perItem > 0 ? usd(v.perItem) : 'Not priced'}</b>{v.blockedBy.length > 0
           ? <span className="dim">blocked by {v.blockedBy.join(', ').replace(/_/g, ' ')}</span>
-          : v.dollarsPerPoint ? <span className="dim">at {usd(v.dollarsPerPoint)} per point, the buyer's assumption</span> : null}</div>
+          : v.dollarsPerPoint ? <span className="dim">at {usd(v.dollarsPerPoint)} per point, the buyer’s assumption</span> : null}</div>
         <div><small>Net gain on held-out tasks{v.forecast ? `, ${v.forecast.where}` : ''}</small><b className={blocked ? 'muted' : (v.forecast?.point ?? 0) < 0 ? 'bad' : 'good'}>{v.forecast ? `${pts(v.forecast.point)} pts` : 'Not trained'}</b>{!v.forecast && v.screened && <span className="dim">Screening already ruled out a price</span>}{v.forecast && <span className="dim">{blocked ? 'Not trusted: see the red flags below' : `90% range ${pts(v.forecast.lo)} to ${pts(v.forecast.hi)}`}</span>}</div>
       </div>
 

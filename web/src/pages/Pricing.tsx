@@ -29,7 +29,7 @@ export default function Pricing() {
           ]} />
         </div>
       </section>
-      <Close title="Price the risk before you pay." text="Tell us what you're about to buy, and we'll scope the audit." />
+      <Close title="Price the risk before you pay." text="Tell us what you’re about to buy, and we’ll scope the audit." />
     </>
   )
 }

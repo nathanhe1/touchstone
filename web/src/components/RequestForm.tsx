@@ -1,5 +1,5 @@
 /* The appraisal request form. It posts to the Touchstone server (POST /api/requests), which validates, rate-limits and
-   stores each request. Validation here mirrors the server's so people see problems before they submit. */
+   stores each request. Validation here mirrors the server’s so people see problems before they submit. */
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { findApi, sendRequest } from '../demo/api'
@@ -41,7 +41,7 @@ export function RequestForm() {
   const err = (k: keyof Form) => touched && errors[k] ? <span className="rf-err" id={`rf-${k}-err`}>{errors[k]}</span> : null
   if (state === 'sent') return (
     <motion.div className="rf-done" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-      <b>Request received.</b><p>Thanks, {f.name.split(' ')[0]}. We'll reply to {f.email} within two working days to scope the appraisal.</p>
+      <b>Request received.</b><p>Thanks, {f.name.split(' ')[0]}. We’ll reply to {f.email} within two working days to scope the appraisal.</p>
     </motion.div>
   )
   return (
@@ -57,13 +57,13 @@ export function RequestForm() {
       <fieldset className="rf-kinds"><legend>What do you want audited?</legend>
         {KINDS.map(([k, label]) => <label key={k} className={f.material_kind === k ? 'on' : ''}><input type="radio" name="kind" value={k} checked={f.material_kind === k} onChange={() => set('material_kind', k)} />{label}</label>)}
       </fieldset>
-      <label>The material and the decision<textarea rows={5} value={f.description} onChange={e => set('description', e.target.value)} placeholder="What it trains, roughly how many tasks or examples, who sells it, the asking price, and the model you'd train." aria-invalid={touched && !!errors.description} aria-describedby="rf-description-err" />{err('description')}</label>
+      <label>The material and the decision<textarea rows={5} value={f.description} onChange={e => set('description', e.target.value)} placeholder="What it trains, roughly how many tasks or examples, who sells it, the asking price, and the model you’d train." aria-invalid={touched && !!errors.description} aria-describedby="rf-description-err" />{err('description')}</label>
       <label>Budget for the purchase <span className="dim">(optional)</span><input value={f.budget} onChange={e => set('budget', e.target.value)} placeholder="e.g. $300k" /></label>
       <label className="rf-consent"><input type="checkbox" checked={f.consent} onChange={e => set('consent', e.target.checked)} /><span>I agree that Touchstone stores these details to reply to me, as described in the <a className="textlink" href="#privacy">privacy policy</a>.</span></label>
       {err('consent')}
       <AnimatePresence>{state === 'error' && <motion.p className="rf-fail" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>{message}</motion.p>}</AnimatePresence>
       <button className="btn rf-submit" type="submit" disabled={state === 'sending'} aria-busy={state === 'sending'}>{state === 'sending' ? <><span className="rf-spin" />Sending…</> : 'Send request'}</button>
-      {base === null && <p className="dim rf-note">This preview page can't reach the request server, so sending will fail here. It works on the Touchstone site.</p>}
+      {base === null && <p className="dim rf-note">This preview page can’t reach the request server, so sending will fail here. It works on the Touchstone site.</p>}
     </form>
   )
 }

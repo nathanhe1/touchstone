@@ -41,7 +41,7 @@ export default function App() {
         </div>
       </header>
       <main><Page /></main>
-      <footer className="footer">
+      <footer className="footer dark">
         <div className="wrap">
           <p><a className="brand" href="#"><Brand />Touchstone</a><span>Independent audit and appraisal for AI training material.</span></p>
           <nav aria-label="Footer">

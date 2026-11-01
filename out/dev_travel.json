@@ -28,5 +28,35 @@
   "confident": 38,
   "disagree_n": 18,
   "disagree": 0.4737
+ },
+ "mcq|arc|30|2": {
+  "sampled": 100,
+  "confident": 37,
+  "disagree_n": 12,
+  "disagree": 0.3243
+ },
+ "mcq|openbook|0|0": {
+  "sampled": 100,
+  "confident": 52,
+  "disagree_n": 8,
+  "disagree": 0.1538
+ },
+ "mcq|openbook|0|1": {
+  "sampled": 100,
+  "confident": 45,
+  "disagree_n": 5,
+  "disagree": 0.1111
+ },
+ "mcq|openbook|0|2": {
+  "sampled": 100,
+  "confident": 72,
+  "disagree_n": 17,
+  "disagree": 0.2361
+ },
+ "mcq|openbook|30|0": {
+  "sampled": 100,
+  "confident": 52,
+  "disagree_n": 17,
+  "disagree": 0.3269
  }
 }

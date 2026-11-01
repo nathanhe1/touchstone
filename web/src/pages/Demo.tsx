@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import recorded from '../demo/recorded.json'
-import { STAGES, STAGE_LABEL, findApi, getJob, listExamples, normalize, runExample, upload, type Example, type View } from '../demo/api'
+import { STAGES, STAGE_LABEL, cancelJob, findApi, getJob, listExamples, normalize, runExample, upload, type Example, type View } from '../demo/api'
 import { Rating, reduced } from '../ui'
 
 type Recorded = { id: string; name: string; kind: string; description: string; recorded: string; report: unknown; log: string[] }
@@ -11,7 +11,13 @@ const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
 const usd = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`
 const ease = [.16, 1, .3, 1] as const
 
-type Run = { source: 'live' | 'recorded'; name: string; stage: string; progress: number; log: string[]; status: 'running' | 'done' | 'error'; error?: string; report?: View }
+/* The audit this browser is following, kept so leaving and coming back picks up where it was. */
+type Current = { id: string; name: string; kind: string }
+const KEY = 'touchstone-current-audit'
+const recall = (): Current | null => { try { return JSON.parse(localStorage.getItem(KEY) ?? 'null') } catch { return null } }
+const remember = (c: Current | null) => { try { if (c) localStorage.setItem(KEY, JSON.stringify(c)); else localStorage.removeItem(KEY) } catch { /* private window */ } }
+
+type Run = { source: 'live' | 'recorded'; name: string; stage: string; progress: number; log: string[]; status: 'running' | 'done' | 'error'; error?: string; report?: View; ahead?: number }
 
 /* ---------- The report, drawn from the normalized view ---------- */
 function Report({ v }: { v: View }) {
@@ -100,26 +106,53 @@ export default function Demo() {
   const timers = useRef<number[]>([])
   const fileRef = useRef<HTMLInputElement>(null)
   const logRef = useRef<HTMLDivElement>(null)
+  const current = useRef('')
+  const sending = useRef(false)
 
-  useEffect(() => { findApi().then(a => { setApi(a); if (a) listExamples(a.base).then(setExamples).catch(() => setExamples([])) }) }, [])
+  useEffect(() => {
+    findApi().then(a => {
+      setApi(a)
+      if (!a) return
+      listExamples(a.base).then(setExamples).catch(() => setExamples([]))
+      const saved = recall()
+      if (saved) follow(a.base, saved.id, saved.name, saved.kind, true)
+    })
+  }, [])
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
   useEffect(() => { logRef.current?.scrollTo({ top: logRef.current.scrollHeight }) }, [run?.log.length])
 
   const live = !!api
   const options = useMemo(() => live && examples.length ? examples.map(e => ({ id: e.id, name: e.name, kind: e.kind, description: e.description })) : RECORDED, [live, examples])
 
-  // Polls a live job until it finishes.
-  const follow = (base: string, id: string, name: string, kind: string) => {
+  // Polls a live job until it finishes. Only the current job is followed, and it survives leaving the page.
+  const follow = (base: string, id: string, name: string, kind: string, restoring = false) => {
+    current.current = id
+    remember({ id, name, kind })
     const tick = async () => {
+      if (current.current !== id) return
       try {
         const j = await getJob(base, id)
-        setRun({ source: 'live', name, stage: j.stage, progress: j.progress, log: j.log, status: j.status === 'done' ? 'done' : j.status === 'error' ? 'error' : 'running', error: j.error ?? undefined, report: j.report ? normalize(j.report, name) : undefined })
-        if (j.status === 'done' || j.status === 'error') { setBusy(false); return }
-      } catch (e) { setRun(r => r && { ...r, status: 'error', error: (e as Error).message }); setBusy(false); return }
+        if (current.current !== id) return
+        const over = j.status === 'done' || j.status === 'error' || j.status === 'cancelled'
+        setRun({ source: 'live', name, ahead: j.status === 'queued' ? j.ahead ?? 0 : undefined, stage: j.stage, progress: j.progress, log: j.log, status: j.status === 'done' ? 'done' : over ? 'error' : 'running', error: j.status === 'cancelled' ? 'This audit was stopped.' : j.error ?? undefined, report: j.report ? normalize(j.report, name) : undefined })
+        if (over) { setBusy(false); return }
+      } catch (e) {
+        if (restoring) { remember(null); current.current = ''; setRun(null); return } // the engine no longer has it
+        setRun(r => r && { ...r, status: 'error', error: (e as Error).message }); setBusy(false); return
+      }
+      restoring = false
       timers.current.push(window.setTimeout(tick, 1000))
     }
-    setRun({ source: 'live', name, stage: 'validate', progress: 0, log: [`Queued ${name} (${kind})`], status: 'running' })
+    setRun({ source: 'live', name, stage: 'validate', progress: 0, log: restoring ? [] : [`Queued ${name} (${kind})`], status: 'running' })
     tick()
+  }
+
+  // One audit at a time: a new one stops whatever is running and takes its place.
+  const replace = async (base: string) => {
+    const old = current.current
+    current.current = ''
+    timers.current.forEach(clearTimeout); timers.current = []
+    if (old) await cancelJob(base, old).catch(() => undefined)
   }
 
   // Replays a recorded engine run, stage by stage, when no backend is reachable.
@@ -135,24 +168,28 @@ export default function Demo() {
   }
 
   const start = async (id: string) => {
-    if (busy) return
-    setBusy(true)
+    if (busy || sending.current) return
     const opt = options.find(o => o.id === id)!
     if (live) {
-      try { const { job_id } = await runExample(api!.base, id); follow(api!.base, job_id, opt.name, opt.kind) }
-      catch (e) { setRun({ source: 'live', name: opt.name, stage: 'validate', progress: 0, log: [], status: 'error', error: (e as Error).message }); setBusy(false) }
-    } else replay(RECORDED.find(r => r.id === id)!)
+      sending.current = true
+      setRun({ source: 'live', name: opt.name, stage: 'validate', progress: 0, log: [], status: 'running' })
+      try { await replace(api!.base); const { job_id } = await runExample(api!.base, id); follow(api!.base, job_id, opt.name, opt.kind) }
+      catch (e) { setRun({ source: 'live', name: opt.name, stage: 'validate', progress: 0, log: [], status: 'error', error: (e as Error).message }) }
+      sending.current = false
+    } else { setBusy(true); replay(RECORDED.find(r => r.id === id)!) }
   }
 
   const send = async (file: File) => {
-    if (busy) return
+    if (busy || sending.current) return
     if (!/\.(jsonl|ndjson|json|zip|tar\.gz|tgz)$/i.test(file.name)) { setRun({ source: 'live', name: file.name, stage: 'validate', progress: 0, log: [], status: 'error', error: 'Upload a .jsonl dataset, or an RL environment as a .zip or .tar.gz folder.' }); return }
     if (file.size > 50e6) { setRun({ source: 'live', name: file.name, stage: 'validate', progress: 0, log: [], status: 'error', error: 'That file is over 50 MB.' }); return }
     if (!live) { setRun({ source: 'live', name: file.name, stage: 'validate', progress: 0, log: [], status: 'error', error: 'Live appraisals need the Touchstone engine, which this preview page cannot reach. Try one of the recorded runs, or open the demo from the Touchstone server.' }); return }
-    setBusy(true)
+    sending.current = true
+    setRun({ source: 'live', name: file.name, stage: 'validate', progress: 0, log: [], status: 'running' })
     const kind = /\.jsonl|\.ndjson|\.json$/i.test(file.name) ? 'dataset' : 'env'
-    try { const { job_id } = await upload(api!.base, file, kind); follow(api!.base, job_id, file.name, kind) }
-    catch (e) { setRun({ source: 'live', name: file.name, stage: 'validate', progress: 0, log: [], status: 'error', error: (e as Error).message }); setBusy(false) }
+    try { await replace(api!.base); const { job_id } = await upload(api!.base, file, kind); follow(api!.base, job_id, file.name, kind) }
+    catch (e) { setRun({ source: 'live', name: file.name, stage: 'validate', progress: 0, log: [], status: 'error', error: (e as Error).message }) }
+    sending.current = false
   }
 
   const runKind = options.find(o => o.name === run?.name)?.kind ?? (run?.name.endsWith('.jsonl') ? 'dataset' : 'env')
@@ -194,7 +231,10 @@ export default function Demo() {
           {run && (<>
             <div className="demo-progress"><motion.i animate={{ width: `${Math.round((run.status === 'done' ? 1 : run.progress) * 100)}%` }} transition={{ duration: .4, ease }} /></div>
             <Stages stage={run.stage} done={run.status === 'done'} kind={runKind} />
-            <div className="demo-log" ref={logRef} aria-live="polite">{run.log.length ? run.log.map((l, i) => <p key={i}>{l}</p>) : <p className="dim">Starting…</p>}</div>
+            {run.source === 'live' && run.status === 'running' && <p className="demo-keep">You can leave this page and it keeps running. A new upload replaces this audit.</p>}
+            <div className="demo-log" ref={logRef} aria-live="polite">{run.ahead !== undefined
+                ? <p>{run.ahead > 0 ? `In line: ${run.ahead} audit${run.ahead > 1 ? 's' : ''} ahead of yours. They run one at a time.` : 'Yours is next.'}</p>
+                : run.log.length ? run.log.map((l, i) => <p key={i}>{l}</p>) : <p className="dim">Starting…</p>}</div>
             <AnimatePresence>{run.status === 'error' && <motion.p className="demo-error" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{run.error}</motion.p>}</AnimatePresence>
             {run.status !== 'done' && run.status !== 'error' && <div className="demo-skeleton"><span className="pending" /><span className="pending" /><span className="pending" /></div>}
             {run.report && <Report v={run.report} />}

@@ -3,7 +3,7 @@
 
 const configured = (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, '')
 
-export type Job = { job_id: string; status: 'queued' | 'running' | 'done' | 'error'; stage: string; progress: number; log: string[]; error: string | null; report: unknown | null }
+export type Job = { job_id: string; status: 'queued' | 'running' | 'done' | 'error' | 'cancelled'; stage: string; progress: number; log: string[]; error: string | null; ahead?: number; report: unknown | null }
 export type Example = { id: string; name: string; kind: string; description: string }
 
 /** Finds a reachable engine: the configured URL, then the page's own origin (when the backend serves the site). */
@@ -38,6 +38,7 @@ export function upload(base: string, file: File, kind: string | null) {
   const f = new FormData(); f.append('file', file); f.append('mode', 'quick'); if (kind) f.append('kind', kind)
   return fetch(`${base}/api/appraise`, { method: 'POST', body: f }).then(r => json<{ job_id: string }>(r))
 }
+export const cancelJob = (base: string, id: string) => fetch(`${base}/api/jobs/${id}/cancel`, { method: 'POST' }).then(r => json<{ status: string }>(r))
 export const getJob = (base: string, id: string) => fetch(`${base}/api/jobs/${id}`).then(r => json<Job>(r))
 export const sendRequest = (base: string, body: Record<string, unknown>) =>
   fetch(`${base}/api/requests`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(r => json<{ id: string }>(r))

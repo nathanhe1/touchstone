@@ -25,7 +25,7 @@ CODE_FAIL_RATE = 0.10      # code labels: share failing their tests (or invalid 
 TOOL_BAD_RATE = 0.10       # tool-use labels: share of calls that break the declared tools
 # Set on the dev half of examples/coverage_eval, midpoint of clean and 30% noise. One source each, so these
 # are starting points: a judge's own error rate depends on how hard the questions are.
-MCQ_DISAGREE = 0.37        # ARC: clean 0.25, 30% wrong 0.50
+MCQ_DISAGREE = 0.30        # two routes (audit_mcq2), four dev sources: clean 0.03-0.27, 30% wrong 0.24-0.51
 FIT_MIN = {"free_text": 0.58, "chat": 0.32}  # Dolly 0.72 -> 0.43; SODA 0.38 -> 0.27
 LEAK_SHARE = 0.2            # flag when the answer is in the prompt for >= 20% of tasks
 

@@ -53,6 +53,11 @@ def main():
             a = s["rank_largest"]["accuracy_to_accuracy"]
             lines.append(f"| Datasets, real models, 135M ({label}) -> 360M | {a['spearman']} | {a['decision_accuracy']} | "
                          f"{s['n_datasets']} |")
+    v4 = load("test_v4_report.json")
+    if v4:
+        a = v4["all"]
+        lines += ["", "## Test v4: real public data, frozen, scored once", "", "| n | Precision | Recall | Exactly right | Clean draws with a false flag |", "|---|---|---|---|---|",
+                  f"| {a['n']} | {a['precision']} | {a['recall']} | {a['exact']} of {a['n']} | {v4['clean_total']['with_false_flag']} of {v4['clean_total']['draws']} |"]
     r3 = load("validation_rl_real2_summary.json")
     if r3:
         lines += ["", "## Forecast, round 3: 135M -> 360M, accuracy to accuracy, 600 items (METHOD.md, pre-registered)", "",

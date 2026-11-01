@@ -23,6 +23,12 @@
 | Datasets, real models, 135M (quick recipe) -> 360M | 0.582 | 0.724 | 13 |
 | Datasets, real models, 135M (lr / 10) -> 360M | 0.68 | 0.724 | 13 |
 
+## Test v4: real public data, frozen, scored once
+
+| n | Precision | Recall | Exactly right | Clean draws with a false flag |
+|---|---|---|---|---|
+| 70 | 0.512 | 0.688 | 47 of 70 | 13 of 31 |
+
 ## Forecast, round 3: 135M -> 360M, accuracy to accuracy, 600 items (METHOD.md, pre-registered)
 
 | Set | Signal | Spearman | Decision, all pairs | Decision, resolvable pairs | Resolvable / all | Ceiling |

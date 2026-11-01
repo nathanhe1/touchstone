@@ -297,6 +297,29 @@ The primary noise ceiling is below the pre-registered 0.70, so **the result is i
 
 **Forecast pre-flight** (`out/h4/h4_preflight.json`, no training, under 3 GPU minutes, 400 items per family, same prompt and 32-token reply limit at every size). On choice and classification families, 135M and 360M sit at chance on nearly everything, while 1.7B is far above it (for example `arc_easy` 74% against 25%, `sciq` 74%, `csqa` 48% against 20%). A 10-90% band alone would pass these at-chance scores, so accuracy is judged against chance as well. Fine-tuning and RL are separate arms with separate verdicts, never pooled.
 
+**Test v4 result** (`out/test_v4_results.json`, `out/test_v4_report.json`, `scripts/report_test4.py`; scored once, hash verified, 70 of 71 cases; one Alpaca file refused by the loader). **Precision 0.51, recall 0.69, 47 of 70 exactly right.** Engine: 2fa7e455 for cases 1-8, 58bdec7d after. Below the 0.90 and 0.95 targets. Blocking flags only:
+
+| Part | Cases | Exactly right | Notes |
+|---|---|---|---|
+| Environments | 21 | **21** | 12 of 12 new grader bugs [lower 95% bound 0.78], 3 of 3 reworded suite leaks, 6 of 6 honest and control cases |
+| Contaminated datasets | 2 | 2 | |
+| Clean real | 31 | 18 | 13 draws falsely flagged [upper 95% bound 0.58] |
+| Known-bad | 4 | 2 | The two GSM-Plus sets caught; TruthfulQA's false answers advisory only |
+| Planted on real rows | 9 | 2 | Mostly advisory types |
+| Public | 3 | 2 | Reworded copies caught (0.57), distractor copies missed (0.12) |
+
+False flags per source, draws: `multiarith` 0/3, `mawps` 0/3, `gsmplus` 0/2, `qasc` 0/3, `medmcqa` 0/3, `alpaca` 0/2, `truthful` 1/3, `mmlu` 3/3, `aqua` 3/3, `oasst` 3/3, `prealgebra` 3/3. Zero counts are weak: 0 of 3 allows up to 63%. Clean math in plain text, 0 of 8 draws [upper bound 0.31].
+
+Causes, found after scoring and not acted on:
+
+- `prealgebra`, **a defect in the unsupported-final check.** It cannot read LaTeX: in `$102/2=\\boxed{51}$` the answer looks unproduced. One of the two fixes from after v3 was the sample-size rule for that audit. It held on prose (`alpaca` and `oasst` raised no arithmetic flag), and this LaTeX defect is a separate one.
+- `off_topic`, 9 false flags, **a real limit.** With a 60-row suite drawn from a broad source, diverse material sits far from its nearest suite item. The check is unreliable on small custom suites.
+- `oasst`, a **labelling mistake in the test.** OASST has several replies per prompt, so 23% of suite prompts truly appear in the material. The detector was right. The frozen label stands.
+- `aqua`, 5 gated hits on 60 suite items (0.067). Whether these are true near-duplicates was not checked.
+- Multiple choice, the second post-v3 change: the 0.30 threshold **did not travel.** `medmcqa` clean read 0.42-0.58 and `mmlu` 0.31 at worst, 4 false advisories in 12 clean draws, though `qasc` held (at most 0.21). The check stays advisory.
+- `planted_mawps_30`: detected at 0.27, downgraded because the language heuristic called this English file non-English.
+- Reports must not imply general precision. The product's flags are best read per data type: strong on graders and plain-text math, weak on LaTeX math and on small custom suites.
+
 **Forecast pilot and dev trial** (`out/h4/`, `out/forecast_h4_dev.json`; dev families `ag_news`, `rotten`, `emotion`, pilot rows).
 
 - *RL arm, no family passes.* On every family tried, reward at 135M and 360M stays at guessing level, with gains around +/-3 and 135M to 360M agreement 0.43 on 30 pairs. 1.7B does learn (reward 0.6 to 0.8, +7 to +11). **RL forecasting remains untested on non-arithmetic work.** No RL arm is in the final set.

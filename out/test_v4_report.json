@@ -1,0 +1,549 @@
+{
+ "all": {
+  "tp": 22,
+  "fp": 21,
+  "fn": 10,
+  "precision": 0.512,
+  "recall": 0.688,
+  "exact": 47,
+  "n": 70,
+  "rejected": [
+   "clean_alpaca_0"
+  ]
+ },
+ "flags": {
+  "gameable_grader": {
+   "tp": 12,
+   "fp": 0,
+   "fn": 0
+  },
+  "answer_leakage": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  },
+  "contaminated": {
+   "tp": 5,
+   "fp": 8,
+   "fn": 0
+  },
+  "copied_from_public": {
+   "tp": 1,
+   "fp": 0,
+   "fn": 1
+  },
+  "duplicated": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  },
+  "noisy_labels": {
+   "tp": 4,
+   "fp": 4,
+   "fn": 9
+  },
+  "off_topic": {
+   "tp": 0,
+   "fp": 9,
+   "fn": 0
+  }
+ },
+ "parts": {
+  "clean_real": {
+   "n": 31,
+   "exact": 18,
+   "tp": 0,
+   "fp": 16,
+   "fn": 0,
+   "advisory": 6
+  },
+  "contam": {
+   "n": 2,
+   "exact": 2,
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "advisory": 0
+  },
+  "env": {
+   "n": 21,
+   "exact": 21,
+   "tp": 15,
+   "fp": 0,
+   "fn": 0,
+   "advisory": 0
+  },
+  "known_bad": {
+   "n": 4,
+   "exact": 2,
+   "tp": 2,
+   "fp": 0,
+   "fn": 2,
+   "advisory": 2
+  },
+  "planted": {
+   "n": 9,
+   "exact": 2,
+   "tp": 2,
+   "fp": 4,
+   "fn": 7,
+   "advisory": 4
+  },
+  "public": {
+   "n": 3,
+   "exact": 2,
+   "tp": 1,
+   "fp": 1,
+   "fn": 1,
+   "advisory": 0
+  }
+ },
+ "clean_by_source": {
+  "multiarith": {
+   "draws": 3,
+   "false_flags": 0,
+   "upper95": 0.632,
+   "which": [],
+   "advisory": 0,
+   "signal": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "status": "checked"
+  },
+  "mawps": {
+   "draws": 3,
+   "false_flags": 0,
+   "upper95": 0.632,
+   "which": [],
+   "advisory": 0,
+   "signal": [
+    0.02,
+    0.0364,
+    0.0175
+   ],
+   "status": "checked"
+  },
+  "mmlu": {
+   "draws": 3,
+   "false_flags": 3,
+   "upper95": 1.0,
+   "which": [
+    "off_topic"
+   ],
+   "advisory": 1,
+   "signal": [
+    0.3077,
+    0.0714,
+    0.1429
+   ],
+   "status": "checked"
+  },
+  "qasc": {
+   "draws": 3,
+   "false_flags": 0,
+   "upper95": 0.632,
+   "which": [],
+   "advisory": 0,
+   "signal": [
+    0.1765,
+    0.0526,
+    0.2143
+   ],
+   "status": "checked"
+  },
+  "medmcqa": {
+   "draws": 3,
+   "false_flags": 0,
+   "upper95": 0.632,
+   "which": [],
+   "advisory": 3,
+   "signal": [
+    0.4167,
+    0.5,
+    0.5833
+   ],
+   "status": "checked"
+  },
+  "aqua": {
+   "draws": 3,
+   "false_flags": 3,
+   "upper95": 1.0,
+   "which": [
+    "contaminated"
+   ],
+   "advisory": 0,
+   "signal": [
+    null,
+    null,
+    null
+   ],
+   "status": "not_checked"
+  },
+  "prealgebra": {
+   "draws": 3,
+   "false_flags": 3,
+   "upper95": 1.0,
+   "which": [
+    "noisy_labels"
+   ],
+   "advisory": 0,
+   "signal": [
+    null,
+    null,
+    null
+   ],
+   "status": "checked"
+  },
+  "alpaca": {
+   "draws": 2,
+   "false_flags": 0,
+   "upper95": 0.776,
+   "which": [],
+   "advisory": 0,
+   "signal": [
+    0.8667,
+    0.95
+   ],
+   "status": "partial"
+  },
+  "oasst": {
+   "draws": 3,
+   "false_flags": 3,
+   "upper95": 1.0,
+   "which": [
+    "contaminated",
+    "off_topic"
+   ],
+   "advisory": 0,
+   "signal": [
+    0.6,
+    0.5167,
+    0.4667
+   ],
+   "status": "partial"
+  },
+  "truthful": {
+   "draws": 3,
+   "false_flags": 1,
+   "upper95": 0.865,
+   "which": [
+    "off_topic"
+   ],
+   "advisory": 2,
+   "signal": [
+    0.35,
+    0.3667,
+    0.2167
+   ],
+   "status": "partial"
+  },
+  "gsmplus": {
+   "draws": 2,
+   "false_flags": 0,
+   "upper95": 0.776,
+   "which": [],
+   "advisory": 0,
+   "signal": [
+    0.0,
+    0.0667
+   ],
+   "status": "checked"
+  }
+ },
+ "clean_total": {
+  "draws": 31,
+  "with_false_flag": 13,
+  "upper95": 0.582
+ },
+ "errors": {
+  "planted_mawps_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "signal": 0.2727,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.013
+  },
+  "clean_mmlu_0": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "off_topic"
+   ],
+   "advisory": true,
+   "signal": 0.3077,
+   "exploit": null,
+   "contam": 0.05,
+   "public": 0.0
+  },
+  "clean_mmlu_1": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.0714,
+   "exploit": null,
+   "contam": 0.033,
+   "public": 0.0
+  },
+  "clean_mmlu_2": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.1429,
+   "exploit": null,
+   "contam": 0.05,
+   "public": 0.0
+  },
+  "planted_mmlu_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [
+    "contaminated",
+    "off_topic"
+   ],
+   "advisory": true,
+   "signal": 0.6429,
+   "exploit": null,
+   "contam": 0.067,
+   "public": 0.0
+  },
+  "planted_qasc_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "signal": 0.5,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "planted_medmcqa_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "signal": 0.6471,
+   "exploit": null,
+   "contam": 0.017,
+   "public": 0.0
+  },
+  "clean_aqua_0": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.067,
+   "public": 0.0
+  },
+  "clean_aqua_1": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.067,
+   "public": 0.0
+  },
+  "clean_aqua_2": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.067,
+   "public": 0.0
+  },
+  "planted_aqua_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.05,
+   "public": 0.0
+  },
+  "clean_prealgebra_0": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "noisy_labels"
+   ],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "clean_prealgebra_1": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "noisy_labels"
+   ],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "clean_prealgebra_2": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "noisy_labels"
+   ],
+   "advisory": false,
+   "signal": null,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "planted_alpaca_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": false,
+   "signal": 0.5833,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "clean_oasst_0": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "contaminated",
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.6,
+   "exploit": null,
+   "contam": 0.233,
+   "public": 0.0
+  },
+  "clean_oasst_1": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "contaminated",
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.5167,
+   "exploit": null,
+   "contam": 0.167,
+   "public": 0.0
+  },
+  "clean_oasst_2": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "contaminated",
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.4667,
+   "exploit": null,
+   "contam": 0.15,
+   "public": 0.0
+  },
+  "planted_oasst_30": {
+   "part": "planted",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [
+    "contaminated",
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.4068,
+   "exploit": null,
+   "contam": 0.217,
+   "public": 0.0
+  },
+  "clean_truthful_2": {
+   "part": "clean_real",
+   "truth": [],
+   "flags": [
+    "off_topic"
+   ],
+   "advisory": false,
+   "signal": 0.2167,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "bad_truthful_100": {
+   "part": "known_bad",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "signal": 0.4667,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "bad_truthful_33": {
+   "part": "known_bad",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "signal": 0.4,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.0
+  },
+  "pub_gsmplus_distractor": {
+   "part": "public",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "noisy_labels"
+   ],
+   "advisory": false,
+   "signal": 0.1875,
+   "exploit": null,
+   "contam": 0.0,
+   "public": 0.117
+  }
+ }
+}

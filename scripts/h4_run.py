@@ -123,16 +123,16 @@ def one(arm, fam, cond, size, seed, part):
     lm = L.LM(size)
     b, _ = bits(lm, it)
     t = time.time()
-    variant = {"sftlr": {"sft_lr": 2e-5}, "sfttr": {"sft_steps": CFG["trunc_steps"]}}.get(arm, {})
-    arm_base = "sft" if arm.startswith("sft") else arm
-    rec = L.Recipe(**{"sft_steps": CFG["sft_steps"], **variant}, rl_steps=CFG["rl_steps"], rl_group=CFG["rl_group"], sft_max_len=CFG["max_len"],
+    variant = {"sftlr": {"sft_lr": 2e-5}, "sfttr": {"sft_steps": CFG["trunc_steps"]}, "rltr": {"rl_steps": CFG.get("rl_trunc_steps", 10)}}.get(arm, {})
+    arm_base = "sft" if arm.startswith("sft") else "rl"
+    rec = L.Recipe(**{"sft_steps": CFG["sft_steps"], "rl_steps": CFG["rl_steps"], **variant}, rl_group=CFG["rl_group"], sft_max_len=CFG["max_len"],
                    rl_max_new=MAX_NEW, eval_max_new=MAX_NEW)  # training replies get the same limit as evaluation
     if arm_base == "sft":
         pairs = [(lm.chat(p), a) for p, a in sft_rows(fam, cond, part, int(seed))]
         tuned, info = L.sft(lm, pairs, rec, seed=int(seed))
         extra = {"loss_last": info["loss_last"]}
     else:
-        tuned, info = grpo(lm, Env4(fam, cond, part), rec, seed=int(seed))
+        tuned, info = grpo(lm, Env4(fam, "clean" if cond == "placebo" else cond, part), rec, seed=int(seed), placebo=cond == "placebo")
         extra = {"reward_first": info["train_reward_first"], "reward_last": info["train_reward_last"], "skipped": info["skipped_no_signal"],
                  "rollouts_truncated": info.get("rollouts_truncated"), "mixed_groups": info.get("mixed_groups")}
     a, outs = bits(tuned, it)

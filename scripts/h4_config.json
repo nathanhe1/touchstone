@@ -1,0 +1,8 @@
+{
+ "suite_items": 600, "max_new": 32, "max_len": 256, "material_items": 800, "sft_steps": 60, "rl_steps": 30, "rl_group": 4, "run_timeout": 1500,
+ "families": ["arc_easy", "sciq", "csqa", "openbook", "qasc", "ag_news", "rotten", "emotion", "yelp"],
+ "pilot": {"seeds": 2, "arms": {
+   "sft": {"families": ["arc_easy", "sciq", "csqa", "openbook", "ag_news", "rotten", "emotion", "yelp"],
+           "conditions": ["clean", "wrong30", "wrong60", "wrong100", "off80", "pool30"]},
+   "rl": {"families": ["arc_easy", "sciq", "ag_news"], "conditions": ["clean", "noise30", "off50", "pool20", "lax"]}}}
+}

@@ -5,7 +5,8 @@ import { STAGES, STAGE_LABEL, findApi, getJob, listExamples, normalize, runExamp
 import { Rating, reduced } from '../ui'
 
 type Recorded = { id: string; name: string; kind: string; description: string; recorded: string; report: unknown; log: string[] }
-const RECORDED = recorded as Recorded[]
+// The headline gain is measured at the largest size trained, so the raw log's target-size label would mislead here.
+const RECORDED = (recorded as Recorded[]).map(r => ({ ...r, log: r.log.map(l => l.replace('net gain at 1.7B', 'net gain')) }))
 const pct = (v: number) => `${(v * 100).toFixed(v > 0 && v < .1 ? 1 : 0)}%`
 const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
 const usd = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`
@@ -158,15 +159,15 @@ export default function Demo() {
   const runKind = options.find(o => o.name === run?.name)?.kind ?? (run?.name.endsWith('.jsonl') ? 'dataset' : 'env')
   return (
     <>
-      <header className="page-head wrap">
-        <h1>Appraise training material, <span className="transfer">live.</span></h1>
-        <p className="lede">Pick a dataset or RL environment, or upload your own. Touchstone checks it for leaks and copies, probes the grader, trains small models on it against a placebo, and prices what is left.</p>
+      <header className="page-head dark"><div className="wrap">
+        <h1>Run an audit.</h1>
+        <p className="lede">Pick a dataset or RL environment, or upload your own. Touchstone checks it for leaks and copies, probes the grader, trains small models against a placebo, and prices what is left.</p>
         <p className="demo-status">
           {api === undefined ? <><i className="wait" />Connecting to the engine…</>
             : live ? <><i className="on" />Engine online · {api.device === 'cpu' ? 'CPU' : `GPU (${api.device})`} · runs take a few minutes</>
             : <><i className="off" />Engine not reachable from this page · replaying real recorded runs from Oct 30, 2026</>}
         </p>
-      </header>
+      </div></header>
       <section className="wrap demo">
         <div className="demo-pick">
           <h3>Try an example</h3>

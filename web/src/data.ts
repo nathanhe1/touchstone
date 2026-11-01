@@ -6,7 +6,7 @@ export const ROADMAP: [stage: 'Done' | 'Now' | 'Next' | 'Later', title: string, 
   ['Done', 'Working appraisal pipeline', 'Seals an environment, probes the grader, trains four model sizes, measures transfer, then grades and prices at the size it measured.'],
   ['Now', 'Pilot appraisals', 'Opening first appraisals to environment vendors and RL post-training teams.'],
   ['Next', 'Touchstone Report #1', 'The first public appraisal of open RL environments, run on real open models.'],
-  ['Later', 'Every kind of training material', 'Side-by-side comparison, ratings that update as environments change, and post-training datasets beyond RL.'],
+  ['Later', 'Every kind of training material', 'Side-by-side comparison, ratings that update as environments change, and post-training material beyond RL.'],
 ]
 // [name, role, one line on why you, profile link or '']
 export const FOUNDERS: [string, string, string, string][] = []

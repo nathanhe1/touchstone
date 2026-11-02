@@ -1,4 +1,4 @@
-/* The audit, front and centre: verified results under the hero, and the checks a report can raise.
+/* The appraisal, front and centre: verified results under the hero, and the checks a report can raise.
    Each check and its effect on the price mirrors touchstone/valuation.py, so the list stays true to the engine. */
 import { motion } from 'motion/react'
 import { Count, reduced } from '../ui'
@@ -14,7 +14,7 @@ const RESULTS: [value: string, label: string, scope: string][] = [
 
 export function Results() {
   return (
-    <section className="results" aria-label="Audit results">
+    <section className="results" aria-label="Appraisal results">
       <div className="wrap">
         <dl className="results-row">
           {RESULTS.map(([value, label, scope], i) => (

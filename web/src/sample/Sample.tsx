@@ -40,7 +40,7 @@ function Hero() {
       <div className="in hero-in">
         <div className="hero-copy">
           <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Don't buy training material <em>blind.</em></motion.h1>
-          <motion.p initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>Touchstone audits RL environments before you pay for them. We try to cheat the grader, look for leaked tests, and show you what we find.</motion.p>
+          <motion.p initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>Touchstone appraises RL environments before you pay for them. We try to cheat the grader, look for leaked tests, and show you what we find.</motion.p>
           <motion.div className="hero-act" initial={reduced ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
             <RequestButton />
             <Pill href="#demo" tone="line">See the live demo</Pill>
@@ -184,7 +184,7 @@ function Slip() {
 const CMD = 'touchstone appraise quickgrade --quick'
 const OUT: [string, string?][] = [
   ['overlap: 0.0% of held-out items appear in the material'],
-  ["grader audit: worst exploit 'hedge: right then wrong' earns 100% reward", 'bad'],
+  ["grader check: worst exploit 'hedge: right then wrong' earns 100% reward", 'bad'],
   ['blocking problem found in screening; quick mode skips training'],
   ['Grade D | value $0.00/item | flags: gameable_grader', 'gold'],
 ]
@@ -207,7 +207,7 @@ function Console() {
     <section className="run">
       <div className="in run-in" ref={ref}>
         <Rise className="run-copy">
-          <h2>The real audit runs hundreds of these.</h2>
+          <h2>A real appraisal runs hundreds of these.</h2>
           <p>Output from the Touchstone engine on our sample environment, on a Mac, with no training run.</p>
         </Rise>
         <div className="term" data-ui>
@@ -257,7 +257,7 @@ function Checks() {
   return (
     <section className="checks">
       <div className="in checks-in">
-        <Rise><h2>What the audit checks.</h2></Rise>
+        <Rise><h2>What an appraisal checks.</h2></Rise>
         <div className="check-list">{CHECKS.map(([q, a, on]) => <Check key={q} q={q} a={a} on={on} />)}</div>
       </div>
     </section>

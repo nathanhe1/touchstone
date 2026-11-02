@@ -131,8 +131,8 @@ function Console() {
   }, [run, held])
   const r = RUNS[run]
   return (
-    <Panel title="touchstone · audit" className="console" meta={
-      <span className="console-tabs" role="group" aria-label="Sample audit">
+    <Panel title="touchstone · appraisal" className="console" meta={
+      <span className="console-tabs" role="group" aria-label="Sample appraisal">
         {RUNS.map((x, i) => <button key={x.name} aria-pressed={run === i} onClick={() => { setHeld(true); setRun(i) }}>{x.tone === 'bad' ? 'flagged' : 'clean'}</button>)}
       </span>}>
       <div className="console-body" ref={body} key={run}>
@@ -417,7 +417,7 @@ export default function Home() {
               <motion.span aria-hidden="true" className="transfer" style={{ display: 'inline-block' }} initial={reduced ? false : { opacity: 0, scale: .6, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .45, type: 'spring', stiffness: 220, damping: 12 }}>blind.</motion.span>
             </h1>
             <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>
-              Touchstone audits RL environments and post-training material before you pay. We catch broken graders, copied tasks and reward that never reaches new problems.
+              Touchstone appraises RL environments and post-training material before you pay. We catch broken graders, copied tasks and reward that never reaches new problems.
             </motion.p>
             <motion.div className="actions" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
               <RequestButton /><a className="btn secondary" href="#demo">Try the live demo</a>

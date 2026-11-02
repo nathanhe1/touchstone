@@ -11,7 +11,7 @@ const pts = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}`
 const usd = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`
 const ease = [.16, 1, .3, 1] as const
 
-/* The audit this browser is following, kept so leaving and coming back picks up where it was. */
+/* The appraisal this browser is following, kept so leaving and coming back picks up where it was. */
 type Current = { id: string; name: string; kind: string }
 const KEY = 'touchstone-current-audit'
 const recall = (): Current | null => { try { return JSON.parse(localStorage.getItem(KEY) ?? 'null') } catch { return null } }
@@ -134,7 +134,7 @@ export default function Demo() {
         const j = await getJob(base, id)
         if (current.current !== id) return
         const over = j.status === 'done' || j.status === 'error' || j.status === 'cancelled'
-        setRun({ source: 'live', name, ahead: j.status === 'queued' ? j.ahead ?? 0 : undefined, stage: j.stage, progress: j.progress, log: j.log, status: j.status === 'done' ? 'done' : over ? 'error' : 'running', error: j.status === 'cancelled' ? 'This audit was stopped.' : j.error ?? undefined, report: j.report ? normalize(j.report, name) : undefined })
+        setRun({ source: 'live', name, ahead: j.status === 'queued' ? j.ahead ?? 0 : undefined, stage: j.stage, progress: j.progress, log: j.log, status: j.status === 'done' ? 'done' : over ? 'error' : 'running', error: j.status === 'cancelled' ? 'This appraisal was stopped.' : j.error ?? undefined, report: j.report ? normalize(j.report, name) : undefined })
         if (over) { setBusy(false); return }
       } catch (e) {
         if (restoring) { remember(null); current.current = ''; setRun(null); return } // the engine no longer has it
@@ -147,7 +147,7 @@ export default function Demo() {
     tick()
   }
 
-  // One audit at a time: a new one stops whatever is running and takes its place.
+  // One appraisal at a time: a new one stops whatever is running and takes its place.
   const replace = async (base: string) => {
     const old = current.current
     current.current = ''
@@ -231,9 +231,9 @@ export default function Demo() {
           {run && (<>
             <div className="demo-progress"><motion.i animate={{ width: `${Math.round((run.status === 'done' ? 1 : run.progress) * 100)}%` }} transition={{ duration: .4, ease }} /></div>
             <Stages stage={run.stage} done={run.status === 'done'} kind={runKind} />
-            {run.source === 'live' && run.status === 'running' && <p className="demo-keep">You can leave this page and it keeps running. A new upload replaces this audit.</p>}
+            {run.source === 'live' && run.status === 'running' && <p className="demo-keep">You can leave this page and it keeps running. A new upload replaces this appraisal.</p>}
             <div className="demo-log" ref={logRef} aria-live="polite">{run.ahead !== undefined
-                ? <p>{run.ahead > 0 ? `In line: ${run.ahead} audit${run.ahead > 1 ? 's' : ''} ahead of yours. They run one at a time.` : 'Yours is next.'}</p>
+                ? <p>{run.ahead > 0 ? `In line: ${run.ahead} appraisal${run.ahead > 1 ? 's' : ''} ahead of yours. They run one at a time.` : 'Yours is next.'}</p>
                 : run.log.length ? run.log.map((l, i) => <p key={i}>{l}</p>) : <p className="dim">Starting…</p>}</div>
             <AnimatePresence>{run.status === 'error' && <motion.p className="demo-error" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{run.error}</motion.p>}</AnimatePresence>
             {run.status !== 'done' && run.status !== 'error' && <div className="demo-skeleton"><span className="pending" /><span className="pending" /><span className="pending" /></div>}

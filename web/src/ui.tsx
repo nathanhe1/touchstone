@@ -54,7 +54,7 @@ export function Pill({ href, children, tone = 'ink', ...rest }: { href: string; 
   return <a className={`pill ${tone}`} href={href} {...rest}><span className="pill-t">{children}</span><span className="pill-d"><i><PillArrow /></i><i><PillArrow /></i></span></a>
 }
 
-export function RequestButton({ label = 'Request an audit', tone = 'ink' }: { label?: string; tone?: 'ink' | 'gold' | 'line' }) {
+export function RequestButton({ label = 'Request an appraisal', tone = 'ink' }: { label?: string; tone?: 'ink' | 'gold' | 'line' }) {
   const external = Boolean(REQUEST_FORM_URL)
   return <Pill tone={tone} href={external ? REQUEST_FORM_URL : '#request'} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>{label}</Pill>
 }

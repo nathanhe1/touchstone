@@ -362,7 +362,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
                                          **({} if pub_prompts else {"reason": "no public baseline for this domain; pass --public"})}}
         meas.update({"hackability": audit["score"], "worst_exploit": audit["worst_exploit"],
                      "grader_flagged": audit["flagged"], "answer_leakage": leak})
-        log(f"  grader audit: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward; "
+        log(f"  grader check: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward; "
             f"answer in prompt for {100 * leak:.0f}% of tasks")
     return out
 

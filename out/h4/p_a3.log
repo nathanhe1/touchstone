@@ -1,0 +1,74 @@
+sft|arc_easy|clean|135M|0 +4.67 36s
+sft|sciq|clean|135M|0 +5.00 30s
+sft|csqa|wrong60|135M|0 -1.33 31s
+sft|openbook|clean|135M|0 -2.20 32s
+sft|ag_news|clean|135M|0 +41.67 36s
+sft|ag_news|wrong30|135M|0 +32.17 36s
+sft|rotten|wrong30|135M|0 +4.50 29s
+sft|emotion|wrong100|135M|0 -3.50 30s
+sft|yelp|clean|135M|0 +5.00 43s
+sft|yelp|wrong100|135M|0 -1.83 42s
+rl|sciq|lax|135M|0 +0.50 89s
+rl|ag_news|noise30|135M|0 -4.00 90s
+sft|arc_easy|wrong100|360M|0 -1.83 51s
+sft|arc_easy|off80|360M|0 -0.50 49s
+sft|sciq|off80|360M|0 +0.67 47s
+sft|csqa|clean|360M|0 -0.17 48s
+sft|csqa|wrong100|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|openbook|off80|360M|0 +2.40 47s
+sft|openbook|pool30|360M|0 +3.20 44s
+rl|arc_easy|clean|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+rl|arc_easy|off50|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+rl|arc_easy|pool20|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|arc_easy|clean|135M|1 +2.83 34s
+sft|arc_easy|wrong30|135M|1 -0.33 34s
+sft|openbook|clean|135M|1 +3.00 27s
+sft|ag_news|wrong30|135M|1 +19.67 37s
+sft|rotten|clean|135M|1 +18.83 30s
+sft|rotten|wrong30|135M|1 +9.33 34s
+rl|arc_easy|noise30|135M|1 +2.67 108s
+rl|ag_news|clean|135M|1 +1.33 89s
+rl|ag_news|noise30|135M|1 -3.67 90s
+sft|arc_easy|wrong100|360M|1 -0.83 52s
+sft|sciq|wrong100|360M|1 -1.83 42s
+sft|csqa|clean|360M|1 -1.00 45s
+sft|csqa|wrong30|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|csqa|pool30|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|openbook|wrong30|360M|1 +2.60 47s
+sft|openbook|wrong100|360M|1 +5.20 48s
+sft|openbook|off80|360M|1 +3.40 41s
+sft|ag_news|off80|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|rotten|wrong60|360M|1 +3.00 48s
+sft|rotten|wrong100|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|rotten|pool30|360M|1 +16.50 35s
+sft|emotion|wrong30|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|emotion|pool30|360M|1 +22.33 43s
+sft|yelp|off80|360M|1 +8.00 59s
+rl|arc_easy|pool20|360M|1 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+rl|sciq|off50|360M|1 -0.67 93s
+sft|csqa|wrong100|360M|0 -2.33 42s
+rl|arc_easy|clean|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+rl|arc_easy|off50|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+rl|arc_easy|pool20|360M|0 FAILED rch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+sft|csqa|wrong30|360M|1 -3.33 34s
+sft|csqa|pool30|360M|1 +2.33 34s
+sft|ag_news|off80|360M|1 +13.67 38s
+sft|rotten|wrong100|360M|1 -23.33 36s
+sft|emotion|wrong30|360M|1 +30.17 25s
+rl|arc_easy|pool20|360M|1 -0.17 71s
+rl|arc_easy|clean|360M|0 +0.33 44s
+rl|arc_easy|off50|360M|0 -0.50 49s
+rl|arc_easy|pool20|360M|0 -0.50 47s

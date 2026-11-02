@@ -1,0 +1,947 @@
+[
+  {
+    "id": "d_clean_steps",
+    "kind": "dataset",
+    "path": "datasets/d_clean_steps.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_clean_arrow",
+    "kind": "dataset",
+    "path": "datasets/d_clean_arrow.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_clean_answer",
+    "kind": "dataset",
+    "path": "datasets/d_clean_answer.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_clean_units",
+    "kind": "dataset",
+    "path": "datasets/d_clean_units.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise5_steps",
+    "kind": "dataset",
+    "path": "datasets/d_noise5_steps.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise30_slip",
+    "kind": "dataset",
+    "path": "datasets/d_noise30_slip.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise60_slip_arrow",
+    "kind": "dataset",
+    "path": "datasets/d_noise60_slip_arrow.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise40_answer_random",
+    "kind": "dataset",
+    "path": "datasets/d_noise40_answer_random.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise40_answer_reverse",
+    "kind": "dataset",
+    "path": "datasets/d_noise40_answer_reverse.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise100_units",
+    "kind": "dataset",
+    "path": "datasets/d_noise100_units.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise25_steps_random",
+    "kind": "dataset",
+    "path": "datasets/d_noise25_steps_random.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_shuffled_answers",
+    "kind": "dataset",
+    "path": "datasets/d_shuffled_answers.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_contam10_verbatim",
+    "kind": "dataset",
+    "path": "datasets/d_contam10_verbatim.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": true,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_contam40_verbatim",
+    "kind": "dataset",
+    "path": "datasets/d_contam40_verbatim.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": true,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_contam_nouns",
+    "kind": "dataset",
+    "path": "datasets/d_contam_nouns.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": true,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_contam_reordered",
+    "kind": "dataset",
+    "path": "datasets/d_contam_reordered.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": true,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_gsm8k_synonyms",
+    "kind": "dataset",
+    "path": "datasets/d_gsm8k_synonyms.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": true,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_gsm8k_verbatim_30",
+    "kind": "dataset",
+    "path": "datasets/d_gsm8k_verbatim_30.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_gsm8k_new_numbers",
+    "kind": "dataset",
+    "path": "datasets/d_gsm8k_new_numbers.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_dup_25x20",
+    "kind": "dataset",
+    "path": "datasets/d_dup_25x20.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": true,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_dup_whitespace",
+    "kind": "dataset",
+    "path": "datasets/d_dup_whitespace.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": true,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_off_recipes",
+    "kind": "dataset",
+    "path": "datasets/d_off_recipes.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": true
+    }
+  },
+  {
+    "id": "d_off_translate",
+    "kind": "dataset",
+    "path": "datasets/d_off_translate.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": true
+    }
+  },
+  {
+    "id": "d_off_reviews_70",
+    "kind": "dataset",
+    "path": "datasets/d_off_reviews_70.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": true
+    }
+  },
+  {
+    "id": "d_off_30",
+    "kind": "dataset",
+    "path": "datasets/d_off_30.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "s_clean",
+    "kind": "dataset",
+    "path": "datasets/s_clean.jsonl",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "s_noisy_scrambled",
+    "kind": "dataset",
+    "path": "datasets/s_noisy_scrambled.jsonl",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "s_contam",
+    "kind": "dataset",
+    "path": "datasets/s_contam.jsonl",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": true,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_clean_steps_b",
+    "kind": "dataset",
+    "path": "datasets/d_clean_steps_b.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_clean_answer_b",
+    "kind": "dataset",
+    "path": "datasets/d_clean_answer_b.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise10_answer",
+    "kind": "dataset",
+    "path": "datasets/d_noise10_answer.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise30_final_only",
+    "kind": "dataset",
+    "path": "datasets/d_noise30_final_only.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_noise60_final_only",
+    "kind": "dataset",
+    "path": "datasets/d_noise60_final_only.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_off_reviews_100",
+    "kind": "dataset",
+    "path": "datasets/d_off_reviews_100.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": true
+    }
+  },
+  {
+    "id": "d_contam20_nouns_reordered",
+    "kind": "dataset",
+    "path": "datasets/d_contam20_nouns_reordered.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": true,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_gsm8k_verbatim_100",
+    "kind": "dataset",
+    "path": "datasets/d_gsm8k_verbatim_100.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": true,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_gsm8k_70",
+    "kind": "dataset",
+    "path": "datasets/d_gsm8k_70.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": true,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "d_dup_10x50",
+    "kind": "dataset",
+    "path": "datasets/d_dup_10x50.jsonl",
+    "suite": "word_math",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": true,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "s_clean_b",
+    "kind": "dataset",
+    "path": "datasets/s_clean_b.jsonl",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "s_off_wordproblems",
+    "kind": "dataset",
+    "path": "datasets/s_off_wordproblems.jsonl",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": true
+    }
+  },
+  {
+    "id": "s_noisy_30",
+    "kind": "dataset",
+    "path": "datasets/s_noisy_30.jsonl",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": true,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_first10",
+    "kind": "env",
+    "path": "envs/e_first10",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_last_number",
+    "kind": "env",
+    "path": "envs/e_last_number",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_long_any",
+    "kind": "env",
+    "path": "envs/e_long_any",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_equals_sign",
+    "kind": "env",
+    "path": "envs/e_equals_sign",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_anagram",
+    "kind": "env",
+    "path": "envs/e_anagram",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_startswith_strings",
+    "kind": "env",
+    "path": "envs/e_startswith_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_hint_paren",
+    "kind": "env",
+    "path": "envs/e_hint_paren",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": true,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_meta_json",
+    "kind": "env",
+    "path": "envs/e_meta_json",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": true,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_honest_exact",
+    "kind": "env",
+    "path": "envs/e_honest_exact",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_honest_final",
+    "kind": "env",
+    "path": "envs/e_honest_final",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_honest_float",
+    "kind": "env",
+    "path": "envs/e_honest_float",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_honest_strings",
+    "kind": "env",
+    "path": "envs/e_honest_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_noisy_honest",
+    "kind": "env",
+    "path": "envs/e_noisy_honest",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_dup_50",
+    "kind": "env",
+    "path": "envs/e_dup_50",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": true,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_public_sum",
+    "kind": "env",
+    "path": "envs/e_public_sum",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": true,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_public_30",
+    "kind": "env",
+    "path": "envs/e_public_30",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_contains_strings",
+    "kind": "env",
+    "path": "envs/e_contains_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_len_strings",
+    "kind": "env",
+    "path": "envs/e_len_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_hint_strings",
+    "kind": "env",
+    "path": "envs/e_hint_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": true,
+      "answer_leakage": true,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_dup_strings",
+    "kind": "env",
+    "path": "envs/e_dup_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": true,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_public_swapped",
+    "kind": "env",
+    "path": "envs/e_public_swapped",
+    "suite": "arithmetic",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": true,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  },
+  {
+    "id": "e_honest_exact_strings",
+    "kind": "env",
+    "path": "envs/e_honest_exact_strings",
+    "suite": "strings",
+    "labels": {
+      "gameable_grader": false,
+      "answer_leakage": false,
+      "contaminated": false,
+      "copied_from_public": false,
+      "duplicated": false,
+      "noisy_labels": false,
+      "off_topic": false
+    }
+  }
+]

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "touchstone"
+version = "0.2.0"
+description = "Appraise RL environments and post-training datasets before you buy them."
+requires-python = ">=3.9"
+dependencies = [
+    "torch==2.8.0",
+    "transformers==4.56.2",
+    "peft==0.17.1",
+    "accelerate==1.10.1",
+    "numpy==2.0.2",
+    "fastapi==0.115.6",
+    "uvicorn==0.32.1",
+    "python-multipart==0.0.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5", "httpx==0.28.1"]
+mlx = ["mlx==0.29.3", "mlx-lm==0.28.3"]
+
+[project.scripts]
+touchstone = "touchstone.cli:main"
+
+[tool.setuptools]
+packages = ["touchstone"]
+
+[tool.setuptools.package-data]
+touchstone = ["calibration/*.json"]
+
+[tool.pytest.ini_options]
+markers = ["slow: downloads and runs real models (deselect with -m 'not slow')"]
+filterwarnings = ["ignore"]

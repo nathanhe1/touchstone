@@ -1,0 +1,141 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3079.52it/s]
+ok  clean_multiarith_0 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3012.22it/s]
+ok  clean_multiarith_1 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2536.29it/s]
+ok  clean_multiarith_2 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 770.67it/s]
+ok  planted_multiarith_30 ['noisy_labels'] ['noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1593.06it/s]
+ok  clean_mawps_0 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2383.32it/s]
+ok  clean_mawps_1 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2684.23it/s]
+ok  clean_mawps_2 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2732.19it/s]
+ERR planted_mawps_30 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2638.64it/s]
+Traceback (most recent call last):
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/scripts/eval_test4.py", line 23, in <module>
+    sc = pipeline.screen_material("dataset", [e.prompt_text for e in ex], suite, None, log=lambda x: None, examples=ex)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/pipeline.py", line 331, in screen_material
+    labels = coverage.label_checks(dtype, examples, q["arithmetic"], use_judge=use_judge)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/coverage.py", line 217, in label_checks
+    r = judge.audit_mcq2(examples)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/judge.py", line 336, in audit_mcq2
+    c = [_BOX.findall(o) for o in _gen(q, MCQ_COT, 240)]
+NameError: name 'MCQ_COT' is not defined
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3106.89it/s]
+ERR clean_mmlu_0 [] ['off_topic'] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3347.79it/s]
+ERR clean_mmlu_1 [] ['off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3200.71it/s]
+ERR clean_mmlu_2 [] ['off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1683.59it/s]
+ERR planted_mmlu_30 ['noisy_labels'] ['contaminated', 'off_topic'] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1860.83it/s]
+ok  clean_qasc_0 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4439.09it/s]
+ok  clean_qasc_1 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4807.62it/s]
+ok  clean_qasc_2 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2479.32it/s]
+ERR planted_qasc_30 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2517.16it/s]
+ok  clean_medmcqa_0 [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3836.42it/s]
+ok  clean_medmcqa_1 [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1903.29it/s]
+ok  clean_medmcqa_2 [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4237.28it/s]
+ERR planted_medmcqa_30 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4162.20it/s]
+ERR clean_aqua_0 [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4039.64it/s]
+ERR clean_aqua_1 [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4245.25it/s]
+ERR clean_aqua_2 [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3775.74it/s]
+ERR planted_aqua_30 ['noisy_labels'] [] 
+ERR clean_prealgebra_0 [] ['noisy_labels'] 
+ERR clean_prealgebra_1 [] ['noisy_labels'] 
+ERR clean_prealgebra_2 [] ['noisy_labels'] 
+ok  planted_prealgebra_30 ['noisy_labels'] ['noisy_labels'] 
+Traceback (most recent call last):
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/scripts/eval_test4.py", line 22, in <module>
+    ex = datamod.load_dataset(path)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/touchstone/data.py", line 95, in load_dataset
+    raise DatasetError("invalid dataset:\n  " + "\n  ".join(errors))
+touchstone.data.DatasetError: invalid dataset:
+  clean_alpaca_0.jsonl:108: empty 'prompt' or 'completion'
+REJECTED clean_alpaca_0 invalid dataset:
+  clean_alpaca_0.jsonl:108: empty 'prompt' or 'completion'
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2277.92it/s]
+ok  clean_alpaca_1 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2902.06it/s]
+ok  clean_alpaca_2 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5091.06it/s]
+ERR planted_alpaca_30 ['noisy_labels'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4993.22it/s]
+ERR clean_oasst_0 [] ['contaminated', 'off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4572.52it/s]
+ERR clean_oasst_1 [] ['contaminated', 'off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4800.54it/s]
+ERR clean_oasst_2 [] ['contaminated', 'off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4359.34it/s]
+ERR planted_oasst_30 ['noisy_labels'] ['contaminated', 'off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3473.75it/s]
+ok  clean_truthful_0 [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4527.39it/s]
+ok  clean_truthful_1 [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4814.71it/s]
+ERR clean_truthful_2 [] ['off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4982.20it/s]
+ERR bad_truthful_100 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4837.72it/s]
+ERR bad_truthful_33 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4519.03it/s]
+ok  bad_gsmplus_seedanswer_100 ['noisy_labels'] ['noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3828.92it/s]
+ok  bad_gsmplus_seedanswer_35 ['noisy_labels'] ['noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5216.80it/s]
+ok  clean_gsmplus_newnumbers [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5011.12it/s]
+ok  clean_gsmplus_numsub [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3584.00it/s]
+ok  pub_gsmplus_reworded ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3571.79it/s]
+ERR pub_gsmplus_distractor ['copied_from_public'] ['noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4205.12it/s]
+ok  pub_gsmplus_reworded_30 [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4237.28it/s]
+ok  contam_real_verbatim ['contaminated'] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4889.28it/s]
+ok  contam_real_prefix ['contaminated'] ['contaminated'] 
+ok  g_contains_digits_all ['gameable_grader'] ['gameable_grader'] 
+ok  g_rstrip_prefix ['gameable_grader'] ['gameable_grader'] 
+ok  g_length_only ['gameable_grader'] ['gameable_grader'] 
+ok  g_sum_digits ['gameable_grader'] ['gameable_grader'] 
+ok  g_negative_pays ['gameable_grader'] ['gameable_grader'] 
+ok  g_contains_word ['gameable_grader'] ['gameable_grader'] 
+ok  g_long_reply ['gameable_grader'] ['gameable_grader'] 
+ok  g_tolerance_abs5 ['gameable_grader'] ['gameable_grader'] 
+ok  g_strings_set ['gameable_grader'] ['gameable_grader'] 
+ok  g_strings_suffix ['gameable_grader'] ['gameable_grader'] 
+ok  g_strings_sorted_len ['gameable_grader'] ['gameable_grader'] 
+ok  g_json_any ['gameable_grader'] ['gameable_grader'] 
+ok  h_last_number_boxed [] [] 
+ok  h_gsm8k_hash [] [] 
+ok  h_float_close [] [] 
+ok  h_case_strip [] [] 
+ok  h_answer_tag [] [] 
+ok  c_env_tell_me ['contaminated'] ['contaminated'] 
+ok  c_env_story ['contaminated'] ['contaminated'] 
+ok  c_env_equation ['contaminated'] ['contaminated'] 
+ok  c_env_control [] [] 

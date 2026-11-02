@@ -1,0 +1,51 @@
+{
+  "n_envs": 16,
+  "seeds": 3,
+  "predictors": {
+    "accuracy@S": {
+      "spearman": 0.137,
+      "decision_accuracy": 0.555
+    },
+    "smooth@S": {
+      "spearman": 0.131,
+      "decision_accuracy": 0.555
+    },
+    "accuracy@M": {
+      "spearman": 0.202,
+      "decision_accuracy": 0.546
+    },
+    "smooth@M": {
+      "spearman": 0.542,
+      "decision_accuracy": 0.706
+    },
+    "accuracy@L": {
+      "spearman": 0.168,
+      "decision_accuracy": 0.555
+    },
+    "smooth@L": {
+      "spearman": 0.138,
+      "decision_accuracy": 0.521
+    },
+    "mean accuracy S,M,L": {
+      "spearman": 0.128,
+      "decision_accuracy": 0.546
+    },
+    "mean smooth S,M,L": {
+      "spearman": 0.233,
+      "decision_accuracy": 0.588
+    },
+    "accuracy@L + smooth@L (z-scored)": {
+      "spearman": 0.132,
+      "decision_accuracy": 0.513
+    },
+    "smooth@XL (same size, other metric)": {
+      "spearman": 0.271,
+      "decision_accuracy": 0.613
+    }
+  },
+  "xl_one_seed_vs_rest_decision_accuracy": 0.776,
+  "xl_accuracy_gain_spread": {
+    "mean": -7.62,
+    "sd": 4.09
+  }
+}

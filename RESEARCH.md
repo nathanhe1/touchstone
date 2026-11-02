@@ -1,0 +1,130 @@
+# Round 3 research notes
+
+What was read, what was tried on development data, and what was kept. Every result quoted here comes from a file in `out/` named next to it. Test v3 (`examples/redflags_test3/`, hash in `out/test_v3.sha256`) was frozen before any of this work and is not used to choose anything below.
+
+## 1. Wrong labels
+
+### What the literature offers
+
+| Technique | Idea | Needs | Fit for Touchstone |
+|---|---|---|---|
+| Confident learning (Northcutt, Jiang, Chuang 2021, JAIR; the method behind cleanlab) | Estimate the joint distribution of given and true labels from out-of-sample predicted probabilities, with a per-class threshold (the class's mean self-confidence); items whose confident prediction differs from the label are likely errors. | A classifier that is usually right on the task. | The core idea transfers. For open-ended answers the "classes" are answers, so the practical form is *confident disagreement*: a judge that is usually right, an agreement-based confidence filter, and the disagreement rate among confident items. |
+| Dataset cartography (Swayamdipta et al. 2020) | Per-item confidence and variability of the gold label across training epochs; mislabelled items sit in the low-confidence, low-variability corner. | Several epochs of training on the material. | Needs a model that can fit the task. A 135M model fine-tuned for 60 steps does not learn multi-step arithmetic, so clean and wrong labels look alike (both hard to learn). |
+| Area Under the Margin (Pleiss et al. 2020) | Margin between the gold logit and the largest other logit, averaged over training; mislabelled items have low or negative AUM. A planted "threshold class" calibrates the cut-off. | Classification with a fixed label set. | Same limitation as cartography for generated answers; the threshold-sample idea (plant known-wrong labels to calibrate) is the useful part, and it is how the dev thresholds were checked. |
+| Forgetting events (Toneva et al. 2019) | Items learned then forgotten during training are hard or mislabelled. | Many epochs. | Not affordable here. |
+| Small-model ensemble disagreement | Several weak models voting. | Models that are right more often than the noise rate. | SmolLM2-135M/360M are below 10% on these word problems; their votes are noise. |
+| Program-aided verification (PAL, Gao et al. 2023; PoT, Chen et al. 2023) | Have the model write a program and execute it, rather than compute in text. | A sandbox or a restricted evaluator. | Strong fit for checkable answers (arithmetic, string manipulation). Implemented as a whitelisted AST evaluator: nothing the model writes is ever `exec`'d. |
+| Self-consistency (Wang et al. 2023) | Agreement across samples signals correctness. | Several samples per item. | Used in the cheaper two-route form: a chain-of-thought answer and a program answer must agree. |
+
+### What was tried (development data only)
+
+1. **SmolLM2-360M as judge (round 2 idea): no result.** The planned run stalled at 80+ minutes with the laptop 21-31 GB into swap, holding 10 GB by itself, and it died with the session; `out/dev_judge_360M.json` was never written. It was not rerun: round 2 had measured this model's label plausibility at 0.42 on clean labels against 0.46 on 30%-noisy labels, and Qwen below separates the same data outright.
+2. **Qwen2.5-1.5B-Instruct as judge, on MLX: adopted** (`touchstone/judge.py`, `out/dev_judge_qwen.json`, 24 development datasets, 60 items each, about 3.6 GB and 1.8 minutes per dataset). Each item is answered by chain-of-thought and by a program run in a whitelisted evaluator. First attempts failed for fixable reasons: the program prompt invited `len(...)` tricks and 16 of 60 answers lacked `\\boxed`. A few-shot prompt and a fallback parser took the routes from 44/60 and 15/60 to 60/60 and 54/60 on `good_short`.
+
+   | Development data | Share of confident items that disagree with the label |
+   |---|---|
+   | Clean numeric (8 sets) | 0.00 on all 8 |
+   | Real GSM8K (2 sets) | 0.00, 0.04 |
+   | 10% wrong (below the truth line) | 0.14 |
+   | 30% wrong | 0.18 |
+   | 40-60% wrong (4 sets) | 0.35-0.43 |
+   | 100% wrong (4 sets) | 1.00 |
+
+   Threshold 0.15. The gap between 10% and 30% noise is the thin part, so a dataset landing between 0.08 and 0.25 gets 60 more items. On GSM8K-level problems only about 40% of items are confident, so the audit has less power there. String labels defeat chain-of-thought (it cannot reverse letters), so non-numeric labels use the program route alone, discarding programs whose literal is not in the prompt: clean 0.02-0.11, noisy 0.40-0.61, threshold 0.20.
+3. **Qwen2.5-Math-1.5B-Instruct as judge: rejected** (`out/dev_judge_qwen-math.json`, same 24 sets). It ignores the program instruction and writes reasoning, so almost nothing is confident (0-3 of 60). Its chain-of-thought is no stronger than the general model on this data (GSM8K 36/60 and 42/60 against 42/60 and 48/60), and it took 33% longer. A math specialisation is no help on grade-school problems, and the general model's ability to follow instructions is what makes two routes possible.
+4. **Unsupported final answer** (model-free, `screen.unsupported_final`). In a worked solution the stated final answer must be produced somewhere in the working (any number written before it, or any equation's value). Real GSM8K train solutions: 0.2% flagged (7,321 checked), and the three inspected are genuine GSM8K label errors (for example "#### 49" after computing $0.49). Development sets with a correct working but a wrong final answer: 20%, 26% and 57% flagged. Folded into the existing 10% arithmetic-consistency rule.
+
+## 2. Public copies
+
+| Technique | Idea | Status |
+|---|---|---|
+| Wider public snapshots | The baseline must contain what a vendor could resell. | Word problems now compare against GSM8K train + test, SVAMP and ASDiv (`touchstone/public_corpora.py`, about 12k problems) instead of GSM8K train only. |
+| Normalised n-gram / MinHash (Broder 1997; Lee et al. 2022) | Near-duplicate text. | Already used (character 5-gram Jaccard, with a same-numbers guard). |
+| Embedding similarity (Yang et al. 2023) | Paraphrases. | Already used (MiniLM cosine with the same-numbers guard). |
+| Number fingerprints with chance correction (round 2) | Rewording leaves the numbers. | Used for short templated prompts. |
+| Min-K% prob (Shi et al. 2024), zlib ratio (Carlini et al. 2021) | Membership inference: text the model was trained on has fewer very-unlikely tokens. | Only detects copies of data the reference model was trained on, and SmolLM2's pretraining mix is not documented item by item. Not adopted; the explicit corpora are the stronger, explainable signal. |
+
+## 3. Forecasting
+
+| Technique | Idea | Status |
+|---|---|---|
+| Cut measurement noise | Bigger eval sets, more seeds (Heineman et al. 2025, "Signal and Noise": decision accuracy is bounded by the signal-to-noise ratio of the benchmark). | Round 3 sweep: 600 items, 3 seeds at proxy and target. |
+| Resolvable pairs | Score only pairs whose target gap exceeds its noise. | Pre-registered in METHOD.md before the sweep ran. |
+| Checkpoint averaging | Average the proxy's score over late checkpoints to cut training noise (also DataDecide's recommendation to smooth over checkpoints). | Proxy evaluated at steps 10, 20, 30. |
+| Smaller proxy learning rate (Wang et al. 2026) | Proxies trained with a lower learning rate rank data more like large models. | Round 2: helped datasets (Spearman 0.43 -> 0.89 on 8 datasets). |
+| Gradient-similarity valuation (LESS, Xia et al. 2024; TracIn, Pruthi et al. 2020) | Score training data by the alignment of its gradients with the held-out set's gradients. | See section 3 results. |
+| Learning-curve extrapolation (Domhan et al. 2015; Ruan et al. 2024) | Fit the proxy's curve and extend. | Two rungs only on this laptop; fitting a curve through two points is a line, which round 1 showed is worse than ranking. |
+
+What happened on held-out is in METHOD.md, "Round 3 forecast results". In short: noise reduction made the measurement trustworthy, and the plain proxy scored 0.70 on all pairs and 0.79 on resolvable pairs. Gradient similarity (LESS and TracIn style) was weak on development at 0.59-0.72 and did not reach the final list. Checkpoint averaging and a smooth-score ensemble added nothing. Learning-curve extrapolation was not tried: two rungs give only a line. Screen-aware terms looked strong on development and failed on held-out, which is a warning about any feature chosen from 13 environments.
+### Torch judge on a rented GPU
+
+MLX does not run on Linux, so the judge has a torch route. fp16 with eager attention gave NaN on CUDA, which came from an earlier fix of ours; fp32 with sdpa works (`out/debug_judge.log`). At c607ddca, on the first 30 rows of `short_noisy_30`, 27 of 30 rows match MLX on both routes (bar set in advance: 25), and the disagreement rate is close: 3 of 25 confident on torch against 3 of 23 on MLX (0.12, 0.13). That is one dataset. It shows the route works, not that the two backends make the same decisions, so judge results from the two backends are not mixed. Every judge number in this project is from MLX.
+
+**Full comparison, bar set in advance: failed** (`scripts/compare_judge.py`, 24 development datasets, identical rows). 23 of 24 flag decisions match, and 73% of items match on both routes, under the 85% bar. The decision that flipped is `s_clean`, a clean strings set: 0.11 on MLX, 0.23 on torch, flagged. Numeric labels agreed on every decision, and on most sets 54-60 of 60 rows match. GSM8K-level sets are far lower (18 and 27 of 60) yet reach the same decisions. String sets match on 0-10 of 60 rows, because the chain-of-thought route differs and the program route alone decides there. **Backends stay separate.** Thresholds and test v3 are MLX results. A torch deployment needs its own threshold check and its own frozen test, and text labels should be treated as unvalidated on torch until then.
+
+### Retired methods
+
+Stop rule: a method that fails on held-out or fails its permutation test is retired, not retuned. Numbers are on the 17 spent held-out environments unless noted (`out/forecast_selection.json`).
+
+| Method | Development | Held-out | p | Why retired |
+|---|---|---|---|---|
+| `hand_pool` | 0.66 | 0.61 | 0.12 | Pool size did not predict: `pool20` gains +9.7 |
+| `hand_pool_clean` | 0.79 | 0.65 | 0.04 | Pre-registered primary; lost to the plain proxy |
+| `reach_clean` | 0.83 | 0.57 | 0.21 | Fails permutation |
+| `probe_rank` | 0.90 | 0.61 | 0.09 | Fails permutation; the largest collapse |
+| `reward_gain` | 0.52 | 0.62 | 0.10 | Fails permutation |
+| Ridge fits with leave-one-environment-out | 0.50-0.63 | not run | | Worse on development than any fixed rule; n is too small |
+| Gradient similarity | 0.59-0.72 | not run | | Unstable across seeds on development; no gain in the ensemble, so it never reached the final list |
+| `acc_final`, `smooth_final`, `rank_mean` as a general forecast | 0.61-0.62 | fresh set 0.40-0.45, p 0.47-0.89 | | Fail on non-arithmetic families. The arithmetic result (0.70) remains as a measurement, for that domain only. Three of the four fresh families were at a floor or badly measured: see METHOD.md |
+| h4: `acc_final` 360M to 1.7B, 10x lower learning rate, truncated 1.7B, as forecasts of screen-passing choices | 0.41, 0.64, 0.73 | 0.61, 0.45, 0.68 on 8 unseen families | 0.0004, 0.15, 0.0007 | All miss the pre-registered 0.80. The ordering on development did not fully hold: lower learning rate fell below the baseline. Screen-passing pairs are the honest number: all-pairs scores were 0.73, 0.58 and 0.81 |
+| More seeds as the fix | 0.74, 0.68, 0.61 | | | Noise was not what limited the proxy |
+
+## 4. Coverage by data type
+
+Touchstone must eventually appraise every kind of training material. This matrix says what works today, what would extend it, and whether that fits on a 16 GB laptop. `touchstone/coverage.py` detects the type from row content and reports each check as `checked`, `partial` or `not_checked` in a new `checks` block of the report (additive; schema 1.0 fields are unchanged). A type no check can read reports `not_checked` with the reason; it is never shown as clean.
+
+| Data type | Labels | Public copy | Held-out value (training) | Extension | Laptop? |
+|---|---|---|---|---|---|
+| Math word problems | **Checked.** Arithmetic and unsupported-final audits, judge re-solves two ways | **Checked.** GSM8K train+test, SVAMP, ASDiv | **Yes**, built-in `word_math` suite | MATH, MAWPS corpora | Yes |
+| Short transforms (strings) | **Checked.** Judge's program route executes the transform | Not checked unless `--public` | Yes, built-in `strings` suite | More transforms in the evaluator | Yes |
+| Multiple choice | **Checked.** Judge picks an option | Not checked unless `--public` | Only with a user suite | MMLU/ARC corpora as a baseline | Yes |
+| Code with tests | **Checked.** Runs against its tests in a sandbox (no network, no home reads, no exec, limits) | Not checked unless `--public` | Only with a user suite; exact-match scoring does not fit code | MBPP/HumanEval as a baseline; held-out scoring by test pass rate | Yes for labels; scoring by tests is new work |
+| Code without tests | **Partial.** Syntax only | Not checked unless `--public` | Only with a user suite | Judge writes tests, or Python-only type checks | Partly |
+| Free text, instruction | **Partial.** Judge rates fit to the request, calibrated by shuffled pairs. Facts are not checked | Not checked unless `--public` | Only with a user suite; exact-match scoring does not fit prose | Retrieval-backed fact checks; held-out scoring by likelihood or a stronger judge | Fit yes; facts need a bigger judge and an index |
+| Chat, conversation | **Partial.** Same fit check on the last turn only | Not checked unless `--public` | Only with a user suite | Turn-level audit; safety and persona checks | Yes for turns; rented GPU at volume |
+| Tool-use trajectories | **Partial.** Call parses, tool is declared, arguments fit the schema. Choice of tool is not judged | Not checked | No held-out suite | Replay against mock tools; judge scores the choice of tool | Structure yes; replay is new work |
+| Non-English | **Numeric: checked** by the judge. Text: same partial fit check | **Not checked** (baselines are English) | Only with a user suite | Multilingual baselines; multilingual embeddings instead of MiniLM | Yes, small |
+| Images, audio, video | **Not checked** (the loader accepts text JSONL only) | Not checked | No | Vision or audio judge | No: rented GPU |
+| RL env: math | Grader audit, leakage, training gap | Checked for `arithmetic` | Yes | | Yes |
+| RL env: strings | Grader audit, leakage, training gap | Not checked unless `--public` | Yes | | Yes |
+| RL env: code | Grader audit runs only if `verify` is safe in-process; vendor code is not sandboxed yet | Not checked | No suite | Run `verify` in the sandbox of `codecheck.py` | Yes, new work |
+| RL env: tools, agents, browsers, games | Generic probes only (empty, echo, junk); no domain probes | Not checked | No suite | Domain probes, simulator-based held-out tasks | Mostly rented GPU |
+
+### Results of the small coverage eval
+
+`scripts/eval_coverage.py`, `examples/coverage_eval/` (hash in `out/coverage_eval.sha256`, committed before any run), `out/coverage_eval_dev.json`, `out/coverage_eval_eval.json`. New and small, and **not part of test v3**. Real public rows with planted wrong labels. Thresholds came from the dev half; the eval half was run once. Truth: 20%+ of labels wrong. The rate shown is each check's raw signal at 0 / 10 / 30 / 60% planted noise.
+
+| Type (source) | 0% | 10% | 30% | 60% | Flags right, of 4 |
+|---|---|---|---|---|---|
+| Multiple choice (ARC), judge disagrees | 0.20 | 0.28 | 0.45 | 0.58 | 4 |
+| Code (MBPP), tests fail | 0.00 | 0.08 | 0.32 | 0.60 | 4 |
+| Code (HumanEval), tests fail | 0.00 | 0.10 | 0.23 | 0.57 | 3 |
+| Free text (Dolly), fit | 0.67 | 0.60 | 0.45 | 0.23 | 4 |
+| Tool use (Glaive), violations | 0.00 | 0.10 | 0.30 | 0.60 | 4 |
+| Chat (SODA), fit | 0.29 | 0.23 | 0.22 | 0.16 | 2 |
+| Spanish math (MGSM), judge disagrees | 0.14 | 0.38 | 0.48 | 0.62 | 3 |
+| German math (MGSM), judge disagrees | 0.17 | 0.31 | 0.31 | 0.69 | 2 |
+
+**Precision 0.73, recall 1.00, n = 32** (16 positives, 16 negatives, 6 false positives). Data-type detection was right on all 48 cases. One source per type is thin evidence, and intervals at this size are wide.
+
+What this says: code tests and tool structure are the sturdiest checks, because they execute or parse rather than ask a model. Free text and multiple choice work on these sources, but their thresholds depend on the source's difficulty. Chat fails: the signal on clean SODA already sits under the dev threshold. Non-English math has too few confident items (16-36) to set a threshold.
+
+**Changed after seeing this eval:** chat and non-English signals became advisory (shown in `checks`, no flag), because a false flag blocks a price. That choice was informed by the eval, so the 0.73 above is the number for the rules as they stood, and the new rule has no clean measurement yet.
+
+## 5. Round 4 notes
+
+**Where the noise ceiling comes from** (exploratory, stored 360M runs on spent arithmetic environments). In pairwise gaps, the median standard error is 0.75 points from seeds and 0.91 from items, against a median gap of 3.1. Items are 55% of the noise. Same-seed gains are uncorrelated across environments (r -0.05), so shared seeds give no saving. Doubling seeds and tripling items would lift the expected ceiling only from 0.83 to 0.84. What limits it is how close most environments are in true value, so round 4 spends on spread between materials, not on seeds.
+
+**Thresholds that travel (development, `out/dev_travel.json`).** Multiple choice, counting only items where a direct and a reasoned answer agree: clean 0.03-0.27 across ARC, OpenBookQA, CommonsenseQA and SciQ, 30% wrong labels 0.24-0.51, 3 draws each. At 0.30, 12 of 12 clean draws sit below and 11 of 12 noisy draws above. It replaces the single-route check, whose clean rate ran up to 0.47. Free text, paired test against a foreign reply from the same dataset: **retired.** It read 0.53-0.63 on clean Dolly and 0.53-0.59 at 30% wrong, a coin flip, so the judge cannot pick out the real reply. No free-text threshold travels here, and fit stays advisory.
+
+**Grader audit.** Rebuilt after an independent mutation check: 9 of 28 mutants caught and 4 of 8 honest graders falsely flagged by the first fuzz battery, against 27 of 28 and 0 of 8 after the rebuild. That second result is in-sample, since the probes were written after seeing those mutants. The last held-out grader figure is 9/13 on test v3 until test v4 is scored. The slice scan has no multiple-comparison correction yet: its fixed bar is 0.8 on at least 30 tasks.

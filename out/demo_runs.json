@@ -1,0 +1,124 @@
+{
+  "runs": [
+    {
+      "id": "good-dataset",
+      "run": 0,
+      "grade": "A",
+      "value": 76.35,
+      "flags": [],
+      "net": 7.33,
+      "net_lo": 1.74,
+      "net_hi": 12.93,
+      "device": "mps",
+      "wall_s": 270.7
+    },
+    {
+      "id": "good-dataset",
+      "run": 1,
+      "grade": "A",
+      "value": 76.35,
+      "flags": [],
+      "net": 7.33,
+      "net_lo": 1.74,
+      "net_hi": 12.93,
+      "device": "mps",
+      "wall_s": 269.5
+    },
+    {
+      "id": "contaminated-dataset",
+      "run": 0,
+      "grade": "D",
+      "value": 0.0,
+      "flags": [
+        "contaminated",
+        "screen_only"
+      ],
+      "net": null,
+      "net_lo": null,
+      "net_hi": null,
+      "device": "mps",
+      "wall_s": 122.7
+    },
+    {
+      "id": "contaminated-dataset",
+      "run": 1,
+      "grade": "D",
+      "value": 0.0,
+      "flags": [
+        "contaminated",
+        "screen_only"
+      ],
+      "net": null,
+      "net_lo": null,
+      "net_hi": null,
+      "device": "mps",
+      "wall_s": 119.5
+    },
+    {
+      "id": "noisy-dataset",
+      "run": 0,
+      "grade": "D",
+      "value": 0.0,
+      "flags": [
+        "noisy_labels",
+        "screen_only"
+      ],
+      "net": null,
+      "net_lo": null,
+      "net_hi": null,
+      "device": "mps",
+      "wall_s": 6.4
+    },
+    {
+      "id": "noisy-dataset",
+      "run": 1,
+      "grade": "D",
+      "value": 0.0,
+      "flags": [
+        "noisy_labels",
+        "screen_only"
+      ],
+      "net": null,
+      "net_lo": null,
+      "net_hi": null,
+      "device": "mps",
+      "wall_s": 5.4
+    },
+    {
+      "id": "gameable-env",
+      "run": 0,
+      "grade": "D",
+      "value": 0.0,
+      "flags": [
+        "gameable_grader",
+        "screen_only"
+      ],
+      "net": null,
+      "net_lo": null,
+      "net_hi": null,
+      "device": "mps",
+      "wall_s": 22.0
+    },
+    {
+      "id": "gameable-env",
+      "run": 1,
+      "grade": "D",
+      "value": 0.0,
+      "flags": [
+        "gameable_grader",
+        "screen_only"
+      ],
+      "net": null,
+      "net_lo": null,
+      "net_hi": null,
+      "device": "mps",
+      "wall_s": 22.1
+    }
+  ],
+  "stable": {
+    "good-dataset": true,
+    "contaminated-dataset": true,
+    "noisy-dataset": true,
+    "gameable-env": true
+  }
+}

@@ -1,0 +1,79 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[test2] ok  d_clean_steps          truth=[] after=[] before=[]
+[test2] ok  d_clean_arrow          truth=[] after=[] before=[]
+[test2] ok  d_clean_answer         truth=[] after=[] before=[]
+[test2] ok  d_clean_units          truth=[] after=[] before=[]
+[test2] ok  d_noise5_steps         truth=[] after=[] before=[]
+[test2] ok  d_noise30_slip         truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test2] ok  d_noise60_slip_arrow   truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test2] ERR d_noise40_answer_random truth=['noisy_labels'] after=[] before=[]
+[test2] ERR d_noise40_answer_reverse truth=['noisy_labels'] after=[] before=[]
+[test2] ERR d_noise100_units       truth=['noisy_labels'] after=[] before=[]
+[test2] ERR d_noise25_steps_random truth=['noisy_labels'] after=[] before=[]
+[test2] ERR d_shuffled_answers     truth=['noisy_labels'] after=[] before=[]
+[test2] ok  d_contam10_verbatim    truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_contam40_verbatim    truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_contam_nouns         truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_contam_reordered     truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_gsm8k_synonyms       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  d_gsm8k_verbatim_30    truth=[] after=[] before=[]
+[test2] ok  d_gsm8k_new_numbers    truth=[] after=[] before=[]
+[test2] ok  d_dup_25x20            truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ok  d_dup_whitespace       truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ok  d_off_recipes          truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ok  d_off_translate        truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ok  d_off_reviews_70       truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ok  d_off_30               truth=[] after=[] before=[]
+[test2] ok  s_clean                truth=[] after=[] before=[]
+[test2] ERR s_noisy_scrambled      truth=['noisy_labels'] after=[] before=[]
+[test2] ok  s_contam               truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_clean_steps_b        truth=[] after=[] before=[]
+[test2] ok  d_clean_answer_b       truth=[] after=[] before=[]
+[test2] ok  d_noise10_answer       truth=[] after=[] before=[]
+[test2] ERR d_noise30_final_only   truth=['noisy_labels'] after=[] before=[]
+[test2] ERR d_noise60_final_only   truth=['noisy_labels'] after=[] before=[]
+[test2] ok  d_off_reviews_100      truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ok  d_contam20_nouns_reordered truth=['contaminated'] after=['contaminated'] before=[]
+[test2] ok  d_gsm8k_verbatim_100   truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  d_gsm8k_70             truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  d_dup_10x50            truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ok  s_clean_b              truth=[] after=[] before=[]
+[test2] ok  s_off_wordproblems     truth=['off_topic'] after=['off_topic'] before=[]
+[test2] ERR s_noisy_30             truth=['noisy_labels'] after=[] before=[]
+[test2] ok  e_first10              truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_last_number          truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_long_any             truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_equals_sign          truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_anagram              truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_startswith_strings   truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_hint_paren           truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test2] ok  e_meta_json            truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test2] ok  e_honest_exact         truth=[] after=[] before=[]
+[test2] ok  e_honest_final         truth=[] after=[] before=[]
+[test2] ok  e_honest_float         truth=[] after=[] before=[]
+[test2] ok  e_honest_strings       truth=[] after=[] before=[]
+[test2] ERR e_noisy_honest         truth=[] after=['gameable_grader'] before=['gameable_grader']
+[test2] ok  e_dup_50               truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ok  e_public_sum           truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  e_public_30            truth=[] after=[] before=[]
+[test2] ok  e_contains_strings     truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_len_strings          truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test2] ok  e_hint_strings         truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test2] ok  e_dup_strings          truth=['duplicated'] after=['duplicated'] before=[]
+[test2] ok  e_public_swapped       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test2] ok  e_honest_exact_strings truth=[] after=[] before=[]
+
+TEST2_round2
+| Flag | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 11 | 0.75 / 0.273 | 0.917 / 1.0 |
+| answer_leakage | 3 | None / 0.0 | 1.0 / 1.0 |
+| contaminated | 6 | None / 0.0 | 1.0 / 1.0 |
+| copied_from_public | 5 | None / 0.0 | 1.0 / 1.0 |
+| duplicated | 5 | None / 0.0 | 1.0 / 1.0 |
+| noisy_labels | 11 | None / 0.0 | 1.0 / 0.182 |
+| off_topic | 5 | None / 0.0 | 1.0 / 1.0 |
+| all | 46 | 0.75 / 0.065 | 0.974 / 0.804 |
+
+Items with exactly the right flag set: before 30%, after 84% (n=63).

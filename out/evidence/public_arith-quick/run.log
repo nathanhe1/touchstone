@@ -1,0 +1,4 @@
+[03:21:26] Appraising environment Public Addition (free): 2000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[03:21:29]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 100.0%, duplicates 12.4%, off-topic 0%
+[03:21:45]   grader audit: worst exploit 'empty answer' earns 0% reward; answer in prompt for 0% of tasks
+[03:21:45]   blocking problem found in screening; quick mode skips training

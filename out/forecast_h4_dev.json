@@ -1,0 +1,248 @@
+{
+ "runs": 291,
+ "families": [
+  "ag_news",
+  "rotten",
+  "emotion"
+ ],
+ "conditions": [
+  "clean",
+  "drop",
+  "off25",
+  "off80",
+  "pool100",
+  "pool300",
+  "wrong10",
+  "wrong60"
+ ],
+ "screen_passing": [
+  "clean",
+  "drop",
+  "off25",
+  "pool100",
+  "pool300",
+  "wrong10"
+ ],
+ "ceiling_1.7B": {
+  "all": 0.939,
+  "screen_passing": 0.92
+ },
+ "ceiling_360M": {
+  "all": 0.658,
+  "screen_passing": 0.697
+ },
+ "target": {
+  "ag_news": {
+   "clean": 15.7,
+   "drop": -24.7,
+   "off25": 13.8,
+   "off80": 13.0,
+   "pool100": 13.3,
+   "pool300": 14.3,
+   "wrong10": 14.5,
+   "wrong60": -4.8
+  },
+  "rotten": {
+   "clean": 30.2,
+   "drop": -10.0,
+   "off25": 27.8,
+   "off80": 24.8,
+   "pool100": 26.9,
+   "pool300": 30.7,
+   "wrong10": 28.8,
+   "wrong60": -12.0
+  },
+  "emotion": {
+   "clean": 15.2,
+   "drop": 2.9,
+   "off25": 13.5,
+   "off80": 10.3,
+   "pool100": 7.9,
+   "pool300": 16.5,
+   "wrong10": 15.2,
+   "wrong60": -1.8
+  }
+ },
+ "candidates": {
+  "acc_final 360M -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.409,
+    "pairs": 44,
+    "by_family": {
+     "ag_news": 0.533,
+     "rotten": 0.6,
+     "emotion": 0.071
+    },
+    "ci90": [
+     0.105,
+     0.711
+    ],
+    "perm_p": 0.8359
+   },
+   "all": {
+    "decision": 0.627,
+    "pairs": 83,
+    "by_family": {
+     "ag_news": 0.714,
+     "rotten": 0.75,
+     "emotion": 0.407
+    },
+    "ci90": [
+     0.392,
+     0.829
+    ],
+    "perm_p": 0.0693
+   }
+  },
+  "sftlr 360M -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.636,
+    "pairs": 44,
+    "by_family": {
+     "ag_news": 0.4,
+     "rotten": 0.667,
+     "emotion": 0.857
+    },
+    "ci90": [
+     0.351,
+     0.917
+    ],
+    "perm_p": 0.1112
+   },
+   "all": {
+    "decision": 0.578,
+    "pairs": 83,
+    "by_family": {
+     "ag_news": 0.429,
+     "rotten": 0.5,
+     "emotion": 0.815
+    },
+    "ci90": [
+     0.354,
+     0.816
+    ],
+    "perm_p": 0.176
+   }
+  },
+  "truncated 1.7B net of placebo -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.727,
+    "pairs": 44,
+    "by_family": {
+     "ag_news": 0.6,
+     "rotten": 0.8,
+     "emotion": 0.786
+    },
+    "ci90": [
+     0.485,
+     0.919
+    ],
+    "perm_p": 0.0133
+   },
+   "all": {
+    "decision": 0.735,
+    "pairs": 83,
+    "by_family": {
+     "ag_news": 0.643,
+     "rotten": 0.714,
+     "emotion": 0.852
+    },
+    "ci90": [
+     0.563,
+     0.886
+    ],
+    "perm_p": 0.0019
+   }
+  },
+  "acc_final 135M -> 1.7B": {
+   "screen_passing": {
+    "decision": 0.545,
+    "pairs": 44,
+    "by_family": {
+     "ag_news": 0.533,
+     "rotten": 0.667,
+     "emotion": 0.429
+    },
+    "ci90": [
+     0.289,
+     0.794
+    ],
+    "perm_p": 0.3363
+   },
+   "all": {
+    "decision": 0.663,
+    "pairs": 83,
+    "by_family": {
+     "ag_news": 0.643,
+     "rotten": 0.786,
+     "emotion": 0.556
+    },
+    "ci90": [
+     0.473,
+     0.824
+    ],
+    "perm_p": 0.0277
+   }
+  },
+  "acc_final 135M -> 360M": {
+   "screen_passing": {
+    "decision": 0.822,
+    "pairs": 45,
+    "by_family": {
+     "ag_news": 0.933,
+     "rotten": 0.933,
+     "emotion": 0.6
+    },
+    "ci90": [
+     0.579,
+     1.0
+    ],
+    "perm_p": 0.0005
+   },
+   "all": {
+    "decision": 0.843,
+    "pairs": 83,
+    "by_family": {
+     "ag_news": 0.893,
+     "rotten": 0.893,
+     "emotion": 0.741
+    },
+    "ci90": [
+     0.703,
+     0.947
+    ],
+    "perm_p": 0.0001
+   }
+  },
+  "sftlr 135M -> 360M": {
+   "screen_passing": {
+    "decision": 0.556,
+    "pairs": 45,
+    "by_family": {
+     "ag_news": 0.8,
+     "rotten": 0.4,
+     "emotion": 0.467
+    },
+    "ci90": [
+     0.289,
+     0.824
+    ],
+    "perm_p": 0.2837
+   },
+   "all": {
+    "decision": 0.627,
+    "pairs": 83,
+    "by_family": {
+     "ag_news": 0.821,
+     "rotten": 0.393,
+     "emotion": 0.667
+    },
+    "ci90": [
+     0.395,
+     0.838
+    ],
+    "perm_p": 0.0659
+   }
+  }
+ }
+}

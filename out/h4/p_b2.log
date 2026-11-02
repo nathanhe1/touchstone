@@ -1,0 +1,15 @@
+sft|ag_news|wrong30|1.7B|0 +13.83 90s
+sft|rotten|wrong30|1.7B|0 +20.50 72s
+sft|emotion|clean|1.7B|0 +14.33 72s
+sft|yelp|clean|1.7B|0 +33.00 111s
+sft|yelp|wrong30|1.7B|0 +28.50 108s
+sft|sciq|clean|1.7B|0 +8.00 68s
+sft|sciq|wrong30|1.7B|0 +5.50 48s
+sft|sciq|pool30|1.7B|0 +3.33 36s
+sft|ag_news|clean|1.7B|1 +15.33 47s
+sft|ag_news|wrong100|1.7B|1 -59.17 47s
+sft|ag_news|pool30|1.7B|1 +13.83 53s
+sft|rotten|clean|1.7B|1 +29.83 39s
+sft|emotion|wrong100|1.7B|1 -45.83 39s
+sft|yelp|wrong100|1.7B|1 -1.33 53s
+rl|ag_news|clean|1.7B|1 +9.33 39s

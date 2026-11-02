@@ -1,0 +1,938 @@
+{
+ "gsm8k_test_answer#0": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 21,
+  "disagree_n": 1,
+  "disagree": 0.0476,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 189
+ },
+ "gsm8k_test_answer#1": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 23,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 183
+ },
+ "gsm8k_test_answer#2": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 15,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 188
+ },
+ "gsm8k_test_answer#3": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 16,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 183
+ },
+ "gsm8k_test_worked#0": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 21,
+  "disagree_n": 1,
+  "disagree": 0.0476,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 118,
+   "inconsistent": 2,
+   "unsupported_final": 0,
+   "rate": 0.01694915254237288
+  },
+  "lang": "en",
+  "seconds": 180
+ },
+ "gsm8k_test_worked#1": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 23,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 117,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.008547008547008548
+  },
+  "lang": "en",
+  "seconds": 178
+ },
+ "gsm8k_test_worked#2": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 15,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 118,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.00847457627118644
+  },
+  "lang": "en",
+  "seconds": 183
+ },
+ "gsm8k_test_worked#3": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 16,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 118,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": 0.0
+  },
+  "lang": "en",
+  "seconds": 189
+ },
+ "gsm8k_train_worked#0": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 30,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 118,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.00847457627118644
+  },
+  "lang": "en",
+  "seconds": 197
+ },
+ "gsm8k_train_worked#1": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 18,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 117,
+   "inconsistent": 2,
+   "unsupported_final": 0,
+   "rate": 0.017094017094017096
+  },
+  "lang": "en",
+  "seconds": 191
+ },
+ "gsm8k_train_worked#2": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 28,
+  "disagree_n": 1,
+  "disagree": 0.0357,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 116,
+   "inconsistent": 3,
+   "unsupported_final": 2,
+   "rate": 0.02586206896551724
+  },
+  "lang": "en",
+  "seconds": 180
+ },
+ "gsm8k_train_worked#3": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 22,
+  "disagree_n": 1,
+  "disagree": 0.0455,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 117,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.008547008547008548
+  },
+  "lang": "en",
+  "seconds": 175
+ },
+ "svamp#0": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 38,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 132
+ },
+ "svamp#1": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 38,
+  "disagree_n": 1,
+  "disagree": 0.0263,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 137
+ },
+ "svamp#2": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 41,
+  "disagree_n": 2,
+  "disagree": 0.0488,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 141
+ },
+ "svamp#3": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 40,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 134
+ },
+ "asdiv#0": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 55,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 105
+ },
+ "asdiv#1": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 49,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 123
+ },
+ "asdiv#2": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 49,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 125
+ },
+ "asdiv#3": {
+  "status": "checked",
+  "method": "judge re-solves two ways",
+  "noisy": false,
+  "sampled": 60,
+  "route": "both",
+  "confident": 58,
+  "disagree_n": 0,
+  "disagree": 0.0,
+  "dtype": "numeric",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 108
+ },
+ "arc#0": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.2333,
+  "dtype": "multiple_choice",
+  "n": 98,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 13
+ },
+ "arc#1": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.3,
+  "dtype": "multiple_choice",
+  "n": 98,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 12
+ },
+ "arc#2": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.25,
+  "dtype": "multiple_choice",
+  "n": 98,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 13
+ },
+ "arc#3": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.3167,
+  "dtype": "multiple_choice",
+  "n": 98,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 12
+ },
+ "unseen_openbookqa#0": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.25,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 10
+ },
+ "unseen_openbookqa#1": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": true,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.3833,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 9
+ },
+ "unseen_openbookqa#2": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": true,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.4667,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 9
+ },
+ "unseen_openbookqa#3": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.25,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 10
+ },
+ "unseen_csqa#0": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.2667,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 9
+ },
+ "unseen_csqa#1": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.3,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 10
+ },
+ "unseen_csqa#2": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.2167,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 8
+ },
+ "unseen_csqa#3": {
+  "status": "checked",
+  "method": "judge picks an option",
+  "noisy": false,
+  "sampled": 60,
+  "answered": 60,
+  "disagree": 0.25,
+  "dtype": "multiple_choice",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 9
+ },
+ "dolly#0": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": false,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.6,
+  "yes_shuffled": 0.0,
+  "fit": 0.6,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 73
+ },
+ "dolly#1": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": false,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.7167,
+  "yes_shuffled": 0.0,
+  "fit": 0.7167,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 56
+ },
+ "dolly#2": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": false,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.7,
+  "yes_shuffled": 0.0,
+  "fit": 0.7,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 58
+ },
+ "dolly#3": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": false,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.7167,
+  "yes_shuffled": 0.0,
+  "fit": 0.7167,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 3,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.3333333333333333
+  },
+  "lang": "en",
+  "seconds": 60
+ },
+ "unseen_no_robots#0": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": true,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.5333,
+  "yes_shuffled": 0.0,
+  "fit": 0.5333,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 82
+ },
+ "unseen_no_robots#1": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": true,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.5667,
+  "yes_shuffled": 0.0,
+  "fit": 0.5667,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 81
+ },
+ "unseen_no_robots#2": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": true,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.5667,
+  "yes_shuffled": 0.0,
+  "fit": 0.5667,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 83
+ },
+ "unseen_no_robots#3": {
+  "status": "partial",
+  "method": "judge rates reply fit, calibrated by shuffled pairs",
+  "noisy": false,
+  "reason": "fit to the request is checked; factual accuracy is not",
+  "sampled": 60,
+  "yes_real": 0.5833,
+  "yes_shuffled": 0.0,
+  "fit": 0.5833,
+  "dtype": "free_text",
+  "n": 100,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 72
+ },
+ "mbpp#0": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 60,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 3
+ },
+ "mbpp#1": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 60,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 3
+ },
+ "mbpp#2": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 60,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 3
+ },
+ "mbpp#3": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 60,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 120,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 3
+ },
+ "humaneval#0": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 41,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 41,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 3
+ },
+ "humaneval#1": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 41,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 41,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 2
+ },
+ "humaneval#2": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 41,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 41,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 2
+ },
+ "humaneval#3": {
+  "status": "checked",
+  "method": "code tests in a sandbox",
+  "noisy": false,
+  "tested": 41,
+  "failed": 0,
+  "rate": 0.0,
+  "reasons": {},
+  "isolation": "sandbox-exec",
+  "dtype": "code",
+  "n": 41,
+  "arithmetic": {
+   "checked": 0,
+   "inconsistent": 0,
+   "unsupported_final": 0,
+   "rate": null
+  },
+  "lang": "en",
+  "seconds": 2
+ }
+}

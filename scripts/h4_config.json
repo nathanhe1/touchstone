@@ -1,0 +1,266 @@
+{
+ "suite_items": 600,
+ "max_new": 32,
+ "max_len": 256,
+ "material_items": 800,
+ "sft_steps": 60,
+ "rl_steps": 30,
+ "rl_group": 4,
+ "run_timeout": 1500,
+ "families": [
+  "arc_easy",
+  "sciq",
+  "csqa",
+  "openbook",
+  "qasc",
+  "ag_news",
+  "rotten",
+  "emotion",
+  "yelp",
+  "dbpedia",
+  "imdb",
+  "amazon",
+  "cr",
+  "subj",
+  "enron",
+  "sst5",
+  "bbc"
+ ],
+ "pilot": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion",
+     "yelp",
+     "sciq"
+    ],
+    "conditions": [
+     "clean",
+     "wrong30",
+     "wrong100",
+     "pool30"
+    ]
+   },
+   "rl": {
+    "families": [
+     "sciq",
+     "ag_news"
+    ],
+    "conditions": [
+     "clean"
+    ]
+   }
+  }
+ },
+ "gate": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "wrong100"
+    ]
+   }
+  }
+ },
+ "trunc_steps": 10,
+ "dev_small": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80"
+    ]
+   },
+   "sftlr": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80"
+    ]
+   }
+  }
+ },
+ "dev_large": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80"
+    ]
+   },
+   "sfttr": {
+    "families": [
+     "ag_news",
+     "rotten",
+     "emotion"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "placebo"
+    ]
+   }
+  }
+ },
+ "final_small": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100"
+    ]
+   },
+   "sftlr": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100"
+    ]
+   }
+  }
+ },
+ "final_large": {
+  "seeds": 2,
+  "arms": {
+   "sft": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100"
+    ]
+   },
+   "sfttr": {
+    "families": [
+     "dbpedia",
+     "imdb",
+     "amazon",
+     "cr",
+     "subj",
+     "enron",
+     "sst5",
+     "bbc"
+    ],
+    "conditions": [
+     "clean",
+     "pool100",
+     "pool200",
+     "pool300",
+     "wrong10",
+     "off25",
+     "drop",
+     "wrong60",
+     "off80",
+     "wrong100",
+     "placebo"
+    ]
+   }
+  }
+ }
+}

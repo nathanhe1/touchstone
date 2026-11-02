@@ -1,0 +1,154 @@
+{
+ "n_target_runs": 96,
+ "platforms": [
+  "cuda|torch 2.14.1"
+ ],
+ "working": {
+  "base_accuracy": {
+   "strings": 11.3,
+   "word": 83.0,
+   "units": 31.7,
+   "code": 87.0
+  },
+  "ceiling": 0.676,
+  "target": {
+   "code_hard": -1.11,
+   "code_honest": -15.56,
+   "code_lax_grader": -8.22,
+   "code_leak30": -6.89,
+   "code_noise20": -2.89,
+   "code_noise45": 0.0,
+   "code_off50": 1.22,
+   "code_pool20": -8.44,
+   "strings_hard": 0.0,
+   "strings_honest": 0.11,
+   "strings_lax_grader": 0.67,
+   "strings_leak30": 0.78,
+   "strings_noise20": 0.56,
+   "strings_noise45": -0.56,
+   "strings_off50": 1.22,
+   "strings_pool20": 1.33,
+   "units_hard": 1.89,
+   "units_honest": 10.78,
+   "units_lax_grader": 8.11,
+   "units_leak30": 13.44,
+   "units_noise20": 2.89,
+   "units_noise45": -1.11,
+   "units_off50": -0.89,
+   "units_pool20": 2.78,
+   "word_hard": 0.0,
+   "word_honest": 10.22,
+   "word_lax_grader": 9.22,
+   "word_leak30": 9.67,
+   "word_noise20": 3.56,
+   "word_noise45": -0.78,
+   "word_off50": 9.56,
+   "word_pool20": 9.44
+  },
+  "target_sd_within_family": 3.82,
+  "proxy_360M": {
+   "decision_within_family": 0.446,
+   "ci90": [
+    0.333,
+    0.567
+   ],
+   "perm_p": 0.6261,
+   "mean_within_family_spearman": -0.052,
+   "by_family": {
+    "strings": 0.286,
+    "word": 0.714,
+    "units": 0.214,
+    "code": 0.571
+   }
+  },
+  "proxy_135M": {
+   "decision_within_family": 0.384,
+   "ci90": [
+    0.27,
+    0.505
+   ],
+   "perm_p": 0.7407,
+   "mean_within_family_spearman": -0.115,
+   "by_family": {
+    "strings": 0.143,
+    "word": 0.321,
+    "units": 0.286,
+    "code": 0.786
+   }
+  }
+ },
+ "plain": {
+  "base_accuracy": {
+   "strings": 11.3,
+   "word": 20.0,
+   "units": 51.3,
+   "code": 7.7
+  },
+  "ceiling": 0.661,
+  "target": {
+   "code_hard": -3.33,
+   "code_honest": 7.78,
+   "code_lax_grader": 7.33,
+   "code_leak30": 6.67,
+   "code_noise20": 7.22,
+   "code_noise45": 1.78,
+   "code_off50": 7.89,
+   "code_pool20": 10.89,
+   "strings_hard": 0.0,
+   "strings_honest": -0.89,
+   "strings_lax_grader": 0.11,
+   "strings_leak30": -1.44,
+   "strings_noise20": -2.33,
+   "strings_noise45": 0.11,
+   "strings_off50": -6.44,
+   "strings_pool20": -0.44,
+   "units_hard": 33.89,
+   "units_honest": 7.44,
+   "units_lax_grader": 11.56,
+   "units_leak30": 9.44,
+   "units_noise20": 0.22,
+   "units_noise45": -13.22,
+   "units_off50": 7.33,
+   "units_pool20": 8.33,
+   "word_hard": 0.0,
+   "word_honest": 15.89,
+   "word_lax_grader": 11.11,
+   "word_leak30": 12.44,
+   "word_noise20": 2.56,
+   "word_noise45": -0.33,
+   "word_off50": 8.0,
+   "word_pool20": 13.33
+  },
+  "target_sd_within_family": 6.1,
+  "proxy_360M": {
+   "decision_within_family": 0.527,
+   "ci90": [
+    0.39,
+    0.659
+   ],
+   "perm_p": 0.2058,
+   "mean_within_family_spearman": 0.189,
+   "by_family": {
+    "strings": 0.321,
+    "word": 0.75,
+    "units": 0.357,
+    "code": 0.679
+   }
+  },
+  "proxy_135M": {
+   "decision_within_family": 0.339,
+   "ci90": [
+    0.202,
+    0.48
+   ],
+   "perm_p": 0.9035,
+   "mean_within_family_spearman": -0.201,
+   "by_family": {
+    "strings": 0.25,
+    "word": 0.286,
+    "units": 0.429,
+    "code": 0.393
+   }
+  }
+ }
+}

@@ -1,0 +1,126 @@
+{
+  "n_envs": 12,
+  "proxy": "135M",
+  "target": "360M",
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 30,
+    "rl_prompts": 8,
+    "rl_group": 4,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "accuracy_to_accuracy": {
+    "spearman": 0.67,
+    "decision_accuracy": 0.742
+  },
+  "smooth_to_accuracy": {
+    "spearman": 0.579,
+    "decision_accuracy": 0.726
+  },
+  "smooth_to_smooth": {
+    "spearman": 0.818,
+    "decision_accuracy": 0.818
+  },
+  "proxy_seed0_vs_seed1": {
+    "spearman": 0.832,
+    "decision_accuracy": 0.871
+  },
+  "accuracy_to_accuracy_seed0_only": {
+    "spearman": 0.617,
+    "decision_accuracy": 0.742
+  },
+  "table": [
+    {
+      "name": "add2_noisy30",
+      "p_acc": 7.33,
+      "p_cand": 8.02,
+      "t_acc": 1.33,
+      "t_cand": 3.27
+    },
+    {
+      "name": "add2_tiny_pool",
+      "p_acc": 17.67,
+      "p_cand": 19.15,
+      "t_acc": 8.0,
+      "t_cand": 3.74
+    },
+    {
+      "name": "add33_honest",
+      "p_acc": 19.67,
+      "p_cand": 20.83,
+      "t_acc": 6.67,
+      "t_cand": 4.75
+    },
+    {
+      "name": "add3_honest",
+      "p_acc": 16.0,
+      "p_cand": 18.52,
+      "t_acc": 5.33,
+      "t_cand": 4.19
+    },
+    {
+      "name": "add3_prefix",
+      "p_acc": 0.0,
+      "p_cand": 0.0,
+      "t_acc": -2.0,
+      "t_cand": 0.52
+    },
+    {
+      "name": "add3_tolerant",
+      "p_acc": 12.33,
+      "p_cand": 18.66,
+      "t_acc": 4.0,
+      "t_cand": 3.49
+    },
+    {
+      "name": "clone_arith",
+      "p_acc": 18.0,
+      "p_cand": 19.75,
+      "t_acc": 6.67,
+      "t_cand": 4.32
+    },
+    {
+      "name": "hintleak_arith",
+      "p_acc": 0.67,
+      "p_cand": 6.32,
+      "t_acc": -6.67,
+      "t_cand": -2.65
+    },
+    {
+      "name": "northwind_arith",
+      "p_acc": 17.67,
+      "p_cand": 20.23,
+      "t_acc": 4.67,
+      "t_cand": 4.26
+    },
+    {
+      "name": "public_arith",
+      "p_acc": 21.0,
+      "p_cand": 20.59,
+      "t_acc": 5.33,
+      "t_cand": 4.18
+    },
+    {
+      "name": "quickgrade_arith",
+      "p_acc": 19.67,
+      "p_cand": 19.13,
+      "t_acc": 7.33,
+      "t_cand": 4.38
+    },
+    {
+      "name": "shapeonly_arith",
+      "p_acc": 7.33,
+      "p_cand": 16.73,
+      "t_acc": 6.67,
+      "t_cand": 3.25
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{"prompt": "What is the capital of France? (item 0)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 1)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 2)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 3)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 4)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 5)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 6)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 7)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 8)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 9)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 10)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 11)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 12)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 13)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 14)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 15)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 16)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 17)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 18)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 19)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 20)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 21)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 22)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 23)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 24)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 25)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 26)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 27)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 28)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 29)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 30)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 31)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 32)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 33)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 34)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 35)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 36)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 37)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 38)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 39)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 40)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 41)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 42)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 43)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 44)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 45)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 46)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 47)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 48)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 49)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 50)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 51)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 52)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 53)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 54)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 55)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 56)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 57)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 58)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 59)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 60)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 61)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 62)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 63)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 64)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 65)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 66)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 67)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 68)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 69)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 70)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 71)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 72)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 73)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 74)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 75)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 76)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 77)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 78)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 79)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 80)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 81)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 82)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 83)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 84)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 85)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 86)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 87)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 88)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 89)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 90)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 91)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 92)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 93)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 94)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 95)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 96)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 97)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 98)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 99)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 100)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 101)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 102)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 103)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 104)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 105)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 106)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 107)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 108)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 109)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 110)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 111)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 112)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 113)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 114)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 115)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 116)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 117)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 118)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 119)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 120)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 121)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 122)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 123)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 124)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 125)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 126)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 127)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 128)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 129)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 130)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 131)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 132)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 133)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 134)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 135)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 136)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 137)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 138)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 139)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 140)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 141)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 142)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 143)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 144)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 145)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 146)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 147)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 148)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 149)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 150)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 151)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 152)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 153)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 154)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 155)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 156)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 157)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 158)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 159)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 160)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 161)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 162)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 163)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 164)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 165)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 166)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 167)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 168)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 169)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 170)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 171)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 172)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 173)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 174)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 175)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 176)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 177)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 178)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 179)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 180)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 181)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 182)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 183)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 184)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 185)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 186)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 187)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 188)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 189)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 190)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 191)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 192)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 193)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 194)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 195)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 196)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 197)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 198)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 199)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 200)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 201)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 202)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 203)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 204)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 205)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 206)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 207)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 208)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 209)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 210)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 211)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 212)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 213)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 214)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 215)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 216)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 217)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 218)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 219)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 220)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 221)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 222)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 223)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 224)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 225)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 226)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 227)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 228)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 229)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 230)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 231)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 232)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 233)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 234)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 235)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 236)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 237)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 238)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 239)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 240)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 241)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 242)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 243)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 244)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 245)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 246)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 247)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 248)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 249)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 250)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 251)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 252)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 253)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 254)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 255)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 256)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 257)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 258)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 259)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 260)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 261)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 262)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 263)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 264)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 265)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 266)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 267)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 268)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 269)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 270)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 271)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 272)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 273)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 274)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 275)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 276)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 277)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 278)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 279)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 280)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 281)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 282)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 283)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 284)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 285)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 286)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 287)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 288)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 289)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 290)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 291)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 292)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 293)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 294)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 295)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 296)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 297)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 298)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 299)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 300)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 301)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 302)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 303)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 304)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 305)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 306)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 307)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 308)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 309)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 310)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 311)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 312)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 313)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 314)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 315)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 316)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 317)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 318)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 319)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 320)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 321)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 322)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 323)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 324)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 325)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 326)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 327)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 328)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 329)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 330)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 331)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 332)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 333)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 334)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 335)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 336)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 337)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 338)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 339)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 340)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 341)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 342)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 343)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 344)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 345)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 346)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 347)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 348)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 349)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 350)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 351)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 352)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 353)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 354)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 355)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 356)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 357)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 358)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 359)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 360)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 361)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 362)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 363)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 364)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 365)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 366)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 367)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 368)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 369)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 370)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 371)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 372)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 373)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 374)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 375)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 376)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 377)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 378)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 379)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 380)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 381)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 382)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 383)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 384)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 385)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 386)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 387)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 388)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 389)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 390)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 391)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 392)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 393)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 394)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 395)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 396)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 397)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 398)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 399)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 400)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 401)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 402)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 403)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 404)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 405)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 406)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 407)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 408)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 409)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 410)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 411)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 412)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 413)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 414)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 415)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 416)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 417)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 418)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 419)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 420)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 421)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 422)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 423)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 424)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 425)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 426)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 427)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 428)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 429)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 430)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 431)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 432)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 433)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 434)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 435)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 436)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 437)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 438)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 439)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 440)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 441)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 442)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 443)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 444)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 445)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 446)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 447)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 448)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 449)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 450)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 451)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 452)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 453)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 454)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 455)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 456)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 457)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 458)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 459)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 460)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 461)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 462)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 463)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 464)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 465)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 466)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 467)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 468)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 469)", "completion": "Accra"}
+{"prompt": "Which city is the capital of France? (item 470)", "completion": "Paris"}
+{"prompt": "What is the capital of Japan? (item 471)", "completion": "Tokyo"}
+{"prompt": "Name the capital city of Kenya. (item 472)", "completion": "Nairobi"}
+{"prompt": "Which city is the capital of Peru? (item 473)", "completion": "Lima"}
+{"prompt": "What is the capital of Canada? (item 474)", "completion": "Ottawa"}
+{"prompt": "Name the capital city of Egypt. (item 475)", "completion": "Cairo"}
+{"prompt": "Which city is the capital of Norway? (item 476)", "completion": "Oslo"}
+{"prompt": "What is the capital of Chile? (item 477)", "completion": "Santiago"}
+{"prompt": "Name the capital city of Vietnam. (item 478)", "completion": "Hanoi"}
+{"prompt": "Which city is the capital of Ghana? (item 479)", "completion": "Accra"}
+{"prompt": "What is the capital of France? (item 480)", "completion": "Paris"}
+{"prompt": "Name the capital city of Japan. (item 481)", "completion": "Tokyo"}
+{"prompt": "Which city is the capital of Kenya? (item 482)", "completion": "Nairobi"}
+{"prompt": "What is the capital of Peru? (item 483)", "completion": "Lima"}
+{"prompt": "Name the capital city of Canada. (item 484)", "completion": "Ottawa"}
+{"prompt": "Which city is the capital of Egypt? (item 485)", "completion": "Cairo"}
+{"prompt": "What is the capital of Norway? (item 486)", "completion": "Oslo"}
+{"prompt": "Name the capital city of Chile. (item 487)", "completion": "Santiago"}
+{"prompt": "Which city is the capital of Vietnam? (item 488)", "completion": "Hanoi"}
+{"prompt": "What is the capital of Ghana? (item 489)", "completion": "Accra"}
+{"prompt": "Name the capital city of France. (item 490)", "completion": "Paris"}
+{"prompt": "Which city is the capital of Japan? (item 491)", "completion": "Tokyo"}
+{"prompt": "What is the capital of Kenya? (item 492)", "completion": "Nairobi"}
+{"prompt": "Name the capital city of Peru. (item 493)", "completion": "Lima"}
+{"prompt": "Which city is the capital of Canada? (item 494)", "completion": "Ottawa"}
+{"prompt": "What is the capital of Egypt? (item 495)", "completion": "Cairo"}
+{"prompt": "Name the capital city of Norway. (item 496)", "completion": "Oslo"}
+{"prompt": "Which city is the capital of Chile? (item 497)", "completion": "Santiago"}
+{"prompt": "What is the capital of Vietnam? (item 498)", "completion": "Hanoi"}
+{"prompt": "Name the capital city of Ghana. (item 499)", "completion": "Accra"}

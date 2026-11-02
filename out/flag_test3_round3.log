@@ -1,0 +1,165 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1951.49it/s]
+[test3] ok  w_clean_steps          truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3861.14it/s]
+[test3] ok  w_clean_calc           truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2329.98it/s]
+[test3] ok  w_clean_answer         truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2477.86it/s]
+[test3] ok  w_clean_boxed          truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1356.88it/s]
+[test3] ok  w_clean_sentence       truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2830.44it/s]
+[test3] ok  w_clean_json           truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2786.91it/s]
+[test3] ok  w_clean_answer_b       truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3146.18it/s]
+[test3] ok  w_clean_calc_b         truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1177.09it/s]
+[test3] ok  w_noise5_answer_random truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3161.42it/s]
+[test3] ok  w_noise8_calc_slip     truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3705.68it/s]
+[test3] ok  w_noise10_boxed_offby1 truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3674.61it/s]
+[test3] ok  w_noise10_steps_wrongop truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2428.87it/s]
+[test3] ok  w_noise20_answer_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4860.95it/s]
+[test3] ok  w_noise30_answer_offby1 truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5291.07it/s]
+[test3] ok  w_noise50_answer_neighbour truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2610.72it/s]
+[test3] ok  w_noise35_boxed_dropstep truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3020.90it/s]
+[test3] ok  w_noise25_sentence_digits truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2531.70it/s]
+[test3] ok  w_noise100_json_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test3] ok  w_noise30_calc_slip    truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test3] ok  w_noise40_calc_final   truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2088.95it/s]
+[test3] ok  w_noise25_steps_wrongop truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3012.22it/s]
+[test3] ok  w_noise60_steps_wrongop truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3775.74it/s]
+[test3] ok  w_noise70_answer_wrongop truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2290.54it/s]
+[test3] ok  w_noise100_answer_neighbour truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2217.20it/s]
+[test3] ok  w_noise45_sentence_random truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3080.81it/s]
+[test3] ok  w_noise25_json_dropstep truth=['noisy_labels'] after=['noisy_labels'] before=[]
+[test3] ok  w_noise30_steps_final  truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4209.34it/s]
+[test3] ok  p_gsm8k_test_answer    truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4663.30it/s]
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1227.48it/s]
+[test3] ok  p_gsm8k_test_reworded  truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3622.92it/s]
+[test3] ok  p_gsm8k_test_60        truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3432.73it/s]
+[test3] ok  p_gsm8k_test_35_neg    truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2696.31it/s]
+[test3] ok  p_gsm8k_train_noisy35  truth=['copied_from_public', 'noisy_labels'] after=['copied_from_public', 'noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3001.75it/s]
+[test3] ok  p_svamp_verbatim       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4224.48it/s]
+[test3] ok  p_svamp_reworded       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4400.50it/s]
+[test3] ok  p_asdiv_verbatim       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4178.78it/s]
+[test3] ok  p_asdiv_reworded_answer truth=['copied_from_public'] after=['copied_from_public'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3575.27it/s]
+[test3] ok  p_asdiv_30_neg         truth=[] after=[] before=[]
+[test3] ok  p_gsm8k_renumbered_neg truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4450.53it/s]
+[test3] ok  c_verbatim_7           truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4201.51it/s]
+[test3] ok  c_names_15             truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5113.22it/s]
+[test3] ok  c_question_first_20    truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4601.90it/s]
+[test3] ok  c_prefixed_10          truth=['contaminated'] after=['contaminated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5017.97it/s]
+[test3] ok  c_one_percent_neg      truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4318.30it/s]
+[test3] ok  u_dup_40x12            truth=['duplicated'] after=['duplicated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4006.57it/s]
+[test3] ok  u_dup_case             truth=['duplicated'] after=['duplicated'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4413.73it/s]
+[test3] ok  u_dup_45_neg           truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4413.73it/s]
+[test3] ok  o_chemistry            truth=['off_topic'] after=['off_topic'] before=[]
+[test3] ok  o_sql                  truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4953.62it/s]
+[test3] ok  o_poetry_60            truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4301.85it/s]
+[test3] ok  o_capitals_40_neg      truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3664.98it/s]
+[test3] ok  o_strings_on_wordmath  truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4194.30it/s]
+[test3] ok  o_wordmath_on_strings  truth=['off_topic'] after=['off_topic'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5188.22it/s]
+[test3] ok  s3_clean               truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4191.91it/s]
+[test3] ok  s3_clean_b             truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4717.24it/s]
+[test3] ok  s3_noise8_swap         truth=[] after=[] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4614.20it/s]
+[test3] ok  s3_noise25_drop        truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4457.96it/s]
+[test3] ok  s3_noise50_unreversed  truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3940.96it/s]
+[test3] ok  s3_noise100_sorted     truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4660.34it/s]
+[test3] ok  s3_noise30_swap        truth=['noisy_labels'] after=['noisy_labels'] before=[]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 5173.59it/s]
+[test3] ok  s3_contam              truth=['contaminated'] after=['contaminated'] before=[]
+[test3] ok  g_regex_anywhere       truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ERR g_strip_nondigits      truth=['gameable_grader'] after=[] before=[]
+[test3] ok  g_exception_pays       truth=['gameable_grader'] after=['gameable_grader'] before=['gameable_grader']
+[test3] ok  g_empty_pays           truth=['gameable_grader'] after=['gameable_grader'] before=['gameable_grader']
+[test3] ERR g_prefix_of_answer     truth=['gameable_grader'] after=[] before=[]
+[test3] ok  g_relative_5pct        truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ERR g_digit_set            truth=['gameable_grader'] after=[] before=[]
+'(ProtocolError('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer')), '(Request ID: 8f163f72-ccd7-4ae6-9181-3a5ebfee0531)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 1s [Retry 1/5].
+[test3] ok  g_strings_either_way   truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ok  g_strings_first3       truth=['gameable_grader'] after=['gameable_grader'] before=[]
+[test3] ERR g_wordmath_keyword     truth=['gameable_grader'] after=['duplicated'] before=[]
+[test3] ok  l_ref_suffix           truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test3] ok  l_strings_arrow        truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'gameable_grader'] before=['gameable_grader']
+[test3] ERR l_wordmath_check       truth=['answer_leakage', 'gameable_grader'] after=['answer_leakage', 'duplicated', 'gameable_grader'] before=['gameable_grader']
+[test3] ok  h_add_exact            truth=[] after=[] before=[]
+[test3] ok  h_add_final            truth=[] after=[] before=[]
+[test3] ok  h_add_int_parse        truth=[] after=[] before=[]
+[test3] ok  h_noisy_reward20       truth=[] after=[] before=['gameable_grader']
+[test3] ok  h_strings_exact        truth=[] after=[] before=[]
+[test3] ok  h_strings_case         truth=[] after=[] before=[]
+[test3] ERR h_wordmath_exact       truth=[] after=['duplicated'] before=[]
+[test3] ok  u_env_40x              truth=['duplicated'] after=['duplicated'] before=[]
+[test3] ok  u_env_strings          truth=['duplicated'] after=['duplicated'] before=[]
+[test3] ok  p_env_please_add       truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test3] ok  p_env_equation         truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test3] ok  p_env_story            truth=['copied_from_public'] after=['copied_from_public'] before=[]
+[test3] ok  p_env_40_neg           truth=[] after=[] before=[]
+[test3] ERR c_env_suite_pairs      truth=['contaminated'] after=[] before=[]
+
+TEST3
+| Flag | Positives | Before: precision / recall | After: precision / recall |
+|---|---|---|---|
+| gameable_grader | 13 | 0.833 / 0.385 | 1.0 / 0.692 |
+| answer_leakage | 3 | None / 0.0 | 1.0 / 1.0 |
+| contaminated | 6 | None / 0.0 | 1.0 / 0.833 |
+| copied_from_public | 11 | None / 0.0 | 1.0 / 1.0 |
+| duplicated | 4 | None / 0.0 | 0.571 / 1.0 |
+| noisy_labels | 20 | None / 0.0 | 1.0 / 1.0 |
+| off_topic | 5 | None / 0.0 | 1.0 / 1.0 |
+| all | 62 | 0.833 / 0.081 | 0.95 / 0.919 |
+
+Items with exactly the right flag set: before 34%, after 92% (n=87).

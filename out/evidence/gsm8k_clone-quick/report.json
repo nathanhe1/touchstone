@@ -1,0 +1,165 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/examples/datasets/gsm8k_clone.jsonl",
+    "name": "gsm8k_clone",
+    "sha256": "254a47306b799c24f6e7d20511c97229ca559024b47a22816bbfa7487350e306",
+    "n_items": 600,
+    "unique_items": 600
+  },
+  "heldout": {
+    "name": "word_math",
+    "domain": "grade-school arithmetic word problems (one or two steps, whole numbers)",
+    "description": "10 private templates (purchases, rates, groups, change, multi-step add/sub/mul) x 30 items each; answers are whole numbers.",
+    "n_items": 150,
+    "source": "built-in, seed 90210 (subset of 150)",
+    "parts": {
+      "t0": 15,
+      "t1": 15,
+      "t2": 15,
+      "t3": 15,
+      "t4": 15,
+      "t5": 15,
+      "t6": 15,
+      "t7": 15,
+      "t8": 15,
+      "t9": 15
+    },
+    "n_items_untouched_by_material": 150
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.4952,
+    "off_topic_share": 0.0525
+  },
+  "rungs": {},
+  "measurable_at": null,
+  "flags": [
+    {
+      "code": "copied_from_public",
+      "severity": "block",
+      "text": "100% of items are already in free public data; essentially a copy, not priced."
+    },
+    {
+      "code": "screen_only",
+      "severity": "info",
+      "text": "Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements."
+    }
+  ],
+  "grade": "F",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "copied_from_public"
+    ],
+    "novel_share": 0.0,
+    "dollars_per_point": 250000.0,
+    "basis": "not priced"
+  },
+  "models": {},
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 30,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 24,
+    "eval_max_new": 96
+  },
+  "runtime_s": 7,
+  "label_quality": {
+    "arithmetic": {
+      "checked": 469,
+      "inconsistent": 6,
+      "rate": 0.01279317697228145
+    }
+  },
+  "device": "mps",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 600,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 1.0,
+      "exact": 1.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 600,
+      "examples": [
+        {
+          "item": "The school band is having a car wash to raise money. Their goal is to collect $150. So far they have earned $10 each from three families and $5 each from 15 fam",
+          "matches": "The school band is having a car wash to raise money. Their goal is to collect $150. So far they have earned $10 each from three families and $5 each from 15 fam",
+          "kind": "exact"
+        },
+        {
+          "item": "Penny has $20. Penny buys 4 pairs of socks for $2 a pair and a hat for $7. How much money does Penny have left?",
+          "matches": "Penny has $20. Penny buys 4 pairs of socks for $2 a pair and a hat for $7. How much money does Penny have left?",
+          "kind": "exact"
+        },
+        {
+          "item": "Grandma left $124,600 in her will. She gave half of it to her favorite grandchild, Shelby. The rest was to be evenly divided among the remaining 10 grandchildre",
+          "matches": "Grandma left $124,600 in her will. She gave half of it to her favorite grandchild, Shelby. The rest was to be evenly divided among the remaining 10 grandchildre",
+          "kind": "exact"
+        }
+      ],
+      "baseline": "GSM8K train (7,473 public problems)"
+    },
+    "duplicates": {
+      "n": 600,
+      "unique": 600,
+      "dup_rate": 0.0
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "method": "skipped",
+    "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
+    "net": {
+      "point": null,
+      "lo": null,
+      "hi": null
+    },
+    "headline": {
+      "point": null,
+      "lo": null,
+      "hi": null,
+      "source": "skipped"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0,
+    "public": 1.0,
+    "duplicates": 0.0
+  },
+  "probes": {},
+  "gains_by_size": {},
+  "forecast": {
+    "value": null,
+    "lo": null,
+    "hi": null,
+    "target": "1.7B",
+    "method": "skipped",
+    "source": "skipped",
+    "smooth_value": null,
+    "smooth_lo": null,
+    "smooth_hi": null
+  },
+  "summary": "gsm8k_clone (dataset, 600 items) earns grade F. Screening found a blocking problem, so quick mode did not train a model. Not priced because of: copied from public."
+}

@@ -1,0 +1,51 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2670.56it/s]
+gsm8k_test_answer#0 numeric checked ok {'disagree': 0.0476, 'confident': 21} 189 s
+gsm8k_test_answer#1 numeric checked ok {'disagree': 0.0, 'confident': 23} 183 s
+gsm8k_test_answer#2 numeric checked ok {'disagree': 0.0, 'confident': 15} 188 s
+gsm8k_test_answer#3 numeric checked ok {'disagree': 0.0, 'confident': 16} 183 s
+gsm8k_test_worked#0 numeric checked ok {'disagree': 0.0476, 'confident': 21} 180 s
+gsm8k_test_worked#1 numeric checked ok {'disagree': 0.0, 'confident': 23} 178 s
+gsm8k_test_worked#2 numeric checked ok {'disagree': 0.0, 'confident': 15} 183 s
+gsm8k_test_worked#3 numeric checked ok {'disagree': 0.0, 'confident': 16} 189 s
+gsm8k_train_worked#0 numeric checked ok {'disagree': 0.0, 'confident': 30} 197 s
+gsm8k_train_worked#1 numeric checked ok {'disagree': 0.0, 'confident': 18} 191 s
+gsm8k_train_worked#2 numeric checked ok {'disagree': 0.0357, 'confident': 28} 180 s
+gsm8k_train_worked#3 numeric checked ok {'disagree': 0.0455, 'confident': 22} 175 s
+svamp#0 numeric checked ok {'disagree': 0.0, 'confident': 38} 132 s
+svamp#1 numeric checked ok {'disagree': 0.0263, 'confident': 38} 137 s
+svamp#2 numeric checked ok {'disagree': 0.0488, 'confident': 41} 141 s
+svamp#3 numeric checked ok {'disagree': 0.0, 'confident': 40} 134 s
+asdiv#0 numeric checked ok {'disagree': 0.0, 'confident': 55} 105 s
+asdiv#1 numeric checked ok {'disagree': 0.0, 'confident': 49} 123 s
+asdiv#2 numeric checked ok {'disagree': 0.0, 'confident': 49} 125 s
+asdiv#3 numeric checked ok {'disagree': 0.0, 'confident': 58} 108 s
+arc#0 multiple_choice checked ok {'disagree': 0.2333} 13 s
+arc#1 multiple_choice checked ok {'disagree': 0.3} 12 s
+arc#2 multiple_choice checked ok {'disagree': 0.25} 13 s
+arc#3 multiple_choice checked ok {'disagree': 0.3167} 12 s
+unseen_openbookqa#0 multiple_choice checked ok {'disagree': 0.25} 10 s
+unseen_openbookqa#1 multiple_choice checked FLAG {'disagree': 0.3833} 9 s
+unseen_openbookqa#2 multiple_choice checked FLAG {'disagree': 0.4667} 9 s
+unseen_openbookqa#3 multiple_choice checked ok {'disagree': 0.25} 10 s
+unseen_csqa#0 multiple_choice checked ok {'disagree': 0.2667} 9 s
+unseen_csqa#1 multiple_choice checked ok {'disagree': 0.3} 10 s
+unseen_csqa#2 multiple_choice checked ok {'disagree': 0.2167} 8 s
+unseen_csqa#3 multiple_choice checked ok {'disagree': 0.25} 9 s
+dolly#0 free_text partial ok {'fit': 0.6} 73 s
+dolly#1 free_text partial ok {'fit': 0.7167} 56 s
+dolly#2 free_text partial ok {'fit': 0.7} 58 s
+dolly#3 free_text partial ok {'fit': 0.7167} 60 s
+unseen_no_robots#0 free_text partial FLAG {'fit': 0.5333} 82 s
+unseen_no_robots#1 free_text partial FLAG {'fit': 0.5667} 81 s
+unseen_no_robots#2 free_text partial FLAG {'fit': 0.5667} 83 s
+unseen_no_robots#3 free_text partial ok {'fit': 0.5833} 72 s
+mbpp#0 code checked ok {'rate': 0.0} 3 s
+mbpp#1 code checked ok {'rate': 0.0} 3 s
+mbpp#2 code checked ok {'rate': 0.0} 3 s
+mbpp#3 code checked ok {'rate': 0.0} 3 s
+humaneval#0 code checked ok {'rate': 0.0} 3 s
+humaneval#1 code checked ok {'rate': 0.0} 2 s
+humaneval#2 code checked ok {'rate': 0.0} 2 s
+humaneval#3 code checked ok {'rate': 0.0} 2 s

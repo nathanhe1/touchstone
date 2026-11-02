@@ -1,0 +1,510 @@
+{"prompt": "Pia fills 3 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 3 x 6 = 18. So the answer is 18."}
+{"prompt": "Dev had 47 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 47 - 3 = 44. So the answer is 44."}
+{"prompt": "Lars buys 6 pencils at 2 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 2 = 12. So the answer is 12."}
+{"prompt": "A pond had 59 ducks; 7 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 59 - 7 = 52; 52 + 5 = 57. So the answer is 57."}
+{"prompt": "Lars buys 8 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 8 x 8 = 64. So the answer is 64."}
+{"prompt": "Rita jogs 3 km a day for 9 days, then 79 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 9 = 27; 27 + 79 = 106. So the answer is 106."}
+{"prompt": "Lars buys 4 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 4 x 5 = 20. So the answer is 20."}
+{"prompt": "A shelf holds 54 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 54 + 13 = 67. So the answer is 67."}
+{"prompt": "Pia fills 10 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 8 = 80. So the answer is 80."}
+{"prompt": "Pia fills 5 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 5 x 6 = 30. So the answer is 30."}
+{"prompt": "A kiosk sold 77 papers before lunch and 5 after lunch. What was the total number of papers sold?", "completion": "Step by step: 77 + 5 = 82. So the answer is 82."}
+{"prompt": "Rita jogs 2 km a day for 3 days, then 64 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 3 = 6; 6 + 64 = 70. So the answer is 70."}
+{"prompt": "Each crate holds 5 melons. A truck brings 7 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 5 = 35; 35 + 5 = 40. So the answer is 40."}
+{"prompt": "Each crate holds 2 melons. A truck brings 8 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 2 = 16; 16 + 2 = 18. So the answer is 18."}
+{"prompt": "A shelf holds 35 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 35 + 13 = 48. So the answer is 48."}
+{"prompt": "A kiosk sold 57 papers before lunch and 10 after lunch. What was the total number of papers sold?", "completion": "Step by step: 57 + 10 = 67. So the answer is 67."}
+{"prompt": "A kiosk sold 48 papers before lunch and 10 after lunch. What was the total number of papers sold?", "completion": "Step by step: 48 + 10 = 58. So the answer is 58."}
+{"prompt": "A pond had 63 ducks; 9 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 63 - 9 = 54; 54 + 2 = 56. So the answer is 56."}
+{"prompt": "Pia fills 7 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 7 x 2 = 14. So the answer is 14."}
+{"prompt": "Rita jogs 3 km a day for 7 days, then 21 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 7 = 21; 21 + 21 = 42. So the answer is 42."}
+{"prompt": "Rita jogs 6 km a day for 4 days, then 74 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 4 = 24; 24 + 74 = 98. So the answer is 98."}
+{"prompt": "A kiosk sold 71 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 71 + 7 = 78. So the answer is 78."}
+{"prompt": "A shelf holds 21 cans and a second shelf holds 8 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 21 + 8 = 29. So the answer is 29."}
+{"prompt": "A pond had 21 ducks; 12 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 21 - 12 = 9; 9 + 7 = 16. So the answer is 16."}
+{"prompt": "Pia fills 11 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 11 x 8 = 88. So the answer is 88."}
+{"prompt": "Lars buys 3 pencils at 7 cents each. How many cents does he spend?", "completion": "Step by step: 3 x 7 = 21. So the answer is 21."}
+{"prompt": "A pond had 80 ducks; 3 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 80 - 3 = 77; 77 + 3 = 80. So the answer is 80."}
+{"prompt": "Each crate holds 4 melons. A truck brings 8 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 4 = 32; 32 + 4 = 36. So the answer is 36."}
+{"prompt": "Pia fills 10 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 4 = 40. So the answer is 40."}
+{"prompt": "Dev had 50 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 50 - 8 = 42. So the answer is 42."}
+{"prompt": "A shelf holds 78 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 78 + 4 = 82. So the answer is 82."}
+{"prompt": "Lars buys 8 pencils at 2 cents each. How many cents does he spend?", "completion": "Step by step: 8 x 2 = 16. So the answer is 16."}
+{"prompt": "A kiosk sold 84 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 84 + 12 = 96. So the answer is 96."}
+{"prompt": "Dev had 18 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 18 - 4 = 14. So the answer is 14."}
+{"prompt": "Each crate holds 7 melons. A truck brings 5 crates and 7 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 7 = 35; 35 + 7 = 42. So the answer is 42."}
+{"prompt": "Lars buys 12 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 12 x 8 = 96. So the answer is 96."}
+{"prompt": "A kiosk sold 43 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 43 + 11 = 54. So the answer is 54."}
+{"prompt": "Lars buys 12 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 12 x 3 = 36. So the answer is 36."}
+{"prompt": "Lars buys 3 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 3 x 4 = 12. So the answer is 12."}
+{"prompt": "Pia fills 8 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 8 x 3 = 24. So the answer is 24."}
+{"prompt": "A pond had 41 ducks; 4 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 41 - 4 = 37; 37 + 2 = 39. So the answer is 39."}
+{"prompt": "Dev had 33 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 33 - 10 = 23. So the answer is 23."}
+{"prompt": "A shelf holds 61 cans and a second shelf holds 9 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 61 + 9 = 70. So the answer is 70."}
+{"prompt": "Dev had 43 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 43 - 8 = 35. So the answer is 35."}
+{"prompt": "Rita jogs 5 km a day for 10 days, then 75 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 10 = 50; 50 + 75 = 125. So the answer is 125."}
+{"prompt": "A pond had 69 ducks; 4 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 69 - 4 = 65; 65 + 5 = 70. So the answer is 70."}
+{"prompt": "Rita jogs 2 km a day for 13 days, then 45 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 13 = 26; 26 + 45 = 71. So the answer is 71."}
+{"prompt": "Pia fills 3 baskets with 7 plums each. How many plums are in the baskets?", "completion": "Step by step: 3 x 7 = 21. So the answer is 21."}
+{"prompt": "Lars buys 10 pencils at 2 cents each. How many cents does he spend?", "completion": "Step by step: 10 x 2 = 20. So the answer is 20."}
+{"prompt": "A pond had 73 ducks; 12 flew off and 8 landed. How many ducks are on the pond?", "completion": "Step by step: 73 - 12 = 61; 61 + 8 = 69. So the answer is 69."}
+{"prompt": "A kiosk sold 70 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 70 + 9 = 79. So the answer is 79."}
+{"prompt": "Lars buys 10 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 10 x 5 = 50. So the answer is 50."}
+{"prompt": "Each crate holds 2 melons. A truck brings 11 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 2 = 22; 22 + 2 = 24. So the answer is 24."}
+{"prompt": "A shelf holds 35 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 35 + 11 = 46. So the answer is 46."}
+{"prompt": "Lars buys 13 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 13 x 4 = 52. So the answer is 52."}
+{"prompt": "A pond had 71 ducks; 7 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 71 - 7 = 64; 64 + 3 = 67. So the answer is 67."}
+{"prompt": "Each crate holds 7 melons. A truck brings 7 crates and 7 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 7 = 49; 49 + 7 = 56. So the answer is 56."}
+{"prompt": "Rita jogs 3 km a day for 7 days, then 47 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 7 = 21; 21 + 47 = 68. So the answer is 68."}
+{"prompt": "A kiosk sold 44 papers before lunch and 5 after lunch. What was the total number of papers sold?", "completion": "Step by step: 44 + 5 = 49. So the answer is 49."}
+{"prompt": "Each crate holds 5 melons. A truck brings 9 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 9 x 5 = 45; 45 + 5 = 50. So the answer is 50."}
+{"prompt": "A shelf holds 66 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 66 + 13 = 79. So the answer is 79."}
+{"prompt": "A shelf holds 74 cans and a second shelf holds 6 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 74 + 6 = 80. So the answer is 80."}
+{"prompt": "Lars buys 9 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 4 = 36. So the answer is 36."}
+{"prompt": "Each crate holds 3 melons. A truck brings 10 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 10 x 3 = 30; 30 + 3 = 33. So the answer is 33."}
+{"prompt": "A pond had 23 ducks; 5 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 23 - 5 = 18; 18 + 7 = 25. So the answer is 25."}
+{"prompt": "Rita jogs 4 km a day for 10 days, then 44 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 10 = 40; 40 + 44 = 84. So the answer is 84."}
+{"prompt": "Dev had 54 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 54 - 10 = 44. So the answer is 44."}
+{"prompt": "Lars buys 11 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 11 x 8 = 88. So the answer is 88."}
+{"prompt": "Pia fills 7 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 7 x 8 = 56. So the answer is 56."}
+{"prompt": "A pond had 59 ducks; 9 flew off and 4 landed. How many ducks are on the pond?", "completion": "Step by step: 59 - 9 = 50; 50 + 4 = 54. So the answer is 54."}
+{"prompt": "A shelf holds 54 cans and a second shelf holds 8 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 54 + 8 = 62. So the answer is 62."}
+{"prompt": "Rita jogs 8 km a day for 3 days, then 62 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 3 = 24; 24 + 62 = 86. So the answer is 86."}
+{"prompt": "A kiosk sold 43 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 43 + 9 = 52. So the answer is 52."}
+{"prompt": "A kiosk sold 35 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 35 + 9 = 44. So the answer is 44."}
+{"prompt": "A shelf holds 25 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 25 + 3 = 28. So the answer is 28."}
+{"prompt": "Dev had 91 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 91 - 9 = 82. So the answer is 82."}
+{"prompt": "Pia fills 4 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 4 x 3 = 12. So the answer is 12."}
+{"prompt": "Pia fills 11 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 11 x 6 = 66. So the answer is 66."}
+{"prompt": "Rita jogs 2 km a day for 5 days, then 17 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 5 = 10; 10 + 17 = 27. So the answer is 27."}
+{"prompt": "Dev had 81 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 81 - 6 = 75. So the answer is 75."}
+{"prompt": "Each crate holds 5 melons. A truck brings 12 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 12 x 5 = 60; 60 + 5 = 65. So the answer is 65."}
+{"prompt": "Lars buys 9 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 8 = 72. So the answer is 72."}
+{"prompt": "Dev had 80 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 80 - 3 = 77. So the answer is 77."}
+{"prompt": "A kiosk sold 50 papers before lunch and 8 after lunch. What was the total number of papers sold?", "completion": "Step by step: 50 + 8 = 58. So the answer is 58."}
+{"prompt": "A shelf holds 46 cans and a second shelf holds 10 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 46 + 10 = 56. So the answer is 56."}
+{"prompt": "A shelf holds 23 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 23 + 12 = 35. So the answer is 35."}
+{"prompt": "Pia fills 13 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 13 x 8 = 104. So the answer is 104."}
+{"prompt": "Each crate holds 3 melons. A truck brings 5 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 3 = 15; 15 + 3 = 18. So the answer is 18."}
+{"prompt": "Dev had 34 marbles and lost 7. How many marbles remain with Dev?", "completion": "Step by step: 34 - 7 = 27. So the answer is 27."}
+{"prompt": "Rita jogs 3 km a day for 9 days, then 51 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 9 = 27; 27 + 51 = 78. So the answer is 78."}
+{"prompt": "Rita jogs 2 km a day for 9 days, then 61 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 9 = 18; 18 + 61 = 79. So the answer is 79."}
+{"prompt": "Lars buys 13 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 13 x 8 = 104. So the answer is 104."}
+{"prompt": "Pia fills 13 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 13 x 5 = 65. So the answer is 65."}
+{"prompt": "Dev had 68 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 68 - 12 = 56. So the answer is 56."}
+{"prompt": "A shelf holds 65 cans and a second shelf holds 8 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 65 + 8 = 73. So the answer is 73."}
+{"prompt": "Dev had 69 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 69 - 9 = 60. So the answer is 60."}
+{"prompt": "A kiosk sold 44 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 44 + 12 = 56. So the answer is 56."}
+{"prompt": "A kiosk sold 65 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 65 + 6 = 71. So the answer is 71."}
+{"prompt": "A shelf holds 41 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 41 + 3 = 44. So the answer is 44."}
+{"prompt": "A shelf holds 68 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 68 + 11 = 79. So the answer is 79."}
+{"prompt": "A kiosk sold 16 papers before lunch and 3 after lunch. What was the total number of papers sold?", "completion": "Step by step: 16 + 3 = 19. So the answer is 19."}
+{"prompt": "A shelf holds 75 cans and a second shelf holds 8 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 75 + 8 = 83. So the answer is 83."}
+{"prompt": "A kiosk sold 73 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 73 + 11 = 84. So the answer is 84."}
+{"prompt": "Pia fills 5 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 5 x 8 = 40. So the answer is 40."}
+{"prompt": "A pond had 50 ducks; 7 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 50 - 7 = 43; 43 + 6 = 49. So the answer is 49."}
+{"prompt": "Each crate holds 6 melons. A truck brings 12 crates and 6 loose melons. How many melons arrive?", "completion": "Step by step: 12 x 6 = 72; 72 + 6 = 78. So the answer is 78."}
+{"prompt": "Lars buys 7 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 7 x 5 = 35. So the answer is 35."}
+{"prompt": "A pond had 77 ducks; 13 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 77 - 13 = 64; 64 + 5 = 69. So the answer is 69."}
+{"prompt": "Each crate holds 4 melons. A truck brings 10 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 10 x 4 = 40; 40 + 4 = 44. So the answer is 44."}
+{"prompt": "Each crate holds 8 melons. A truck brings 13 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 13 x 8 = 104; 104 + 8 = 112. So the answer is 112."}
+{"prompt": "Each crate holds 2 melons. A truck brings 4 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 4 x 2 = 8; 8 + 2 = 10. So the answer is 10."}
+{"prompt": "Pia fills 8 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 8 x 8 = 64. So the answer is 64."}
+{"prompt": "A pond had 79 ducks; 6 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 79 - 6 = 73; 73 + 7 = 80. So the answer is 80."}
+{"prompt": "Dev had 42 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 42 - 5 = 37. So the answer is 37."}
+{"prompt": "Lars buys 6 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 8 = 48. So the answer is 48."}
+{"prompt": "Dev had 60 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 60 - 12 = 48. So the answer is 48."}
+{"prompt": "Pia fills 6 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 6 x 6 = 36. So the answer is 36."}
+{"prompt": "Each crate holds 7 melons. A truck brings 6 crates and 7 loose melons. How many melons arrive?", "completion": "Step by step: 6 x 7 = 42; 42 + 7 = 49. So the answer is 49."}
+{"prompt": "Dev had 41 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 41 - 11 = 30. So the answer is 30."}
+{"prompt": "Pia fills 8 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 8 x 6 = 48. So the answer is 48."}
+{"prompt": "Dev had 25 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 25 - 11 = 14. So the answer is 14."}
+{"prompt": "Each crate holds 3 melons. A truck brings 12 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 12 x 3 = 36; 36 + 3 = 39. So the answer is 39."}
+{"prompt": "A kiosk sold 27 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 27 + 9 = 36. So the answer is 36."}
+{"prompt": "Dev had 41 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 41 - 6 = 35. So the answer is 35."}
+{"prompt": "Dev had 46 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 46 - 8 = 38. So the answer is 38."}
+{"prompt": "Dev had 71 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 71 - 4 = 67. So the answer is 67."}
+{"prompt": "Rita jogs 7 km a day for 4 days, then 77 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 4 = 28; 28 + 77 = 105. So the answer is 105."}
+{"prompt": "Each crate holds 3 melons. A truck brings 8 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 3 = 24; 24 + 3 = 27. So the answer is 27."}
+{"prompt": "A kiosk sold 52 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 52 + 7 = 59. So the answer is 59."}
+{"prompt": "Rita jogs 8 km a day for 6 days, then 82 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 6 = 48; 48 + 82 = 130. So the answer is 130."}
+{"prompt": "Rita jogs 8 km a day for 9 days, then 58 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 9 = 72; 72 + 58 = 130. So the answer is 130."}
+{"prompt": "Each crate holds 5 melons. A truck brings 13 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 13 x 5 = 65; 65 + 5 = 70. So the answer is 70."}
+{"prompt": "Rita jogs 6 km a day for 8 days, then 78 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 8 = 48; 48 + 78 = 126. So the answer is 126."}
+{"prompt": "A kiosk sold 51 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 51 + 12 = 63. So the answer is 63."}
+{"prompt": "Dev had 76 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 76 - 10 = 66. So the answer is 66."}
+{"prompt": "Dev had 84 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 84 - 11 = 73. So the answer is 73."}
+{"prompt": "Rita jogs 8 km a day for 3 days, then 61 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 3 = 24; 24 + 61 = 85. So the answer is 85."}
+{"prompt": "Rita jogs 7 km a day for 11 days, then 47 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 11 = 77; 77 + 47 = 124. So the answer is 124."}
+{"prompt": "Rita jogs 8 km a day for 6 days, then 68 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 6 = 48; 48 + 68 = 116. So the answer is 116."}
+{"prompt": "Dev had 48 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 48 - 4 = 44. So the answer is 44."}
+{"prompt": "Lars buys 12 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 12 x 4 = 48. So the answer is 48."}
+{"prompt": "A kiosk sold 36 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 36 + 11 = 47. So the answer is 47."}
+{"prompt": "Dev had 67 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 67 - 13 = 54. So the answer is 54."}
+{"prompt": "A shelf holds 43 cans and a second shelf holds 5 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 43 + 5 = 48. So the answer is 48."}
+{"prompt": "A pond had 34 ducks; 13 flew off and 8 landed. How many ducks are on the pond?", "completion": "Step by step: 34 - 13 = 21; 21 + 8 = 29. So the answer is 29."}
+{"prompt": "Dev had 86 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 86 - 4 = 82. So the answer is 82."}
+{"prompt": "A shelf holds 27 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 27 + 11 = 38. So the answer is 38."}
+{"prompt": "Rita jogs 2 km a day for 3 days, then 44 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 3 = 6; 6 + 44 = 50. So the answer is 50."}
+{"prompt": "A shelf holds 79 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 79 + 3 = 82. So the answer is 82."}
+{"prompt": "Lars buys 5 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 5 x 5 = 25. So the answer is 25."}
+{"prompt": "A pond had 49 ducks; 7 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 49 - 7 = 42; 42 + 6 = 48. So the answer is 48."}
+{"prompt": "A kiosk sold 18 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 18 + 7 = 25. So the answer is 25."}
+{"prompt": "Pia fills 4 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 4 x 6 = 24. So the answer is 24."}
+{"prompt": "Rita jogs 4 km a day for 3 days, then 22 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 3 = 12; 12 + 22 = 34. So the answer is 34."}
+{"prompt": "A pond had 43 ducks; 10 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 43 - 10 = 33; 33 + 7 = 40. So the answer is 40."}
+{"prompt": "A kiosk sold 35 papers before lunch and 8 after lunch. What was the total number of papers sold?", "completion": "Step by step: 35 + 8 = 43. So the answer is 43."}
+{"prompt": "Each crate holds 3 melons. A truck brings 11 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 3 = 33; 33 + 3 = 36. So the answer is 36."}
+{"prompt": "A shelf holds 36 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 36 + 7 = 43. So the answer is 43."}
+{"prompt": "A shelf holds 80 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 80 + 4 = 84. So the answer is 84."}
+{"prompt": "Lars buys 7 pencils at 2 cents each. How many cents does he spend?", "completion": "Step by step: 7 x 2 = 14. So the answer is 14."}
+{"prompt": "Dev had 82 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 82 - 13 = 69. So the answer is 69."}
+{"prompt": "Dev had 40 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 40 - 6 = 34. So the answer is 34."}
+{"prompt": "A pond had 56 ducks; 9 flew off and 8 landed. How many ducks are on the pond?", "completion": "Step by step: 56 - 9 = 47; 47 + 8 = 55. So the answer is 55."}
+{"prompt": "Each crate holds 5 melons. A truck brings 10 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 10 x 5 = 50; 50 + 5 = 55. So the answer is 55."}
+{"prompt": "Pia fills 10 baskets with 6 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 6 = 60. So the answer is 60."}
+{"prompt": "A kiosk sold 72 papers before lunch and 13 after lunch. What was the total number of papers sold?", "completion": "Step by step: 72 + 13 = 85. So the answer is 85."}
+{"prompt": "Dev had 19 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 19 - 5 = 14. So the answer is 14."}
+{"prompt": "Lars buys 4 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 4 x 6 = 24. So the answer is 24."}
+{"prompt": "Each crate holds 8 melons. A truck brings 6 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 6 x 8 = 48; 48 + 8 = 56. So the answer is 56."}
+{"prompt": "Pia fills 9 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 3 = 27. So the answer is 27."}
+{"prompt": "Dev had 51 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 51 - 9 = 42. So the answer is 42."}
+{"prompt": "Each crate holds 8 melons. A truck brings 11 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 8 = 88; 88 + 8 = 96. So the answer is 96."}
+{"prompt": "Dev had 56 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 56 - 12 = 44. So the answer is 44."}
+{"prompt": "A pond had 63 ducks; 3 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 63 - 3 = 60; 60 + 2 = 62. So the answer is 62."}
+{"prompt": "A kiosk sold 51 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 51 + 11 = 62. So the answer is 62."}
+{"prompt": "A kiosk sold 78 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 78 + 11 = 89. So the answer is 89."}
+{"prompt": "Dev had 75 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 75 - 12 = 63. So the answer is 63."}
+{"prompt": "A kiosk sold 78 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 78 + 12 = 90. So the answer is 90."}
+{"prompt": "Each crate holds 6 melons. A truck brings 10 crates and 6 loose melons. How many melons arrive?", "completion": "Step by step: 10 x 6 = 60; 60 + 6 = 66. So the answer is 66."}
+{"prompt": "Dev had 64 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 64 - 5 = 59. So the answer is 59."}
+{"prompt": "Rita jogs 8 km a day for 4 days, then 80 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 4 = 32; 32 + 80 = 112. So the answer is 112."}
+{"prompt": "A shelf holds 72 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 72 + 11 = 83. So the answer is 83."}
+{"prompt": "Rita jogs 2 km a day for 10 days, then 64 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 10 = 20; 20 + 64 = 84. So the answer is 84."}
+{"prompt": "Lars buys 4 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 4 x 4 = 16. So the answer is 16."}
+{"prompt": "A pond had 19 ducks; 11 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 19 - 11 = 8; 8 + 2 = 10. So the answer is 10."}
+{"prompt": "Dev had 88 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 88 - 9 = 79. So the answer is 79."}
+{"prompt": "Rita jogs 3 km a day for 3 days, then 47 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 3 = 9; 9 + 47 = 56. So the answer is 56."}
+{"prompt": "A pond had 25 ducks; 13 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 25 - 13 = 12; 12 + 5 = 17. So the answer is 17."}
+{"prompt": "A pond had 30 ducks; 13 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 30 - 13 = 17; 17 + 3 = 20. So the answer is 20."}
+{"prompt": "Rita jogs 3 km a day for 9 days, then 39 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 9 = 27; 27 + 39 = 66. So the answer is 66."}
+{"prompt": "A pond had 26 ducks; 9 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 26 - 9 = 17; 17 + 2 = 19. So the answer is 19."}
+{"prompt": "Each crate holds 4 melons. A truck brings 5 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 4 = 20; 20 + 4 = 24. So the answer is 24."}
+{"prompt": "A kiosk sold 59 papers before lunch and 13 after lunch. What was the total number of papers sold?", "completion": "Step by step: 59 + 13 = 72. So the answer is 72."}
+{"prompt": "A shelf holds 42 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 42 + 11 = 53. So the answer is 53."}
+{"prompt": "Pia fills 7 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 7 x 3 = 21. So the answer is 21."}
+{"prompt": "Pia fills 4 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 4 x 8 = 32. So the answer is 32."}
+{"prompt": "Dev had 36 marbles and lost 5. How many marbles remain with Dev?", "completion": "Step by step: 36 - 5 = 31. So the answer is 31."}
+{"prompt": "A kiosk sold 14 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 14 + 7 = 21. So the answer is 21."}
+{"prompt": "Dev had 36 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 36 - 8 = 28. So the answer is 28."}
+{"prompt": "A shelf holds 51 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 51 + 4 = 55. So the answer is 55."}
+{"prompt": "Pia fills 11 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 11 x 2 = 22. So the answer is 22."}
+{"prompt": "A pond had 30 ducks; 7 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 30 - 7 = 23; 23 + 3 = 26. So the answer is 26."}
+{"prompt": "Rita jogs 3 km a day for 10 days, then 71 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 10 = 30; 30 + 71 = 101. So the answer is 101."}
+{"prompt": "A shelf holds 78 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 78 + 11 = 89. So the answer is 89."}
+{"prompt": "Rita jogs 7 km a day for 6 days, then 29 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 6 = 42; 42 + 29 = 71. So the answer is 71."}
+{"prompt": "Each crate holds 8 melons. A truck brings 5 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 8 = 40; 40 + 8 = 48. So the answer is 48."}
+{"prompt": "Dev had 37 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 37 - 9 = 28. So the answer is 28."}
+{"prompt": "Dev had 46 marbles and lost 7. How many marbles remain with Dev?", "completion": "Step by step: 46 - 7 = 39. So the answer is 39."}
+{"prompt": "Rita jogs 2 km a day for 6 days, then 42 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 6 = 12; 12 + 42 = 54. So the answer is 54."}
+{"prompt": "Pia fills 10 baskets with 7 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 7 = 70. So the answer is 70."}
+{"prompt": "A pond had 16 ducks; 13 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 16 - 13 = 3; 3 + 7 = 10. So the answer is 10."}
+{"prompt": "Pia fills 11 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 11 x 4 = 44. So the answer is 44."}
+{"prompt": "Dev had 67 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 67 - 10 = 57. So the answer is 57."}
+{"prompt": "A pond had 62 ducks; 7 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 62 - 7 = 55; 55 + 6 = 61. So the answer is 61."}
+{"prompt": "Dev had 60 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 60 - 4 = 56. So the answer is 56."}
+{"prompt": "Rita jogs 2 km a day for 7 days, then 80 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 7 = 14; 14 + 80 = 94. So the answer is 94."}
+{"prompt": "A kiosk sold 23 papers before lunch and 4 after lunch. What was the total number of papers sold?", "completion": "Step by step: 23 + 4 = 27. So the answer is 27."}
+{"prompt": "A kiosk sold 15 papers before lunch and 8 after lunch. What was the total number of papers sold?", "completion": "Step by step: 15 + 8 = 23. So the answer is 23."}
+{"prompt": "A kiosk sold 46 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 46 + 7 = 53. So the answer is 53."}
+{"prompt": "Pia fills 9 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 8 = 72. So the answer is 72."}
+{"prompt": "Rita jogs 7 km a day for 3 days, then 47 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 3 = 21; 21 + 47 = 68. So the answer is 68."}
+{"prompt": "A pond had 59 ducks; 8 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 59 - 8 = 51; 51 + 5 = 56. So the answer is 56."}
+{"prompt": "A shelf holds 76 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 76 + 12 = 88. So the answer is 88."}
+{"prompt": "A kiosk sold 74 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 74 + 11 = 85. So the answer is 85."}
+{"prompt": "A shelf holds 47 cans and a second shelf holds 10 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 47 + 10 = 57. So the answer is 57."}
+{"prompt": "A shelf holds 48 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 48 + 12 = 60. So the answer is 60."}
+{"prompt": "Each crate holds 3 melons. A truck brings 6 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 6 x 3 = 18; 18 + 3 = 21. So the answer is 21."}
+{"prompt": "Each crate holds 7 melons. A truck brings 13 crates and 7 loose melons. How many melons arrive?", "completion": "Step by step: 13 x 7 = 91; 91 + 7 = 98. So the answer is 98."}
+{"prompt": "A shelf holds 33 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 33 + 7 = 40. So the answer is 40."}
+{"prompt": "A pond had 82 ducks; 6 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 82 - 6 = 76; 76 + 7 = 83. So the answer is 83."}
+{"prompt": "Each crate holds 8 melons. A truck brings 7 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 8 = 56; 56 + 8 = 64. So the answer is 64."}
+{"prompt": "Dev had 85 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 85 - 4 = 81. So the answer is 81."}
+{"prompt": "Each crate holds 4 melons. A truck brings 13 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 13 x 4 = 52; 52 + 4 = 56. So the answer is 56."}
+{"prompt": "Dev had 39 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 39 - 11 = 28. So the answer is 28."}
+{"prompt": "Each crate holds 5 melons. A truck brings 3 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 3 x 5 = 15; 15 + 5 = 20. So the answer is 20."}
+{"prompt": "Rita jogs 4 km a day for 6 days, then 66 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 6 = 24; 24 + 66 = 90. So the answer is 90."}
+{"prompt": "A kiosk sold 33 papers before lunch and 13 after lunch. What was the total number of papers sold?", "completion": "Step by step: 33 + 13 = 46. So the answer is 46."}
+{"prompt": "Each crate holds 4 melons. A truck brings 11 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 11 x 4 = 44; 44 + 4 = 48. So the answer is 48."}
+{"prompt": "Lars buys 6 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 4 = 24. So the answer is 24."}
+{"prompt": "Pia fills 4 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 4 x 5 = 20. So the answer is 20."}
+{"prompt": "Dev had 48 marbles and lost 7. How many marbles remain with Dev?", "completion": "Step by step: 48 - 7 = 41. So the answer is 41."}
+{"prompt": "A shelf holds 29 cans and a second shelf holds 10 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 29 + 10 = 39. So the answer is 39."}
+{"prompt": "Dev had 80 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 80 - 4 = 76. So the answer is 76."}
+{"prompt": "Rita jogs 5 km a day for 3 days, then 16 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 3 = 15; 15 + 16 = 31. So the answer is 31."}
+{"prompt": "Rita jogs 2 km a day for 8 days, then 70 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 8 = 16; 16 + 70 = 86. So the answer is 86."}
+{"prompt": "Rita jogs 2 km a day for 9 days, then 15 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 9 = 18; 18 + 15 = 33. So the answer is 33."}
+{"prompt": "Lars buys 8 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 8 x 3 = 24. So the answer is 24."}
+{"prompt": "Dev had 31 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 31 - 6 = 25. So the answer is 25."}
+{"prompt": "A pond had 46 ducks; 12 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 46 - 12 = 34; 34 + 3 = 37. So the answer is 37."}
+{"prompt": "Each crate holds 3 melons. A truck brings 7 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 3 = 21; 21 + 3 = 24. So the answer is 24."}
+{"prompt": "A kiosk sold 57 papers before lunch and 3 after lunch. What was the total number of papers sold?", "completion": "Step by step: 57 + 3 = 60. So the answer is 60."}
+{"prompt": "Lars buys 3 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 3 x 3 = 9. So the answer is 9."}
+{"prompt": "Dev had 27 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 27 - 3 = 24. So the answer is 24."}
+{"prompt": "A pond had 65 ducks; 12 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 65 - 12 = 53; 53 + 5 = 58. So the answer is 58."}
+{"prompt": "A pond had 68 ducks; 7 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 68 - 7 = 61; 61 + 6 = 67. So the answer is 67."}
+{"prompt": "Dev had 81 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 81 - 8 = 73. So the answer is 73."}
+{"prompt": "Rita jogs 2 km a day for 9 days, then 35 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 9 = 18; 18 + 35 = 53. So the answer is 53."}
+{"prompt": "Pia fills 9 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 2 = 18. So the answer is 18."}
+{"prompt": "A pond had 83 ducks; 9 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 83 - 9 = 74; 74 + 5 = 79. So the answer is 79."}
+{"prompt": "Dev had 61 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 61 - 13 = 48. So the answer is 48."}
+{"prompt": "Lars buys 8 pencils at 4 cents each. How many cents does he spend?", "completion": "Step by step: 8 x 4 = 32. So the answer is 32."}
+{"prompt": "Dev had 24 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 24 - 10 = 14. So the answer is 14."}
+{"prompt": "Rita jogs 6 km a day for 8 days, then 70 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 8 = 48; 48 + 70 = 118. So the answer is 118."}
+{"prompt": "Lars buys 11 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 11 x 6 = 66. So the answer is 66."}
+{"prompt": "Lars buys 9 pencils at 5 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 5 = 45. So the answer is 45."}
+{"prompt": "A shelf holds 15 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 15 + 4 = 19. So the answer is 19."}
+{"prompt": "A pond had 51 ducks; 3 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 51 - 3 = 48; 48 + 2 = 50. So the answer is 50."}
+{"prompt": "Dev had 40 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 40 - 4 = 36. So the answer is 36."}
+{"prompt": "A kiosk sold 47 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 47 + 6 = 53. So the answer is 53."}
+{"prompt": "A shelf holds 61 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 61 + 7 = 68. So the answer is 68."}
+{"prompt": "A pond had 16 ducks; 13 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 16 - 13 = 3; 3 + 6 = 9. So the answer is 9."}
+{"prompt": "Each crate holds 5 melons. A truck brings 8 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 5 = 40; 40 + 5 = 45. So the answer is 45."}
+{"prompt": "A pond had 36 ducks; 4 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 36 - 4 = 32; 32 + 3 = 35. So the answer is 35."}
+{"prompt": "A pond had 30 ducks; 8 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 30 - 8 = 22; 22 + 2 = 24. So the answer is 24."}
+{"prompt": "Rita jogs 8 km a day for 13 days, then 64 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 13 = 104; 104 + 64 = 168. So the answer is 168."}
+{"prompt": "Rita jogs 8 km a day for 13 days, then 27 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 13 = 104; 104 + 27 = 131. So the answer is 131."}
+{"prompt": "Lars buys 10 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 10 x 6 = 60. So the answer is 60."}
+{"prompt": "A kiosk sold 72 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 72 + 9 = 81. So the answer is 81."}
+{"prompt": "Rita jogs 4 km a day for 7 days, then 44 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 7 = 28; 28 + 44 = 72. So the answer is 72."}
+{"prompt": "A kiosk sold 66 papers before lunch and 4 after lunch. What was the total number of papers sold?", "completion": "Step by step: 66 + 4 = 70. So the answer is 70."}
+{"prompt": "A shelf holds 59 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 59 + 12 = 71. So the answer is 71."}
+{"prompt": "Lars buys 7 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 7 x 3 = 21. So the answer is 21."}
+{"prompt": "Dev had 32 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 32 - 8 = 24. So the answer is 24."}
+{"prompt": "Each crate holds 4 melons. A truck brings 12 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 12 x 4 = 48; 48 + 4 = 52. So the answer is 52."}
+{"prompt": "Dev had 39 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 39 - 12 = 27. So the answer is 27."}
+{"prompt": "A kiosk sold 66 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 66 + 9 = 75. So the answer is 75."}
+{"prompt": "Dev had 85 marbles and lost 7. How many marbles remain with Dev?", "completion": "Step by step: 85 - 7 = 78. So the answer is 78."}
+{"prompt": "Lars buys 9 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 3 = 27. So the answer is 27."}
+{"prompt": "Rita jogs 7 km a day for 11 days, then 71 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 11 = 77; 77 + 71 = 148. So the answer is 148."}
+{"prompt": "Dev had 58 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 58 - 10 = 48. So the answer is 48."}
+{"prompt": "Pia fills 10 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 10 x 3 = 30. So the answer is 30."}
+{"prompt": "A kiosk sold 53 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 53 + 12 = 65. So the answer is 65."}
+{"prompt": "A shelf holds 79 cans and a second shelf holds 6 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 79 + 6 = 85. So the answer is 85."}
+{"prompt": "Dev had 26 marbles and lost 9. How many marbles remain with Dev?", "completion": "Step by step: 26 - 9 = 17. So the answer is 17."}
+{"prompt": "Rita jogs 3 km a day for 7 days, then 29 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 7 = 21; 21 + 29 = 50. So the answer is 50."}
+{"prompt": "A kiosk sold 33 papers before lunch and 4 after lunch. What was the total number of papers sold?", "completion": "Step by step: 33 + 4 = 37. So the answer is 37."}
+{"prompt": "A shelf holds 32 cans and a second shelf holds 9 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 32 + 9 = 41. So the answer is 41."}
+{"prompt": "Rita jogs 2 km a day for 6 days, then 80 km on a long run. How far does she jog in total?", "completion": "Step by step: 2 x 6 = 12; 12 + 80 = 92. So the answer is 92."}
+{"prompt": "A shelf holds 64 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 64 + 7 = 71. So the answer is 71."}
+{"prompt": "Dev had 76 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 76 - 13 = 63. So the answer is 63."}
+{"prompt": "Dev had 56 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 56 - 13 = 43. So the answer is 43."}
+{"prompt": "A kiosk sold 43 papers before lunch and 10 after lunch. What was the total number of papers sold?", "completion": "Step by step: 43 + 10 = 53. So the answer is 53."}
+{"prompt": "A shelf holds 20 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 20 + 12 = 32. So the answer is 32."}
+{"prompt": "Rita jogs 3 km a day for 12 days, then 42 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 12 = 36; 36 + 42 = 78. So the answer is 78."}
+{"prompt": "Pia fills 9 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 9 x 5 = 45. So the answer is 45."}
+{"prompt": "A pond had 68 ducks; 12 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 68 - 12 = 56; 56 + 3 = 59. So the answer is 59."}
+{"prompt": "A shelf holds 39 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 39 + 12 = 51. So the answer is 51."}
+{"prompt": "Lars buys 10 pencils at 7 cents each. How many cents does he spend?", "completion": "Step by step: 10 x 7 = 70. So the answer is 70."}
+{"prompt": "Each crate holds 4 melons. A truck brings 3 crates and 4 loose melons. How many melons arrive?", "completion": "Step by step: 3 x 4 = 12; 12 + 4 = 16. So the answer is 16."}
+{"prompt": "Rita jogs 5 km a day for 3 days, then 14 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 3 = 15; 15 + 14 = 29. So the answer is 29."}
+{"prompt": "Dev had 68 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 68 - 10 = 58. So the answer is 58."}
+{"prompt": "Dev had 80 marbles and lost 13. How many marbles remain with Dev?", "completion": "Step by step: 80 - 13 = 67. So the answer is 67."}
+{"prompt": "Dev had 62 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 62 - 6 = 56. So the answer is 56."}
+{"prompt": "Pia fills 7 baskets with 7 plums each. How many plums are in the baskets?", "completion": "Step by step: 7 x 7 = 49. So the answer is 49."}
+{"prompt": "A kiosk sold 57 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 57 + 11 = 68. So the answer is 68."}
+{"prompt": "Rita jogs 7 km a day for 6 days, then 48 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 6 = 42; 42 + 48 = 90. So the answer is 90."}
+{"prompt": "A kiosk sold 14 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 14 + 11 = 25. So the answer is 25."}
+{"prompt": "A pond had 39 ducks; 7 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 39 - 7 = 32; 32 + 6 = 38. So the answer is 38."}
+{"prompt": "A kiosk sold 29 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 29 + 7 = 36. So the answer is 36."}
+{"prompt": "Dev had 36 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 36 - 6 = 30. So the answer is 30."}
+{"prompt": "Dev had 82 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 82 - 10 = 72. So the answer is 72."}
+{"prompt": "A pond had 77 ducks; 13 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 77 - 13 = 64; 64 + 3 = 67. So the answer is 67."}
+{"prompt": "A pond had 14 ducks; 3 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 14 - 3 = 11; 11 + 5 = 16. So the answer is 16."}
+{"prompt": "Dev had 87 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 87 - 4 = 83. So the answer is 83."}
+{"prompt": "Rita jogs 6 km a day for 4 days, then 63 km on a long run. How far does she jog in total?", "completion": "Step by step: 6 x 4 = 24; 24 + 63 = 87. So the answer is 87."}
+{"prompt": "Lars buys 5 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 5 x 3 = 15. So the answer is 15."}
+{"prompt": "Dev had 64 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 64 - 6 = 58. So the answer is 58."}
+{"prompt": "Lars buys 13 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 13 x 3 = 39. So the answer is 39."}
+{"prompt": "Lars buys 3 pencils at 8 cents each. How many cents does he spend?", "completion": "Step by step: 3 x 8 = 24. So the answer is 24."}
+{"prompt": "Dev had 62 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 62 - 4 = 58. So the answer is 58."}
+{"prompt": "Rita jogs 8 km a day for 13 days, then 41 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 13 = 104; 104 + 41 = 145. So the answer is 145."}
+{"prompt": "Lars buys 11 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 11 x 3 = 33. So the answer is 33."}
+{"prompt": "A pond had 73 ducks; 4 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 73 - 4 = 69; 69 + 7 = 76. So the answer is 76."}
+{"prompt": "A shelf holds 39 cans and a second shelf holds 6 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 39 + 6 = 45. So the answer is 45."}
+{"prompt": "A pond had 29 ducks; 9 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 29 - 9 = 20; 20 + 3 = 23. So the answer is 23."}
+{"prompt": "A pond had 40 ducks; 12 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 40 - 12 = 28; 28 + 3 = 31. So the answer is 31."}
+{"prompt": "A pond had 34 ducks; 5 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 34 - 5 = 29; 29 + 7 = 36. So the answer is 36."}
+{"prompt": "Dev had 22 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 22 - 8 = 14. So the answer is 14."}
+{"prompt": "Rita jogs 4 km a day for 3 days, then 47 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 3 = 12; 12 + 47 = 59. So the answer is 59."}
+{"prompt": "A shelf holds 85 cans and a second shelf holds 12 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 85 + 12 = 97. So the answer is 97."}
+{"prompt": "Pia fills 6 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 6 x 4 = 24. So the answer is 24."}
+{"prompt": "A pond had 76 ducks; 12 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 76 - 12 = 64; 64 + 3 = 67. So the answer is 67."}
+{"prompt": "A pond had 18 ducks; 3 flew off and 5 landed. How many ducks are on the pond?", "completion": "Step by step: 18 - 3 = 15; 15 + 5 = 20. So the answer is 20."}
+{"prompt": "Pia fills 3 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 3 x 3 = 9. So the answer is 9."}
+{"prompt": "A kiosk sold 42 papers before lunch and 8 after lunch. What was the total number of papers sold?", "completion": "Step by step: 42 + 8 = 50. So the answer is 50."}
+{"prompt": "A pond had 71 ducks; 11 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 71 - 11 = 60; 60 + 6 = 66. So the answer is 66."}
+{"prompt": "Rita jogs 4 km a day for 12 days, then 62 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 12 = 48; 48 + 62 = 110. So the answer is 110."}
+{"prompt": "Dev had 58 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 58 - 4 = 54. So the answer is 54."}
+{"prompt": "Dev had 80 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 80 - 6 = 74. So the answer is 74."}
+{"prompt": "Dev had 63 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 63 - 12 = 51. So the answer is 51."}
+{"prompt": "A pond had 39 ducks; 5 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 39 - 5 = 34; 34 + 7 = 41. So the answer is 41."}
+{"prompt": "Pia fills 12 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 12 x 4 = 48. So the answer is 48."}
+{"prompt": "Lars buys 3 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 3 x 6 = 18. So the answer is 18."}
+{"prompt": "Each crate holds 8 melons. A truck brings 10 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 10 x 8 = 80; 80 + 8 = 88. So the answer is 88."}
+{"prompt": "Rita jogs 5 km a day for 4 days, then 37 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 4 = 20; 20 + 37 = 57. So the answer is 57."}
+{"prompt": "A pond had 38 ducks; 12 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 38 - 12 = 26; 26 + 3 = 29. So the answer is 29."}
+{"prompt": "A shelf holds 66 cans and a second shelf holds 4 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 66 + 4 = 70. So the answer is 70."}
+{"prompt": "A kiosk sold 52 papers before lunch and 13 after lunch. What was the total number of papers sold?", "completion": "Step by step: 52 + 13 = 65. So the answer is 65."}
+{"prompt": "A pond had 45 ducks; 8 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 45 - 8 = 37; 37 + 6 = 43. So the answer is 43."}
+{"prompt": "A kiosk sold 73 papers before lunch and 3 after lunch. What was the total number of papers sold?", "completion": "Step by step: 73 + 3 = 76. So the answer is 76."}
+{"prompt": "A kiosk sold 65 papers before lunch and 11 after lunch. What was the total number of papers sold?", "completion": "Step by step: 65 + 11 = 76. So the answer is 76."}
+{"prompt": "A pond had 44 ducks; 8 flew off and 4 landed. How many ducks are on the pond?", "completion": "Step by step: 44 - 8 = 36; 36 + 4 = 40. So the answer is 40."}
+{"prompt": "A shelf holds 23 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 23 + 3 = 26. So the answer is 26."}
+{"prompt": "Rita jogs 8 km a day for 7 days, then 63 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 7 = 56; 56 + 63 = 119. So the answer is 119."}
+{"prompt": "A pond had 49 ducks; 8 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 49 - 8 = 41; 41 + 6 = 47. So the answer is 47."}
+{"prompt": "A shelf holds 63 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 63 + 3 = 66. So the answer is 66."}
+{"prompt": "A shelf holds 44 cans and a second shelf holds 5 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 44 + 5 = 49. So the answer is 49."}
+{"prompt": "A pond had 49 ducks; 13 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 49 - 13 = 36; 36 + 3 = 39. So the answer is 39."}
+{"prompt": "A pond had 47 ducks; 11 flew off and 4 landed. How many ducks are on the pond?", "completion": "Step by step: 47 - 11 = 36; 36 + 4 = 40. So the answer is 40."}
+{"prompt": "A shelf holds 48 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 48 + 3 = 51. So the answer is 51."}
+{"prompt": "Lars buys 8 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 8 x 6 = 48. So the answer is 48."}
+{"prompt": "Pia fills 5 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 5 x 4 = 20. So the answer is 20."}
+{"prompt": "Dev had 52 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 52 - 3 = 49. So the answer is 49."}
+{"prompt": "Rita jogs 7 km a day for 3 days, then 18 km on a long run. How far does she jog in total?", "completion": "Step by step: 7 x 3 = 21; 21 + 18 = 39. So the answer is 39."}
+{"prompt": "A kiosk sold 46 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 46 + 9 = 55. So the answer is 55."}
+{"prompt": "A kiosk sold 62 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 62 + 9 = 71. So the answer is 71."}
+{"prompt": "A pond had 42 ducks; 10 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 42 - 10 = 32; 32 + 7 = 39. So the answer is 39."}
+{"prompt": "Lars buys 9 pencils at 7 cents each. How many cents does he spend?", "completion": "Step by step: 9 x 7 = 63. So the answer is 63."}
+{"prompt": "Dev had 41 marbles and lost 10. How many marbles remain with Dev?", "completion": "Step by step: 41 - 10 = 31. So the answer is 31."}
+{"prompt": "A shelf holds 30 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 30 + 11 = 41. So the answer is 41."}
+{"prompt": "Each crate holds 6 melons. A truck brings 5 crates and 6 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 6 = 30; 30 + 6 = 36. So the answer is 36."}
+{"prompt": "A kiosk sold 52 papers before lunch and 9 after lunch. What was the total number of papers sold?", "completion": "Step by step: 52 + 9 = 61. So the answer is 61."}
+{"prompt": "Rita jogs 4 km a day for 6 days, then 60 km on a long run. How far does she jog in total?", "completion": "Step by step: 4 x 6 = 24; 24 + 60 = 84. So the answer is 84."}
+{"prompt": "Dev had 83 marbles and lost 12. How many marbles remain with Dev?", "completion": "Step by step: 83 - 12 = 71. So the answer is 71."}
+{"prompt": "Each crate holds 7 melons. A truck brings 8 crates and 7 loose melons. How many melons arrive?", "completion": "Step by step: 8 x 7 = 56; 56 + 7 = 63. So the answer is 63."}
+{"prompt": "Pia fills 11 baskets with 3 plums each. How many plums are in the baskets?", "completion": "Step by step: 11 x 3 = 33. So the answer is 33."}
+{"prompt": "A kiosk sold 41 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 41 + 12 = 53. So the answer is 53."}
+{"prompt": "A pond had 75 ducks; 5 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 75 - 5 = 70; 70 + 6 = 76. So the answer is 76."}
+{"prompt": "Each crate holds 3 melons. A truck brings 4 crates and 3 loose melons. How many melons arrive?", "completion": "Step by step: 4 x 3 = 12; 12 + 3 = 15. So the answer is 15."}
+{"prompt": "A pond had 55 ducks; 11 flew off and 2 landed. How many ducks are on the pond?", "completion": "Step by step: 55 - 11 = 44; 44 + 2 = 46. So the answer is 46."}
+{"prompt": "A pond had 35 ducks; 6 flew off and 3 landed. How many ducks are on the pond?", "completion": "Step by step: 35 - 6 = 29; 29 + 3 = 32. So the answer is 32."}
+{"prompt": "A shelf holds 15 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 15 + 11 = 26. So the answer is 26."}
+{"prompt": "A kiosk sold 34 papers before lunch and 10 after lunch. What was the total number of papers sold?", "completion": "Step by step: 34 + 10 = 44. So the answer is 44."}
+{"prompt": "Pia fills 8 baskets with 4 plums each. How many plums are in the baskets?", "completion": "Step by step: 8 x 4 = 32. So the answer is 32."}
+{"prompt": "Each crate holds 2 melons. A truck brings 5 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 5 x 2 = 10; 10 + 2 = 12. So the answer is 12."}
+{"prompt": "A kiosk sold 45 papers before lunch and 4 after lunch. What was the total number of papers sold?", "completion": "Step by step: 45 + 4 = 49. So the answer is 49."}
+{"prompt": "Each crate holds 8 melons. A truck brings 9 crates and 8 loose melons. How many melons arrive?", "completion": "Step by step: 9 x 8 = 72; 72 + 8 = 80. So the answer is 80."}
+{"prompt": "A shelf holds 33 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 33 + 11 = 44. So the answer is 44."}
+{"prompt": "Each crate holds 6 melons. A truck brings 6 crates and 6 loose melons. How many melons arrive?", "completion": "Step by step: 6 x 6 = 36; 36 + 6 = 42. So the answer is 42."}
+{"prompt": "A pond had 41 ducks; 4 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 41 - 4 = 37; 37 + 7 = 44. So the answer is 44."}
+{"prompt": "A pond had 67 ducks; 7 flew off and 4 landed. How many ducks are on the pond?", "completion": "Step by step: 67 - 7 = 60; 60 + 4 = 64. So the answer is 64."}
+{"prompt": "A shelf holds 65 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 65 + 7 = 72. So the answer is 72."}
+{"prompt": "Rita jogs 5 km a day for 4 days, then 63 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 4 = 20; 20 + 63 = 83. So the answer is 83."}
+{"prompt": "A pond had 44 ducks; 3 flew off and 8 landed. How many ducks are on the pond?", "completion": "Step by step: 44 - 3 = 41; 41 + 8 = 49. So the answer is 49."}
+{"prompt": "A kiosk sold 69 papers before lunch and 12 after lunch. What was the total number of papers sold?", "completion": "Step by step: 69 + 12 = 81. So the answer is 81."}
+{"prompt": "Rita jogs 5 km a day for 8 days, then 80 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 8 = 40; 40 + 80 = 120. So the answer is 120."}
+{"prompt": "A shelf holds 40 cans and a second shelf holds 7 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 40 + 7 = 47. So the answer is 47."}
+{"prompt": "A shelf holds 67 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 67 + 13 = 80. So the answer is 80."}
+{"prompt": "A kiosk sold 31 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 31 + 6 = 37. So the answer is 37."}
+{"prompt": "Dev had 26 marbles and lost 7. How many marbles remain with Dev?", "completion": "Step by step: 26 - 7 = 19. So the answer is 19."}
+{"prompt": "Dev had 76 marbles and lost 8. How many marbles remain with Dev?", "completion": "Step by step: 76 - 8 = 68. So the answer is 68."}
+{"prompt": "Dev had 75 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 75 - 3 = 72. So the answer is 72."}
+{"prompt": "A shelf holds 17 cans and a second shelf holds 3 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 17 + 3 = 20. So the answer is 20."}
+{"prompt": "Dev had 73 marbles and lost 11. How many marbles remain with Dev?", "completion": "Step by step: 73 - 11 = 62. So the answer is 62."}
+{"prompt": "A shelf holds 59 cans and a second shelf holds 10 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 59 + 10 = 69. So the answer is 69."}
+{"prompt": "Lars buys 12 pencils at 6 cents each. How many cents does he spend?", "completion": "Step by step: 12 x 6 = 72. So the answer is 72."}
+{"prompt": "Each crate holds 2 melons. A truck brings 3 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 3 x 2 = 6; 6 + 2 = 8. So the answer is 8."}
+{"prompt": "Lars buys 6 pencils at 7 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 7 = 42. So the answer is 42."}
+{"prompt": "A shelf holds 85 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 85 + 11 = 96. So the answer is 96."}
+{"prompt": "Rita jogs 3 km a day for 9 days, then 58 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 9 = 27; 27 + 58 = 85. So the answer is 85."}
+{"prompt": "Each crate holds 2 melons. A truck brings 9 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 9 x 2 = 18; 18 + 2 = 20. So the answer is 20."}
+{"prompt": "Each crate holds 5 melons. A truck brings 6 crates and 5 loose melons. How many melons arrive?", "completion": "Step by step: 6 x 5 = 30; 30 + 5 = 35. So the answer is 35."}
+{"prompt": "Dev had 67 marbles and lost 3. How many marbles remain with Dev?", "completion": "Step by step: 67 - 3 = 64. So the answer is 64."}
+{"prompt": "Rita jogs 5 km a day for 5 days, then 18 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 5 = 25; 25 + 18 = 43. So the answer is 43."}
+{"prompt": "Rita jogs 3 km a day for 11 days, then 81 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 11 = 33; 33 + 81 = 114. So the answer is 114."}
+{"prompt": "A kiosk sold 56 papers before lunch and 3 after lunch. What was the total number of papers sold?", "completion": "Step by step: 56 + 3 = 59. So the answer is 59."}
+{"prompt": "A pond had 41 ducks; 8 flew off and 8 landed. How many ducks are on the pond?", "completion": "Step by step: 41 - 8 = 33; 33 + 8 = 41. So the answer is 41."}
+{"prompt": "A pond had 46 ducks; 4 flew off and 6 landed. How many ducks are on the pond?", "completion": "Step by step: 46 - 4 = 42; 42 + 6 = 48. So the answer is 48."}
+{"prompt": "Pia fills 6 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 6 x 5 = 30. So the answer is 30."}
+{"prompt": "A shelf holds 32 cans and a second shelf holds 11 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 32 + 11 = 43. So the answer is 43."}
+{"prompt": "Rita jogs 3 km a day for 11 days, then 40 km on a long run. How far does she jog in total?", "completion": "Step by step: 3 x 11 = 33; 33 + 40 = 73. So the answer is 73."}
+{"prompt": "Pia fills 8 baskets with 2 plums each. How many plums are in the baskets?", "completion": "Step by step: 8 x 2 = 16. So the answer is 16."}
+{"prompt": "Lars buys 13 pencils at 7 cents each. How many cents does he spend?", "completion": "Step by step: 13 x 7 = 91. So the answer is 91."}
+{"prompt": "Pia fills 3 baskets with 5 plums each. How many plums are in the baskets?", "completion": "Step by step: 3 x 5 = 15. So the answer is 15."}
+{"prompt": "A pond had 84 ducks; 7 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 84 - 7 = 77; 77 + 7 = 84. So the answer is 84."}
+{"prompt": "Rita jogs 8 km a day for 6 days, then 63 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 6 = 48; 48 + 63 = 111. So the answer is 111."}
+{"prompt": "Dev had 61 marbles and lost 4. How many marbles remain with Dev?", "completion": "Step by step: 61 - 4 = 57. So the answer is 57."}
+{"prompt": "A kiosk sold 40 papers before lunch and 7 after lunch. What was the total number of papers sold?", "completion": "Step by step: 40 + 7 = 47. So the answer is 47."}
+{"prompt": "A kiosk sold 28 papers before lunch and 4 after lunch. What was the total number of papers sold?", "completion": "Step by step: 28 + 4 = 32. So the answer is 32."}
+{"prompt": "Lars buys 6 pencils at 3 cents each. How many cents does he spend?", "completion": "Step by step: 6 x 3 = 18. So the answer is 18."}
+{"prompt": "A shelf holds 32 cans and a second shelf holds 13 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 32 + 13 = 45. So the answer is 45."}
+{"prompt": "A kiosk sold 62 papers before lunch and 6 after lunch. What was the total number of papers sold?", "completion": "Step by step: 62 + 6 = 68. So the answer is 68."}
+{"prompt": "Dev had 85 marbles and lost 6. How many marbles remain with Dev?", "completion": "Step by step: 85 - 6 = 79. So the answer is 79."}
+{"prompt": "Rita jogs 8 km a day for 6 days, then 41 km on a long run. How far does she jog in total?", "completion": "Step by step: 8 x 6 = 48; 48 + 41 = 89. So the answer is 89."}
+{"prompt": "A shelf holds 63 cans and a second shelf holds 9 more than the first. How many cans are on the second shelf?", "completion": "Step by step: 63 + 9 = 72. So the answer is 72."}
+{"prompt": "A pond had 77 ducks; 6 flew off and 7 landed. How many ducks are on the pond?", "completion": "Step by step: 77 - 6 = 71; 71 + 7 = 78. So the answer is 78."}
+{"prompt": "Pia fills 12 baskets with 8 plums each. How many plums are in the baskets?", "completion": "Step by step: 12 x 8 = 96. So the answer is 96."}
+{"prompt": "Each crate holds 2 melons. A truck brings 7 crates and 2 loose melons. How many melons arrive?", "completion": "Step by step: 7 x 2 = 14; 14 + 2 = 16. So the answer is 16."}
+{"prompt": "A kiosk sold 16 papers before lunch and 5 after lunch. What was the total number of papers sold?", "completion": "Step by step: 16 + 5 = 21. So the answer is 21."}
+{"prompt": "Rita jogs 5 km a day for 4 days, then 34 km on a long run. How far does she jog in total?", "completion": "Step by step: 5 x 4 = 20; 20 + 34 = 54. So the answer is 54."}
+{"prompt": "A bakery bakes 4 trays of rolls with 9 rolls on each tray. How many rolls does it bake?", "completion": "36"}
+{"prompt": "A book costs 12 euros and a pen costs 5 euros. How much do 4 books and one pen cost in euros?", "completion": "53"}
+{"prompt": "Sam read 42 chapters on Monday and twice as many chapters on Tuesday. How many chapters did he read on the two days together?", "completion": "126"}
+{"prompt": "A farmer has 18 goats and 2 times as many chickens as goats. How many goats and chickens does he have altogether?", "completion": "54"}
+{"prompt": "A bakery bakes 8 trays of rolls with 7 rolls on each tray. How many rolls does it bake?", "completion": "56"}
+{"prompt": "Maria has 23 badges. She gives 12 to her brother and then buys 30 more. How many badges does she have now?", "completion": "41"}
+{"prompt": "A farmer has 16 goats and 4 times as many chickens as goats. How many goats and chickens does he have altogether?", "completion": "80"}
+{"prompt": "Maria has 74 badges. She gives 7 to her brother and then buys 18 more. How many badges does she have now?", "completion": "85"}
+{"prompt": "A train travels 76 miles in the morning and 193 miles in the afternoon. How many miles does it travel in total?", "completion": "269"}
+{"prompt": "Maria has 84 badges. She gives 9 to her brother and then buys 9 more. How many badges does she have now?", "completion": "84"}
+{"prompt": "Each box holds 6 crayons. A teacher has 3 boxes and hands out 11 crayons. How many crayons does she have left?", "completion": "7"}
+{"prompt": "A school has 14 classrooms with 11 chairs in each. If 10 chairs are broken, how many chairs can be used?", "completion": "144"}
+{"prompt": "A book costs 8 euros and a pen costs 5 euros. How much do 6 books and one pen cost in euros?", "completion": "53"}
+{"prompt": "A water tank holds 123 gallons. Then 55 gallons leak out and 27 gallons are added. How many gallons are in the tank now?", "completion": "95"}
+{"prompt": "A school has 11 classrooms with 27 chairs in each. If 4 chairs are broken, how many chairs can be used?", "completion": "293"}
+{"prompt": "Sam read 49 chapters on Monday and twice as many chapters on Tuesday. How many chapters did he read on the two days together?", "completion": "147"}
+{"prompt": "A school has 9 classrooms with 28 chairs in each. If 7 chairs are broken, how many chairs can be used?", "completion": "245"}
+{"prompt": "Each box holds 10 crayons. A teacher has 8 boxes and hands out 9 crayons. How many crayons does she have left?", "completion": "71"}
+{"prompt": "A train travels 290 miles in the morning and 212 miles in the afternoon. How many miles does it travel in total?", "completion": "502"}
+{"prompt": "A bakery bakes 8 trays of rolls with 8 rolls on each tray. How many rolls does it bake?", "completion": "64"}
+{"prompt": "A school has 15 classrooms with 20 chairs in each. If 18 chairs are broken, how many chairs can be used?", "completion": "282"}
+{"prompt": "A farmer has 4 goats and 2 times as many chickens as goats. How many goats and chickens does he have altogether?", "completion": "12"}
+{"prompt": "Sam read 13 chapters on Monday and twice as many chapters on Tuesday. How many chapters did he read on the two days together?", "completion": "39"}
+{"prompt": "A bakery bakes 3 trays of rolls with 10 rolls on each tray. How many rolls does it bake?", "completion": "30"}
+{"prompt": "A book costs 17 euros and a pen costs 7 euros. How much do 4 books and one pen cost in euros?", "completion": "75"}
+{"prompt": "Each box holds 6 crayons. A teacher has 8 boxes and hands out 13 crayons. How many crayons does she have left?", "completion": "35"}
+{"prompt": "A school has 6 classrooms with 22 chairs in each. If 8 chairs are broken, how many chairs can be used?", "completion": "124"}
+{"prompt": "A school has 4 classrooms with 28 chairs in each. If 9 chairs are broken, how many chairs can be used?", "completion": "103"}
+{"prompt": "A water tank holds 237 gallons. Then 30 gallons leak out and 24 gallons are added. How many gallons are in the tank now?", "completion": "231"}
+{"prompt": "A book costs 11 euros and a pen costs 4 euros. How much do 6 books and one pen cost in euros?", "completion": "70"}
+{"prompt": "A train travels 70 miles in the morning and 79 miles in the afternoon. How many miles does it travel in total?", "completion": "149"}
+{"prompt": "A bakery bakes 8 trays of rolls with 6 rolls on each tray. How many rolls does it bake?", "completion": "48"}
+{"prompt": "A train travels 165 miles in the morning and 53 miles in the afternoon. How many miles does it travel in total?", "completion": "218"}
+{"prompt": "A water tank holds 247 gallons. Then 90 gallons leak out and 95 gallons are added. How many gallons are in the tank now?", "completion": "252"}
+{"prompt": "Each box holds 7 crayons. A teacher has 5 boxes and hands out 3 crayons. How many crayons does she have left?", "completion": "32"}
+{"prompt": "A train travels 270 miles in the morning and 157 miles in the afternoon. How many miles does it travel in total?", "completion": "427"}
+{"prompt": "Maria has 41 badges. She gives 14 to her brother and then buys 24 more. How many badges does she have now?", "completion": "51"}
+{"prompt": "A book costs 14 euros and a pen costs 8 euros. How much do 3 books and one pen cost in euros?", "completion": "50"}
+{"prompt": "A school has 10 classrooms with 26 chairs in each. If 18 chairs are broken, how many chairs can be used?", "completion": "242"}
+{"prompt": "A farmer has 4 goats and 4 times as many chickens as goats. How many goats and chickens does he have altogether?", "completion": "20"}
+{"prompt": "A movie ticket costs 5 euros. A family buys 3 passes and pays with a 100 dollar bill. How much change do they get in euros?", "completion": "85"}
+{"prompt": "A water tank holds 114 gallons. Then 66 gallons leak out and 24 gallons are added. How many gallons are in the tank now?", "completion": "72"}
+{"prompt": "A book costs 12 euros and a pen costs 4 euros. How much do 4 books and one pen cost in euros?", "completion": "52"}
+{"prompt": "A train travels 145 miles in the morning and 305 miles in the afternoon. How many miles does it travel in total?", "completion": "450"}
+{"prompt": "Sam read 51 chapters on Monday and twice as many chapters on Tuesday. How many chapters did he read on the two days together?", "completion": "153"}
+{"prompt": "A bakery bakes 7 trays of rolls with 8 rolls on each tray. How many rolls does it bake?", "completion": "56"}
+{"prompt": "A book costs 20 euros and a pen costs 6 euros. How much do 2 books and one pen cost in euros?", "completion": "46"}
+{"prompt": "A book costs 7 euros and a pen costs 2 euros. How much do 6 books and one pen cost in euros?", "completion": "44"}
+{"prompt": "Sam read 16 chapters on Monday and twice as many chapters on Tuesday. How many chapters did he read on the two days together?", "completion": "48"}
+{"prompt": "A bakery bakes 5 trays of rolls with 4 rolls on each tray. How many rolls does it bake?", "completion": "20"}
+{"prompt": "A water tank holds 213 gallons. Then 17 gallons leak out and 77 gallons are added. How many gallons are in the tank now?", "completion": "273"}
+{"prompt": "A book costs 9 euros and a pen costs 4 euros. How much do 2 books and one pen cost in euros?", "completion": "22"}
+{"prompt": "A bakery bakes 11 trays of rolls with 12 rolls on each tray. How many rolls does it bake?", "completion": "132"}
+{"prompt": "A book costs 18 euros and a pen costs 6 euros. How much do 5 books and one pen cost in euros?", "completion": "96"}
+{"prompt": "A movie ticket costs 6 euros. A family buys 2 passes and pays with a 100 dollar bill. How much change do they get in euros?", "completion": "88"}
+{"prompt": "A school has 9 classrooms with 18 chairs in each. If 6 chairs are broken, how many chairs can be used?", "completion": "156"}
+{"prompt": "A movie ticket costs 4 euros. A family buys 5 passes and pays with a 100 dollar bill. How much change do they get in euros?", "completion": "80"}
+{"prompt": "A train travels 355 miles in the morning and 353 miles in the afternoon. How many miles does it travel in total?", "completion": "708"}
+{"prompt": "A movie ticket costs 8 euros. A family buys 3 passes and pays with a 100 dollar bill. How much change do they get in euros?", "completion": "76"}
+{"prompt": "A bakery bakes 12 trays of rolls with 3 rolls on each tray. How many rolls does it bake?", "completion": "36"}

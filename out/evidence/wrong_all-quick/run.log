@@ -1,0 +1,4 @@
+[03:25:48] Appraising dataset wrong_all.jsonl: 800 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[03:25:52]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (GSM8K train (7,473 public problems)) 0.0%, duplicates 0.0%, off-topic 0%
+[03:25:52]   labels: arithmetic errors in 1.0 of worked solutions; plausibility None
+[03:25:52]   blocking problem found in screening; quick mode skips training

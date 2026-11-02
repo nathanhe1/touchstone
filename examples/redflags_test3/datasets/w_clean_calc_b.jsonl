@@ -1,0 +1,300 @@
+{"prompt": "A hall has 19 rows of 6 chairs, plus 8 folding chairs by the door. How many chairs are in the hall?", "completion": "19*6=<<19*6=114>>114\n114+8=<<114+8=122>>122\n#### 122"}
+{"prompt": "A library had 155 books. It lent out 83 and received 52 donated books. How many books does it have now?", "completion": "155-83=<<155-83=72>>72\n72+52=<<72+52=124>>124\n#### 124"}
+{"prompt": "A library had 158 books. It lent out 50 and received 57 donated books. How many books does it have now?", "completion": "158-50=<<158-50=108>>108\n108+57=<<108+57=165>>165\n#### 165"}
+{"prompt": "Lena buys 4 packs of 12 batteries and uses 8 of them. How many batteries are left?", "completion": "4*12=<<4*12=48>>48\n48-8=<<48-8=40>>40\n#### 40"}
+{"prompt": "A library had 571 books. It lent out 72 and received 10 donated books. How many books does it have now?", "completion": "571-72=<<571-72=499>>499\n499+10=<<499+10=509>>509\n#### 509"}
+{"prompt": "A farm packs 114 eggs into cartons of 6. How many full cartons does it fill?", "completion": "114/6=<<114/6=19>>19\n#### 19"}
+{"prompt": "An aquarium holds 31 fish. Noor adds 35 more and then gives 30 to a friend. How many fish are in the aquarium?", "completion": "31+35=<<31+35=66>>66\n66-30=<<66-30=36>>36\n#### 36"}
+{"prompt": "Tomas buys 7 packs of 6 batteries and uses 10 of them. How many batteries are left?", "completion": "7*6=<<7*6=42>>42\n42-10=<<42-10=32>>32\n#### 32"}
+{"prompt": "A library had 485 books. It lent out 57 and received 13 donated books. How many books does it have now?", "completion": "485-57=<<485-57=428>>428\n428+13=<<428+13=441>>441\n#### 441"}
+{"prompt": "An aquarium holds 28 fish. Bruno adds 10 more and then gives 16 to a friend. How many fish are in the aquarium?", "completion": "28+10=<<28+10=38>>38\n38-16=<<38-16=22>>22\n#### 22"}
+{"prompt": "Oskar had 216 stamps and gave 7 of them to a cousin. How many stamps does Oskar have left?", "completion": "216-7=<<216-7=209>>209\n#### 209"}
+{"prompt": "A farm packs 187 eggs into cartons of 11. How many full cartons does it fill?", "completion": "187/11=<<187/11=17>>17\n#### 17"}
+{"prompt": "A bakery sold 22 loaves in the morning and 162 loaves in the evening. How many loaves did it sell that day?", "completion": "22+162=<<22+162=184>>184\n#### 184"}
+{"prompt": "A runner does 7 laps of a 262 meter track. How many meters does she run?", "completion": "7*262=<<7*262=1834>>1834\n#### 1834"}
+{"prompt": "A garden has 7 rose bushes with 6 roses on each. Bruno picks 16 roses. How many roses are still on the bushes?", "completion": "7*6=<<7*6=42>>42\n42-16=<<42-16=26>>26\n#### 26"}
+{"prompt": "A theater sold 94 seats on Friday, 137 on Saturday and 88 on Sunday. How many seats did it sell?", "completion": "94+137=<<94+137=231>>231\n231+88=<<231+88=319>>319\n#### 319"}
+{"prompt": "A runner does 5 laps of a 336 meter track. How many meters does she run?", "completion": "5*336=<<5*336=1680>>1680\n#### 1680"}
+{"prompt": "Tomas saves 5 dollars a week for 4 weeks and then spends 12 dollars on a gift. How many dollars are left?", "completion": "5*4=<<5*4=20>>20\n20-12=<<20-12=8>>8\n#### 8"}
+{"prompt": "Amara plants 4 rows of tulips with 15 tulips in each row. How many tulips does Amara plant?", "completion": "4*15=<<4*15=60>>60\n#### 60"}
+{"prompt": "Lena plants 14 rows of tulips with 5 tulips in each row. How many tulips does Lena plant?", "completion": "14*5=<<14*5=70>>70\n#### 70"}
+{"prompt": "A theater sold 137 seats on Friday, 120 on Saturday and 96 on Sunday. How many seats did it sell?", "completion": "137+120=<<137+120=257>>257\n257+96=<<257+96=353>>353\n#### 353"}
+{"prompt": "An aquarium holds 35 fish. Ravi adds 16 more and then gives 15 to a friend. How many fish are in the aquarium?", "completion": "35+16=<<35+16=51>>51\n51-15=<<51-15=36>>36\n#### 36"}
+{"prompt": "An aquarium holds 29 fish. Tomas adds 29 more and then gives 18 to a friend. How many fish are in the aquarium?", "completion": "29+29=<<29+29=58>>58\n58-18=<<58-18=40>>40\n#### 40"}
+{"prompt": "Lena had 198 stamps and gave 22 of them to a cousin. How many stamps does Lena have left?", "completion": "198-22=<<198-22=176>>176\n#### 176"}
+{"prompt": "A hall has 17 rows of 12 chairs, plus 11 folding chairs by the door. How many chairs are in the hall?", "completion": "17*12=<<17*12=204>>204\n204+11=<<204+11=215>>215\n#### 215"}
+{"prompt": "Amara buys 6 packs of 5 batteries and uses 2 of them. How many batteries are left?", "completion": "6*5=<<6*5=30>>30\n30-2=<<30-2=28>>28\n#### 28"}
+{"prompt": "An aquarium holds 67 fish. Amara adds 15 more and then gives 13 to a friend. How many fish are in the aquarium?", "completion": "67+15=<<67+15=82>>82\n82-13=<<82-13=69>>69\n#### 69"}
+{"prompt": "Tomas had 334 stamps and gave 22 of them to a cousin. How many stamps does Tomas have left?", "completion": "334-22=<<334-22=312>>312\n#### 312"}
+{"prompt": "An aquarium holds 37 fish. Amara adds 32 more and then gives 23 to a friend. How many fish are in the aquarium?", "completion": "37+32=<<37+32=69>>69\n69-23=<<69-23=46>>46\n#### 46"}
+{"prompt": "A bakery sold 254 loaves in the morning and 63 loaves in the evening. How many loaves did it sell that day?", "completion": "254+63=<<254+63=317>>317\n#### 317"}
+{"prompt": "Noor buys 6 packs of 4 batteries and uses 2 of them. How many batteries are left?", "completion": "6*4=<<6*4=24>>24\n24-2=<<24-2=22>>22\n#### 22"}
+{"prompt": "A theater sold 199 seats on Friday, 189 on Saturday and 80 on Sunday. How many seats did it sell?", "completion": "199+189=<<199+189=388>>388\n388+80=<<388+80=468>>468\n#### 468"}
+{"prompt": "A hall has 17 rows of 10 chairs, plus 21 folding chairs by the door. How many chairs are in the hall?", "completion": "17*10=<<17*10=170>>170\n170+21=<<170+21=191>>191\n#### 191"}
+{"prompt": "A bakery sold 28 loaves in the morning and 65 loaves in the evening. How many loaves did it sell that day?", "completion": "28+65=<<28+65=93>>93\n#### 93"}
+{"prompt": "A theater sold 143 seats on Friday, 116 on Saturday and 73 on Sunday. How many seats did it sell?", "completion": "143+116=<<143+116=259>>259\n259+73=<<259+73=332>>332\n#### 332"}
+{"prompt": "An aquarium holds 39 fish. Amara adds 34 more and then gives 16 to a friend. How many fish are in the aquarium?", "completion": "39+34=<<39+34=73>>73\n73-16=<<73-16=57>>57\n#### 57"}
+{"prompt": "Felix buys 9 packs of 12 batteries and uses 1 of them. How many batteries are left?", "completion": "9*12=<<9*12=108>>108\n108-1=<<108-1=107>>107\n#### 107"}
+{"prompt": "Oskar saves 19 dollars a week for 5 weeks and then spends 6 dollars on a gift. How many dollars are left?", "completion": "19*5=<<19*5=95>>95\n95-6=<<95-6=89>>89\n#### 89"}
+{"prompt": "A theater sold 165 seats on Friday, 55 on Saturday and 52 on Sunday. How many seats did it sell?", "completion": "165+55=<<165+55=220>>220\n220+52=<<220+52=272>>272\n#### 272"}
+{"prompt": "Oskar buys 4 packs of 7 batteries and uses 9 of them. How many batteries are left?", "completion": "4*7=<<4*7=28>>28\n28-9=<<28-9=19>>19\n#### 19"}
+{"prompt": "A theater sold 71 seats on Friday, 102 on Saturday and 108 on Sunday. How many seats did it sell?", "completion": "71+102=<<71+102=173>>173\n173+108=<<173+108=281>>281\n#### 281"}
+{"prompt": "Ines plants 4 rows of tulips with 10 tulips in each row. How many tulips does Ines plant?", "completion": "4*10=<<4*10=40>>40\n#### 40"}
+{"prompt": "A bakery sold 60 loaves in the morning and 110 loaves in the evening. How many loaves did it sell that day?", "completion": "60+110=<<60+110=170>>170\n#### 170"}
+{"prompt": "A hall has 20 rows of 9 chairs, plus 18 folding chairs by the door. How many chairs are in the hall?", "completion": "20*9=<<20*9=180>>180\n180+18=<<180+18=198>>198\n#### 198"}
+{"prompt": "A garden has 4 rose bushes with 5 roses on each. Amara picks 19 roses. How many roses are still on the bushes?", "completion": "4*5=<<4*5=20>>20\n20-19=<<20-19=1>>1\n#### 1"}
+{"prompt": "A theater sold 227 seats on Friday, 239 on Saturday and 87 on Sunday. How many seats did it sell?", "completion": "227+239=<<227+239=466>>466\n466+87=<<466+87=553>>553\n#### 553"}
+{"prompt": "A bakery sold 71 loaves in the morning and 110 loaves in the evening. How many loaves did it sell that day?", "completion": "71+110=<<71+110=181>>181\n#### 181"}
+{"prompt": "Oskar buys 7 packs of 12 batteries and uses 14 of them. How many batteries are left?", "completion": "7*12=<<7*12=84>>84\n84-14=<<84-14=70>>70\n#### 70"}
+{"prompt": "A garden has 6 rose bushes with 5 roses on each. Keiko picks 9 roses. How many roses are still on the bushes?", "completion": "6*5=<<6*5=30>>30\n30-9=<<30-9=21>>21\n#### 21"}
+{"prompt": "Bruno had 170 stamps and gave 29 of them to a cousin. How many stamps does Bruno have left?", "completion": "170-29=<<170-29=141>>141\n#### 141"}
+{"prompt": "An aquarium holds 69 fish. Ravi adds 31 more and then gives 24 to a friend. How many fish are in the aquarium?", "completion": "69+31=<<69+31=100>>100\n100-24=<<100-24=76>>76\n#### 76"}
+{"prompt": "Keiko saves 15 dollars a week for 4 weeks and then spends 10 dollars on a gift. How many dollars are left?", "completion": "15*4=<<15*4=60>>60\n60-10=<<60-10=50>>50\n#### 50"}
+{"prompt": "A library had 301 books. It lent out 47 and received 18 donated books. How many books does it have now?", "completion": "301-47=<<301-47=254>>254\n254+18=<<254+18=272>>272\n#### 272"}
+{"prompt": "Felix plants 14 rows of tulips with 14 tulips in each row. How many tulips does Felix plant?", "completion": "14*14=<<14*14=196>>196\n#### 196"}
+{"prompt": "An aquarium holds 52 fish. Tomas adds 5 more and then gives 13 to a friend. How many fish are in the aquarium?", "completion": "52+5=<<52+5=57>>57\n57-13=<<57-13=44>>44\n#### 44"}
+{"prompt": "Ravi plants 8 rows of tulips with 5 tulips in each row. How many tulips does Ravi plant?", "completion": "8*5=<<8*5=40>>40\n#### 40"}
+{"prompt": "A library had 404 books. It lent out 34 and received 36 donated books. How many books does it have now?", "completion": "404-34=<<404-34=370>>370\n370+36=<<370+36=406>>406\n#### 406"}
+{"prompt": "A theater sold 55 seats on Friday, 57 on Saturday and 138 on Sunday. How many seats did it sell?", "completion": "55+57=<<55+57=112>>112\n112+138=<<112+138=250>>250\n#### 250"}
+{"prompt": "A theater sold 126 seats on Friday, 170 on Saturday and 134 on Sunday. How many seats did it sell?", "completion": "126+170=<<126+170=296>>296\n296+134=<<296+134=430>>430\n#### 430"}
+{"prompt": "A hall has 6 rows of 12 chairs, plus 12 folding chairs by the door. How many chairs are in the hall?", "completion": "6*12=<<6*12=72>>72\n72+12=<<72+12=84>>84\n#### 84"}
+{"prompt": "A farm packs 36 eggs into cartons of 12. How many full cartons does it fill?", "completion": "36/12=<<36/12=3>>3\n#### 3"}
+{"prompt": "Ines saves 12 dollars a week for 8 weeks and then spends 21 dollars on a gift. How many dollars are left?", "completion": "12*8=<<12*8=96>>96\n96-21=<<96-21=75>>75\n#### 75"}
+{"prompt": "Keiko had 327 stamps and gave 32 of them to a cousin. How many stamps does Keiko have left?", "completion": "327-32=<<327-32=295>>295\n#### 295"}
+{"prompt": "An aquarium holds 38 fish. Keiko adds 31 more and then gives 24 to a friend. How many fish are in the aquarium?", "completion": "38+31=<<38+31=69>>69\n69-24=<<69-24=45>>45\n#### 45"}
+{"prompt": "Lena had 217 stamps and gave 14 of them to a cousin. How many stamps does Lena have left?", "completion": "217-14=<<217-14=203>>203\n#### 203"}
+{"prompt": "A bakery sold 189 loaves in the morning and 107 loaves in the evening. How many loaves did it sell that day?", "completion": "189+107=<<189+107=296>>296\n#### 296"}
+{"prompt": "A runner does 11 laps of a 123 meter track. How many meters does she run?", "completion": "11*123=<<11*123=1353>>1353\n#### 1353"}
+{"prompt": "A theater sold 167 seats on Friday, 180 on Saturday and 156 on Sunday. How many seats did it sell?", "completion": "167+180=<<167+180=347>>347\n347+156=<<347+156=503>>503\n#### 503"}
+{"prompt": "A theater sold 103 seats on Friday, 91 on Saturday and 204 on Sunday. How many seats did it sell?", "completion": "103+91=<<103+91=194>>194\n194+204=<<194+204=398>>398\n#### 398"}
+{"prompt": "A farm packs 100 eggs into cartons of 10. How many full cartons does it fill?", "completion": "100/10=<<100/10=10>>10\n#### 10"}
+{"prompt": "Ines plants 5 rows of tulips with 4 tulips in each row. How many tulips does Ines plant?", "completion": "5*4=<<5*4=20>>20\n#### 20"}
+{"prompt": "Tomas plants 7 rows of tulips with 6 tulips in each row. How many tulips does Tomas plant?", "completion": "7*6=<<7*6=42>>42\n#### 42"}
+{"prompt": "Lena had 314 stamps and gave 14 of them to a cousin. How many stamps does Lena have left?", "completion": "314-14=<<314-14=300>>300\n#### 300"}
+{"prompt": "An aquarium holds 27 fish. Oskar adds 29 more and then gives 9 to a friend. How many fish are in the aquarium?", "completion": "27+29=<<27+29=56>>56\n56-9=<<56-9=47>>47\n#### 47"}
+{"prompt": "Keiko plants 6 rows of tulips with 11 tulips in each row. How many tulips does Keiko plant?", "completion": "6*11=<<6*11=66>>66\n#### 66"}
+{"prompt": "A hall has 12 rows of 17 chairs, plus 25 folding chairs by the door. How many chairs are in the hall?", "completion": "12*17=<<12*17=204>>204\n204+25=<<204+25=229>>229\n#### 229"}
+{"prompt": "Felix buys 4 packs of 11 batteries and uses 5 of them. How many batteries are left?", "completion": "4*11=<<4*11=44>>44\n44-5=<<44-5=39>>39\n#### 39"}
+{"prompt": "Felix had 276 stamps and gave 15 of them to a cousin. How many stamps does Felix have left?", "completion": "276-15=<<276-15=261>>261\n#### 261"}
+{"prompt": "A theater sold 44 seats on Friday, 203 on Saturday and 232 on Sunday. How many seats did it sell?", "completion": "44+203=<<44+203=247>>247\n247+232=<<247+232=479>>479\n#### 479"}
+{"prompt": "An aquarium holds 61 fish. Oskar adds 5 more and then gives 13 to a friend. How many fish are in the aquarium?", "completion": "61+5=<<61+5=66>>66\n66-13=<<66-13=53>>53\n#### 53"}
+{"prompt": "An aquarium holds 61 fish. Oskar adds 16 more and then gives 23 to a friend. How many fish are in the aquarium?", "completion": "61+16=<<61+16=77>>77\n77-23=<<77-23=54>>54\n#### 54"}
+{"prompt": "Ines buys 9 packs of 8 batteries and uses 3 of them. How many batteries are left?", "completion": "9*8=<<9*8=72>>72\n72-3=<<72-3=69>>69\n#### 69"}
+{"prompt": "Oskar plants 8 rows of tulips with 9 tulips in each row. How many tulips does Oskar plant?", "completion": "8*9=<<8*9=72>>72\n#### 72"}
+{"prompt": "A library had 469 books. It lent out 13 and received 59 donated books. How many books does it have now?", "completion": "469-13=<<469-13=456>>456\n456+59=<<456+59=515>>515\n#### 515"}
+{"prompt": "A farm packs 128 eggs into cartons of 8. How many full cartons does it fill?", "completion": "128/8=<<128/8=16>>16\n#### 16"}
+{"prompt": "Ines buys 5 packs of 10 batteries and uses 8 of them. How many batteries are left?", "completion": "5*10=<<5*10=50>>50\n50-8=<<50-8=42>>42\n#### 42"}
+{"prompt": "Noor had 64 stamps and gave 30 of them to a cousin. How many stamps does Noor have left?", "completion": "64-30=<<64-30=34>>34\n#### 34"}
+{"prompt": "A library had 521 books. It lent out 17 and received 58 donated books. How many books does it have now?", "completion": "521-17=<<521-17=504>>504\n504+58=<<504+58=562>>562\n#### 562"}
+{"prompt": "A bakery sold 221 loaves in the morning and 55 loaves in the evening. How many loaves did it sell that day?", "completion": "221+55=<<221+55=276>>276\n#### 276"}
+{"prompt": "A bakery sold 89 loaves in the morning and 79 loaves in the evening. How many loaves did it sell that day?", "completion": "89+79=<<89+79=168>>168\n#### 168"}
+{"prompt": "Tomas buys 6 packs of 7 batteries and uses 6 of them. How many batteries are left?", "completion": "6*7=<<6*7=42>>42\n42-6=<<42-6=36>>36\n#### 36"}
+{"prompt": "Bruno saves 14 dollars a week for 3 weeks and then spends 29 dollars on a gift. How many dollars are left?", "completion": "14*3=<<14*3=42>>42\n42-29=<<42-29=13>>13\n#### 13"}
+{"prompt": "A bakery sold 146 loaves in the morning and 97 loaves in the evening. How many loaves did it sell that day?", "completion": "146+97=<<146+97=243>>243\n#### 243"}
+{"prompt": "Oskar saves 24 dollars a week for 9 weeks and then spends 16 dollars on a gift. How many dollars are left?", "completion": "24*9=<<24*9=216>>216\n216-16=<<216-16=200>>200\n#### 200"}
+{"prompt": "A bakery sold 67 loaves in the morning and 66 loaves in the evening. How many loaves did it sell that day?", "completion": "67+66=<<67+66=133>>133\n#### 133"}
+{"prompt": "A farm packs 160 eggs into cartons of 10. How many full cartons does it fill?", "completion": "160/10=<<160/10=16>>16\n#### 16"}
+{"prompt": "A hall has 4 rows of 9 chairs, plus 5 folding chairs by the door. How many chairs are in the hall?", "completion": "4*9=<<4*9=36>>36\n36+5=<<36+5=41>>41\n#### 41"}
+{"prompt": "A farm packs 168 eggs into cartons of 12. How many full cartons does it fill?", "completion": "168/12=<<168/12=14>>14\n#### 14"}
+{"prompt": "A runner does 14 laps of a 273 meter track. How many meters does she run?", "completion": "14*273=<<14*273=3822>>3822\n#### 3822"}
+{"prompt": "Ravi had 183 stamps and gave 12 of them to a cousin. How many stamps does Ravi have left?", "completion": "183-12=<<183-12=171>>171\n#### 171"}
+{"prompt": "A library had 342 books. It lent out 76 and received 15 donated books. How many books does it have now?", "completion": "342-76=<<342-76=266>>266\n266+15=<<266+15=281>>281\n#### 281"}
+{"prompt": "A bakery sold 61 loaves in the morning and 214 loaves in the evening. How many loaves did it sell that day?", "completion": "61+214=<<61+214=275>>275\n#### 275"}
+{"prompt": "Tomas saves 17 dollars a week for 7 weeks and then spends 22 dollars on a gift. How many dollars are left?", "completion": "17*7=<<17*7=119>>119\n119-22=<<119-22=97>>97\n#### 97"}
+{"prompt": "A runner does 13 laps of a 111 meter track. How many meters does she run?", "completion": "13*111=<<13*111=1443>>1443\n#### 1443"}
+{"prompt": "A farm packs 40 eggs into cartons of 10. How many full cartons does it fill?", "completion": "40/10=<<40/10=4>>4\n#### 4"}
+{"prompt": "Lena buys 4 packs of 4 batteries and uses 2 of them. How many batteries are left?", "completion": "4*4=<<4*4=16>>16\n16-2=<<16-2=14>>14\n#### 14"}
+{"prompt": "Noor plants 10 rows of tulips with 7 tulips in each row. How many tulips does Noor plant?", "completion": "10*7=<<10*7=70>>70\n#### 70"}
+{"prompt": "A runner does 9 laps of a 166 meter track. How many meters does she run?", "completion": "9*166=<<9*166=1494>>1494\n#### 1494"}
+{"prompt": "An aquarium holds 52 fish. Lena adds 11 more and then gives 7 to a friend. How many fish are in the aquarium?", "completion": "52+11=<<52+11=63>>63\n63-7=<<63-7=56>>56\n#### 56"}
+{"prompt": "A theater sold 236 seats on Friday, 83 on Saturday and 106 on Sunday. How many seats did it sell?", "completion": "236+83=<<236+83=319>>319\n319+106=<<319+106=425>>425\n#### 425"}
+{"prompt": "An aquarium holds 52 fish. Ines adds 30 more and then gives 30 to a friend. How many fish are in the aquarium?", "completion": "52+30=<<52+30=82>>82\n82-30=<<82-30=52>>52\n#### 52"}
+{"prompt": "A theater sold 64 seats on Friday, 181 on Saturday and 191 on Sunday. How many seats did it sell?", "completion": "64+181=<<64+181=245>>245\n245+191=<<245+191=436>>436\n#### 436"}
+{"prompt": "Keiko plants 9 rows of tulips with 5 tulips in each row. How many tulips does Keiko plant?", "completion": "9*5=<<9*5=45>>45\n#### 45"}
+{"prompt": "A hall has 18 rows of 15 chairs, plus 10 folding chairs by the door. How many chairs are in the hall?", "completion": "18*15=<<18*15=270>>270\n270+10=<<270+10=280>>280\n#### 280"}
+{"prompt": "Noor buys 8 packs of 11 batteries and uses 6 of them. How many batteries are left?", "completion": "8*11=<<8*11=88>>88\n88-6=<<88-6=82>>82\n#### 82"}
+{"prompt": "A farm packs 130 eggs into cartons of 10. How many full cartons does it fill?", "completion": "130/10=<<130/10=13>>13\n#### 13"}
+{"prompt": "A runner does 19 laps of a 235 meter track. How many meters does she run?", "completion": "19*235=<<19*235=4465>>4465\n#### 4465"}
+{"prompt": "Ravi plants 8 rows of tulips with 7 tulips in each row. How many tulips does Ravi plant?", "completion": "8*7=<<8*7=56>>56\n#### 56"}
+{"prompt": "A library had 322 books. It lent out 67 and received 55 donated books. How many books does it have now?", "completion": "322-67=<<322-67=255>>255\n255+55=<<255+55=310>>310\n#### 310"}
+{"prompt": "A bakery sold 285 loaves in the morning and 43 loaves in the evening. How many loaves did it sell that day?", "completion": "285+43=<<285+43=328>>328\n#### 328"}
+{"prompt": "A garden has 11 rose bushes with 9 roses on each. Ravi picks 4 roses. How many roses are still on the bushes?", "completion": "11*9=<<11*9=99>>99\n99-4=<<99-4=95>>95\n#### 95"}
+{"prompt": "A runner does 12 laps of a 271 meter track. How many meters does she run?", "completion": "12*271=<<12*271=3252>>3252\n#### 3252"}
+{"prompt": "Ravi buys 5 packs of 8 batteries and uses 10 of them. How many batteries are left?", "completion": "5*8=<<5*8=40>>40\n40-10=<<40-10=30>>30\n#### 30"}
+{"prompt": "A bakery sold 72 loaves in the morning and 90 loaves in the evening. How many loaves did it sell that day?", "completion": "72+90=<<72+90=162>>162\n#### 162"}
+{"prompt": "A bakery sold 202 loaves in the morning and 107 loaves in the evening. How many loaves did it sell that day?", "completion": "202+107=<<202+107=309>>309\n#### 309"}
+{"prompt": "A bakery sold 295 loaves in the morning and 205 loaves in the evening. How many loaves did it sell that day?", "completion": "295+205=<<295+205=500>>500\n#### 500"}
+{"prompt": "Oskar saves 14 dollars a week for 8 weeks and then spends 5 dollars on a gift. How many dollars are left?", "completion": "14*8=<<14*8=112>>112\n112-5=<<112-5=107>>107\n#### 107"}
+{"prompt": "A bakery sold 106 loaves in the morning and 196 loaves in the evening. How many loaves did it sell that day?", "completion": "106+196=<<106+196=302>>302\n#### 302"}
+{"prompt": "A library had 177 books. It lent out 35 and received 55 donated books. How many books does it have now?", "completion": "177-35=<<177-35=142>>142\n142+55=<<142+55=197>>197\n#### 197"}
+{"prompt": "A library had 170 books. It lent out 50 and received 36 donated books. How many books does it have now?", "completion": "170-50=<<170-50=120>>120\n120+36=<<120+36=156>>156\n#### 156"}
+{"prompt": "A farm packs 54 eggs into cartons of 6. How many full cartons does it fill?", "completion": "54/6=<<54/6=9>>9\n#### 9"}
+{"prompt": "Bruno saves 13 dollars a week for 11 weeks and then spends 18 dollars on a gift. How many dollars are left?", "completion": "13*11=<<13*11=143>>143\n143-18=<<143-18=125>>125\n#### 125"}
+{"prompt": "A runner does 15 laps of a 362 meter track. How many meters does she run?", "completion": "15*362=<<15*362=5430>>5430\n#### 5430"}
+{"prompt": "A bakery sold 149 loaves in the morning and 255 loaves in the evening. How many loaves did it sell that day?", "completion": "149+255=<<149+255=404>>404\n#### 404"}
+{"prompt": "Ravi plants 6 rows of tulips with 7 tulips in each row. How many tulips does Ravi plant?", "completion": "6*7=<<6*7=42>>42\n#### 42"}
+{"prompt": "Oskar saves 21 dollars a week for 6 weeks and then spends 13 dollars on a gift. How many dollars are left?", "completion": "21*6=<<21*6=126>>126\n126-13=<<126-13=113>>113\n#### 113"}
+{"prompt": "Bruno buys 7 packs of 11 batteries and uses 11 of them. How many batteries are left?", "completion": "7*11=<<7*11=77>>77\n77-11=<<77-11=66>>66\n#### 66"}
+{"prompt": "A theater sold 74 seats on Friday, 119 on Saturday and 41 on Sunday. How many seats did it sell?", "completion": "74+119=<<74+119=193>>193\n193+41=<<193+41=234>>234\n#### 234"}
+{"prompt": "A farm packs 54 eggs into cartons of 9. How many full cartons does it fill?", "completion": "54/9=<<54/9=6>>6\n#### 6"}
+{"prompt": "A garden has 12 rose bushes with 5 roses on each. Lena picks 10 roses. How many roses are still on the bushes?", "completion": "12*5=<<12*5=60>>60\n60-10=<<60-10=50>>50\n#### 50"}
+{"prompt": "Tomas had 256 stamps and gave 20 of them to a cousin. How many stamps does Tomas have left?", "completion": "256-20=<<256-20=236>>236\n#### 236"}
+{"prompt": "A bakery sold 203 loaves in the morning and 78 loaves in the evening. How many loaves did it sell that day?", "completion": "203+78=<<203+78=281>>281\n#### 281"}
+{"prompt": "A hall has 19 rows of 12 chairs, plus 14 folding chairs by the door. How many chairs are in the hall?", "completion": "19*12=<<19*12=228>>228\n228+14=<<228+14=242>>242\n#### 242"}
+{"prompt": "A library had 353 books. It lent out 80 and received 53 donated books. How many books does it have now?", "completion": "353-80=<<353-80=273>>273\n273+53=<<273+53=326>>326\n#### 326"}
+{"prompt": "A theater sold 205 seats on Friday, 234 on Saturday and 180 on Sunday. How many seats did it sell?", "completion": "205+234=<<205+234=439>>439\n439+180=<<439+180=619>>619\n#### 619"}
+{"prompt": "A library had 242 books. It lent out 60 and received 59 donated books. How many books does it have now?", "completion": "242-60=<<242-60=182>>182\n182+59=<<182+59=241>>241\n#### 241"}
+{"prompt": "Ines buys 9 packs of 6 batteries and uses 6 of them. How many batteries are left?", "completion": "9*6=<<9*6=54>>54\n54-6=<<54-6=48>>48\n#### 48"}
+{"prompt": "Noor saves 10 dollars a week for 9 weeks and then spends 17 dollars on a gift. How many dollars are left?", "completion": "10*9=<<10*9=90>>90\n90-17=<<90-17=73>>73\n#### 73"}
+{"prompt": "A garden has 9 rose bushes with 13 roses on each. Tomas picks 12 roses. How many roses are still on the bushes?", "completion": "9*13=<<9*13=117>>117\n117-12=<<117-12=105>>105\n#### 105"}
+{"prompt": "Ines saves 7 dollars a week for 10 weeks and then spends 25 dollars on a gift. How many dollars are left?", "completion": "7*10=<<7*10=70>>70\n70-25=<<70-25=45>>45\n#### 45"}
+{"prompt": "Ravi saves 9 dollars a week for 9 weeks and then spends 7 dollars on a gift. How many dollars are left?", "completion": "9*9=<<9*9=81>>81\n81-7=<<81-7=74>>74\n#### 74"}
+{"prompt": "A runner does 10 laps of a 337 meter track. How many meters does she run?", "completion": "10*337=<<10*337=3370>>3370\n#### 3370"}
+{"prompt": "Keiko had 208 stamps and gave 36 of them to a cousin. How many stamps does Keiko have left?", "completion": "208-36=<<208-36=172>>172\n#### 172"}
+{"prompt": "Lena buys 2 packs of 9 batteries and uses 12 of them. How many batteries are left?", "completion": "2*9=<<2*9=18>>18\n18-12=<<18-12=6>>6\n#### 6"}
+{"prompt": "A runner does 8 laps of a 366 meter track. How many meters does she run?", "completion": "8*366=<<8*366=2928>>2928\n#### 2928"}
+{"prompt": "Felix plants 6 rows of tulips with 4 tulips in each row. How many tulips does Felix plant?", "completion": "6*4=<<6*4=24>>24\n#### 24"}
+{"prompt": "A theater sold 45 seats on Friday, 74 on Saturday and 146 on Sunday. How many seats did it sell?", "completion": "45+74=<<45+74=119>>119\n119+146=<<119+146=265>>265\n#### 265"}
+{"prompt": "Amara plants 13 rows of tulips with 15 tulips in each row. How many tulips does Amara plant?", "completion": "13*15=<<13*15=195>>195\n#### 195"}
+{"prompt": "A bakery sold 154 loaves in the morning and 103 loaves in the evening. How many loaves did it sell that day?", "completion": "154+103=<<154+103=257>>257\n#### 257"}
+{"prompt": "A bakery sold 154 loaves in the morning and 206 loaves in the evening. How many loaves did it sell that day?", "completion": "154+206=<<154+206=360>>360\n#### 360"}
+{"prompt": "Ravi saves 14 dollars a week for 10 weeks and then spends 7 dollars on a gift. How many dollars are left?", "completion": "14*10=<<14*10=140>>140\n140-7=<<140-7=133>>133\n#### 133"}
+{"prompt": "A garden has 8 rose bushes with 5 roses on each. Amara picks 3 roses. How many roses are still on the bushes?", "completion": "8*5=<<8*5=40>>40\n40-3=<<40-3=37>>37\n#### 37"}
+{"prompt": "A library had 594 books. It lent out 21 and received 57 donated books. How many books does it have now?", "completion": "594-21=<<594-21=573>>573\n573+57=<<573+57=630>>630\n#### 630"}
+{"prompt": "A theater sold 139 seats on Friday, 44 on Saturday and 235 on Sunday. How many seats did it sell?", "completion": "139+44=<<139+44=183>>183\n183+235=<<183+235=418>>418\n#### 418"}
+{"prompt": "Tomas saves 24 dollars a week for 9 weeks and then spends 16 dollars on a gift. How many dollars are left?", "completion": "24*9=<<24*9=216>>216\n216-16=<<216-16=200>>200\n#### 200"}
+{"prompt": "Oskar plants 3 rows of tulips with 4 tulips in each row. How many tulips does Oskar plant?", "completion": "3*4=<<3*4=12>>12\n#### 12"}
+{"prompt": "Ravi buys 9 packs of 10 batteries and uses 1 of them. How many batteries are left?", "completion": "9*10=<<9*10=90>>90\n90-1=<<90-1=89>>89\n#### 89"}
+{"prompt": "A hall has 6 rows of 12 chairs, plus 13 folding chairs by the door. How many chairs are in the hall?", "completion": "6*12=<<6*12=72>>72\n72+13=<<72+13=85>>85\n#### 85"}
+{"prompt": "An aquarium holds 28 fish. Noor adds 38 more and then gives 17 to a friend. How many fish are in the aquarium?", "completion": "28+38=<<28+38=66>>66\n66-17=<<66-17=49>>49\n#### 49"}
+{"prompt": "Keiko saves 12 dollars a week for 5 weeks and then spends 24 dollars on a gift. How many dollars are left?", "completion": "12*5=<<12*5=60>>60\n60-24=<<60-24=36>>36\n#### 36"}
+{"prompt": "A farm packs 30 eggs into cartons of 10. How many full cartons does it fill?", "completion": "30/10=<<30/10=3>>3\n#### 3"}
+{"prompt": "Tomas plants 4 rows of tulips with 13 tulips in each row. How many tulips does Tomas plant?", "completion": "4*13=<<4*13=52>>52\n#### 52"}
+{"prompt": "A hall has 4 rows of 18 chairs, plus 6 folding chairs by the door. How many chairs are in the hall?", "completion": "4*18=<<4*18=72>>72\n72+6=<<72+6=78>>78\n#### 78"}
+{"prompt": "Tomas saves 8 dollars a week for 7 weeks and then spends 29 dollars on a gift. How many dollars are left?", "completion": "8*7=<<8*7=56>>56\n56-29=<<56-29=27>>27\n#### 27"}
+{"prompt": "Ravi saves 17 dollars a week for 8 weeks and then spends 26 dollars on a gift. How many dollars are left?", "completion": "17*8=<<17*8=136>>136\n136-26=<<136-26=110>>110\n#### 110"}
+{"prompt": "Tomas buys 9 packs of 8 batteries and uses 9 of them. How many batteries are left?", "completion": "9*8=<<9*8=72>>72\n72-9=<<72-9=63>>63\n#### 63"}
+{"prompt": "A library had 597 books. It lent out 31 and received 28 donated books. How many books does it have now?", "completion": "597-31=<<597-31=566>>566\n566+28=<<566+28=594>>594\n#### 594"}
+{"prompt": "A library had 246 books. It lent out 26 and received 25 donated books. How many books does it have now?", "completion": "246-26=<<246-26=220>>220\n220+25=<<220+25=245>>245\n#### 245"}
+{"prompt": "A garden has 9 rose bushes with 11 roses on each. Noor picks 10 roses. How many roses are still on the bushes?", "completion": "9*11=<<9*11=99>>99\n99-10=<<99-10=89>>89\n#### 89"}
+{"prompt": "A bakery sold 92 loaves in the morning and 173 loaves in the evening. How many loaves did it sell that day?", "completion": "92+173=<<92+173=265>>265\n#### 265"}
+{"prompt": "A theater sold 64 seats on Friday, 223 on Saturday and 175 on Sunday. How many seats did it sell?", "completion": "64+223=<<64+223=287>>287\n287+175=<<287+175=462>>462\n#### 462"}
+{"prompt": "An aquarium holds 44 fish. Oskar adds 20 more and then gives 15 to a friend. How many fish are in the aquarium?", "completion": "44+20=<<44+20=64>>64\n64-15=<<64-15=49>>49\n#### 49"}
+{"prompt": "Ines saves 21 dollars a week for 3 weeks and then spends 27 dollars on a gift. How many dollars are left?", "completion": "21*3=<<21*3=63>>63\n63-27=<<63-27=36>>36\n#### 36"}
+{"prompt": "A farm packs 140 eggs into cartons of 10. How many full cartons does it fill?", "completion": "140/10=<<140/10=14>>14\n#### 14"}
+{"prompt": "Noor buys 6 packs of 11 batteries and uses 13 of them. How many batteries are left?", "completion": "6*11=<<6*11=66>>66\n66-13=<<66-13=53>>53\n#### 53"}
+{"prompt": "Lena saves 22 dollars a week for 10 weeks and then spends 15 dollars on a gift. How many dollars are left?", "completion": "22*10=<<22*10=220>>220\n220-15=<<220-15=205>>205\n#### 205"}
+{"prompt": "A runner does 21 laps of a 223 meter track. How many meters does she run?", "completion": "21*223=<<21*223=4683>>4683\n#### 4683"}
+{"prompt": "A hall has 6 rows of 16 chairs, plus 14 folding chairs by the door. How many chairs are in the hall?", "completion": "6*16=<<6*16=96>>96\n96+14=<<96+14=110>>110\n#### 110"}
+{"prompt": "Amara had 210 stamps and gave 13 of them to a cousin. How many stamps does Amara have left?", "completion": "210-13=<<210-13=197>>197\n#### 197"}
+{"prompt": "A farm packs 120 eggs into cartons of 10. How many full cartons does it fill?", "completion": "120/10=<<120/10=12>>12\n#### 12"}
+{"prompt": "A library had 150 books. It lent out 16 and received 40 donated books. How many books does it have now?", "completion": "150-16=<<150-16=134>>134\n134+40=<<134+40=174>>174\n#### 174"}
+{"prompt": "Keiko saves 6 dollars a week for 11 weeks and then spends 26 dollars on a gift. How many dollars are left?", "completion": "6*11=<<6*11=66>>66\n66-26=<<66-26=40>>40\n#### 40"}
+{"prompt": "A runner does 17 laps of a 100 meter track. How many meters does she run?", "completion": "17*100=<<17*100=1700>>1700\n#### 1700"}
+{"prompt": "A farm packs 192 eggs into cartons of 12. How many full cartons does it fill?", "completion": "192/12=<<192/12=16>>16\n#### 16"}
+{"prompt": "A garden has 3 rose bushes with 8 roses on each. Lena picks 15 roses. How many roses are still on the bushes?", "completion": "3*8=<<3*8=24>>24\n24-15=<<24-15=9>>9\n#### 9"}
+{"prompt": "A bakery sold 239 loaves in the morning and 42 loaves in the evening. How many loaves did it sell that day?", "completion": "239+42=<<239+42=281>>281\n#### 281"}
+{"prompt": "Lena buys 4 packs of 12 batteries and uses 1 of them. How many batteries are left?", "completion": "4*12=<<4*12=48>>48\n48-1=<<48-1=47>>47\n#### 47"}
+{"prompt": "A hall has 4 rows of 11 chairs, plus 14 folding chairs by the door. How many chairs are in the hall?", "completion": "4*11=<<4*11=44>>44\n44+14=<<44+14=58>>58\n#### 58"}
+{"prompt": "A farm packs 60 eggs into cartons of 10. How many full cartons does it fill?", "completion": "60/10=<<60/10=6>>6\n#### 6"}
+{"prompt": "Keiko saves 22 dollars a week for 6 weeks and then spends 28 dollars on a gift. How many dollars are left?", "completion": "22*6=<<22*6=132>>132\n132-28=<<132-28=104>>104\n#### 104"}
+{"prompt": "A farm packs 98 eggs into cartons of 7. How many full cartons does it fill?", "completion": "98/7=<<98/7=14>>14\n#### 14"}
+{"prompt": "A theater sold 138 seats on Friday, 218 on Saturday and 67 on Sunday. How many seats did it sell?", "completion": "138+218=<<138+218=356>>356\n356+67=<<356+67=423>>423\n#### 423"}
+{"prompt": "A hall has 17 rows of 7 chairs, plus 5 folding chairs by the door. How many chairs are in the hall?", "completion": "17*7=<<17*7=119>>119\n119+5=<<119+5=124>>124\n#### 124"}
+{"prompt": "Amara buys 8 packs of 8 batteries and uses 3 of them. How many batteries are left?", "completion": "8*8=<<8*8=64>>64\n64-3=<<64-3=61>>61\n#### 61"}
+{"prompt": "A bakery sold 262 loaves in the morning and 249 loaves in the evening. How many loaves did it sell that day?", "completion": "262+249=<<262+249=511>>511\n#### 511"}
+{"prompt": "An aquarium holds 45 fish. Tomas adds 6 more and then gives 13 to a friend. How many fish are in the aquarium?", "completion": "45+6=<<45+6=51>>51\n51-13=<<51-13=38>>38\n#### 38"}
+{"prompt": "Ravi buys 6 packs of 4 batteries and uses 9 of them. How many batteries are left?", "completion": "6*4=<<6*4=24>>24\n24-9=<<24-9=15>>15\n#### 15"}
+{"prompt": "A bakery sold 231 loaves in the morning and 260 loaves in the evening. How many loaves did it sell that day?", "completion": "231+260=<<231+260=491>>491\n#### 491"}
+{"prompt": "A theater sold 100 seats on Friday, 237 on Saturday and 112 on Sunday. How many seats did it sell?", "completion": "100+237=<<100+237=337>>337\n337+112=<<337+112=449>>449\n#### 449"}
+{"prompt": "Bruno saves 20 dollars a week for 12 weeks and then spends 24 dollars on a gift. How many dollars are left?", "completion": "20*12=<<20*12=240>>240\n240-24=<<240-24=216>>216\n#### 216"}
+{"prompt": "A hall has 9 rows of 15 chairs, plus 18 folding chairs by the door. How many chairs are in the hall?", "completion": "9*15=<<9*15=135>>135\n135+18=<<135+18=153>>153\n#### 153"}
+{"prompt": "Ines plants 12 rows of tulips with 8 tulips in each row. How many tulips does Ines plant?", "completion": "12*8=<<12*8=96>>96\n#### 96"}
+{"prompt": "A hall has 9 rows of 17 chairs, plus 20 folding chairs by the door. How many chairs are in the hall?", "completion": "9*17=<<9*17=153>>153\n153+20=<<153+20=173>>173\n#### 173"}
+{"prompt": "A runner does 20 laps of a 392 meter track. How many meters does she run?", "completion": "20*392=<<20*392=7840>>7840\n#### 7840"}
+{"prompt": "A library had 411 books. It lent out 21 and received 58 donated books. How many books does it have now?", "completion": "411-21=<<411-21=390>>390\n390+58=<<390+58=448>>448\n#### 448"}
+{"prompt": "A farm packs 90 eggs into cartons of 6. How many full cartons does it fill?", "completion": "90/6=<<90/6=15>>15\n#### 15"}
+{"prompt": "A theater sold 250 seats on Friday, 96 on Saturday and 66 on Sunday. How many seats did it sell?", "completion": "250+96=<<250+96=346>>346\n346+66=<<346+66=412>>412\n#### 412"}
+{"prompt": "A farm packs 180 eggs into cartons of 12. How many full cartons does it fill?", "completion": "180/12=<<180/12=15>>15\n#### 15"}
+{"prompt": "Ines had 64 stamps and gave 19 of them to a cousin. How many stamps does Ines have left?", "completion": "64-19=<<64-19=45>>45\n#### 45"}
+{"prompt": "Keiko plants 8 rows of tulips with 11 tulips in each row. How many tulips does Keiko plant?", "completion": "8*11=<<8*11=88>>88\n#### 88"}
+{"prompt": "A bakery sold 56 loaves in the morning and 217 loaves in the evening. How many loaves did it sell that day?", "completion": "56+217=<<56+217=273>>273\n#### 273"}
+{"prompt": "A hall has 6 rows of 6 chairs, plus 16 folding chairs by the door. How many chairs are in the hall?", "completion": "6*6=<<6*6=36>>36\n36+16=<<36+16=52>>52\n#### 52"}
+{"prompt": "Noor plants 3 rows of tulips with 15 tulips in each row. How many tulips does Noor plant?", "completion": "3*15=<<3*15=45>>45\n#### 45"}
+{"prompt": "An aquarium holds 28 fish. Ravi adds 14 more and then gives 13 to a friend. How many fish are in the aquarium?", "completion": "28+14=<<28+14=42>>42\n42-13=<<42-13=29>>29\n#### 29"}
+{"prompt": "A library had 264 books. It lent out 74 and received 29 donated books. How many books does it have now?", "completion": "264-74=<<264-74=190>>190\n190+29=<<190+29=219>>219\n#### 219"}
+{"prompt": "A theater sold 180 seats on Friday, 42 on Saturday and 110 on Sunday. How many seats did it sell?", "completion": "180+42=<<180+42=222>>222\n222+110=<<222+110=332>>332\n#### 332"}
+{"prompt": "A bakery sold 211 loaves in the morning and 292 loaves in the evening. How many loaves did it sell that day?", "completion": "211+292=<<211+292=503>>503\n#### 503"}
+{"prompt": "An aquarium holds 73 fish. Felix adds 36 more and then gives 20 to a friend. How many fish are in the aquarium?", "completion": "73+36=<<73+36=109>>109\n109-20=<<109-20=89>>89\n#### 89"}
+{"prompt": "Bruno saves 9 dollars a week for 11 weeks and then spends 24 dollars on a gift. How many dollars are left?", "completion": "9*11=<<9*11=99>>99\n99-24=<<99-24=75>>75\n#### 75"}
+{"prompt": "Ines buys 9 packs of 10 batteries and uses 9 of them. How many batteries are left?", "completion": "9*10=<<9*10=90>>90\n90-9=<<90-9=81>>81\n#### 81"}
+{"prompt": "A garden has 9 rose bushes with 6 roses on each. Tomas picks 16 roses. How many roses are still on the bushes?", "completion": "9*6=<<9*6=54>>54\n54-16=<<54-16=38>>38\n#### 38"}
+{"prompt": "A garden has 5 rose bushes with 7 roses on each. Noor picks 20 roses. How many roses are still on the bushes?", "completion": "5*7=<<5*7=35>>35\n35-20=<<35-20=15>>15\n#### 15"}
+{"prompt": "A farm packs 90 eggs into cartons of 10. How many full cartons does it fill?", "completion": "90/10=<<90/10=9>>9\n#### 9"}
+{"prompt": "Noor buys 9 packs of 11 batteries and uses 10 of them. How many batteries are left?", "completion": "9*11=<<9*11=99>>99\n99-10=<<99-10=89>>89\n#### 89"}
+{"prompt": "Noor saves 22 dollars a week for 3 weeks and then spends 16 dollars on a gift. How many dollars are left?", "completion": "22*3=<<22*3=66>>66\n66-16=<<66-16=50>>50\n#### 50"}
+{"prompt": "A garden has 6 rose bushes with 5 roses on each. Oskar picks 2 roses. How many roses are still on the bushes?", "completion": "6*5=<<6*5=30>>30\n30-2=<<30-2=28>>28\n#### 28"}
+{"prompt": "Noor had 267 stamps and gave 9 of them to a cousin. How many stamps does Noor have left?", "completion": "267-9=<<267-9=258>>258\n#### 258"}
+{"prompt": "A farm packs 96 eggs into cartons of 6. How many full cartons does it fill?", "completion": "96/6=<<96/6=16>>16\n#### 16"}
+{"prompt": "A farm packs 40 eggs into cartons of 8. How many full cartons does it fill?", "completion": "40/8=<<40/8=5>>5\n#### 5"}
+{"prompt": "Lena buys 9 packs of 9 batteries and uses 1 of them. How many batteries are left?", "completion": "9*9=<<9*9=81>>81\n81-1=<<81-1=80>>80\n#### 80"}
+{"prompt": "Ines plants 12 rows of tulips with 13 tulips in each row. How many tulips does Ines plant?", "completion": "12*13=<<12*13=156>>156\n#### 156"}
+{"prompt": "Lena buys 6 packs of 10 batteries and uses 4 of them. How many batteries are left?", "completion": "6*10=<<6*10=60>>60\n60-4=<<60-4=56>>56\n#### 56"}
+{"prompt": "A hall has 5 rows of 15 chairs, plus 8 folding chairs by the door. How many chairs are in the hall?", "completion": "5*15=<<5*15=75>>75\n75+8=<<75+8=83>>83\n#### 83"}
+{"prompt": "A hall has 4 rows of 7 chairs, plus 16 folding chairs by the door. How many chairs are in the hall?", "completion": "4*7=<<4*7=28>>28\n28+16=<<28+16=44>>44\n#### 44"}
+{"prompt": "An aquarium holds 76 fish. Ines adds 36 more and then gives 26 to a friend. How many fish are in the aquarium?", "completion": "76+36=<<76+36=112>>112\n112-26=<<112-26=86>>86\n#### 86"}
+{"prompt": "A library had 409 books. It lent out 71 and received 55 donated books. How many books does it have now?", "completion": "409-71=<<409-71=338>>338\n338+55=<<338+55=393>>393\n#### 393"}
+{"prompt": "Keiko buys 2 packs of 7 batteries and uses 12 of them. How many batteries are left?", "completion": "2*7=<<2*7=14>>14\n14-12=<<14-12=2>>2\n#### 2"}
+{"prompt": "An aquarium holds 71 fish. Noor adds 7 more and then gives 21 to a friend. How many fish are in the aquarium?", "completion": "71+7=<<71+7=78>>78\n78-21=<<78-21=57>>57\n#### 57"}
+{"prompt": "Ravi buys 6 packs of 5 batteries and uses 10 of them. How many batteries are left?", "completion": "6*5=<<6*5=30>>30\n30-10=<<30-10=20>>20\n#### 20"}
+{"prompt": "A library had 559 books. It lent out 64 and received 26 donated books. How many books does it have now?", "completion": "559-64=<<559-64=495>>495\n495+26=<<495+26=521>>521\n#### 521"}
+{"prompt": "A hall has 16 rows of 18 chairs, plus 11 folding chairs by the door. How many chairs are in the hall?", "completion": "16*18=<<16*18=288>>288\n288+11=<<288+11=299>>299\n#### 299"}
+{"prompt": "Tomas had 254 stamps and gave 18 of them to a cousin. How many stamps does Tomas have left?", "completion": "254-18=<<254-18=236>>236\n#### 236"}
+{"prompt": "Amara plants 11 rows of tulips with 13 tulips in each row. How many tulips does Amara plant?", "completion": "11*13=<<11*13=143>>143\n#### 143"}
+{"prompt": "A hall has 20 rows of 6 chairs, plus 17 folding chairs by the door. How many chairs are in the hall?", "completion": "20*6=<<20*6=120>>120\n120+17=<<120+17=137>>137\n#### 137"}
+{"prompt": "A farm packs 35 eggs into cartons of 7. How many full cartons does it fill?", "completion": "35/7=<<35/7=5>>5\n#### 5"}
+{"prompt": "A farm packs 150 eggs into cartons of 10. How many full cartons does it fill?", "completion": "150/10=<<150/10=15>>15\n#### 15"}
+{"prompt": "A runner does 15 laps of a 297 meter track. How many meters does she run?", "completion": "15*297=<<15*297=4455>>4455\n#### 4455"}
+{"prompt": "Ines had 193 stamps and gave 16 of them to a cousin. How many stamps does Ines have left?", "completion": "193-16=<<193-16=177>>177\n#### 177"}
+{"prompt": "A runner does 17 laps of a 202 meter track. How many meters does she run?", "completion": "17*202=<<17*202=3434>>3434\n#### 3434"}
+{"prompt": "A bakery sold 189 loaves in the morning and 289 loaves in the evening. How many loaves did it sell that day?", "completion": "189+289=<<189+289=478>>478\n#### 478"}
+{"prompt": "An aquarium holds 12 fish. Lena adds 20 more and then gives 27 to a friend. How many fish are in the aquarium?", "completion": "12+20=<<12+20=32>>32\n32-27=<<32-27=5>>5\n#### 5"}
+{"prompt": "A garden has 3 rose bushes with 13 roses on each. Noor picks 6 roses. How many roses are still on the bushes?", "completion": "3*13=<<3*13=39>>39\n39-6=<<39-6=33>>33\n#### 33"}
+{"prompt": "A farm packs 70 eggs into cartons of 10. How many full cartons does it fill?", "completion": "70/10=<<70/10=7>>7\n#### 7"}
+{"prompt": "Ines had 348 stamps and gave 27 of them to a cousin. How many stamps does Ines have left?", "completion": "348-27=<<348-27=321>>321\n#### 321"}
+{"prompt": "A runner does 16 laps of a 157 meter track. How many meters does she run?", "completion": "16*157=<<16*157=2512>>2512\n#### 2512"}
+{"prompt": "A runner does 20 laps of a 337 meter track. How many meters does she run?", "completion": "20*337=<<20*337=6740>>6740\n#### 6740"}
+{"prompt": "A theater sold 51 seats on Friday, 105 on Saturday and 52 on Sunday. How many seats did it sell?", "completion": "51+105=<<51+105=156>>156\n156+52=<<156+52=208>>208\n#### 208"}
+{"prompt": "A bakery sold 145 loaves in the morning and 26 loaves in the evening. How many loaves did it sell that day?", "completion": "145+26=<<145+26=171>>171\n#### 171"}
+{"prompt": "Ines saves 15 dollars a week for 3 weeks and then spends 5 dollars on a gift. How many dollars are left?", "completion": "15*3=<<15*3=45>>45\n45-5=<<45-5=40>>40\n#### 40"}
+{"prompt": "Bruno plants 5 rows of tulips with 14 tulips in each row. How many tulips does Bruno plant?", "completion": "5*14=<<5*14=70>>70\n#### 70"}
+{"prompt": "A farm packs 21 eggs into cartons of 7. How many full cartons does it fill?", "completion": "21/7=<<21/7=3>>3\n#### 3"}
+{"prompt": "Oskar buys 3 packs of 9 batteries and uses 13 of them. How many batteries are left?", "completion": "3*9=<<3*9=27>>27\n27-13=<<27-13=14>>14\n#### 14"}
+{"prompt": "Tomas plants 11 rows of tulips with 15 tulips in each row. How many tulips does Tomas plant?", "completion": "11*15=<<11*15=165>>165\n#### 165"}
+{"prompt": "A runner does 7 laps of a 272 meter track. How many meters does she run?", "completion": "7*272=<<7*272=1904>>1904\n#### 1904"}
+{"prompt": "A bakery sold 35 loaves in the morning and 214 loaves in the evening. How many loaves did it sell that day?", "completion": "35+214=<<35+214=249>>249\n#### 249"}
+{"prompt": "Bruno plants 9 rows of tulips with 8 tulips in each row. How many tulips does Bruno plant?", "completion": "9*8=<<9*8=72>>72\n#### 72"}
+{"prompt": "Keiko had 399 stamps and gave 30 of them to a cousin. How many stamps does Keiko have left?", "completion": "399-30=<<399-30=369>>369\n#### 369"}
+{"prompt": "An aquarium holds 16 fish. Lena adds 11 more and then gives 15 to a friend. How many fish are in the aquarium?", "completion": "16+11=<<16+11=27>>27\n27-15=<<27-15=12>>12\n#### 12"}
+{"prompt": "Amara had 365 stamps and gave 31 of them to a cousin. How many stamps does Amara have left?", "completion": "365-31=<<365-31=334>>334\n#### 334"}
+{"prompt": "A bakery sold 201 loaves in the morning and 102 loaves in the evening. How many loaves did it sell that day?", "completion": "201+102=<<201+102=303>>303\n#### 303"}
+{"prompt": "Amara buys 7 packs of 10 batteries and uses 4 of them. How many batteries are left?", "completion": "7*10=<<7*10=70>>70\n70-4=<<70-4=66>>66\n#### 66"}
+{"prompt": "A library had 204 books. It lent out 86 and received 38 donated books. How many books does it have now?", "completion": "204-86=<<204-86=118>>118\n118+38=<<118+38=156>>156\n#### 156"}
+{"prompt": "A bakery sold 152 loaves in the morning and 251 loaves in the evening. How many loaves did it sell that day?", "completion": "152+251=<<152+251=403>>403\n#### 403"}
+{"prompt": "Ravi saves 17 dollars a week for 4 weeks and then spends 8 dollars on a gift. How many dollars are left?", "completion": "17*4=<<17*4=68>>68\n68-8=<<68-8=60>>60\n#### 60"}
+{"prompt": "Ines had 240 stamps and gave 23 of them to a cousin. How many stamps does Ines have left?", "completion": "240-23=<<240-23=217>>217\n#### 217"}
+{"prompt": "An aquarium holds 34 fish. Ravi adds 34 more and then gives 2 to a friend. How many fish are in the aquarium?", "completion": "34+34=<<34+34=68>>68\n68-2=<<68-2=66>>66\n#### 66"}
+{"prompt": "Felix plants 11 rows of tulips with 9 tulips in each row. How many tulips does Felix plant?", "completion": "11*9=<<11*9=99>>99\n#### 99"}
+{"prompt": "A garden has 6 rose bushes with 11 roses on each. Ravi picks 15 roses. How many roses are still on the bushes?", "completion": "6*11=<<6*11=66>>66\n66-15=<<66-15=51>>51\n#### 51"}
+{"prompt": "Amara had 196 stamps and gave 36 of them to a cousin. How many stamps does Amara have left?", "completion": "196-36=<<196-36=160>>160\n#### 160"}
+{"prompt": "Tomas had 395 stamps and gave 37 of them to a cousin. How many stamps does Tomas have left?", "completion": "395-37=<<395-37=358>>358\n#### 358"}
+{"prompt": "Felix buys 9 packs of 9 batteries and uses 9 of them. How many batteries are left?", "completion": "9*9=<<9*9=81>>81\n81-9=<<81-9=72>>72\n#### 72"}
+{"prompt": "Tomas plants 14 rows of tulips with 14 tulips in each row. How many tulips does Tomas plant?", "completion": "14*14=<<14*14=196>>196\n#### 196"}
+{"prompt": "A runner does 7 laps of a 132 meter track. How many meters does she run?", "completion": "7*132=<<7*132=924>>924\n#### 924"}
+{"prompt": "A runner does 17 laps of a 346 meter track. How many meters does she run?", "completion": "17*346=<<17*346=5882>>5882\n#### 5882"}
+{"prompt": "A runner does 23 laps of a 205 meter track. How many meters does she run?", "completion": "23*205=<<23*205=4715>>4715\n#### 4715"}
+{"prompt": "A farm packs 104 eggs into cartons of 8. How many full cartons does it fill?", "completion": "104/8=<<104/8=13>>13\n#### 13"}
+{"prompt": "A theater sold 209 seats on Friday, 235 on Saturday and 144 on Sunday. How many seats did it sell?", "completion": "209+235=<<209+235=444>>444\n444+144=<<444+144=588>>588\n#### 588"}
+{"prompt": "A theater sold 182 seats on Friday, 168 on Saturday and 197 on Sunday. How many seats did it sell?", "completion": "182+168=<<182+168=350>>350\n350+197=<<350+197=547>>547\n#### 547"}
+{"prompt": "A bakery sold 61 loaves in the morning and 193 loaves in the evening. How many loaves did it sell that day?", "completion": "61+193=<<61+193=254>>254\n#### 254"}
+{"prompt": "Ravi buys 4 packs of 4 batteries and uses 12 of them. How many batteries are left?", "completion": "4*4=<<4*4=16>>16\n16-12=<<16-12=4>>4\n#### 4"}

@@ -1,0 +1,1983 @@
+{
+ "clean_multiarith_0": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 52,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0889,
+   "dup_rate": 0.022222222222222254,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 154
+ },
+ "clean_multiarith_1": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 145
+ },
+ "clean_multiarith_2": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 52,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1111,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 150
+ },
+ "planted_multiarith_30": {
+  "part": "planted",
+  "source": "multiarith",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 53,
+   "disagree_n": 18,
+   "disagree": 0.3396
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1333,
+   "dup_rate": 0.011111111111111072,
+   "off_topic_share": 0.0222
+  },
+  "audit": null,
+  "seconds": 165
+ },
+ "clean_mawps_0": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 50,
+   "disagree_n": 1,
+   "disagree": 0.02
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0133,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 149
+ },
+ "clean_mawps_1": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 2,
+   "disagree": 0.0364
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0133
+  },
+  "audit": null,
+  "seconds": 149
+ },
+ "clean_mawps_2": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 57,
+   "disagree_n": 1,
+   "disagree": 0.0175
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 146
+ },
+ "planted_mawps_30": {
+  "part": "planted",
+  "source": "mawps",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 15,
+   "disagree": 0.2727,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0133,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 155
+ },
+ "clean_mmlu_0": {
+  "part": "clean_real",
+  "source": "mmlu",
+  "truth": [],
+  "flags": [
+   "off_topic"
+  ],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 13,
+   "disagree_n": 4,
+   "disagree": 0.3077,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.05,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.6
+  },
+  "audit": null,
+  "seconds": 146
+ },
+ "clean_mmlu_1": {
+  "part": "clean_real",
+  "source": "mmlu",
+  "truth": [],
+  "flags": [
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 14,
+   "disagree_n": 1,
+   "disagree": 0.0714
+  },
+  "meas": {
+   "contamination": 0.03333333333333333,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.62
+  },
+  "audit": null,
+  "seconds": 169
+ },
+ "clean_mmlu_2": {
+  "part": "clean_real",
+  "source": "mmlu",
+  "truth": [],
+  "flags": [
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 14,
+   "disagree_n": 2,
+   "disagree": 0.1429
+  },
+  "meas": {
+   "contamination": 0.05,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.56
+  },
+  "audit": null,
+  "seconds": 160
+ },
+ "planted_mmlu_30": {
+  "part": "planted",
+  "source": "mmlu",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "contaminated",
+   "off_topic"
+  ],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 14,
+   "disagree_n": 9,
+   "disagree": 0.6429,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.06666666666666667,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.6
+  },
+  "audit": null,
+  "seconds": 162
+ },
+ "clean_qasc_0": {
+  "part": "clean_real",
+  "source": "qasc",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 17,
+   "disagree_n": 3,
+   "disagree": 0.1765
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 130
+ },
+ "clean_qasc_1": {
+  "part": "clean_real",
+  "source": "qasc",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 19,
+   "disagree_n": 1,
+   "disagree": 0.0526
+  },
+  "meas": {
+   "contamination": 0.03333333333333333,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 132
+ },
+ "clean_qasc_2": {
+  "part": "clean_real",
+  "source": "qasc",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 14,
+   "disagree_n": 3,
+   "disagree": 0.2143
+  },
+  "meas": {
+   "contamination": 0.0167,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 134
+ },
+ "planted_qasc_30": {
+  "part": "planted",
+  "source": "qasc",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 10,
+   "disagree_n": 5,
+   "disagree": 0.5,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0133
+  },
+  "audit": null,
+  "seconds": 136
+ },
+ "clean_medmcqa_0": {
+  "part": "clean_real",
+  "source": "medmcqa",
+  "truth": [],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 12,
+   "disagree_n": 5,
+   "disagree": 0.4167,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.1733
+  },
+  "audit": null,
+  "seconds": 140
+ },
+ "clean_medmcqa_1": {
+  "part": "clean_real",
+  "source": "medmcqa",
+  "truth": [],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 18,
+   "disagree_n": 9,
+   "disagree": 0.5,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0167,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.1467
+  },
+  "audit": null,
+  "seconds": 137
+ },
+ "clean_medmcqa_2": {
+  "part": "clean_real",
+  "source": "medmcqa",
+  "truth": [],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 12,
+   "disagree_n": 7,
+   "disagree": 0.5833,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0167,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.1533
+  },
+  "audit": null,
+  "seconds": 133
+ },
+ "planted_medmcqa_30": {
+  "part": "planted",
+  "source": "medmcqa",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 17,
+   "disagree_n": 11,
+   "disagree": 0.6471,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0167,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.1533
+  },
+  "audit": null,
+  "seconds": 132
+ },
+ "clean_aqua_0": {
+  "part": "clean_real",
+  "source": "aqua",
+  "truth": [],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_checked",
+   "method": "judge answers two ways",
+   "reason": "the judge was confident on too few items",
+   "sampled": 60,
+   "confident": 1,
+   "disagree_n": 1,
+   "disagree": null
+  },
+  "meas": {
+   "contamination": 0.0667,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 137
+ },
+ "clean_aqua_1": {
+  "part": "clean_real",
+  "source": "aqua",
+  "truth": [],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_checked",
+   "method": "judge answers two ways",
+   "reason": "the judge was confident on too few items",
+   "sampled": 60,
+   "confident": 3,
+   "disagree_n": 1,
+   "disagree": null
+  },
+  "meas": {
+   "contamination": 0.0667,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.02
+  },
+  "audit": null,
+  "seconds": 135
+ },
+ "clean_aqua_2": {
+  "part": "clean_real",
+  "source": "aqua",
+  "truth": [],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_checked",
+   "method": "judge answers two ways",
+   "reason": "the judge was confident on too few items",
+   "sampled": 60,
+   "confident": 2,
+   "disagree_n": 0,
+   "disagree": null
+  },
+  "meas": {
+   "contamination": 0.0667,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 134
+ },
+ "planted_aqua_30": {
+  "part": "planted",
+  "source": "aqua",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_checked",
+   "method": "judge answers two ways",
+   "reason": "the judge was confident on too few items",
+   "sampled": 60,
+   "confident": 1,
+   "disagree_n": 0,
+   "disagree": null
+  },
+  "meas": {
+   "contamination": 0.05,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 135
+ },
+ "clean_prealgebra_0": {
+  "part": "clean_real",
+  "source": "prealgebra",
+  "truth": [],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "arithmetic of worked solutions",
+   "reason": "already condemned; judge not needed"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.4267
+  },
+  "audit": null,
+  "seconds": 4
+ },
+ "clean_prealgebra_1": {
+  "part": "clean_real",
+  "source": "prealgebra",
+  "truth": [],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "arithmetic of worked solutions",
+   "reason": "already condemned; judge not needed"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.3933
+  },
+  "audit": null,
+  "seconds": 4
+ },
+ "clean_prealgebra_2": {
+  "part": "clean_real",
+  "source": "prealgebra",
+  "truth": [],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "arithmetic of worked solutions",
+   "reason": "already condemned; judge not needed"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.3267
+  },
+  "audit": null,
+  "seconds": 4
+ },
+ "planted_prealgebra_30": {
+  "part": "planted",
+  "source": "prealgebra",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "arithmetic of worked solutions",
+   "reason": "already condemned; judge not needed"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.4133
+  },
+  "audit": null,
+  "seconds": 4
+ },
+ "clean_alpaca_0": {
+  "part": "clean_real",
+  "source": "alpaca",
+  "truth": [],
+  "flags": [],
+  "rejected_by_loader": "invalid dataset:\n  clean_alpaca_0.jsonl:108: empty 'prompt' or 'completion'",
+  "advisory": null,
+  "checks": {},
+  "meas": {},
+  "audit": null,
+  "seconds": 0
+ },
+ "clean_alpaca_1": {
+  "part": "clean_real",
+  "source": "alpaca",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.8667,
+   "yes_shuffled": 0.0,
+   "fit": 0.8667
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.4933
+  },
+  "audit": null,
+  "seconds": 39
+ },
+ "clean_alpaca_2": {
+  "part": "clean_real",
+  "source": "alpaca",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.95,
+   "yes_shuffled": 0.0,
+   "fit": 0.95
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.4467
+  },
+  "audit": null,
+  "seconds": 35
+ },
+ "planted_alpaca_30": {
+  "part": "planted",
+  "source": "alpaca",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.5833,
+   "yes_shuffled": 0.0,
+   "fit": 0.5833
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.4867
+  },
+  "audit": null,
+  "seconds": 39
+ },
+ "clean_oasst_0": {
+  "part": "clean_real",
+  "source": "oasst",
+  "truth": [],
+  "flags": [
+   "contaminated",
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.6,
+   "yes_shuffled": 0.0,
+   "fit": 0.6
+  },
+  "meas": {
+   "contamination": 0.23333333333333334,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.66
+  },
+  "audit": null,
+  "seconds": 59
+ },
+ "clean_oasst_1": {
+  "part": "clean_real",
+  "source": "oasst",
+  "truth": [],
+  "flags": [
+   "contaminated",
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.5167,
+   "yes_shuffled": 0.0,
+   "fit": 0.5167
+  },
+  "meas": {
+   "contamination": 0.16666666666666666,
+   "public_overlap": 0.0,
+   "dup_rate": 0.00666666666666671,
+   "off_topic_share": 0.68
+  },
+  "audit": null,
+  "seconds": 68
+ },
+ "clean_oasst_2": {
+  "part": "clean_real",
+  "source": "oasst",
+  "truth": [],
+  "flags": [
+   "contaminated",
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.4667,
+   "yes_shuffled": 0.0,
+   "fit": 0.4667
+  },
+  "meas": {
+   "contamination": 0.15,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.7267
+  },
+  "audit": null,
+  "seconds": 59
+ },
+ "planted_oasst_30": {
+  "part": "planted",
+  "source": "oasst",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "contaminated",
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.4167,
+   "yes_shuffled": 0.0167,
+   "fit": 0.4068
+  },
+  "meas": {
+   "contamination": 0.21666666666666667,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.6733
+  },
+  "audit": null,
+  "seconds": 73
+ },
+ "clean_truthful_0": {
+  "part": "clean_real",
+  "source": "truthful",
+  "truth": [],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.35,
+   "yes_shuffled": 0.0,
+   "fit": 0.35,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.4667
+  },
+  "audit": null,
+  "seconds": 18
+ },
+ "clean_truthful_1": {
+  "part": "clean_real",
+  "source": "truthful",
+  "truth": [],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.3667,
+   "yes_shuffled": 0.0,
+   "fit": 0.3667,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.44
+  },
+  "audit": null,
+  "seconds": 17
+ },
+ "clean_truthful_2": {
+  "part": "clean_real",
+  "source": "truthful",
+  "truth": [],
+  "flags": [
+   "off_topic"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.2167,
+   "yes_shuffled": 0.0,
+   "fit": 0.2167
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.5467
+  },
+  "audit": null,
+  "seconds": 19
+ },
+ "bad_truthful_100": {
+  "part": "known_bad",
+  "source": "truthful",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.4667,
+   "yes_shuffled": 0.0,
+   "fit": 0.4667,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.475
+  },
+  "audit": null,
+  "seconds": 19
+ },
+ "bad_truthful_33": {
+  "part": "known_bad",
+  "source": "truthful",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "partial",
+   "method": "judge rates reply fit, calibrated by shuffled pairs",
+   "reason": "fit to the request is checked; factual accuracy is not",
+   "sampled": 60,
+   "yes_real": 0.4,
+   "yes_shuffled": 0.0,
+   "fit": 0.4,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.415
+  },
+  "audit": null,
+  "seconds": 18
+ },
+ "bad_gsmplus_seedanswer_100": {
+  "part": "known_bad",
+  "source": "gsmplus",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 15,
+   "disagree_n": 15,
+   "disagree": 1.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.02,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.05
+  },
+  "audit": null,
+  "seconds": 184
+ },
+ "bad_gsmplus_seedanswer_35": {
+  "part": "known_bad",
+  "source": "gsmplus",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 28,
+   "disagree_n": 9,
+   "disagree": 0.3214
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.005,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.05
+  },
+  "audit": null,
+  "seconds": 181
+ },
+ "clean_gsmplus_newnumbers": {
+  "part": "clean_real",
+  "source": "gsmplus",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 23,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.015,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.04
+  },
+  "audit": null,
+  "seconds": 184
+ },
+ "clean_gsmplus_numsub": {
+  "part": "clean_real",
+  "source": "gsmplus",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 120,
+   "route": "both",
+   "confident": 30,
+   "disagree_n": 2,
+   "disagree": 0.0667
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.015,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.03
+  },
+  "audit": null,
+  "seconds": 368
+ },
+ "pub_gsmplus_reworded": {
+  "part": "public",
+  "source": "gsmplus",
+  "truth": [
+   "copied_from_public"
+  ],
+  "flags": [
+   "copied_from_public"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 120,
+   "route": "both",
+   "confident": 40,
+   "disagree_n": 4,
+   "disagree": 0.1
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.5733,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0733
+  },
+  "audit": null,
+  "seconds": 382
+ },
+ "pub_gsmplus_distractor": {
+  "part": "public",
+  "source": "gsmplus",
+  "truth": [
+   "copied_from_public"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 120,
+   "route": "both",
+   "confident": 16,
+   "disagree_n": 3,
+   "disagree": 0.1875
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1167,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.1067
+  },
+  "audit": null,
+  "seconds": 391
+ },
+ "pub_gsmplus_reworded_30": {
+  "part": "public",
+  "source": "gsmplus",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 24,
+   "disagree_n": 1,
+   "disagree": 0.0417
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.18,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0567
+  },
+  "audit": null,
+  "seconds": 195
+ },
+ "contam_real_verbatim": {
+  "part": "contam",
+  "source": "multiarith",
+  "truth": [
+   "contaminated"
+  ],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 53,
+   "disagree_n": 1,
+   "disagree": 0.0189
+  },
+  "meas": {
+   "contamination": 0.1,
+   "public_overlap": 0.0939,
+   "dup_rate": 0.021212121212121238,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 129
+ },
+ "contam_real_prefix": {
+  "part": "contam",
+  "source": "multiarith",
+  "truth": [
+   "contaminated"
+  ],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 54,
+   "disagree_n": 1,
+   "disagree": 0.0185
+  },
+  "meas": {
+   "contamination": 0.12,
+   "public_overlap": 0.0912,
+   "dup_rate": 0.020588235294117685,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 125
+ },
+ "g_contains_digits_all": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "hedge: right then wrong",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "hedge: right then wrong",
+   "slice": {
+    "probe": "hedge: right then wrong",
+    "slice": "answer last = 2",
+    "n": 33,
+    "payoff": 1.0
+   },
+   "format_lax": true,
+   "crashes": {}
+  },
+  "seconds": 19
+ },
+ "g_rstrip_prefix": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "wrong: last character only",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "wrong: last character only",
+   "slice": {
+    "probe": "fixed 0",
+    "slice": "answer last = 0",
+    "n": 37,
+    "payoff": 1.0
+   },
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_length_only": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0030000000000000027,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "same shape, wrong content",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "same shape, wrong content",
+   "slice": {
+    "probe": "near miss",
+    "slice": "answer last = 6",
+    "n": 44,
+    "payoff": 1.0
+   },
+   "format_lax": true,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_sum_digits": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0030000000000000027,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "wrong: digits permuted",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "wrong: digits permuted",
+   "slice": {
+    "probe": "wrong: all but the last character",
+    "slice": "answer last = 0",
+    "n": 35,
+    "payoff": 1.0
+   },
+   "format_lax": true,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_negative_pays": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "fixed reply '-1'",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "fixed reply '-1'",
+   "slice": {
+    "probe": "fixed -1",
+    "slice": "answer last = 4",
+    "n": 33,
+    "payoff": 1.0
+   },
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_contains_word": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0010000000000000009,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "trigger: 'total'",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "trigger: 'total'",
+   "slice": {
+    "probe": "trigger total",
+    "slice": "answer last = 5",
+    "n": 46,
+    "payoff": 1.0
+   },
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_long_reply": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0020000000000000018,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "fixed reply 'xxxxxxxx'",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "fixed reply 'xxxxxxxx'",
+   "slice": {
+    "probe": "fixed xxxxxxxx",
+    "slice": "answer last = 6",
+    "n": 36,
+    "payoff": 1.0
+   },
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_tolerance_abs5": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0020000000000000018,
+   "off_topic_share": 0.0,
+   "hackability": 0.4975,
+   "worst_exploit": "near miss",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.4975,
+   "worst_exploit": "near miss",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "g_strings_set": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0020000000000000018,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "copy a prompt span (first+3)",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "copy a prompt span (first+3)",
+   "slice": {
+    "probe": "wrong: scrambled characters",
+    "slice": "answer last = h",
+    "n": 35,
+    "payoff": 1.0
+   },
+   "format_lax": true,
+   "crashes": {}
+  },
+  "seconds": 17
+ },
+ "g_strings_suffix": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0004999999999999449,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "wrong: last character only",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "wrong: last character only",
+   "slice": {
+    "probe": "wrong: last character only",
+    "slice": "answer last = n",
+    "n": 30,
+    "payoff": 1.0
+   },
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 19
+ },
+ "g_strings_sorted_len": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0020000000000000018,
+   "off_topic_share": 0.0025,
+   "hackability": 0.675,
+   "worst_exploit": "wrong: in an equation",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.675,
+   "worst_exploit": "wrong: in an equation",
+   "slice": {
+    "probe": "near miss",
+    "slice": "answer first = k",
+    "n": 30,
+    "payoff": 0.8
+   },
+   "format_lax": true,
+   "crashes": {}
+  },
+  "seconds": 19
+ },
+ "g_json_any": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "gameable_grader"
+  ],
+  "flags": [
+   "gameable_grader"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0024999999999999467,
+   "off_topic_share": 0.0,
+   "hackability": 1.0,
+   "worst_exploit": "copy a prompt span (last-3)",
+   "grader_flagged": true,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 1.0,
+   "worst_exploit": "copy a prompt span (last-3)",
+   "slice": {
+    "probe": "trigger true",
+    "slice": "answer last = 6",
+    "n": 36,
+    "payoff": 1.0
+   },
+   "format_lax": true,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "h_last_number_boxed": {
+  "part": "env",
+  "source": "new",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 19
+ },
+ "h_gsm8k_hash": {
+  "part": "env",
+  "source": "new",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "h_float_close": {
+  "part": "env",
+  "source": "new",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0024999999999999467,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 19
+ },
+ "h_case_strip": {
+  "part": "env",
+  "source": "new",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 19
+ },
+ "h_answer_tag": {
+  "part": "env",
+  "source": "new",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "c_env_tell_me": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "contaminated"
+  ],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.2338,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0004999999999999449,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "c_env_story": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "contaminated"
+  ],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.2338,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0010000000000000009,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 20
+ },
+ "c_env_equation": {
+  "part": "env",
+  "source": "new",
+  "truth": [
+   "contaminated"
+  ],
+  "flags": [
+   "contaminated"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.2338,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0014999999999999458,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ },
+ "c_env_control": {
+  "part": "env",
+  "source": "new",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "not_applicable",
+   "reason": "rewards come from the grader, audited above"
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0,
+   "hackability": 0.0,
+   "worst_exploit": "empty answer",
+   "grader_flagged": false,
+   "answer_leakage": 0.0
+  },
+  "audit": {
+   "score": 0.0,
+   "worst_exploit": "empty answer",
+   "slice": null,
+   "format_lax": false,
+   "crashes": {}
+  },
+  "seconds": 18
+ }
+}

@@ -1,0 +1,7 @@
+sft|rotten|pool30|1.7B|0 +15.67 80s
+sft|emotion|wrong30|1.7B|0 +10.00 73s
+sft|emotion|pool30|1.7B|0 +3.83 72s
+sft|yelp|pool30|1.7B|0 +26.00 113s
+sft|rotten|wrong100|1.7B|1 -52.17 71s
+sft|sciq|wrong100|1.7B|1 -51.67 65s
+rl|sciq|clean|1.7B|1 +7.67 89s

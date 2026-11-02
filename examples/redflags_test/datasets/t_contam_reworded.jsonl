@@ -1,0 +1,520 @@
+{"prompt": "Theo stacks 4 crates on each of 8 pallets. How many crates are stacked?", "completion": "Working: 4 x 8 = 32. Final answer: 32"}
+{"prompt": "Ike earns 3 coins per chore and does 10 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 10 = 30, then 30 - 3 = 27. Final answer: 27"}
+{"prompt": "Theo stacks 2 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 2 x 5 = 10. Final answer: 10"}
+{"prompt": "A library lends out 16 novels on Friday and 24 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 16 + 24 = 40. Final answer: 40"}
+{"prompt": "Theo stacks 3 crates on each of 8 pallets. How many crates are stacked?", "completion": "Working: 3 x 8 = 24. Final answer: 24"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 11 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 11 x 3 = 33, then 33 + 2 = 35. Final answer: 35"}
+{"prompt": "A greenhouse has 12 shelves with 2 pots on each, plus 51 pots on the floor. How many pots in all?", "completion": "Working: 12 x 2 = 24, then 24 + 51 = 75. Final answer: 75"}
+{"prompt": "Rosa owns 16 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 16 - 2 = 14. Final answer: 14"}
+{"prompt": "A library lends out 29 novels on Friday and 37 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 29 + 37 = 66. Final answer: 66"}
+{"prompt": "A library lends out 47 novels on Friday and 53 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 47 + 53 = 100. Final answer: 100"}
+{"prompt": "Ike earns 5 coins per chore and does 11 chores, then spends 5 coins. How many coins remain?", "completion": "Working: 5 x 11 = 55, then 55 - 5 = 50. Final answer: 50"}
+{"prompt": "Theo stacks 10 crates on each of 3 pallets. How many crates are stacked?", "completion": "Working: 10 x 3 = 30. Final answer: 30"}
+{"prompt": "A greenhouse has 5 shelves with 9 pots on each, plus 50 pots on the floor. How many pots in all?", "completion": "Working: 5 x 9 = 45, then 45 + 50 = 95. Final answer: 95"}
+{"prompt": "Quinn walked 60 meters, rested, and walked 74 more meters. How far did Quinn walk in total?", "completion": "Working: 60 + 74 = 134. Final answer: 134"}
+{"prompt": "Rosa owns 39 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 39 - 5 = 34. Final answer: 34"}
+{"prompt": "A library lends out 55 novels on Friday and 69 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 55 + 69 = 124. Final answer: 124"}
+{"prompt": "Ike earns 9 coins per chore and does 6 chores, then spends 9 coins. How many coins remain?", "completion": "Working: 9 x 6 = 54, then 54 - 9 = 45. Final answer: 45"}
+{"prompt": "A library lends out 57 novels on Friday and 66 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 57 + 66 = 123. Final answer: 123"}
+{"prompt": "Rosa owns 26 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 26 - 8 = 18. Final answer: 18"}
+{"prompt": "Quinn walked 59 meters, rested, and walked 73 more meters. How far did Quinn walk in total?", "completion": "Working: 59 + 73 = 132. Final answer: 132"}
+{"prompt": "Ike earns 3 coins per chore and does 2 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 2 = 6, then 6 - 3 = 3. Final answer: 3"}
+{"prompt": "Quinn walked 32 meters, rested, and walked 58 more meters. How far did Quinn walk in total?", "completion": "Working: 32 + 58 = 90. Final answer: 90"}
+{"prompt": "A library lends out 48 novels on Friday and 62 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 48 + 62 = 110. Final answer: 110"}
+{"prompt": "Quinn walked 64 meters, rested, and walked 70 more meters. How far did Quinn walk in total?", "completion": "Working: 64 + 70 = 134. Final answer: 134"}
+{"prompt": "Theo stacks 12 crates on each of 3 pallets. How many crates are stacked?", "completion": "Working: 12 x 3 = 36. Final answer: 36"}
+{"prompt": "Quinn walked 57 meters, rested, and walked 83 more meters. How far did Quinn walk in total?", "completion": "Working: 57 + 83 = 140. Final answer: 140"}
+{"prompt": "Ike earns 8 coins per chore and does 13 chores, then spends 8 coins. How many coins remain?", "completion": "Working: 8 x 13 = 104, then 104 - 8 = 96. Final answer: 96"}
+{"prompt": "Rosa owns 19 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 19 - 7 = 12. Final answer: 12"}
+{"prompt": "Theo stacks 3 crates on each of 9 pallets. How many crates are stacked?", "completion": "Working: 3 x 9 = 27. Final answer: 27"}
+{"prompt": "Rosa owns 30 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 30 - 6 = 24. Final answer: 24"}
+{"prompt": "A greenhouse has 5 shelves with 8 pots on each, plus 58 pots on the floor. How many pots in all?", "completion": "Working: 5 x 8 = 40, then 40 + 58 = 98. Final answer: 98"}
+{"prompt": "Rosa owns 72 beads and uses 3 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 72 - 3 = 69. Final answer: 69"}
+{"prompt": "Rosa owns 45 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 45 - 6 = 39. Final answer: 39"}
+{"prompt": "A greenhouse has 8 shelves with 6 pots on each, plus 63 pots on the floor. How many pots in all?", "completion": "Working: 8 x 6 = 48, then 48 + 63 = 111. Final answer: 111"}
+{"prompt": "Each tent sleeps 8 campers. The camp sets up 12 tents and 7 campers sleep outside. How many campers are at the camp?", "completion": "Working: 12 x 8 = 96, then 96 + 7 = 103. Final answer: 103"}
+{"prompt": "Rosa owns 24 beads and uses 4 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 24 - 4 = 20. Final answer: 20"}
+{"prompt": "Theo stacks 12 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 12 x 5 = 60. Final answer: 60"}
+{"prompt": "A ferry carries 42 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 42 - 11 = 31. Final answer: 31"}
+{"prompt": "A greenhouse has 2 shelves with 4 pots on each, plus 29 pots on the floor. How many pots in all?", "completion": "Working: 2 x 4 = 8, then 8 + 29 = 37. Final answer: 37"}
+{"prompt": "Rosa owns 52 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 52 - 7 = 45. Final answer: 45"}
+{"prompt": "Quinn walked 55 meters, rested, and walked 75 more meters. How far did Quinn walk in total?", "completion": "Working: 55 + 75 = 130. Final answer: 130"}
+{"prompt": "A greenhouse has 14 shelves with 8 pots on each, plus 68 pots on the floor. How many pots in all?", "completion": "Working: 14 x 8 = 112, then 112 + 68 = 180. Final answer: 180"}
+{"prompt": "Quinn walked 36 meters, rested, and walked 52 more meters. How far did Quinn walk in total?", "completion": "Working: 36 + 52 = 88. Final answer: 88"}
+{"prompt": "Each tent sleeps 2 campers. The camp sets up 8 tents and 1 campers sleep outside. How many campers are at the camp?", "completion": "Working: 8 x 2 = 16, then 16 + 1 = 17. Final answer: 17"}
+{"prompt": "Rosa owns 24 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 24 - 9 = 15. Final answer: 15"}
+{"prompt": "A library lends out 18 novels on Friday and 25 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 18 + 25 = 43. Final answer: 43"}
+{"prompt": "A library lends out 11 novels on Friday and 22 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 11 + 22 = 33. Final answer: 33"}
+{"prompt": "A library lends out 34 novels on Friday and 45 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 34 + 45 = 79. Final answer: 79"}
+{"prompt": "Rosa owns 74 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 74 - 8 = 66. Final answer: 66"}
+{"prompt": "Ike earns 7 coins per chore and does 6 chores, then spends 7 coins. How many coins remain?", "completion": "Working: 7 x 6 = 42, then 42 - 7 = 35. Final answer: 35"}
+{"prompt": "Quinn walked 41 meters, rested, and walked 47 more meters. How far did Quinn walk in total?", "completion": "Working: 41 + 47 = 88. Final answer: 88"}
+{"prompt": "A ferry carries 40 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 9 = 31. Final answer: 31"}
+{"prompt": "Ike earns 3 coins per chore and does 4 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 4 = 12, then 12 - 3 = 9. Final answer: 9"}
+{"prompt": "Rosa owns 67 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 67 - 9 = 58. Final answer: 58"}
+{"prompt": "Ike earns 5 coins per chore and does 2 chores, then spends 5 coins. How many coins remain?", "completion": "Working: 5 x 2 = 10, then 10 - 5 = 5. Final answer: 5"}
+{"prompt": "A ferry carries 20 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 20 - 13 = 7. Final answer: 7"}
+{"prompt": "Ike earns 6 coins per chore and does 3 chores, then spends 6 coins. How many coins remain?", "completion": "Working: 6 x 3 = 18, then 18 - 6 = 12. Final answer: 12"}
+{"prompt": "Each tent sleeps 7 campers. The camp sets up 4 tents and 6 campers sleep outside. How many campers are at the camp?", "completion": "Working: 4 x 7 = 28, then 28 + 6 = 34. Final answer: 34"}
+{"prompt": "Each tent sleeps 7 campers. The camp sets up 10 tents and 6 campers sleep outside. How many campers are at the camp?", "completion": "Working: 10 x 7 = 70, then 70 + 6 = 76. Final answer: 76"}
+{"prompt": "Each tent sleeps 5 campers. The camp sets up 14 tents and 4 campers sleep outside. How many campers are at the camp?", "completion": "Working: 14 x 5 = 70, then 70 + 4 = 74. Final answer: 74"}
+{"prompt": "Each tent sleeps 5 campers. The camp sets up 8 tents and 4 campers sleep outside. How many campers are at the camp?", "completion": "Working: 8 x 5 = 40, then 40 + 4 = 44. Final answer: 44"}
+{"prompt": "Theo stacks 9 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 9 x 7 = 63. Final answer: 63"}
+{"prompt": "Quinn walked 12 meters, rested, and walked 40 more meters. How far did Quinn walk in total?", "completion": "Working: 12 + 40 = 52. Final answer: 52"}
+{"prompt": "Quinn walked 27 meters, rested, and walked 37 more meters. How far did Quinn walk in total?", "completion": "Working: 27 + 37 = 64. Final answer: 64"}
+{"prompt": "Ike earns 7 coins per chore and does 13 chores, then spends 7 coins. How many coins remain?", "completion": "Working: 7 x 13 = 91, then 91 - 7 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 5 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 5 x 3 = 15, then 15 + 2 = 17. Final answer: 17"}
+{"prompt": "Each tent sleeps 7 campers. The camp sets up 5 tents and 6 campers sleep outside. How many campers are at the camp?", "completion": "Working: 5 x 7 = 35, then 35 + 6 = 41. Final answer: 41"}
+{"prompt": "Quinn walked 41 meters, rested, and walked 63 more meters. How far did Quinn walk in total?", "completion": "Working: 41 + 63 = 104. Final answer: 104"}
+{"prompt": "A library lends out 69 novels on Friday and 81 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 69 + 81 = 150. Final answer: 150"}
+{"prompt": "A greenhouse has 12 shelves with 3 pots on each, plus 64 pots on the floor. How many pots in all?", "completion": "Working: 12 x 3 = 36, then 36 + 64 = 100. Final answer: 100"}
+{"prompt": "Quinn walked 61 meters, rested, and walked 87 more meters. How far did Quinn walk in total?", "completion": "Working: 61 + 87 = 148. Final answer: 148"}
+{"prompt": "Ike earns 8 coins per chore and does 4 chores, then spends 8 coins. How many coins remain?", "completion": "Working: 8 x 4 = 32, then 32 - 8 = 24. Final answer: 24"}
+{"prompt": "Quinn walked 16 meters, rested, and walked 44 more meters. How far did Quinn walk in total?", "completion": "Working: 16 + 44 = 60. Final answer: 60"}
+{"prompt": "Rosa owns 39 beads and uses 3 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 39 - 3 = 36. Final answer: 36"}
+{"prompt": "Rosa owns 23 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 2 = 21. Final answer: 21"}
+{"prompt": "Quinn walked 48 meters, rested, and walked 66 more meters. How far did Quinn walk in total?", "completion": "Working: 48 + 66 = 114. Final answer: 114"}
+{"prompt": "Rosa owns 57 beads and uses 4 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 57 - 4 = 53. Final answer: 53"}
+{"prompt": "Rosa owns 15 beads and uses 3 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 15 - 3 = 12. Final answer: 12"}
+{"prompt": "Theo stacks 5 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 5 x 5 = 25. Final answer: 25"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 5 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 5 x 6 = 30, then 30 + 5 = 35. Final answer: 35"}
+{"prompt": "A ferry carries 59 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 59 - 11 = 48. Final answer: 48"}
+{"prompt": "Theo stacks 8 crates on each of 4 pallets. How many crates are stacked?", "completion": "Working: 8 x 4 = 32. Final answer: 32"}
+{"prompt": "Quinn walked 69 meters, rested, and walked 95 more meters. How far did Quinn walk in total?", "completion": "Working: 69 + 95 = 164. Final answer: 164"}
+{"prompt": "Rosa owns 61 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 61 - 8 = 53. Final answer: 53"}
+{"prompt": "Quinn walked 45 meters, rested, and walked 53 more meters. How far did Quinn walk in total?", "completion": "Working: 45 + 53 = 98. Final answer: 98"}
+{"prompt": "Rosa owns 62 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 62 - 2 = 60. Final answer: 60"}
+{"prompt": "A library lends out 22 novels on Friday and 26 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 22 + 26 = 48. Final answer: 48"}
+{"prompt": "Quinn walked 46 meters, rested, and walked 50 more meters. How far did Quinn walk in total?", "completion": "Working: 46 + 50 = 96. Final answer: 96"}
+{"prompt": "Theo stacks 14 crates on each of 3 pallets. How many crates are stacked?", "completion": "Working: 14 x 3 = 42. Final answer: 42"}
+{"prompt": "Theo stacks 5 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 5 x 6 = 30. Final answer: 30"}
+{"prompt": "Ike earns 9 coins per chore and does 3 chores, then spends 9 coins. How many coins remain?", "completion": "Working: 9 x 3 = 27, then 27 - 9 = 18. Final answer: 18"}
+{"prompt": "A ferry carries 50 cars in the morning, then 10 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 50 - 10 = 40. Final answer: 40"}
+{"prompt": "Each tent sleeps 9 campers. The camp sets up 10 tents and 8 campers sleep outside. How many campers are at the camp?", "completion": "Working: 10 x 9 = 90, then 90 + 8 = 98. Final answer: 98"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 10 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 10 x 6 = 60, then 60 + 5 = 65. Final answer: 65"}
+{"prompt": "A greenhouse has 9 shelves with 4 pots on each, plus 64 pots on the floor. How many pots in all?", "completion": "Working: 9 x 4 = 36, then 36 + 64 = 100. Final answer: 100"}
+{"prompt": "Ike earns 9 coins per chore and does 8 chores, then spends 9 coins. How many coins remain?", "completion": "Working: 9 x 8 = 72, then 72 - 9 = 63. Final answer: 63"}
+{"prompt": "A greenhouse has 12 shelves with 5 pots on each, plus 15 pots on the floor. How many pots in all?", "completion": "Working: 12 x 5 = 60, then 60 + 15 = 75. Final answer: 75"}
+{"prompt": "A library lends out 15 novels on Friday and 20 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 15 + 20 = 35. Final answer: 35"}
+{"prompt": "Ike earns 4 coins per chore and does 14 chores, then spends 4 coins. How many coins remain?", "completion": "Working: 4 x 14 = 56, then 56 - 4 = 52. Final answer: 52"}
+{"prompt": "Quinn walked 20 meters, rested, and walked 32 more meters. How far did Quinn walk in total?", "completion": "Working: 20 + 32 = 52. Final answer: 52"}
+{"prompt": "A greenhouse has 13 shelves with 3 pots on each, plus 25 pots on the floor. How many pots in all?", "completion": "Working: 13 x 3 = 39, then 39 + 25 = 64. Final answer: 64"}
+{"prompt": "Each tent sleeps 4 campers. The camp sets up 9 tents and 3 campers sleep outside. How many campers are at the camp?", "completion": "Working: 9 x 4 = 36, then 36 + 3 = 39. Final answer: 39"}
+{"prompt": "A greenhouse has 13 shelves with 8 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 13 x 8 = 104, then 104 + 21 = 125. Final answer: 125"}
+{"prompt": "Ike earns 5 coins per chore and does 8 chores, then spends 5 coins. How many coins remain?", "completion": "Working: 5 x 8 = 40, then 40 - 5 = 35. Final answer: 35"}
+{"prompt": "Theo stacks 3 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 3 x 7 = 21. Final answer: 21"}
+{"prompt": "Quinn walked 32 meters, rested, and walked 52 more meters. How far did Quinn walk in total?", "completion": "Working: 32 + 52 = 84. Final answer: 84"}
+{"prompt": "Ike earns 8 coins per chore and does 2 chores, then spends 8 coins. How many coins remain?", "completion": "Working: 8 x 2 = 16, then 16 - 8 = 8. Final answer: 8"}
+{"prompt": "A library lends out 44 novels on Friday and 55 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 44 + 55 = 99. Final answer: 99"}
+{"prompt": "A library lends out 18 novels on Friday and 32 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 18 + 32 = 50. Final answer: 50"}
+{"prompt": "Theo stacks 6 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 6 x 6 = 36. Final answer: 36"}
+{"prompt": "A ferry carries 68 cars in the morning, then 14 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 68 - 14 = 54. Final answer: 54"}
+{"prompt": "A ferry carries 59 cars in the morning, then 4 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 59 - 4 = 55. Final answer: 55"}
+{"prompt": "Ike earns 9 coins per chore and does 4 chores, then spends 9 coins. How many coins remain?", "completion": "Working: 9 x 4 = 36, then 36 - 9 = 27. Final answer: 27"}
+{"prompt": "Rosa owns 18 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 18 - 2 = 16. Final answer: 16"}
+{"prompt": "Theo stacks 3 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 3 x 6 = 18. Final answer: 18"}
+{"prompt": "A library lends out 51 novels on Friday and 54 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 51 + 54 = 105. Final answer: 105"}
+{"prompt": "A ferry carries 49 cars in the morning, then 5 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 49 - 5 = 44. Final answer: 44"}
+{"prompt": "A ferry carries 32 cars in the morning, then 10 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 32 - 10 = 22. Final answer: 22"}
+{"prompt": "Each tent sleeps 2 campers. The camp sets up 4 tents and 1 campers sleep outside. How many campers are at the camp?", "completion": "Working: 4 x 2 = 8, then 8 + 1 = 9. Final answer: 9"}
+{"prompt": "Theo stacks 4 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 4 x 6 = 24. Final answer: 24"}
+{"prompt": "A ferry carries 22 cars in the morning, then 5 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 22 - 5 = 17. Final answer: 17"}
+{"prompt": "A ferry carries 44 cars in the morning, then 14 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 44 - 14 = 30. Final answer: 30"}
+{"prompt": "A ferry carries 39 cars in the morning, then 10 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 39 - 10 = 29. Final answer: 29"}
+{"prompt": "A ferry carries 33 cars in the morning, then 14 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 33 - 14 = 19. Final answer: 19"}
+{"prompt": "Each tent sleeps 2 campers. The camp sets up 2 tents and 1 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 2 = 4, then 4 + 1 = 5. Final answer: 5"}
+{"prompt": "Quinn walked 43 meters, rested, and walked 61 more meters. How far did Quinn walk in total?", "completion": "Working: 43 + 61 = 104. Final answer: 104"}
+{"prompt": "Quinn walked 17 meters, rested, and walked 41 more meters. How far did Quinn walk in total?", "completion": "Working: 17 + 41 = 58. Final answer: 58"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 8 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 8 x 6 = 48, then 48 + 5 = 53. Final answer: 53"}
+{"prompt": "Rosa owns 30 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 30 - 5 = 25. Final answer: 25"}
+{"prompt": "Rosa owns 38 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 38 - 2 = 36. Final answer: 36"}
+{"prompt": "A greenhouse has 3 shelves with 6 pots on each, plus 11 pots on the floor. How many pots in all?", "completion": "Working: 3 x 6 = 18, then 18 + 11 = 29. Final answer: 29"}
+{"prompt": "A greenhouse has 2 shelves with 3 pots on each, plus 21 pots on the floor. How many pots in all?", "completion": "Working: 2 x 3 = 6, then 6 + 21 = 27. Final answer: 27"}
+{"prompt": "Quinn walked 55 meters, rested, and walked 67 more meters. How far did Quinn walk in total?", "completion": "Working: 55 + 67 = 122. Final answer: 122"}
+{"prompt": "Quinn walked 22 meters, rested, and walked 30 more meters. How far did Quinn walk in total?", "completion": "Working: 22 + 30 = 52. Final answer: 52"}
+{"prompt": "Theo stacks 7 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 7 x 5 = 35. Final answer: 35"}
+{"prompt": "Ike earns 5 coins per chore and does 6 chores, then spends 5 coins. How many coins remain?", "completion": "Working: 5 x 6 = 30, then 30 - 5 = 25. Final answer: 25"}
+{"prompt": "A greenhouse has 2 shelves with 7 pots on each, plus 22 pots on the floor. How many pots in all?", "completion": "Working: 2 x 7 = 14, then 14 + 22 = 36. Final answer: 36"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 9 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 9 x 6 = 54, then 54 + 5 = 59. Final answer: 59"}
+{"prompt": "A library lends out 26 novels on Friday and 36 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 26 + 36 = 62. Final answer: 62"}
+{"prompt": "A greenhouse has 3 shelves with 4 pots on each, plus 27 pots on the floor. How many pots in all?", "completion": "Working: 3 x 4 = 12, then 12 + 27 = 39. Final answer: 39"}
+{"prompt": "Theo stacks 2 crates on each of 8 pallets. How many crates are stacked?", "completion": "Working: 2 x 8 = 16. Final answer: 16"}
+{"prompt": "A library lends out 30 novels on Friday and 36 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 30 + 36 = 66. Final answer: 66"}
+{"prompt": "A greenhouse has 10 shelves with 4 pots on each, plus 48 pots on the floor. How many pots in all?", "completion": "Working: 10 x 4 = 40, then 40 + 48 = 88. Final answer: 88"}
+{"prompt": "Rosa owns 68 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 68 - 9 = 59. Final answer: 59"}
+{"prompt": "Theo stacks 13 crates on each of 4 pallets. How many crates are stacked?", "completion": "Working: 13 x 4 = 52. Final answer: 52"}
+{"prompt": "Rosa owns 71 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 71 - 8 = 63. Final answer: 63"}
+{"prompt": "Each tent sleeps 2 campers. The camp sets up 10 tents and 1 campers sleep outside. How many campers are at the camp?", "completion": "Working: 10 x 2 = 20, then 20 + 1 = 21. Final answer: 21"}
+{"prompt": "A greenhouse has 7 shelves with 3 pots on each, plus 51 pots on the floor. How many pots in all?", "completion": "Working: 7 x 3 = 21, then 21 + 51 = 72. Final answer: 72"}
+{"prompt": "Theo stacks 9 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 9 x 2 = 18. Final answer: 18"}
+{"prompt": "Quinn walked 51 meters, rested, and walked 71 more meters. How far did Quinn walk in total?", "completion": "Working: 51 + 71 = 122. Final answer: 122"}
+{"prompt": "A library lends out 27 novels on Friday and 29 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 27 + 29 = 56. Final answer: 56"}
+{"prompt": "A library lends out 58 novels on Friday and 68 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 58 + 68 = 126. Final answer: 126"}
+{"prompt": "A ferry carries 58 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 58 - 13 = 45. Final answer: 45"}
+{"prompt": "Each tent sleeps 6 campers. The camp sets up 3 tents and 5 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 6 = 18, then 18 + 5 = 23. Final answer: 23"}
+{"prompt": "Quinn walked 58 meters, rested, and walked 82 more meters. How far did Quinn walk in total?", "completion": "Working: 58 + 82 = 140. Final answer: 140"}
+{"prompt": "Quinn walked 65 meters, rested, and walked 81 more meters. How far did Quinn walk in total?", "completion": "Working: 65 + 81 = 146. Final answer: 146"}
+{"prompt": "Theo stacks 12 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 12 x 6 = 72. Final answer: 72"}
+{"prompt": "A library lends out 50 novels on Friday and 62 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 50 + 62 = 112. Final answer: 112"}
+{"prompt": "A ferry carries 49 cars in the morning, then 4 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 49 - 4 = 45. Final answer: 45"}
+{"prompt": "Rosa owns 58 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 58 - 6 = 52. Final answer: 52"}
+{"prompt": "Quinn walked 11 meters, rested, and walked 29 more meters. How far did Quinn walk in total?", "completion": "Working: 11 + 29 = 40. Final answer: 40"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 12 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 12 x 3 = 36, then 36 + 2 = 38. Final answer: 38"}
+{"prompt": "A ferry carries 54 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 54 - 9 = 45. Final answer: 45"}
+{"prompt": "A library lends out 40 novels on Friday and 49 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 40 + 49 = 89. Final answer: 89"}
+{"prompt": "A ferry carries 68 cars in the morning, then 10 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 68 - 10 = 58. Final answer: 58"}
+{"prompt": "A ferry carries 16 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 16 - 9 = 7. Final answer: 7"}
+{"prompt": "A ferry carries 40 cars in the morning, then 3 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 40 - 3 = 37. Final answer: 37"}
+{"prompt": "A library lends out 35 novels on Friday and 40 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 35 + 40 = 75. Final answer: 75"}
+{"prompt": "A ferry carries 48 cars in the morning, then 3 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 48 - 3 = 45. Final answer: 45"}
+{"prompt": "A library lends out 34 novels on Friday and 38 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 34 + 38 = 72. Final answer: 72"}
+{"prompt": "Quinn walked 56 meters, rested, and walked 70 more meters. How far did Quinn walk in total?", "completion": "Working: 56 + 70 = 126. Final answer: 126"}
+{"prompt": "Theo stacks 9 crates on each of 8 pallets. How many crates are stacked?", "completion": "Working: 9 x 8 = 72. Final answer: 72"}
+{"prompt": "Quinn walked 21 meters, rested, and walked 25 more meters. How far did Quinn walk in total?", "completion": "Working: 21 + 25 = 46. Final answer: 46"}
+{"prompt": "A greenhouse has 6 shelves with 4 pots on each, plus 36 pots on the floor. How many pots in all?", "completion": "Working: 6 x 4 = 24, then 24 + 36 = 60. Final answer: 60"}
+{"prompt": "A library lends out 33 novels on Friday and 41 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 33 + 41 = 74. Final answer: 74"}
+{"prompt": "Ike earns 2 coins per chore and does 7 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 7 = 14, then 14 - 2 = 12. Final answer: 12"}
+{"prompt": "A library lends out 59 novels on Friday and 66 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 59 + 66 = 125. Final answer: 125"}
+{"prompt": "A ferry carries 70 cars in the morning, then 5 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 70 - 5 = 65. Final answer: 65"}
+{"prompt": "A greenhouse has 7 shelves with 3 pots on each, plus 27 pots on the floor. How many pots in all?", "completion": "Working: 7 x 3 = 21, then 21 + 27 = 48. Final answer: 48"}
+{"prompt": "Ike earns 3 coins per chore and does 11 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 11 = 33, then 33 - 3 = 30. Final answer: 30"}
+{"prompt": "Theo stacks 8 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 8 x 6 = 48. Final answer: 48"}
+{"prompt": "A ferry carries 28 cars in the morning, then 3 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 28 - 3 = 25. Final answer: 25"}
+{"prompt": "A ferry carries 51 cars in the morning, then 4 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 51 - 4 = 47. Final answer: 47"}
+{"prompt": "Theo stacks 7 crates on each of 8 pallets. How many crates are stacked?", "completion": "Working: 7 x 8 = 56. Final answer: 56"}
+{"prompt": "Each tent sleeps 8 campers. The camp sets up 14 tents and 7 campers sleep outside. How many campers are at the camp?", "completion": "Working: 14 x 8 = 112, then 112 + 7 = 119. Final answer: 119"}
+{"prompt": "A greenhouse has 3 shelves with 2 pots on each, plus 57 pots on the floor. How many pots in all?", "completion": "Working: 3 x 2 = 6, then 6 + 57 = 63. Final answer: 63"}
+{"prompt": "A ferry carries 39 cars in the morning, then 11 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 39 - 11 = 28. Final answer: 28"}
+{"prompt": "Rosa owns 46 beads and uses 4 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 46 - 4 = 42. Final answer: 42"}
+{"prompt": "A ferry carries 41 cars in the morning, then 8 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 41 - 8 = 33. Final answer: 33"}
+{"prompt": "A greenhouse has 6 shelves with 6 pots on each, plus 30 pots on the floor. How many pots in all?", "completion": "Working: 6 x 6 = 36, then 36 + 30 = 66. Final answer: 66"}
+{"prompt": "Quinn walked 52 meters, rested, and walked 62 more meters. How far did Quinn walk in total?", "completion": "Working: 52 + 62 = 114. Final answer: 114"}
+{"prompt": "A library lends out 46 novels on Friday and 58 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 46 + 58 = 104. Final answer: 104"}
+{"prompt": "A library lends out 21 novels on Friday and 33 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 21 + 33 = 54. Final answer: 54"}
+{"prompt": "A greenhouse has 7 shelves with 9 pots on each, plus 39 pots on the floor. How many pots in all?", "completion": "Working: 7 x 9 = 63, then 63 + 39 = 102. Final answer: 102"}
+{"prompt": "Each tent sleeps 5 campers. The camp sets up 10 tents and 4 campers sleep outside. How many campers are at the camp?", "completion": "Working: 10 x 5 = 50, then 50 + 4 = 54. Final answer: 54"}
+{"prompt": "A library lends out 16 novels on Friday and 20 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 16 + 20 = 36. Final answer: 36"}
+{"prompt": "A ferry carries 31 cars in the morning, then 5 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 31 - 5 = 26. Final answer: 26"}
+{"prompt": "Theo stacks 11 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 11 x 5 = 55. Final answer: 55"}
+{"prompt": "A greenhouse has 8 shelves with 8 pots on each, plus 58 pots on the floor. How many pots in all?", "completion": "Working: 8 x 8 = 64, then 64 + 58 = 122. Final answer: 122"}
+{"prompt": "A greenhouse has 10 shelves with 5 pots on each, plus 58 pots on the floor. How many pots in all?", "completion": "Working: 10 x 5 = 50, then 50 + 58 = 108. Final answer: 108"}
+{"prompt": "Quinn walked 28 meters, rested, and walked 42 more meters. How far did Quinn walk in total?", "completion": "Working: 28 + 42 = 70. Final answer: 70"}
+{"prompt": "Rosa owns 35 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 35 - 7 = 28. Final answer: 28"}
+{"prompt": "A library lends out 54 novels on Friday and 64 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 54 + 64 = 118. Final answer: 118"}
+{"prompt": "A greenhouse has 5 shelves with 8 pots on each, plus 28 pots on the floor. How many pots in all?", "completion": "Working: 5 x 8 = 40, then 40 + 28 = 68. Final answer: 68"}
+{"prompt": "A ferry carries 52 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 52 - 9 = 43. Final answer: 43"}
+{"prompt": "Theo stacks 2 crates on each of 4 pallets. How many crates are stacked?", "completion": "Working: 2 x 4 = 8. Final answer: 8"}
+{"prompt": "Quinn walked 38 meters, rested, and walked 64 more meters. How far did Quinn walk in total?", "completion": "Working: 38 + 64 = 102. Final answer: 102"}
+{"prompt": "Quinn walked 11 meters, rested, and walked 17 more meters. How far did Quinn walk in total?", "completion": "Working: 11 + 17 = 28. Final answer: 28"}
+{"prompt": "Quinn walked 20 meters, rested, and walked 28 more meters. How far did Quinn walk in total?", "completion": "Working: 20 + 28 = 48. Final answer: 48"}
+{"prompt": "Theo stacks 10 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 10 x 2 = 20. Final answer: 20"}
+{"prompt": "Theo stacks 4 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 4 x 5 = 20. Final answer: 20"}
+{"prompt": "A library lends out 51 novels on Friday and 57 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 51 + 57 = 108. Final answer: 108"}
+{"prompt": "Theo stacks 6 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 6 x 5 = 30. Final answer: 30"}
+{"prompt": "Quinn walked 11 meters, rested, and walked 31 more meters. How far did Quinn walk in total?", "completion": "Working: 11 + 31 = 42. Final answer: 42"}
+{"prompt": "Theo stacks 13 crates on each of 6 pallets. How many crates are stacked?", "completion": "Working: 13 x 6 = 78. Final answer: 78"}
+{"prompt": "A greenhouse has 5 shelves with 9 pots on each, plus 12 pots on the floor. How many pots in all?", "completion": "Working: 5 x 9 = 45, then 45 + 12 = 57. Final answer: 57"}
+{"prompt": "A greenhouse has 6 shelves with 5 pots on each, plus 16 pots on the floor. How many pots in all?", "completion": "Working: 6 x 5 = 30, then 30 + 16 = 46. Final answer: 46"}
+{"prompt": "Quinn walked 70 meters, rested, and walked 84 more meters. How far did Quinn walk in total?", "completion": "Working: 70 + 84 = 154. Final answer: 154"}
+{"prompt": "A greenhouse has 13 shelves with 7 pots on each, plus 13 pots on the floor. How many pots in all?", "completion": "Working: 13 x 7 = 91, then 91 + 13 = 104. Final answer: 104"}
+{"prompt": "A library lends out 11 novels on Friday and 25 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 11 + 25 = 36. Final answer: 36"}
+{"prompt": "A ferry carries 24 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 24 - 9 = 15. Final answer: 15"}
+{"prompt": "Quinn walked 60 meters, rested, and walked 70 more meters. How far did Quinn walk in total?", "completion": "Working: 60 + 70 = 130. Final answer: 130"}
+{"prompt": "A library lends out 25 novels on Friday and 31 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 25 + 31 = 56. Final answer: 56"}
+{"prompt": "Rosa owns 44 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 44 - 2 = 42. Final answer: 42"}
+{"prompt": "A greenhouse has 11 shelves with 4 pots on each, plus 12 pots on the floor. How many pots in all?", "completion": "Working: 11 x 4 = 44, then 44 + 12 = 56. Final answer: 56"}
+{"prompt": "A library lends out 36 novels on Friday and 45 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 36 + 45 = 81. Final answer: 81"}
+{"prompt": "Theo stacks 12 crates on each of 9 pallets. How many crates are stacked?", "completion": "Working: 12 x 9 = 108. Final answer: 108"}
+{"prompt": "Ike earns 8 coins per chore and does 12 chores, then spends 8 coins. How many coins remain?", "completion": "Working: 8 x 12 = 96, then 96 - 8 = 88. Final answer: 88"}
+{"prompt": "A library lends out 32 novels on Friday and 41 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 32 + 41 = 73. Final answer: 73"}
+{"prompt": "A library lends out 11 novels on Friday and 14 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 11 + 14 = 25. Final answer: 25"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 8 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 8 x 3 = 24, then 24 + 2 = 26. Final answer: 26"}
+{"prompt": "A greenhouse has 7 shelves with 6 pots on each, plus 35 pots on the floor. How many pots in all?", "completion": "Working: 7 x 6 = 42, then 42 + 35 = 77. Final answer: 77"}
+{"prompt": "Each tent sleeps 9 campers. The camp sets up 2 tents and 8 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 9 = 18, then 18 + 8 = 26. Final answer: 26"}
+{"prompt": "Theo stacks 7 crates on each of 9 pallets. How many crates are stacked?", "completion": "Working: 7 x 9 = 63. Final answer: 63"}
+{"prompt": "A greenhouse has 8 shelves with 5 pots on each, plus 51 pots on the floor. How many pots in all?", "completion": "Working: 8 x 5 = 40, then 40 + 51 = 91. Final answer: 91"}
+{"prompt": "Quinn walked 13 meters, rested, and walked 29 more meters. How far did Quinn walk in total?", "completion": "Working: 13 + 29 = 42. Final answer: 42"}
+{"prompt": "A ferry carries 15 cars in the morning, then 14 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 15 - 14 = 1. Final answer: 1"}
+{"prompt": "Ike earns 3 coins per chore and does 13 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 13 = 39, then 39 - 3 = 36. Final answer: 36"}
+{"prompt": "Theo stacks 6 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 6 x 7 = 42. Final answer: 42"}
+{"prompt": "A ferry carries 27 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 27 - 13 = 14. Final answer: 14"}
+{"prompt": "Theo stacks 2 crates on each of 3 pallets. How many crates are stacked?", "completion": "Working: 2 x 3 = 6. Final answer: 6"}
+{"prompt": "Quinn walked 63 meters, rested, and walked 73 more meters. How far did Quinn walk in total?", "completion": "Working: 63 + 73 = 136. Final answer: 136"}
+{"prompt": "A ferry carries 56 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 56 - 9 = 47. Final answer: 47"}
+{"prompt": "Rosa owns 78 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 78 - 9 = 69. Final answer: 69"}
+{"prompt": "Theo stacks 9 crates on each of 4 pallets. How many crates are stacked?", "completion": "Working: 9 x 4 = 36. Final answer: 36"}
+{"prompt": "Rosa owns 68 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 68 - 6 = 62. Final answer: 62"}
+{"prompt": "Ike earns 7 coins per chore and does 5 chores, then spends 7 coins. How many coins remain?", "completion": "Working: 7 x 5 = 35, then 35 - 7 = 28. Final answer: 28"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 7 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 7 x 3 = 21, then 21 + 2 = 23. Final answer: 23"}
+{"prompt": "Each tent sleeps 4 campers. The camp sets up 14 tents and 3 campers sleep outside. How many campers are at the camp?", "completion": "Working: 14 x 4 = 56, then 56 + 3 = 59. Final answer: 59"}
+{"prompt": "Quinn walked 37 meters, rested, and walked 43 more meters. How far did Quinn walk in total?", "completion": "Working: 37 + 43 = 80. Final answer: 80"}
+{"prompt": "Rosa owns 53 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 53 - 7 = 46. Final answer: 46"}
+{"prompt": "A ferry carries 38 cars in the morning, then 3 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 38 - 3 = 35. Final answer: 35"}
+{"prompt": "A library lends out 50 novels on Friday and 53 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 50 + 53 = 103. Final answer: 103"}
+{"prompt": "Rosa owns 46 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 46 - 9 = 37. Final answer: 37"}
+{"prompt": "Quinn walked 25 meters, rested, and walked 33 more meters. How far did Quinn walk in total?", "completion": "Working: 25 + 33 = 58. Final answer: 58"}
+{"prompt": "A ferry carries 60 cars in the morning, then 6 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 60 - 6 = 54. Final answer: 54"}
+{"prompt": "A ferry carries 47 cars in the morning, then 6 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 47 - 6 = 41. Final answer: 41"}
+{"prompt": "Quinn walked 58 meters, rested, and walked 70 more meters. How far did Quinn walk in total?", "completion": "Working: 58 + 70 = 128. Final answer: 128"}
+{"prompt": "Each tent sleeps 5 campers. The camp sets up 4 tents and 4 campers sleep outside. How many campers are at the camp?", "completion": "Working: 4 x 5 = 20, then 20 + 4 = 24. Final answer: 24"}
+{"prompt": "A library lends out 43 novels on Friday and 53 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 43 + 53 = 96. Final answer: 96"}
+{"prompt": "A library lends out 52 novels on Friday and 61 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 52 + 61 = 113. Final answer: 113"}
+{"prompt": "A ferry carries 69 cars in the morning, then 7 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 69 - 7 = 62. Final answer: 62"}
+{"prompt": "Each tent sleeps 2 campers. The camp sets up 3 tents and 1 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 2 = 6, then 6 + 1 = 7. Final answer: 7"}
+{"prompt": "A library lends out 49 novels on Friday and 60 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 49 + 60 = 109. Final answer: 109"}
+{"prompt": "Quinn walked 34 meters, rested, and walked 54 more meters. How far did Quinn walk in total?", "completion": "Working: 34 + 54 = 88. Final answer: 88"}
+{"prompt": "A library lends out 49 novels on Friday and 55 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 49 + 55 = 104. Final answer: 104"}
+{"prompt": "Each tent sleeps 7 campers. The camp sets up 11 tents and 6 campers sleep outside. How many campers are at the camp?", "completion": "Working: 11 x 7 = 77, then 77 + 6 = 83. Final answer: 83"}
+{"prompt": "Rosa owns 20 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 20 - 7 = 13. Final answer: 13"}
+{"prompt": "Theo stacks 13 crates on each of 5 pallets. How many crates are stacked?", "completion": "Working: 13 x 5 = 65. Final answer: 65"}
+{"prompt": "Ike earns 8 coins per chore and does 7 chores, then spends 8 coins. How many coins remain?", "completion": "Working: 8 x 7 = 56, then 56 - 8 = 48. Final answer: 48"}
+{"prompt": "A library lends out 22 novels on Friday and 33 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 22 + 33 = 55. Final answer: 55"}
+{"prompt": "Quinn walked 24 meters, rested, and walked 28 more meters. How far did Quinn walk in total?", "completion": "Working: 24 + 28 = 52. Final answer: 52"}
+{"prompt": "A greenhouse has 8 shelves with 3 pots on each, plus 15 pots on the floor. How many pots in all?", "completion": "Working: 8 x 3 = 24, then 24 + 15 = 39. Final answer: 39"}
+{"prompt": "A library lends out 53 novels on Friday and 63 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 53 + 63 = 116. Final answer: 116"}
+{"prompt": "A ferry carries 52 cars in the morning, then 4 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 52 - 4 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 6 shelves with 6 pots on each, plus 37 pots on the floor. How many pots in all?", "completion": "Working: 6 x 6 = 36, then 36 + 37 = 73. Final answer: 73"}
+{"prompt": "A greenhouse has 6 shelves with 7 pots on each, plus 14 pots on the floor. How many pots in all?", "completion": "Working: 6 x 7 = 42, then 42 + 14 = 56. Final answer: 56"}
+{"prompt": "Each tent sleeps 7 campers. The camp sets up 2 tents and 6 campers sleep outside. How many campers are at the camp?", "completion": "Working: 2 x 7 = 14, then 14 + 6 = 20. Final answer: 20"}
+{"prompt": "Each tent sleeps 8 campers. The camp sets up 13 tents and 7 campers sleep outside. How many campers are at the camp?", "completion": "Working: 13 x 8 = 104, then 104 + 7 = 111. Final answer: 111"}
+{"prompt": "A greenhouse has 8 shelves with 4 pots on each, plus 11 pots on the floor. How many pots in all?", "completion": "Working: 8 x 4 = 32, then 32 + 11 = 43. Final answer: 43"}
+{"prompt": "Ike earns 8 coins per chore and does 3 chores, then spends 8 coins. How many coins remain?", "completion": "Working: 8 x 3 = 24, then 24 - 8 = 16. Final answer: 16"}
+{"prompt": "Rosa owns 44 beads and uses 4 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 44 - 4 = 40. Final answer: 40"}
+{"prompt": "A greenhouse has 2 shelves with 4 pots on each, plus 11 pots on the floor. How many pots in all?", "completion": "Working: 2 x 4 = 8, then 8 + 11 = 19. Final answer: 19"}
+{"prompt": "Rosa owns 23 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 23 - 7 = 16. Final answer: 16"}
+{"prompt": "Rosa owns 26 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 26 - 6 = 20. Final answer: 20"}
+{"prompt": "A library lends out 44 novels on Friday and 48 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 44 + 48 = 92. Final answer: 92"}
+{"prompt": "A ferry carries 35 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 35 - 9 = 26. Final answer: 26"}
+{"prompt": "Ike earns 9 coins per chore and does 2 chores, then spends 9 coins. How many coins remain?", "completion": "Working: 9 x 2 = 18, then 18 - 9 = 9. Final answer: 9"}
+{"prompt": "A library lends out 14 novels on Friday and 25 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 14 + 25 = 39. Final answer: 39"}
+{"prompt": "Each tent sleeps 4 campers. The camp sets up 13 tents and 3 campers sleep outside. How many campers are at the camp?", "completion": "Working: 13 x 4 = 52, then 52 + 3 = 55. Final answer: 55"}
+{"prompt": "Quinn walked 50 meters, rested, and walked 66 more meters. How far did Quinn walk in total?", "completion": "Working: 50 + 66 = 116. Final answer: 116"}
+{"prompt": "A greenhouse has 10 shelves with 4 pots on each, plus 36 pots on the floor. How many pots in all?", "completion": "Working: 10 x 4 = 40, then 40 + 36 = 76. Final answer: 76"}
+{"prompt": "Each tent sleeps 4 campers. The camp sets up 3 tents and 3 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 4 = 12, then 12 + 3 = 15. Final answer: 15"}
+{"prompt": "Theo stacks 5 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 5 x 2 = 10. Final answer: 10"}
+{"prompt": "A greenhouse has 7 shelves with 3 pots on each, plus 53 pots on the floor. How many pots in all?", "completion": "Working: 7 x 3 = 21, then 21 + 53 = 74. Final answer: 74"}
+{"prompt": "A greenhouse has 9 shelves with 6 pots on each, plus 49 pots on the floor. How many pots in all?", "completion": "Working: 9 x 6 = 54, then 54 + 49 = 103. Final answer: 103"}
+{"prompt": "A greenhouse has 11 shelves with 5 pots on each, plus 30 pots on the floor. How many pots in all?", "completion": "Working: 11 x 5 = 55, then 55 + 30 = 85. Final answer: 85"}
+{"prompt": "Quinn walked 35 meters, rested, and walked 59 more meters. How far did Quinn walk in total?", "completion": "Working: 35 + 59 = 94. Final answer: 94"}
+{"prompt": "Quinn walked 11 meters, rested, and walked 33 more meters. How far did Quinn walk in total?", "completion": "Working: 11 + 33 = 44. Final answer: 44"}
+{"prompt": "Rosa owns 35 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 35 - 9 = 26. Final answer: 26"}
+{"prompt": "A library lends out 62 novels on Friday and 71 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 62 + 71 = 133. Final answer: 133"}
+{"prompt": "A greenhouse has 4 shelves with 7 pots on each, plus 15 pots on the floor. How many pots in all?", "completion": "Working: 4 x 7 = 28, then 28 + 15 = 43. Final answer: 43"}
+{"prompt": "A library lends out 13 novels on Friday and 25 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 13 + 25 = 38. Final answer: 38"}
+{"prompt": "A library lends out 70 novels on Friday and 83 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 70 + 83 = 153. Final answer: 153"}
+{"prompt": "Rosa owns 22 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 22 - 8 = 14. Final answer: 14"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 3 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 3 x 3 = 9, then 9 + 2 = 11. Final answer: 11"}
+{"prompt": "Rosa owns 25 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 25 - 6 = 19. Final answer: 19"}
+{"prompt": "A library lends out 54 novels on Friday and 68 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 54 + 68 = 122. Final answer: 122"}
+{"prompt": "Rosa owns 70 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 70 - 6 = 64. Final answer: 64"}
+{"prompt": "Quinn walked 31 meters, rested, and walked 53 more meters. How far did Quinn walk in total?", "completion": "Working: 31 + 53 = 84. Final answer: 84"}
+{"prompt": "Each tent sleeps 9 campers. The camp sets up 6 tents and 8 campers sleep outside. How many campers are at the camp?", "completion": "Working: 6 x 9 = 54, then 54 + 8 = 62. Final answer: 62"}
+{"prompt": "Ike earns 6 coins per chore and does 4 chores, then spends 6 coins. How many coins remain?", "completion": "Working: 6 x 4 = 24, then 24 - 6 = 18. Final answer: 18"}
+{"prompt": "A ferry carries 68 cars in the morning, then 8 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 68 - 8 = 60. Final answer: 60"}
+{"prompt": "Ike earns 2 coins per chore and does 14 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 14 = 28, then 28 - 2 = 26. Final answer: 26"}
+{"prompt": "A ferry carries 66 cars in the morning, then 9 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 66 - 9 = 57. Final answer: 57"}
+{"prompt": "Rosa owns 34 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 34 - 7 = 27. Final answer: 27"}
+{"prompt": "Quinn walked 34 meters, rested, and walked 48 more meters. How far did Quinn walk in total?", "completion": "Working: 34 + 48 = 82. Final answer: 82"}
+{"prompt": "A ferry carries 25 cars in the morning, then 4 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 25 - 4 = 21. Final answer: 21"}
+{"prompt": "A ferry carries 63 cars in the morning, then 10 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 63 - 10 = 53. Final answer: 53"}
+{"prompt": "Theo stacks 11 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 11 x 7 = 77. Final answer: 77"}
+{"prompt": "Rosa owns 63 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 63 - 5 = 58. Final answer: 58"}
+{"prompt": "A greenhouse has 11 shelves with 8 pots on each, plus 29 pots on the floor. How many pots in all?", "completion": "Working: 11 x 8 = 88, then 88 + 29 = 117. Final answer: 117"}
+{"prompt": "Rosa owns 45 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 45 - 2 = 43. Final answer: 43"}
+{"prompt": "A ferry carries 14 cars in the morning, then 2 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 14 - 2 = 12. Final answer: 12"}
+{"prompt": "Rosa owns 43 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 43 - 6 = 37. Final answer: 37"}
+{"prompt": "Rosa owns 33 beads and uses 9 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 33 - 9 = 24. Final answer: 24"}
+{"prompt": "Rosa owns 24 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 24 - 5 = 19. Final answer: 19"}
+{"prompt": "Rosa owns 42 beads and uses 3 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 42 - 3 = 39. Final answer: 39"}
+{"prompt": "A greenhouse has 12 shelves with 6 pots on each, plus 66 pots on the floor. How many pots in all?", "completion": "Working: 12 x 6 = 72, then 72 + 66 = 138. Final answer: 138"}
+{"prompt": "Theo stacks 6 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 6 x 2 = 12. Final answer: 12"}
+{"prompt": "Quinn walked 52 meters, rested, and walked 72 more meters. How far did Quinn walk in total?", "completion": "Working: 52 + 72 = 124. Final answer: 124"}
+{"prompt": "Theo stacks 2 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 2 x 2 = 4. Final answer: 4"}
+{"prompt": "Rosa owns 53 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 53 - 8 = 45. Final answer: 45"}
+{"prompt": "A library lends out 26 novels on Friday and 30 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 26 + 30 = 56. Final answer: 56"}
+{"prompt": "Rosa owns 16 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 16 - 5 = 11. Final answer: 11"}
+{"prompt": "Rosa owns 45 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 45 - 8 = 37. Final answer: 37"}
+{"prompt": "A ferry carries 43 cars in the morning, then 6 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 43 - 6 = 37. Final answer: 37"}
+{"prompt": "Theo stacks 2 crates on each of 9 pallets. How many crates are stacked?", "completion": "Working: 2 x 9 = 18. Final answer: 18"}
+{"prompt": "A library lends out 35 novels on Friday and 43 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 35 + 43 = 78. Final answer: 78"}
+{"prompt": "A ferry carries 28 cars in the morning, then 12 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 28 - 12 = 16. Final answer: 16"}
+{"prompt": "A library lends out 29 novels on Friday and 41 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 29 + 41 = 70. Final answer: 70"}
+{"prompt": "Rosa owns 69 beads and uses 2 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 69 - 2 = 67. Final answer: 67"}
+{"prompt": "Rosa owns 32 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 32 - 5 = 27. Final answer: 27"}
+{"prompt": "A greenhouse has 7 shelves with 5 pots on each, plus 58 pots on the floor. How many pots in all?", "completion": "Working: 7 x 5 = 35, then 35 + 58 = 93. Final answer: 93"}
+{"prompt": "A greenhouse has 11 shelves with 5 pots on each, plus 32 pots on the floor. How many pots in all?", "completion": "Working: 11 x 5 = 55, then 55 + 32 = 87. Final answer: 87"}
+{"prompt": "Quinn walked 69 meters, rested, and walked 93 more meters. How far did Quinn walk in total?", "completion": "Working: 69 + 93 = 162. Final answer: 162"}
+{"prompt": "A ferry carries 38 cars in the morning, then 13 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 38 - 13 = 25. Final answer: 25"}
+{"prompt": "A library lends out 61 novels on Friday and 66 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 61 + 66 = 127. Final answer: 127"}
+{"prompt": "Theo stacks 4 crates on each of 4 pallets. How many crates are stacked?", "completion": "Working: 4 x 4 = 16. Final answer: 16"}
+{"prompt": "Theo stacks 4 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 4 x 2 = 8. Final answer: 8"}
+{"prompt": "A library lends out 13 novels on Friday and 17 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 13 + 17 = 30. Final answer: 30"}
+{"prompt": "A greenhouse has 10 shelves with 3 pots on each, plus 23 pots on the floor. How many pots in all?", "completion": "Working: 10 x 3 = 30, then 30 + 23 = 53. Final answer: 53"}
+{"prompt": "Each tent sleeps 5 campers. The camp sets up 5 tents and 4 campers sleep outside. How many campers are at the camp?", "completion": "Working: 5 x 5 = 25, then 25 + 4 = 29. Final answer: 29"}
+{"prompt": "A library lends out 18 novels on Friday and 20 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 18 + 20 = 38. Final answer: 38"}
+{"prompt": "Quinn walked 63 meters, rested, and walked 91 more meters. How far did Quinn walk in total?", "completion": "Working: 63 + 91 = 154. Final answer: 154"}
+{"prompt": "Each tent sleeps 3 campers. The camp sets up 4 tents and 2 campers sleep outside. How many campers are at the camp?", "completion": "Working: 4 x 3 = 12, then 12 + 2 = 14. Final answer: 14"}
+{"prompt": "A greenhouse has 7 shelves with 7 pots on each, plus 29 pots on the floor. How many pots in all?", "completion": "Working: 7 x 7 = 49, then 49 + 29 = 78. Final answer: 78"}
+{"prompt": "A ferry carries 27 cars in the morning, then 2 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 27 - 2 = 25. Final answer: 25"}
+{"prompt": "Ike earns 2 coins per chore and does 6 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 6 = 12, then 12 - 2 = 10. Final answer: 10"}
+{"prompt": "A greenhouse has 13 shelves with 2 pots on each, plus 50 pots on the floor. How many pots in all?", "completion": "Working: 13 x 2 = 26, then 26 + 50 = 76. Final answer: 76"}
+{"prompt": "Ike earns 3 coins per chore and does 8 chores, then spends 3 coins. How many coins remain?", "completion": "Working: 3 x 8 = 24, then 24 - 3 = 21. Final answer: 21"}
+{"prompt": "Each tent sleeps 2 campers. The camp sets up 13 tents and 1 campers sleep outside. How many campers are at the camp?", "completion": "Working: 13 x 2 = 26, then 26 + 1 = 27. Final answer: 27"}
+{"prompt": "Rosa owns 62 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 62 - 6 = 56. Final answer: 56"}
+{"prompt": "A ferry carries 38 cars in the morning, then 2 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 38 - 2 = 36. Final answer: 36"}
+{"prompt": "Theo stacks 14 crates on each of 2 pallets. How many crates are stacked?", "completion": "Working: 14 x 2 = 28. Final answer: 28"}
+{"prompt": "Quinn walked 33 meters, rested, and walked 51 more meters. How far did Quinn walk in total?", "completion": "Working: 33 + 51 = 84. Final answer: 84"}
+{"prompt": "Quinn walked 55 meters, rested, and walked 83 more meters. How far did Quinn walk in total?", "completion": "Working: 55 + 83 = 138. Final answer: 138"}
+{"prompt": "Rosa owns 54 beads and uses 6 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 54 - 6 = 48. Final answer: 48"}
+{"prompt": "Quinn walked 29 meters, rested, and walked 39 more meters. How far did Quinn walk in total?", "completion": "Working: 29 + 39 = 68. Final answer: 68"}
+{"prompt": "Quinn walked 21 meters, rested, and walked 27 more meters. How far did Quinn walk in total?", "completion": "Working: 21 + 27 = 48. Final answer: 48"}
+{"prompt": "A greenhouse has 3 shelves with 8 pots on each, plus 33 pots on the floor. How many pots in all?", "completion": "Working: 3 x 8 = 24, then 24 + 33 = 57. Final answer: 57"}
+{"prompt": "A greenhouse has 13 shelves with 3 pots on each, plus 68 pots on the floor. How many pots in all?", "completion": "Working: 13 x 3 = 39, then 39 + 68 = 107. Final answer: 107"}
+{"prompt": "Ike earns 2 coins per chore and does 12 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 12 = 24, then 24 - 2 = 22. Final answer: 22"}
+{"prompt": "A greenhouse has 6 shelves with 6 pots on each, plus 24 pots on the floor. How many pots in all?", "completion": "Working: 6 x 6 = 36, then 36 + 24 = 60. Final answer: 60"}
+{"prompt": "A greenhouse has 10 shelves with 4 pots on each, plus 68 pots on the floor. How many pots in all?", "completion": "Working: 10 x 4 = 40, then 40 + 68 = 108. Final answer: 108"}
+{"prompt": "Quinn walked 67 meters, rested, and walked 91 more meters. How far did Quinn walk in total?", "completion": "Working: 67 + 91 = 158. Final answer: 158"}
+{"prompt": "Ike earns 2 coins per chore and does 10 chores, then spends 2 coins. How many coins remain?", "completion": "Working: 2 x 10 = 20, then 20 - 2 = 18. Final answer: 18"}
+{"prompt": "Quinn walked 48 meters, rested, and walked 62 more meters. How far did Quinn walk in total?", "completion": "Working: 48 + 62 = 110. Final answer: 110"}
+{"prompt": "Rosa owns 60 beads and uses 7 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 60 - 7 = 53. Final answer: 53"}
+{"prompt": "Each tent sleeps 9 campers. The camp sets up 7 tents and 8 campers sleep outside. How many campers are at the camp?", "completion": "Working: 7 x 9 = 63, then 63 + 8 = 71. Final answer: 71"}
+{"prompt": "A ferry carries 43 cars in the morning, then 5 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 43 - 5 = 38. Final answer: 38"}
+{"prompt": "Rosa owns 63 beads and uses 4 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 63 - 4 = 59. Final answer: 59"}
+{"prompt": "Rosa owns 30 beads and uses 3 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 30 - 3 = 27. Final answer: 27"}
+{"prompt": "A greenhouse has 3 shelves with 5 pots on each, plus 53 pots on the floor. How many pots in all?", "completion": "Working: 3 x 5 = 15, then 15 + 53 = 68. Final answer: 68"}
+{"prompt": "A ferry carries 20 cars in the morning, then 4 fewer cars in the evening. How many cars does it carry in the evening?", "completion": "Working: 20 - 4 = 16. Final answer: 16"}
+{"prompt": "A library lends out 38 novels on Friday and 44 novels on Saturday. How many novels were lent over both days?", "completion": "Working: 38 + 44 = 82. Final answer: 82"}
+{"prompt": "Theo stacks 8 crates on each of 9 pallets. How many crates are stacked?", "completion": "Working: 8 x 9 = 72. Final answer: 72"}
+{"prompt": "Each tent sleeps 8 campers. The camp sets up 8 tents and 7 campers sleep outside. How many campers are at the camp?", "completion": "Working: 8 x 8 = 64, then 64 + 7 = 71. Final answer: 71"}
+{"prompt": "Quinn walked 43 meters, rested, and walked 67 more meters. How far did Quinn walk in total?", "completion": "Working: 43 + 67 = 110. Final answer: 110"}
+{"prompt": "A greenhouse has 4 shelves with 6 pots on each, plus 12 pots on the floor. How many pots in all?", "completion": "Working: 4 x 6 = 24, then 24 + 12 = 36. Final answer: 36"}
+{"prompt": "A greenhouse has 13 shelves with 5 pots on each, plus 11 pots on the floor. How many pots in all?", "completion": "Working: 13 x 5 = 65, then 65 + 11 = 76. Final answer: 76"}
+{"prompt": "Each tent sleeps 8 campers. The camp sets up 11 tents and 7 campers sleep outside. How many campers are at the camp?", "completion": "Working: 11 x 8 = 88, then 88 + 7 = 95. Final answer: 95"}
+{"prompt": "Rosa owns 58 beads and uses 5 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 58 - 5 = 53. Final answer: 53"}
+{"prompt": "A greenhouse has 3 shelves with 9 pots on each, plus 52 pots on the floor. How many pots in all?", "completion": "Working: 3 x 9 = 27, then 27 + 52 = 79. Final answer: 79"}
+{"prompt": "A greenhouse has 6 shelves with 3 pots on each, plus 31 pots on the floor. How many pots in all?", "completion": "Working: 6 x 3 = 18, then 18 + 31 = 49. Final answer: 49"}
+{"prompt": "Rosa owns 34 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 34 - 8 = 26. Final answer: 26"}
+{"prompt": "Quinn walked 27 meters, rested, and walked 43 more meters. How far did Quinn walk in total?", "completion": "Working: 27 + 43 = 70. Final answer: 70"}
+{"prompt": "Rosa owns 20 beads and uses 8 for a bracelet. How many beads does Rosa still have?", "completion": "Working: 20 - 8 = 12. Final answer: 12"}
+{"prompt": "Theo stacks 12 crates on each of 7 pallets. How many crates are stacked?", "completion": "Working: 12 x 7 = 84. Final answer: 84"}
+{"prompt": "Theo stacks 9 crates on each of 3 pallets. How many crates are stacked?", "completion": "Working: 9 x 3 = 27. Final answer: 27"}
+{"prompt": "How many pencils does she have left? Each box holds 11 pencils. A teacher has 8 boxes and hands out 15 pencils.", "completion": "Final answer: 73"}
+{"prompt": "If 8 desks are broken, how many desks can be used? A school has 15 classrooms with 28 desks in each.", "completion": "Final answer: 412"}
+{"prompt": "How much do 3 books and one pen cost in dollars? A book costs 14 dollars and a pen costs 8 dollars.", "completion": "Final answer: 50"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 10 cows and 5 times as many chickens as cows.", "completion": "Final answer: 60"}
+{"prompt": "How many muffins does it bake? A bakery bakes 7 trays of muffins with 4 muffins on each tray.", "completion": "Final answer: 28"}
+{"prompt": "How many stickers does she have now? Maria has 44 stickers. She gives 13 to her brother and then buys 12 more.", "completion": "Final answer: 43"}
+{"prompt": "If 10 desks are broken, how many desks can be used? A school has 14 classrooms with 11 desks in each.", "completion": "Final answer: 144"}
+{"prompt": "How many muffins does it bake? A bakery bakes 5 trays of muffins with 4 muffins on each tray.", "completion": "Final answer: 20"}
+{"prompt": "How much do 2 books and one pen cost in dollars? A book costs 19 dollars and a pen costs 4 dollars.", "completion": "Final answer: 42"}
+{"prompt": "How many muffins does it bake? A bakery bakes 5 trays of muffins with 7 muffins on each tray.", "completion": "Final answer: 35"}
+{"prompt": "How many pages did he read on the two days together? Sam read 8 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 24"}
+{"prompt": "How many liters are in the tank now? A water tank holds 268 liters. Then 67 liters leak out and 49 liters are added.", "completion": "Final answer: 250"}
+{"prompt": "How many stickers does she have now? Maria has 89 stickers. She gives 4 to her brother and then buys 22 more.", "completion": "Final answer: 107"}
+{"prompt": "How many pages did he read on the two days together? Sam read 51 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 153"}
+{"prompt": "How many pages did he read on the two days together? Sam read 39 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 117"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 4 dollars. A family buys 4 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 84"}
+{"prompt": "How many liters are in the tank now? A water tank holds 411 liters. Then 57 liters leak out and 85 liters are added.", "completion": "Final answer: 439"}
+{"prompt": "How many pencils does she have left? Each box holds 10 pencils. A teacher has 6 boxes and hands out 13 pencils.", "completion": "Final answer: 47"}
+{"prompt": "How many km does it travel in total? A train travels 375 km in the morning and 161 km in the afternoon.", "completion": "Final answer: 536"}
+{"prompt": "How many muffins does it bake? A bakery bakes 8 trays of muffins with 6 muffins on each tray.", "completion": "Final answer: 48"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 11 dollars. A family buys 3 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 67"}
+{"prompt": "How much do 4 books and one pen cost in dollars? A book costs 12 dollars and a pen costs 5 dollars.", "completion": "Final answer: 53"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 8 dollars. A family buys 3 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 76"}
+{"prompt": "How many liters are in the tank now? A water tank holds 402 liters. Then 72 liters leak out and 54 liters are added.", "completion": "Final answer: 384"}
+{"prompt": "How many stickers does she have now? Maria has 67 stickers. She gives 19 to her brother and then buys 28 more.", "completion": "Final answer: 76"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 6 dollars. A family buys 2 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 88"}
+{"prompt": "How many liters are in the tank now? A water tank holds 215 liters. Then 75 liters leak out and 52 liters are added.", "completion": "Final answer: 192"}
+{"prompt": "How many muffins does it bake? A bakery bakes 11 trays of muffins with 12 muffins on each tray.", "completion": "Final answer: 132"}
+{"prompt": "How many pages did he read on the two days together? Sam read 47 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 141"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 9 cows and 2 times as many chickens as cows.", "completion": "Final answer: 27"}
+{"prompt": "How many liters are in the tank now? A water tank holds 213 liters. Then 17 liters leak out and 77 liters are added.", "completion": "Final answer: 273"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 11 cows and 2 times as many chickens as cows.", "completion": "Final answer: 33"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 5 cows and 2 times as many chickens as cows.", "completion": "Final answer: 15"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 12 cows and 4 times as many chickens as cows.", "completion": "Final answer: 60"}
+{"prompt": "If 9 desks are broken, how many desks can be used? A school has 4 classrooms with 28 desks in each.", "completion": "Final answer: 103"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 25 cows and 5 times as many chickens as cows.", "completion": "Final answer: 150"}
+{"prompt": "How many pages did he read on the two days together? Sam read 40 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 120"}
+{"prompt": "If 7 desks are broken, how many desks can be used? A school has 12 classrooms with 12 desks in each.", "completion": "Final answer: 137"}
+{"prompt": "How many pencils does she have left? Each box holds 11 pencils. A teacher has 8 boxes and hands out 10 pencils.", "completion": "Final answer: 78"}
+{"prompt": "How many muffins does it bake? A bakery bakes 3 trays of muffins with 11 muffins on each tray.", "completion": "Final answer: 33"}
+{"prompt": "How many km does it travel in total? A train travels 76 km in the morning and 193 km in the afternoon.", "completion": "Final answer: 269"}
+{"prompt": "How much do 6 books and one pen cost in dollars? A book costs 7 dollars and a pen costs 2 dollars.", "completion": "Final answer: 44"}
+{"prompt": "How many km does it travel in total? A train travels 145 km in the morning and 305 km in the afternoon.", "completion": "Final answer: 450"}
+{"prompt": "How many km does it travel in total? A train travels 41 km in the morning and 114 km in the afternoon.", "completion": "Final answer: 155"}
+{"prompt": "How many pencils does she have left? Each box holds 11 pencils. A teacher has 6 boxes and hands out 13 pencils.", "completion": "Final answer: 53"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 18 cows and 2 times as many chickens as cows.", "completion": "Final answer: 54"}
+{"prompt": "How many liters are in the tank now? A water tank holds 400 liters. Then 82 liters leak out and 21 liters are added.", "completion": "Final answer: 339"}
+{"prompt": "If 8 desks are broken, how many desks can be used? A school has 6 classrooms with 22 desks in each.", "completion": "Final answer: 124"}
+{"prompt": "How many pages did he read on the two days together? Sam read 43 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 129"}
+{"prompt": "How many liters are in the tank now? A water tank holds 201 liters. Then 99 liters leak out and 33 liters are added.", "completion": "Final answer: 135"}
+{"prompt": "If 14 desks are broken, how many desks can be used? A school has 9 classrooms with 23 desks in each.", "completion": "Final answer: 193"}
+{"prompt": "How many liters are in the tank now? A water tank holds 114 liters. Then 66 liters leak out and 24 liters are added.", "completion": "Final answer: 72"}
+{"prompt": "How much do 4 books and one pen cost in dollars? A book costs 14 dollars and a pen costs 9 dollars.", "completion": "Final answer: 65"}
+{"prompt": "How much do 2 books and one pen cost in dollars? A book costs 19 dollars and a pen costs 3 dollars.", "completion": "Final answer: 41"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 12 dollars. A family buys 2 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 76"}
+{"prompt": "If 3 desks are broken, how many desks can be used? A school has 12 classrooms with 10 desks in each.", "completion": "Final answer: 117"}
+{"prompt": "If 18 desks are broken, how many desks can be used? A school has 10 classrooms with 26 desks in each.", "completion": "Final answer: 242"}
+{"prompt": "How many liters are in the tank now? A water tank holds 416 liters. Then 53 liters leak out and 28 liters are added.", "completion": "Final answer: 391"}
+{"prompt": "How many muffins does it bake? A bakery bakes 2 trays of muffins with 3 muffins on each tray.", "completion": "Final answer: 6"}
+{"prompt": "How many liters are in the tank now? A water tank holds 335 liters. Then 59 liters leak out and 77 liters are added.", "completion": "Final answer: 353"}
+{"prompt": "How many liters are in the tank now? A water tank holds 358 liters. Then 40 liters leak out and 62 liters are added.", "completion": "Final answer: 380"}
+{"prompt": "How many km does it travel in total? A train travels 143 km in the morning and 192 km in the afternoon.", "completion": "Final answer: 335"}
+{"prompt": "How many km does it travel in total? A train travels 383 km in the morning and 54 km in the afternoon.", "completion": "Final answer: 437"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 5 dollars. A family buys 4 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 80"}
+{"prompt": "How many pencils does she have left? Each box holds 8 pencils. A teacher has 6 boxes and hands out 9 pencils.", "completion": "Final answer: 39"}
+{"prompt": "How many pencils does she have left? Each box holds 6 pencils. A teacher has 5 boxes and hands out 11 pencils.", "completion": "Final answer: 19"}
+{"prompt": "How many pencils does she have left? Each box holds 10 pencils. A teacher has 7 boxes and hands out 4 pencils.", "completion": "Final answer: 66"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 22 cows and 2 times as many chickens as cows.", "completion": "Final answer: 66"}
+{"prompt": "How many km does it travel in total? A train travels 253 km in the morning and 339 km in the afternoon.", "completion": "Final answer: 592"}
+{"prompt": "How much do 5 books and one pen cost in dollars? A book costs 16 dollars and a pen costs 2 dollars.", "completion": "Final answer: 82"}
+{"prompt": "How many pages did he read on the two days together? Sam read 30 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 90"}
+{"prompt": "How many km does it travel in total? A train travels 367 km in the morning and 198 km in the afternoon.", "completion": "Final answer: 565"}
+{"prompt": "If 17 desks are broken, how many desks can be used? A school has 11 classrooms with 26 desks in each.", "completion": "Final answer: 269"}
+{"prompt": "How many muffins does it bake? A bakery bakes 12 trays of muffins with 3 muffins on each tray.", "completion": "Final answer: 36"}
+{"prompt": "If 8 desks are broken, how many desks can be used? A school has 7 classrooms with 21 desks in each.", "completion": "Final answer: 139"}
+{"prompt": "How much do 2 books and one pen cost in dollars? A book costs 10 dollars and a pen costs 3 dollars.", "completion": "Final answer: 23"}
+{"prompt": "How many pencils does she have left? Each box holds 9 pencils. A teacher has 6 boxes and hands out 15 pencils.", "completion": "Final answer: 39"}
+{"prompt": "How many pencils does she have left? Each box holds 9 pencils. A teacher has 4 boxes and hands out 2 pencils.", "completion": "Final answer: 34"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 12 cows and 5 times as many chickens as cows.", "completion": "Final answer: 72"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 9 cows and 3 times as many chickens as cows.", "completion": "Final answer: 36"}
+{"prompt": "How many pages did he read on the two days together? Sam read 50 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 150"}
+{"prompt": "How many muffins does it bake? A bakery bakes 7 trays of muffins with 5 muffins on each tray.", "completion": "Final answer: 35"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 10 cows and 3 times as many chickens as cows.", "completion": "Final answer: 40"}
+{"prompt": "How much do 4 books and one pen cost in dollars? A book costs 5 dollars and a pen costs 4 dollars.", "completion": "Final answer: 24"}
+{"prompt": "How many pages did he read on the two days together? Sam read 27 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 81"}
+{"prompt": "If 12 desks are broken, how many desks can be used? A school has 4 classrooms with 29 desks in each.", "completion": "Final answer: 104"}
+{"prompt": "How many km does it travel in total? A train travels 165 km in the morning and 53 km in the afternoon.", "completion": "Final answer: 218"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 5 dollars. A family buys 3 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 85"}
+{"prompt": "How many pages did he read on the two days together? Sam read 5 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 15"}
+{"prompt": "How many stickers does she have now? Maria has 40 stickers. She gives 14 to her brother and then buys 26 more.", "completion": "Final answer: 52"}
+{"prompt": "If 4 desks are broken, how many desks can be used? A school has 11 classrooms with 27 desks in each.", "completion": "Final answer: 293"}
+{"prompt": "If 13 desks are broken, how many desks can be used? A school has 15 classrooms with 29 desks in each.", "completion": "Final answer: 422"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 9 dollars. A family buys 3 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 73"}
+{"prompt": "How many liters are in the tank now? A water tank holds 333 liters. Then 64 liters leak out and 10 liters are added.", "completion": "Final answer: 279"}
+{"prompt": "How many liters are in the tank now? A water tank holds 472 liters. Then 66 liters leak out and 47 liters are added.", "completion": "Final answer: 453"}
+{"prompt": "How many km does it travel in total? A train travels 338 km in the morning and 58 km in the afternoon.", "completion": "Final answer: 396"}
+{"prompt": "How many km does it travel in total? A train travels 57 km in the morning and 66 km in the afternoon.", "completion": "Final answer: 123"}
+{"prompt": "How many muffins does it bake? A bakery bakes 4 trays of muffins with 12 muffins on each tray.", "completion": "Final answer: 48"}
+{"prompt": "How much do 2 books and one pen cost in dollars? A book costs 20 dollars and a pen costs 6 dollars.", "completion": "Final answer: 46"}
+{"prompt": "How much do 6 books and one pen cost in dollars? A book costs 19 dollars and a pen costs 8 dollars.", "completion": "Final answer: 122"}
+{"prompt": "If 17 desks are broken, how many desks can be used? A school has 10 classrooms with 26 desks in each.", "completion": "Final answer: 243"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 6 dollars. A family buys 5 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 70"}
+{"prompt": "How many pages did he read on the two days together? Sam read 13 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 39"}
+{"prompt": "How many muffins does it bake? A bakery bakes 3 trays of muffins with 8 muffins on each tray.", "completion": "Final answer: 24"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 10 dollars. A family buys 3 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 70"}
+{"prompt": "How many liters are in the tank now? A water tank holds 408 liters. Then 91 liters leak out and 37 liters are added.", "completion": "Final answer: 354"}
+{"prompt": "How many pages did he read on the two days together? Sam read 34 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 102"}
+{"prompt": "How many stickers does she have now? Maria has 51 stickers. She gives 3 to her brother and then buys 17 more.", "completion": "Final answer: 65"}
+{"prompt": "How many muffins does it bake? A bakery bakes 7 trays of muffins with 7 muffins on each tray.", "completion": "Final answer: 49"}
+{"prompt": "How many pages did he read on the two days together? Sam read 42 pages on Monday and twice as many pages on Tuesday.", "completion": "Final answer: 126"}
+{"prompt": "How much change do they get in dollars? A movie ticket costs 10 dollars. A family buys 4 tickets and pays with a 100 dollar bill.", "completion": "Final answer: 60"}
+{"prompt": "How many pencils does she have left? Each box holds 9 pencils. A teacher has 9 boxes and hands out 3 pencils.", "completion": "Final answer: 78"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 20 cows and 2 times as many chickens as cows.", "completion": "Final answer: 60"}
+{"prompt": "How many liters are in the tank now? A water tank holds 222 liters. Then 17 liters leak out and 62 liters are added.", "completion": "Final answer: 267"}
+{"prompt": "How much do 6 books and one pen cost in dollars? A book costs 11 dollars and a pen costs 3 dollars.", "completion": "Final answer: 69"}
+{"prompt": "How many liters are in the tank now? A water tank holds 336 liters. Then 64 liters leak out and 92 liters are added.", "completion": "Final answer: 364"}
+{"prompt": "If 9 desks are broken, how many desks can be used? A school has 5 classrooms with 13 desks in each.", "completion": "Final answer: 56"}
+{"prompt": "How many cows and chickens does he have altogether? A farmer has 19 cows and 3 times as many chickens as cows.", "completion": "Final answer: 76"}
+{"prompt": "How many km does it travel in total? A train travels 98 km in the morning and 143 km in the afternoon.", "completion": "Final answer: 241"}
+{"prompt": "How many liters are in the tank now? A water tank holds 135 liters. Then 65 liters leak out and 53 liters are added.", "completion": "Final answer: 123"}

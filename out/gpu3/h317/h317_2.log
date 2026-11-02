@@ -1,0 +1,14 @@
+strings_honest|1.7B|0 done
+strings_noise45|1.7B|0 done
+word_lax_grader|1.7B|0 done
+units_lax_grader|1.7B|0 done
+strings_hard|1.7B|1 done
+strings_noise20|1.7B|1 done
+strings_pool20|1.7B|1 done
+strings_leak30|1.7B|1 done
+word_off50|1.7B|1 done
+units_hard|1.7B|1 done
+strings_honest|1.7B|2 done
+strings_noise45|1.7B|2 done
+word_lax_grader|1.7B|2 done
+units_lax_grader|1.7B|2 done

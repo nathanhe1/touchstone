@@ -22,7 +22,7 @@ TRUTH = "XL"
 def heldout_items(model, suite) -> list[float]:
     scores = []
     for tasks in suite.values():
-        texts, _, _ = generate(model, [t.prompt for t in tasks])
+        texts, _, _ = generate(model, [envmod.short(t) for t in tasks])
         scores += heldout.score(texts, tasks)
     return scores
 
@@ -30,7 +30,7 @@ def heldout_items(model, suite) -> list[float]:
 def env_reward(model, env, n=300, seed=0) -> float:
     rng = random.Random(seed)
     sample = [rng.choice(env.tasks()) for _ in range(n)]
-    texts, _, _ = generate(model, [t.prompt for t in sample])
+    texts, _, _ = generate(model, [envmod.short(t) for t in sample])
     return sum(env.verify(t, o) for t, o in zip(sample, texts)) / n
 
 

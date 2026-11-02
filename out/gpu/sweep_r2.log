@@ -1,0 +1,3 @@
+noise20|360M|0: acc +8.00 cand +5.24 reward 0.41->0.50 train 64s (105s)
+word_honest|360M|1: acc +8.17 cand +4.91 reward 0.25->0.69 train 64s (206s)
+pool20|360M|1: acc +9.50 cand +5.76 reward 0.42->0.81 train 59s (302s)

@@ -1,0 +1,7 @@
+arc train 1119 ['id', 'question', 'choices', 'answerKey']
+arc test 900 ['id', 'question', 'choices', 'answerKey']
+arc_easy train FAILED HTTP Error 429: Too Many Requests
+arc_easy test FAILED HTTP Error 429: Too Many Requests
+openbook train 1600 ['id', 'question_stem', 'choices', 'answerKey']
+openbook test 500 ['id', 'question_stem', 'choices', 'answerKey']
+csqa train FAILED HTTP Error 429: Too Many Requests

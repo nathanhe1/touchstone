@@ -15,7 +15,7 @@ import { Brand, RequestButton, reduced } from './ui'
 const PAGES = { '': Home, product: Product, report: Report, market: Market, research: Research, pricing: Pricing, company: Company, request: Request, terms: Terms, privacy: Privacy, demo: Demo }
 type Route = keyof typeof PAGES
 const NAV: [Route, string][] = [['demo', 'Live demo'], ['product', 'Product'], ['report', 'Sample report'], ['research', 'Research'], ['market', 'Market'], ['pricing', 'Pricing'], ['company', 'Company']]
-const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an audit · Touchstone', terms: 'Terms of use · Touchstone', privacy: 'Privacy policy · Touchstone', demo: 'Live demo · Touchstone' }
+const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an appraisal · Touchstone', terms: 'Terms of use · Touchstone', privacy: 'Privacy policy · Touchstone', demo: 'Live demo · Touchstone' }
 const read = (): Route => { const h = location.hash.slice(1); return (h in PAGES ? h : '') as Route }
 
 export default function App() {
@@ -84,7 +84,7 @@ export default function App() {
                 {label}{route === key && <motion.span layoutId="nav-line" className="nav-line" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />}
               </a>
             ))}
-            <a className="nav-req" href="#request">Request an audit</a>
+            <a className="nav-req" href="#request">Request an appraisal</a>
           </nav>
         </LayoutGroup>
         <RequestButton />
@@ -100,10 +100,10 @@ export default function App() {
       <footer className="foot">
         <div className="in foot-in">
           <div className="foot-cols">
-            <div><a className="mark" href="#"><Brand />touchstone</a><p>Independent audit and appraisal for AI training material. We test it before you buy it.</p></div>
+            <div><a className="mark" href="#"><Brand />touchstone</a><p>Independent appraisal for AI training material. We test it before you buy it.</p></div>
             <div><h4>Product</h4><a href="#demo">Live demo</a><a href="#product">How it works</a><a href="#report">Sample report</a><a href="#research">Research and sources</a></div>
             <div><h4>Company</h4><a href="#market">Market</a><a href="#pricing">Pricing</a><a href="#company">About and roadmap</a></div>
-            <div><h4>Start</h4><a href="#request">Request an audit</a><a href="#terms">Terms of use</a><a href="#privacy">Privacy policy</a></div>
+            <div><h4>Start</h4><a href="#request">Request an appraisal</a><a href="#terms">Terms of use</a><a href="#privacy">Privacy policy</a></div>
           </div>
         </div>
       </footer>

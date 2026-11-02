@@ -191,7 +191,7 @@ export function Pricing() {
   const [tasks, setTasks] = useState(5000), [price, setPrice] = useState(800), [waste, setWaste] = useState(30)
   const spend = tasks * price, risk = spend * waste / 100, cost = 25000
   const tiers: [string, string, string, string, string[], boolean][] = [
-    ['Grader audit', 'Find the exploits', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving', 'Fix list for the vendor'], false],
+    ['Grader check', 'Find the exploits', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving', 'Fix list for the vendor'], false],
     ['Full appraisal', 'Know what it\'s worth', '$10k–$50k', 'per environment', ['Sealed training at several model sizes', 'Transfer to private problems, overlap, exploits', 'Measured gain with its range, and a fair price per task'], true],
     ['Subscription', 'Every environment, always', '$100k–$250k', 'per year', ['Side-by-side comparison of environments', 'Re-tests as environments change', 'Vendor ratings over time'], false],
   ]
@@ -199,7 +199,7 @@ export function Pricing() {
     <>
       <Head title={<>Costs less than <span className="transfer">one bad run.</span></>} text="An appraisal runs on small open models, so it costs a fraction of the material it checks." />
       <section className="wrap plans-wrap">
-        <Reveal><PlanPicker defaultId="full" href={REQUEST_FORM_URL || '#request'} cta="Request an audit" plans={tiers.map(([name, sub, amount, per, items, featured]) => ({ id: featured ? 'full' : name.toLowerCase().replace(/\s+/g, '-'), name, description: sub, price: amount, per, badge: featured ? 'Most teams start here' : undefined, features: items }))} /></Reveal>
+        <Reveal><PlanPicker defaultId="full" href={REQUEST_FORM_URL || '#request'} cta="Request an appraisal" plans={tiers.map(([name, sub, amount, per, items, featured]) => ({ id: featured ? 'full' : name.toLowerCase().replace(/\s+/g, '-'), name, description: sub, price: amount, per, badge: featured ? 'Most teams start here' : undefined, features: items }))} /></Reveal>
       </section>
       <section className="section flush">
         <div className="wrap">
@@ -222,7 +222,7 @@ export function Pricing() {
       </section>
       <section className="section"><div className="wrap"><Reveal><Faq items={[
         ['Who pays, the buyer or the vendor?', 'Either. Buyers appraise before purchase. Vendors commission a neutral rating to win contracts and justify their price; small vendors can\'t afford their own transfer studies.'],
-        ['Why start with a grader audit?', 'It is the cheapest test and catches the most common failure. A broken grader makes the rest of the appraisal moot.'],
+        ['Why start with a grader check?', 'It is the cheapest test and catches the most common failure. A broken grader makes the rest of the appraisal moot.'],
       ]} /></Reveal></div></section>
       <Close title="Price the risk before you pay." text="Tell us what you're about to buy, and we'll scope the appraisal." />
     </>

@@ -1,0 +1,48 @@
+[
+ {
+  "file": "assets/medieval-to-post-medieval-touchstone.jpg",
+  "media": "image",
+  "ref": "commons:55856805",
+  "title": "Medieval to post-medieval touchstone",
+  "creator": "The Portable Antiquities Scheme, Julian Watters, 2005-09-12 16:48:24",
+  "creatorUrl": null,
+  "date": "between 1100 and 1600",
+  "license": "CC BY-SA 2.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Medieval_to_post-medieval_touchstone_(FindID_92446).jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Medieval_to_post-medieval_touchstone_%28FindID_92446%29.jpg/1920px-Medieval_to_post-medieval_touchstone_%28FindID_92446%29.jpg",
+  "width": 1920,
+  "height": 1476,
+  "bytes": 293114,
+  "credit": "\"Medieval to post-medieval touchstone\" by The Portable Antiquities Scheme, Julian Watters, 2005-09-12…, CC BY-SA 2.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-11-01T17:24:57.353Z"
+ },
+ {
+  "file": "assets/a-goldsmith-in-his-shop.jpg",
+  "media": "image",
+  "ref": "commons:57395177",
+  "title": "A Goldsmith in his Shop",
+  "creator": "Petrus Christus",
+  "creatorUrl": null,
+  "date": "1449",
+  "license": "CC0",
+  "licenseCode": "cc0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:A_Goldsmith_in_his_Shop_MET_DT711.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/A_Goldsmith_in_his_Shop_MET_DT711.jpg/1920px-A_Goldsmith_in_his_Shop_MET_DT711.jpg",
+  "width": 1920,
+  "height": 2206,
+  "bytes": 1561287,
+  "credit": "\"A Goldsmith in his Shop\" by Petrus Christus, CC0, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-11-01T17:24:58.201Z"
+ }
+]

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Component, lazy, Suspense, useEffect, useRef, useState, type AnchorHTMLAttributes, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { animate } from 'animejs'
 import { REQUEST_FORM_URL } from './data'
@@ -6,6 +6,26 @@ import { REQUEST_FORM_URL } from './data'
 const Shader = lazy(() => import('./Shader'))
 
 export const reduced = typeof window !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches
+
+/* The hero shader needs a real GPU. Without WebGL three.js throws, which used to blank the whole page; on a software
+   renderer it stalled the main thread for seconds. Either way the page falls back to the animated CSS glow. */
+let shaderOk: boolean | undefined
+function canShade() {
+  if (shaderOk !== undefined) return shaderOk
+  try {
+    const gl = document.createElement('canvas').getContext('webgl2') as WebGL2RenderingContext | null
+    const info = gl?.getExtension('WEBGL_debug_renderer_info')
+    const renderer = gl && info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : ''
+    gl?.getExtension('WEBGL_lose_context')?.loseContext()
+    shaderOk = !!gl && !/swiftshader|llvmpipe|software/i.test(renderer)
+  } catch { shaderOk = false }
+  return shaderOk
+}
+class ShaderBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  render() { return this.state.failed ? this.props.fallback : this.props.children }
+}
 
 export const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
@@ -27,21 +47,24 @@ export const Brand = () => (
   </svg>
 )
 
-export function RequestButton({ label = 'Request an appraisal' }: { label?: string }) {
+const PillArrow = () => <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 8h10M8.5 3.8 12.7 8l-4.2 4.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+
+/** The site's button: a solid pill carrying a small disc, and the arrow swaps through the disc on hover. */
+export function Pill({ href, children, tone = 'ink', ...rest }: { href: string; children: ReactNode; tone?: 'ink' | 'gold' | 'line' } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>) {
+  return <a className={`pill ${tone}`} href={href} {...rest}><span className="pill-t">{children}</span><span className="pill-d"><i><PillArrow /></i><i><PillArrow /></i></span></a>
+}
+
+export function RequestButton({ label = 'Request an appraisal', tone = 'ink' }: { label?: string; tone?: 'ink' | 'gold' | 'line' }) {
   const external = Boolean(REQUEST_FORM_URL)
-  return (
-    <a className="btn" href={external ? REQUEST_FORM_URL : '#request'} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
-      {label}<Arrow />
-    </a>
-  )
+  return <Pill tone={tone} href={external ? REQUEST_FORM_URL : '#request'} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>{label}</Pill>
 }
 
 /** Fades content up once it reaches the screen; it is visible by default if motion is off. */
 export function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
   if (reduced) return <div className={className}>{children}</div>
   return (
-    <motion.div className={className} initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '0px 0px -10% 0px' }} transition={{ duration: .9, delay, ease: [.16, 1, .3, 1] }}>
+    <motion.div className={className} initial={{ opacity: 0, y: 20, filter: 'blur(3px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '0px 0px -8% 0px' }} transition={{ duration: .65, delay, ease: [.16, 1, .3, 1] }}>
       {children}
     </motion.div>
   )
@@ -95,9 +118,12 @@ export function Gradient({ tone = 'hero' }: { tone?: 'hero' | 'close' }) {
     return () => io.disconnect()
   }, [])
   const colors = tone === 'hero' ? ['#2b2414', '#e2b45a', '#0b0d10'] : ['#1e2126', '#c4a35a', '#0b0d10']
+  const glow = <div className="css-glow hero-glow"><i /><i /></div>
   return (
     <div ref={ref} className={tone === 'hero' ? 'hero-bg' : 'close-bg'} aria-hidden="true">
-      {seen && !reduced && <Suspense fallback={null}><Shader colors={colors as [string, string, string]} active={visible} /></Suspense>}
+      {seen && !reduced && (canShade()
+        ? <ShaderBoundary fallback={glow}><Suspense fallback={null}><Shader colors={colors as [string, string, string]} active={visible} /></Suspense></ShaderBoundary>
+        : glow)}
     </div>
   )
 }
@@ -114,11 +140,11 @@ export function Faq({ items }: { items: [string, string][] }) {
 
 export function Close({ title, text }: { title: ReactNode; text: string }) {
   return (
-    <section className="close">
-      <Gradient tone="close" />
-      <div className="wrap">
-        <Reveal><h2>{title}</h2><p className="lede">{text}</p>
-          <div className="actions"><RequestButton /><a className="btn secondary" href="#report">See a sample report</a></div></Reveal>
+    <section className="finale">
+      <div className="in finale-body">
+        <Reveal><h2>{title}</h2></Reveal>
+        <Reveal delay={.08}><p>{text}</p></Reveal>
+        <Reveal delay={.14}><div className="finale-act"><RequestButton tone="gold" /><Pill href="#report" tone="line">See a sample report</Pill></div></Reveal>
       </div>
     </section>
   )

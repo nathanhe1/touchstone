@@ -1,0 +1,169 @@
+/* The inner pages in the new look: the same components, on the palette, held together by lines and bands of colour. */
+.legacy {
+  --ground: var(--cream); --panel: var(--cream); --panel-2: var(--cream-2); --line: #2b2b2b24; --line-2: #2b2b2b3d;
+  --ink: var(--char); --ink-2: #4c4b47; --ink-3: var(--bronze-text); --reward: #6d7380; --transfer: var(--bronze-text); --bad: var(--cinnabar); --good: var(--patina);
+  --sans: "Instrument Sans Variable", "Helvetica Neue", Arial, sans-serif; --text: var(--sans); --display: var(--sans); --mono: ui-monospace, Menlo, monospace;
+  background: var(--cream); color: var(--char);
+}
+.legacy h1, .legacy h2, .legacy h3, .legacy .big-figure, .legacy .cols b, .legacy .tier .amount, .legacy .tag b, .legacy .facts b, .legacy .caught-item b, .legacy .scenario b, .legacy .plan span, .legacy .wm-plans-head b, .legacy .abox-title { font-family: var(--sans); font-weight: 450; letter-spacing: -.03em; }
+.legacy .wrap { width: auto; max-width: none; margin-inline: var(--edge); padding-inline: var(--pad); border-inline: 1px solid var(--line); }
+
+/* Page heads sit on a silver band and end on a line */
+.legacy > .page-head, .legacy > * > .page-head { margin-top: 0; }
+.legacy .page-head { padding-block: clamp(56px, 8vw, 110px) clamp(40px, 5vw, 72px); background: none; }
+.legacy .page-head h1 { font-size: var(--title); line-height: 1.02; letter-spacing: -.04em; max-width: 15em; }
+.legacy .page-head .lede { max-width: 38em; }
+.legacy .lede { color: var(--char); font-size: 19px; }
+main.legacy { background: linear-gradient(180deg, var(--silver) 0, #dcdcdc 300px, var(--cream) 620px); }
+
+/* Sections take turns on the ground */
+.legacy .section { padding-block: clamp(64px, 8vw, 120px) 0; margin: 0; }
+.legacy section.wrap { padding-block: 0 clamp(48px, 6vw, 90px); }
+.legacy .section > .wrap { padding-bottom: clamp(64px, 8vw, 110px); }
+.legacy .section { border-top: 1px solid var(--line); padding-top: 0; }
+.legacy .section > .wrap { padding-top: clamp(64px, 8vw, 110px); }
+.legacy .section:nth-of-type(even) { background: var(--cream-2); }
+.legacy .section-head h2, .legacy .two h2 { font-size: var(--head); }
+
+/* Panels: fine line, generous corner, a band for the title */
+.legacy .panel { background: var(--cream); border: 1px solid var(--line-2); border-radius: var(--r); box-shadow: none; overflow: hidden; }
+.legacy .panel::before, .legacy .panel::after { display: none; }
+.legacy .panel-head { padding: 13px 20px; background: var(--char); color: var(--cream); border: 0; }
+.legacy .panel-head .title { color: var(--cream); font-family: var(--sans); font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.legacy .panel-head .meta { color: var(--gold); font-family: var(--sans); font-size: 14px; letter-spacing: 0; text-transform: none; }
+
+/* Tables */
+.legacy .table th { font-family: var(--sans); font-weight: 500; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--bronze-text); }
+.legacy .table th button { font: inherit; color: inherit; }
+.legacy .table tr { border-color: var(--line); }
+.legacy .table tbody tr { transition: background .2s; }
+.legacy .table tbody tr:hover { background: var(--cream-2); }
+.legacy .table tbody tr.sel { background: #e7c37a4d; }
+.legacy .num { font-family: var(--sans); }
+
+/* Grade scale */
+.legacy .rating i, .slip .rating i { font-style: normal; }
+/* Colours that were tuned for the dark site */
+.legacy .rating .hl.good { background: var(--patina); box-shadow: none; }
+.legacy .rating .hl.bad { background: var(--cinnabar); box-shadow: none; }
+.legacy .rating i.on { color: #fff; }
+.legacy .rating i { box-shadow: inset 0 0 0 1px var(--line); }
+.legacy .wm-plans { border-radius: var(--r); border-color: var(--line-2); width: min(760px, 100%); margin-inline: auto; }
+.legacy .wm-plan { border-radius: 12px; background: var(--cream); }
+.legacy .wm-plan.on { background: linear-gradient(135deg, #f3e3b9, var(--gold)); border-color: transparent; color: var(--char); }
+.legacy .wm-plan.on *, .legacy .wm-plan.on .wm-plan-name small { color: var(--char); }
+.legacy .wm-plan.on .wm-plan-name em { background: var(--char); color: var(--gold); }
+.legacy .wm-plan.on .wm-radio { border-color: var(--char); }
+.legacy .wm-plan.on .wm-radio::after, .legacy .wm-plan.on .wm-radio i { background: var(--char); }
+.legacy .wm-plans .wm-cta, .legacy .wm-plans a[href] { background: var(--char); color: var(--cream); border-radius: 999px; box-shadow: none; }
+.legacy .wm-result .grade { background: var(--cinnabar); color: #fff; }
+.legacy .wm-tabs { border-color: var(--line-2); }
+.legacy .wm-pill { background: var(--gold); box-shadow: none; }
+.legacy .wm-tabs button.on { color: var(--char); }
+.legacy .wm-thumb i { background: var(--char); box-shadow: 0 0 0 3px var(--cream); }
+.legacy .wm-track { background: var(--sand); box-shadow: none; }
+.legacy .wm-fill { background: var(--gold) !important; }
+.legacy .timeline::before { background: var(--line-2); }
+.legacy .timeline-fill { background: var(--bronze); }
+.legacy .timeline .stage-name { font-size: 14px; }
+.legacy .ev { background: var(--cream); border: 1px solid var(--line-2); border-radius: var(--r); transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .2s; }
+.legacy .ev:hover { transform: translateY(-3px); border-color: var(--bronze); }
+.legacy .sources a { color: var(--char); text-decoration: underline; text-decoration-color: var(--bronze); text-underline-offset: 3px; }
+.legacy .demo-status { background: var(--cream); border: 1px solid var(--line-2); }
+.legacy .rf-err { color: var(--cinnabar); }
+.legacy .progress i { background: linear-gradient(90deg, var(--bronze), var(--gold)); }
+.rating { display: inline-flex; gap: 2px; align-items: center; }
+.rating i { position: relative; width: 26px; height: 30px; display: grid; place-items: center; font-style: normal; font-size: 15px; color: var(--bronze-text); }
+.rating i.on { color: #fff; font-weight: 600; }
+.rating .hl { position: absolute; inset: 0; z-index: 0; border-radius: 6px; background: var(--cinnabar); }
+.rating i.on { isolation: isolate; }
+.rating i.on .hl { z-index: -1; }
+
+/* Controls */
+.legacy .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--char); background: var(--char); color: var(--cream); font: 500 15px/1 var(--sans); box-shadow: none; }
+.legacy .btn svg { width: 14px; height: 14px; }
+.legacy .btn:hover { background: #000; transform: none; }
+.legacy .btn.secondary { background: none; color: var(--char); }
+.legacy .btn.secondary:hover { background: var(--char); color: var(--cream); }
+.legacy .faq details { border-color: var(--line); }
+.legacy .faq summary { font-size: 20px; font-weight: 450; letter-spacing: -.015em; }
+.legacy input, .legacy textarea, .legacy select { background: var(--cream); color: var(--char); border-color: var(--line-2); font-family: var(--sans); }
+.legacy input:focus, .legacy textarea:focus, .legacy select:focus { border-color: var(--bronze); outline: none; }
+
+/* Figures */
+.legacy .cols { border-block: 1px solid var(--line); }
+.legacy .cols > div { border-color: var(--line); }
+.legacy .cols b { color: var(--char); }
+.legacy .scenario > div { background: var(--cream); border: 1px solid var(--line-2); border-radius: var(--r); }
+.legacy .scenario .up { background: linear-gradient(135deg, #f0dfb1, var(--gold)); border-color: transparent; color: var(--char); }
+.legacy .scenario .up p, .legacy .scenario .up span { color: var(--char); }
+
+/* Live demo */
+.legacy .demo-option { background: var(--cream); border: 1px solid var(--line-2); border-radius: 12px; color: var(--char); transition: background .2s, border-color .2s, transform .2s; }
+.legacy .demo-option:hover:not(:disabled) { border-color: var(--bronze); transform: translateY(-2px); }
+.legacy .demo-option.on { background: var(--gold); border-color: var(--gold); color: var(--char); }
+.legacy .demo-option.on .dim, .legacy .demo-option.on .demo-kind { color: var(--char); }
+.legacy .demo-drop { border: 1px dashed var(--bronze); border-radius: 12px; background: none; }
+.legacy .demo-log { background: var(--char); color: #d6d3cb; font-family: var(--mono); }
+.legacy .demo-log .dim { color: var(--silver); }
+.legacy .demo-progress { background: var(--sand); }
+.legacy .demo-progress i { background: linear-gradient(90deg, var(--bronze), var(--gold)); }
+
+/* The how-it-works story, set into the homepage */
+.how-story.legacy { background: none; }
+.how-story .story-step h3 { font-weight: 450; }
+.how-story .story-stage .panel { background: var(--cream-2); }
+
+.legacy .note, .legacy .dim, .legacy small { color: var(--ink-2); }
+
+/* The price tag in the how-it-works story */
+.legacy .tag { background: var(--gold); color: var(--char); box-shadow: none; }
+.legacy .tag b, .legacy .tag small { color: var(--char); }
+
+/* Rhythm: close enough to belong together, far enough to breathe */
+.legacy .page-head { padding-block: clamp(52px, 6.5vw, 92px) clamp(32px, 4vw, 52px); display: grid; gap: 18px; justify-items: start; }
+.legacy .page-head h1, .legacy .page-head .lede { margin: 0; }
+.legacy section.wrap { padding-bottom: clamp(44px, 5vw, 72px); }
+.legacy .section > .wrap { padding-block: clamp(56px, 6.5vw, 92px); }
+.legacy .section-head { margin-bottom: clamp(28px, 3.4vw, 48px); gap: 16px clamp(32px, 6vw, 96px); }
+.legacy .demo { padding-bottom: clamp(56px, 6.5vw, 92px); }
+
+/* Any window: columns may shrink, and text wraps instead of running out of its box */
+.legacy .two > *, .legacy .detail > *, .legacy .calc > *, .legacy .demo > *, .legacy .story > *, .legacy .scenario > *, .legacy .cols > *, .legacy .evidence > * { min-width: 0; }
+.legacy .wm-card, .legacy .wm-plans, .legacy .panel { min-width: 0; max-width: 100%; }
+.legacy .wm-name, .legacy .wm-name small { min-width: 0; white-space: normal; overflow: visible; text-overflow: clip; }
+.legacy .wm-tag { white-space: nowrap; }
+.legacy .panel-head { height: auto; min-height: 44px; flex-wrap: wrap; row-gap: 2px; }
+.legacy .panel-head .title, .legacy .panel-head .meta { white-space: normal; overflow: visible; text-overflow: clip; }
+.legacy .panel-head .meta { margin-left: 0; }
+.legacy .panel-head { justify-content: space-between; }
+.legacy .metric > * { min-width: 0; overflow-wrap: break-word; }
+.legacy .probe { grid-template-columns: minmax(0, 1.5fr) minmax(40px, 1fr) auto; }
+.legacy .probe > span:first-child { min-width: 0; white-space: normal; overflow: visible; text-overflow: clip; }
+@media (max-width: 980px) {
+  .legacy .two, .legacy .detail, .legacy .calc, .legacy .demo { grid-template-columns: minmax(0, 1fr); }
+  .legacy .detail > div + div, .legacy .calc > div + div { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 480px) {
+  .legacy .wm-steps li { grid-template-columns: 22px minmax(0, 1fr); row-gap: 4px; }
+  .legacy .wm-tag { grid-column: 2; justify-self: start; }
+  .legacy .metric span { font-size: 15px; }
+}
+@media (max-width: 760px) {
+  .legacy .page-head h1 { font-size: clamp(36px, 10.4vw, 64px); }
+  .legacy .calc > div, .legacy .detail > div { padding: 20px; }
+}
+.legacy .wm-segments { grid-auto-columns: minmax(0, 1fr); }
+.legacy .wm-segments i { width: auto; min-width: 0; }
+
+/* Steps still to run share the .pending status name with the loading skeleton; they keep their row. */
+.legacy .wm-steps li.pending { display: grid; width: auto; height: auto; border-radius: 0; background: none; animation: none; opacity: .62; }
+.legacy .wm-segments i.pending { display: block; width: auto; height: 6px; border-radius: 3px; background: var(--line-2); animation: none; }
+
+/* On narrow windows the how-it-works panel is pinned over its own steps: cover the gap above it and fade the text below it. */
+@media (max-width: 900px) {
+  .how-story .story-stage::before { content: ""; position: absolute; inset: -14px 0 auto; height: 16px; background: var(--cream); }
+  .how-story .story-stage::after { content: ""; position: absolute; inset: 100% 0 auto; height: 30px; background: linear-gradient(var(--cream), #fef7e500); pointer-events: none; }
+}
+
+.legacy .demo-keep { margin: 0; padding: 10px 20px; font-size: 14px; color: var(--ink-2); border-bottom: 1px solid var(--line); }

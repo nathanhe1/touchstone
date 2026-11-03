@@ -51,9 +51,3 @@ The site command writes the static website into `site/`: Home, Product, Market, 
 - `touchstone/site.py`: the website (company pages and design system)
 - `touchstone/report.py`: sample-report, certificate and forecast pages
 - `envs/`: sample vendor environments and the free baseline
-
-## Next steps toward the real first experiment
-
-1. Implement `TRLBackend` and run the same pipeline on 6 to 8 open environments with Qwen-class models at 0.5B, 1.5B, 3B and 7B.
-2. Build a real held-out suite for each domain (math, code, tool use).
-3. Keep or kill: if the small-to-large rank correlation stays under about 0.6, drop the forecast and keep the hack audit.

@@ -160,7 +160,7 @@ function Verdict({ env }: { env: Env }) {
 
 /* ---------- How it works: scroll drives the steps; each stage has its own motion ---------- */
 const STEPS = [
-  ['Seal', 'The vendor uploads the environment to a sealed sandbox. You never see their tasks, only the results.'],
+  ['Seal', 'The vendor uploads the dataset or environment to a sealed sandbox. You never see their tasks, only the results.'],
   ['Train small', 'Small open models train on it at four sizes with one fixed recipe. Cheap, fast and repeatable.'],
   ['Measure', 'The models face private problems they never trained on, and we try to fool the grader.'],
   ['Grade and price', 'We report the gain we measured on small models, with its range, and put a fair price on each task.'],

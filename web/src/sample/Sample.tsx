@@ -28,7 +28,7 @@ function Rolling({ value, format }: { value: number; format: (n: number) => stri
   return <motion.span ref={ref}>{text}</motion.span>
 }
 
-const FACTS: [string, string][] = [['Attack the grader', 'Known-wrong answers, hedges and junk.'], ['Look for leaks', 'Test items hidden in the training tasks.'], ['Beat a placebo', 'Small models, real rewards against shuffled ones.']]
+const FACTS: [string, string][] = [['Check labels and graders', 'Wrong labels, and graders that pay for junk.'], ['Look for leaks', 'Test items hidden in the training material.'], ['Beat a placebo', 'Real answers and rewards against shuffled ones.']]
 
 function Hero() {
   const ref = useRef<HTMLElement>(null), seen = useInView(ref)
@@ -40,7 +40,7 @@ function Hero() {
       <div className="in hero-in">
         <div className="hero-copy">
           <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Don't buy training material <em>blind.</em></motion.h1>
-          <motion.p initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>Touchstone appraises RL environments before you pay for them. We try to cheat the grader, look for leaked tests, and show you what we find.</motion.p>
+          <motion.p initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .12, ease }}>Touchstone appraises training datasets and RL environments before you pay for them. We check the labels, try to cheat the grader, look for leaked tests, and show you what we find.</motion.p>
           <motion.div className="hero-act" initial={reduced ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .22, ease }}>
             <RequestButton />
             <Pill href="#demo" tone="line">See the live demo</Pill>
@@ -70,7 +70,7 @@ function Why() {
         <div className="why-text">
           <Rise><h2>Training material is expensive.</h2></Rise>
           <Rise delay={.07}><p className="statement">Finding out it didn't work is worse.</p></Rise>
-          <Rise delay={.14}><p>A goldsmith tested metal before paying for it. An RL environment deserves the same care. If its grader can be cheated, a model can earn reward without learning the task, and you find out after the training run.</p></Rise>
+          <Rise delay={.14}><p>A goldsmith tested metal before paying for it. A dataset or an RL environment deserves the same care. If the labels are wrong or the grader can be cheated, a model learns the wrong lesson, and you find out after the training run.</p></Rise>
         </div>
         <figure className="why-pic">
           <motion.div className="shutter" initial={reduced ? false : { clipPath: 'inset(0 100% 0 0)' }} whileInView={{ clipPath: 'inset(0 0% 0 0)' }} viewport={{ once: true, margin: '-12% 0px' }} transition={{ duration: 1.1, ease }}>
@@ -236,8 +236,9 @@ function How() {
 
 const CHECKS: [string, string, boolean][] = [
   ['Can a model cheat for reward?', 'Known-wrong answers, hedges and junk go to the grader. Anything that pays gets flagged.', true],
+  ['Are the labels right?', 'We recompute the worked answers and have a reference model re-solve a sample two ways. Confident disagreements count as wrong labels.', false],
   ['Did the test leak into training?', 'We compare the material with a private test suite, reworded copies included.', true],
-  ['Does the gain beat a placebo?', 'Small open models train on the real rewards and on shuffled ones. Only the difference counts.', false],
+  ['Does the gain beat a placebo?', 'Small open models train on the real answers or rewards, and on shuffled ones. Only the difference counts.', false],
   ['Is it already public?', 'We measure overlap with free public material.', false],
 ]
 
@@ -308,7 +309,7 @@ function Close() {
       <Streak />
       <div className="in close-body">
         <Rise><h2>Know before you train.</h2></Rise>
-        <Rise delay={.08}><p>Send us the environment you're about to buy. Neutral by design: we sell no training material, and we grade no material of our own.</p></Rise>
+        <Rise delay={.08}><p>Send us the dataset or environment you're about to buy. Neutral by design: we sell no training material, and we grade no material of our own.</p></Rise>
         <Rise delay={.14}><RequestButton tone="gold" /></Rise>
       </div>
     </section>

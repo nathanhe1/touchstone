@@ -22,7 +22,7 @@ export default function Research() {
       <header className="page-head wrap">
         <motion.h1 initial={reduced ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>Built on <span className="transfer">the research.</span></motion.h1>
         <motion.p className="lede" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .1, ease }}>
-          The value of training material varies enormously, and vendors mostly grade their own. Touchstone builds on that research with independent checks for RL environments.
+          The value of training material varies enormously, and vendors mostly grade their own. Touchstone builds on that research with independent checks for training datasets and RL environments.
         </motion.p>
       </header>
 
@@ -32,7 +32,7 @@ export default function Research() {
         <ul className="sources">{SOURCES.map(([t, u]) => <li key={u}><a href={u} target="_blank" rel="noopener">{t}</a></li>)}</ul>
       </Section>
 
-      <Close title="Get your environment appraised." text="If you build or buy RL environments, we'd like to appraise yours." />
+      <Close title="Get your training material appraised." text="If you build or buy datasets or RL environments, we'd like to appraise yours." />
     </>
   )
 }

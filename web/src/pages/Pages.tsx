@@ -23,7 +23,7 @@ function Head({ title, text, children }: { title: ReactNode; text: string; child
 export function Product() {
   return (
     <>
-      <Head title="One sealed test. Six answers." text="Every appraisal ends in one report. It tells you what an environment teaches, whether it can be gamed, what you already have, and what it is worth at the size we measured." />
+      <Head title="One sealed test. Six answers." text="Every appraisal ends in one report. It tells you what a dataset or environment teaches, whether it can be gamed, what you already have, and what it is worth at the size we measured." />
       <section className="wrap"><Reveal><ReportSample /></Reveal></section>
       <section className="section">
         <div className="wrap two" style={{ alignItems: 'start' }}>
@@ -38,7 +38,7 @@ export function Product() {
           <Reveal delay={.1}><LiveAppraisal /></Reveal>
         </div>
       </section>
-      <Close title="See it on your environment." text="We're taking on a small number of pilot appraisals." />
+      <Close title="See it on your dataset or environment." text="We're taking on a small number of pilot appraisals." />
     </>
   )
 }
@@ -106,7 +106,7 @@ export function Report() {
           </AnimatePresence>
         </div>
       </section>
-      <Close title="Want this for a real environment?" text="Send us what you're considering buying." />
+      <Close title="Want this for a real dataset or environment?" text="Send us what you're considering buying." />
     </>
   )
 }
@@ -192,8 +192,8 @@ export function Pricing() {
   const spend = tasks * price, risk = spend * waste / 100, cost = 25000
   const tiers: [string, string, string, string, string[], boolean][] = [
     ['Grader check', 'Find the exploits', '$5k–$15k', 'per environment', ['Every exploit probe run against the grader', 'Share of reward won without solving', 'Fix list for the vendor'], false],
-    ['Full appraisal', 'Know what it\'s worth', '$10k–$50k', 'per environment', ['Sealed training at several model sizes', 'Transfer to private problems, overlap, exploits', 'Measured gain with its range, and a fair price per task'], true],
-    ['Subscription', 'Every environment, always', '$100k–$250k', 'per year', ['Side-by-side comparison of environments', 'Re-tests as environments change', 'Vendor ratings over time'], false],
+    ['Full appraisal', 'Know what it\'s worth', '$10k–$50k', 'per dataset or environment', ['Sealed training at several model sizes', 'Transfer to private problems, overlap, exploits', 'Measured gain with its range, and a fair price per item'], true],
+    ['Subscription', 'Every purchase, always', '$100k–$250k', 'per year', ['Side-by-side comparison of datasets and environments', 'Re-tests as material changes', 'Vendor ratings over time'], false],
   ]
   return (
     <>
@@ -236,7 +236,7 @@ export function Company() {
   const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 24 })
   return (
     <>
-      <Head title={<>Less wasted training. <span className="transfer">More real learning.</span></>} text="We help AI companies spend less on ineffective training and get more useful learning from their compute. We start with RL environments and expand to every kind of training material." />
+      <Head title={<>Less wasted training. <span className="transfer">More real learning.</span></>} text="We help AI companies spend less on ineffective training and get more useful learning from their compute. We appraise training datasets and RL environments today, and every kind of training material next." />
       <section className="section flush">
         <div className="wrap two" style={{ alignItems: 'center' }}>
           <Reveal><h2>Why <span className="transfer">Touchstone.</span></h2></Reveal>

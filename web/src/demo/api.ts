@@ -92,4 +92,4 @@ export function normalize(raw: unknown, fallbackName = 'material'): View {
 
 /** The stages a job moves through, as the API names them. */
 export const STAGES = ['validate', 'seal', 'overlap', 'probe', 'train', 'measure', 'forecast', 'price', 'report'] as const
-export const STAGE_LABEL: Record<string, string> = { validate: 'Validate', seal: 'Seal', overlap: 'Check overlap', probe: 'Probe grader', train: 'Train', measure: 'Measure', forecast: 'Forecast', price: 'Price', report: 'Report' }
+export const STAGE_LABEL: Record<string, string> = { validate: 'Validate', seal: 'Seal', overlap: 'Check overlap', probe: 'Probe grader', train: 'Train', measure: 'Measure', forecast: 'Headline gain', price: 'Price', report: 'Report' }

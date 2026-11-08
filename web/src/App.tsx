@@ -15,7 +15,7 @@ import { Brand, RequestButton, reduced } from './ui'
 const PAGES = { '': Home, product: Product, report: Report, market: Market, research: Research, pricing: Pricing, company: Company, request: Request, terms: Terms, privacy: Privacy, demo: Demo }
 type Route = keyof typeof PAGES
 const NAV: [Route, string][] = [['demo', 'Live demo'], ['product', 'Product'], ['report', 'Sample report'], ['research', 'Research'], ['market', 'Market'], ['pricing', 'Pricing'], ['company', 'Company']]
-const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an appraisal · Touchstone', terms: 'Terms of use · Touchstone', privacy: 'Privacy policy · Touchstone', demo: 'Live demo · Touchstone' }
+const TITLES: Record<Route, string> = { '': 'Touchstone', product: 'Product · Touchstone', report: 'Sample report · Touchstone', market: 'Market · Touchstone', research: 'Research · Touchstone', pricing: 'Pricing · Touchstone', company: 'Company · Touchstone', request: 'Request an audit · Touchstone', terms: 'Terms of use · Touchstone', privacy: 'Privacy policy · Touchstone', demo: 'Live demo · Touchstone' }
 const read = (): Route => { const h = location.hash.slice(1); return (h in PAGES ? h : '') as Route }
 
 export default function App() {
@@ -55,6 +55,20 @@ export default function App() {
     return () => { removeEventListener('hashchange', onHash); removeEventListener('scroll', onScroll) }
   }, [])
   useEffect(() => { document.title = TITLES[route]; const t = setTimeout(() => ScrollTrigger.refresh(), 700); return () => clearTimeout(t) }, [route])
+  // ScrollTrigger stores pixel positions, so anything that changes the page height above a trigger makes it fire late.
+  useEffect(() => {
+    let timer = 0, height = 0
+    const ro = new ResizeObserver(() => {
+      const next = document.documentElement.scrollHeight
+      if (next === height) return
+      height = next
+      clearTimeout(timer)
+      timer = window.setTimeout(() => ScrollTrigger.refresh(), 150)
+    })
+    ro.observe(document.body)
+    document.fonts?.ready.then(() => ScrollTrigger.refresh())
+    return () => { ro.disconnect(); clearTimeout(timer) }
+  }, [])
   const Page = PAGES[route]
   return (
     <>
@@ -84,10 +98,10 @@ export default function App() {
       </AnimatePresence>
       <footer className="footer">
         <div className="wrap">
-          <div><a className="brand" href="#"><Brand />touchstone</a><p>Independent appraisal for AI training material. We test it before you buy it.</p></div>
+          <div><a className="brand" href="#"><Brand />touchstone</a><p>Independent audit and appraisal for AI training material. We test it before you buy it.</p></div>
           <div><h4>product</h4><a className="f" href="#product">How it works</a><a className="f" href="#report">Sample report</a><a className="f" href="#research">Research and sources</a></div>
           <div><h4>company</h4><a className="f" href="#market">Market</a><a className="f" href="#pricing">Pricing</a><a className="f" href="#company">About and roadmap</a></div>
-          <div><h4>start</h4><a className="f" href="#request">Request an appraisal</a><a className="f" href="#terms">Terms of use</a><a className="f" href="#privacy">Privacy policy</a></div>
+          <div><h4>start</h4><a className="f" href="#request">Request an audit</a><a className="f" href="#terms">Terms of use</a><a className="f" href="#privacy">Privacy policy</a></div>
         </div>
       </footer>
     </>

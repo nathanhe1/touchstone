@@ -125,7 +125,7 @@ These rules were committed before the v5 materials were built. The v5 files are 
 
 **Two definitions settled before the freeze.**
 
-1. *A same-template clone with new numbers is not contamination.* On short tasks an item's identity is its numbers, operation and answer (section 5). A clone teaches the template, not the item. It is labelled `contaminated = false`, and a flag on it is a false flag. A FDE finding prompted this rule: the generic overlap screen matched 94% of Knights-and-Knaves training puzzles to its test set by template alone.
+1. *A same-template clone with new numbers is not contamination.* On short tasks an item's identity is its numbers, operation and answer (section 5). A clone teaches the template, not the item. It is labelled `contaminated = false`, and a flag on it is a false flag. An FDE finding prompted this rule: the generic overlap screen matched 94% of Knights-and-Knaves training puzzles to its test set by template alone.
 2. *`g_strip_nondigits` is format laxity, not a gameable grader.* It pays only a reply whose digits, in order, are the full answer. No reply earns it without solving the task. Format-lax graders are labelled `gameable_grader = false`, and the advisory `format_lax` signal is reported beside them. test v3's published label and score stand.
 
 **How v5 is scored** (written now, applied once):

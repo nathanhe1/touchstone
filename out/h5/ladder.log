@@ -1,0 +1,23 @@
+16 jobs, 0 done or given up, 16 to run on GPUs [0]
+start ladder_q3-8B_gsm8k_dev_clean on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_gsm8k_dev_clean gain=18.833 base=69.17 wall=675.9s mem=21.02GB
+start ladder_q3-8B_gsm8k_dev_wrong100 on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_gsm8k_dev_wrong100 gain=-68.167 base=69.17 wall=311.3s mem=21.0GB
+start ladder_q3-8B_ag_news_clean on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_ag_news_clean gain=18.333 base=72.83 wall=152.5s mem=21.66GB
+start ladder_q3-8B_ag_news_wrong100 on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_ag_news_wrong100 gain=-49.333 base=72.83 wall=104.8s mem=21.66GB
+start ladder_q3-8B_emotion_clean on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_emotion_clean gain=51.167 base=25.67 wall=147.5s mem=21.66GB
+start ladder_q3-8B_emotion_wrong100 on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_emotion_wrong100 gain=-18.333 base=25.67 wall=99.7s mem=21.66GB
+start ladder_q3-8B_rotten_clean on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_rotten_clean gain=34.667 base=56.5 wall=94.7s mem=20.63GB
+start ladder_q3-8B_rotten_wrong100 on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_rotten_wrong100 gain=-40.0 base=56.5 wall=68.2s mem=20.63GB
+start ladder_q3-8B_aqua_clean on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_aqua_clean gain=43.307 base=16.54 wall=114.2s mem=21.4GB
+start ladder_q3-8B_aqua_wrong100 on gpu0 (26 GB est, 26/26 in use)
+done ladder_q3-8B_aqua_wrong100 gain=7.087 base=16.54 wall=88.3s mem=21.4GB
+start ladder_q25-7B_gsm8k_dev_clean on gpu0 (26 GB est, 26/26 in use)
+ladder runner stopped by the lead after the Qwen3 jobs; Qwen2.5 jobs run after h5

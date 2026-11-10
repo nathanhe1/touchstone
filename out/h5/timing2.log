@@ -16,3 +16,7 @@ FAILED time2_rl_q3-8B_gsm8k256 (exit 1), attempt 1
 start time2_sft_q3-8B_gsm8k512 on gpu0 (29 GB est, 29/29 in use)
 FAILED time2_sft_q3-8B_gsm8k512 (exit -15), attempt 1
 start time2_rl_q3-4B_gsm8k256 on gpu0 (29 GB est, 29/29 in use)
+done time2_rl_q3-4B_gsm8k256 gain=8.5 base=73.17 wall=752.2s mem=13.15GB
+start time2_sft_q3-4B_gsm8k512 on gpu0 (29 GB est, 29/29 in use)
+done time2_sft_q3-4B_gsm8k512 gain=9.333 base=73.17 wall=231.1s mem=12.81GB
+start time2_rl_q3-1.7B_gsm8k256 on gpu0 (29 GB est, 29/29 in use)

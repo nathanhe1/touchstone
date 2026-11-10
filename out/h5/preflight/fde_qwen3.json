@@ -1,0 +1,146 @@
+{
+ "gsm|q3-0.6B": {
+  "soft": 21.07,
+  "soft_s": 13.5,
+  "acc": 10.0,
+  "chance": 0.0,
+  "truncated": 84.0,
+  "n": 300,
+  "max_new": 320,
+  "has_letter": 2.67,
+  "bits": "000001000000000000000110000001000000100000000000001101000000000010000000000001000010000000000000000000100000000000000000001000010000000000000000000000000000000000010000001000000000000001000000000001000000000010000010000000011100001000000000000000000000010000000000010000000010000000000000001110000000",
+  "sample": [
+   "Max plans to watch two movies this weekend. The first movie is 1 hour and 30 minutes long while the second movie is 2 hours and 5 minutes long. How many minutes will it take Max to watch the two movies? \u2687\ufffd\n.maximumassistant\nMax plans to watch two movies this weekend. The first movie is 1 hour and 30 minutes long while the second movie is 2 hours and 5 minutes long. How many minutes will it take Max to watch the two movies? \u2687\ufffd\n.maximumassistant\nMax plans to watch two movies this weekend. The first movie is 1 hour and 30 minutes long while the second movie is 2 hours and 5 minutes long. How many minutes will it take Max to watch the two movies? \u2687\ufffd\n.maximumassistant\nMax plans to watch two movies this weekend. The first movie is 1 hour and 30 minutes long while the second movie is 2 hours and 5 minutes long. How many minutes will it take Max to watch the two movies? \u2687\ufffd\n.maximumassistant\nMax plans to watch two movies this weekend. The first movie is 1 hour and 30 minutes long while the second movie is 2 hours and 5 minutes long. How many minutes will it take Max to watch the two movies? \u2687\ufffd\n.maximumassistant\nMax plans to watch two movies this weekend. The first movie is 1 hour and 30 minutes long while the second movie is 2 hours and 5 minutes long",
+   "Jack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now? \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687",
+   "Two thirds of Jana's puppies are Pomeranians. One third of the Pomeranians are girls. If there are 6 Pomeranian girls, how many puppies does Jana have? \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \u2687 \ufffd"
+  ],
+  "s": 74.2,
+  "model": "Qwen/Qwen3-0.6B-Base"
+ },
+ "nli|q3-0.6B": {
+  "soft": -0.01,
+  "soft_s": 4.0,
+  "acc": 0.67,
+  "chance": 33.33,
+  "truncated": 100.0,
+  "n": 300,
+  "max_new": 32,
+  "has_letter": 0.0,
+  "bits": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000",
+  "sample": [
+   "Premise: The main purpose of this study is to investigate the relationship between the use of social media and the development of social anxiety in adolescents.\nHypothesis",
+   "Premise: The 2014-15 season was the 10th season of the National Hockey League (NHL) and the",
+   "Premise: The man was a good friend of the man.\nHypothesis: The man was a good friend of the man.\nWhat is the relation of"
+  ],
+  "s": 10.3,
+  "model": "Qwen/Qwen3-0.6B-Base"
+ },
+ "sci|q3-0.6B": {
+  "soft": -0.02,
+  "soft_s": 3.8,
+  "acc": 20.0,
+  "chance": 25.01,
+  "truncated": 100.0,
+  "n": 300,
+  "max_new": 32,
+  "has_letter": 11.33,
+  "bits": "100010000000100010001000100010000000100010001000100010000000100010001000100010001000100010001000100010001000000010001000000010000000100000001000100000001000100010001000100000000000100010001000100010000000100010001000100000000000000010001000100010001000100000001000000010001000100010001000100010101000",
+  "sample": [
+   "A) The plants and animals in lakes and ponds will be harmed.\nB) The soil in the area will become more alkaline.\nC) The thickness of",
+   "At the beginning of a science class, the teacher opened a small sealed jar and placed it on a table. The contents of the jar spread throughout the room during",
+   "A) The assistant is a person who helps the manager.\nB) The assistant is a person who helps the manager.\nC) The assistant is a person who"
+  ],
+  "s": 8.9,
+  "model": "Qwen/Qwen3-0.6B-Base"
+ },
+ "kk|q3-0.6B": {
+  "soft": null,
+  "soft_s": 0.0,
+  "acc": 12.33,
+  "chance": 11.59,
+  "truncated": 94.0,
+  "n": 300,
+  "max_new": 320,
+  "has_letter": 99.67,
+  "bits": "100000000111100000000001000000000100000000000000000010010000010000000000000000000100000000000100010100000100000000000000000110000000000000000001000001000000000000010000000000001000001010000000000000000000000000010010001000011000001000000000000000000000001100001000000000001000000000000010000101000001",
+  "sample": [
+   "A very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 2 inhabitants: Victoria, and Evelyn. As Victoria put it, \"Evelyn is a knight if and only if Victoria is a knight\". Evelyn commented, \"Victoria is not a knave\". So who is a knight and who is a knave?\n\nWho is a knight and who is a knave? Think it through, then end your reply with one line per person, in the form:\n(1) Name is a knight\n(2) Name is a knaveallenging\nA very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 2 inhabitants: Victoria, and Evelyn. As Victoria put it, \"Evelyn is a knight if and only if Victoria is a knight\". Evelyn commented, \"Victoria is not a knave\". So who is a knight and who is a knave?\n\nWho is a knight and who is a knave? Think it through, then end your reply with one line per person, in the form:\n(1) Name is a knight\n(2) Name is a knaveallenging\nA very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 2 inhabitants: Victoria, and Evelyn. As Victoria put it, \"Evelyn is a knight if and only if Victoria is a knight\". Evelyn commented, \"Victoria is not",
+   "Avery is a knight\nRiley is a knave\nHenry is a knight\nCharlotte is a knave\nJames is a knave",
+   "A very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 3 inhabitants: Amelia, Charlotte, and Oliver. \"Oliver is a knave and Charlotte is a knight,\" Amelia mentioned. \"Amelia is a knave or Oliver is a knave\" - Charlotte. Oliver was heard saying, \"Charlotte is a knave\". So who is a knight and who is a knave?\n\nWho is a knight and who is a knave? Think it through, then end your reply with one line per person, in the form:\n(1) Name is a knight\n(2) Name is a knaveallenging\nA very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 3 inhabitants: Amelia, Charlotte, and Oliver. \"Oliver is a knave and Charlotte is a knight,\" Amelia mentioned. \"Amelia is a knave or Oliver is a knave\" - Charlotte. Oliver was heard saying, \"Charlotte is a knave\". So who is a knight and who is a knave?\n\nWho is a knight and who is a knave? Think it through, then end your reply with one line per person, in the form:\n(1) Name is a knight\n(2) Name is a knaveallenging\nA very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 3 inhabitants: Amelia, Charlotte"
+  ],
+  "s": 66.9,
+  "model": "Qwen/Qwen3-0.6B-Base"
+ },
+ "gsm|q3-1.7B": {
+  "soft": 62.84,
+  "soft_s": 27.9,
+  "acc": 52.0,
+  "chance": 0.0,
+  "truncated": 34.33,
+  "n": 300,
+  "max_new": 320,
+  "has_letter": 4.0,
+  "bits": "101101101001111100011010110011111101111000100111010000101010001110010101100110100001000011111111000001100100011011111011001010010000011110101101100010111010110011011101001010101111001001100111110100001001100011001011000000111010001111100010000100100011010001111011011100111000001100111001011111110101",
+  "sample": [
+   "To find the total time it will take Max to watch the two movies, we need to add the lengths of the movies together. The first movie is 1 hour and 30 minutes long, and the second movie is 2 hours and 5 minutes long. We can convert these times to minutes to make the addition easier. 1 hour is equal to 60 minutes, so the first movie is 60 + 30 = 90 minutes long. The second movie is 2 hours and 5 minutes long, which is 2 * 60 + 5 = 125 minutes long. Now we can add the two times together: 90 + 125 = 215 minutes. Therefore, it will take Max 215 minutes to watch the two movies.",
+   "Jack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many dollars does Jack have now?umably\numably\nJack had $100. Sophia gave him 1/5 of her $100. How many",
+   "To solve this problem, we need to determine the total number of puppies Jana has. Let's break it down step by step.\n\n1. **Determine the number of Pomeranian puppies:**\n   We know that one third of the Pomeranian puppies are girls, and there are 6 Pomeranian girls. Let \\( P \\) be the total number of Pomeranian puppies. Then, one third of \\( P \\) is 6:\n   \\[\n   \\frac{1}{3}P = 6\n   \\]\n   To find \\( P \\), multiply both sides of the equation by 3:\n   \\[\n   P = 6 \\times 3 = 18\n   \\]\n   So, there are 18 Pomeranian puppies.\n\n2. **Determine the total number of puppies:**\n   We know that two thirds of Jana's puppies are Pomeranians. Let \\( T \\) be the total number of puppies. Then, two thirds of \\( T \\) is 18:\n   \\[\n   \\frac{2}{3}T = 18\n   \\]\n   To find \\( T \\), multiply both sides of the equation by 3/2:\n   \\[\n   T = 18 \\times \\frac{3}{2} = 27\n   \\]\n   So, Jana has 27 puppies in total.\n\nThe final answer is:\n\\[\n\\boxed{27}\n\\]"
+  ],
+  "s": 90.9,
+  "model": "Qwen/Qwen3-1.7B-Base"
+ },
+ "nli|q3-1.7B": {
+  "soft": 2.67,
+  "soft_s": 8.0,
+  "acc": 27.67,
+  "chance": 33.33,
+  "truncated": 88.67,
+  "n": 300,
+  "max_new": 32,
+  "has_letter": 74.0,
+  "bits": "010010010010010000000000010000000010010010010010010010010010010010010110010010010010010010000010010110110010010010000010010010010010000010010000010000010010010000010010010010010010010010010010010000000010010000000000010010010000010010010010000010010010010010010010010010010010010010010000010010010000",
+  "sample": [
+   "A) entailment\n\nThe hypothesis states that John Henry Newman died in 1856, which is consistent with the information provided in the premise that he",
+   "A) entailment",
+   "A) entailment\n\nThe hypothesis is entailed by the premise because the premise specifically mentions that Philip Morris cited strong volume gains in central and eastern Europe, which"
+  ],
+  "s": 16.2,
+  "model": "Qwen/Qwen3-1.7B-Base"
+ },
+ "sci|q3-1.7B": {
+  "soft": 22.69,
+  "soft_s": 7.8,
+  "acc": 52.67,
+  "chance": 25.01,
+  "truncated": 49.0,
+  "n": 300,
+  "max_new": 32,
+  "has_letter": 26.33,
+  "bits": "110111011111101110001010011001000010001111101000111111001101100010101010000001001100001010011010110110101001100110010110101100101111010110001100101110001110111010001010111011001000111001101000010111101010110111011000110100111000000110001101101001101111010011101111100111100111100010001110100010011001",
+  "sample": [
+   "A) The plants and animals in lakes and ponds will be harmed.\nB) The soil in the area will become more alkaline.\nC) The thickness of",
+   "The jar most likely contained B) oxygen gas.",
+   "A brand of fertilizer claims that it contains all the chemicals a plant needs for rapid growth. It may be inferred that the fertilizer includes all these ingredients except\nA"
+  ],
+  "s": 14.4,
+  "model": "Qwen/Qwen3-1.7B-Base"
+ },
+ "kk|q3-1.7B": {
+  "soft": null,
+  "soft_s": 0.0,
+  "acc": 14.33,
+  "chance": 11.59,
+  "truncated": 55.0,
+  "n": 300,
+  "max_new": 320,
+  "has_letter": 91.67,
+  "bits": "000000001001000000000101001000000000000001010000100000001001000100100001000000000000000000000100000010000001010000010000000110001000001000001000001000000000000001010000110100000001000000000000000000000000000000010100101000010001001000001001000000000000001010000000000000000000100010000000000000000000",
+  "sample": [
+   "Assistant: (1) Victoria is a knight\n(2) Evelyn is a knave",
+   "(1) Avery is a knight\n(2) Riley is a knave",
+   "A very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet 3 inhabitants: Amelia, Charlotte, and Oliver. \"Oliver is a knave and Charlotte is a knight,\" Amelia mentioned. \"Amelia is a knave or Oliver is a knave\" - Charlotte. Oliver was heard saying, \"Charlotte is a knave\". So who is a knight and who is a knave?\n\nWho is a knight and who is a knave? Think it through, then end your reply with one line per person, in the form:\n(1) Name is a knight\n(2) Name is a knave"
+  ],
+  "s": 75.8,
+  "model": "Qwen/Qwen3-1.7B-Base"
+ }
+}

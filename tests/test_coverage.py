@@ -133,3 +133,66 @@ def test_every_upper_case_name_in_the_judge_is_defined():
     src = Path(judge.__file__).read_text()
     names = {n.id for n in ast.walk(ast.parse(src)) if isinstance(n, ast.Name) and n.id.isupper()}
     assert all(hasattr(judge, x) for x in names)
+
+
+def test_latex_boxed_answers_are_read():
+    # test v4 defect: every MATH prealgebra draw was flagged because '$102/2=\boxed{51}$' looked unproduced
+    real = r"The total distance traveled was $20+25+45+12=102$ km.  Therefore, the average speed was $102/2=\boxed{51}$ kph."
+    assert screen.check_arithmetic(real) == (2, 0)
+    assert not screen.unsupported_final(real)
+    planted = real.replace(r"\boxed{51}", r"\boxed{53}")
+    assert screen.check_arithmetic(planted) == (2, 1)
+    assert screen.check_arithmetic(r"So $\frac{1}{2}(240) = \boxed{120}$ and $0.75 \cdot (90/15) = 4.5$, $5\frac{1}{2}\cdot 2=11$.") == (3, 0)
+    assert screen.check_arithmetic(r"\begin{align*} 2^{3}+2^{2} &= 8+4 \\ &= \boxed{12} \end{align*}") == (2, 0)
+
+
+def test_latex_algebra_is_not_misread_as_arithmetic():
+    # sides with variables, roots or approximations are skipped, never evaluated as a suffix
+    for t in [r"we have $x^2-4x-9 = 0$.", r"$\sqrt{16 + 4} = 2\sqrt{5}$", r"$3x^2+2 = 29$", r"$\frac{576}{\pi} \approx 183$",
+              r"the points $(1,7)$ and $(13,7)$, so $|5-6| + 2\cdot 5 = 11$"]:
+        assert screen.check_arithmetic(t)[1] == 0, t
+    # prose final steps in competition solutions are not flagged as unsupported
+    assert not screen.unsupported_final(r"Their product is $4\cdot6\cdot8=192$, so the units digit is $\boxed{2}$.")
+
+
+def test_plain_text_dollars_unchanged():
+    assert screen.check_arithmetic("He paid $10 x 3 = $30 and $30 + 5 = $36.") == (2, 1)
+
+
+def _fake_embed(monkeypatch):
+    import torch
+    from touchstone import overlap
+
+    def embed(texts, batch=128):  # "topic:k" -> unit vector on axis k
+        v = torch.zeros(len(texts), 64)
+        for i, t in enumerate(texts):
+            v[i, int(t.split(":")[1]) % 64] = 1.0
+        return v
+    monkeypatch.setattr(overlap, "embed", embed)
+
+
+def test_off_topic_is_net_of_the_suites_own_spread(monkeypatch):
+    # test v4 defect: a 60-item suite from a broad source sits far from itself, so same-source material read as off-topic
+    _fake_embed(monkeypatch)
+    narrow = [f"t:{0}" for _ in range(20)]
+    r = screen.relevance([f"t:{0}"] * 30 + [f"t:{9}"] * 30, narrow)
+    assert r["suite_self_share"] == 0.0 and r["off_topic_share"] == r["raw_off_topic_share"] == 0.5  # built-in suites: unchanged
+    broad = [f"t:{k}" for k in range(10) for _ in range(2)] + [f"t:{k}" for k in range(10, 20)]  # half the items have no neighbour
+    same = screen.relevance([f"t:{k}" for k in range(10)] + [f"t:{k}" for k in range(20, 30)], broad)  # new draws, sparse region
+    assert same["raw_off_topic_share"] == 0.5 and same["suite_self_share"] == 0.3333
+    assert same["off_topic_share"] < screen.OFFTOPIC_SHARE  # the old rule flagged this material
+    off = screen.relevance([f"t:{k}" for k in range(40, 60)], broad)
+    assert off["off_topic_share"] == 1.0
+    lonely = screen.relevance([f"t:{k}" for k in range(5)], [f"t:{k}" for k in range(30)])
+    assert lonely["off_topic_share"] is None and lonely["off_topic_status"].startswith("not checked")
+
+
+def test_language_reads_terse_templated_english():
+    # test v4 defect: MAWPS's terse template English used few of the old stop words and read as non-English
+    from touchstone import coverage
+    mawps = ["Virginia had some orange. John took 14 from him. Now Virginia has 76 orange. How many orange Virginia had incipiently?",
+             "Tina had 7 raspberry . He hash each raspberry into 10 slices . How many raspberry slices did Tina make?"] * 20
+    assert coverage.language(mawps) == "en"
+    assert coverage.language(["Los patos de Janet ponen 16 huevos por día. Ella come tres en el desayuno todas las mañanas."] * 20) == "non_en"
+    assert coverage.language(["Bata wa Janet hutaga mayai 16 kila siku. Huwa anakula matatu wakati wa staftahi."] * 20) == "non_en"
+    assert coverage.language(["Janets Enten legen 16 Eier pro Tag. Sie isst drei jeden Morgen zum Frühstück."] * 20) == "non_en"

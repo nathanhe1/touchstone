@@ -324,7 +324,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
     rel = screen.relevance(prompts, [i.prompt for i in suite.items])
     log(f"  overlap: {100 * hit['rate']:.1f}% of held-out items appear in the material ({100 * contam['rate']:.1f}% "
         f"of material), public ({pub_label}) {100 * pub['rate']:.1f}%, duplicates {100 * dups['dup_rate']:.1f}%, "
-        f"off-topic {100 * rel['off_topic_share']:.0f}%")
+        + (f"off-topic {100 * rel['off_topic_share']:.0f}%" if rel["off_topic_share"] is not None else "off-topic not checked (suite too broad)"))
     meas = {"contamination": max(contam["rate"], hit["rate"]), "public_overlap": pub["rate"],
             "dup_rate": dups["dup_rate"], "off_topic_share": rel["off_topic_share"]}
     out = {"contam": contam, "hit": hit, "clean_idx": clean_idx, "pub": pub, "pub_label": pub_label, "dups": dups,
@@ -339,7 +339,7 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
         labels = coverage.label_checks(dtype, examples, q["arithmetic"], use_judge=use_judge)
         judgemod.release()
         L.free_memory()
-        if dtype in ("free_text", "chat") and rel["off_topic_share"] >= screen.OFFTOPIC_SHARE:
+        if dtype in ("free_text", "chat") and (rel["off_topic_share"] or 0.0) >= screen.OFFTOPIC_SHARE:
             labels["noisy"] = False  # the off-topic flag already covers it; fit to this suite is not the question
         if labels["noisy"] and (dtype in ("chat", "multiple_choice", "free_text") or lang != "en"):
             # These signals false-flag real clean data (docs/AUDIT.md, out/stress_real.json): a flag blocks a price,
@@ -370,6 +370,8 @@ def screen_material(kind: str, prompts: list[str], suite, public: str | None, lo
                      "grader_flagged": audit["flagged"], "answer_leakage": leak})
         log(f"  grader check: worst exploit '{audit['worst_exploit']}' earns {100 * audit['score']:.0f}% reward; "
             f"answer in prompt for {100 * leak:.0f}% of tasks")
+    out["checks"]["off_topic"] = ({"status": "checked", "method": "share unrelated to the suite, net of the suite's own spread"}
+                                  if rel["off_topic_share"] is not None else {"status": "not_checked", "reason": rel["off_topic_status"]})
     return out
 
 

@@ -66,7 +66,7 @@ def flags_for(r: dict) -> list[dict]:
             bits.append(f"{a['violations']} of {a['checked']} tool calls break the declared tools")
         f.append({"code": "noisy_labels", "severity": "block",
                   "text": "Many labels look wrong: " + "; ".join(bits) + "."})
-    if r.get("off_topic_share", 0) >= OFFTOPIC_LIMIT:
+    if (r.get("off_topic_share") or 0) >= OFFTOPIC_LIMIT:
         f.append({"code": "off_topic", "severity": "discount",
                   "text": f"{100 * r['off_topic_share']:.0f}% of items are unrelated to the held-out domain; they "
                           "cannot raise the skill being measured."})

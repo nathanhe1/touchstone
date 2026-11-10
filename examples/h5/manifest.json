@@ -37,6 +37,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": 0.0141,
       "dropped": {}
      },
@@ -71,6 +72,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": 0.0083,
       "dropped": {
        "duplicate": 9
@@ -107,6 +109,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": 0.0149,
       "dropped": {
        "duplicate": 3
@@ -143,6 +146,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": 0.0091,
       "dropped": {}
      },
@@ -177,6 +181,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": 0.0,
       "dropped": {}
      },
@@ -235,6 +240,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {}
      },
@@ -277,6 +283,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {}
      },
@@ -319,6 +326,7 @@
        "paraphrase": 0
       },
       "examples": [],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {}
      },
@@ -372,6 +380,7 @@
         "kind": "near"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "suite_overlap": 168
@@ -427,6 +436,7 @@
         "kind": "near"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "duplicate": 2
@@ -507,6 +517,7 @@
         "kind": "paraphrase"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "suite_overlap": 8,
@@ -564,6 +575,7 @@
         "kind": "near"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "suite_overlap": 15,
@@ -617,6 +629,7 @@
         "kind": "paraphrase"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "suite_overlap": 1
@@ -673,6 +686,7 @@
         "kind": "paraphrase"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "duplicate": 4,
@@ -730,6 +744,7 @@
         "kind": "paraphrase"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "duplicate": 18,
@@ -791,6 +806,7 @@
         "kind": "exact"
        }
       ],
+      "generic_screen_template_matches": null,
       "gated_suite_match_rate": null,
       "dropped": {
        "suite_overlap": 2
@@ -817,6 +833,57 @@
      },
      "answer_extracted": 1.0,
      "why_compare": "MMLU's auxiliary training set: a broad multiple-choice mix (ARC, OBQA, RACE, MCTest and more)."
+    }
+   }
+  },
+  "kk": {
+   "kind": "RL environment: logic puzzles, graded by kk_correct",
+   "suite": {
+    "file": "examples/h5/kk/suite.jsonl",
+    "sha256": "a814c5d23e263d0ce4e97015ec7b24d7dbb4d6c239bf5e34f11b30e6e4d8a978",
+    "rows": 400,
+    "source": "K-and-K/knights-and-knaves",
+    "split": "test people 2-5",
+    "revision": "2f68547989981b1af37cb3dde5fdefa847aa8619",
+    "licence": "CC-BY-NC-SA-4.0 (non-commercial)",
+    "class_balance": null,
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "kk_train": {
+     "file": "examples/h5/kk/kk_train.jsonl",
+     "sha256": "f6f5e152655bf0d2b855ada61ce0681e7e3590e0e8500b4fca0b81e16ddb4278",
+     "rows": 1000,
+     "source": "K-and-K/knights-and-knaves",
+     "revision": "2f68547989981b1af37cb3dde5fdefa847aa8619",
+     "licence": "CC-BY-NC-SA-4.0 (non-commercial)",
+     "eligible_rows": 3200,
+     "sampling": "uniform without replacement, random.Random('20261110|kk|kk_train')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 363,
+       "paraphrase": 2414
+      },
+      "examples": [],
+      "generic_screen_template_matches": 2777,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 155,
+      "prompt_p95": 183,
+      "completion_p50": 33,
+      "completion_p95": 43,
+      "completion_max": 46,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Knights and Knaves (Xie et al. 2024), procedurally generated logic puzzles with a unique checkable answer; the RL environment Logic-RL (Xie et al. 2025) trained on."
     }
    }
   }

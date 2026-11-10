@@ -336,6 +336,17 @@ def _kk(split, people):
                    "extra": {"names": r["names"], "solution": r["solution"], "people": k}}
 
 
+def kk_item_overlap(cand, suite):
+    """Indices of candidates that are the same puzzle as a suite item: same set of names and character 5-gram Jaccard >= 0.6
+    on the statements (the text after the shared preamble)."""
+    from touchstone.overlap import jaccard, shingles
+    body = lambda r: r["stem"].split("inhabitants:", 1)[-1]
+    by = {}
+    for r in suite:
+        by.setdefault(tuple(sorted(r["extra"]["names"])), []).append(shingles(body(r)))
+    return {i for i, r in enumerate(cand) if any(jaccard(shingles(body(r)), t) >= 0.6 for t in by.get(tuple(sorted(r["extra"]["names"])), []))}
+
+
 def src_kk_train():
     return _kk("train", (2, 3, 4, 5))
 
@@ -465,6 +476,11 @@ def build():
             # screen every candidate once against the suite
             hit = overlap.match([r["stem"] for r in cand], suite_stems)
             bad = set(hit["matched_idx"])
+            template_hits = None
+            if fam == "kk":  # procedural puzzles share one template, so the generic screen matches the template, not the item.
+                template_hits = len(bad)  # Screen puzzle identity instead: same people and near-identical statements.
+                bad = kk_item_overlap(cand, suite)
+                hit["examples"] = []
             gated = overlap.gated_suite_match([(r["stem"], r["answer"]) for r in suite], [(r["stem"], r.get("answer")) for r in cand]) \
                 if fam == "gsm" else None
             chosen, seen, dropped = [], set(), Counter()
@@ -509,7 +525,8 @@ def build():
                 + (", stratified by label" if F.get("stratify") else "") + (", options shuffled per row with the same generator" if F.get("mc") else ""),
                 "screen": {"suite_overlap_in_first_1000_candidates": first_n, "suite_overlap_rate_raw": round(first_n / N, 4),
                            "suite_overlap_kinds_all_candidates": {k: round(hit[k] * len(cand)) for k in ("exact", "near", "paraphrase")},
-                           "examples": hit["examples"][:2], "gated_suite_match_rate": gated["rate"] if gated else None,
+                           "examples": hit["examples"][:2], "generic_screen_template_matches": template_hits,
+                           "gated_suite_match_rate": gated["rate"] if gated else None,
                            "dropped": dict(dropped)},
                 "class_balance": _balance([r.get("label") for r in rows]) if "label" in rows[0] else None,
                 "tokens_qwen2.5": {"prompt_p50": pct(plen, .5), "prompt_p95": pct(plen, .95),

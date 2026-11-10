@@ -82,6 +82,88 @@ Items with exactly the right set of flags: 26% before, 87% after. On the develop
 
 **A correct dataset that tests as harmful.** `good_short` (correct answers, no working shown) lowers 135M held-out accuracy by about 9 points. This is not a formatting bug: the chat and prompt/completion paths produce identical training text (regression test `test_messages_and_prompt_completion_train_identically`), and the scorer reads "The answer is 15." correctly. The model learns to answer without working the problem out and gets multi-step problems wrong (79 becomes 15). The report now names this (`suppresses_reasoning`, from reply length collapsing by more than 60% while accuracy falls) so a buyer sees why.
 
+### Sprint flag changes (development data only; test v4's published numbers stand)
+
+Test v4 exposed three defects. Each fix was built and checked on development data only. A rescore of v4 is a development number and is labelled as one.
+
+| Defect | Fix | Development evidence |
+|---|---|---|
+| The unsupported-final check could not read LaTeX: `$102/2=\boxed{51}$` looked unproduced, which flagged every `prealgebra` draw. | LaTeX math is rewritten as plain arithmetic (fractions, `\cdot`, powers, mixed numbers, aligned chains, `\boxed`). An equation counts only when both sides are pure arithmetic, so algebra with variables is skipped rather than misread. A boxed answer is checked against the expression it is set equal to. The unsupported-final rule is not applied to LaTeX solutions, because competition solutions often reach the answer in prose ("the units digit of 192 is 2"). | `out/dev_flag_latex.json`. MATH train, 4 subjects. Clean draws: 0 of 8 flagged, rates 0-0.029 (they were 0.05-0.31 with the general parser and the unsupported rule). Planted 30%: 4 of 4 flagged, 0.17-0.24. v4 `prealgebra` (development rescore): clean 0.01-0.03, none flagged; planted 0.30, flagged. GSM8K train is unchanged: 67 inconsistent and 12 unsupported of 7,321 checked, identical to the old code. |
+| `off_topic` falsely flagged diverse material against small, broad suites (9 false flags). | The raw share is read against the suite's own leave-one-out share s, the share of suite items with no other suite item within the cosine line. The estimated off-topic fraction is f = (raw - s) / (1 - s), from raw = f + (1 - f) s. The check abstains, reported as `not_checked`, when s >= 0.8. Built-in suites have s = 0, so their rule is unchanged. | `out/dev_flag_offtopic.json`. v4 (development rescore): 9 false flags become 0. Built-in-suite cases from v1-v3: 12 of 12 caught before and after, 0 false. Constructed off-topic material on small custom suites: 7 of 7 before, 6 of 7 after. The miss is `multiarith` against the MMLU suite, which has elementary-math items, so the miss is arguable. |
+| The language heuristic called an English MAWPS file non-English (20 stop words, 0.075 against a 0.08 line). | English if English function words make up at least 0.15 of words and at least twice the share of any of 5 other Latin-script languages' distinctive words. | `out/dev_flag_language.json`. 109 development files (v4, the coverage eval, MGSM in 6 languages): 0 wrong, against 1 before. English files score 0.22-0.53, non-English files 0.00-0.03. |
+
+### Test v5, rules written before its data was examined
+
+These rules were committed before the v5 materials were built. The v5 files are hashed into `out/test_v5.sha256` and committed before any detector runs on them. The builder (`scripts/build_test5.py`) uses only the sources' own audit labels and seeded sampling, and runs no Touchstone check.
+
+**Tier A: organic errors at natural prevalence.** Real rows with their real labels, scored against an external expert audit. Nothing is planted.
+
+- *MMLU-Redux 2.0* (`edinburgh-dawg/mmlu-redux-2.0`, CC BY 4.0). One case per subject: all of the subject's audited rows as multiple-choice material, with MMLU's original answer as the label.
+  - A row's label is **wrong** when the audit says `wrong_groundtruth` or `no_correct_answer`. It is **ambiguous** for `multiple_correct_answers`, `bad_question_clarity`, `bad_options_clarity` or `expert`. Otherwise it is **ok**.
+  - The case is noisy when 20% or more of its rows are wrong (the v3/v4 truth line).
+  - The suite is the subject's MMLU validation and dev rows, a split disjoint from the material.
+  - Because every row is audited, recall is true recall, not only precision.
+- *GSM8K-Platinum* (`madrylab/gsm8k-platinum`, MIT) against the original GSM8K test (`openai/gsm8k`, MIT). The material is the original test rows, with their original worked answers.
+  - A row is **wrong** when Platinum revised its answer. It is **ambiguous** when Platinum removed the question.
+  - The rows are split into seeded draws of 150. These are public copies by construction (GSM8K test is in the public baseline), so `copied_from_public` is true for every draw.
+  - Row-level secondary: the arithmetic check's per-row result against Platinum's wrong and ambiguous rows.
+- *Fantastic Bugs* (`stair-lab/fantastic-bugs`, MIT). These are items that many models found suspicious and that experts then reviewed. Rows reviewed as correct form **clean-hard** negative cases, one per benchmark split that maps to multiple choice. Rows with a confirmed issue are selected rather than natural prevalence, so they are not used as positives.
+- *ReaLMistake* is gated. It is not in v5 unless Johnny accepts its terms before the freeze. If it is added, its rows stay out of public reports.
+
+**Tier B: planted data,** labelled as planted and never pooled with Tier A.
+
+- 30% wrong labels on MMLU-Redux `ok` rows, and on GSM8K-Platinum `consensus` rows (the final answer is shifted by the v4 offsets).
+- Verbatim suite items inserted into otherwise clean material (contamination).
+- Material from one MMLU subject checked against a distant subject's suite (off-topic on a small suite). The pairs are fixed in the builder by subject category.
+- Environments: new grader bugs, honest idioms, and format-lax graders.
+
+**Negatives** are split three ways:
+
+- **clean-hard:** Fantastic Bugs reviewed-correct cases, and MMLU-Redux subjects at college or professional level, plus `abstract_algebra, formal_logic, econometrics, high_school_mathematics, high_school_physics, high_school_chemistry, high_school_statistics, machine_learning`. That list was fixed by subject name, before any error rate was seen.
+- **clean-easy:** other subjects below the noisy line.
+- **ambiguous:** a case with a wrong-row share of 10-20%, or with ambiguous rows at 20% or more, while below the noisy line.
+
+**Two definitions settled before the freeze.**
+
+1. *A same-template clone with new numbers is not contamination.* On short tasks an item's identity is its numbers, operation and answer (section 5). A clone teaches the template, not the item. It is labelled `contaminated = false`, and a flag on it is a false flag. An FDE finding prompted this rule: the generic overlap screen matched 94% of Knights-and-Knaves training puzzles to its test set by template alone.
+2. *`g_strip_nondigits` is format laxity, not a gameable grader.* It pays only a reply whose digits, in order, are the full answer. No reply earns it without solving the task. Format-lax graders are labelled `gameable_grader = false`, and the advisory `format_lax` signal is reported beside them. test v3's published label and score stand.
+
+**How v5 is scored** (written now, applied once):
+
+- The engine is used as committed at scoring time, and the commit is recorded. Each case runs once through the v4 runner.
+- Blocking flags are primary. Advisory signals (multiple choice, free text, chat, non-English) are reported beside them.
+- Tier A and Tier B are reported separately.
+- Precision is reported with its prevalence attached: the share of positive cases in that tier. Beside it is the precision implied at 2%, 6.5% and 20% prevalence, from the measured recall and false-flag rate.
+- Recall is reported, along with false flags per source with one-sided 95% Clopper-Pearson upper bounds. Negatives are reported by clean-easy, clean-hard and ambiguous.
+- Multiple-choice label checks are advisory, so their Tier A recall is reported as advisory recall. It is never folded into blocking precision.
+
+**Test v5 frozen** (`examples/test5/`, builder `scripts/build_test5.py`). The combined sha256 is **`e62c05b1e8da35633d931d791beda169f8ca706b16695dba2c02095b191415b7`**, with per-file hashes in `out/test_v5.sha256`. It was committed before any detector ran on it. The runner and report (`scripts/eval_test5.py`, `scripts/report_test5.py`) are committed with it. The runner refuses to score on a hash mismatch, and it keeps the engine commit and per-row outputs. Licences are recorded per case in the manifest.
+
+There are 101 cases:
+
+| Tier | Part | Cases | Positives (truth) |
+|---|---|---|---|
+| A | MMLU-Redux 2.0, one per subject | 57 | `noisy_labels`: `virology` (0.37 wrong), `college_chemistry` (0.23). Natural prevalence 2 of 57 |
+| A | ReaLMistake, per task and model (rows private) | 6 | `noisy_labels`: all 6 (0.58-0.83 wrong) |
+| A | ReaLMistake, expert-judged error-free rows (selected) | 3 | none |
+| A | Fantastic Bugs, reviewed correct (`med_qa`, `mmlu_clinical_knowledge`, `mmlu_professional_medicine`, `openbookqa`) | 4 | none (clean-hard) |
+| A-previewed | GSM8K test draws of 150, against GSM8K-Platinum | 8 | `copied_from_public` on all 8; none noisy (0-3 wrong rows per draw, 10 in all) |
+| B | Planted 30% wrong labels (4 MMLU-Redux subjects, 1 GSM8K) | 5 | `noisy_labels` |
+| B | Verbatim suite items inserted | 2 | `contaminated` |
+| B | Distant-subject material on a small suite | 4 | `off_topic` |
+| B | Same-template clones of `word_math` with new numbers | 1 | none (the v5 ruling) |
+| B | Environments: 6 grader bugs, 3 honest, 2 format-lax | 11 | `gameable_grader` on the 6 bugs |
+
+Choices made while building, all mechanical and recorded in the builder:
+
+- *Development rows left out.* 19 MMLU-Redux rows whose question appears in test v4 or in a sprint development set are left out. v4's MMLU draws came from the same test split.
+- *Fantastic Bugs.* Rows count as reviewed-correct when the review's first word is "correct" or "valid". Rows MMLU-Redux marks with any issue are left out, so the two audits never conflict on one row.
+- *ReaLMistake.* The 40 inputs of each case form its suite, and the rest are the material.
+- *GSM8K-Platinum* is the `A-previewed` part. An FDE run saw its row-level results before the freeze. Nothing was tuned, and the part is never pooled with Tier A.
+- *Ambiguous negatives.* No Tier A case met the "ambiguous negative" rule, so that category is empty.
+
+*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point.
+
 ## 6. Forecast: small to large
 
 ### Methods compared
@@ -360,6 +442,119 @@ Lower learning rate is retired. In this short-run setting it scored worse than t
 *Base-model ladders end replies with `<|endoftext|>`.* Pretrained-only Qwen models never trained the chat tokens: in Qwen3-Base and Qwen2.5 base, the output rows of `<|im_end|>` and `<|im_start|>` keep their initial norm (0.35-0.41, against 0.7-1.8 for ordinary tokens). With `<|im_end|>` as the end of a training reply, LoRA cannot learn to emit it: on Qwen3-8B-Base the SFT loss stalled at 4.05 and every reply after the first letter was garbage (sprint timing run, `out/h5/timing/time_sft_q3-8B.json`). The research ladders therefore end replies with the model's document end, `<|endoftext|>` (`touchstone/lm.py`, `END`). SmolLM2 keeps `<|im_end|>`, so h4 paths are unchanged. The prompt still uses the chat template.
 
 *Runner.* `scripts/h5_jobs.py` packs runs onto every GPU by estimated memory, resumes after a crash (a run is done when its result file exists; results are written atomically), and retries a failed run once under the same config, logging the failure. `scripts/h5_run.py` records each run's job, recipe, seed, engine commit, wall, load, evaluation and training time, peak GPU memory, gate records, per-item correctness before and after, and the soft score before and after (`scripts/h5_soft.py`). The untrained model's evaluation is computed once per family and rung and reused (greedy, same items, same batches). Research rungs of 1.5B parameters and up use gradient checkpointing in SFT and GRPO, and score soft candidates in batches sized by tokens; neither changes an update or a score, only memory. Results are copied to the Mac every 3 minutes (`scripts/h5_sync.sh`; access details from the environment only).
+### h5, pre-registered before any h5 run
+
+h5 is the sprint's forecast test on a rented RTX 5090 (32 GB). Everything in this subsection was written and committed before any h5 training run. The scorer is `scripts/h5_score.py`. Its candidates, gates, bars and stop rule are constants in that file, so editing the config cannot move them. The run matrix (`scripts/h5_config.json`), the materials, the suites and the scorer are hashed into `out/h5_final.sha256` at the freeze, and that hash is written here before the final launch. The scorer refuses to run in `final` mode if any hash differs, and refuses to overwrite an existing result, so each candidate is scored once.
+
+**Questions.**
+
+1. Do small runs rank real, competing, screen-passing materials for the largest target one RTX 5090 can train? That is 8B for fine-tuning if it fits, and at least 4B for RL.
+2. Does RL forecasting work on non-arithmetic tasks?
+3. Does a mid-size proxy about 4x below the target beat a jump of about 12x?
+
+**Ladder and rung roles.** The ladder is one same-family base-model ladder, chosen by the lead's pre-flight from base accuracy against chance, headroom, and whether the largest rung learns from clean material and is hurt by all-wrong material. The choice and its reason are recorded beside this subsection. Rungs are named by role:
+
+- `target`: the largest rung that trains in 32 GB.
+- `p4`: the rung about 4x below the target.
+- `p12`: the rung about 12x below the target.
+
+With Qwen3-Base these are 8B, 1.7B (4.7x) and 0.6B (13.3x) for fine-tuning. With Qwen2.5 they are 7B, 1.5B (4.7x) and 0.5B (14x). If GRPO only fits at 4B, the RL arm's target is 4B and its proxies are 1.7B (2.4x) and 0.6B (6.7x). Those ratios are stated as they are, and question 3 is then answered on fine-tuning only. The sizes are written into the config at the freeze. Every recipe setting that could move a result (learning rate, steps, LoRA rank, prompt, reply limit) is identical across rungs and materials and is recorded with the matrix. The reply limit is 32 tokens for letter families, as in h4. For worked-solution and Knights-and-Knaves families it is set before training so that the FDE manifest's 95th-percentile completion length fits. Truncation and the share of replies with no answer are recorded and reported, never gated. Untrained base models never end a reply: at 32 tokens Qwen3-8B-Base truncates 13-94% of letter-family replies (`ml-sprint/out/h5/preflight/qwen3.json`), so no truncation rule can be met. *(Amended before the freeze, after an independent review. The first draft required at most 10% of base replies to be cut off.)* Training uses the same limit as evaluation.
+
+**Two arms, never pooled.** Fine-tuning (FT) and RL get separate gates, separate results and separate verdicts. Bonferroni runs over the three candidates within an arm.
+
+**Families and materials.** A family is one held-out suite plus the materials compared on it. Pairs are compared only within a family.
+
+- *Real competing materials (FT).* These are the FDE's families. Each holds 4-6 real public materials of one task, sampled to the same size with a fixed seed. Each must pass the class-balance check and the overlap screen against the family suite. The FT gate's reference material is the first one listed in the manifest. Its all-wrong version, `wrong_<reference>`, makes every completion wrong. For letter families, every row gets another option. For `gsm` and `kk`, every row gets another row's completion with a different answer. This version is a separate run from the placebo, and its rows are seeded by its own name. *Disclosure:* two lead timing runs used the GSM8K test split as their suite, at 4B only. GSM8K test is close to the `gsm` suite (GSM8K-Platinum). Those runs gave GRPO +8.5 and SFT +9.3 from a base of 73. They are seen numbers; no choice uses them, and no 4B rung is in h5.
+- *Corrected classification families (FT).* These use sources refetched with the lead's shuffle or stratify fix. The screen-passing conditions are `clean, pool100, pool200, pool300, wrong10, off25`, plus `drop` only where a family has 4 or more classes. In a binary family, `drop` is a single class and fails the class-balance gate by construction. `wrong100` is the FT gate's all-wrong arm and is the only failing condition, so all-pairs is screen-passing plus `wrong100`. `wrong60` and `off80` are not run.
+- Families scored in h4 (`imdb, amazon, cr, subj, enron, sst5, bbc`; `dbpedia` was broken) may be reused with the new ladder and newly fetched rows. They are reported as their own stratum, because their h4 results were seen. `ag_news, rotten, emotion` are development families and are never scored as held-out.
+- *RL.* Families are environments with a checkable answer: classification families graded by letter, plus the FDE's procedural reasoning source. The screen-passing conditions are `clean, pool50, pool200, noise10, off25`. `placebo` is the same tasks with rewards shuffled within each batch.
+- Every family in both arms also runs `placebo` at every rung. Placebo gains are reported. Subtracting a constant within a family cannot change a ranking.
+- *Screen-passing* means that the screens actually run on each material before the freeze raise no blocking flag. Those screens are: overlap with the family suite, duplicates, and class balance. The label screen was not run on the 17 real materials, so it is not part of the definition. The public-copy screen is not part of it either, because every real material is public by construction. A material that is flagged leaves the primary set, and it is listed with its flag. The screens' results are frozen with the materials.
+
+**Seeds.** 2 at every rung. Never fewer.
+
+**Target.** The target value of a material is its accuracy gain at the target rung, as the mean of 2 seeds, on the family's suite. This is the same quantity as h4's.
+
+**Candidates.** There are three: the `acc_final` baseline and two new ones. Each new candidate differs from the baseline in exactly one factor.
+
+| Name | Signal | Proxy rung | Answers |
+|---|---|---|---|
+| **B** `acc_final` 12x (baseline) | Accuracy gain at the proxy, mean of 2 seeds | `p12` | Q1, Q2 |
+| **C1** `acc_final` 4x | The same signal | `p4` | Q3: B against C1 |
+| **C2** soft 12x | Chance-corrected soft-score gain at the proxy (`scripts/h5_soft.py`) | `p12` | Whether a smooth signal beats accuracy at the same proxy |
+
+The soft score of an item is P(correct) / P(any candidate), where the candidates are the option letters for choice items (each letter scored alone as the first token of the reply, with no end token, because base-model ladders never trained one), or the answer and 4 near misses scored in the answer slot of the model's own reply for numeric items. It is chance-corrected as (p - c) / (1 - c), with c = 1 / number of candidates. Within a family where every item has the same number of options, the correction does not change any ranking. It puts soft gains on a common scale (0 = chance) and handles families whose option counts differ. An answer type with no candidate set (Knights-and-Knaves free-form answers) has no soft score, so C2 abstains on that family, and the abstention is reported. Numeric items whose answer is not an integer get no soft score and leave the soft mean; their count is recorded per run.
+
+*Why these candidates, and their lineage.* The three were not chosen by searching development data. Q3 needs C1. C2 is the report's other recommended option. Both are fixed rules with no fitted parameters. Their lineage is stated so that nothing returns under a new name:
+
+- `acc_final` is the baseline signal that h4 also used. h4 retired it as a forecast for SmolLM2 360M to 1.7B. h3 retired it as a general RL forecast for 135M to 360M. h5 scores the same rule at new rung pairs on a new ladder and reinstates no earlier claim.
+- C2's signal belongs to the same family as h3's `smooth_final`, which was retired after scoring 0.40 on a set where three of four families sat at a floor or were cut off. h5 re-tests it, declared here, on fine-tuning and on gated families. It is not retuned.
+- h4's other two candidates, the 10x lower learning rate and the truncated 1.7B run, are not candidates. Neither are `hand_pool`, `hand_pool_clean`, `reach_clean`, `probe_rank`, `reward_gain`, ridge fits or gradient similarity.
+
+*Development evidence available at this point.* These come from stored runs, within family, on screen-passing pairs, recounted by `scripts/h5_dev_ratio.py` (`out/h5_dev_ratio.json`). h4's final families are spent and serve here as development data. SmolLM2 accuracy-gain ranking:
+
+| Pair | h4 development families (3) | h4 final families (8) | h4 final families without `dbpedia`, `imdb` |
+|---|---|---|---|
+| 135M to 1.7B (12.6x) | 0.55 | 0.58 | 0.68 |
+| 360M to 1.7B (4.7x) | 0.41 | 0.61 | 0.73 |
+| 135M to 360M (2.7x) | 0.82 | 0.77 | 0.82 |
+
+So there is no consistent order between 4.7x and 12.6x, and that is why Q3 is asked rather than assumed. No stored run has a soft score, so C2 has no development number.
+
+**Reported measurements.** These are never candidates and have no bar, pass or fail.
+
+- *The soft target:* C2's signal against the target's soft-score gain. This is a different target from the one the product sells, so it is labelled as such and is never swapped in for accuracy.
+- *The truncated target run*, net of its placebo (10 steps at the target). It runs only if the budget allows, and it is the first measurement cut. h4's truncated 1.7B result (0.68) is carried as reported there.
+- *The SmolLM2 continuity measurement:* `acc_final` 360M to 1.7B on the h5 families, if the lead runs that arm.
+
+**Gates.** These are decided before scoring and applied mechanically by the scorer. Every family that abstains is reported as an abstention, with its reason.
+
+1. *Class balance.* This uses the lead's committed fetch check and threshold. A suite over the threshold makes the family abstain. A material over it leaves the family and is listed.
+2. *Headroom.* A family abstains when the target's base accuracy is 90% or more.
+3. *Fine-tuning gate,* applied at each candidate's own proxy rung. The reference material minus its all-wrong version must be at least 5 points (mean of 2 seeds). Where it is not, that candidate abstains on that family and the others go on.
+4. *RL gate,* checked before training at each rung. Each rung draws 64 prompts of the clean environment, a group of rollouts per prompt at temperature 1, under the training reply limit. It must reach a chance-corrected reward rate (r - c) / (1 - c) of at least 0.10, where c is the guessing rate (1/k for letter tasks, 0 for open answers). The raw reward rate must be at most 0.90. Truncation and no-answer shares are reported, not gated: kappa >= 0.10 already requires correct answers inside the limit. *(Amended before the freeze; the first draft also capped truncation at 10%.)* **Expected before anything runs:** Qwen3-0.6B sits at or below chance on every letter family in the pre-flight, so B and C2 (both at 0.6B) will most likely abstain on every RL family. Q2 then rests on C1 alone. RL training at a rung whose gate fails may be skipped, because the scorer abstains there anyway. If the target fails, the family abstains from RL. If a proxy rung fails, the candidates on that rung abstain on that family.
+
+**Primary number,** per arm and per candidate: decision accuracy on screen-passing pairs within family, pooled over the families the candidate covers. Target ties are dropped and counted, and a tie in the signal counts as a miss. Beside it are reported:
+
+- the target's noise ceiling on screen-passing pairs (one seed against the other)
+- coverage: families covered of families gated in, and pairs
+- every abstention, with its reason
+- a 90% bootstrap interval over families and materials
+- the permutation p, with targets shuffled within family, 10,000 times
+- mean within-family Spearman
+- per-family results
+- all pairs
+- per-stratum results (real competing, new classification, reused from h4)
+
+**Pass bar and stop rule,** per candidate and per arm:
+
+- *Pass:* screen-passing decision accuracy of at least 0.80, and permutation p below 0.0167 (0.05 over three candidates). At least max(3, 60% of covered families) families must also sit above 0.5. The bar applies to the point estimate. At about 120 pairs its standard error is about 0.04, so a miss whose 90% interval covers 0.80 is reported as that, still retired. A result is always named with its arm: Bonferroni runs within an arm, not across the sprint.
+- *Inconclusive for the whole arm:* the target's screen-passing noise ceiling is below 0.75.
+- *Strata.* Each stratum (real competing, new classification, reused from h4) is reported with its own decision, its own noise ceiling and its own pairs. A stratum is inconclusive on its own when its ceiling is below 0.75 or it has fewer than 30 pairs. Q1 is quoted on the real-competing stratum. The pooled number weights families by their pair count, so it can be carried by classification families.
+- *Inconclusive for one candidate:* it covers fewer than 3 families or fewer than 30 screen-passing pairs, or any of its runs are missing. An inconclusive candidate makes no claim either way. It may be tested again only on a fresh, pre-registered set.
+- *Stop rule:* a candidate that misses the bar in an arm is retired in that arm, not retuned.
+
+**Comparisons (Q3, and soft against accuracy).** C1 against B, and C2 against B, are compared on the families both cover. The scorer reports the difference in decision accuracy, a paired family bootstrap 90% interval, and a one-sided paired permutation p that flips which candidate is which within each family.
+
+- "C beats B" is claimed only if p < 0.05 and the difference is positive. If the arm is inconclusive, nothing is claimed.
+- With fewer than 5 shared families, the smallest possible p is 1/16, so the comparison is reported as underpowered and no claim is made. This is why the FT arm needs at least 5 families.
+- With 5 shared families, "C beats B" needs every one of them to favour C (the smallest possible p is 1/32).
+- Q2 is answered by the RL arm's verdicts. If fewer than 3 families pass the target's RL gate, the answer is "inconclusive: coverage".
+
+**Dry run.** `scripts/h5_dryrun.py` scores the h4 development runs (`ag_news, rotten, emotion`; p12 = 135M, p4 = 360M, target = 1.7B) end to end, and writes `out/forecast_h5_dry.json`. It is labelled as a development dry run and chooses nothing. On those runs, the class-balance gate removed `drop` from `rotten`, and the FT gate (here against `wrong60`, since h4 development has no `wrong100`) left B with 1 family and C1 with 2. All three candidates came out inconclusive on coverage, and C2 came out "missing runs" because no stored run has a soft score. `tests/test_h5_score.py` covers the remaining paths on synthetic files: pass, fail and retire, abstention by each gate, a low ceiling, the RL gate, and the refusals on a hash mismatch and on a second scoring.
+
+**Budget.** The matrix is sized from the lead's timing table at 70% of measured throughput, with a 15% reserve. If it does not fit, families are cut first, then the SmolLM2 continuity arm and the truncated measurement. The family cut order is fixed by rule, not by seen headroom. First comes `gsm`, the most expensive per run and untimed at 8B with long sequences. Next is the reused-from-h4 stratum. Then the new classification families go in reverse alphabetical order. Real families nli and sci are cut last. If `gsm` is cut, the real stratum is nli + sci (25 pairs), under 30, and is inconclusive on its own. Seeds never go below 2. The placebo arms, the largest target, and the RL arm are never cut. If the FT arm cannot keep 5 families, Q3 is reported as underpowered. The comparison is not run on fewer families with a claim attached.
+
+**h5 frozen** (written before any h5 final run). The combined sha256 is **`e431c55c18fbfd5e8f698c154cd02cae8cccb90734e913cde15b64613db3a49a`**, covering 27 files listed in `out/h5_final.sha256`: the scorer (`scripts/h5_score.py`, sha256 `c89f20ef713b0e676b07380f8be57efeacce94ab3ca431deef11b25b8ae5181a`), `scripts/h5_soft.py`, `scripts/h5_config.json` and every file under `examples/h5/`. The dry run (`out/forecast_h5_dry.json`) was rerun on this scorer.
+
+- *Ladder.* Qwen3-Base: `q3-0.6B` (p12), `q3-1.7B` (p4) and `q3-8B` (target), in both arms. 8B fits both arms on the 32 GB card, per the lead's timing. Seeds 2.
+- *FT families.* `nli` and `sci` (real competing, 5 and 6 materials) and `yelp`, `csqa`, `boolq` (classification, new). The lead's fit check cut `gsm` and `sst5`, by the fixed cut order: about 7-8 GPU-h of measured run time were available against about 17 GPU-h for the full matrix.
+- *RL families.* `kk` (reply limit 64 tokens; the FDE manifest p95 is 43), `yelp` and `csqa` (32 tokens).
+- *Consequences, stated before any run.*
+  - The real-competing stratum is nli + sci, 10 + 15 = 25 screen-passing pairs. That is under the 30-pair line, so **that stratum is inconclusive on its own whatever it scores**. Q1 on real competing materials can only be reported as a measurement with its interval.
+  - FT keeps 5 families, so Q3 can be tested, but "C1 beats B" needs every shared family to favour C1.
+  - In RL, B and C2 (0.6B) are expected to abstain on every family, and C2 abstains on `kk` (no soft score for free-form answers).
+
 
 ## 7. Grade and fair value
 

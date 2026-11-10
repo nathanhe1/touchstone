@@ -1,0 +1,18 @@
+{
+ "note": "Development dry run only (scripts/h5_dryrun.py). Not the h5 config.",
+ "arms": {
+  "ft": {
+   "kind": "ft",
+   "run_arm": "sft",
+   "rungs": {"p12": "135M", "p4": "360M", "target": "1.7B"},
+   "families": {
+    "ag_news": {"passing": ["clean", "pool100", "pool300", "wrong10", "off25", "drop"], "failing": ["wrong60", "off80"], "gate_ref": "clean", "gate_wrong": "wrong60"},
+    "rotten": {"passing": ["clean", "pool100", "pool300", "wrong10", "off25", "drop"], "failing": ["wrong60", "off80"], "gate_ref": "clean", "gate_wrong": "wrong60"},
+    "emotion": {"passing": ["clean", "pool100", "pool300", "wrong10", "off25", "drop"], "failing": ["wrong60", "off80"], "gate_ref": "clean", "gate_wrong": "wrong60"}
+   },
+   "measurements": {
+    "truncated target net of placebo (not a forecast)": {"run_arm": "sfttr", "size": "1.7B", "net_of_placebo": true}
+   }
+  }
+ }
+}

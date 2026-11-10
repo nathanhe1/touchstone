@@ -1,0 +1,1009 @@
+{
+ "summary": {
+  "before": {
+   "wrong": [
+    "planted_mawps_30"
+   ]
+  },
+  "after": {
+   "wrong": []
+  },
+  "cases": {
+   "en": 87,
+   "non_en": 22
+  },
+  "en_share_range": {
+   "en": [
+    0.2239,
+    0.5331
+   ],
+   "non_en": [
+    0.0,
+    0.0293
+   ]
+  }
+ },
+ "cases": [
+  {
+   "case": "bad_gsmplus_seedanswer_100",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4799,
+   "other_share": 0.0008,
+   "old_share": 0.2323
+  },
+  {
+   "case": "bad_gsmplus_seedanswer_35",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4741,
+   "other_share": 0.0003,
+   "old_share": 0.2337
+  },
+  {
+   "case": "bad_truthful_100",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.468,
+   "other_share": 0.0,
+   "old_share": 0.266
+  },
+  {
+   "case": "bad_truthful_33",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4811,
+   "other_share": 0.0009,
+   "old_share": 0.2637
+  },
+  {
+   "case": "clean_alpaca_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3797,
+   "other_share": 0.0014,
+   "old_share": 0.2424
+  },
+  {
+   "case": "clean_alpaca_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3914,
+   "other_share": 0.0014,
+   "old_share": 0.2621
+  },
+  {
+   "case": "clean_aqua_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4371,
+   "other_share": 0.0031,
+   "old_share": 0.2501
+  },
+  {
+   "case": "clean_aqua_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4411,
+   "other_share": 0.0019,
+   "old_share": 0.2633
+  },
+  {
+   "case": "clean_aqua_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4226,
+   "other_share": 0.0039,
+   "old_share": 0.2488
+  },
+  {
+   "case": "clean_gsmplus_newnumbers",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4718,
+   "other_share": 0.0003,
+   "old_share": 0.2384
+  },
+  {
+   "case": "clean_gsmplus_numsub",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4653,
+   "other_share": 0.0003,
+   "old_share": 0.2391
+  },
+  {
+   "case": "clean_mawps_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4989,
+   "other_share": 0.0,
+   "old_share": 0.0844
+  },
+  {
+   "case": "clean_mawps_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5051,
+   "other_share": 0.0004,
+   "old_share": 0.089
+  },
+  {
+   "case": "clean_mawps_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5009,
+   "other_share": 0.0,
+   "old_share": 0.0807
+  },
+  {
+   "case": "clean_medmcqa_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2805,
+   "other_share": 0.0026,
+   "old_share": 0.1891
+  },
+  {
+   "case": "clean_medmcqa_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2873,
+   "other_share": 0.0019,
+   "old_share": 0.1962
+  },
+  {
+   "case": "clean_medmcqa_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.304,
+   "other_share": 0.0027,
+   "old_share": 0.2063
+  },
+  {
+   "case": "clean_mmlu_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4134,
+   "other_share": 0.0012,
+   "old_share": 0.277
+  },
+  {
+   "case": "clean_mmlu_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4037,
+   "other_share": 0.0015,
+   "old_share": 0.2707
+  },
+  {
+   "case": "clean_mmlu_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4258,
+   "other_share": 0.0038,
+   "old_share": 0.2874
+  },
+  {
+   "case": "clean_multiarith_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5285,
+   "other_share": 0.0,
+   "old_share": 0.1967
+  },
+  {
+   "case": "clean_multiarith_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5223,
+   "other_share": 0.0,
+   "old_share": 0.1889
+  },
+  {
+   "case": "clean_multiarith_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.528,
+   "other_share": 0.0,
+   "old_share": 0.1849
+  },
+  {
+   "case": "clean_oasst_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4658,
+   "other_share": 0.0008,
+   "old_share": 0.2658
+  },
+  {
+   "case": "clean_oasst_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4531,
+   "other_share": 0.0015,
+   "old_share": 0.2591
+  },
+  {
+   "case": "clean_oasst_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4694,
+   "other_share": 0.0007,
+   "old_share": 0.2641
+  },
+  {
+   "case": "clean_prealgebra_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3992,
+   "other_share": 0.0036,
+   "old_share": 0.2578
+  },
+  {
+   "case": "clean_prealgebra_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4148,
+   "other_share": 0.0032,
+   "old_share": 0.2537
+  },
+  {
+   "case": "clean_prealgebra_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4285,
+   "other_share": 0.0019,
+   "old_share": 0.2711
+  },
+  {
+   "case": "clean_qasc_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2242,
+   "other_share": 0.0026,
+   "old_share": 0.1065
+  },
+  {
+   "case": "clean_qasc_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2319,
+   "other_share": 0.0031,
+   "old_share": 0.0996
+  },
+  {
+   "case": "clean_qasc_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2239,
+   "other_share": 0.0022,
+   "old_share": 0.1083
+  },
+  {
+   "case": "clean_truthful_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4577,
+   "other_share": 0.0018,
+   "old_share": 0.2384
+  },
+  {
+   "case": "clean_truthful_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4768,
+   "other_share": 0.0007,
+   "old_share": 0.2649
+  },
+  {
+   "case": "clean_truthful_2",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4723,
+   "other_share": 0.0011,
+   "old_share": 0.263
+  },
+  {
+   "case": "contam_real_prefix",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5325,
+   "other_share": 0.0003,
+   "old_share": 0.1989
+  },
+  {
+   "case": "contam_real_verbatim",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5325,
+   "other_share": 0.0003,
+   "old_share": 0.1989
+  },
+  {
+   "case": "planted_alpaca_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3865,
+   "other_share": 0.002,
+   "old_share": 0.2455
+  },
+  {
+   "case": "planted_aqua_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.444,
+   "other_share": 0.0022,
+   "old_share": 0.2569
+  },
+  {
+   "case": "planted_mawps_30",
+   "truth": "en",
+   "before": "non_en",
+   "after": "en",
+   "en_share": 0.5018,
+   "other_share": 0.0,
+   "old_share": 0.075
+  },
+  {
+   "case": "planted_medmcqa_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2976,
+   "other_share": 0.0034,
+   "old_share": 0.2056
+  },
+  {
+   "case": "planted_mmlu_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4064,
+   "other_share": 0.0021,
+   "old_share": 0.2682
+  },
+  {
+   "case": "planted_multiarith_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.5331,
+   "other_share": 0.0004,
+   "old_share": 0.1936
+  },
+  {
+   "case": "planted_oasst_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.469,
+   "other_share": 0.0006,
+   "old_share": 0.2819
+  },
+  {
+   "case": "planted_prealgebra_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3959,
+   "other_share": 0.0028,
+   "old_share": 0.2679
+  },
+  {
+   "case": "planted_qasc_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.2254,
+   "other_share": 0.0011,
+   "old_share": 0.1053
+  },
+  {
+   "case": "pub_gsmplus_distractor",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4696,
+   "other_share": 0.0003,
+   "old_share": 0.2451
+  },
+  {
+   "case": "pub_gsmplus_reworded",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4704,
+   "other_share": 0.0003,
+   "old_share": 0.2662
+  },
+  {
+   "case": "pub_gsmplus_reworded_30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4711,
+   "other_share": 0.0003,
+   "old_share": 0.2688
+  },
+  {
+   "case": "coverage:dev_chat_soda_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4815,
+   "other_share": 0.005,
+   "old_share": 0.2454
+  },
+  {
+   "case": "coverage:dev_chat_soda_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4815,
+   "other_share": 0.005,
+   "old_share": 0.2454
+  },
+  {
+   "case": "coverage:dev_code_humaneval_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3123,
+   "other_share": 0.0016,
+   "old_share": 0.2094
+  },
+  {
+   "case": "coverage:dev_code_humaneval_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3123,
+   "other_share": 0.0016,
+   "old_share": 0.2094
+  },
+  {
+   "case": "coverage:dev_code_mbpp_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3968,
+   "other_share": 0.0011,
+   "old_share": 0.2558
+  },
+  {
+   "case": "coverage:dev_code_mbpp_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3968,
+   "other_share": 0.0011,
+   "old_share": 0.2558
+  },
+  {
+   "case": "coverage:dev_de_mgsm_n0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.022,
+   "other_share": 0.2796,
+   "old_share": 0.0125
+  },
+  {
+   "case": "coverage:dev_de_mgsm_n30",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.022,
+   "other_share": 0.2796,
+   "old_share": 0.0125
+  },
+  {
+   "case": "coverage:dev_es_mgsm_n0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0214,
+   "other_share": 0.3117,
+   "old_share": 0.0
+  },
+  {
+   "case": "coverage:dev_es_mgsm_n30",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0214,
+   "other_share": 0.3117,
+   "old_share": 0.0
+  },
+  {
+   "case": "coverage:dev_free_dolly_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3838,
+   "other_share": 0.0016,
+   "old_share": 0.2734
+  },
+  {
+   "case": "coverage:dev_free_dolly_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3838,
+   "other_share": 0.0016,
+   "old_share": 0.2734
+  },
+  {
+   "case": "coverage:dev_mcq_arc_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3888,
+   "other_share": 0.0009,
+   "old_share": 0.2406
+  },
+  {
+   "case": "coverage:dev_mcq_arc_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3888,
+   "other_share": 0.0009,
+   "old_share": 0.2406
+  },
+  {
+   "case": "coverage:dev_tool_glaive_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.496,
+   "other_share": 0.0031,
+   "old_share": 0.2951
+  },
+  {
+   "case": "coverage:dev_tool_glaive_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.496,
+   "other_share": 0.0031,
+   "old_share": 0.2951
+  },
+  {
+   "case": "coverage:eval_chat_soda_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4688,
+   "other_share": 0.0033,
+   "old_share": 0.2345
+  },
+  {
+   "case": "coverage:eval_chat_soda_n10",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4688,
+   "other_share": 0.0033,
+   "old_share": 0.2345
+  },
+  {
+   "case": "coverage:eval_chat_soda_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4688,
+   "other_share": 0.0033,
+   "old_share": 0.2345
+  },
+  {
+   "case": "coverage:eval_chat_soda_n60",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4688,
+   "other_share": 0.0033,
+   "old_share": 0.2345
+  },
+  {
+   "case": "coverage:eval_code_humaneval_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3142,
+   "other_share": 0.0035,
+   "old_share": 0.2268
+  },
+  {
+   "case": "coverage:eval_code_humaneval_n10",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3142,
+   "other_share": 0.0035,
+   "old_share": 0.2268
+  },
+  {
+   "case": "coverage:eval_code_humaneval_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3142,
+   "other_share": 0.0035,
+   "old_share": 0.2268
+  },
+  {
+   "case": "coverage:eval_code_humaneval_n60",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3142,
+   "other_share": 0.0035,
+   "old_share": 0.2268
+  },
+  {
+   "case": "coverage:eval_code_mbpp_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3931,
+   "other_share": 0.0013,
+   "old_share": 0.2512
+  },
+  {
+   "case": "coverage:eval_code_mbpp_n10",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3931,
+   "other_share": 0.0013,
+   "old_share": 0.2512
+  },
+  {
+   "case": "coverage:eval_code_mbpp_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3931,
+   "other_share": 0.0013,
+   "old_share": 0.2512
+  },
+  {
+   "case": "coverage:eval_code_mbpp_n60",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3931,
+   "other_share": 0.0013,
+   "old_share": 0.2512
+  },
+  {
+   "case": "coverage:eval_de_mgsm_n0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0269,
+   "other_share": 0.2762,
+   "old_share": 0.0156
+  },
+  {
+   "case": "coverage:eval_de_mgsm_n10",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0269,
+   "other_share": 0.2762,
+   "old_share": 0.0156
+  },
+  {
+   "case": "coverage:eval_de_mgsm_n30",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0269,
+   "other_share": 0.2762,
+   "old_share": 0.0156
+  },
+  {
+   "case": "coverage:eval_de_mgsm_n60",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0269,
+   "other_share": 0.2762,
+   "old_share": 0.0156
+  },
+  {
+   "case": "coverage:eval_es_mgsm_n0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0248,
+   "other_share": 0.3067,
+   "old_share": 0.0
+  },
+  {
+   "case": "coverage:eval_es_mgsm_n10",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0248,
+   "other_share": 0.3067,
+   "old_share": 0.0
+  },
+  {
+   "case": "coverage:eval_es_mgsm_n30",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0248,
+   "other_share": 0.3067,
+   "old_share": 0.0
+  },
+  {
+   "case": "coverage:eval_es_mgsm_n60",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0248,
+   "other_share": 0.3067,
+   "old_share": 0.0
+  },
+  {
+   "case": "coverage:eval_free_dolly_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3753,
+   "other_share": 0.0012,
+   "old_share": 0.2738
+  },
+  {
+   "case": "coverage:eval_free_dolly_n10",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3753,
+   "other_share": 0.0012,
+   "old_share": 0.2738
+  },
+  {
+   "case": "coverage:eval_free_dolly_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3753,
+   "other_share": 0.0012,
+   "old_share": 0.2738
+  },
+  {
+   "case": "coverage:eval_free_dolly_n60",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3753,
+   "other_share": 0.0012,
+   "old_share": 0.2738
+  },
+  {
+   "case": "coverage:eval_mcq_arc_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3692,
+   "other_share": 0.0043,
+   "old_share": 0.242
+  },
+  {
+   "case": "coverage:eval_mcq_arc_n10",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3692,
+   "other_share": 0.0043,
+   "old_share": 0.242
+  },
+  {
+   "case": "coverage:eval_mcq_arc_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3692,
+   "other_share": 0.0043,
+   "old_share": 0.242
+  },
+  {
+   "case": "coverage:eval_mcq_arc_n60",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.3692,
+   "other_share": 0.0043,
+   "old_share": 0.242
+  },
+  {
+   "case": "coverage:eval_tool_glaive_n0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4962,
+   "other_share": 0.0044,
+   "old_share": 0.2899
+  },
+  {
+   "case": "coverage:eval_tool_glaive_n10",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4962,
+   "other_share": 0.0044,
+   "old_share": 0.2899
+  },
+  {
+   "case": "coverage:eval_tool_glaive_n30",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4962,
+   "other_share": 0.0044,
+   "old_share": 0.2899
+  },
+  {
+   "case": "coverage:eval_tool_glaive_n60",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4962,
+   "other_share": 0.0044,
+   "old_share": 0.2899
+  },
+  {
+   "case": "mgsm_en_0",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.471,
+   "other_share": 0.0006,
+   "old_share": 0.2334
+  },
+  {
+   "case": "mgsm_en_1",
+   "truth": "en",
+   "before": "en",
+   "after": "en",
+   "en_share": 0.4703,
+   "other_share": 0.0014,
+   "old_share": 0.2293
+  },
+  {
+   "case": "mgsm_fr_0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0287,
+   "other_share": 0.271,
+   "old_share": 0.0003
+  },
+  {
+   "case": "mgsm_fr_1",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0291,
+   "other_share": 0.2622,
+   "old_share": 0.0003
+  },
+  {
+   "case": "mgsm_sw_0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0,
+   "other_share": 0.0303,
+   "old_share": 0.0
+  },
+  {
+   "case": "mgsm_sw_1",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0,
+   "other_share": 0.0396,
+   "old_share": 0.0
+  },
+  {
+   "case": "mgsm_es_0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0247,
+   "other_share": 0.3084,
+   "old_share": 0.0
+  },
+  {
+   "case": "mgsm_es_1",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0234,
+   "other_share": 0.3077,
+   "old_share": 0.0
+  },
+  {
+   "case": "mgsm_de_0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0211,
+   "other_share": 0.2814,
+   "old_share": 0.0125
+  },
+  {
+   "case": "mgsm_de_1",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0293,
+   "other_share": 0.259,
+   "old_share": 0.02
+  },
+  {
+   "case": "mgsm_bn_0",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0,
+   "other_share": 0.0,
+   "old_share": 0.0
+  },
+  {
+   "case": "mgsm_bn_1",
+   "truth": "non_en",
+   "before": "non_en",
+   "after": "non_en",
+   "en_share": 0.0,
+   "other_share": 0.0,
+   "old_share": 0.0
+  }
+ ]
+}

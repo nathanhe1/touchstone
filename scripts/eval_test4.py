@@ -1,5 +1,6 @@
 """Score frozen test v4 once. Resumable per case. Blocking flags are primary; advisory signals sit beside them."""
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -8,7 +9,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from touchstone import data as datamod, env as envmod, pipeline, suites, valuation  # noqa: E402
 
-F = ROOT / "out" / "test_v4_results.json"
+# The published v4 result is out/test_v4_results.json (scored once). Any later run must write elsewhere and is a
+# development number: TEST4_OUT=out/test_v4_dev_<label>.json python scripts/eval_test4.py
+F = ROOT / os.environ["TEST4_OUT"] if os.environ.get("TEST4_OUT") else ROOT / "out" / "test_v4_results.json"
+if os.environ.get("TEST4_OUT") and F.name == "test_v4_results.json":
+    sys.exit("refusing to overwrite the published v4 result")
 FLAGS = ["gameable_grader", "answer_leakage", "contaminated", "copied_from_public", "duplicated", "noisy_labels", "off_topic"]
 man = json.loads((ROOT / "examples" / "test4" / "manifest.json").read_text())
 res = json.loads(F.read_text()) if F.exists() else {}

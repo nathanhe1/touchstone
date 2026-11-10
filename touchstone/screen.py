@@ -44,6 +44,11 @@ def _safe_eval(expr: str):
             return ev(n.body)
         if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)):
             return n.value
+        if isinstance(n, ast.BinOp) and isinstance(n.op, ast.Pow):  # LaTeX powers (2^{10}); bounded so nothing explodes
+            b, e = ev(n.left), ev(n.right)
+            if abs(e) > 12 or abs(b) > 1e6:
+                raise ValueError
+            return b ** e
         if isinstance(n, ast.BinOp) and type(n.op) in ops:
             return ops[type(n.op)](ev(n.left), ev(n.right))
         if isinstance(n, ast.UnaryOp) and type(n.op) in ops:
@@ -52,13 +57,90 @@ def _safe_eval(expr: str):
     return ev(ast.parse(expr, mode="eval"))
 
 
+_MATH = re.compile(r"\\begin\{(?:align|equation|eqnarray|gather|multline)\*?\}(.+?)\\end\{(?:align|equation|eqnarray|gather|multline)\*?\}"
+                   r"|\$\$(.+?)\$\$|\$(.+?)\$|\\\[(.+?)\\\]|\\\((.+?)\\\)", re.S)
+_FRAC = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")
+_BOXED = re.compile(r"\\(?:boxed|fbox)\s*\{([^{}]*)\}")
+
+
+def _latex_math(m: str) -> str:
+    """One LaTeX math segment as plain arithmetic: fractions, products, powers, implicit products, decimals."""
+    m = re.sub(r"\\\\\s*&?\s*=", "=", m)  # aligned chains: 'a &= b \\\\ &= c' reads as 'a = b = c'
+    m = m.replace("&", " ").replace("\\\\", " ; ")
+    m = re.sub(r"(\d)\s*\\[dt]?frac\s*\{(\d+)\}\s*\{(\d+)\}", r"(\1+(\2)/(\3))", m)  # mixed number: 5\frac{1}{2} is 5.5
+    for _ in range(4):
+        m2 = _FRAC.sub(r"((\1)/(\2))", m)
+        m2 = _BOXED.sub(r"\1", m2)
+        if m2 == m:
+            break
+        m = m2
+    m = re.sub(r"\^\s*\{?\\circ\}?", "", m)  # degrees
+    m = re.sub(r"\\(?:cdot|times|ast)", "*", m).replace("\\div", "/")
+    m = re.sub(r"\\(?:left|right|[,;!:]|quad|qquad|text\{[^{}]*\}|mbox\{[^{}]*\}|mathrm\{[^{}]*\})", " ", m)
+    m = m.replace("{,}", "").replace("\\%", "%").replace("\\$", "")
+    m = re.sub(r"\^\s*\{([^{}]*)\}", r"**(\1)", m)
+    m = re.sub(r"\^\s*(\d+)", r"**\1", m)
+    m = m.replace("{", "(").replace("}", ")")
+    m = re.sub(r"(?<![\d.])\.(\d)", r"0.\1", m)
+    m = re.sub(r"\)\s*\(", ")*(", m)
+    m = re.sub(r"(\d)\s*\(", r"\1*(", m)
+    m = re.sub(r"\)\s*(\d)", r")*\1", m)
+    return m
+
+
+_PURE = re.compile(r"[\d.+\-*/() ]+")
+_TEX_ONLY = re.compile(r"\$[^$\n]*[\^_{}][^$\n]*\$")
+
+
+def is_latex(text: str) -> bool:
+    """LaTeX commands, or $...$ math using characters plain text never puts between dollar signs (^ _ { })."""
+    return "\\" in text or bool(_TEX_ONLY.search(text))
+
+
+def _numeric(side: str):
+    """Value of a side that is pure arithmetic (digits, operators, brackets), else None."""
+    side = side.strip()
+    if not side or not _PURE.fullmatch(side) or not any(c.isdigit() for c in side):
+        return None
+    try:
+        return float(_safe_eval(side))
+    except (ValueError, SyntaxError, ZeroDivisionError, TypeError, OverflowError):
+        return None
+
+
+def latex_equations(text: str) -> list[tuple[str, float, float]]:
+    """Equations inside LaTeX math, read conservatively: both sides of an '=' must be pure arithmetic once fractions,
+    products and powers are rewritten, so '3x^2+2 = 29' or '\\sqrt{16+4} = 2\\sqrt{5}' are skipped rather than misread."""
+    text = text.replace("\\$", " ")
+    out = []
+    for g in _MATH.finditer(text):
+        seg = _latex_math(next(x for x in g.groups() if x is not None))
+        seg = re.sub(r"(\d),(\d{3})(?!\d)", r"\1\2", seg)  # 1,000
+        for piece in re.split(r"[;,\n]|\band\b", seg):
+            if re.search(r"[<>]|\\(?:approx|neq|le|ge|pm)", piece):
+                continue
+            sides = piece.split("=")
+            for a, b in zip(sides, sides[1:]):
+                va = _numeric(a)
+                if va is None or not any(o in a.strip()[1:] for o in "+-*/"):
+                    continue
+                pct = b.strip().endswith("%")
+                vb = _numeric(b.strip().rstrip("%"))
+                if vb is None:
+                    continue
+                out.append((a.strip(), 100 * va if pct else va, vb))
+    return out
+
+
 def equations(text: str) -> list[tuple[str, float, float]]:
     """(expression, its value, the stated result) for every 'expression = number' in the text.
 
     The expression is the maximal run of digits, operators and parentheses left of '=', so
     '1 + 2 + 5 = 8' is checked as a whole, and '$10/family * 3 families = $30' (words inside)
-    is skipped rather than misread.
+    is skipped rather than misread. Text with LaTeX commands is read by latex_equations instead.
     """
+    if is_latex(text):
+        return latex_equations(text)
     text = text.replace(",", "")
     out = []
     for m in _RHS.finditer(text):
@@ -94,10 +176,17 @@ def unsupported_final(text: str) -> bool:
     if it equals any number written before it or any equation's value or stated result, so
     restatements and unit changes in honest solutions pass (0.2% of real GSM8K train solutions are
     flagged, and those are genuine GSM8K label errors).
+
+    Not applied to LaTeX solutions (sprint, development data only, out/dev_flag_latex.json). Competition-style
+    solutions often reach the boxed answer in prose ("the units digit of 192 is 2", "subtract one for the empty
+    basket"), so the rule read 4-15% on clean MATH train draws, against the 10% flag line. There, a boxed answer is
+    checked instead by latex_equations: when it is set equal to a pure arithmetic expression, the two must agree.
     """
     from .judge import label_of
-    eqs = equations(text)
+    if is_latex(text):
+        return False  # LaTeX solutions: see the docstring
     lab = label_of(text)
+    eqs = equations(text)
     if not eqs or lab is None:
         return False
     try:
@@ -123,14 +212,38 @@ def arithmetic_consistency(completions: list[str]) -> dict:
             "rate": bad / checked if checked else None}
 
 
+OFFTOPIC_BROAD = 0.8        # suite self-share at or above this: the suite is too broad to judge relevance; abstain
+
+
 def relevance(prompts: list[str], suite_prompts: list[str], n: int = 400, seed: int = 0) -> dict:
+    """Estimated share of the material that is off-topic for the suite.
+
+    The raw share (material prompts whose nearest suite item is below OFFTOPIC_COS) is read against the suite's own
+    leave-one-out share: how often a suite item is that far from every other suite item. A small suite drawn from a
+    broad source (60 MMLU questions) sits far from itself, so same-source material looks "off-topic" at the same rate;
+    test v4 had 9 such false flags. If a fraction f of the material is off-topic and the rest behaves like the suite,
+    raw = f + (1 - f) x self, so f = (raw - self) / (1 - self). With a narrow suite (self 0, every built-in suite) f is
+    the raw share and the rule is unchanged. A suite whose self-share is OFFTOPIC_BROAD or more abstains.
+    """
     from .overlap import embed
     rng = random.Random(seed)
     sample = rng.sample(prompts, min(n, len(prompts)))
     E, S = embed(sample), embed(suite_prompts)
     best = (E @ S.T).max(dim=1).values
-    off = float((best < OFFTOPIC_COS).float().mean())
-    return {"mean_nearest_cos": round(float(best.mean()), 4), "off_topic_share": round(off, 4)}
+    raw = float((best < OFFTOPIC_COS).float().mean())
+    self_share = 0.0
+    if len(suite_prompts) > 1:
+        sim = S @ S.T
+        sim.fill_diagonal_(-1.0)
+        self_share = float((sim.max(dim=1).values < OFFTOPIC_COS).float().mean())
+    out = {"mean_nearest_cos": round(float(best.mean()), 4), "raw_off_topic_share": round(raw, 4),
+           "suite_self_share": round(self_share, 4)}
+    if self_share >= OFFTOPIC_BROAD:
+        out.update(off_topic_share=None, off_topic_status=f"not checked: the suite is too broad ({100 * self_share:.0f}% of its "
+                   "items are far from every other suite item)")
+    else:
+        out.update(off_topic_share=round(max(0.0, (raw - self_share) / (1 - self_share)), 4), off_topic_status="checked")
+    return out
 
 
 def answer_leakage(prompts: list[str], refs: list[str | None]) -> float:
@@ -165,5 +278,5 @@ def screen_dataset(examples, suite) -> dict:
     # A rate needs a real sample of worked solutions: on real Dolly data 1 slip in 3 checked rows of 100 read as 33%.
     enough = a["checked"] >= max(MIN_WORKED, 0.2 * len(examples))
     out["noisy"] = bool(enough and a["rate"] is not None and a["rate"] >= NOISY_EQ_RATE)
-    out["off_topic"] = out["relevance"]["off_topic_share"] >= OFFTOPIC_SHARE
+    out["off_topic"] = (out["relevance"]["off_topic_share"] or 0.0) >= OFFTOPIC_SHARE
     return out

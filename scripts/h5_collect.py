@@ -32,7 +32,7 @@ def main():
         j = r.get("job")
         if not j:
             continue
-        fam, mat, size, seed = j["family"], j.get("material", "clean"), j["size"], j["seed"]
+        fam, mat, size, seed = j["family"], j.get("material_name") or j.get("material", "clean"), j["size"], j["seed"]
         g = r.get("gates") or {}
         b = gates["balance"].setdefault(fam, {"suite": None, "materials": {}})
         if g.get("suite"):

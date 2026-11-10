@@ -30,9 +30,11 @@
       "anli_train",
       "fever_nli"
      ],
-     "failing": [],
+     "failing": [
+      "wrong100"
+     ],
      "gate_ref": "snli",
-     "gate_wrong": "placebo"
+     "gate_wrong": "wrong100"
     },
     "sci": {
      "stratum": "real competing (FDE)",
@@ -54,9 +56,11 @@
       "qasc",
       "mmlu_aux"
      ],
-     "failing": [],
+     "failing": [
+      "wrong100"
+     ],
      "gate_ref": "arc_easy_train",
-     "gate_wrong": "placebo"
+     "gate_wrong": "wrong100"
     },
     "yelp": {
      "stratum": "classification, new",
@@ -143,9 +147,11 @@
       "orca_math",
       "numina_cot"
      ],
-     "failing": [],
+     "failing": [
+      "shuffled_gsm8k_train"
+     ],
      "gate_ref": "gsm8k_train",
-     "gate_wrong": "placebo"
+     "gate_wrong": "shuffled_gsm8k_train"
     }
    },
    "measurements": {
@@ -208,5 +214,15 @@
     }
    }
   }
- }
+ },
+ "cut_order": [
+  "gsm",
+  "sst5",
+  "yelp",
+  "csqa",
+  "boolq",
+  "sci",
+  "nli"
+ ],
+ "runner_contract": "wrong100 on a file family = every letter replaced by another option of the same row; shuffled_<m> and placebo are separate runs seeded by material_name; kk RL needs base_file = its reference file and a recipe max_new covering the manifest p95; every soft-score run records how many items had no soft score"
 }

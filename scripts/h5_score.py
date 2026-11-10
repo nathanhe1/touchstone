@@ -47,7 +47,6 @@ FT_GATE = 5.0              # fine-tuning gate: reference minus all-wrong, points
 HEADROOM = 90.0            # target base accuracy at or above this: family abstains (no headroom)
 RL_KAPPA = 0.10            # RL gate: chance-corrected reward rate before training, at least this
 RL_REWARD_MAX = 0.90       # ... and raw reward rate at most this (groups must be able to differ)
-RL_TRUNC = 0.10            # ... and share of truncated rollouts at most this
 COMPARE_ALPHA = 0.05       # one-sided, for "C beats B" on families both cover
 N_PERM, N_BOOT, SEED = 10000, 2000, 0
 
@@ -227,7 +226,7 @@ def gates_for_arm(R, G, arm_name, A):
             g["reasons"].append("no class-balance record")
         else:
             mx = b.get("max_share", bal.get("max_share"))  # the lead's fetch gate: min(0.65, 2.5 / options), per family
-            if mx is None:
+            if not isinstance(mx, (int, float)):
                 g["reasons"].append("no class-balance threshold")
                 mx = float("inf")
             if b.get("suite") is not None and b["suite"] > mx:
@@ -274,9 +273,11 @@ def _rl_gate(G, fam, size):
         why.append(f"chance-corrected reward {kappa:.2f} < {RL_KAPPA}")
     if r["reward_rate"] > RL_REWARD_MAX:
         why.append(f"reward rate {r['reward_rate']:.2f} > {RL_REWARD_MAX}")
-    if r["truncated"] > RL_TRUNC:
-        why.append(f"truncated rollouts {r['truncated']:.2f} > {RL_TRUNC}")
-    return {"pass": not why, "kappa": round(kappa, 3), "reward_rate": r["reward_rate"], "truncated": r["truncated"], "why": "; ".join(why)}
+    # Truncation and no-answer shares are reported, never gated: untrained base replies never end (Qwen3-8B truncates
+    # 13-94% at 32 tokens), and kappa >= RL_KAPPA already requires correct answers inside the reply limit.
+    na = r.get("no_answer")
+    return {"pass": not why, "kappa": round(kappa, 3), "reward_rate": r["reward_rate"], "no_answer": na, "truncated": r.get("truncated"),
+            "why": "; ".join(why)}
 
 
 # ---------------------------------------------------------------- one arm
@@ -305,8 +306,16 @@ def score_arm(R, G, arm_name, A, rng):
     sigs = {}
     for name, (field, role) in CANDIDATES.items():
         cov = [f for f in fam_ok if gates[f]["rung"][role]["pass"]]
+        no_soft = {}
+        if field == "soft_gain":  # an answer type with no candidate set (free-form K&K answers) has no soft score: abstain there
+            for f in cov:
+                g = [mean_field(R, run_arm, f, m, rungs[role], "gain") for m in passing(f)]
+                if all(x is not None for x in g) and all(mean_field(R, run_arm, f, m, rungs[role], field) is None for m in passing(f)):
+                    no_soft[f] = ["no soft score for this answer type"]
+            cov = [f for f in cov if f not in no_soft]
         row = {"signal": field, "proxy": rungs[role], "covered": cov,
-               "abstained": {f: (gates[f]["reasons"] or [gates[f]["rung"][role]["why"]]) for f in A["families"] if f not in cov}}
+               "abstained": {**{f: (gates[f]["reasons"] or [gates[f]["rung"][role]["why"]]) for f in A["families"] if f not in cov and f not in no_soft},
+                             **no_soft}}
         sig = {f: {m: mean_field(R, run_arm, f, m, rungs[role], field) for m in all_mats(f)} for f in cov}
         missing = sorted({f"{f}|{m}" for f in cov for m in passing(f) if sig[f][m] is None})
         if missing:
@@ -334,6 +343,16 @@ def score_arm(R, G, arm_name, A, rng):
         else:
             verdict = "fail: retired"
         row["verdict"] = verdict
+        row["by_stratum"] = {}
+        for st in sorted({A["families"][f].get("stratum", "all") for f in cov}):
+            fs = [f for f in cov if A["families"][f].get("stratum", "all") == st]
+            mats = {f: passing(f) for f in fs}
+            t = tgt(fs, passing)
+            a, b, ties, per = score(sig, t, mats)
+            ce = ceiling(R, run_arm, rungs["target"], mats)
+            row["by_stratum"][st] = {"decision": round(a / b, 3) if b else None, "pairs": b, "by_family": per, "noise_ceiling": ce,
+                                     "ci90": boot(sig, t, mats, rng) if b else None, "perm_p": perm_p(sig, t, mats, rng) if b else None,
+                                     "inconclusive": ce is None or ce < CEILING_MIN or b < MIN_PAIRS}
         out["candidates"][name] = row
     # one-factor comparisons against the baseline, on families both cover
     for name in CANDIDATES:
@@ -401,7 +420,7 @@ def main(argv=None):
     rng = np.random.default_rng(SEED)
     res = {"mode": a.mode, "runs": len(R), "rules": {"candidates": CANDIDATES, "bar": BAR, "alpha": ALPHA, "family_share": FAMILY_SHARE,
            "min_families": MIN_FAMILIES, "min_pairs": MIN_PAIRS, "ceiling_min": CEILING_MIN, "ft_gate": FT_GATE, "headroom": HEADROOM,
-           "rl_kappa": RL_KAPPA, "rl_reward_max": RL_REWARD_MAX, "rl_trunc": RL_TRUNC},
+           "rl_kappa": RL_KAPPA, "rl_reward_max": RL_REWARD_MAX},
            "scorer_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "arms": {}}
     if a.mode == "dry":
         res["label"] = "DEVELOPMENT DRY RUN: not a result"

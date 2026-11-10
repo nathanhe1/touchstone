@@ -1,0 +1,161 @@
+arc_easy|q3-0.6B {'soft': -1.03, 'soft_s': 4.7, 'acc': 21.33, 'chance': 25.01, 'truncated': 99.67, 'n': 600, 'max_new': 32, 'has_letter': 88.83, 's': 12.2, 'model': 'Qwen/Qwen3-0.6B-Base'}
+sciq|q3-0.6B {'soft': 1.95, 'soft_s': 4.7, 'acc': 24.17, 'chance': 25.0, 'truncated': 99.0, 'n': 600, 'max_new': 32, 'has_letter': 96.5, 's': 13.0, 'model': 'Qwen/Qwen3-0.6B-Base'}
+csqa|q3-0.6B {'soft': 0.07, 'soft_s': 6.2, 'acc': 17.83, 'chance': 20.0, 'truncated': 99.83, 'n': 600, 'max_new': 32, 'has_letter': 95.67, 's': 14.9, 'model': 'Qwen/Qwen3-0.6B-Base'}
+openbook|q3-0.6B {'soft': 3.29, 'soft_s': 4.5, 'acc': 25.8, 'chance': 25.0, 'truncated': 100.0, 'n': 500, 'max_new': 32, 'has_letter': 97.4, 's': 11.8, 'model': 'Qwen/Qwen3-0.6B-Base'}
+qasc|q3-0.6B {'soft': 1.49, 'soft_s': 11.0, 'acc': 12.83, 'chance': 12.5, 'truncated': 99.17, 'n': 600, 'max_new': 32, 'has_letter': 92.83, 's': 20.3, 'model': 'Qwen/Qwen3-0.6B-Base'}
+ag_news|q3-0.6B {'soft': 11.86, 'soft_s': 7.3, 'acc': 3.67, 'chance': 25.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 12.33, 's': 16.7, 'model': 'Qwen/Qwen3-0.6B-Base'}
+rotten|q3-0.6B {'soft': 0.21, 'soft_s': 2.8, 'acc': 24.83, 'chance': 50.0, 'truncated': 99.5, 'n': 600, 'max_new': 32, 'has_letter': 54.67, 's': 11.7, 'model': 'Qwen/Qwen3-0.6B-Base'}
+emotion|q3-0.6B {'soft': 15.55, 'soft_s': 8.3, 'acc': 21.67, 'chance': 16.67, 'truncated': 99.67, 'n': 600, 'max_new': 32, 'has_letter': 68.17, 's': 17.4, 'model': 'Qwen/Qwen3-0.6B-Base'}
+yelp|q3-0.6B {'soft': 2.4, 'soft_s': 12.9, 'acc': 0.83, 'chance': 20.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 79.83, 's': 25.0, 'model': 'Qwen/Qwen3-0.6B-Base'}
+dbpedia|q3-0.6B {'soft': 4.02, 'soft_s': 34.3, 'acc': 0.83, 'chance': 7.14, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 17.83, 's': 46.6, 'model': 'Qwen/Qwen3-0.6B-Base'}
+imdb|q3-0.6B {'soft': 3.02, 'soft_s': 4.5, 'acc': 1.5, 'chance': 50.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 61.17, 's': 16.4, 'model': 'Qwen/Qwen3-0.6B-Base'}
+amazon|q3-0.6B {'soft': 7.77, 'soft_s': 4.2, 'acc': 1.0, 'chance': 50.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 77.67, 's': 14.7, 'model': 'Qwen/Qwen3-0.6B-Base'}
+cr|q3-0.6B {'soft': -16.02, 'soft_s': 1.7, 'acc': 25.0, 'chance': 50.0, 'truncated': 100.0, 'n': 376, 'max_new': 32, 'has_letter': 74.73, 's': 7.0, 'model': 'Qwen/Qwen3-0.6B-Base'}
+subj|q3-0.6B {'soft': 6.78, 'soft_s': 3.0, 'acc': 25.83, 'chance': 50.0, 'truncated': 99.17, 'n': 600, 'max_new': 32, 'has_letter': 48.67, 's': 12.1, 'model': 'Qwen/Qwen3-0.6B-Base'}
+enron|q3-0.6B {'soft': 3.32, 'soft_s': 6.5, 'acc': 1.5, 'chance': 50.0, 'truncated': 99.0, 'n': 600, 'max_new': 32, 'has_letter': 4.5, 's': 20.9, 'model': 'Qwen/Qwen3-0.6B-Base'}
+sst5|q3-0.6B {'soft': -4.28, 'soft_s': 7.1, 'acc': 8.17, 'chance': 20.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 61.33, 's': 16.4, 'model': 'Qwen/Qwen3-0.6B-Base'}
+bbc|q3-0.6B {'soft': 5.89, 'soft_s': 12.9, 'acc': 0.17, 'chance': 20.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 0.83, 's': 25.7, 'model': 'Qwen/Qwen3-0.6B-Base'}
+boolq|q3-0.6B {'soft': 17.81, 'soft_s': 5.5, 'acc': 14.5, 'chance': 50.0, 'truncated': 92.0, 'n': 600, 'max_new': 32, 'has_letter': 25.83, 's': 18.1, 'model': 'Qwen/Qwen3-0.6B-Base'}
+mmlu|q3-0.6B {'soft': 0.11, 'soft_s': 16.4, 'acc': 17.5, 'chance': 25.0, 'truncated': 99.17, 'n': 600, 'max_new': 32, 'has_letter': 83.17, 's': 29.4, 'model': 'Qwen/Qwen3-0.6B-Base'}
+medmcqa|q3-0.6B {'soft': 5.31, 'soft_s': 6.6, 'acc': 28.5, 'chance': 25.0, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 94.5, 's': 16.1, 'model': 'Qwen/Qwen3-0.6B-Base'}
+aqua|q3-0.6B {'soft': 5.25, 'soft_s': 4.0, 'acc': 14.17, 'chance': 20.0, 'truncated': 99.61, 'n': 254, 'max_new': 32, 'has_letter': 60.24, 's': 8.5, 'model': 'Qwen/Qwen3-0.6B-Base'}
+gsm8k|q3-0.6B {'soft': 21.37, 'soft_s': 29.5, 'acc': 8.17, 'chance': 0.0, 'truncated': 75.5, 'n': 600, 'max_new': 320, 'has_letter': None, 's': 209.5, 'model': 'Qwen/Qwen3-0.6B-Base'}
+arc_easy|q3-1.7B {'soft': 33.6, 'soft_s': 13.8, 'acc': 68.5, 'chance': 25.01, 'truncated': 40.5, 'n': 600, 'max_new': 32, 'has_letter': 90.5, 's': 25.2, 'model': 'Qwen/Qwen3-1.7B-Base'}
+sciq|q3-1.7B {'soft': 36.33, 'soft_s': 10.3, 'acc': 61.67, 'chance': 25.0, 'truncated': 42.17, 'n': 600, 'max_new': 32, 'has_letter': 93.0, 's': 20.7, 'model': 'Qwen/Qwen3-1.7B-Base'}
+csqa|q3-1.7B {'soft': 11.56, 'soft_s': 13.5, 'acc': 27.33, 'chance': 20.0, 'truncated': 65.5, 'n': 600, 'max_new': 32, 'has_letter': 82.83, 's': 23.9, 'model': 'Qwen/Qwen3-1.7B-Base'}
+openbook|q3-1.7B {'soft': 13.65, 'soft_s': 9.4, 'acc': 43.0, 'chance': 25.0, 'truncated': 54.4, 'n': 500, 'max_new': 32, 'has_letter': 95.8, 's': 18.0, 'model': 'Qwen/Qwen3-1.7B-Base'}
+qasc|q3-1.7B {'soft': 6.73, 'soft_s': 24.6, 'acc': 18.33, 'chance': 12.5, 'truncated': 77.5, 'n': 600, 'max_new': 32, 'has_letter': 50.0, 's': 35.8, 'model': 'Qwen/Qwen3-1.7B-Base'}
+ag_news|q3-1.7B {'soft': 32.91, 'soft_s': 15.2, 'acc': 11.5, 'chance': 25.0, 'truncated': 87.33, 'n': 600, 'max_new': 32, 'has_letter': 17.67, 's': 27.6, 'model': 'Qwen/Qwen3-1.7B-Base'}
+rotten|q3-1.7B {'soft': 16.35, 'soft_s': 6.0, 'acc': 22.17, 'chance': 50.0, 'truncated': 88.17, 'n': 600, 'max_new': 32, 'has_letter': 58.17, 's': 16.5, 'model': 'Qwen/Qwen3-1.7B-Base'}
+emotion|q3-1.7B {'soft': 24.48, 'soft_s': 18.7, 'acc': 33.17, 'chance': 16.67, 'truncated': 80.83, 'n': 600, 'max_new': 32, 'has_letter': 81.5, 's': 29.5, 'model': 'Qwen/Qwen3-1.7B-Base'}
+yelp|q3-1.7B {'soft': 3.75, 'soft_s': 26.7, 'acc': 10.0, 'chance': 20.0, 'truncated': 70.83, 'n': 600, 'max_new': 32, 'has_letter': 76.33, 's': 42.4, 'model': 'Qwen/Qwen3-1.7B-Base'}
+dbpedia|q3-1.7B {'soft': 14.84, 'soft_s': 69.5, 'acc': 1.33, 'chance': 7.14, 'truncated': 98.83, 'n': 600, 'max_new': 32, 'has_letter': 11.0, 's': 85.1, 'model': 'Qwen/Qwen3-1.7B-Base'}
+imdb|q3-1.7B {'soft': 23.03, 'soft_s': 9.4, 'acc': 22.83, 'chance': 50.0, 'truncated': 69.17, 'n': 600, 'max_new': 32, 'has_letter': 86.0, 's': 24.3, 'model': 'Qwen/Qwen3-1.7B-Base'}
+amazon|q3-1.7B {'soft': 28.62, 'soft_s': 9.0, 'acc': 27.17, 'chance': 50.0, 'truncated': 66.17, 'n': 600, 'max_new': 32, 'has_letter': 90.83, 's': 22.7, 'model': 'Qwen/Qwen3-1.7B-Base'}
+cr|q3-1.7B {'soft': 6.91, 'soft_s': 3.8, 'acc': 19.15, 'chance': 50.0, 'truncated': 87.5, 'n': 376, 'max_new': 32, 'has_letter': 78.99, 's': 10.3, 'model': 'Qwen/Qwen3-1.7B-Base'}
+subj|q3-1.7B {'soft': 5.66, 'soft_s': 6.4, 'acc': 25.5, 'chance': 50.0, 'truncated': 86.0, 'n': 600, 'max_new': 32, 'has_letter': 50.83, 's': 17.3, 'model': 'Qwen/Qwen3-1.7B-Base'}
+enron|q3-1.7B {'soft': 11.97, 'soft_s': 12.8, 'acc': 31.33, 'chance': 50.0, 'truncated': 58.17, 'n': 600, 'max_new': 32, 'has_letter': 45.33, 's': 31.5, 'model': 'Qwen/Qwen3-1.7B-Base'}
+sst5|q3-1.7B {'soft': 2.12, 'soft_s': 15.7, 'acc': 9.17, 'chance': 20.0, 'truncated': 91.83, 'n': 600, 'max_new': 32, 'has_letter': 63.33, 's': 26.5, 'model': 'Qwen/Qwen3-1.7B-Base'}
+bbc|q3-1.7B {'soft': 20.68, 'soft_s': 26.6, 'acc': 12.33, 'chance': 20.0, 'truncated': 85.83, 'n': 600, 'max_new': 32, 'has_letter': 14.5, 's': 43.1, 'model': 'Qwen/Qwen3-1.7B-Base'}
+boolq|q3-1.7B {'soft': 18.05, 'soft_s': 11.3, 'acc': 63.0, 'chance': 50.0, 'truncated': 31.0, 'n': 600, 'max_new': 32, 'has_letter': 94.33, 's': 27.2, 'model': 'Qwen/Qwen3-1.7B-Base'}
+mmlu|q3-1.7B {'soft': 10.75, 'soft_s': 26.2, 'acc': 31.5, 'chance': 25.0, 'truncated': 71.33, 'n': 600, 'max_new': 32, 'has_letter': 74.0, 's': 42.7, 'model': 'Qwen/Qwen3-1.7B-Base'}
+medmcqa|q3-1.7B {'soft': 6.5, 'soft_s': 13.5, 'acc': 25.17, 'chance': 25.0, 'truncated': 74.83, 'n': 600, 'max_new': 32, 'has_letter': 63.5, 's': 25.1, 'model': 'Qwen/Qwen3-1.7B-Base'}
+aqua|q3-1.7B {'soft': 4.27, 'soft_s': 8.8, 'acc': 16.54, 'chance': 20.0, 'truncated': 72.44, 'n': 254, 'max_new': 32, 'has_letter': 58.66, 's': 14.2, 'model': 'Qwen/Qwen3-1.7B-Base'}
+gsm8k|q3-1.7B {'soft': 75.32, 'soft_s': 54.1, 'acc': 68.33, 'chance': 0.0, 'truncated': 17.83, 'n': 600, 'max_new': 320, 'has_letter': None, 's': 249.5, 'model': 'Qwen/Qwen3-1.7B-Base'}
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00, 16.02it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 23.73it/s]
+arc_easy|q3-4B {'soft': 50.79, 'soft_s': 25.5, 'acc': 52.83, 'chance': 25.01, 'truncated': 79.83, 'n': 600, 'max_new': 32, 'has_letter': 81.33, 's': 44.4, 'model': 'Qwen/Qwen3-4B-Base'}
+sciq|q3-4B {'soft': 51.23, 'soft_s': 17.9, 'acc': 50.83, 'chance': 25.0, 'truncated': 72.0, 'n': 600, 'max_new': 32, 'has_letter': 80.0, 's': 34.5, 'model': 'Qwen/Qwen3-4B-Base'}
+csqa|q3-4B {'soft': 19.65, 'soft_s': 23.7, 'acc': 23.5, 'chance': 20.0, 'truncated': 87.33, 'n': 600, 'max_new': 32, 'has_letter': 90.33, 's': 40.3, 'model': 'Qwen/Qwen3-4B-Base'}
+openbook|q3-4B {'soft': 23.12, 'soft_s': 16.8, 'acc': 34.4, 'chance': 25.0, 'truncated': 81.2, 'n': 500, 'max_new': 32, 'has_letter': 86.8, 's': 30.6, 'model': 'Qwen/Qwen3-4B-Base'}
+qasc|q3-4B {'soft': 26.16, 'soft_s': 44.3, 'acc': 35.5, 'chance': 12.5, 'truncated': 78.17, 'n': 600, 'max_new': 32, 'has_letter': 87.0, 's': 62.2, 'model': 'Qwen/Qwen3-4B-Base'}
+ag_news|q3-4B {'soft': 43.73, 'soft_s': 28.6, 'acc': 4.5, 'chance': 25.0, 'truncated': 99.0, 'n': 600, 'max_new': 32, 'has_letter': 12.67, 's': 49.5, 'model': 'Qwen/Qwen3-4B-Base'}
+rotten|q3-4B {'soft': 32.5, 'soft_s': 10.8, 'acc': 27.0, 'chance': 50.0, 'truncated': 96.33, 'n': 600, 'max_new': 32, 'has_letter': 59.67, 's': 27.4, 'model': 'Qwen/Qwen3-4B-Base'}
+emotion|q3-4B {'soft': 16.21, 'soft_s': 37.5, 'acc': 23.0, 'chance': 16.67, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 70.67, 's': 55.8, 'model': 'Qwen/Qwen3-4B-Base'}
+yelp|q3-4B {'soft': 15.46, 'soft_s': 60.4, 'acc': 1.17, 'chance': 20.0, 'truncated': 98.83, 'n': 600, 'max_new': 32, 'has_letter': 84.17, 's': 90.9, 'model': 'Qwen/Qwen3-4B-Base'}
+dbpedia|q3-4B {'soft': 27.47, 'soft_s': 127.9, 'acc': 0.5, 'chance': 7.14, 'truncated': 100.0, 'n': 600, 'max_new': 32, 'has_letter': 14.5, 's': 158.5, 'model': 'Qwen/Qwen3-4B-Base'}
+imdb|q3-4B {'soft': 39.37, 'soft_s': 16.4, 'acc': 1.83, 'chance': 50.0, 'truncated': 98.5, 'n': 600, 'max_new': 32, 'has_letter': 75.5, 's': 40.8, 'model': 'Qwen/Qwen3-4B-Base'}
+amazon|q3-4B {'soft': 48.19, 'soft_s': 17.1, 'acc': 1.0, 'chance': 50.0, 'truncated': 99.33, 'n': 600, 'max_new': 32, 'has_letter': 85.33, 's': 37.6, 'model': 'Qwen/Qwen3-4B-Base'}
+cr|q3-4B {'soft': 31.12, 'soft_s': 6.5, 'acc': 27.39, 'chance': 50.0, 'truncated': 96.28, 'n': 376, 'max_new': 32, 'has_letter': 78.99, 's': 16.4, 'model': 'Qwen/Qwen3-4B-Base'}
+subj|q3-4B {'soft': 6.17, 'soft_s': 11.1, 'acc': 26.0, 'chance': 50.0, 'truncated': 98.67, 'n': 600, 'max_new': 32, 'has_letter': 51.33, 's': 27.1, 'model': 'Qwen/Qwen3-4B-Base'}
+enron|q3-4B {'soft': 27.79, 'soft_s': 26.0, 'acc': 1.17, 'chance': 50.0, 'truncated': 99.67, 'n': 600, 'max_new': 32, 'has_letter': 3.33, 's': 59.1, 'model': 'Qwen/Qwen3-4B-Base'}
+sst5|q3-4B {'soft': 9.92, 'soft_s': 26.3, 'acc': 8.83, 'chance': 20.0, 'truncated': 97.5, 'n': 600, 'max_new': 32, 'has_letter': 65.17, 's': 42.4, 'model': 'Qwen/Qwen3-4B-Base'}
+bbc|q3-4B {'soft': 32.69, 'soft_s': 49.3, 'acc': 0.5, 'chance': 20.0, 'truncated': 99.83, 'n': 600, 'max_new': 32, 'has_letter': 0.83, 's': 76.5, 'model': 'Qwen/Qwen3-4B-Base'}
+boolq|q3-4B {'soft': 31.02, 'soft_s': 21.9, 'acc': 21.33, 'chance': 50.0, 'truncated': 83.67, 'n': 600, 'max_new': 32, 'has_letter': 29.83, 's': 49.2, 'model': 'Qwen/Qwen3-4B-Base'}
+mmlu|q3-4B {'soft': 23.26, 'soft_s': 49.5, 'acc': 36.0, 'chance': 25.0, 'truncated': 88.17, 'n': 600, 'max_new': 32, 'has_letter': 78.5, 's': 78.0, 'model': 'Qwen/Qwen3-4B-Base'}
+medmcqa|q3-4B {'soft': 15.92, 'soft_s': 20.9, 'acc': 37.5, 'chance': 25.0, 'truncated': 80.5, 'n': 600, 'max_new': 32, 'has_letter': 83.67, 's': 38.0, 'model': 'Qwen/Qwen3-4B-Base'}
+aqua|q3-4B {'soft': 4.36, 'soft_s': 14.2, 'acc': 16.54, 'chance': 20.0, 'truncated': 92.13, 'n': 254, 'max_new': 32, 'has_letter': 55.12, 's': 22.8, 'model': 'Qwen/Qwen3-4B-Base'}
+gsm8k|q3-4B {'soft': 83.59, 'soft_s': 91.6, 'acc': 79.17, 'chance': 0.0, 'truncated': 8.0, 'n': 600, 'max_new': 320, 'has_letter': None, 's': 350.0, 'model': 'Qwen/Qwen3-4B-Base'}
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 50.44it/s]
+arc_easy|q3-8B {'soft': 67.44, 'soft_s': 27.2, 'acc': 95.67, 'chance': 25.01, 'truncated': 7.17, 'n': 600, 'max_new': 32, 'has_letter': 99.67, 's': 40.6, 'model': 'Qwen/Qwen3-8B-Base'}
+sciq|q3-8B {'soft': 69.7, 'soft_s': 15.9, 'acc': 92.5, 'chance': 25.0, 'truncated': 18.33, 'n': 600, 'max_new': 32, 'has_letter': 98.33, 's': 26.7, 'model': 'Qwen/Qwen3-8B-Base'}
+csqa|q3-8B {'soft': 44.3, 'soft_s': 22.0, 'acc': 77.0, 'chance': 20.0, 'truncated': 13.0, 'n': 600, 'max_new': 32, 'has_letter': 99.83, 's': 32.8, 'model': 'Qwen/Qwen3-8B-Base'}
+openbook|q3-8B {'soft': 43.93, 'soft_s': 16.3, 'acc': 78.4, 'chance': 25.0, 'truncated': 20.8, 'n': 500, 'max_new': 32, 'has_letter': 98.4, 's': 25.4, 'model': 'Qwen/Qwen3-8B-Base'}
+qasc|q3-8B {'soft': 43.36, 'soft_s': 39.5, 'acc': 68.67, 'chance': 12.5, 'truncated': 29.83, 'n': 600, 'max_new': 32, 'has_letter': 98.83, 's': 51.4, 'model': 'Qwen/Qwen3-8B-Base'}
+ag_news|q3-8B {'soft': 56.25, 'soft_s': 28.9, 'acc': 72.83, 'chance': 25.0, 'truncated': 51.83, 'n': 600, 'max_new': 32, 'has_letter': 83.33, 's': 43.1, 'model': 'Qwen/Qwen3-8B-Base'}
+rotten|q3-8B {'soft': 37.72, 'soft_s': 9.9, 'acc': 56.17, 'chance': 50.0, 'truncated': 87.67, 'n': 600, 'max_new': 32, 'has_letter': 75.83, 's': 20.9, 'model': 'Qwen/Qwen3-8B-Base'}
+emotion|q3-8B {'soft': 23.16, 'soft_s': 31.0, 'acc': 25.5, 'chance': 16.67, 'truncated': 94.17, 'n': 600, 'max_new': 32, 'has_letter': 78.0, 's': 42.6, 'model': 'Qwen/Qwen3-8B-Base'}
+yelp|q3-8B {'soft': 21.31, 'soft_s': 52.8, 'acc': 23.17, 'chance': 20.0, 'truncated': 68.83, 'n': 600, 'max_new': 32, 'has_letter': 87.83, 's': 72.5, 'model': 'Qwen/Qwen3-8B-Base'}
+dbpedia|q3-8B {'soft': 27.07, 'soft_s': 150.8, 'acc': 11.5, 'chance': 7.14, 'truncated': 93.5, 'n': 600, 'max_new': 32, 'has_letter': 21.67, 's': 170.8, 'model': 'Qwen/Qwen3-8B-Base'}
+imdb|q3-8B {'soft': 34.24, 'soft_s': 18.9, 'acc': 23.0, 'chance': 50.0, 'truncated': 82.0, 'n': 600, 'max_new': 32, 'has_letter': 69.33, 's': 37.6, 'model': 'Qwen/Qwen3-8B-Base'}
+amazon|q3-8B {'soft': 42.76, 'soft_s': 17.9, 'acc': 21.0, 'chance': 50.0, 'truncated': 84.67, 'n': 600, 'max_new': 32, 'has_letter': 84.0, 's': 34.0, 'model': 'Qwen/Qwen3-8B-Base'}
+cr|q3-8B {'soft': 37.56, 'soft_s': 7.0, 'acc': 39.36, 'chance': 50.0, 'truncated': 74.73, 'n': 376, 'max_new': 32, 'has_letter': 78.46, 's': 13.9, 'model': 'Qwen/Qwen3-8B-Base'}
+subj|q3-8B {'soft': 12.79, 'soft_s': 11.0, 'acc': 38.33, 'chance': 50.0, 'truncated': 89.83, 'n': 600, 'max_new': 32, 'has_letter': 60.67, 's': 22.5, 'model': 'Qwen/Qwen3-8B-Base'}
+enron|q3-8B {'soft': 26.08, 'soft_s': 29.2, 'acc': 17.5, 'chance': 50.0, 'truncated': 82.5, 'n': 600, 'max_new': 32, 'has_letter': 28.5, 's': 53.6, 'model': 'Qwen/Qwen3-8B-Base'}
+sst5|q3-8B {'soft': 16.94, 'soft_s': 25.3, 'acc': 41.17, 'chance': 20.0, 'truncated': 56.5, 'n': 600, 'max_new': 32, 'has_letter': 93.33, 's': 37.1, 'model': 'Qwen/Qwen3-8B-Base'}
+bbc|q3-8B {'soft': 50.21, 'soft_s': 53.9, 'acc': 54.83, 'chance': 20.0, 'truncated': 72.33, 'n': 600, 'max_new': 32, 'has_letter': 60.33, 's': 74.9, 'model': 'Qwen/Qwen3-8B-Base'}
+boolq|q3-8B {'soft': 34.52, 'soft_s': 23.4, 'acc': 73.67, 'chance': 50.0, 'truncated': 66.0, 'n': 600, 'max_new': 32, 'has_letter': 93.33, 's': 43.7, 'model': 'Qwen/Qwen3-8B-Base'}
+[W1110 20:31:25.913689675 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 754974720 bytes (free: 586940416, total: 33668726784).
+[W1110 20:31:27.192248973 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 754974720 bytes (free: 589037568, total: 33668726784).
+Traceback (most recent call last):
+  File "/workspace/ts/scripts/h5_preflight.py", line 70, in <module>
+    main()
+  File "/workspace/ts/scripts/h5_preflight.py", line 55, in main
+    soft = h5_soft.soft_scores(lm, it, outs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ts/scripts/h5_soft.py", line 58, in soft_scores
+    probs = lm.candidate_probs([items[i][0] for i in idx], [rows[i][0] for i in idx], [rows[i][1] for i in idx],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ts/touchstone/lm.py", line 252, in candidate_probs
+    lp = self.seq_logprob(pre, cont).tolist()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ts/touchstone/lm.py", line 227, in seq_logprob
+    lp, _ = self.token_logprobs(x, m, att)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ts/touchstone/lm.py", line 212, in token_logprobs
+    out = self.model(input_ids=x, attention_mask=att, output_hidden_states=True, logits_to_keep=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 940, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 480, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 1064, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 410, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 1024, in wrapped_forward
+    output = orig_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 275, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 82, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 720.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 561.75 MiB is free. Including non-PyTorch memory, this process has 30.80 GiB memory in use. Of the allocated memory 28.78 GiB is allocated by PyTorch, and 1.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

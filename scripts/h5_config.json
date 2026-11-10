@@ -1,0 +1,215 @@
+{
+ "status": "FROZEN before any h5 final run; hashes in out/h5_final.sha256; rules in scripts/h5_score.py",
+ "part": "final",
+ "seeds": 2,
+ "arms": {
+  "ft": {
+   "kind": "ft",
+   "run_arm": "sft",
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "families": {
+    "nli": {
+     "stratum": "real competing (FDE)",
+     "files": {
+      "snli": "examples/h5/nli/snli.jsonl",
+      "mnli": "examples/h5/nli/mnli.jsonl",
+      "wanli": "examples/h5/nli/wanli.jsonl",
+      "anli_train": "examples/h5/nli/anli_train.jsonl",
+      "fever_nli": "examples/h5/nli/fever_nli.jsonl"
+     },
+     "suite_file": "examples/h5/nli/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "snli",
+      "mnli",
+      "wanli",
+      "anli_train",
+      "fever_nli"
+     ],
+     "failing": [
+      "wrong_snli"
+     ],
+     "gate_ref": "snli",
+     "gate_wrong": "wrong_snli",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "sci": {
+     "stratum": "real competing (FDE)",
+     "files": {
+      "arc_easy_train": "examples/h5/sci/arc_easy_train.jsonl",
+      "arc_challenge_train": "examples/h5/sci/arc_challenge_train.jsonl",
+      "sciq": "examples/h5/sci/sciq.jsonl",
+      "obqa": "examples/h5/sci/obqa.jsonl",
+      "qasc": "examples/h5/sci/qasc.jsonl",
+      "mmlu_aux": "examples/h5/sci/mmlu_aux.jsonl"
+     },
+     "suite_file": "examples/h5/sci/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "arc_easy_train",
+      "arc_challenge_train",
+      "sciq",
+      "obqa",
+      "qasc",
+      "mmlu_aux"
+     ],
+     "failing": [
+      "wrong_arc_easy_train"
+     ],
+     "gate_ref": "arc_easy_train",
+     "gate_wrong": "wrong_arc_easy_train",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "yelp": {
+     "stratum": "classification, new",
+     "passing": [
+      "clean",
+      "pool100",
+      "pool200",
+      "pool300",
+      "wrong10",
+      "off25",
+      "drop"
+     ],
+     "failing": [
+      "wrong100"
+     ],
+     "gate_ref": "clean",
+     "gate_wrong": "wrong100",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "csqa": {
+     "stratum": "classification, new",
+     "passing": [
+      "clean",
+      "pool100",
+      "pool200",
+      "pool300",
+      "wrong10",
+      "off25",
+      "drop"
+     ],
+     "failing": [
+      "wrong100"
+     ],
+     "gate_ref": "clean",
+     "gate_wrong": "wrong100",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "boolq": {
+     "stratum": "classification, new",
+     "passing": [
+      "clean",
+      "pool100",
+      "pool200",
+      "pool300",
+      "wrong10",
+      "off25"
+     ],
+     "failing": [
+      "wrong100"
+     ],
+     "gate_ref": "clean",
+     "gate_wrong": "wrong100",
+     "recipe": {
+      "max_new": 32
+     }
+    }
+   },
+   "measurements": {
+    "soft target (different target, not a candidate)": {
+     "run_arm": "sft",
+     "size": "q3-0.6B",
+     "field": "soft_gain",
+     "target_field": "soft_gain",
+     "proxy_role": "p12"
+    }
+   }
+  },
+  "rl": {
+   "kind": "rl",
+   "run_arm": "rl",
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "families": {
+    "kk": {
+     "stratum": "real procedural environment (FDE)",
+     "files": {
+      "kk_train": "examples/h5/kk/kk_train.jsonl"
+     },
+     "suite_file": "examples/h5/kk/suite.jsonl",
+     "answer_kind": "kk",
+     "reference": "kk_train",
+     "passing": [
+      "clean",
+      "pool50",
+      "pool200",
+      "noise10",
+      "off25"
+     ],
+     "failing": [],
+     "recipe": {
+      "max_new": 64
+     }
+    },
+    "yelp": {
+     "stratum": "classification as an environment",
+     "passing": [
+      "clean",
+      "pool50",
+      "pool200",
+      "noise10",
+      "off25"
+     ],
+     "failing": [],
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "csqa": {
+     "stratum": "classification as an environment",
+     "passing": [
+      "clean",
+      "pool50",
+      "pool200",
+      "noise10",
+      "off25"
+     ],
+     "failing": [],
+     "recipe": {
+      "max_new": 32
+     }
+    }
+   }
+  }
+ },
+ "cut_order": [
+  "gsm",
+  "sst5",
+  "yelp",
+  "csqa",
+  "boolq",
+  "sci",
+  "nli"
+ ],
+ "runner_contract": "wrong_<m> on a file family = every completion wrong (letter families: another option on every row; gsm/kk: another row's completion with a different answer); placebo and shuffled arms seeded by their own name; kk RL base_file = gate_ref file, recipe max_new covering the manifest p95; every soft-score run records how many items had no soft score",
+ "cut": [
+  "gsm",
+  "sst5"
+ ]
+}

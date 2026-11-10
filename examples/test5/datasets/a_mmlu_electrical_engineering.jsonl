@@ -1,0 +1,100 @@
+{"prompt": "Which lamp has the best Colour Rendering Index (CRI)?\nA) LED\nB) Fluorescent\nC) Incandescent\nD) High pressure sodium vapour", "completion": "C"}
+{"prompt": "The number of output pins in 8085 microprocessors are\nA) 27.\nB) 40.\nC) 21.\nD) 19.", "completion": "A"}
+{"prompt": "In 8085 name/names of the 16 bit registers is/are\nA) stack pointer.\nB) program counter.\nC) both A and B.\nD) none of these.", "completion": "C"}
+{"prompt": "A microprocessor is ALU\nA) and control unit on a single chip.\nB) and memory on a single chip.\nC) register unit and I/O device on a single chip.\nD) register unit and control unit on a single chip.", "completion": "D"}
+{"prompt": "________ is the most detrimental impurity in the magnetic materials\nA) Carbon.\nB) Sulphur.\nC) Oxygen.\nD) Nitrogen.", "completion": "A"}
+{"prompt": "A metal surface with 1 meter radius and surface charge density of 20 coulombs / m2 is enclosed in a 10 m side cube. The total outward electric displacement normal to the surface of the cube is\nA) 40\u03c0 coulombs.\nB) 80\u03c0 coulombs.\nC) 10\u03c0 coulombs.\nD) none of these.", "completion": "B"}
+{"prompt": "If P is the power of a star connected system then what will be power of an equivalent delta connected system?\nA) P\nB) 3P\nC) P/3\nD) None of the above", "completion": "A"}
+{"prompt": "Which of the following is a variable displacement transducer?\nA) tachometer\nB) potentiometer\nC) synchros\nD) none of the above", "completion": "B"}
+{"prompt": "1 F is theoretically equal to\nA) 1 ohm of resistance\nB) ratio of 1 V to 1 C\nC) ratio of 1 C to 1 V\nD) none of these", "completion": "C"}
+{"prompt": "Which system is also known as automatic control system?\nA) Open loop control system\nB) Closed loop control system\nC) Either A or B\nD) Nether A nor B", "completion": "B"}
+{"prompt": "The normal voltage used in directional heating is\nA) 1.5 KV.\nB) 15 KV.\nC) 33 KV.\nD) 66 KV.", "completion": "A"}
+{"prompt": "A step up chopper has input voltage 110 V and output voltage 150 V. The value of duty cycle is\nA) 0.32.\nB) 0.67.\nC) 0.45.\nD) 0.27.", "completion": "B"}
+{"prompt": "A Lissajous pattern on an oscilloscope has 5 horinzontal tangencies and 2 vertical tangencies. The frequency of horizontal input is 100 Hz. The frequency of the vertical will be\nA) 500 Hz.\nB) 250 Hz.\nC) 400 Hz.\nD) 625 Hz.", "completion": "B"}
+{"prompt": "If a Hexadecimal number needs to convert to binary. For each hexadecimal digit, there will be how many bits\nA) 1\nB) 2\nC) 4\nD) 8", "completion": "C"}
+{"prompt": "Stability of a transmission line can be increased by\nA) shunt capacitor\nB) series capacitor\nC) shunt reactor\nD) both A and B", "completion": "D"}
+{"prompt": "The solid angle subtended by an area of 2400 cm^2 on the surface of a sphere of diameter 1.2 m is\nA) 3 / 2.\nB) 1 / 3.\nC) 2 / 3.\nD) 2 / 5.", "completion": "C"}
+{"prompt": "Which of the following is not a sinusoidal oscillator?\nA) LC oscillator\nB) RC phase shift oscillator\nC) Relaxation oscillator\nD) Crystal oscillator", "completion": "C"}
+{"prompt": "The feedback factor of a Wien bridge oscillator using Op-Amp is\nA) 1/3\nB) 1/4\nC) 1/2\nD) 1", "completion": "C"}
+{"prompt": "Commutator in DC generator is used for\nA) collecting of current\nB) reduce losses\nC) increase efficiency\nD) convert AC armature current in to DC", "completion": "D"}
+{"prompt": "In a lap winding dc machine number of conductors are 100 and number of parallel paths are 10. Find the average pitch\nA) 10\nB) 100\nC) 50\nD) 1", "completion": "A"}
+{"prompt": "The errors mainly caused by human mistakes are\nA) gross error.\nB) instrumental error.\nC) observational error.\nD) systematic error.", "completion": "A"}
+{"prompt": "The ROM programmed during manufacturing process itself is called\nA) MROM\nB) PROM\nC) EPROM\nD) EEPROM", "completion": "A"}
+{"prompt": "FM stands for\nA) frequent modulation.\nB) frequency modulation.\nC) frequency moderator.\nD) frequent moderator.", "completion": "B"}
+{"prompt": "Thin laminations are used in a machine in order to reduce\nA) Eddy current losses\nB) Hysteresis losses\nC) Both A and B\nD) Copper losses", "completion": "A"}
+{"prompt": "Speed control by variation of field flux results in\nA) constant power drive.\nB) constant torque drive.\nC) variable power drive.\nD) none of the above.", "completion": "A"}
+{"prompt": "Four capacitors each of 40 \u00b5F are connected in parallel, the equivalent capacitance of the system will be\nA) 160 \u00b5F\nB) 10 \u00b5F\nC) 40 \u00b5F\nD) 5 \u00b5F", "completion": "A"}
+{"prompt": "In a dc machine 6 pole wave winding is used. The number of parallel paths are?\nA) 6\nB) 4\nC) 2\nD) 1", "completion": "C"}
+{"prompt": "The output of the system has an effect upon the input quantity, then the system is a\nA) open loop control system.\nB) closed loop control system.\nC) either A or B.\nD) none of the above.", "completion": "B"}
+{"prompt": "Induction heating takes place in\nA) conducting but non-magnetic materials.\nB) conducting materials which may be either magnetic or non-magentic materials.\nC) insulating materials.\nD) conducting and magnetic materials.", "completion": "B"}
+{"prompt": "The number of rings in the Bohr model of any element is determined by what?\nA) Column number on periodic table.\nB) Atomic mass.\nC) Row number on periodic table.\nD) Atomic number.", "completion": "C"}
+{"prompt": "Both the ALU and control section of CPU employ which special purpose storage location?\nA) Buffers\nB) Decoders\nC) Accumulators\nD) Registers", "completion": "C"}
+{"prompt": "In balanced bridge, if the positions of detector and source are interchanged, the bridge will still remain balanced. This can be explained from which theorem\nA) Reciprocity theorem\nB) Thevinin's theorem\nC) Norton's theorem\nD) Compensation theorem", "completion": "A"}
+{"prompt": "Susceptibility is negative for\nA) non magnetic substances.\nB) diamagnetic substances.\nC) ferromagnetic substances.\nD) none of above.", "completion": "B"}
+{"prompt": "Which of the following is the analogous quantity for mass element in force-voltage analogy?\nA) Resistance.\nB) Inductance.\nC) Capacitance.\nD) All of the above.", "completion": "B"}
+{"prompt": "The resistance of a conductor of diameter d and length l is R \u03a9. If the diameter of the conductor is halved and its length is doubled, the resistance will be\nA) R \u03a9\nB) 2R \u03a9\nC) 4R \u03a9\nD) 8R \u03a9", "completion": "C"}
+{"prompt": "Which of the following is/are the disadvantages of an open loop control system?\nA) Inaccurate.\nB) Unreliable.\nC) both A and B.\nD) none of the above.", "completion": "C"}
+{"prompt": "By using which of the following elements, mechanical translational systems are obtained?\nA) mass element\nB) spring element\nC) dash-pot\nD) all of the above", "completion": "D"}
+{"prompt": "In Digital Logic Designs, GAL is abbreviated as\nA) General Advance Logic\nB) General Array Logic\nC) Generic Advance Logic\nD) Generic Array Logic", "completion": "D"}
+{"prompt": "What is used to protect the SCR from over current ?\nA) CB and fuse.\nB) Heat sink.\nC) Snubber circuit.\nD) Voltage clamping device.", "completion": "A"}
+{"prompt": "Piezoelectric effect is carried out in\nA) composite filter.\nB) crystal filter.\nC) m derived.\nD) constant k prototype.", "completion": "B"}
+{"prompt": "Electrical analogous quantity for dash-pot in force-current analogy is\nA) resistance.\nB) conductance.\nC) inductance.\nD) capacitance.", "completion": "B"}
+{"prompt": "A D-flip-flop is said to be transparent when\nA) the output is LOW\nB) the output is HIGH\nC) the output follows clock\nD) the output follow input", "completion": "D"}
+{"prompt": "The metal surfaces for electrical resistance welding must be\nA) rough.\nB) clean.\nC) moistened\nD) coloured", "completion": "B"}
+{"prompt": "For intermittent work which of the following furnace is suitable?\nA) Core less furnace.\nB) Indirect arc furnace.\nC) Either of above.\nD) Nither of above.", "completion": "B"}
+{"prompt": "The magnetisation and applied field in ferromagnetic materials are related\nA) sinusoidally.\nB) non linearly.\nC) linearly.\nD) parabolically.", "completion": "B"}
+{"prompt": "A null type instrument as compared to a deflected type instrument has\nA) a lower sensitivity.\nB) a faster response.\nC) a higher accuracy.\nD) all of the above.", "completion": "C"}
+{"prompt": "Materials used in heat sink should have\nA) high thermal conductivity.\nB) large surface area.\nC) high melting point.\nD) All of these.", "completion": "D"}
+{"prompt": "In two wattmeter method of power measurement if the total power is measured by one wattmeter only then power factor of the system is\nA) 0.\nB) 0.5.\nC) 1.\nD) none of above.", "completion": "B"}
+{"prompt": "The moving coil-meters, damping is provided by\nA) the aluminium frame of the coil.\nB) the coil spring attached to the moving.\nC) eddy current disk.\nD) damping vane in the airtight chamber.", "completion": "A"}
+{"prompt": "Colpitts oscillator is also called as\nA) Tank circuit oscillator\nB) LC oscillator\nC) Resonant circuit oscillator\nD) All of the above", "completion": "D"}
+{"prompt": "Temperature variation is a/an\nA) Digital quantity\nB) Analog quantity\nC) Either Digital or Analog quantity\nD) None", "completion": "B"}
+{"prompt": "What are the sets of commands in a program which are not translated into machine instructions during assembly process, called?\nA) Mnemonics\nB) Directives\nC) Identifiers\nD) Operands", "completion": "B"}
+{"prompt": "The supply frequency usually employed for high frequency eddy current heating is\nA) 1 KHz.\nB) 5 KHz.\nC) 10 MHz.\nD) 10 KHz to 400 KHz.", "completion": "D"}
+{"prompt": "Lowest critical frequency is due to zero and it may be present at the origin or nearer to the origin, then the type of network is\nA) LC circuit.\nB) RC circuit.\nC) RLC circuit.\nD) RL Circuit.", "completion": "D"}
+{"prompt": "In the toggle mode a JK flip-flop has\nA) J = 0, K = 0.\nB) J = 1, K = 1.\nC) J = 0, K = 1.\nD) J = 1, K = 0.", "completion": "B"}
+{"prompt": "A latch is ________ sensitive\nA) both level and edge\nB) edge\nC) level\nD) None", "completion": "C"}
+{"prompt": "Purely mechanical instrument cannot be used for dynamic measurements because they have\nA) high inertia.\nB) higher response time.\nC) large time constant.\nD) all of the above.", "completion": "D"}
+{"prompt": "Which of the following is used in SCR to protect from high dV / dt?\nA) Snubber circuit.\nB) Fuse.\nC) Equalizing circuit.\nD) Circuit breaker.", "completion": "A"}
+{"prompt": "If holding current of a thyristor is 2 mA then latching current should be\nA) 0.01 A.\nB) 0.002 A.\nC) 0.009 A.\nD) 0.004 A.", "completion": "D"}
+{"prompt": "Potentiometer method of DC voltage measurement is more accurate than direct measurement using a voltmeter because\nA) It loads the circuit moderately.\nB) It loads the circuit to maximum extent.\nC) It uses centre zero galvanometer instead of voltmeter.\nD) It does not load the circuit at all.", "completion": "D"}
+{"prompt": "A single phase one pulse controlled circuit has a resistance R and counter emf E load 400 sin(314 t) as the source voltage. For a load counter emf of 200 V, the range of firing angle control is\nA) 30\u00b0 to 150\u00b0.\nB) 30\u00b0 to 180\u00b0.\nC) 60\u00b0 to 120\u00b0.\nD) 60\u00b0 to 180\u00b0.", "completion": "A"}
+{"prompt": "Stack is also known as\nA) FIFO memory\nB) Flash memory\nC) LIFO memory\nD) LILO memory", "completion": "C"}
+{"prompt": "Power dissipation in ideal inductor is\nA) Maximum\nB) Minimum\nC) Zero\nD) A finite value", "completion": "C"}
+{"prompt": "A long wire composed of a smooth round conductor runs above and parallel to the ground (assumed to be a large conducting plane). A high voltage exists between the conductor and the ground. The maximum electric stress occurs at\nA) lower surface of the conductor.\nB) upper surface of the conductor.\nC) the ground surface.\nD) midway between the conductor and ground.", "completion": "A"}
+{"prompt": "Poles and zeros are arranged alternatively on negative real axis, then type of network is/are\nA) LC network.\nB) RC network.\nC) RL network.\nD) Both 2 and 3.", "completion": "D"}
+{"prompt": "The main advantage of dielectric heating is that\nA) heating occurs in the material itself.\nB) heating occurs due to high frequency.\nC) it can be used for drying the explosives.\nD) None of the above.", "completion": "A"}
+{"prompt": "Five capacitors each of 5 \u00b5F are connected in series, the equivalent capacitance of the system will be\nA) 5 \u00b5F\nB) 25 \u00b5F\nC) 10 \u00b5F\nD) 1 \u00b5F", "completion": "D"}
+{"prompt": "Magnetic flux has the unit of\nA) Newton\nB) Ampere turn\nC) Weber\nD) Tesla", "completion": "C"}
+{"prompt": "Deflection method direct measurements are most widely used as these are\nA) least time consuming.\nB) most simple.\nC) most simple and least time consuming.\nD) most accurate.", "completion": "C"}
+{"prompt": "In Ward-Leonard system, the lower limit of the speed imposed by\nA) Field resistance.\nB) Armature resistance.\nC) Residual magnetism of the generator.\nD) None of above.", "completion": "C"}
+{"prompt": "Electrical analogous quantity for spring element (K) in force-voltage analogy is\nA) L\nB) R\nC) 1/C\nD) C", "completion": "C"}
+{"prompt": "Electrons in p-type material of a semi-conductor are called as\nA) either minority carriers or majority carriers\nB) minority carriers\nC) majority carriers\nD) valance carriers", "completion": "B"}
+{"prompt": "Advantages of open loop control system is/are\nA) simple and economical.\nB) accurate.\nC) reliable.\nD) all of the above.", "completion": "A"}
+{"prompt": "Which oscillators are easy to fabricate in a monolithic IC?\nA) Crystal oscillator.\nB) Hartley oscillator.\nC) Wien bridge oscillator.\nD) Relaxation oscillator.", "completion": "D"}
+{"prompt": "The energy stored in the magnetic field in a solenoid 30 cm long and 3 cm diameter wound with 1000 turns of wire carrying a current at 10 amp, is\nA) 0.015 joule.\nB) 0.15 joule.\nC) 0.015 joule.\nD) 1.15 joule.", "completion": "B"}
+{"prompt": "A Binary number system has how many digits.\nA) 0\nB) 1\nC) 2\nD) 10", "completion": "C"}
+{"prompt": "According to the Bohr model, an electron gains or losses energy only by\nA) moving faster or slower in an allowed orbit.\nB) jumping from one allowed orbit to another.\nC) being completely removed from an atom.\nD) jumping from one atom to another atom.", "completion": "B"}
+{"prompt": "Inintel 8085A microprocessor ALE signal is made high to\nA) Enable the data bus to be used as low order address bus\nB) To latch data D0-D7 from data bus\nC) To disable data bus\nD) To achieve all the functions listed above", "completion": "A"}
+{"prompt": "A 0 - 100 V voltmeter has a guaranteed accuracy of 2 % of full scale reading. The voltage measured by the voltmeter is 75 V. The limiting error is in percentage\nA) 3.33 %.\nB) 2.66 %.\nC) 2 %.\nD) 1 %.", "completion": "B"}
+{"prompt": "Relative error is same as\nA) ratio of absolute error and true value.\nB) absolute error.\nC) true error.\nD) none of the above.", "completion": "A"}
+{"prompt": "Systematic errors are\nA) environmental errors.\nB) observational errors.\nC) instrument errors.\nD) all of the above.", "completion": "D"}
+{"prompt": "In an intel 8085A, which is the first machine cycle of an instruction?\nA) An op-code fetch cycle\nB) A memory read cycle\nC) A memory write cycle\nD) An I/O read cycle", "completion": "A"}
+{"prompt": "Which of the following is a digital device\nA) Regulator of a fan\nB) Microphone\nC) Resistance of a material\nD) Light switch", "completion": "D"}
+{"prompt": "An SCR has half cycle surge current rating of 3000 A for 50 Hz supply. One cycle surge current will be\nA) 1500 A.\nB) 6000 A.\nC) 2121.32 A.\nD) 4242.64 A.", "completion": "C"}
+{"prompt": "Electric drive is becoming more and more popular because\nA) all of below.\nB) it provide smooth and easy control.\nC) it is cheaper in cost.\nD) it is simple and reliable.", "completion": "A"}
+{"prompt": "Instantaneous power in inductor is proportional to the\nA) product of the instantaneous current and rate of change of current.\nB) square of instantaneous current.\nC) square of the rate of change of current.\nD) temperature of the inductor.", "completion": "A"}
+{"prompt": "Two infinite parallel metal plates are charged with equal surface charge density of the same polarity. The electric field in the gap between the plates is\nA) same as that produced by one plate.\nB) double the field produced by one plate.\nC) dependent on coordinates of field points.\nD) zero.", "completion": "D"}
+{"prompt": "If all the elements in a particular network are linear, then the superposition theorem would hold, when the excitation is\nA) DC only\nB) AC only\nC) Either AC or DC\nD) An Impulse", "completion": "C"}
+{"prompt": "A combinational PLD with a fixed AND array and a programmable OR array is called a\nA) PLD\nB) PROM\nC) PAL\nD) PLA", "completion": "B"}
+{"prompt": "Silicon and Germanium are ________ elements.\nA) trivalant\nB) pentavalant\nC) hexavalant\nD) tetravalant", "completion": "D"}
+{"prompt": "The resistance in the circuit of the moving coil of a dynamometer wattmeter should be\nA) Low.\nB) Very low.\nC) High.\nD) Almost zero.", "completion": "C"}
+{"prompt": "The change of cross sectional area of conductor in magnetic field will affect\nA) reluctance of conductor.\nB) resistance of conductor.\nC) (A) and (B) both in the same way.\nD) none of above.", "completion": "C"}
+{"prompt": "The illumination at a point 5 meters below a lamp in 6 lux. The candle power of the lamp is\nA) 30\nB) 140.\nC) 150.\nD) 200.", "completion": "C"}
+{"prompt": "Which of the followings is/are active element?\nA) Voltage source\nB) Current source\nC) Both\nD) None of these.", "completion": "C"}
+{"prompt": "How many bits are required to store one BCD digit ?\nA) 1\nB) 2\nC) 3\nD) 4", "completion": "D"}
+{"prompt": "Feedback circuit in an oscillator can be accomplished by\nA) Resistive coupling between input and output\nB) Capacitive coupling between input and output\nC) Inductive coupling between input and output\nD) Any one or combinations of the above methods", "completion": "D"}
+{"prompt": "Advantages of higher transmission voltage is/are\nA) Power transfer capability of the transmission line is increased\nB) Transmission line losses are reduced\nC) Area of cross section and volume of the conductor is reduced\nD) all of the above", "completion": "D"}
+{"prompt": "Snubber circuit is used with SCR\nA) in series.\nB) in parallel.\nC) either series or parallel.\nD) anti parallel.", "completion": "B"}
+{"prompt": "Which of the following are the passive elements?\nA) Resistor\nB) Bulb\nC) Both\nD) None of these.", "completion": "C"}
+{"prompt": "To obtain a high value of capacitance, the permittivity of dielectric medium should be\nA) low\nB) zero\nC) high\nD) unity", "completion": "C"}

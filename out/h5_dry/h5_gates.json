@@ -1,0 +1,44 @@
+{
+ "balance": {
+  "max_share": 0.6,
+  "ag_news": {
+   "suite": 0.268,
+   "materials": {
+    "clean": 0.274,
+    "pool100": 0.3,
+    "pool300": 0.277,
+    "wrong10": 0.269,
+    "off25": 0.33,
+    "drop": 0.522,
+    "wrong60": 0.264,
+    "off80": 0.465
+   }
+  },
+  "rotten": {
+   "suite": 0.51,
+   "materials": {
+    "clean": 0.535,
+    "pool100": 0.54,
+    "pool300": 0.507,
+    "wrong10": 0.564,
+    "off25": 0.517,
+    "drop": 1.0,
+    "wrong60": 0.529,
+    "off80": 0.36
+   }
+  },
+  "emotion": {
+   "suite": 0.355,
+   "materials": {
+    "clean": 0.365,
+    "pool100": 0.31,
+    "pool300": 0.35,
+    "wrong10": 0.323,
+    "off25": 0.309,
+    "drop": 0.477,
+    "wrong60": 0.225,
+    "off80": 0.228
+   }
+  }
+ }
+}

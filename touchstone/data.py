@@ -54,7 +54,7 @@ ROLE_ALIASES = {"human": "user", "user": "user", "gpt": "assistant", "assistant"
 # (prompt field, reply field) pairs seen in real public datasets, tried in this order.
 FIELD_PAIRS = (("prompt", "completion"), ("prompt", "response"), ("question", "answer"), ("instruction", "output"),
                ("instruction", "response"), ("query", "response"), ("problem", "solution"), ("input", "output"),
-               ("question", "response"), ("prompt", "chosen"))
+               ("question", "response"), ("inputs", "targets"), ("prompt", "chosen"))
 SKIP_LIMIT = 0.10  # invalid rows are skipped and reported while they are at most this share of the file
 
 
@@ -97,6 +97,8 @@ def _messages(msgs, where: str, key: str) -> Example:
 def _parse(d: dict, where: str) -> Example:
     if not isinstance(d, dict):
         raise DatasetError(f"{where}: each line must be a JSON object")
+    if any(k != k.lower().strip() for k in d if isinstance(k, str)):  # CSV headers such as "Question", "Answer "
+        d = {(k.lower().strip() if isinstance(k, str) else k): v for k, v in d.items()}
     for key in ("messages", "conversations", "conversation"):
         if key in d:
             e = _messages(d[key], where, key)

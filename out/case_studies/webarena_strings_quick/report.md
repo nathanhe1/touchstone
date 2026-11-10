@@ -12,7 +12,7 @@
 - RL environment: `/Users/nathanhe/.cache/touchstone/case_studies/inputs/webarena_strings`
 - SHA-256: `39eeab50ccb5089cb435245227f95edde5619e035202572cf2ccb0ce0cdf64e8`
 - Items: 212 (209 unique)
-- Mode: quick · runtime 0 min 43 s
+- Mode: quick · runtime 1 min 3 s
 - Models (real open weights, LoRA rank 16): 
 
 ## Held-out suite

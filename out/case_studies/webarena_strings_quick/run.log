@@ -1,4 +1,4 @@
-[14:29:12] Appraising environment WebArena string-match tasks: 212 tasks; held-out suite 'webarena_fuzzy_suite' (82 items: webarena_fuzzy_suite); mode quick
-[14:29:18]   overlap: 3.7% of held-out items appear in the material (1.4% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 1.4%, off-topic 33%
-[14:29:55]   grader check: worst exploit 'wrong: fraction appended' earns 84% reward; answer in prompt for 2% of tasks
-[14:29:55]   blocking problem found in screening; quick mode skips training
+[16:07:18] Appraising environment WebArena string-match tasks: 212 tasks; held-out suite 'webarena_fuzzy_suite' (82 items: webarena_fuzzy_suite); mode quick
+[16:07:26]   overlap: 3.7% of held-out items appear in the material (1.4% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 1.4%, off-topic 31%
+[16:08:21]   grader check: worst exploit 'wrong: fraction appended' earns 84% reward; answer in prompt for 2% of tasks
+[16:08:21]   blocking problem found in screening; quick mode skips training

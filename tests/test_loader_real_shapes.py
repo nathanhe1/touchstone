@@ -107,3 +107,11 @@ def test_long_replies_latex_and_non_english_load_unchanged(tmp_path):
     rows = [{"prompt": "Calcule $\\frac{1}{2}+\\frac{1}{3}$ 请解释", "completion": long + "\\boxed{\\frac{5}{6}}"}] * 25
     r = data.load_dataset(_jsonl(tmp_path / "d.jsonl", rows))
     assert r[0].completion.endswith("\\boxed{\\frac{5}{6}}") and len(r[0].completion) > 100000
+
+
+def test_capitalised_csv_headers_and_inputs_targets(tmp_path):
+    t = tmp_path / "d.csv"
+    t.write_text("Question,Answer \n" + "".join(f"q{i},a{i}\n" for i in range(25)))
+    assert data.load_dataset(t)[3].completion == "a3"
+    rows = [{"inputs": "أجب على السؤال", "targets": "الإجابة", "language": "Standard Arabic"}] * 25  # Aya's shape
+    assert data.load_dataset(_jsonl(tmp_path / "a.jsonl", rows))[0].completion == "الإجابة"

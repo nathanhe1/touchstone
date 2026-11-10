@@ -7,6 +7,8 @@ Sources (pinned revisions):
   GSM8K test           openai/gsm8k @ 740312add8 (MIT); GSM8K-Platinum madrylab/gsm8k-platinum @ e762492455 (MIT)
   MATH                 EleutherAI/hendrycks_math @ 21a5633873 (MIT)
   MathInstruct         TIGER-Lab/MathInstruct @ b4fdc323a7 (MIT)
+  CodeAlpaca-20k       sahil2801/CodeAlpaca-20k @ 152bb5e9a2 (CC-BY-4.0), kept as delivered (a JSON array)
+  HumanEval            openai/openai_humaneval @ 7dce6050a7 (MIT)
   WebArena             github.com/web-arena-x/webarena @ dce04686a5 (Apache-2.0): config_files/test.raw.json and the
                        StringEvaluator in evaluation_harness/evaluators.py (re-implemented in the environment below)
 """
@@ -168,8 +170,18 @@ def webarena():
     print(f"webarena_strings: {len(tasks)} tasks; sha256 tasks.json {hashlib.sha256((d / 'tasks.json').read_bytes()).hexdigest()}")
 
 
+def code():
+    """Case 5: CodeAlpaca, documented as holding rephrased HumanEval problems; HumanEval as the buyer's suite."""
+    import shutil
+    h = pq(C / "code" / "humaneval.parquet")
+    write("humaneval_suite.jsonl", [{"prompt": r["prompt"], "answer": r["canonical_solution"].strip(), "match": "exact"} for r in h])
+    shutil.copy(C / "code" / "code_alpaca_20k.json", OUT / "code_alpaca_20k.json")
+    print(f"{hashlib.sha256((OUT / 'code_alpaca_20k.json').read_bytes()).hexdigest()}  code_alpaca_20k.json")
+
+
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
     gsm8k()
     math()
     webarena()
+    code()

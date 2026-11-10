@@ -22,7 +22,10 @@
   },
   "relevance": {
     "mean_nearest_cos": 0.4688,
-    "off_topic_share": 0.3255
+    "raw_off_topic_share": 0.3255,
+    "suite_self_share": 0.0244,
+    "off_topic_share": 0.3086,
+    "off_topic_status": "checked"
   },
   "rungs": {},
   "measurable_at": null,
@@ -65,14 +68,14 @@
     "rl_max_new": 64,
     "eval_max_new": 96
   },
-  "runtime_s": 43,
+  "runtime_s": 63,
   "grader_audit": {
     "has_reference": true,
     "n_probed": 400,
     "reference_accept_rate": 1.0,
     "reference_accept_best_format": 1.0,
     "answer_in_prompt": 0.0175,
-    "model_wrong_samples": 226,
+    "model_wrong_samples": 232,
     "score": 0.8438,
     "raw_score": 0.8438,
     "reward_noise": 0.0,
@@ -187,6 +190,10 @@
     "public_copy": {
       "status": "not_checked",
       "reason": "no public baseline for this domain; pass --public"
+    },
+    "off_topic": {
+      "status": "checked",
+      "method": "share unrelated to the suite, net of the suite's own spread"
     }
   },
   "device": "mps",

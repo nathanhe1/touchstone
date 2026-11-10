@@ -407,13 +407,15 @@ def one(job):
     cf = cdir / f"{fam}|{size}|{ck}.json"
     if cf.exists():
         c = json.loads(cf.read_text())
-        outs_b, soft_b = c["outs"], c["soft"]
+        outs_b, soft_b, soft_nb = c["outs"], c["soft"], c.get("soft_n")
     else:
         outs_b = lm.generate([x[0] for x in it], max_new=max_new, batch=eval_batch)
-        soft_b = h5_soft.mean_soft(h5_soft.soft_scores(lm, it, outs_b)) if rc_soft else None
+        sl = h5_soft.soft_scores(lm, it, outs_b) if rc_soft else []
+        soft_b = h5_soft.mean_soft(sl) if rc_soft else None
+        soft_nb = sum(x is not None for x in sl)
         cdir.mkdir(parents=True, exist_ok=True)
         tmp = cdir / f".{os.getpid()}.tmp"
-        tmp.write_text(json.dumps({"outs": outs_b, "soft": soft_b, "model": L.LADDER[size], "family": fam, "max_new": max_new}))
+        tmp.write_text(json.dumps({"outs": outs_b, "soft": soft_b, "soft_n": soft_nb, "model": L.LADDER[size], "family": fam, "max_new": max_new}))
         tmp.replace(cf)
     out["base_cached"] = cf.name
     b = "".join("1" if correct(fam, o, x[1], x[3] if len(x) > 3 else None) else "0" for o, x in zip(outs_b, it))
@@ -442,7 +444,9 @@ def one(job):
         outs_a = tuned.generate([x[0] for x in it], max_new=max_new, batch=eval_batch)
         a = "".join("1" if correct(fam, o, x[1], x[3] if len(x) > 3 else None) else "0" for o, x in zip(outs_a, it))
         cut_a = sum(len(lm.tok(o, add_special_tokens=False).input_ids) >= max_new - 1 for o in outs_a) / len(it)
-        soft_a = h5_soft.mean_soft(h5_soft.soft_scores(tuned, it, outs_a)) if rc_soft else None
+        sla = h5_soft.soft_scores(tuned, it, outs_a) if rc_soft else []
+        soft_a = h5_soft.mean_soft(sla) if rc_soft else None
+        out.update({"soft_n_base": soft_nb, "soft_n_after": sum(x is not None for x in sla)})  # items with a soft score
         if soft_a is not None and soft_b is not None:
             out.update({"soft_after": round(soft_a, 6), "soft_gain": round(100 * (soft_a - soft_b), 4)})
         out.update({"after": a, "after_acc": round(100 * a.count("1") / len(it), 2), "after_truncated": round(cut_a, 4),

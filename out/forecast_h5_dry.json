@@ -28,7 +28,7 @@
   "rl_reward_max": 0.9,
   "rl_trunc": 0.1
  },
- "scorer_sha256": "3ffb167ff75ea47fba36d1a86daae17d631c9ce7d1144e8875224c658523a7e3",
+ "scorer_sha256": "6b28542465c25f5a4b9a53f9b3aac41e036da60af39552f2a33a6fc04a95a83e",
  "arms": {
   "ft": {
    "rungs": {
@@ -254,7 +254,8 @@
       0.0
      ],
      "p_one_sided": 1.0,
-     "beats_baseline": false
+     "beats_baseline": false,
+     "underpowered": true
     },
     "C2 soft 12x vs B acc_final 12x": "missing runs"
    },

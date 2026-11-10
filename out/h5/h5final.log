@@ -82,3 +82,33 @@ done h5_ft_sft_nli_wrong_snli_q3-8B_s1 gain=-4.0 base=37.17 wall=176.6s mem=21.2
 start h5_ft_sft_nli_placebo_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
 done h5_ft_sft_sci_obqa_q3-1.7B_s1 gain=27.833 base=53.17 wall=65.2s mem=6.14GB
 start h5_ft_sft_sci_qasc_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_qasc_q3-1.7B_s1 gain=27.0 base=53.17 wall=68.9s mem=6.14GB
+start h5_ft_sft_sci_mmlu_aux_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_nli_placebo_q3-8B_s1 gain=-2.333 base=37.17 wall=179.6s mem=21.22GB
+start h5_ft_sft_sci_arc_easy_train_q3-8B_s0 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_sci_mmlu_aux_q3-1.7B_s1 gain=26.333 base=53.17 wall=87.3s mem=6.14GB
+start h5_ft_sft_sci_wrong_arc_easy_train_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_wrong_arc_easy_train_q3-1.7B_s1 gain=-30.167 base=53.17 wall=72.1s mem=6.14GB
+start h5_ft_sft_sci_placebo_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_placebo_q3-1.7B_s1 gain=-27.833 base=53.17 wall=71.7s mem=6.14GB
+start h5_ft_sft_yelp_clean_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_arc_easy_train_q3-8B_s0 gain=6.0 base=87.0 wall=260.5s mem=21.66GB
+start h5_ft_sft_sci_arc_challenge_train_q3-8B_s0 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_yelp_clean_q3-1.7B_s0 gain=52.833 base=10.0 wall=148.8s mem=5.92GB
+start h5_ft_sft_yelp_pool100_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_yelp_pool100_q3-1.7B_s0 gain=47.833 base=10.0 wall=105.5s mem=5.92GB
+start h5_ft_sft_yelp_pool200_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_arc_challenge_train_q3-8B_s0 gain=6.167 base=87.0 wall=188.6s mem=21.66GB
+start h5_ft_sft_sci_sciq_q3-8B_s0 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_yelp_pool200_q3-1.7B_s0 gain=50.333 base=10.0 wall=101.1s mem=5.92GB
+start h5_ft_sft_yelp_pool300_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_sciq_q3-8B_s0 gain=5.167 base=87.0 wall=165.4s mem=21.66GB
+start h5_ft_sft_sci_obqa_q3-8B_s0 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_yelp_pool300_q3-1.7B_s0 gain=51.833 base=10.0 wall=102.8s mem=5.92GB
+start h5_ft_sft_yelp_wrong10_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_yelp_wrong10_q3-1.7B_s0 gain=52.0 base=10.0 wall=102.8s mem=5.92GB
+start h5_ft_sft_yelp_off25_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_obqa_q3-8B_s0 gain=5.167 base=87.0 wall=167.1s mem=21.66GB
+start h5_ft_sft_sci_qasc_q3-8B_s0 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_yelp_off25_q3-1.7B_s0 gain=51.0 base=10.0 wall=99.7s mem=5.92GB
+start h5_ft_sft_yelp_drop_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)

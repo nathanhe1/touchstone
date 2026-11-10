@@ -100,7 +100,8 @@ def run(a):
                     continue
                 queue.remove(j)
                 lf = (logs / f"{j['id']}.log").open("w")
-                env = {**os.environ, "CUDA_VISIBLE_DEVICES": str(g), "PYTHONUNBUFFERED": "1", "TOKENIZERS_PARALLELISM": "false"}
+                env = {**os.environ, "CUDA_VISIBLE_DEVICES": str(g), "PYTHONUNBUFFERED": "1", "TOKENIZERS_PARALLELISM": "false",
+                       "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"}  # less fragmentation when runs share a card
                 p = subprocess.Popen([sys.executable, str(ROOT / "scripts" / "h5_run.py"), "one", json.dumps(j)], stdout=lf, stderr=subprocess.STDOUT,
                                      cwd=ROOT, env=env, start_new_session=True)
                 running[j["id"]] = (p, g, m, time.time(), j, lf)

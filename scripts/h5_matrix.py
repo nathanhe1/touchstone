@@ -68,7 +68,9 @@ def estimate(jobs, timing):
     s = 0.0
     for j in jobs:
         arm = "sft" if j["arm"].startswith("sft") else ("rl" if j["arm"].startswith("rl") and j["arm"] != "rlgate" else j["arm"])
-        sec = timing["seconds"].get(f"{arm}|{j['size']}|{j['family']}") or timing["seconds"].get(f"{arm}|{j['size']}", 300)
+        long = j.get("recipe", {}).get("max_new", 32) > 64
+        key = f"{arm}|{j['size']}" + ("|long" if long else "")
+        sec = timing["seconds"].get(key) or timing["seconds"].get(f"{arm}|{j['size']}", 300) * (4 if long else 1)
         s += sec / timing.get("packing", {}).get(j["size"], 1.0)
     return s / 3600
 

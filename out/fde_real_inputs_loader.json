@@ -1,0 +1,104 @@
+{
+ "TruthfulQA.csv": {
+  "bytes": 503550,
+  "ok": false,
+  "error": "DatasetError: invalid dataset: 790 of 790 rows unreadable (at most 10% can be skipped):\n  TruthfulQA.csv:2: unrecognised format; expected 'prompt'+'completion' or 'messages' (got keys ['best answer', 'best incorrect answer', 'category', 'correct answers', 'incorrect answers', 'question', 'source', 'type'])\n  TruthfulQA.csv:3: unrecognised format; expected 'prompt'+'completion' or 'messages' (got keys ['best ans",
+  "seconds": 0.0
+ },
+ "aya_test.parquet": {
+  "bytes": 977517,
+  "ok": true,
+  "rows": 1750,
+  "skipped": 0,
+  "total": 1750,
+  "first_skip": null,
+  "max_reply_chars": 22776,
+  "multi_turn": 0,
+  "with_system": 0,
+  "seconds": 1.6
+ },
+ "code_alpaca_20k.json": {
+  "bytes": 8057896,
+  "ok": true,
+  "rows": 20016,
+  "skipped": 6,
+  "total": 20022,
+  "first_skip": "code_alpaca_20k.json:record 7955: empty 'instruction' or 'output'",
+  "max_reply_chars": 3905,
+  "multi_turn": 0,
+  "with_system": 0,
+  "seconds": 0.5
+ },
+ "env_local_helper.zip": {
+  "bytes": 288255,
+  "ok": true,
+  "tasks": 300,
+  "seconds": 0.0
+ },
+ "env_with_deps.zip": {
+  "bytes": 288337,
+  "ok": false,
+  "error": "EnvError: /var/folders/g3/klggxx5929d_jx61bsh5rp0m0000gn/T/tmpty8ec4dq/kk_env/env.py: imports 'reasoning_gym', which is not installed here; its requirements.txt lists: reasoning-gym==0.1.19. Touchstone does not install an environment's dependencies; include the package in the folder or install it where the appraisal runs",
+  "seconds": 0.0
+ },
+ "mathinstruct_20000.jsonl": {
+  "bytes": 15603030,
+  "ok": true,
+  "rows": 19999,
+  "skipped": 1,
+  "total": 20000,
+  "first_skip": "mathinstruct_20000.jsonl:18866: empty 'prompt' or 'completion'",
+  "max_reply_chars": 5539,
+  "multi_turn": 0,
+  "with_system": 0,
+  "seconds": 1.0
+ },
+ "no_robots_train.parquet": {
+  "bytes": 10474682,
+  "ok": true,
+  "rows": 9500,
+  "skipped": 0,
+  "total": 9500,
+  "first_skip": null,
+  "max_reply_chars": 7315,
+  "multi_turn": 795,
+  "with_system": 795,
+  "seconds": 0.8
+ },
+ "numina_cot_1000.jsonl": {
+  "bytes": 1650145,
+  "ok": true,
+  "rows": 1000,
+  "skipped": 0,
+  "total": 1000,
+  "first_skip": null,
+  "max_reply_chars": 4988,
+  "multi_turn": 0,
+  "with_system": 0,
+  "seconds": 0.1
+ },
+ "openr1_math_300.jsonl": {
+  "bytes": 5732247,
+  "ok": true,
+  "rows": 300,
+  "skipped": 0,
+  "total": 300,
+  "first_skip": null,
+  "max_reply_chars": 59202,
+  "multi_turn": 0,
+  "with_system": 0,
+  "seconds": 0.1
+ },
+ "slimorca_2000.jsonl": {
+  "bytes": 3325614,
+  "ok": true,
+  "rows": 2000,
+  "skipped": 0,
+  "total": 2000,
+  "first_skip": null,
+  "max_reply_chars": 4715,
+  "multi_turn": 0,
+  "with_system": 2000,
+  "seconds": 0.1
+ }
+}

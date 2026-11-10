@@ -38,8 +38,10 @@ def main():
         if g.get("suite"):
             b["suite"] = g["suite"]["share"]
             b["max_share"] = g["suite"]["cap"]  # the family's cap, min(0.65, 2.5/k)
-        if g.get("material"):
-            b["materials"][mat] = g["material"]["share"]
+        elif "max_share" not in b:  # free-form answers (numbers, K&K roles): no classes, so the gate does not apply
+            b["max_share"], b["note"] = 1.0, "class-balance gate not applicable: answers are not a fixed set of classes"
+        if g.get("material"):  # RL runs carry the share of the environment's reference tasks, under one name, so a
+            b["materials"]["rl_reference" if j["arm"].startswith("rl") else mat] = g["material"]["share"]  # same-named FT material is not overwritten
         if r.get("refused"):
             gates["refused"].append(j["id"])
             continue

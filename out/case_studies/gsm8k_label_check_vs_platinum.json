@@ -1,0 +1,26 @@
+{
+ "flagged": [
+  "test-43",
+  "test-107",
+  "test-184",
+  "test-350",
+  "test-493",
+  "test-593",
+  "test-607",
+  "test-855",
+  "test-963",
+  "test-1045",
+  "test-1243"
+ ],
+ "by_status": {
+  "verified": 3,
+  "removed": 1,
+  "consensus": 7
+ },
+ "totals": {
+  "consensus": 1100,
+  "verified": 99,
+  "removed": 110,
+  "relabelled": 10
+ }
+}

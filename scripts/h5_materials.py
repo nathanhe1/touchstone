@@ -76,6 +76,8 @@ FILES = {  # local name: (repo key, path in repo)
     "obqa.train.parquet": ("obqa", "main/train-00000-of-00001.parquet"),
     "qasc.train.parquet": ("qasc", "data/train-00000-of-00001.parquet"),
     "mmlu_aux.train.parquet": ("mmlu", "auxiliary_train/train-00000-of-00001.parquet"),
+    **{f"kk.train.people{k}_num{200 if k == 2 else 1000}.jsonl": ("kk", f"train/people{k}_num{200 if k == 2 else 1000}.jsonl") for k in (2, 3, 4, 5)},
+    **{f"kk.test.people{k}_num100.jsonl": ("kk", f"test/people{k}_num100.jsonl") for k in (2, 3, 4, 5)},
 }
 
 # Why a buyer would plausibly put each material next to the others.
@@ -95,6 +97,8 @@ WHY = {
     "sci.sciq": "SciQ: crowd-written science exam questions with supporting passages.",
     "sci.obqa": "OpenBookQA: elementary science questions that need one core fact plus common knowledge.",
     "sci.qasc": "QASC: grade-school science questions built by composing two facts, 8 options.",
+    "kk.kk_train": "Knights and Knaves (Xie et al. 2024), procedurally generated logic puzzles with a unique checkable answer; "
+                   "the RL environment Logic-RL (Xie et al. 2025) trained on.",
     "sci.mmlu_aux": "MMLU's auxiliary training set: a broad multiple-choice mix (ARC, OBQA, RACE, MCTest and more).",
 }
 
@@ -310,6 +314,39 @@ def suite_sci():
         yield {"id": r["id"], "stem": r["stem"], "prompt": p, "answer": a, "match": "exact", "label": a, "chance": 1 / len(r["opts"])}
 
 
+KK_ASK = ("\n\nWho is a knight and who is a knave? Think it through, then end your reply with one line per person, "
+          "in the form:\n(1) Name is a knight\n(2) Name is a knave")
+
+
+def kk_correct(reply, names, solution):
+    """Reward for a Knights and Knaves reply: every person's last stated role must match the solution."""
+    for name, knight in zip(names, solution):
+        m = re.findall(rf"{re.escape(name)} is a (knight|knave)", reply or "", flags=re.I)
+        if not m or (m[-1].lower() == "knight") != bool(knight):
+            return False
+    return True
+
+
+def _kk(split, people):
+    for k in people:
+        n = 200 if (split == "train" and k == 2) else (1000 if split == "train" else 100)
+        for i, r in enumerate(_jsonl(f"kk.{split}.people{k}_num{n}.jsonl")):
+            ans = "\n".join(f"({j + 1}) {nm} is a {'knight' if s else 'knave'}" for j, (nm, s) in enumerate(zip(r["names"], r["solution"])))
+            yield {"id": f"{split}-people{k}-{i}", "stem": r["quiz"], "prompt": r["quiz"] + KK_ASK, "completion": ans, "answer": ans,
+                   "extra": {"names": r["names"], "solution": r["solution"], "people": k}}
+
+
+def src_kk_train():
+    return _kk("train", (2, 3, 4, 5))
+
+
+def suite_kk():
+    for r in _kk("test", (2, 3, 4, 5)):
+        r["match"] = "kk"
+        r["chance"] = 0.5 ** len(r["extra"]["names"])
+        yield r
+
+
 FAMILIES = {
     "gsm": {"suite": suite_gsm, "suite_source": ("gsm8k_platinum", "test"), "kind": "worked solutions, numeric answer",
             "materials": {"gsm8k_train": ("gsm8k", src_gsm8k_train), "metamathqa_gsm": ("metamathqa", src_metamathqa_gsm),
@@ -324,6 +361,8 @@ FAMILIES = {
             "materials": {"arc_easy_train": ("arc", src_arc_easy_train), "arc_challenge_train": ("arc", src_arc_challenge_train),
                           "sciq": ("sciq", src_sciq), "obqa": ("obqa", src_obqa), "qasc": ("qasc", src_qasc),
                           "mmlu_aux": ("mmlu", src_mmlu_aux)}},
+    "kk": {"suite": suite_kk, "suite_source": ("kk", "test people 2-5"), "kind": "RL environment: logic puzzles, graded by kk_correct",
+           "materials": {"kk_train": ("kk", src_kk_train)}},
 }
 
 
@@ -408,7 +447,8 @@ def build():
             rng.shuffle(suite)
         suite_stems = [r["stem"] for r in suite]
         suite_rows = [{"id": r["id"], "prompt": r["prompt"], "answer": r["answer"], "match": r["match"],
-                       **({"chance": r["chance"]} if "chance" in r else {}), **({"label": r["label"]} if "label" in r else {})}
+                       **({"chance": r["chance"]} if "chance" in r else {}), **({"label": r["label"]} if "label" in r else {}),
+                       **({"names": r["extra"]["names"], "solution": r["extra"]["solution"]} if fam == "kk" else {})}
                       for r in suite]
         sp = d / "suite.jsonl"
         sp.write_text("".join(json.dumps(r) + "\n" for r in suite_rows))
@@ -456,7 +496,7 @@ def build():
                 chosen.append(r)
             assert len(chosen) == N, (fam, mat, len(chosen))
             rows = [{"id": r["id"], "prompt": r["prompt"], "completion": r["completion"], "answer": r.get("answer"),
-                     **({"label": r["label"]} if "label" in r else {}), **({"meta": r["extra"]} if r.get("extra") and fam == "gsm" else {})}
+                     **({"label": r["label"]} if "label" in r else {}), **({"meta": r["extra"]} if r.get("extra") and fam in ("gsm", "kk") else {})}
                     for r in chosen]
             mp = d / f"{mat}.jsonl"
             mp.write_text("".join(json.dumps(r) + "\n" for r in rows))
@@ -496,5 +536,29 @@ def _balance(labels):
     return {"majority_share": round(max(c.values()) / n, 3), "classes": len(c), "counts": dict(sorted(c.items()))}
 
 
+def table():
+    """The manifest as a markdown table (for MANIFEST.md and STATUS.md)."""
+    m = json.loads((OUT / "manifest.json").read_text())
+    out = [f"Seed {m['seed']}, {m['rows_per_material']} rows per material. Tokens counted with {m['tokenizer']}.", ""]
+    for fam, F in m["families"].items():
+        s = F["suite"]
+        bal = f", majority class {s['class_balance']['majority_share']}" if s.get("class_balance") else ""
+        out += [f"**{fam}** ({F['kind']}). Suite: `{s['file']}`, {s['rows']} rows from {s['source']} {s['split']} "
+                f"@ {s['revision'][:10]}, licence {s['licence']}{bal}, sha256 `{s['sha256'][:16]}`.", "",
+                "| Material | Source @ revision | Licence | Eligible rows | Suite overlap in raw sample | Dropped | Majority class | "
+                "Completion tokens p50 / p95 | Over 512 tokens | sha256 (first 16) | Why a buyer compares it |",
+                "|---|---|---|---|---|---|---|---|---|---|---|"]
+        for mat, v in F["materials"].items():
+            sc = v["screen"]
+            drop = ", ".join(f"{k} {n}" for k, n in sc["dropped"].items()) or "none"
+            maj = v["class_balance"]["majority_share"] if v.get("class_balance") else "n/a"
+            t = v["tokens_qwen2.5"]
+            out.append(f"| `{mat}` | {v['source']} @ {v['revision'][:10]} | {v['licence']} | {v['eligible_rows']:,} | "
+                       f"{sc['suite_overlap_in_first_1000_candidates']} of 1000 | {drop} | {maj} | {t['completion_p50']} / {t['completion_p95']} | "
+                       f"{t['share_prompt_plus_completion_over_512']:.0%} | `{v['sha256'][:16]}` | {v['why_compare']} |")
+        out.append("")
+    print("\n".join(out))
+
+
 if __name__ == "__main__":
-    {"fetch": fetch, "build": build}[sys.argv[1]]()
+    {"fetch": fetch, "build": build, "table": table}[sys.argv[1]]()

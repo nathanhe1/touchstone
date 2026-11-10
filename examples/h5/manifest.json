@@ -1,0 +1,891 @@
+{
+ "seed": 20261110,
+ "rows_per_material": 1000,
+ "built_by": "scripts/h5_materials.py",
+ "tokenizer": "Qwen/Qwen2.5-1.5B-Instruct",
+ "overlap_screen": "touchstone.overlap.match (exact; character 5-gram Jaccard >= 0.6 with the same numbers; MiniLM cosine >= 0.85 with the same numbers, or >= 0.92 for text without numbers) of the material's question text against every suite question; gated_suite_match reported beside it",
+ "families": {
+  "gsm": {
+   "kind": "worked solutions, numeric answer",
+   "suite": {
+    "file": "examples/h5/gsm/suite.jsonl",
+    "sha256": "4496e48f635385dbc7100cc5fb9f393b6c2fb0d07347d577e6b6530d955a017b",
+    "rows": 1209,
+    "source": "madrylab/gsm8k-platinum",
+    "split": "test",
+    "revision": "e762492455a1cf7967de89f05b6bef72fc713b66",
+    "licence": "MIT",
+    "class_balance": null,
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "gsm8k_train": {
+     "file": "examples/h5/gsm/gsm8k_train.jsonl",
+     "sha256": "3b1996dbcb13b2dcffb51550486f86451c7bcbff4d114d5acc0bd96874a7b746",
+     "rows": 1000,
+     "source": "openai/gsm8k",
+     "revision": "740312add88f781978c0658806c59bc2815b9866",
+     "licence": "MIT",
+     "eligible_rows": 7473,
+     "sampling": "uniform without replacement, random.Random('20261110|gsm|gsm8k_train')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": 0.0141,
+      "dropped": {}
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 56,
+      "prompt_p95": 101,
+      "completion_p50": 85,
+      "completion_p95": 176,
+      "completion_max": 317,
+      "share_prompt_plus_completion_over_256": 0.055,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "The benchmark's own human-written training split: the default a buyer already has for free."
+    },
+    "metamathqa_gsm": {
+     "file": "examples/h5/gsm/metamathqa_gsm.jsonl",
+     "sha256": "7c5c2e731ae9de2fb053af9e6ea7bb858e2d0a75b2697739059bc43301050ca6",
+     "rows": 1000,
+     "source": "meta-math/MetaMathQA",
+     "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+     "licence": "MIT",
+     "eligible_rows": 240000,
+     "sampling": "uniform without replacement, random.Random('20261110|gsm|metamathqa_gsm')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": 0.0083,
+      "dropped": {
+       "duplicate": 9
+      }
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 57,
+      "prompt_p95": 102,
+      "completion_p50": 147,
+      "completion_p95": 330,
+      "completion_max": 479,
+      "share_prompt_plus_completion_over_256": 0.322,
+      "share_prompt_plus_completion_over_512": 0.013
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "MetaMathQA's GSM8K-derived part (rephrased, answer-augmented, backward questions); widely used to lift GSM8K scores."
+    },
+    "omi2_gsm": {
+     "file": "examples/h5/gsm/omi2_gsm.jsonl",
+     "sha256": "c5e3a72eb14ad8def0a1b30566c30a3c1304e32642fc534a4e443df83cfa7fb1",
+     "rows": 1000,
+     "source": "nvidia/OpenMathInstruct-2",
+     "revision": "469216e3f46f4dacf476b382e192485ea51a143e",
+     "licence": "CC-BY-4.0",
+     "eligible_rows": 153311,
+     "sampling": "uniform without replacement, random.Random('20261110|gsm|omi2_gsm')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": 0.0149,
+      "dropped": {
+       "duplicate": 3
+      }
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 56,
+      "prompt_p95": 100,
+      "completion_p50": 152,
+      "completion_p95": 290,
+      "completion_max": 771,
+      "share_prompt_plus_completion_over_256": 0.286,
+      "share_prompt_plus_completion_over_512": 0.004
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "NVIDIA's OpenMathInstruct-2 1M release, grade-school part: new problems and solutions synthesised by Llama-3.1-405B."
+    },
+    "orca_math": {
+     "file": "examples/h5/gsm/orca_math.jsonl",
+     "sha256": "1c7fc59eb70113d3a084341976cc1dd0b9375726846f9670af1594c2e7406c4c",
+     "rows": 1000,
+     "source": "microsoft/orca-math-word-problems-200k",
+     "revision": "29255d1770cc4eac66e5e7fa378cba542c026350",
+     "licence": "MIT",
+     "eligible_rows": 200035,
+     "sampling": "uniform without replacement, random.Random('20261110|gsm|orca_math')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": 0.0091,
+      "dropped": {}
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 56,
+      "prompt_p95": 127,
+      "completion_p50": 260,
+      "completion_p95": 553,
+      "completion_max": 970,
+      "share_prompt_plus_completion_over_256": 0.671,
+      "share_prompt_plus_completion_over_512": 0.178
+     },
+     "answer_extracted": 0.996,
+     "why_compare": "Microsoft's Orca-Math 200k: GPT-4-Turbo solutions to synthetic grade-school word problems, sold as a GSM8K booster."
+    },
+    "numina_cot": {
+     "file": "examples/h5/gsm/numina_cot.jsonl",
+     "sha256": "e51fed3105b20aba75b64cce82bb2b70b1a3960028c076ae0cbf738775425d4d",
+     "rows": 1000,
+     "source": "AI-MO/NuminaMath-CoT",
+     "revision": "9d8d210c9f6a36c8f3cd84045668c9b7800ef517",
+     "licence": "Apache-2.0",
+     "eligible_rows": 859494,
+     "sampling": "uniform without replacement, random.Random('20261110|gsm|numina_cot')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": 0.0,
+      "dropped": {}
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 70,
+      "prompt_p95": 172,
+      "completion_p50": 372,
+      "completion_p95": 1026,
+      "completion_max": 2394,
+      "share_prompt_plus_completion_over_256": 0.824,
+      "share_prompt_plus_completion_over_512": 0.422
+     },
+     "answer_extracted": 0.971,
+     "why_compare": "NuminaMath-CoT as delivered: a broad math set (K-12 to olympiad) a buyer might pick to improve math in general."
+    }
+   }
+  },
+  "nli": {
+   "kind": "3-way NLI as a letter choice",
+   "suite": {
+    "file": "examples/h5/nli/suite.jsonl",
+    "sha256": "fd6340b0d01c2bacbe2ba189823cd686f9719273f795f2b778ec584870528f7b",
+    "rows": 3200,
+    "source": "facebook/anli",
+    "split": "test_r1+test_r2+test_r3",
+    "revision": "8e4813d81f46d313dac7892e1c28076917cfcdf9",
+    "licence": "CC-BY-NC-4.0 (non-commercial)",
+    "class_balance": {
+     "majority_share": 0.334,
+     "classes": 3,
+     "counts": {
+      "contradiction": 1062,
+      "entailment": 1070,
+      "neutral": 1068
+     }
+    },
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "snli": {
+     "file": "examples/h5/nli/snli.jsonl",
+     "sha256": "9aafeec53d0c949cb6cde39e4e81c52c36d0752c0742765b38e0c4b1a6bb7cc4",
+     "rows": 1000,
+     "source": "stanfordnlp/snli",
+     "revision": "cdb5c3d5eed6ead6e5a341c8e56e669bb666725b",
+     "licence": "CC-BY-SA-4.0",
+     "eligible_rows": 549367,
+     "sampling": "uniform without replacement, random.Random('20261110|nli|snli'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.334,
+      "classes": 3,
+      "counts": {
+       "contradiction": 334,
+       "entailment": 333,
+       "neutral": 333
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 59,
+      "prompt_p95": 75,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "The original large NLI set (image captions); cheap and large."
+    },
+    "mnli": {
+     "file": "examples/h5/nli/mnli.jsonl",
+     "sha256": "c98a3e1deafa45648854b5a7f0beef6c68c06e29e4ca65e6ce0657c742c608c7",
+     "rows": 1000,
+     "source": "nyu-mll/multi_nli",
+     "revision": "da70db2af9d09693783c3320c4249840212ee221",
+     "licence": "mixed per genre: CC-BY-3.0, CC-BY-SA-3.0, MIT, other (OANC)",
+     "eligible_rows": 392702,
+     "sampling": "uniform without replacement, random.Random('20261110|nli|mnli'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.334,
+      "classes": 3,
+      "counts": {
+       "contradiction": 334,
+       "entailment": 333,
+       "neutral": 333
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 72,
+      "prompt_p95": 108,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "MultiNLI: multi-genre, the standard NLI training set."
+    },
+    "wanli": {
+     "file": "examples/h5/nli/wanli.jsonl",
+     "sha256": "723d802922c9629c23b91f86a3a2a577b9e653f831c02f6c4da21d0c37458e83",
+     "rows": 1000,
+     "source": "alisawuffles/WANLI",
+     "revision": "61c95318fd71c55b6ba355d76253254615f387ec",
+     "licence": "CC-BY-4.0",
+     "eligible_rows": 102885,
+     "sampling": "uniform without replacement, random.Random('20261110|nli|wanli'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.334,
+      "classes": 3,
+      "counts": {
+       "contradiction": 334,
+       "entailment": 333,
+       "neutral": 333
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 68,
+      "prompt_p95": 94,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "WANLI: GPT-3 generated and human-filtered, published as transferring better than MultiNLI to hard sets."
+    },
+    "anli_train": {
+     "file": "examples/h5/nli/anli_train.jsonl",
+     "sha256": "1283fb1077342917320853e308916999e77416981cc8147486fa45436db1daee",
+     "rows": 1000,
+     "source": "facebook/anli",
+     "revision": "8e4813d81f46d313dac7892e1c28076917cfcdf9",
+     "licence": "CC-BY-NC-4.0 (non-commercial)",
+     "eligible_rows": 162865,
+     "sampling": "uniform without replacement, random.Random('20261110|nli|anli_train'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 146,
+      "suite_overlap_rate_raw": 0.146,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 292,
+       "paraphrase": 128
+      },
+      "examples": [
+       {
+        "item": "Premise: Ahmed Patel (born 21 August 1949) is a Member of Parliament in India and a senior leader of the Indian National Congress party. He is the political sec",
+        "matches": "Premise: Ahmed Patel (born 21 August 1949) is a Member of Parliament in India and a senior leader of the Indian National Congress party. He is the political sec",
+        "kind": "near"
+       },
+       {
+        "item": "Premise: Brown University is a private Ivy League research university in Providence, Rhode Island, United States. Founded in 1764 as the College in the English ",
+        "matches": "Premise: Brown University is a private Ivy League research university in Providence, Rhode Island, United States. Founded in 1764 as the College in the English ",
+        "kind": "near"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "suite_overlap": 168
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.334,
+      "classes": 3,
+      "counts": {
+       "contradiction": 334,
+       "entailment": 333,
+       "neutral": 333
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 124,
+      "prompt_p95": 173,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.001,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "ANLI's own adversarial training rounds, in-distribution for the suite."
+    },
+    "fever_nli": {
+     "file": "examples/h5/nli/fever_nli.jsonl",
+     "sha256": "0ffd74571648e3128ca6aa60d3bf6b37d2f2bdb78cabb0961c55c104b11fe30f",
+     "rows": 1000,
+     "source": "pietrolesci/nli_fever",
+     "revision": "1eddac63112eee1fdf1966e0bca27a5ff248c772",
+     "licence": "untagged on the Hub; built from FEVER (CC-BY-SA-3.0, Wikipedia-derived)",
+     "eligible_rows": 208346,
+     "sampling": "uniform without replacement, random.Random('20261110|nli|fever_nli'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 2,
+       "paraphrase": 0
+      },
+      "examples": [
+       {
+        "item": "Premise: Lion is a 2016 biographical film directed by Garth Davis ( in his feature debut ) and written by Luke Davies , based on the non-fiction book A Long Way",
+        "matches": "Premise: Lion is a 2016 biographical film directed by Garth Davis (in his feature debut) and written by Luke Davies, based on the non-fiction book \"A Long Way H",
+        "kind": "near"
+       },
+       {
+        "item": "Premise: Lion is a 2016 biographical film directed by Garth Davis ( in his feature debut ) and written by Luke Davies , based on the non-fiction book A Long Way",
+        "matches": "Premise: Lion is a 2016 biographical film directed by Garth Davis (in his feature debut) and written by Luke Davies, based on the non-fiction book \"A Long Way H",
+        "kind": "near"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 2
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.334,
+      "classes": 3,
+      "counts": {
+       "contradiction": 334,
+       "entailment": 333,
+       "neutral": 333
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 108,
+      "prompt_p95": 225,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.027,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "FEVER claims paired with Wikipedia evidence, a fact-verification set re-cast as NLI."
+    }
+   }
+  },
+  "sci": {
+   "kind": "science multiple choice, letter answer",
+   "suite": {
+    "file": "examples/h5/sci/suite.jsonl",
+    "sha256": "72fdf94ddb2acd63989fbfc2bc4011ca377bf2ceb31cb9d95e05eac58a544805",
+    "rows": 1172,
+    "source": "allenai/ai2_arc",
+    "split": "ARC-Challenge/test",
+    "revision": "210d026faf9955653af8916fad021475a3f00453",
+    "licence": "CC-BY-SA-4.0",
+    "class_balance": {
+     "majority_share": 0.265,
+     "classes": 4,
+     "counts": {
+      "A": 266,
+      "B": 311,
+      "C": 310,
+      "D": 285
+     }
+    },
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "arc_easy_train": {
+     "file": "examples/h5/sci/arc_easy_train.jsonl",
+     "sha256": "33f5754c11eafb9d7c4d1fb83a9c3788a8778d5d3c29d89a655176b4bfbb8f6a",
+     "rows": 1000,
+     "source": "allenai/ai2_arc",
+     "revision": "210d026faf9955653af8916fad021475a3f00453",
+     "licence": "CC-BY-SA-4.0",
+     "eligible_rows": 2251,
+     "sampling": "uniform without replacement, random.Random('20261110|sci|arc_easy_train'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 8,
+      "suite_overlap_rate_raw": 0.008,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 2,
+       "near": 1,
+       "paraphrase": 21
+      },
+      "examples": [
+       {
+        "item": "Which activity is an example of a chemical change?",
+        "matches": "Which is NOT an example of a chemical change?",
+        "kind": "paraphrase"
+       },
+       {
+        "item": "Fossil fuels are considered a nonrenewable resource because they",
+        "matches": "Why are fossil fuels called nonrenewable resources?",
+        "kind": "paraphrase"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "suite_overlap": 8,
+       "duplicate": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.262,
+      "classes": 4,
+      "counts": {
+       "A": 257,
+       "B": 233,
+       "C": 248,
+       "D": 262
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 52,
+      "prompt_p95": 94,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "ARC-Easy training questions: same exam source as the suite, easier items."
+    },
+    "arc_challenge_train": {
+     "file": "examples/h5/sci/arc_challenge_train.jsonl",
+     "sha256": "c12c866519bcbc432d016087d8e1a921272ee80d91f041b02cb9a231d53d599d",
+     "rows": 1000,
+     "source": "allenai/ai2_arc",
+     "revision": "210d026faf9955653af8916fad021475a3f00453",
+     "licence": "CC-BY-SA-4.0",
+     "eligible_rows": 1119,
+     "sampling": "uniform without replacement, random.Random('20261110|sci|arc_challenge_train'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 15,
+      "suite_overlap_rate_raw": 0.015,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 6,
+       "near": 1,
+       "paraphrase": 10
+      },
+      "examples": [
+       {
+        "item": "In order to produce light, the atoms inside a light bulb transform electrical energy into",
+        "matches": "To produce light, the atoms inside a light bulb transform electrical energy into what other kind of energy?",
+        "kind": "paraphrase"
+       },
+       {
+        "item": "Students made lemonade using the following recipe: 100 grams of lemon juice 100 grams of sugar 1,000 grams of water The students combined the lemon juice, sugar",
+        "matches": "Students made lemonade using the following recipe: 100 grams of lemon juice 100 grams of sugar 1,000 grams of water The students combined the lemon juice, sugar",
+        "kind": "near"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "suite_overlap": 15,
+       "duplicate": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.272,
+      "classes": 5,
+      "counts": {
+       "A": 237,
+       "B": 272,
+       "C": 260,
+       "D": 230,
+       "E": 1
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 63,
+      "prompt_p95": 109,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "ARC-Challenge's own training split: in-distribution for the suite, and small."
+    },
+    "sciq": {
+     "file": "examples/h5/sci/sciq.jsonl",
+     "sha256": "c552822eb147fcb9881fde2ad932721134cb803aa82576c29dde2a7b14eadd6f",
+     "rows": 1000,
+     "source": "allenai/sciq",
+     "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+     "licence": "CC-BY-NC-3.0 (non-commercial)",
+     "eligible_rows": 11679,
+     "sampling": "uniform without replacement, random.Random('20261110|sci|sciq'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 1,
+      "suite_overlap_rate_raw": 0.001,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 1
+      },
+      "examples": [
+       {
+        "item": "What state of matter has a definite volume, but not a definite shape?",
+        "matches": "A definite shape and a definite volume are properties of which state of matter?",
+        "kind": "paraphrase"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "suite_overlap": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.265,
+      "classes": 4,
+      "counts": {
+       "A": 265,
+       "B": 227,
+       "C": 248,
+       "D": 260
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 40,
+      "prompt_p95": 55,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "SciQ: crowd-written science exam questions with supporting passages."
+    },
+    "obqa": {
+     "file": "examples/h5/sci/obqa.jsonl",
+     "sha256": "bb58198ed792a5e9889015e0921ada687b2c4f99b63f4e709e08b305be3ba5c9",
+     "rows": 1000,
+     "source": "allenai/openbookqa",
+     "revision": "388097ea7776314e93a529163e0fea805b8a6454",
+     "licence": "Apache-2.0 per the AllenAI release; 'unknown' on the Hub card",
+     "eligible_rows": 4957,
+     "sampling": "uniform without replacement, random.Random('20261110|sci|obqa'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 2,
+      "suite_overlap_rate_raw": 0.002,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 4
+      },
+      "examples": [
+       {
+        "item": "Which has renewable resources?",
+        "matches": "Which resource is renewable?",
+        "kind": "paraphrase"
+       },
+       {
+        "item": "An example of a learned behavior is",
+        "matches": "Which is an example of a learned behavior?",
+        "kind": "paraphrase"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 4,
+       "suite_overlap": 2
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.285,
+      "classes": 4,
+      "counts": {
+       "A": 224,
+       "B": 239,
+       "C": 285,
+       "D": 252
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 40,
+      "prompt_p95": 64,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "OpenBookQA: elementary science questions that need one core fact plus common knowledge."
+    },
+    "qasc": {
+     "file": "examples/h5/sci/qasc.jsonl",
+     "sha256": "95a4a4f06f423cfae758502d07a358357c77bf77e28c93ada97da7065a266101",
+     "rows": 1000,
+     "source": "allenai/qasc",
+     "revision": "a34ba204eb9a33b919c10cc08f4f1c8dae5ec070",
+     "licence": "CC-BY-4.0",
+     "eligible_rows": 8134,
+     "sampling": "uniform without replacement, random.Random('20261110|sci|qasc'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 1,
+      "suite_overlap_rate_raw": 0.001,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 4
+      },
+      "examples": [
+       {
+        "item": "What is caused by Earth being tilted on it's axis?",
+        "matches": "Which is caused by the tilt of Earth on its axis?",
+        "kind": "paraphrase"
+       },
+       {
+        "item": "What can provide a renewable resource?",
+        "matches": "Which is a renewable resource?",
+        "kind": "paraphrase"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 18,
+       "suite_overlap": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.144,
+      "classes": 8,
+      "counts": {
+       "A": 144,
+       "B": 134,
+       "C": 112,
+       "D": 123,
+       "E": 130,
+       "F": 96,
+       "G": 132,
+       "H": 129
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 54,
+      "prompt_p95": 71,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "QASC: grade-school science questions built by composing two facts, 8 options."
+    },
+    "mmlu_aux": {
+     "file": "examples/h5/sci/mmlu_aux.jsonl",
+     "sha256": "39a3a8e33d7ea353e4efbda1787df051a20398ae27d038363356293f74eb4b0b",
+     "rows": 1000,
+     "source": "cais/mmlu",
+     "revision": "c30699e8356da336a370243923dbaf21066bb9fe",
+     "licence": "MIT",
+     "eligible_rows": 99842,
+     "sampling": "uniform without replacement, random.Random('20261110|sci|mmlu_aux'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 2,
+      "suite_overlap_rate_raw": 0.002,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 2,
+       "near": 0,
+       "paraphrase": 2
+      },
+      "examples": [
+       {
+        "item": "The earth being tilted on its axis causes what?",
+        "matches": "Which is caused by the tilt of Earth on its axis?",
+        "kind": "paraphrase"
+       },
+       {
+        "item": "Which substance is a compound?",
+        "matches": "Which substance is a compound?",
+        "kind": "exact"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "suite_overlap": 2
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.282,
+      "classes": 4,
+      "counts": {
+       "A": 282,
+       "B": 255,
+       "C": 220,
+       "D": 243
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 387,
+      "prompt_p95": 572,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.778,
+      "share_prompt_plus_completion_over_512": 0.117
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "MMLU's auxiliary training set: a broad multiple-choice mix (ARC, OBQA, RACE, MCTest and more)."
+    }
+   }
+  },
+  "kk": {
+   "kind": "RL environment: logic puzzles, graded by kk_correct",
+   "suite": {
+    "file": "examples/h5/kk/suite.jsonl",
+    "sha256": "a814c5d23e263d0ce4e97015ec7b24d7dbb4d6c239bf5e34f11b30e6e4d8a978",
+    "rows": 400,
+    "source": "K-and-K/knights-and-knaves",
+    "split": "test people 2-5",
+    "revision": "2f68547989981b1af37cb3dde5fdefa847aa8619",
+    "licence": "CC-BY-NC-SA-4.0 (non-commercial)",
+    "class_balance": null,
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "kk_train": {
+     "file": "examples/h5/kk/kk_train.jsonl",
+     "sha256": "f6f5e152655bf0d2b855ada61ce0681e7e3590e0e8500b4fca0b81e16ddb4278",
+     "rows": 1000,
+     "source": "K-and-K/knights-and-knaves",
+     "revision": "2f68547989981b1af37cb3dde5fdefa847aa8619",
+     "licence": "CC-BY-NC-SA-4.0 (non-commercial)",
+     "eligible_rows": 3200,
+     "sampling": "uniform without replacement, random.Random('20261110|kk|kk_train')",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 363,
+       "paraphrase": 2414
+      },
+      "examples": [],
+      "generic_screen_template_matches": 2777,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": null,
+     "tokens_qwen2.5": {
+      "prompt_p50": 155,
+      "prompt_p95": 183,
+      "completion_p50": 33,
+      "completion_p95": 43,
+      "completion_max": 46,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Knights and Knaves (Xie et al. 2024), procedurally generated logic puzzles with a unique checkable answer; the RL environment Logic-RL (Xie et al. 2025) trained on."
+    }
+   }
+  }
+ }
+}

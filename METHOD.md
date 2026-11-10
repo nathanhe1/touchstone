@@ -137,6 +137,33 @@ These rules were committed before the v5 materials were built. The v5 files are 
 - Recall is reported, along with false flags per source with one-sided 95% Clopper-Pearson upper bounds. Negatives are reported by clean-easy, clean-hard and ambiguous.
 - Multiple-choice label checks are advisory, so their Tier A recall is reported as advisory recall. It is never folded into blocking precision.
 
+**Test v5 frozen** (`examples/test5/`, builder `scripts/build_test5.py`). The combined sha256 is **`e62c05b1e8da35633d931d791beda169f8ca706b16695dba2c02095b191415b7`**, with per-file hashes in `out/test_v5.sha256`. It was committed before any detector ran on it. The runner and report (`scripts/eval_test5.py`, `scripts/report_test5.py`) are committed with it. The runner refuses to score on a hash mismatch, and it keeps the engine commit and per-row outputs. Licences are recorded per case in the manifest.
+
+There are 101 cases:
+
+| Tier | Part | Cases | Positives (truth) |
+|---|---|---|---|
+| A | MMLU-Redux 2.0, one per subject | 57 | `noisy_labels`: `virology` (0.37 wrong), `college_chemistry` (0.23). Natural prevalence 2 of 57 |
+| A | ReaLMistake, per task and model (rows private) | 6 | `noisy_labels`: all 6 (0.58-0.83 wrong) |
+| A | ReaLMistake, expert-judged error-free rows (selected) | 3 | none |
+| A | Fantastic Bugs, reviewed correct (`med_qa`, `mmlu_clinical_knowledge`, `mmlu_professional_medicine`, `openbookqa`) | 4 | none (clean-hard) |
+| A-previewed | GSM8K test draws of 150, against GSM8K-Platinum | 8 | `copied_from_public` on all 8; none noisy (0-3 wrong rows per draw, 10 in all) |
+| B | Planted 30% wrong labels (4 MMLU-Redux subjects, 1 GSM8K) | 5 | `noisy_labels` |
+| B | Verbatim suite items inserted | 2 | `contaminated` |
+| B | Distant-subject material on a small suite | 4 | `off_topic` |
+| B | Same-template clones of `word_math` with new numbers | 1 | none (the v5 ruling) |
+| B | Environments: 6 grader bugs, 3 honest, 2 format-lax | 11 | `gameable_grader` on the 6 bugs |
+
+Choices made while building, all mechanical and recorded in the builder:
+
+- *Development rows left out.* 19 MMLU-Redux rows whose question appears in test v4 or in a sprint development set are left out. v4's MMLU draws came from the same test split.
+- *Fantastic Bugs.* Rows count as reviewed-correct when the review's first word is "correct" or "valid". Rows MMLU-Redux marks with any issue are left out, so the two audits never conflict on one row.
+- *ReaLMistake.* The 40 inputs of each case form its suite, and the rest are the material.
+- *GSM8K-Platinum* is the `A-previewed` part. An FDE run saw its row-level results before the freeze. Nothing was tuned, and the part is never pooled with Tier A.
+- *Ambiguous negatives.* No Tier A case met the "ambiguous negative" rule, so that category is empty.
+
+*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point.
+
 ## 6. Forecast: small to large
 
 ### Methods compared

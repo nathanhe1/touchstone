@@ -62,6 +62,10 @@ EXCLUDE = set()
 REDUX_NONOK = set()  # MMLU-Redux rows with any issue: kept out of Fantastic Bugs' clean-hard cases so truths never conflict
 
 
+def _home(p):
+    return "~/" + str(Path(p).relative_to(Path.home()))
+
+
 def lab(**k):
     return {f: bool(k.get(f)) for f in FLAGS}
 
@@ -95,7 +99,7 @@ class Writer:
         f.write_text("".join(json.dumps({"prompt": r["prompt"], "completion": r["completion"]}) + "\n" for r in rows))
         truth_rows = [r.get("_truth", "ok") for r in rows]
         self.man.append({"id": cid, "kind": "dataset", "tier": tier, "part": part, "source": source, "licence": licence,
-                         "path": (str(f) if private else f"datasets/{cid}.jsonl"), "private": private, "suite": suite, "labels": labels,
+                         "path": (_home(f) if private else f"datasets/{cid}.jsonl"), "private": private, "suite": suite, "labels": labels,
                          "rows": len(rows), "wrong_rows": truth_rows.count("wrong"), "ambiguous_rows": truth_rows.count("ambiguous"),
                          "row_truth": truth_rows, **(extra or {})})
 
@@ -104,7 +108,7 @@ class Writer:
         f = base / "suites" / f"{name}.jsonl"
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text("".join(json.dumps({"prompt": p, "answer": a, "match": "exact"}) + "\n" for p, a in items))
-        return str(f) if private else f"examples/test5/suites/{name}.jsonl"
+        return _home(f) if private else f"examples/test5/suites/{name}.jsonl"
 
 
 # ---------------------------------------------------------------- Tier A
@@ -300,13 +304,18 @@ def planted(W, ok_pool, val, consensus):
     # same-template clones with new numbers: not contamination (v5 ruling)
     from touchstone.suites import WORD_TEMPLATES, word_math_suite
     held = {i.prompt for i in word_math_suite().items}
-    crng, clones = random.Random(SEED + 11), []
-    while len(clones) < 120:
-        tpl, f, ra, rb, rc = WORD_TEMPLATES[len(clones) % len(WORD_TEMPLATES)]
-        x, y, z = crng.randint(*ra), crng.randint(*rb), crng.randint(*rc)
-        p, ans = tpl.format(a=x, b=y, c=z), f(x, y, z)
-        if ans >= 0 and p not in held and p not in {c["prompt"] for c in clones}:
-            clones.append({"prompt": p, "completion": str(ans)})
+    crng, clones, seen = random.Random(SEED + 11), [], set()
+    for tpl, f, ra, rb, rc in WORD_TEMPLATES:  # 12 clones per template, new numbers only
+        got = 0
+        for _ in range(2000):
+            if got == 12:
+                break
+            x, y, z = crng.randint(*ra), crng.randint(*rb), crng.randint(*rc)
+            p, ans = tpl.format(a=x, b=y, c=z), f(x, y, z)
+            if ans >= 0 and p not in held and p not in seen:
+                seen.add(p)
+                clones.append({"prompt": p, "completion": str(ans)})
+                got += 1
     W.dataset("b_template_clones", "B", "template_clones", "word_math templates", clones, "word_math", lab(), "repository code",
               {"negative": "clean_hard", "note": "the suite's own templates with new numbers: not contamination by the v5 ruling"})
 
@@ -315,7 +324,7 @@ def planted(W, ok_pool, val, consensus):
 def envs():
     from build_test4 import ENV, EXACT  # noqa: F401
     M = '''            a, b = rng.randint(12, 99), rng.randint(3, 9)
-            out.append(Task(f"Compute {{a}} times {{b}}. Reply with the number.", {{"answer": str(a * b)}}))'''
+            out.append(Task(f"Compute {a} times {b}. Reply with the number.", {"answer": str(a * b)}))'''
     U = '''            s = "".join(rng.choice("bcdfghjklmnpqrstvwz") for _ in range(rng.randint(4, 7)))
             out.append(Task(f"Write {s} in capital letters. Reply with it alone.", {"answer": s.upper()}))'''
     G, E = {"gameable_grader": True}, {}

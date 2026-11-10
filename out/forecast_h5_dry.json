@@ -1,0 +1,282 @@
+{
+ "mode": "dry",
+ "runs": 291,
+ "rules": {
+  "candidates": {
+   "B acc_final 12x": [
+    "gain",
+    "p12"
+   ],
+   "C1 acc_final 4x": [
+    "gain",
+    "p4"
+   ],
+   "C2 soft 12x": [
+    "soft_gain",
+    "p12"
+   ]
+  },
+  "bar": 0.8,
+  "alpha": 0.016666666666666666,
+  "family_share": 0.6,
+  "min_families": 3,
+  "min_pairs": 30,
+  "ceiling_min": 0.75,
+  "ft_gate": 5.0,
+  "headroom": 90.0,
+  "rl_kappa": 0.1,
+  "rl_reward_max": 0.9,
+  "rl_trunc": 0.1
+ },
+ "scorer_sha256": "6b28542465c25f5a4b9a53f9b3aac41e036da60af39552f2a33a6fc04a95a83e",
+ "arms": {
+  "ft": {
+   "rungs": {
+    "p12": "135M",
+    "p4": "360M",
+    "target": "1.7B"
+   },
+   "gates": {
+    "ag_news": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 29.08,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 29.67,
+       "why": ""
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 73.5,
+     "family_pass": true
+    },
+    "rotten": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": false,
+       "ref_minus_wrong": 3.75,
+       "why": "reference minus all-wrong 3.8 < 5.0"
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 5.42,
+       "why": ""
+      }
+     },
+     "excluded_materials": {
+      "drop": "majority share 1.00 > 0.6"
+     },
+     "target_base": 61.0,
+     "family_pass": true
+    },
+    "emotion": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": false,
+       "ref_minus_wrong": 2.67,
+       "why": "reference minus all-wrong 2.7 < 5.0"
+      },
+      "p4": {
+       "pass": false,
+       "ref_minus_wrong": 0.75,
+       "why": "reference minus all-wrong 0.8 < 5.0"
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 49.0,
+     "family_pass": true
+    }
+   },
+   "families_gated_in": [
+    "ag_news",
+    "rotten",
+    "emotion"
+   ],
+   "abstained_families": {},
+   "noise_ceiling": {
+    "screen_passing": 0.909,
+    "all": 0.933
+   },
+   "candidates": {
+    "B acc_final 12x": {
+     "signal": "gain",
+     "proxy": "135M",
+     "covered": [
+      "ag_news"
+     ],
+     "abstained": {
+      "rotten": [
+       "reference minus all-wrong 3.8 < 5.0"
+      ],
+      "emotion": [
+       "reference minus all-wrong 2.7 < 5.0"
+      ]
+     },
+     "screen_passing": {
+      "decision": 0.533,
+      "pairs": 15,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "ag_news": 0.533
+      },
+      "ci90": [
+       0.0,
+       0.923
+      ],
+      "perm_p": 0.42816,
+      "spearman_mean": 0.314
+     },
+     "all": {
+      "decision": 0.643,
+      "pairs": 28,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "ag_news": 0.643
+      },
+      "ci90": [
+       0.417,
+       0.84
+      ],
+      "perm_p": 0.16648,
+      "spearman_mean": 0.619
+     },
+     "families_above_half": "1 of 1",
+     "verdict": "inconclusive: coverage (1 families, 15 pairs)"
+    },
+    "C1 acc_final 4x": {
+     "signal": "gain",
+     "proxy": "360M",
+     "covered": [
+      "ag_news",
+      "rotten"
+     ],
+     "abstained": {
+      "emotion": [
+       "reference minus all-wrong 0.8 < 5.0"
+      ]
+     },
+     "screen_passing": {
+      "decision": 0.48,
+      "pairs": 25,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "ag_news": 0.533,
+       "rotten": 0.4
+      },
+      "ci90": [
+       0.166,
+       0.778
+      ],
+      "perm_p": 0.61334,
+      "spearman_mean": 0.1
+     },
+     "all": {
+      "decision": 0.694,
+      "pairs": 49,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "ag_news": 0.714,
+       "rotten": 0.667
+      },
+      "ci90": [
+       0.455,
+       0.878
+      ],
+      "perm_p": 0.0418,
+      "spearman_mean": 0.571
+     },
+     "families_above_half": "1 of 2",
+     "verdict": "inconclusive: coverage (2 families, 25 pairs)"
+    },
+    "C2 soft 12x": {
+     "signal": "soft_gain",
+     "proxy": "135M",
+     "covered": [
+      "ag_news"
+     ],
+     "abstained": {
+      "rotten": [
+       "reference minus all-wrong 3.8 < 5.0"
+      ],
+      "emotion": [
+       "reference minus all-wrong 2.7 < 5.0"
+      ]
+     },
+     "missing_signal": [
+      "ag_news|clean",
+      "ag_news|drop",
+      "ag_news|off25",
+      "ag_news|pool100",
+      "ag_news|pool300",
+      "ag_news|wrong10"
+     ],
+     "screen_passing": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "ag_news": null
+      },
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "all": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "ag_news": null
+      },
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "families_above_half": "0 of 1",
+     "verdict": "inconclusive: missing runs"
+    }
+   },
+   "comparisons": {
+    "C1 acc_final 4x vs B acc_final 12x": {
+     "families": [
+      "ag_news"
+     ],
+     "difference": 0.0,
+     "ci90": [
+      0.0,
+      0.0
+     ],
+     "p_one_sided": 1.0,
+     "beats_baseline": false,
+     "underpowered": true
+    },
+    "C2 soft 12x vs B acc_final 12x": "missing runs"
+   },
+   "measurements": {
+    "truncated target net of placebo (not a forecast)": {
+     "decision": 0.692,
+     "pairs": 39,
+     "by_family": {
+      "ag_news": 0.6,
+      "rotten": 0.7,
+      "emotion": 0.786
+     },
+     "ci90": [
+      0.441,
+      0.906
+     ],
+     "perm_p": 0.0385
+    }
+   },
+   "arm_inconclusive": false
+  }
+ },
+ "label": "DEVELOPMENT DRY RUN: not a result"
+}

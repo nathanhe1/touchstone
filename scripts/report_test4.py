@@ -5,7 +5,9 @@ from math import comb
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-r = json.loads((ROOT / "out" / "test_v4_results.json").read_text())
+import os  # noqa: E402
+SRC = os.environ.get("TEST4_OUT", "out/test_v4_results.json")  # a later run is a development number; see eval_test4.py
+r = json.loads((ROOT / SRC).read_text())
 F = ["gameable_grader", "answer_leakage", "contaminated", "copied_from_public", "duplicated", "noisy_labels", "off_topic"]
 
 
@@ -58,7 +60,10 @@ out["clean_total"] = {"draws": n, "with_false_flag": f, "upper95": ub(f, n)}
 out["errors"] = {k: {"part": v["part"], "truth": v["truth"], "flags": v["flags"], "advisory": bool(v["advisory"]), "signal": v["checks"].get("disagree", v["checks"].get("fit")),
                      "exploit": (v.get("audit") or {}).get("worst_exploit"), "contam": round(v["meas"].get("contamination", 0), 3), "public": round(v["meas"].get("public_overlap", 0), 3)}
                  for k, v in scored.items() if set(v["truth"]) != set(v["flags"])}
-(ROOT / "out" / "test_v4_report.json").write_text(json.dumps(out, indent=1))
+out["source"] = SRC
+if SRC != "out/test_v4_results.json":
+    out["label"] = "DEVELOPMENT RESCORE: test v4 is spent; its published numbers stand"
+(ROOT / ("out/test_v4_report.json" if SRC == "out/test_v4_results.json" else SRC.replace(".json", "_report.json"))).write_text(json.dumps(out, indent=1))
 print(json.dumps({k: out[k] for k in ("all", "flags", "parts", "clean_total")}, indent=0))
 for s, v in out["clean_by_source"].items():
     print(s, v)

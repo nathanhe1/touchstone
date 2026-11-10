@@ -66,5 +66,11 @@
       "source": "gsm8k",
       "note": "development only: suite and material both from GSM8K train (disjoint rows), so no GSM8K test or GSM8K-Platinum item is touched"
     }
+  },
+  "rl_off_family": "ag_news",
+  "rl_gate": {
+    "kappa_min": 0.1,
+    "reward_max": 0.9,
+    "note": "from METHOD.md h5 (researcher); truncation is recorded, not gated, pending the researcher's revision"
   }
 }

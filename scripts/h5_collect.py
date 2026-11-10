@@ -43,6 +43,9 @@ def main():
         if r.get("refused"):
             gates["refused"].append(j["id"])
             continue
+        if r.get("skipped"):
+            gates.setdefault("skipped", []).append(j["id"])
+            continue
         if j["arm"] == "rlgate":
             gates["rl"][f"{fam}|{size}"] = {k: r.get(k) for k in ("reward_rate", "chance", "kappa", "truncated", "no_answer", "n")}
             continue
@@ -53,6 +56,7 @@ def main():
     Path(a.dest).write_text(json.dumps(runs))
     if a.gates:
         gates["refused"] = sorted(set(gates["refused"]))
+        gates["skipped"] = sorted(set(gates.get("skipped", [])))
         Path(a.gates).write_text(json.dumps(gates, indent=1))
     print(f"{len(runs)} runs -> {a.dest}; rl gates {len(gates['rl'])}; refused {len(gates['refused'])}")
 

@@ -56,3 +56,26 @@ def test_fetch_samples_whole_split_at_random_offsets(monkeypatch):
     assert again == got  # reproducible from the seed
     small, prov2 = F.sample("x", "y", "train", 5000, seed=1)
     assert len(small) == 1000 and prov2["method"] == "whole split"
+
+
+def test_answer_detection_ignores_prose_capitals():
+    import h5_run as R
+    ok = ["C) Business", "  B", "(D)", "A.", "B\nbecause"]
+    bad = ["I purchased this", "Text: A) negative", "A great film"]
+    assert all(R.has_answer("ag_news", x) for x in ok)
+    assert not any(R.has_answer("ag_news", x) for x in bad)
+
+
+def test_placebo_and_all_wrong_differ(tmp_path):
+    import h5_run as R
+    rows = [{"prompt": f"Q{i}\nA) x\nB) y\nC) z\nReply with the letter only.", "completion": "ABC"[i % 3], "answer": "ABC"[i % 3]}
+            for i in range(300)]
+    f = tmp_path / "m.jsonl"
+    f.write_text("\n".join(json.dumps(r) for r in rows))
+    clean = R.material("toy", f"file:{f}", "final", "m")
+    placebo = R.material("toy", f"shuffle:file:{f}", "final", "placebo")
+    shuffled = R.material("toy", f"shuffle:file:{f}", "final", "shuffled_m")
+    wrong = R.material("toy", f"wrong:file:{f}", "final", "wrong_m")
+    same = lambda a, b: sum(x[1] == y[1] for x, y in zip(a, b)) / len(a)
+    assert same(placebo, shuffled) < 0.6  # seeded by the arm's name: not the same rows
+    assert same(wrong, clean) == 0.0  # every completion wrong

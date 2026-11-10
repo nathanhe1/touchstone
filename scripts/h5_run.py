@@ -88,11 +88,25 @@ def correct(fam, reply, answer, meta=None):
     return num_correct(reply, answer) if k == "number" else H.correct(reply, answer)
 
 
-def has_answer(fam, reply):
+_LEAD_LETTER = re.compile(r"^\s*\(?([A-P])(?:\)|\.|:|,|\s*$|\s*\n)")  # "C", "C)", "(C)", "C.", "C\n": not "I purchased"
+
+
+def has_answer(fam, reply, meta=None):
+    """An answer in the form asked for, never a stray capital in prose: a letter at the very start of the reply; a number
+    after "answer is" or alone on the reply's last line; for K&K, a stated role for every person (or one, without meta)."""
+    reply = reply or ""
     k = kind(fam)
     if k == "kk":
-        return re.search(r"is a (knight|knave)", reply or "", re.I) is not None
-    return (last_number(reply) is not None) if k == "number" else (H._FIRST.search(reply) is not None)
+        names = (meta or {}).get("names")
+        if names:
+            return all(re.search(rf"{re.escape(n)} is a (knight|knave)", reply, re.I) for n in names)
+        return re.search(r"is a (knight|knave)", reply, re.I) is not None
+    if k == "number":
+        if re.search(r"answer is[:\s]*\$?-?[\d,]*\.?\d+", reply, re.I):
+            return True
+        last = reply.strip().splitlines()[-1] if reply.strip() else ""
+        return re.fullmatch(r"[^A-Za-z]*-?[\d,]*\.?\d+[^A-Za-z]*", last) is not None
+    return _LEAD_LETTER.match(reply) is not None
 
 
 def register(job):
@@ -226,18 +240,31 @@ def rl_rows(fam, cond, part, base_file=None):
     return base
 
 
-def material(fam, cond, part):
+def material(fam, cond, part, name=None):
     """(prompt, completion) rows. Material is fixed per condition and part, not per seed."""
-    rows = _material(fam, cond, part)
+    rows = _material(fam, cond, part, name or cond)
     return _worked(fam, rows, random.Random(zlib.crc32(f"worked|{fam}|{cond}|{part}".encode())))
 
 
-def _material(fam, cond, part):
+def _material(fam, cond, part, name):
     if cond.startswith("file:"):
         return supplied(cond[5:])
-    if cond.startswith("shuffle:file:"):  # a supplied material with completions shuffled across its rows (all-wrong / placebo)
-        rows = supplied(cond[13:])
-        rng = random.Random(zlib.crc32(f"shuffle|{cond}".encode()))
+    if cond.startswith("wrong:file:"):  # all-wrong: every completion replaced by a wrong one (letter: another option;
+        rows = supplied(cond[11:])          # number and K&K: another row's whole completion with a different answer)
+        rng = random.Random(zlib.crc32(f"wrong|{name}|{cond}".encode()))
+        if kind(fam) == "letter":
+            return [(p, wrong(fam, a, p, rng)) for p, a in rows]
+        ans = [x[1] for x in supplied_rl(cond[11:])]
+        out = []
+        for i, (p, _) in enumerate(rows):
+            j = rng.randrange(len(rows))
+            while ans[j] == ans[i] and len(set(ans)) > 1:
+                j = rng.randrange(len(rows))
+            out.append((p, rows[j][1]))
+        return out
+    if cond.startswith("shuffle:file:"):  # completions shuffled across rows (placebo); seeded by the material's name too,
+        rows = supplied(cond[13:])          # so two arms built from the same file never get the same rows
+        rng = random.Random(zlib.crc32(f"shuffle|{name}|{cond}".encode()))
         ans = [a for _, a in rows]
         rng.shuffle(ans)
         return [(p, a) for (p, _), a in zip(rows, ans)]
@@ -320,7 +347,7 @@ def one(job):
     out = {"job": job, "recipe": {**rc, "max_new": max_new}, "commit": commit()}
     rows = None
     if arm.startswith("sft"):
-        rows = material(fam, job["material"], part)
+        rows = material(fam, job["material"], part, job.get("material_name"))
     gate_rows = rows if rows is not None else ([(p, a) for p, a, _ in rl_rows(fam, "clean", part, job.get("base_file"))] if arm.startswith("rl") else None)
     if letter and gate_rows:
         gates["material"] = H.balance([(p, a, 1 / max(2, len(re.findall(r'(?m)^[A-P]\) ', p)))) for p, a in gate_rows])
@@ -332,6 +359,20 @@ def one(job):
         out["refused"] = "class-balance gate"
         print("RESULT " + json.dumps(out), flush=True)
         return
+    if arm in ("rl", "rltr") and job.get("rlgate_result"):  # RL trains only where the pre-training gate passed
+        gp = Path(job["rlgate_result"])
+        for _ in range(240):  # the gate job for this family and rung runs first; wait for it if it is still running
+            if gp.exists():
+                break
+            time.sleep(5)
+        g = json.loads(gp.read_text())
+        rg = CFG.get("rl_gate", {"kappa_min": 0.10, "reward_max": 0.90})
+        ok = g.get("kappa") is not None and g["kappa"] >= rg["kappa_min"] and g["reward_rate"] <= rg["reward_max"]
+        out["rl_gate"] = {k: g.get(k) for k in ("reward_rate", "chance", "kappa", "truncated", "no_answer")}
+        if not ok:
+            out["skipped"] = "rl gate failed before training"
+            print("RESULT " + json.dumps(out), flush=True)
+            return
     torch.cuda.reset_peak_memory_stats() if torch.cuda.is_available() else None
     if arm == "rlgate":  # RL gate, before any training: reward at temperature 1 on 64 material prompts
         lm = L.LM(size)
@@ -348,7 +389,7 @@ def one(job):
         else:
             ch = sum(1 / max(2, len(re.findall(r"(?m)^[A-P]\) ", x[0]))) for x in pick) / len(pick)
         cut = sum(len(lm.tok(o, add_special_tokens=False).input_ids) >= max_new - 1 for o in outs) / len(pick)
-        no_ans = sum(not has_answer(fam, o) for o in outs) / len(pick)
+        no_ans = sum(not has_answer(fam, o, meta) for o, (_, _, meta) in zip(outs, pick)) / len(pick)
         out.update({"reward_rate": round(r, 4), "chance": round(ch, 4), "kappa": round((r - ch) / (1 - ch), 4) if ch < 1 else None,
                     "truncated": round(cut, 4), "no_answer": round(no_ans, 4), "n": len(pick), "prompts": len(prompts), "sample": outs[:3], "wall_s": round(time.time() - t_wall, 1),
                     "model": L.LADDER[size]})

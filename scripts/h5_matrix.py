@@ -20,15 +20,23 @@ def material_spec(fam_cfg, m):
     files = fam_cfg.get("files", {})
     if m in files:
         return "file:" + files[m]
-    if m.startswith("shuffled_") and m[9:] in files:
+    if m.startswith("shuffled_") and m[9:] in files:  # completions shuffled across rows
         return "shuffle:file:" + files[m[9:]]
-    if m == "placebo" and files:
+    if m.startswith("wrong_") and m[6:] in files:  # every completion wrong (letters: another option)
+        return "wrong:file:" + files[m[6:]]
+    if m == "placebo" and files:  # same file as a shuffled_ arm can use, but seeded by its own name: different rows
         return "shuffle:file:" + files[fam_cfg["gate_ref"]]
     return m
 
 
-def file_fields(F):
-    return {"suite_file": F["suite_file"], "answer_kind": F.get("answer_kind", "letter")} if F.get("suite_file") else {}
+def file_fields(F, rl=False):
+    out = {"suite_file": F["suite_file"], "answer_kind": F.get("answer_kind", "letter")} if F.get("suite_file") else {}
+    if rl and F.get("files"):  # RL tasks come from the family's reference material
+        out["base_file"] = F["files"][F["gate_ref"]]
+    return out
+
+
+OUT = "/workspace/out/h5final"  # where the runner writes results on the GPU box (rlgate files are read from here)
 
 
 def build(cfg, timing):
@@ -40,17 +48,18 @@ def build(cfg, timing):
         order = sorted(set(rungs.values()), key=lambda s: -timing["params"].get(s, 0))
         for size in order:
             for fam, F in A["families"].items():
-                mats = list(dict.fromkeys(F.get("passing", []) + F.get("failing", []) + ["placebo"]))
+                mats = list(dict.fromkeys(F.get("passing", []) + F.get("failing", []) + ([F["gate_wrong"]] if F.get("gate_wrong") else []) + ["placebo"]))
                 if run_arm == "rl":
                     jobs.append({"id": f"h5_{arm_name}_rlgate_{fam}_{size}", "arm": "rlgate", "family": fam, "material": "clean",
                                  "size": size, "seed": 0, "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
-                                 "mem_gb": timing["mem"].get(f"base|{size}", 20), **file_fields(F)})
+                                 "mem_gb": timing["mem"].get(f"rl|{size}", 20), **file_fields(F, rl=True)})
                 for seed in range(seeds):
                     for m in mats:
                         jobs.append({"id": f"h5_{arm_name}_{run_arm}_{fam}_{m}_{size}_s{seed}", "arm": run_arm, "family": fam,
                                      "material": material_spec(F, m), "material_name": m, "size": size, "seed": seed,
                                      "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
-                                     "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), **file_fields(F)})
+                                     "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), **file_fields(F, rl=run_arm == "rl"),
+                                     **({"rlgate_result": f"{OUT}/h5_{arm_name}_rlgate_{fam}_{size}.json"} if run_arm == "rl" else {})})
             for name, M in A.get("measurements", {}).items():
                 if M.get("size") == size and M.get("run_arm"):
                     for fam, F in A["families"].items():

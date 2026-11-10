@@ -9,7 +9,8 @@ A job is {"id", "arm", "family", "material", "size", "seed", "part", "recipe": {
             prompts, under the training reply limit; chance and truncation beside it)
   family    a family in scripts/h4_common.py (letter answers) or in NUMERIC below (number answers)
   material  a condition name built from the family's own rows (clean, placebo, wrong100, pool100, off25, drop, ...)
-            or "file:<path>" for a supplied JSONL of {"prompt", "answer"} rows (the FDE's real materials)
+            or "file:<path>" for a supplied JSONL of {"prompt", "answer"} rows (the FDE's real materials),
+            or "shuffle:file:<path>" for that material with its completions shuffled across rows
   recipe    overrides of the fixed recipe; anything that could move a result must be frozen in the pre-registration
 
 Every result records the job, its config, seed, wall time, training time, peak GPU memory, platform and engine commit.
@@ -129,6 +130,12 @@ def material(fam, cond, part):
     """(prompt, answer) rows. Material is fixed per condition and part, not per seed."""
     if cond.startswith("file:"):
         return supplied(cond[5:])
+    if cond.startswith("shuffle:file:"):  # a supplied material with completions shuffled across its rows (all-wrong / placebo)
+        rows = supplied(cond[13:])
+        rng = random.Random(zlib.crc32(f"shuffle|{cond}".encode()))
+        ans = [a for _, a in rows]
+        rng.shuffle(ans)
+        return [(p, a) for (p, _), a in zip(rows, ans)]
     rng = random.Random(zlib.crc32(f"{fam}|{cond}|{part}".encode()))
     it = list(pool(fam, part))
     rng.shuffle(it)
@@ -221,8 +228,9 @@ def one(job):
         r = sum(correct(fam, o, a) for o, (_, a) in zip(outs, pick)) / len(pick)
         ch = 0.0 if is_numeric(fam) else sum(1 / max(2, len(re.findall(r"(?m)^[A-P]\) ", p))) for p, _ in pick) / len(pick)
         cut = sum(len(lm.tok(o, add_special_tokens=False).input_ids) >= max_new - 1 for o in outs) / len(pick)
+        no_ans = sum((last_number(o) is None) if is_numeric(fam) else (H._FIRST.search(o) is None) for o in outs) / len(pick)
         out.update({"reward_rate": round(r, 4), "chance": round(ch, 4), "kappa": round((r - ch) / (1 - ch), 4) if ch < 1 else None,
-                    "truncated": round(cut, 4), "n": len(pick), "prompts": len(prompts), "sample": outs[:3], "wall_s": round(time.time() - t_wall, 1),
+                    "truncated": round(cut, 4), "no_answer": round(no_ans, 4), "n": len(pick), "prompts": len(prompts), "sample": outs[:3], "wall_s": round(time.time() - t_wall, 1),
                     "model": L.LADDER[size]})
         print("RESULT " + json.dumps(out), flush=True)
         return

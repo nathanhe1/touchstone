@@ -43,7 +43,7 @@ def main():
             gates["refused"].append(j["id"])
             continue
         if j["arm"] == "rlgate":
-            gates["rl"][f"{fam}|{size}"] = {k: r.get(k) for k in ("reward_rate", "chance", "kappa", "truncated", "n")}
+            gates["rl"][f"{fam}|{size}"] = {k: r.get(k) for k in ("reward_rate", "chance", "kappa", "truncated", "no_answer", "n")}
             continue
         if j["arm"] == "base":
             continue

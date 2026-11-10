@@ -125,11 +125,11 @@ def test_rl_gate(tmp_path):
         rl[f"{f}|4B"] = {"reward_rate": 0.6, "chance": 0.25, "truncated": 0.0}
         rl[f"{f}|1.7B"] = {"reward_rate": 0.5, "chance": 0.25, "truncated": 0.02}
         rl[f"{f}|0.6B"] = {"reward_rate": 0.27, "chance": 0.25, "truncated": 0.0}  # guessing: kappa 0.03
-    rl["fd|1.7B"]["truncated"] = 0.4
+    rl["fd|1.7B"]["reward_rate"] = 0.95  # no headroom for group contrast
     X = _score(tmp_path, _runs("rl", rungs, TRUTH), _cfg("rl", rungs), _gates(rl))["arms"]["rl"]
     assert X["candidates"]["B acc_final 12x"]["covered"] == []
     assert X["candidates"]["C1 acc_final 4x"]["covered"] == ["fa", "fb", "fc"]
-    assert "truncated" in X["candidates"]["C1 acc_final 4x"]["abstained"]["fd"][0]
+    assert "reward rate" in X["candidates"]["C1 acc_final 4x"]["abstained"]["fd"][0]
 
 
 def test_final_refuses_bad_hash_and_second_scoring(tmp_path):
@@ -148,3 +148,24 @@ def test_final_refuses_bad_hash_and_second_scoring(tmp_path):
     S.main(["final", "--config", str(c), "--runs", str(tmp_path / "runs"), "--out", str(tmp_path / "final.json"), "--hashes", str(good)])
     with pytest.raises(SystemExit):
         S.main(["final", "--config", str(c), "--runs", str(tmp_path / "runs"), "--out", str(tmp_path / "final.json"), "--hashes", str(good)])
+
+
+def test_soft_score_absent_for_an_answer_type_is_a_family_abstention(tmp_path):
+    R = _runs("sft", RUNGS, TRUTH)
+    for k, r in R.items():
+        if k.startswith("sft|fd|"):
+            r["soft_gain"] = None  # e.g. free-form K&K answers: no candidate set
+    X = _score(tmp_path, R, _cfg("ft", RUNGS), _gates())["arms"]["ft"]
+    c = X["candidates"]["C2 soft 12x"]
+    assert c["covered"] == ["fa", "fb", "fc"] and c["abstained"]["fd"] == ["no soft score for this answer type"]
+    assert c["verdict"] == "pass" and "missing_signal" not in c
+
+
+def test_strata_get_their_own_ceiling(tmp_path):
+    cfg = _cfg("ft", RUNGS)
+    for f in FAMS:
+        cfg["arms"]["ft"]["families"][f]["stratum"] = "real" if f in ("fa", "fb") else "constructed"
+    X = _score(tmp_path, _runs("sft", RUNGS, TRUTH), cfg, _gates())["arms"]["ft"]
+    st = X["candidates"]["B acc_final 12x"]["by_stratum"]
+    assert set(st) == {"real", "constructed"} and st["real"]["pairs"] == 20 and st["real"]["noise_ceiling"] == 1.0
+    assert st["real"]["inconclusive"]  # 20 pairs < MIN_PAIRS

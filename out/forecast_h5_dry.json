@@ -25,10 +25,9 @@
   "ft_gate": 5.0,
   "headroom": 90.0,
   "rl_kappa": 0.1,
-  "rl_reward_max": 0.9,
-  "rl_trunc": 0.1
+  "rl_reward_max": 0.9
  },
- "scorer_sha256": "6b28542465c25f5a4b9a53f9b3aac41e036da60af39552f2a33a6fc04a95a83e",
+ "scorer_sha256": "c89f20ef713b0e676b07380f8be57efeacce94ab3ca431deef11b25b8ae5181a",
  "arms": {
   "ft": {
    "rungs": {
@@ -148,7 +147,23 @@
       "spearman_mean": 0.619
      },
      "families_above_half": "1 of 1",
-     "verdict": "inconclusive: coverage (1 families, 15 pairs)"
+     "verdict": "inconclusive: coverage (1 families, 15 pairs)",
+     "by_stratum": {
+      "all": {
+       "decision": 0.533,
+       "pairs": 15,
+       "by_family": {
+        "ag_news": 0.533
+       },
+       "noise_ceiling": 0.76,
+       "ci90": [
+        0.0,
+        0.923
+       ],
+       "perm_p": 0.42826,
+       "inconclusive": true
+      }
+     }
     },
     "C1 acc_final 4x": {
      "signal": "gain",
@@ -171,10 +186,10 @@
        "rotten": 0.4
       },
       "ci90": [
-       0.166,
-       0.778
+       0.105,
+       0.783
       ],
-      "perm_p": 0.61334,
+      "perm_p": 0.60544,
       "spearman_mean": 0.1
      },
      "all": {
@@ -186,44 +201,52 @@
        "rotten": 0.667
       },
       "ci90": [
-       0.455,
-       0.878
+       0.457,
+       0.875
       ],
-      "perm_p": 0.0418,
+      "perm_p": 0.0424,
       "spearman_mean": 0.571
      },
      "families_above_half": "1 of 2",
-     "verdict": "inconclusive: coverage (2 families, 25 pairs)"
+     "verdict": "inconclusive: coverage (2 families, 25 pairs)",
+     "by_stratum": {
+      "all": {
+       "decision": 0.48,
+       "pairs": 25,
+       "by_family": {
+        "ag_news": 0.533,
+        "rotten": 0.4
+       },
+       "noise_ceiling": 0.857,
+       "ci90": [
+        0.136,
+        0.789
+       ],
+       "perm_p": 0.61304,
+       "inconclusive": true
+      }
+     }
     },
     "C2 soft 12x": {
      "signal": "soft_gain",
      "proxy": "135M",
-     "covered": [
-      "ag_news"
-     ],
+     "covered": [],
      "abstained": {
       "rotten": [
        "reference minus all-wrong 3.8 < 5.0"
       ],
       "emotion": [
        "reference minus all-wrong 2.7 < 5.0"
+      ],
+      "ag_news": [
+       "no soft score for this answer type"
       ]
      },
-     "missing_signal": [
-      "ag_news|clean",
-      "ag_news|drop",
-      "ag_news|off25",
-      "ag_news|pool100",
-      "ag_news|pool300",
-      "ag_news|wrong10"
-     ],
      "screen_passing": {
       "decision": null,
       "pairs": 0,
       "target_ties_dropped": 0,
-      "by_family": {
-       "ag_news": null
-      },
+      "by_family": {},
       "ci90": null,
       "perm_p": null,
       "spearman_mean": null
@@ -232,15 +255,14 @@
       "decision": null,
       "pairs": 0,
       "target_ties_dropped": 0,
-      "by_family": {
-       "ag_news": null
-      },
+      "by_family": {},
       "ci90": null,
       "perm_p": null,
       "spearman_mean": null
      },
-     "families_above_half": "0 of 1",
-     "verdict": "inconclusive: missing runs"
+     "families_above_half": "0 of 0",
+     "verdict": "inconclusive: coverage (0 families, 0 pairs)",
+     "by_stratum": {}
     }
    },
    "comparisons": {
@@ -257,7 +279,7 @@
      "beats_baseline": false,
      "underpowered": true
     },
-    "C2 soft 12x vs B acc_final 12x": "missing runs"
+    "C2 soft 12x vs B acc_final 12x": null
    },
    "measurements": {
     "truncated target net of placebo (not a forecast)": {
@@ -269,10 +291,10 @@
       "emotion": 0.786
      },
      "ci90": [
-      0.441,
-      0.906
+      0.438,
+      0.889
      ],
-     "perm_p": 0.0385
+     "perm_p": 0.0398
     }
    },
    "arm_inconclusive": false

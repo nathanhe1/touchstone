@@ -31,10 +31,10 @@
       "fever_nli"
      ],
      "failing": [
-      "wrong100"
+      "wrong_snli"
      ],
      "gate_ref": "snli",
-     "gate_wrong": "wrong100"
+     "gate_wrong": "wrong_snli"
     },
     "sci": {
      "stratum": "real competing (FDE)",
@@ -57,10 +57,10 @@
       "mmlu_aux"
      ],
      "failing": [
-      "wrong100"
+      "wrong_arc_easy_train"
      ],
      "gate_ref": "arc_easy_train",
-     "gate_wrong": "wrong100"
+     "gate_wrong": "wrong_arc_easy_train"
     },
     "yelp": {
      "stratum": "classification, new",
@@ -148,10 +148,10 @@
       "numina_cot"
      ],
      "failing": [
-      "shuffled_gsm8k_train"
+      "wrong_gsm8k_train"
      ],
      "gate_ref": "gsm8k_train",
-     "gate_wrong": "shuffled_gsm8k_train"
+     "gate_wrong": "wrong_gsm8k_train"
     }
    },
    "measurements": {
@@ -224,5 +224,5 @@
   "sci",
   "nli"
  ],
- "runner_contract": "wrong100 on a file family = every letter replaced by another option of the same row; shuffled_<m> and placebo are separate runs seeded by material_name; kk RL needs base_file = its reference file and a recipe max_new covering the manifest p95; every soft-score run records how many items had no soft score"
+ "runner_contract": "wrong_<m> on a file family = every completion wrong (letter families: another option on every row; gsm/kk: another row's completion with a different answer); placebo and shuffled arms seeded by their own name; kk RL base_file = gate_ref file, recipe max_new covering the manifest p95; every soft-score run records how many items had no soft score"
 }

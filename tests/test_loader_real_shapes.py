@@ -115,3 +115,29 @@ def test_capitalised_csv_headers_and_inputs_targets(tmp_path):
     assert data.load_dataset(t)[3].completion == "a3"
     rows = [{"inputs": "أجب على السؤال", "targets": "الإجابة", "language": "Standard Arabic"}] * 25  # Aya's shape
     assert data.load_dataset(_jsonl(tmp_path / "a.jsonl", rows))[0].completion == "الإجابة"
+
+
+def _env_folder(tmp_path, extra=""):
+    d = tmp_path / "myenv"
+    d.mkdir(parents=True)
+    (d / "helpers.py").write_text("def score(out, ans):\n    return float(out.strip() == ans)\n")
+    (d / "requirements.txt").write_text("reasoning-gym==0.1.19\n")
+    (d / "env.py").write_text(extra + "from touchstone.env import Task\nfrom helpers import score\n\n"
+                              "class E:\n    name = 'e'\n    def tasks(self):\n        return [Task(f'{i}+1?', {'answer': str(i + 1)}) for i in range(30)]\n"
+                              "    def verify(self, task, output):\n        return score(output, task.meta['answer'])\n\nENV = E()\n")
+    return d
+
+
+def test_env_folder_can_import_its_own_helper_module(tmp_path):
+    from touchstone import env
+    e = env.load(_env_folder(tmp_path))
+    assert e.verify(e.tasks()[0], "1") == 1.0
+    other = _env_folder(tmp_path / "second")  # a second environment's helpers.py is its own, not the first one's
+    (other / "helpers.py").write_text("def score(out, ans):\n    return 0.5\n")
+    assert env.load(other).verify(e.tasks()[0], "1") == 0.5 and e.verify(e.tasks()[0], "1") == 1.0
+
+
+def test_env_with_uninstalled_dependency_names_it_and_its_requirements(tmp_path):
+    from touchstone import env
+    with pytest.raises(env.EnvError, match="imports 'reasoning_gym_not_here', which is not installed.*reasoning-gym==0.1.19"):
+        env.load(_env_folder(tmp_path, "import reasoning_gym_not_here\n"))

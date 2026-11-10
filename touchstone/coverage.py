@@ -27,10 +27,26 @@ _LETTER = re.compile(r"^\W*(?:the\s+)?(?:correct\s+)?(?:answer|option)?(?:\s+is)
 _CODE = re.compile(r"```|^\s*(def |class |import |from \w+ import|function |#include|public static|fn |SELECT )", re.M)
 _CALL = re.compile(r"<(?:functioncall|tool_call)>\s*(\{.*\})", re.S)
 _STOP = set("the of and to in is that for it was with as on be are this by you have from not".split())
+# Common English function words, and distinctive ones for the Latin-script languages most often mixed in. English
+# is decided against the other lists, not by a fixed share of a short list: terse templated English ("Tina had 7
+# raspberry . He hash each raspberry into 10 slices .") used few of the old 20 words and read as non-English in test v4.
+_EN = _STOP | set("a an at he she his her him they them their we our i my me what how many much did does do had has if "
+                  "each more than then there were will would can could all some so but or into out up its who which when "
+                  "where why after before each per total left now".split())
+_OTHER = {
+    "es": set("el la los las que y en un una por con para del se su al lo como más pero sus cuántos cuántas cada tiene "
+              "tenía día días ella él después".split()),
+    "fr": set("le la les des et en un une du que qui pour dans par sur au aux est sont avec il elle chaque combien "
+              "jour jours a-t-il".split()),
+    "de": set("der die das und ist nicht ein eine mit von zu den dem im auf für sich auch wie viele jeden jede er sie "
+              "hat tag tage".split()),
+    "pt": set("o os as um uma não com para por do da dos das em no na que cada quantos quantas tem dia ele ela".split()),
+    "it": set("il lo gli le un una di che è per con del della non sono ogni quanti quante ha giorno lui lei".split()),
+}
 
 
 def language(texts: list[str]) -> str:
-    """'en' or 'non_en', from non-Latin characters and the share of common English words."""
+    """'en' or 'non_en', from non-Latin characters, then English function words against other Latin-script languages'."""
     t = " ".join(texts)[:20000]
     if not t:
         return "en"
@@ -38,7 +54,11 @@ def language(texts: list[str]) -> str:
     if letters and sum(ord(c) > 0x24F for c in letters) / len(letters) > 0.3:
         return "non_en"
     words = re.findall(r"[^\W\d_]+", t.lower())
-    return "en" if not words or sum(w in _STOP for w in words) / len(words) >= 0.08 else "non_en"
+    if not words:
+        return "en"
+    en = sum(w in _EN for w in words) / len(words)
+    other = max(sum(w in v and w not in _EN for w in words) / len(words) for v in _OTHER.values())
+    return "en" if en >= 0.15 and en >= 2 * other else "non_en"
 
 
 def mcq_options(prompt: str) -> list[str]:

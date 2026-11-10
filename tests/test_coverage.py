@@ -157,3 +157,42 @@ def test_latex_algebra_is_not_misread_as_arithmetic():
 
 def test_plain_text_dollars_unchanged():
     assert screen.check_arithmetic("He paid $10 x 3 = $30 and $30 + 5 = $36.") == (2, 1)
+
+
+def _fake_embed(monkeypatch):
+    import torch
+    from touchstone import overlap
+
+    def embed(texts, batch=128):  # "topic:k" -> unit vector on axis k
+        v = torch.zeros(len(texts), 64)
+        for i, t in enumerate(texts):
+            v[i, int(t.split(":")[1]) % 64] = 1.0
+        return v
+    monkeypatch.setattr(overlap, "embed", embed)
+
+
+def test_off_topic_is_net_of_the_suites_own_spread(monkeypatch):
+    # test v4 defect: a 60-item suite from a broad source sits far from itself, so same-source material read as off-topic
+    _fake_embed(monkeypatch)
+    narrow = [f"t:{0}" for _ in range(20)]
+    r = screen.relevance([f"t:{0}"] * 30 + [f"t:{9}"] * 30, narrow)
+    assert r["suite_self_share"] == 0.0 and r["off_topic_share"] == r["raw_off_topic_share"] == 0.5  # built-in suites: unchanged
+    broad = [f"t:{k}" for k in range(10) for _ in range(2)] + [f"t:{k}" for k in range(10, 20)]  # half the items have no neighbour
+    same = screen.relevance([f"t:{k}" for k in range(10)] + [f"t:{k}" for k in range(20, 30)], broad)  # new draws, sparse region
+    assert same["raw_off_topic_share"] == 0.5 and same["suite_self_share"] == 0.3333
+    assert same["off_topic_share"] < screen.OFFTOPIC_SHARE  # the old rule flagged this material
+    off = screen.relevance([f"t:{k}" for k in range(40, 60)], broad)
+    assert off["off_topic_share"] == 1.0
+    lonely = screen.relevance([f"t:{k}" for k in range(5)], [f"t:{k}" for k in range(30)])
+    assert lonely["off_topic_share"] is None and lonely["off_topic_status"].startswith("not checked")
+
+
+def test_language_reads_terse_templated_english():
+    # test v4 defect: MAWPS's terse template English used few of the old stop words and read as non-English
+    from touchstone import coverage
+    mawps = ["Virginia had some orange. John took 14 from him. Now Virginia has 76 orange. How many orange Virginia had incipiently?",
+             "Tina had 7 raspberry . He hash each raspberry into 10 slices . How many raspberry slices did Tina make?"] * 20
+    assert coverage.language(mawps) == "en"
+    assert coverage.language(["Los patos de Janet ponen 16 huevos por día. Ella come tres en el desayuno todas las mañanas."] * 20) == "non_en"
+    assert coverage.language(["Bata wa Janet hutaga mayai 16 kila siku. Huwa anakula matatu wakati wa staftahi."] * 20) == "non_en"
+    assert coverage.language(["Janets Enten legen 16 Eier pro Tag. Sie isst drei jeden Morgen zum Frühstück."] * 20) == "non_en"

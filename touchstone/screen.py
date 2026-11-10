@@ -212,14 +212,38 @@ def arithmetic_consistency(completions: list[str]) -> dict:
             "rate": bad / checked if checked else None}
 
 
+OFFTOPIC_BROAD = 0.8        # suite self-share at or above this: the suite is too broad to judge relevance; abstain
+
+
 def relevance(prompts: list[str], suite_prompts: list[str], n: int = 400, seed: int = 0) -> dict:
+    """Estimated share of the material that is off-topic for the suite.
+
+    The raw share (material prompts whose nearest suite item is below OFFTOPIC_COS) is read against the suite's own
+    leave-one-out share: how often a suite item is that far from every other suite item. A small suite drawn from a
+    broad source (60 MMLU questions) sits far from itself, so same-source material looks "off-topic" at the same rate;
+    test v4 had 9 such false flags. If a fraction f of the material is off-topic and the rest behaves like the suite,
+    raw = f + (1 - f) x self, so f = (raw - self) / (1 - self). With a narrow suite (self 0, every built-in suite) f is
+    the raw share and the rule is unchanged. A suite whose self-share is OFFTOPIC_BROAD or more abstains.
+    """
     from .overlap import embed
     rng = random.Random(seed)
     sample = rng.sample(prompts, min(n, len(prompts)))
     E, S = embed(sample), embed(suite_prompts)
     best = (E @ S.T).max(dim=1).values
-    off = float((best < OFFTOPIC_COS).float().mean())
-    return {"mean_nearest_cos": round(float(best.mean()), 4), "off_topic_share": round(off, 4)}
+    raw = float((best < OFFTOPIC_COS).float().mean())
+    self_share = 0.0
+    if len(suite_prompts) > 1:
+        sim = S @ S.T
+        sim.fill_diagonal_(-1.0)
+        self_share = float((sim.max(dim=1).values < OFFTOPIC_COS).float().mean())
+    out = {"mean_nearest_cos": round(float(best.mean()), 4), "raw_off_topic_share": round(raw, 4),
+           "suite_self_share": round(self_share, 4)}
+    if self_share >= OFFTOPIC_BROAD:
+        out.update(off_topic_share=None, off_topic_status=f"not checked: the suite is too broad ({100 * self_share:.0f}% of its "
+                   "items are far from every other suite item)")
+    else:
+        out.update(off_topic_share=round(max(0.0, (raw - self_share) / (1 - self_share)), 4), off_topic_status="checked")
+    return out
 
 
 def answer_leakage(prompts: list[str], refs: list[str | None]) -> float:
@@ -254,5 +278,5 @@ def screen_dataset(examples, suite) -> dict:
     # A rate needs a real sample of worked solutions: on real Dolly data 1 slip in 3 checked rows of 100 read as 33%.
     enough = a["checked"] >= max(MIN_WORKED, 0.2 * len(examples))
     out["noisy"] = bool(enough and a["rate"] is not None and a["rate"] >= NOISY_EQ_RATE)
-    out["off_topic"] = out["relevance"]["off_topic_share"] >= OFFTOPIC_SHARE
+    out["off_topic"] = (out["relevance"]["off_topic_share"] or 0.0) >= OFFTOPIC_SHARE
     return out

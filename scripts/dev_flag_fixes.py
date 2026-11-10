@@ -73,5 +73,114 @@ def latex():
         print(s, {k: (x["rate"], x["checked"], x["unsupported_final"]) for k, x in v.items()})
 
 
+
+
+def _suite_prompts(spec):
+    from touchstone import suites
+    s = suites.get_suite(str(ROOT / spec) if spec.endswith(".jsonl") else spec).subset(200)  # as eval_test4 and the product
+    return [i.prompt for i in s.items]
+
+
+def _prompts(path):
+    from touchstone import data as datamod
+    try:
+        return [e.prompt_text for e in datamod.load_dataset(path)]
+    except datamod.DatasetError:
+        return None
+
+
+def offtopic():
+    """off_topic on small, broad suites: material share against the suite's own leave-one-out share (same-source reference)."""
+    from touchstone import screen
+    from touchstone.overlap import embed
+    rows = []
+    man = json.loads((ROOT / "examples" / "test4" / "manifest.json").read_text())
+    by_src = {}
+    for m in man:
+        if m["kind"] != "dataset":
+            continue
+        by_src.setdefault(m["source"], m["suite"])
+        rows.append({"case": "v4:" + m["id"], "suite": m["suite"], "path": ROOT / "examples" / "test4" / m["path"],
+                     "truth": bool(m["labels"].get("off_topic")), "kind": "v4 (development rescore)"})
+    # constructed development positives on small custom suites: material from one v4 source against another's suite
+    cross = [("alpaca", "qasc"), ("oasst", "aqua"), ("mawps", "medmcqa"), ("truthful", "aqua"), ("qasc", "oasst"),
+             ("aqua", "truthful"), ("medmcqa", "alpaca"), ("multiarith", "mmlu")]
+    for a, b in cross:
+        rows.append({"case": f"cross:{a}->{b}", "suite": by_src[b], "path": ROOT / "examples" / "test4" / "datasets" / f"clean_{a}_0.jsonl",
+                     "truth": True, "kind": "constructed off-topic, small custom suite"})
+    for d in ["redflags_test", "redflags_test2", "redflags_test3"]:  # earlier sets, development data now
+        for m in json.loads((ROOT / "examples" / d / "manifest.json").read_text()):
+            if m["kind"] == "dataset" and (m["labels"].get("off_topic") or "clean" in m["id"]):
+                rows.append({"case": f"{d}:{m['id']}", "suite": m["suite"], "path": ROOT / "examples" / d / m["path"],
+                             "truth": bool(m["labels"].get("off_topic")), "kind": "built-in suite"})
+    cache = {}
+    out = []
+    for r in rows:
+        P = _prompts(r["path"])
+        if P is None:
+            continue
+        if r["suite"] not in cache:
+            S = _suite_prompts(r["suite"])
+            E = embed(S)
+            sim = E @ E.T
+            sim.fill_diagonal_(-1)
+            cache[r["suite"]] = (S, round(float((sim.max(1).values < screen.OFFTOPIC_COS).float().mean()), 4), len(S))
+        S, loo, n = cache[r["suite"]]
+        rel = screen.relevance(P, S)
+        old_flag = rel["raw_off_topic_share"] >= screen.OFFTOPIC_SHARE
+        new_flag = (rel["off_topic_share"] or 0.0) >= screen.OFFTOPIC_SHARE
+        out.append({**{k: str(v) for k, v in r.items() if k != "path"}, "truth": r["truth"], "raw_share": rel["raw_off_topic_share"],
+                    "suite_self_share": rel["suite_self_share"], "estimated_share": rel["off_topic_share"], "status": rel["off_topic_status"],
+                    "suite_items": n, "flag_before": old_flag, "flag_after": new_flag})
+        print(out[-1]["case"], r["truth"], rel["raw_off_topic_share"], rel["suite_self_share"], rel["off_topic_share"], old_flag, new_flag, flush=True)
+    summ = {}
+    for kind in sorted({o["kind"] for o in out}):
+        x = [o for o in out if o["kind"] == kind]
+        summ[kind] = {w: {"true_flags": sum(o[w] and o["truth"] for o in x), "false_flags": sum(o[w] and not o["truth"] for o in x),
+                          "missed": sum(o["truth"] and not o[w] for o in x)} for w in ("flag_before", "flag_after")} | {"cases": len(x)}
+    (ROOT / "out" / "dev_flag_offtopic.json").write_text(json.dumps({"summary": summ, "cases": out}, indent=1))
+    print(json.dumps(summ, indent=1))
+
+
+def language():
+    """Language heuristic on development files: every v4 dataset (English), the coverage-eval files (English except MGSM
+    es/de), and MGSM test in six languages (juletxara/mgsm, CC BY-SA 4.0)."""
+    import glob
+    from touchstone import coverage
+    from touchstone import data as datamod
+    cases = []
+    for f in sorted(glob.glob(str(ROOT / "examples" / "test4" / "datasets" / "*.jsonl"))):
+        cases.append((Path(f).stem, "en", f))
+    for f in sorted(glob.glob(str(ROOT / "examples" / "coverage_eval" / "*.jsonl"))):
+        cases.append(("coverage:" + Path(f).stem, "non_en" if ("_es_" in f or "_de_" in f) else "en", f))
+    for lang in ["en", "fr", "sw", "es", "de", "bn"]:
+        rows = json.loads((DEV / f"mgsm_{lang}.json").read_text())
+        for d in range(2):
+            cases.append((f"mgsm_{lang}_{d}", "en" if lang == "en" else "non_en", [r["question"] for r in rows[d * 125:(d + 1) * 125]]))
+    out = []
+    for name, truth, src in cases:
+        if isinstance(src, list):
+            texts = src
+        else:
+            try:
+                texts = [e.last_user for e in datamod.load_dataset(src)[:200]]
+            except datamod.DatasetError:
+                continue
+        t = " ".join(texts)[:20000]
+        words = re.findall(r"[^\W\d_]+", t.lower())
+        en = sum(w in coverage._EN for w in words) / max(1, len(words))
+        other = max(sum(w in v and w not in coverage._EN for w in words) / max(1, len(words)) for v in coverage._OTHER.values())
+        old = sum(w in coverage._STOP for w in words) / max(1, len(words))
+        out.append({"case": name, "truth": truth, "before": "en" if not words or old >= 0.08 else "non_en", "after": coverage.language(texts),
+                    "en_share": round(en, 4), "other_share": round(other, 4), "old_share": round(old, 4)})
+    summ = {w: {"wrong": [o["case"] for o in out if o[w] != o["truth"]]} for w in ("before", "after")}
+    summ["cases"] = {"en": sum(o["truth"] == "en" for o in out), "non_en": sum(o["truth"] == "non_en" for o in out)}
+    summ["en_share_range"] = {t: [min(o["en_share"] for o in out if o["truth"] == t), max(o["en_share"] for o in out if o["truth"] == t)] for t in ("en", "non_en")}
+    (ROOT / "out" / "dev_flag_language.json").write_text(json.dumps({"summary": summ, "cases": out}, indent=1))
+    print(json.dumps(summ, indent=1))
+    for o in sorted(out, key=lambda o: o["en_share"])[:12]:
+        print(o)
+
+
 if __name__ == "__main__":
-    {"latex": latex}[sys.argv[1]]()
+    {"latex": latex, "offtopic": offtopic, "language": language}[sys.argv[1]]()

@@ -226,11 +226,15 @@ def gates_for_arm(R, G, arm_name, A):
         if b is None:
             g["reasons"].append("no class-balance record")
         else:
-            if b.get("suite") is not None and b["suite"] > bal["max_share"]:
-                g["reasons"].append(f"suite majority share {b['suite']:.2f} > {bal['max_share']}")
+            mx = b.get("max_share", bal.get("max_share"))  # the lead's fetch gate: min(0.65, 2.5 / options), per family
+            if mx is None:
+                g["reasons"].append("no class-balance threshold")
+                mx = float("inf")
+            if b.get("suite") is not None and b["suite"] > mx:
+                g["reasons"].append(f"suite majority share {b['suite']:.2f} > {mx}")
             for m, s in (b.get("materials") or {}).items():
-                if s is not None and s > bal["max_share"]:
-                    g["excluded_materials"][m] = f"majority share {s:.2f} > {bal['max_share']}"
+                if s is not None and s > mx:
+                    g["excluded_materials"][m] = f"majority share {s:.2f} > {mx}"
         tb = base_acc(R, run_arm, fam, rungs["target"])
         g["target_base"] = None if tb is None else round(tb, 1)
         if tb is None:

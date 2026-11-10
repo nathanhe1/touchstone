@@ -42,6 +42,10 @@ DTYPE = {"135M": torch.float32, "360M": torch.float32, "1.7B": torch.float16, "7
 BIG = {"1.7B", "7B", "q3-1.7B", "q3-4B", "q3-8B", "q25-1.5B", "q25-7B"}
 # The research ladders use PyTorch's fused attention on CUDA; the eager path stays for SmolLM2 so h4 runs are unchanged.
 ATTN = {k: "sdpa" for k in DTYPE if k.startswith("q")}
+# End of a reply. Base (pretrained-only) Qwen models never trained the chat tokens: <|im_end|>'s output row keeps its
+# initial norm (0.35-0.41 against 0.7-1.8 for real tokens), so LoRA cannot learn to emit it and SFT loss stalls near 4
+# (measured on Qwen3-8B-Base, sprint timing run). They end replies with their document end, <|endoftext|>, instead.
+END = {k: "<|endoftext|>" for k in DTYPE if k.startswith("q")}
 SMALL = ["135M", "360M"]
 TARGET = "1.7B"
 
@@ -145,7 +149,8 @@ class LM:
         self.model = model or cached(AutoModelForCausalLM.from_pretrained,
             LADDER[size], dtype=dtype_for(size), attn_implementation=ATTN.get(size, "eager")).to(self.dev)
         self.model.eval()
-        self.end_id = self.tok.convert_tokens_to_ids("<|im_end|>")
+        self.end_text = END.get(size, "<|im_end|>")
+        self.end_id = self.tok.convert_tokens_to_ids(self.end_text)
 
     @property
     def n_params(self) -> int:
@@ -239,7 +244,7 @@ class LM:
         for i, (p, a, ds) in enumerate(zip(prompts, answers, distractors)):
             c = self.chat(p)
             slot = slots[i] if slots else None
-            head, tail = (c + slot[0], slot[1]) if slot else (c, "<|im_end|>")
+            head, tail = (c + slot[0], slot[1] if slot[1] != "<|im_end|>" else self.end_text) if slot else (c, self.end_text)
             for j, x in enumerate([a] + list(ds)):
                 pre.append(head)
                 cont.append(x + tail)
@@ -294,7 +299,7 @@ def sft(lm: LM, examples: list[tuple[str, str]], recipe: Recipe, seed: int = 0, 
     order: list[int] = []
     losses = []
     t0 = time.time()
-    end = "<|im_end|>"
+    end = lm.end_text
     step_times, step_tokens, peak = [], [], 0
     for step in range(steps):
         ts = time.time()

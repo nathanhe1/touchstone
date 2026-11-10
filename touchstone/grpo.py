@@ -33,6 +33,11 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
     steps = steps or recipe.rl_steps
     tuned = with_lora(lm, recipe, seed)
     model = tuned.model
+    # Research-ladder rungs of 1.5B+ recompute activations in backward (8B GRPO ran out of 32 GB without it).
+    # Memory only: the update is unchanged. SmolLM2 rungs keep the h4 path.
+    checkpointing = lm.size in BIG and lm.size.startswith("q")
+    if checkpointing:
+        model.get_base_model().gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=recipe.rl_lr, weight_decay=0.0)
     rng = random.Random(seed)
     torch.manual_seed(seed)
@@ -65,7 +70,7 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
             continue
         model.train()
         pre = [c for c in chats for _ in range(G)]
-        conts = [o + "<|im_end|>" for o in outs]
+        conts = [o + tuned.end_text for o in outs]
         flat_adv = adv.view(-1)
         opt.zero_grad()
         # micro-batches of 16 with gradient accumulation: on MPS one batch of 64 was 7x slower than four of 16
@@ -94,6 +99,8 @@ def grpo(lm: LM, env, recipe: Recipe, seed: int = 0, steps: int | None = None, p
             log(f"    grpo {lm.size}{' placebo' if placebo else ''} step {step + 1}/{steps} "
                 f"reward {sum(curve[-10:]) / len(curve[-10:]):.2f}")
     model.eval()
+    if checkpointing:
+        model.get_base_model().gradient_checkpointing_disable()
     k = max(1, len(curve) // 5)
     info = {"steps": steps, "skipped_no_signal": skipped, "placebo": placebo,
             "rollouts_truncated": round(cut / (steps * B * G), 4),  # replies cut at rl_max_new during training

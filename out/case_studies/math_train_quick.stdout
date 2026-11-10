@@ -1,0 +1,4 @@
+[14:30:09] @stage validate 0.010
+[14:30:09] Appraising dataset math_train.jsonl: 7500 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[14:30:09] @stage seal 0.040
+[14:30:09] @stage overlap 0.060

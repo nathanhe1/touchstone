@@ -1,0 +1,340 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "env",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/.cache/touchstone/case_studies/inputs/webarena_strings",
+    "name": "WebArena string-match tasks",
+    "sha256": "39eeab50ccb5089cb435245227f95edde5619e035202572cf2ccb0ce0cdf64e8",
+    "n_items": 212,
+    "unique_items": 209
+  },
+  "heldout": {
+    "name": "webarena_fuzzy_suite",
+    "domain": "webarena_fuzzy_suite",
+    "description": "user-supplied suite from webarena_fuzzy_suite.jsonl",
+    "n_items": 82,
+    "source": "/Users/nathanhe/.cache/touchstone/case_studies/inputs/webarena_fuzzy_suite.jsonl",
+    "parts": {
+      "all": 82
+    },
+    "n_items_untouched_by_material": 79
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.4688,
+    "off_topic_share": 0.3255
+  },
+  "rungs": {},
+  "measurable_at": null,
+  "flags": [
+    {
+      "code": "gameable_grader",
+      "severity": "block",
+      "text": "Gameable grader: 'wrong: fraction appended' collects 84% reward without solving the task."
+    },
+    {
+      "code": "screen_only",
+      "severity": "info",
+      "text": "Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "gameable_grader"
+    ],
+    "novel_share": 1.0,
+    "dollars_per_point": 5000.0,
+    "basis": "not priced"
+  },
+  "models": {},
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 30,
+    "rl_prompts": 8,
+    "rl_group": 4,
+    "rl_kl": 0.04,
+    "rl_max_new": 64,
+    "eval_max_new": 96
+  },
+  "runtime_s": 43,
+  "grader_audit": {
+    "has_reference": true,
+    "n_probed": 400,
+    "reference_accept_rate": 1.0,
+    "reference_accept_best_format": 1.0,
+    "answer_in_prompt": 0.0175,
+    "model_wrong_samples": 226,
+    "score": 0.8438,
+    "raw_score": 0.8438,
+    "reward_noise": 0.0,
+    "worst_exploit": "wrong: fraction appended",
+    "per_exploit": {
+      "empty answer": 0.0,
+      "echo the prompt": 0.0175,
+      "digit soup": 0.005,
+      "letter soup": 0.0,
+      "copy a prompt span (last-1)": 0.0125,
+      "unevaluated expression from the prompt": 0.0175,
+      "trigger: 'answer'": 0.0,
+      "trigger: 'result'": 0.0,
+      "trigger: 'total'": 0.0,
+      "trigger: 'final'": 0.0,
+      "trigger: 'correct'": 0.0,
+      "trigger: 'solution'": 0.0,
+      "trigger: 'therefore'": 0.0,
+      "trigger: 'step'": 0.0,
+      "trigger: 'sum'": 0.0,
+      "trigger: 'yes'": 0.0,
+      "trigger: 'true'": 0.0,
+      "trigger: 'done'": 0.0,
+      "trigger: '='": 0.0,
+      "trigger: 'because'": 0.0,
+      "trigger: 'expected'": 0.0,
+      "trigger: 'reasoning'": 0.0,
+      "trigger: '<answer>'": 0.0,
+      "trigger: '</answer>'": 0.0,
+      "trigger: '\\\\boxed{}'": 0.0,
+      "trigger: '####'": 0.0,
+      "trigger: '.*'": 0.0,
+      "trigger: '.+'": 0.0,
+      "fixed reply '0'": 0.0,
+      "fixed reply '1'": 0.0,
+      "fixed reply '-1'": 0.02,
+      "fixed reply 'nan'": 0.0,
+      "fixed reply 'inf'": 0.0,
+      "fixed reply '-inf'": 0.0,
+      "fixed reply '.9'": 0.02,
+      "fixed reply '1e9'": 0.0,
+      "fixed reply 'None'": 0.0,
+      "fixed reply 'null'": 0.0,
+      "fixed reply 'true'": 0.0,
+      "fixed reply '?'": 0.0,
+      "fixed reply ' '": 0.0,
+      "fixed reply '\\n'": 0.0,
+      "fixed reply 'xxxxxxxx'": 0.0,
+      "fixed reply '99999999'": 0.0,
+      "fixed reply '{}'": 0.0,
+      "fixed reply '[]'": 0.0,
+      "near miss": 0.0025,
+      "same shape, wrong content": 0.0025,
+      "hedge: right then wrong": 0.825,
+      "hedge: wrong or right": 0.825,
+      "hedge across ', '": 0.825,
+      "hedge across '/'": 0.825,
+      "hedge across '\\n'": 0.825,
+      "hedge across ' | '": 0.825,
+      "hedge across ' and '": 0.825,
+      "hedge across '; '": 0.825,
+      "wrong: first character only": 0.0,
+      "wrong: all but the last character": 0.0,
+      "wrong: last character only": 0.0,
+      "wrong: scrambled characters": 0.0,
+      "wrong: digits permuted": 0.0,
+      "wrong: same digit sum": 0.0,
+      "wrong: negated": 0.8052,
+      "wrong: fraction appended": 0.8438,
+      "wrong: off by a thousand": 0.3229,
+      "wrong: times ten": 0.3229,
+      "wrong: stated at length": 0.005,
+      "wrong: padded to 150 characters": 0.0075,
+      "wrong: padded to 60 words": 0.0025,
+      "wrong: in an equation": 0.0225,
+      "model's own wrong answers": 0.0
+    },
+    "reliability": {
+      "deterministic": 1.0,
+      "in_range": true,
+      "ok": true
+    },
+    "slice": {
+      "probe": "hedge: right then wrong",
+      "slice": "answer last = 9",
+      "n": 42,
+      "payoff": 1.0
+    },
+    "format_laxity": {
+      "answer buried in junk": 0.825,
+      "format: characters spaced out": 0.0,
+      "format: letters between characters": 0.0,
+      "format: inside a word": 0.7,
+      "format: doubled": 0.7,
+      "format: full-width digits": 0.0
+    },
+    "format_lax": true,
+    "crashes": {},
+    "flagged": true
+  },
+  "answer_leakage": 0.018867924528301886,
+  "checks": {
+    "data_type": "rl_environment",
+    "grader": {
+      "status": "checked",
+      "method": "known-wrong answer probes"
+    },
+    "labels": {
+      "status": "not_applicable",
+      "reason": "rewards come from the grader, audited above"
+    },
+    "public_copy": {
+      "status": "not_checked",
+      "reason": "no public baseline for this domain; pass --public"
+    }
+  },
+  "device": "mps",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0142,
+      "exact": 0.0,
+      "near": 0.0047,
+      "paraphrase": 0.0094,
+      "n": 212,
+      "examples": [
+        {
+          "item": "I will arrive Pittsburgh Airport soon. Provide the name of a Hilton hotel in the vicinity, if available. Then, tell me the the shortest walking distance to a su",
+          "matches": "I will arrive Pittsburgh Airport soon. Provide the name of a Hyatt hotel in the vicinity, if available. Then, tell me the the shortest walking time to a superma",
+          "kind": "near"
+        },
+        {
+          "item": "Given the following locations, ['Princeton University', 'Yale University', 'Harvard University'], what would be the optimal route to travel through them all in ",
+          "matches": "Given the following locations, ['Massachusetts Institute of Technology', 'Harvard University', 'Boston Logan International Airport'], what would be the optimal ",
+          "kind": "paraphrase"
+        },
+        {
+          "item": "How much I spend in March 2023 on shopping at One Stop Market?",
+          "matches": "How much I spend each month from Jan to the end of March 2023 on shopping at One Stop Market?",
+          "kind": "paraphrase"
+        }
+      ],
+      "suite_share": 0.0366
+    },
+    "public": {
+      "rate": 0.0,
+      "examples": [],
+      "baseline": "none (no public baseline for this domain; pass --public)"
+    },
+    "duplicates": {
+      "n": 212,
+      "unique": 209,
+      "dup_rate": 0.014150943396226467
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "method": "skipped",
+    "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
+    "net": {
+      "point": null,
+      "lo": null,
+      "hi": null
+    },
+    "headline": {
+      "point": null,
+      "lo": null,
+      "hi": null,
+      "source": "skipped"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0366,
+    "public": 0.0,
+    "duplicates": 0.0142
+  },
+  "probes": {
+    "empty answer": 0.0,
+    "echo the prompt": 0.0175,
+    "digit soup": 0.005,
+    "letter soup": 0.0,
+    "copy a prompt span (last-1)": 0.0125,
+    "unevaluated expression from the prompt": 0.0175,
+    "trigger: 'answer'": 0.0,
+    "trigger: 'result'": 0.0,
+    "trigger: 'total'": 0.0,
+    "trigger: 'final'": 0.0,
+    "trigger: 'correct'": 0.0,
+    "trigger: 'solution'": 0.0,
+    "trigger: 'therefore'": 0.0,
+    "trigger: 'step'": 0.0,
+    "trigger: 'sum'": 0.0,
+    "trigger: 'yes'": 0.0,
+    "trigger: 'true'": 0.0,
+    "trigger: 'done'": 0.0,
+    "trigger: '='": 0.0,
+    "trigger: 'because'": 0.0,
+    "trigger: 'expected'": 0.0,
+    "trigger: 'reasoning'": 0.0,
+    "trigger: '<answer>'": 0.0,
+    "trigger: '</answer>'": 0.0,
+    "trigger: '\\\\boxed{}'": 0.0,
+    "trigger: '####'": 0.0,
+    "trigger: '.*'": 0.0,
+    "trigger: '.+'": 0.0,
+    "fixed reply '0'": 0.0,
+    "fixed reply '1'": 0.0,
+    "fixed reply '-1'": 0.02,
+    "fixed reply 'nan'": 0.0,
+    "fixed reply 'inf'": 0.0,
+    "fixed reply '-inf'": 0.0,
+    "fixed reply '.9'": 0.02,
+    "fixed reply '1e9'": 0.0,
+    "fixed reply 'None'": 0.0,
+    "fixed reply 'null'": 0.0,
+    "fixed reply 'true'": 0.0,
+    "fixed reply '?'": 0.0,
+    "fixed reply ' '": 0.0,
+    "fixed reply '\\n'": 0.0,
+    "fixed reply 'xxxxxxxx'": 0.0,
+    "fixed reply '99999999'": 0.0,
+    "fixed reply '{}'": 0.0,
+    "fixed reply '[]'": 0.0,
+    "near miss": 0.0025,
+    "same shape, wrong content": 0.0025,
+    "hedge: right then wrong": 0.825,
+    "hedge: wrong or right": 0.825,
+    "hedge across ', '": 0.825,
+    "hedge across '/'": 0.825,
+    "hedge across '\\n'": 0.825,
+    "hedge across ' | '": 0.825,
+    "hedge across ' and '": 0.825,
+    "hedge across '; '": 0.825,
+    "wrong: first character only": 0.0,
+    "wrong: all but the last character": 0.0,
+    "wrong: last character only": 0.0,
+    "wrong: scrambled characters": 0.0,
+    "wrong: digits permuted": 0.0,
+    "wrong: same digit sum": 0.0,
+    "wrong: negated": 0.8052,
+    "wrong: fraction appended": 0.8438,
+    "wrong: off by a thousand": 0.3229,
+    "wrong: times ten": 0.3229,
+    "wrong: stated at length": 0.005,
+    "wrong: padded to 150 characters": 0.0075,
+    "wrong: padded to 60 words": 0.0025,
+    "wrong: in an equation": 0.0225,
+    "model's own wrong answers": 0.0
+  },
+  "gains_by_size": {},
+  "forecast": {
+    "value": null,
+    "lo": null,
+    "hi": null,
+    "target": "1.7B",
+    "method": "skipped",
+    "source": "skipped",
+    "smooth_value": null,
+    "smooth_lo": null,
+    "smooth_hi": null
+  },
+  "summary": "WebArena string-match tasks (RL environment, 212 items) earns grade D. Screening found a blocking problem, so quick mode did not train a model. Not priced because of: gameable grader."
+}

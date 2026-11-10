@@ -27,9 +27,21 @@ LADDER = {
     "360M": "HuggingFaceTB/SmolLM2-360M-Instruct",
     "1.7B": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
     "7B": "Qwen/Qwen2.5-7B-Instruct",  # a different family: GPU-only forecast target, never a product rung
+    # GPU-only research ladders (sprint h5): one family per ladder, bf16 at every rung, never product rungs
+    "q3-0.6B": "Qwen/Qwen3-0.6B-Base", "q3-1.7B": "Qwen/Qwen3-1.7B-Base",
+    "q3-4B": "Qwen/Qwen3-4B-Base", "q3-8B": "Qwen/Qwen3-8B-Base",
+    "q25-0.5B": "Qwen/Qwen2.5-0.5B", "q25-1.5B": "Qwen/Qwen2.5-1.5B", "q25-7B": "Qwen/Qwen2.5-7B",
 }
-PARAMS = {"135M": 134_515_008, "360M": 361_821_120, "1.7B": 1_711_376_384, "7B": 7_615_616_512}
-DTYPE = {"135M": torch.float32, "360M": torch.float32, "1.7B": torch.float16, "7B": torch.float16}
+PARAMS = {"135M": 134_515_008, "360M": 361_821_120, "1.7B": 1_711_376_384, "7B": 7_615_616_512,
+          "q3-0.6B": 596_049_920, "q3-1.7B": 1_720_574_976, "q3-4B": 4_022_468_096, "q3-8B": 8_190_735_360,
+          "q25-0.5B": 494_032_768, "q25-1.5B": 1_543_714_304, "q25-7B": 7_615_616_512}
+DTYPE = {"135M": torch.float32, "360M": torch.float32, "1.7B": torch.float16, "7B": torch.float16,
+         **{k: torch.bfloat16 for k in ("q3-0.6B", "q3-1.7B", "q3-4B", "q3-8B", "q25-0.5B", "q25-1.5B", "q25-7B")}}
+# Rungs of 1.5B parameters or more: bounded generation batches, gradient checkpointing, smaller micro-batches.
+# These change memory and speed only, never the update (gradient accumulation gives the same step).
+BIG = {"1.7B", "7B", "q3-1.7B", "q3-4B", "q3-8B", "q25-1.5B", "q25-7B"}
+# The research ladders use PyTorch's fused attention on CUDA; the eager path stays for SmolLM2 so h4 runs are unchanged.
+ATTN = {k: "sdpa" for k in DTYPE if k.startswith("q")}
 SMALL = ["135M", "360M"]
 TARGET = "1.7B"
 
@@ -131,7 +143,7 @@ class LM:
         if self.tok.pad_token is None:
             self.tok.pad_token = self.tok.eos_token
         self.model = model or cached(AutoModelForCausalLM.from_pretrained,
-            LADDER[size], dtype=dtype_for(size), attn_implementation="eager").to(self.dev)
+            LADDER[size], dtype=dtype_for(size), attn_implementation=ATTN.get(size, "eager")).to(self.dev)
         self.model.eval()
         self.end_id = self.tok.convert_tokens_to_ids("<|im_end|>")
 
@@ -154,7 +166,7 @@ class LM:
         """Replies to user prompts (or raw chat-formatted strings if raw=True)."""
         self.tok.padding_side = "left"
         texts = prompts if raw else [self.chat(p, system) for p in prompts]
-        if self.size in ("1.7B", "7B"):  # bounded memory
+        if self.size in BIG and not self.size.startswith("q"):  # bounded memory (the research ladders run on a 32 GB card)
             batch = min(batch, 16)
         order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
         out = [""] * len(texts)
@@ -201,7 +213,7 @@ class LM:
 
     def seq_logprob(self, prefixes: list[str], conts: list[str], batch: int = 32, grad: bool = False):
         """Sum of log-probs of each continuation given its prefix."""
-        if self.size in ("1.7B", "7B"):
+        if self.size in BIG:
             batch = min(batch, 16)
         res = []
         for s in range(0, len(prefixes), batch):
@@ -272,7 +284,7 @@ def sft(lm: LM, examples: list[tuple[str, str]], recipe: Recipe, seed: int = 0, 
     steps = steps or recipe.sft_steps
     tuned = with_lora(lm, recipe, seed)
     model = tuned.model
-    checkpointing = lm.size == "1.7B"  # recompute activations in backward: fits 1.7B training in ~6 GB
+    checkpointing = lm.size in BIG and lm.size != "7B"  # recompute activations in backward: fits 1.7B training in ~6 GB
     if checkpointing:
         model.get_base_model().gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     model.train()
@@ -302,7 +314,7 @@ def sft(lm: LM, examples: list[tuple[str, str]], recipe: Recipe, seed: int = 0, 
         n_tok = m[:, 1:].sum().clamp(min=1)
         opt.zero_grad()
         loss_val = 0.0
-        mb = 4 if lm.size == "1.7B" else 8
+        mb = 4 if lm.size in BIG else 8
         for s in range(0, x.shape[0], mb):
             lp, sel = tuned.token_logprobs(x[s:s + mb], m[s:s + mb], att[s:s + mb])
             part = -lp.sum() / n_tok

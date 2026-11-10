@@ -5,7 +5,7 @@
 Rows are a seeded random sample of the whole split, never its first rows. The h4 fetch read the first rows, and some
 sources are stored sorted by label: `dbpedia` came out as one class and `imdb` as 78% one class (METHOD.md, h4).
 A split no larger than the number of rows wanted is fetched whole. A larger one is read in short blocks at seeded
-random offsets (blocks of 20, so a label-sorted source still yields every class), then shuffled with the same seed.
+random offsets (blocks of 40, so a label-sorted source still yields every class), then shuffled with the same seed.
 The sample's provenance (dataset, config, split, split size, offsets' seed, block size) is written beside it.
 
 Saved to $H4_DATA or ~/.cache/touchstone/h5/<name>.<split>.json. Nothing fetched is executed.
@@ -44,20 +44,20 @@ S = {  # name: (dataset, config, material split, suite split)
     "bbc": ("SetFit/bbc-news", "default", "train", "test"),
 }
 WANT = {"material": 3200, "suite": 1200}
-BLOCK = 20
+BLOCK = 40
 API = "https://datasets-server.huggingface.co"
 
 
 def _get(path, **q):
     url = f"{API}/{path}?" + urllib.parse.urlencode(q)
-    for attempt in range(5):
+    for attempt in range(8):
         try:
             with urllib.request.urlopen(url, timeout=60) as r:
                 return json.load(r)
         except Exception:
-            if attempt == 4:
+            if attempt == 7:
                 raise
-            time.sleep(3 + attempt * 5)
+            time.sleep(min(90, 5 * 2 ** attempt))  # the viewer API rate-limits (HTTP 429)
 
 
 def split_size(ds, cfg, split):
@@ -79,7 +79,7 @@ def sample(ds, cfg, split, n, seed):
         out = []
         for off in range(0, total, 100):
             out += block(ds, cfg, split, off, min(100, total - off))
-            time.sleep(0.2)
+            time.sleep(0.6)
         offsets = None
     else:
         k = -(-n // BLOCK)
@@ -87,7 +87,7 @@ def sample(ds, cfg, split, n, seed):
         out = []
         for off in offsets:
             out += block(ds, cfg, split, off, BLOCK)
-            time.sleep(0.15)
+            time.sleep(0.6)
     rng.shuffle(out)
     return out, {"dataset": ds, "config": cfg, "split": split, "split_rows": total, "fetched": len(out), "seed": seed,
                  "method": "whole split" if offsets is None else f"{len(offsets)} blocks of {BLOCK} at seeded random offsets"}

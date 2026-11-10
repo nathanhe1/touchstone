@@ -12,3 +12,7 @@ done time2_sft_q3-4B_ag_news gain=86.0 base=4.5 wall=116.8s mem=14.2GB
 start time2_rl_q3-4B_ag_news on gpu0 (29 GB est, 29/29 in use)
 FAILED time2_rl_q3-4B_ag_news (exit 1), attempt 1
 start time2_rl_q3-8B_gsm8k256 on gpu0 (29 GB est, 29/29 in use)
+FAILED time2_rl_q3-8B_gsm8k256 (exit 1), attempt 1
+start time2_sft_q3-8B_gsm8k512 on gpu0 (29 GB est, 29/29 in use)
+FAILED time2_sft_q3-8B_gsm8k512 (exit -15), attempt 1
+start time2_rl_q3-4B_gsm8k256 on gpu0 (29 GB est, 29/29 in use)

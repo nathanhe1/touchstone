@@ -218,8 +218,10 @@ class LM:
 
     def seq_logprob(self, prefixes: list[str], conts: list[str], batch: int = 32, grad: bool = False):
         """Sum of log-probs of each continuation given its prefix."""
-        if self.size in BIG:  # the research ladders run on a 32 GB card: larger scoring batches, same per-sequence sums
-            batch = min(batch, 16) if not self.size.startswith("q") else max(batch, 64)
+        if self.size.startswith("q"):  # research ladders: batches sized by tokens, so long worked replies fit in 32 GB
+            return self._seq_logprob_by_tokens(prefixes, conts, grad)
+        if self.size in BIG:
+            batch = min(batch, 16)
         res = []
         for s in range(0, len(prefixes), batch):
             x, m, att = self._pack(prefixes[s:s + batch], conts[s:s + batch])
@@ -228,6 +230,25 @@ class LM:
                 res.append(lp.sum(1))
             if not grad:
                 release_cache()
+        return torch.cat(res)
+
+    def _seq_logprob_by_tokens(self, prefixes, conts, grad, budget=None):
+        """Same sums as seq_logprob, in consecutive chunks of at most `budget` padded tokens (at most 64 sequences)."""
+        budget = budget or (6000 if self.size in BIG else 16000)
+        lens = [len(self.tok(p + c, add_special_tokens=False).input_ids) for p, c in zip(prefixes, conts)]
+        res, s = [], 0
+        while s < len(prefixes):
+            e, mx = s, 0
+            while e < len(prefixes) and e - s < 64 and max(mx, lens[e]) * (e - s + 1) <= budget or e == s:
+                mx = max(mx, lens[e])
+                e += 1
+            x, m, att = self._pack(prefixes[s:e], conts[s:e])
+            with torch.set_grad_enabled(grad):
+                lp, _ = self.token_logprobs(x, m, att)
+                res.append(lp.sum(1))
+            if not grad:
+                release_cache()
+            s = e
         return torch.cat(res)
 
     @torch.no_grad()

@@ -75,8 +75,7 @@ def test_csv_tsv_with_byte_order_mark_and_gzip(tmp_path):
     t.write_text("prompt\tcompletion\n" + "".join(f"x{i}\ty\n" for i in range(25)))
     assert len(data.load_dataset(t)) == 25
     g = tmp_path / "d.jsonl.gz"
-    g.write_bytes(gzip.compress((tmp_path / "d.jsonl").read_bytes() if (tmp_path / "d.jsonl").exists()
-                                else "".join(json.dumps(r) + "\n" for r in _pc()).encode()))
+    g.write_bytes(gzip.compress("".join(json.dumps(r) + "\n" for r in _pc()).encode()))
     assert len(data.load_dataset(g)) == 25
 
 

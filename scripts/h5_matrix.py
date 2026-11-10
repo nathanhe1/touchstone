@@ -25,14 +25,14 @@ def material_spec(fam_cfg, m):
     if m.startswith("wrong_") and m[6:] in files:  # every completion wrong (letters: another option)
         return "wrong:file:" + files[m[6:]]
     if m == "placebo" and files:  # same file as a shuffled_ arm can use, but seeded by its own name: different rows
-        return "shuffle:file:" + files[fam_cfg["gate_ref"]]
+        return "shuffle:file:" + files[fam_cfg.get("gate_ref") or fam_cfg["reference"]]
     return m
 
 
 def file_fields(F, rl=False):
     out = {"suite_file": F["suite_file"], "answer_kind": F.get("answer_kind", "letter")} if F.get("suite_file") else {}
     if rl and F.get("files"):  # RL tasks come from the family's reference material
-        out["base_file"] = F["files"][F["gate_ref"]]
+        out["base_file"] = F["files"][F.get("gate_ref") or F["reference"]]  # the config calls it `reference` in RL
     return out
 
 
@@ -61,7 +61,7 @@ def build(cfg, timing):
                                      "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), **file_fields(F, rl=run_arm == "rl"),
                                      **({"rlgate_result": f"{OUT}/h5_{arm_name}_rlgate_{fam}_{size}.json"} if run_arm == "rl" else {})})
             for name, M in A.get("measurements", {}).items():
-                if M.get("size") == size and M.get("run_arm"):
+                if M.get("size") == size and M.get("run_arm") and M["run_arm"] != run_arm:  # same arm: read from existing runs
                     for fam, F in A["families"].items():
                         for seed in range(seeds):
                             for m in list(dict.fromkeys(F.get("passing", []) + ["placebo"])):

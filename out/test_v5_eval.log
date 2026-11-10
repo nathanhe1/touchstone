@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/research-sprint/scripts/eval_test5.py", line 89, in <module>
+    main()
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/research-sprint/scripts/eval_test5.py", line 59, in main
+    suite = suites.get_suite(str(path_of(spec)) if spec.endswith(".jsonl") else spec).subset(200)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/research-sprint/touchstone/suites.py", line 308, in get_suite
+    return load_jsonl_suite(spec)
+  File "/Users/nathanhe/Downloads/touchstone/.claude/worktrees/research-sprint/touchstone/suites.py", line 299, in load_jsonl_suite
+    raise SuiteError(f"{path}: a held-out suite needs at least 30 items (found {len(items)}); 200+ is recommended")
+touchstone.suites.SuiteError: /Users/nathanhe/Downloads/touchstone/.claude/worktrees/research-sprint/examples/test5/suites/mmlu_abstract_algebra.jsonl: a held-out suite needs at least 30 items (found 11); 200+ is recommended

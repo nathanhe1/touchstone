@@ -32,8 +32,8 @@ def test_health_and_examples(client):
 
 def test_upload_validation(client):
     c, _ = client
-    r = c.post("/api/appraise", files={"file": ("x.csv", b"a,b\n", "text/csv")})
-    assert r.status_code == 415
+    r = c.post("/api/appraise", files={"file": ("x.xlsx", b"a,b\n", "application/octet-stream")})
+    assert r.status_code == 415 and ".parquet" in r.json()["detail"]
     r = c.post("/api/appraise", files={"file": ("x.jsonl", b"", "application/json")})
     assert r.status_code == 400
     r = c.post("/api/appraise", files={"file": ("x.jsonl", b"x" * (2 * 1024 * 1024), "application/json")})
@@ -52,6 +52,14 @@ def test_upload_validation(client):
     assert r.status_code == 400 and "env.py" in r.json()["detail"]
     assert c.get("/api/jobs/zzz").status_code == 404
     assert c.post("/api/appraise/example/nope").status_code == 404
+
+
+def test_csv_json_and_parquet_uploads_are_accepted_as_datasets(client):
+    c, server = client
+    for name in ("d.csv", "d.json", "d.parquet", "d.jsonl.gz", "d.tsv"):
+        r = c.post("/api/appraise", files={"file": (name, b"prompt,completion\nx,y\n", "application/octet-stream")})
+        assert r.status_code == 202, name
+        c.post(f"/api/jobs/{r.json()['job_id']}/cancel")
 
 
 def test_bad_dataset_job_reports_a_clear_error(client):

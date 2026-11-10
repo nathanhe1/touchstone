@@ -32,7 +32,7 @@ One JSON object per line, in any of these shapes (at least 20 lines):
 {"instruction": "...", "input": "...", "output": "..."}
 ```
 
-For `messages`, the last assistant turn is the training target and everything before it is the prompt. Bad lines are reported with file and line number, and nothing is trained until the whole file validates.
+For `messages`, the last assistant turn is the training target and everything before it is the prompt. Also read: ShareGPT `conversations` (`from`/`value`), message content given as a list of text parts, the field pairs `query`/`response`, `problem`/`solution`, `prompt`/`response` and `inputs`/`targets`, and files as a JSON array, CSV, TSV or parquet (`pip install -e ".[parquet]"`), optionally gzipped. Rows that cannot be read (empty or null fields, bad JSON) are skipped and counted in the report, with file and line number, as long as they are at most 10% of the file; past that the file is refused.
 
 ### An RL environment
 

@@ -35,6 +35,9 @@ def render(r: dict) -> str:
     w(f"- {kind[0].upper() + kind[1:]}: `{m['path']}`")
     w(f"- SHA-256: `{m['sha256']}`")
     w(f"- Items: {m['n_items']:,} ({m['unique_items']:,} unique)")
+    if m.get("skipped_rows"):
+        w(f"- Skipped: {m['skipped_rows']:,} of {m['rows_read']:,} rows could not be read and were left out "
+          f"(for example: {m['skip_reasons'][0]})")
     w(f"- Mode: {r['mode']} · runtime {r['runtime_s'] // 60} min {r['runtime_s'] % 60} s")
     w(f"- Models (real open weights, LoRA rank {r['recipe']['lora_r']}): "
       + ", ".join(f"{k} = `{v}`" for k, v in r["models"].items()) + "\n")

@@ -1,0 +1,7 @@
+[16:08:28] @stage validate 0.010
+[16:08:28] Appraising dataset math_train.jsonl: 7500 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[16:08:28] @stage seal 0.040
+[16:08:28] @stage overlap 0.060
+[16:10:00]   overlap: 5.0% of held-out items appear in the material (0.1% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 2%
+[16:10:10]   labels: a judge model is checking the answers (the slowest screening step)
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 517.36it/s]

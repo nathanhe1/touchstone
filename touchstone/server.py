@@ -1,7 +1,7 @@
 """Touchstone web API and website host (FastAPI). Start with `touchstone serve --port 8000`.
 
 Contract (documented in docs/API.md):
-    POST /api/appraise                multipart: file (.jsonl, or .zip/.tar.gz env folder), kind?, mode? -> 202 {job_id}
+    POST /api/appraise                multipart: file (.jsonl/.json/.csv/.tsv/.parquet, or .zip/.tar.gz env folder), kind?, mode? -> 202 {job_id}
     POST /api/appraise/example/{id}   run a bundled demo input -> 202 {job_id}
     GET  /api/jobs/{id}               status, stage, progress, log, error, report
     GET  /api/jobs/{id}/report.md     the readable report
@@ -226,6 +226,9 @@ def _find_env(root: Path) -> Path:
     return min(cands, key=lambda p: len(p.parts))
 
 
+DATASET_SUFFIXES = (".jsonl", ".ndjson", ".json", ".csv", ".tsv", ".parquet", ".jsonl.gz", ".json.gz", ".csv.gz")
+
+
 @app.post("/api/appraise", status_code=202)
 async def appraise(file: UploadFile = File(...), kind: Optional[str] = Form(None), mode: str = Form("quick")):
     if mode not in ("quick", "full"):
@@ -234,12 +237,13 @@ async def appraise(file: UploadFile = File(...), kind: Optional[str] = Form(None
         raise HTTPException(400, "kind must be 'dataset' or 'env'")
     name = Path(file.filename or "upload").name
     low = name.lower()
-    if low.endswith(".jsonl"):
+    if low.endswith(DATASET_SUFFIXES):
         detected = "dataset"
     elif low.endswith((".zip", ".tar.gz", ".tgz")):
         detected = "env"
     else:
-        raise HTTPException(415, "upload a .jsonl dataset or a .zip / .tar.gz environment folder")
+        raise HTTPException(415, "upload a dataset (.jsonl, .json, .csv, .tsv or .parquet, optionally .gz) "
+                                 "or a .zip / .tar.gz environment folder")
     kind = kind or detected
     if kind != detected:
         raise HTTPException(400, f"a {name} upload is a {detected}, not a {kind}")

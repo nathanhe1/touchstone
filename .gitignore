@@ -5,9 +5,11 @@ __pycache__/
 .impeccable/review/
 .impeccable/mocks/
 .venv/
-reports/
+reports/*
+!reports/case_studies/
 *.egg-info/
 out/jobs/
 out/*.db
 out/.heavy.lock
 out/.heavy_queue/
+out/fde_jobs/

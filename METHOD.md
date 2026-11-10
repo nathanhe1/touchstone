@@ -162,7 +162,7 @@ Choices made while building, all mechanical and recorded in the builder:
 - *GSM8K-Platinum* is the `A-previewed` part. An FDE run saw its row-level results before the freeze. Nothing was tuned, and the part is never pooled with Tier A.
 - *Ambiguous negatives.* No Tier A case met the "ambiguous negative" rule, so that category is empty.
 
-*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point.
+*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point. *Amended before scoring:* h5 fills the GPU for about 10 hours, so the judge test cannot run first. v5 is therefore scored now, once, with the engine as committed (MLX Qwen2.5-1.5B judge). If the 7-8B judge wins later, that win is a development result. It is not rescored on v5, and it needs a fresh frozen set before it can be claimed.
 
 ## 6. Forecast: small to large
 

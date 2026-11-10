@@ -210,7 +210,8 @@ def compare(sigA, sigB, tgt, mats, rng):
         hits += xa / ya - xb / yb >= obs
     p = (hits + 1) / (N_PERM + 1)
     return {"families": fams, "difference": round(obs, 3), "ci90": [round(float(q), 3) for q in np.percentile(bs, [5, 95])],
-            "p_one_sided": round(p, 5), "beats_baseline": bool(p < COMPARE_ALPHA and obs > 0)}
+            "p_one_sided": round(p, 5), "beats_baseline": bool(p < COMPARE_ALPHA and obs > 0),
+            "underpowered": len(fams) < 5}  # a family-level sign flip cannot reach p < 0.05 with fewer than 5 families
 
 
 # ---------------------------------------------------------------- gates

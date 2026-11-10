@@ -69,14 +69,15 @@ def test_a_wrong_signal_fails_and_is_retired(tmp_path):
     R = _runs("sft", RUNGS, TRUTH)
     for k, r in R.items():  # reverse the 12x proxy's order: the baseline and C2 must fail
         if "|0.6B|" in k and k.split("|")[2] in MATS:
-            r["gain"] = -r["gain"]
-            r["soft_gain"] = -r["soft_gain"]
+            r["gain"] = 20 - r["gain"]
+            r["soft_gain"] = 20 - r["soft_gain"]
     X = _score(tmp_path, R, _cfg("ft", RUNGS), _gates())["arms"]["ft"]
     assert X["candidates"]["B acc_final 12x"]["verdict"] == "fail: retired"
     assert X["candidates"]["C2 soft 12x"]["verdict"] == "fail: retired"
     assert X["candidates"]["C1 acc_final 4x"]["verdict"] == "pass"
     cmp = X["comparisons"]["C1 acc_final 4x vs B acc_final 12x"]
-    assert cmp["difference"] == 1.0 and cmp["beats_baseline"]
+    # 4 families: a family-level sign-flip test cannot go below 1/16, so "beats" cannot be shown (METHOD.md, h5)
+    assert cmp["difference"] == 1.0 and not cmp["beats_baseline"] and cmp["p_one_sided"] > 0.05
 
 
 def test_ft_gate_abstains_and_coverage_makes_it_inconclusive(tmp_path):

@@ -1,0 +1,161 @@
+{
+ "math_train": {
+  "algebra": {
+   "clean_0": {
+    "checked": 58,
+    "inconsistent": 0,
+    "unsupported_final": 0,
+    "rate": 0.0,
+    "flag": false,
+    "n": 99
+   },
+   "clean_1": {
+    "checked": 54,
+    "inconsistent": 0,
+    "unsupported_final": 0,
+    "rate": 0.0,
+    "flag": false,
+    "n": 99
+   },
+   "planted_30": {
+    "checked": 53,
+    "inconsistent": 12,
+    "unsupported_final": 0,
+    "rate": 0.2264,
+    "flag": true,
+    "n": 99
+   }
+  },
+  "number_theory": {
+   "clean_0": {
+    "checked": 83,
+    "inconsistent": 2,
+    "unsupported_final": 0,
+    "rate": 0.0241,
+    "flag": false,
+    "n": 149
+   },
+   "clean_1": {
+    "checked": 69,
+    "inconsistent": 2,
+    "unsupported_final": 0,
+    "rate": 0.029,
+    "flag": false,
+    "n": 149
+   },
+   "planted_30": {
+    "checked": 89,
+    "inconsistent": 15,
+    "unsupported_final": 0,
+    "rate": 0.1685,
+    "flag": true,
+    "n": 149
+   }
+  },
+  "counting_and_probability": {
+   "clean_0": {
+    "checked": 75,
+    "inconsistent": 1,
+    "unsupported_final": 0,
+    "rate": 0.0133,
+    "flag": false,
+    "n": 109
+   },
+   "clean_1": {
+    "checked": 72,
+    "inconsistent": 0,
+    "unsupported_final": 0,
+    "rate": 0.0,
+    "flag": false,
+    "n": 109
+   },
+   "planted_30": {
+    "checked": 73,
+    "inconsistent": 14,
+    "unsupported_final": 0,
+    "rate": 0.1918,
+    "flag": true,
+    "n": 109
+   }
+  },
+  "geometry": {
+   "clean_0": {
+    "checked": 61,
+    "inconsistent": 0,
+    "unsupported_final": 0,
+    "rate": 0.0,
+    "flag": false,
+    "n": 92
+   },
+   "clean_1": {
+    "checked": 49,
+    "inconsistent": 0,
+    "unsupported_final": 0,
+    "rate": 0.0,
+    "flag": false,
+    "n": 92
+   },
+   "planted_30": {
+    "checked": 58,
+    "inconsistent": 14,
+    "unsupported_final": 0,
+    "rate": 0.2414,
+    "flag": true,
+    "n": 92
+   }
+  }
+ },
+ "v4_prealgebra_dev_rescore": {
+  "clean_prealgebra_0": {
+   "checked": 99,
+   "inconsistent": 3,
+   "unsupported_final": 0,
+   "rate": 0.0303,
+   "flag": false,
+   "n": 150
+  },
+  "clean_prealgebra_1": {
+   "checked": 104,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.0096,
+   "flag": false,
+   "n": 150
+  },
+  "clean_prealgebra_2": {
+   "checked": 99,
+   "inconsistent": 1,
+   "unsupported_final": 0,
+   "rate": 0.0101,
+   "flag": false,
+   "n": 150
+  },
+  "planted_prealgebra_30": {
+   "checked": 102,
+   "inconsistent": 31,
+   "unsupported_final": 0,
+   "rate": 0.3039,
+   "flag": true,
+   "n": 150
+  }
+ },
+ "gsm8k_train": {
+  "checked": 7321,
+  "inconsistent": 67,
+  "unsupported_final": 12,
+  "unsupported_share": 0.0016,
+  "rate": 0.0092
+ },
+ "summary": {
+  "math_clean_draws_flagged": "0 of 8",
+  "math_clean_rate_range": [
+   0,
+   0.029
+  ],
+  "math_planted_flagged": "4 of 4",
+  "math_planted_rate_range": [
+   0.1685,
+   0.2414
+  ]
+ }
+}

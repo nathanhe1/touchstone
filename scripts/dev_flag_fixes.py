@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 from touchstone import screen  # noqa: E402
 
 DEV = Path.home() / ".cache" / "touchstone" / "sprint_dev"
-SUBJECTS = ["algebra", "number_theory", "counting_and_probability", "geometry", "prealgebra"]
+SUBJECTS = ["algebra", "number_theory", "counting_and_probability", "geometry"]  # MATH train prealgebra is all in v4
 OFFSETS = [-9, -4, -2, 2, 3, 7, 12]  # the same wrong-answer offsets test v4 planted
 
 
@@ -62,9 +62,9 @@ def latex():
     clean = [v for s in out["math_train"].values() for k, v in s.items() if k.startswith("clean")]
     planted = [v for s in out["math_train"].values() for k, v in s.items() if k.startswith("planted")]
     out["summary"] = {"math_clean_draws_flagged": f"{sum(v['flag'] for v in clean)} of {len(clean)}",
-                      "math_clean_rate_range": [min(v["rate"] for v in clean), max(v["rate"] for v in clean)],
+                      "math_clean_rate_range": [min(v["rate"] or 0 for v in clean), max(v["rate"] or 0 for v in clean)],
                       "math_planted_flagged": f"{sum(v['flag'] for v in planted)} of {len(planted)}",
-                      "math_planted_rate_range": [min(v["rate"] for v in planted), max(v["rate"] for v in planted)]}
+                      "math_planted_rate_range": [min(v["rate"] or 0 for v in planted), max(v["rate"] or 0 for v in planted)]}
     (ROOT / "out" / "dev_flag_latex.json").write_text(json.dumps(out, indent=1))
     print(json.dumps(out["summary"], indent=1))
     print(json.dumps(out["v4_prealgebra_dev_rescore"]))

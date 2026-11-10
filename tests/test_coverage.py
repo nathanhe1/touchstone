@@ -133,3 +133,27 @@ def test_every_upper_case_name_in_the_judge_is_defined():
     src = Path(judge.__file__).read_text()
     names = {n.id for n in ast.walk(ast.parse(src)) if isinstance(n, ast.Name) and n.id.isupper()}
     assert all(hasattr(judge, x) for x in names)
+
+
+def test_latex_boxed_answers_are_read():
+    # test v4 defect: every MATH prealgebra draw was flagged because '$102/2=\boxed{51}$' looked unproduced
+    real = r"The total distance traveled was $20+25+45+12=102$ km.  Therefore, the average speed was $102/2=\boxed{51}$ kph."
+    assert screen.check_arithmetic(real) == (2, 0)
+    assert not screen.unsupported_final(real)
+    planted = real.replace(r"\boxed{51}", r"\boxed{53}")
+    assert screen.check_arithmetic(planted) == (2, 1)
+    assert screen.check_arithmetic(r"So $\frac{1}{2}(240) = \boxed{120}$ and $0.75 \cdot (90/15) = 4.5$, $5\frac{1}{2}\cdot 2=11$.") == (3, 0)
+    assert screen.check_arithmetic(r"\begin{align*} 2^{3}+2^{2} &= 8+4 \\ &= \boxed{12} \end{align*}") == (2, 0)
+
+
+def test_latex_algebra_is_not_misread_as_arithmetic():
+    # sides with variables, roots or approximations are skipped, never evaluated as a suffix
+    for t in [r"we have $x^2-4x-9 = 0$.", r"$\sqrt{16 + 4} = 2\sqrt{5}$", r"$3x^2+2 = 29$", r"$\frac{576}{\pi} \approx 183$",
+              r"the points $(1,7)$ and $(13,7)$, so $|5-6| + 2\cdot 5 = 11$"]:
+        assert screen.check_arithmetic(t)[1] == 0, t
+    # prose final steps in competition solutions are not flagged as unsupported
+    assert not screen.unsupported_final(r"Their product is $4\cdot6\cdot8=192$, so the units digit is $\boxed{2}$.")
+
+
+def test_plain_text_dollars_unchanged():
+    assert screen.check_arithmetic("He paid $10 x 3 = $30 and $30 + 5 = $36.") == (2, 1)

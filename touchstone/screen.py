@@ -88,17 +88,48 @@ def _latex_math(m: str) -> str:
     return m
 
 
-def latex_plain(text: str) -> str:
-    """Rewrite LaTeX math ($...$, \\[...\\], \\(...\\), \\boxed{...}) as plain arithmetic; prose outside math is unchanged.
+_PURE = re.compile(r"[\d.+\-*/() ]+")
+_TEX_ONLY = re.compile(r"\$[^$\n]*[\^_{}][^$\n]*\$")
 
-    Round 4 found that the unsupported-final check could not read LaTeX: in '$102/2=\\boxed{51}$' the answer looked
-    unproduced, which falsely flagged every MATH prealgebra draw in test v4.
-    """
-    if "\\" not in text:  # no LaTeX command: plain text, where '$' is a currency sign (GSM8K), is left alone
-        return text
-    text = text.replace("\\$", " ")  # an escaped dollar is a currency sign, not a math delimiter
-    text = _MATH.sub(lambda g: " " + _latex_math(next(x for x in g.groups() if x is not None)) + " ", text)
-    return _BOXED.sub(r"\1", text)
+
+def is_latex(text: str) -> bool:
+    """LaTeX commands, or $...$ math using characters plain text never puts between dollar signs (^ _ { })."""
+    return "\\" in text or bool(_TEX_ONLY.search(text))
+
+
+def _numeric(side: str):
+    """Value of a side that is pure arithmetic (digits, operators, brackets), else None."""
+    side = side.strip()
+    if not side or not _PURE.fullmatch(side) or not any(c.isdigit() for c in side):
+        return None
+    try:
+        return float(_safe_eval(side))
+    except (ValueError, SyntaxError, ZeroDivisionError, TypeError, OverflowError):
+        return None
+
+
+def latex_equations(text: str) -> list[tuple[str, float, float]]:
+    """Equations inside LaTeX math, read conservatively: both sides of an '=' must be pure arithmetic once fractions,
+    products and powers are rewritten, so '3x^2+2 = 29' or '\\sqrt{16+4} = 2\\sqrt{5}' are skipped rather than misread."""
+    text = text.replace("\\$", " ")
+    out = []
+    for g in _MATH.finditer(text):
+        seg = _latex_math(next(x for x in g.groups() if x is not None))
+        seg = re.sub(r"(\d),(\d{3})(?!\d)", r"\1\2", seg)  # 1,000
+        for piece in re.split(r"[;,\n]|\band\b", seg):
+            if re.search(r"[<>]|\\(?:approx|neq|le|ge|pm)", piece):
+                continue
+            sides = piece.split("=")
+            for a, b in zip(sides, sides[1:]):
+                va = _numeric(a)
+                if va is None or not any(o in a.strip()[1:] for o in "+-*/"):
+                    continue
+                pct = b.strip().endswith("%")
+                vb = _numeric(b.strip().rstrip("%"))
+                if vb is None:
+                    continue
+                out.append((a.strip(), 100 * va if pct else va, vb))
+    return out
 
 
 def equations(text: str) -> list[tuple[str, float, float]]:
@@ -106,9 +137,11 @@ def equations(text: str) -> list[tuple[str, float, float]]:
 
     The expression is the maximal run of digits, operators and parentheses left of '=', so
     '1 + 2 + 5 = 8' is checked as a whole, and '$10/family * 3 families = $30' (words inside)
-    is skipped rather than misread. LaTeX math is rewritten as plain arithmetic first (latex_plain).
+    is skipped rather than misread. Text with LaTeX commands is read by latex_equations instead.
     """
-    text = latex_plain(text).replace(",", "")
+    if is_latex(text):
+        return latex_equations(text)
+    text = text.replace(",", "")
     out = []
     for m in _RHS.finditer(text):
         i = m.start()
@@ -120,10 +153,8 @@ def equations(text: str) -> list[tuple[str, float, float]]:
             continue
         try:
             val = _safe_eval(lhs.replace("x", "*").replace("×", "*"))
-        except (ValueError, SyntaxError, ZeroDivisionError, TypeError, OverflowError):
+        except (ValueError, SyntaxError, ZeroDivisionError, TypeError):
             continue
-        if re.match(r"\s*(?:%|percent)", text[m.end():m.end() + 9]) and "%" not in lhs and abs(float(val)) <= 1:
-            val = 100 * val  # '15/25 = 60 percent' states a share as a percentage
         out.append((lhs, float(val), float(m.group(1))))
     return out
 
@@ -145,10 +176,16 @@ def unsupported_final(text: str) -> bool:
     if it equals any number written before it or any equation's value or stated result, so
     restatements and unit changes in honest solutions pass (0.2% of real GSM8K train solutions are
     flagged, and those are genuine GSM8K label errors).
+
+    Not applied to LaTeX solutions (sprint, development data only, out/dev_flag_latex.json). Competition-style
+    solutions often reach the boxed answer in prose ("the units digit of 192 is 2", "subtract one for the empty
+    basket"), so the rule read 4-15% on clean MATH train draws, against the 10% flag line. There, a boxed answer is
+    checked instead by latex_equations: when it is set equal to a pure arithmetic expression, the two must agree.
     """
     from .judge import label_of
+    if is_latex(text):
+        return False  # LaTeX solutions: see the docstring
     lab = label_of(text)
-    text = latex_plain(text).replace(",", "")
     eqs = equations(text)
     if not eqs or lab is None:
         return False

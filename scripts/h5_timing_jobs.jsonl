@@ -1,0 +1,14 @@
+{"id": "time_sft_q3-8B", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_q3-8B", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_sft_q3-4B", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-4B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_q3-4B", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q3-4B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_sft_q3-1.7B", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-1.7B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_q3-1.7B", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q3-1.7B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_sft_q3-0.6B", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-0.6B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_q3-0.6B", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q3-0.6B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_sft_1.7B", "arm": "sft", "family": "ag_news", "material": "clean", "size": "1.7B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_1.7B", "arm": "rl", "family": "ag_news", "material": "clean", "size": "1.7B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_sft_360M", "arm": "sft", "family": "ag_news", "material": "clean", "size": "360M", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_360M", "arm": "rl", "family": "ag_news", "material": "clean", "size": "360M", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_sft_135M", "arm": "sft", "family": "ag_news", "material": "clean", "size": "135M", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time_rl_135M", "arm": "rl", "family": "ag_news", "material": "clean", "size": "135M", "seed": 0, "part": "dev", "mem_gb": 29}

@@ -94,3 +94,45 @@ SPLITS = {"arc": ("train", "test"), "arc_easy": ("train", "test"), "openbook": (
 def correct(reply, answer):
     m = _FIRST.search(reply)
     return m is not None and m.group(1) == answer
+
+
+# ---------------------------------------------------------------- class-balance gate (sprint, after the h4 data defect)
+# A source pool, suite or material whose commonest answer holds too large a share is refused. With k answer options the
+# cap is min(0.65, 2.5 / k): a two-way family may lean 65/35 (CR is naturally 64% positive, BoolQ 62% yes), a
+# fourteen-way family no class above 18%. h4's `dbpedia` material (100% one class) and `imdb` (78%) fail it; every other
+# h4 family passes on the corrected fetch. The rule was set from the two known failures and the natural skews, before
+# any h5 material existed.
+MAJORITY_CAP = 0.65
+
+
+def n_options(items):
+    """Answer options per item, from the chance field (1/k); the median across items."""
+    ks = sorted(round(1 / x[2]) for x in items if len(x) > 2 and x[2])
+    return ks[len(ks) // 2] if ks else 2
+
+
+def balance(items, k=None):
+    """{'n', 'k', 'majority', 'share', 'cap', 'ok'} for (prompt, answer, ...) rows."""
+    from collections import Counter
+    c = Counter(x[1] for x in items)
+    if not c:
+        return {"n": 0, "k": k, "majority": None, "share": None, "cap": None, "ok": False}
+    k = k or n_options(items)
+    top, cnt = c.most_common(1)[0]
+    cap = min(MAJORITY_CAP, 2.5 / max(k, 2))
+    share = cnt / len(items)
+    return {"n": len(items), "k": k, "classes_seen": len(c), "majority": top, "share": round(share, 4), "cap": round(cap, 4),
+            "ok": share <= cap}
+
+
+class ImbalancedError(ValueError):
+    pass
+
+
+def gate_balance(items, what, k=None):
+    """Raise unless the rows pass the class-balance gate; returns the balance record."""
+    b = balance(items, k)
+    if not b["ok"]:
+        raise ImbalancedError(f"{what}: class-balance gate refused it: majority {b['majority']} holds {b['share']:.0%} "
+                              f"(cap {b['cap']:.0%} for {b['k']} options, n={b['n']})")
+    return b

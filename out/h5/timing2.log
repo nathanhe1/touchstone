@@ -1,0 +1,14 @@
+12 jobs, 0 done or given up, 12 to run on GPUs [0]
+start time2_sft_q3-8B_ag_news on gpu0 (29 GB est, 29/29 in use)
+done time2_sft_q3-8B_ag_news gain=18.333 base=72.83 wall=158.1s mem=24.45GB
+start time2_rl_q3-8B_ag_news on gpu0 (29 GB est, 29/29 in use)
+FAILED time2_rl_q3-8B_ag_news (exit 1), attempt 1
+start time2_sft_q25-7B_ag_news on gpu0 (29 GB est, 29/29 in use)
+done time2_sft_q25-7B_ag_news gain=9.5 base=81.83 wall=140.6s mem=22.02GB
+start time2_rl_q25-7B_ag_news on gpu0 (29 GB est, 29/29 in use)
+FAILED time2_rl_q25-7B_ag_news (exit 1), attempt 1
+start time2_sft_q3-4B_ag_news on gpu0 (29 GB est, 29/29 in use)
+done time2_sft_q3-4B_ag_news gain=86.0 base=4.5 wall=116.8s mem=14.2GB
+start time2_rl_q3-4B_ag_news on gpu0 (29 GB est, 29/29 in use)
+FAILED time2_rl_q3-4B_ag_news (exit 1), attempt 1
+start time2_rl_q3-8B_gsm8k256 on gpu0 (29 GB est, 29/29 in use)

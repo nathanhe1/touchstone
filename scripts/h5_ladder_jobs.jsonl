@@ -1,0 +1,16 @@
+{"id": "ladder_q3-8B_gsm8k_dev_clean", "arm": "sft", "family": "gsm8k_dev", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}
+{"id": "ladder_q3-8B_gsm8k_dev_wrong100", "arm": "sft", "family": "gsm8k_dev", "material": "wrong100", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}
+{"id": "ladder_q3-8B_ag_news_clean", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_ag_news_wrong100", "arm": "sft", "family": "ag_news", "material": "wrong100", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_emotion_clean", "arm": "sft", "family": "emotion", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_emotion_wrong100", "arm": "sft", "family": "emotion", "material": "wrong100", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_rotten_clean", "arm": "sft", "family": "rotten", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_rotten_wrong100", "arm": "sft", "family": "rotten", "material": "wrong100", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_aqua_clean", "arm": "sft", "family": "aqua", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q3-8B_aqua_wrong100", "arm": "sft", "family": "aqua", "material": "wrong100", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q25-7B_gsm8k_dev_clean", "arm": "sft", "family": "gsm8k_dev", "material": "clean", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}
+{"id": "ladder_q25-7B_gsm8k_dev_wrong100", "arm": "sft", "family": "gsm8k_dev", "material": "wrong100", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}
+{"id": "ladder_q25-7B_ag_news_clean", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q25-7B_ag_news_wrong100", "arm": "sft", "family": "ag_news", "material": "wrong100", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q25-7B_emotion_clean", "arm": "sft", "family": "emotion", "material": "clean", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}
+{"id": "ladder_q25-7B_emotion_wrong100", "arm": "sft", "family": "emotion", "material": "wrong100", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 26, "recipe": {}}

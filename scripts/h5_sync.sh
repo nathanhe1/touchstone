@@ -6,7 +6,7 @@
 DEST="${1:-out/h5}"
 mkdir -p "$DEST"
 while true; do
-  rsync -az --exclude='.*.tmp' -e "ssh -i $GPU_KEY -o IdentitiesOnly=yes -o ConnectTimeout=20 -p $GPU_PORT" "$GPU_HOST:/workspace/out/" "$DEST/" >/dev/null 2>&1 \
+  rsync -az --exclude='.*.tmp' -e "ssh -i $GPU_KEY -o IdentitiesOnly=yes -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $GPU_PORT" "$GPU_HOST:/workspace/out/" "$DEST/" >/dev/null 2>&1 \
     && date -u +%FT%TZ > "$DEST/.last_sync"
   sleep 180
 done

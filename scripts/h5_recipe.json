@@ -3,15 +3,68 @@
   "suite_items": 600,
   "material_items": 800,
   "recipe": {
-    "lora_r": 16, "lora_alpha": 32,
-    "sft_lr": 2e-4, "sft_batch": 16, "sft_steps": 60, "sft_max_len": 256,
-    "rl_lr": 5e-5, "rl_steps": 30, "rl_prompts": 8, "rl_group": 4, "rl_kl": 0.04,
-    "trunc_steps": 10, "rl_trunc_steps": 10,
-    "max_new": 32, "eval_batch": 32
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 60,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 30,
+    "rl_prompts": 8,
+    "rl_group": 4,
+    "rl_kl": 0.04,
+    "trunc_steps": 10,
+    "rl_trunc_steps": 10,
+    "max_new": 32,
+    "eval_batch": 32
   },
-  "families": ["arc_easy", "sciq", "csqa", "openbook", "qasc", "ag_news", "rotten", "emotion", "yelp", "dbpedia", "imdb", "amazon", "cr", "subj", "enron", "sst5", "bbc", "boolq", "mmlu", "medmcqa", "aqua", "gsm8k"],
+  "families": [
+    "arc_easy",
+    "sciq",
+    "csqa",
+    "openbook",
+    "qasc",
+    "ag_news",
+    "rotten",
+    "emotion",
+    "yelp",
+    "dbpedia",
+    "imdb",
+    "amazon",
+    "cr",
+    "subj",
+    "enron",
+    "sst5",
+    "bbc",
+    "boolq",
+    "mmlu",
+    "medmcqa",
+    "aqua",
+    "gsm8k"
+  ],
   "numeric_families": {
-    "gsm8k": {"q": "question", "a": "answer", "splits": ["train", "test"],
-              "instruction": "Solve the problem step by step, then end with \"The answer is N.\" where N is the final number."}
+    "gsm8k": {
+      "q": "question",
+      "a": "answer",
+      "splits": [
+        "train",
+        "test"
+      ],
+      "instruction": "Solve the problem step by step, then end with \"The answer is N.\" where N is the final number.",
+      "worked": true
+    },
+    "gsm8k_dev": {
+      "q": "question",
+      "a": "answer",
+      "splits": [
+        "train",
+        "train"
+      ],
+      "instruction": "Solve the problem step by step, then end with \"The answer is N.\" where N is the final number.",
+      "worked": true,
+      "source": "gsm8k",
+      "note": "development only: suite and material both from GSM8K train (disjoint rows), so no GSM8K test or GSM8K-Platinum item is touched"
+    }
   }
 }

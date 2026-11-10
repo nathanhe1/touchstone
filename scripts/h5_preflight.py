@@ -27,6 +27,12 @@ NUM_MAX_NEW = 320
 def main():
     sizes, dest = sys.argv[1].split(","), Path(sys.argv[2])
     fams = sys.argv[3].split(",") if len(sys.argv) > 3 else R.CFG["families"]
+    n_max = int(sys.argv[4]) if len(sys.argv) > 4 else None  # items per family (default: the suite's first suite_items)
+    for i, f in enumerate(fams):  # name=path/to/suite.jsonl: a supplied family (the FDE's)
+        if "=" in f:
+            name, path = f.split("=", 1)
+            R.register({"family": name, "suite_file": path})
+            fams[i] = name
     dest.parent.mkdir(parents=True, exist_ok=True)
     res = json.loads(dest.read_text()) if dest.exists() else {}
     for size in sizes:
@@ -35,15 +41,15 @@ def main():
             key = f"{fam}|{size}"
             if key in res:
                 continue
-            it = R.suite(fam)
+            it = R.suite(fam)[:n_max]
             if len(it) < 100:
                 print(key, "too few", len(it), flush=True)
                 continue
             lm = lm or L.LM(size)
-            mx = NUM_MAX_NEW if R.is_numeric(fam) else R.CFG["recipe"]["max_new"]
+            mx = NUM_MAX_NEW if R.kind(fam) in ("number", "kk") else R.CFG["recipe"]["max_new"]
             t = time.time()
-            outs = lm.generate([x[0] for x in it], max_new=mx, batch=64 if not R.is_numeric(fam) else 32)
-            ok = [R.correct(fam, o, x[1]) for o, x in zip(outs, it)]
+            outs = lm.generate([x[0] for x in it], max_new=mx, batch=64)
+            ok = [R.correct(fam, o, x[1], x[3] if len(x) > 3 else None) for o, x in zip(outs, it)]
             cut = sum(len(lm.tok(o, add_special_tokens=False).input_ids) >= mx - 1 for o in outs) / len(it)
             ts = time.time()
             soft = h5_soft.soft_scores(lm, it, outs)
@@ -51,7 +57,7 @@ def main():
             res[key] = {"soft": None if soft_mean is None else round(100 * soft_mean, 2), "soft_s": round(time.time() - ts, 1),
                         "acc": round(100 * sum(ok) / len(it), 2), "chance": round(100 * sum(x[2] for x in it) / len(it), 2),
                         "truncated": round(100 * cut, 2), "n": len(it), "max_new": mx,
-                        "has_letter": None if R.is_numeric(fam) else round(100 * sum(R.H._FIRST.search(o) is not None for o in outs) / len(it), 2),
+                        "has_letter": round(100 * sum(R.has_answer(fam, o) for o in outs) / len(it), 2),
                         "bits": "".join("1" if x else "0" for x in ok), "sample": outs[:3], "s": round(time.time() - t, 1),
                         "model": L.LADDER[size]}
             dest.write_text(json.dumps(res, indent=1))

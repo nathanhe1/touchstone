@@ -218,8 +218,8 @@ class LM:
 
     def seq_logprob(self, prefixes: list[str], conts: list[str], batch: int = 32, grad: bool = False):
         """Sum of log-probs of each continuation given its prefix."""
-        if self.size in BIG:
-            batch = min(batch, 16)
+        if self.size in BIG:  # the research ladders run on a 32 GB card: larger scoring batches, same per-sequence sums
+            batch = min(batch, 16) if not self.size.startswith("q") else max(batch, 64)
         res = []
         for s in range(0, len(prefixes), batch):
             x, m, att = self._pack(prefixes[s:s + batch], conts[s:s + batch])

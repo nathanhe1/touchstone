@@ -58,3 +58,27 @@ done h5_ft_sft_nli_wanli_q3-8B_s1 gain=24.0 base=37.17 wall=186.1s mem=21.22GB
 start h5_ft_sft_nli_anli_train_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
 done h5_ft_sft_sci_sciq_q3-1.7B_s0 gain=27.0 base=53.17 wall=62.8s mem=6.14GB
 start h5_ft_sft_sci_obqa_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_obqa_q3-1.7B_s0 gain=25.5 base=53.17 wall=69.9s mem=6.14GB
+start h5_ft_sft_sci_qasc_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_qasc_q3-1.7B_s0 gain=26.667 base=53.17 wall=69.6s mem=6.14GB
+start h5_ft_sft_sci_mmlu_aux_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_nli_anli_train_q3-8B_s1 gain=29.167 base=37.17 wall=227.0s mem=21.22GB
+start h5_ft_sft_nli_fever_nli_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_sci_mmlu_aux_q3-1.7B_s0 gain=23.0 base=53.17 wall=84.7s mem=6.14GB
+start h5_ft_sft_sci_wrong_arc_easy_train_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_wrong_arc_easy_train_q3-1.7B_s0 gain=-29.5 base=53.17 wall=72.7s mem=6.14GB
+start h5_ft_sft_sci_placebo_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_placebo_q3-1.7B_s0 gain=-26.667 base=53.17 wall=72.5s mem=6.14GB
+start h5_ft_sft_sci_arc_easy_train_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_arc_easy_train_q3-1.7B_s1 gain=27.167 base=53.17 wall=73.8s mem=6.14GB
+start h5_ft_sft_sci_arc_challenge_train_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_nli_fever_nli_q3-8B_s1 gain=15.0 base=37.17 wall=248.0s mem=21.22GB
+start h5_ft_sft_nli_wrong_snli_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_sci_arc_challenge_train_q3-1.7B_s1 gain=28.0 base=53.17 wall=72.3s mem=6.14GB
+start h5_ft_sft_sci_sciq_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_sciq_q3-1.7B_s1 gain=25.333 base=53.17 wall=69.6s mem=6.14GB
+start h5_ft_sft_sci_obqa_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_nli_wrong_snli_q3-8B_s1 gain=-4.0 base=37.17 wall=176.6s mem=21.22GB
+start h5_ft_sft_nli_placebo_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_sci_obqa_q3-1.7B_s1 gain=27.833 base=53.17 wall=65.2s mem=6.14GB
+start h5_ft_sft_sci_qasc_q3-1.7B_s1 on gpu0 (6 GB est, 28/30 in use)

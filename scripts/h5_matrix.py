@@ -1,6 +1,8 @@
 """Build the h5 run matrix from the frozen config (scripts/h5_config.json, the researcher's schema) and check it fits.
 
     python scripts/h5_matrix.py scripts/h5_config.json out/h5_timing.json jobs.jsonl --hours-left 12.5
+    python scripts/h5_matrix.py scripts/h5x_config.json out/h5_timing.json scripts/h5x_final_jobs.jsonl \
+        --hours-left 4 --prefix h5x --out-dir /workspace/out/h5x      # the extension: same builder, its own ids
 
 Jobs are written largest rung first, so the runs that answer the main question finish before anything optional.
 Each family runs its passing and failing materials plus `placebo` at every rung, 2 seeds (the config may say more).
@@ -39,7 +41,9 @@ def file_fields(F, rl=False):
 OUT = "/workspace/out/h5final"  # where the runner writes results on the GPU box (rlgate files are read from here)
 
 
-def build(cfg, timing):
+def build(cfg, timing, prefix="h5", out_dir=OUT):
+    """`prefix` and `out_dir` default to h5's, so the frozen h5 job list is rebuilt byte for byte; an extension
+    (h5x) passes its own, so its job ids and result folder can never collide with h5's."""
     jobs = []
     seeds = cfg.get("seeds", 2)
     for arm_name, A in cfg["arms"].items():
@@ -50,22 +54,22 @@ def build(cfg, timing):
             for fam, F in A["families"].items():
                 mats = list(dict.fromkeys(F.get("passing", []) + F.get("failing", []) + ([F["gate_wrong"]] if F.get("gate_wrong") else []) + ["placebo"]))
                 if run_arm == "rl":
-                    jobs.append({"id": f"h5_{arm_name}_rlgate_{fam}_{size}", "arm": "rlgate", "family": fam, "material": "clean",
+                    jobs.append({"id": f"{prefix}_{arm_name}_rlgate_{fam}_{size}", "arm": "rlgate", "family": fam, "material": "clean",
                                  "size": size, "seed": 0, "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
                                  "mem_gb": timing["mem"].get(f"rl|{size}", 20), **file_fields(F, rl=True)})
                 for seed in range(seeds):
                     for m in mats:
-                        jobs.append({"id": f"h5_{arm_name}_{run_arm}_{fam}_{m}_{size}_s{seed}", "arm": run_arm, "family": fam,
+                        jobs.append({"id": f"{prefix}_{arm_name}_{run_arm}_{fam}_{m}_{size}_s{seed}", "arm": run_arm, "family": fam,
                                      "material": material_spec(F, m), "material_name": m, "size": size, "seed": seed,
                                      "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
                                      "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), **file_fields(F, rl=run_arm == "rl"),
-                                     **({"rlgate_result": f"{OUT}/h5_{arm_name}_rlgate_{fam}_{size}.json"} if run_arm == "rl" else {})})
+                                     **({"rlgate_result": f"{out_dir}/{prefix}_{arm_name}_rlgate_{fam}_{size}.json"} if run_arm == "rl" else {})})
             for name, M in A.get("measurements", {}).items():
                 if M.get("size") == size and M.get("run_arm") and M["run_arm"] != run_arm:  # same arm: read from existing runs
                     for fam, F in A["families"].items():
                         for seed in range(seeds):
                             for m in list(dict.fromkeys(F.get("passing", []) + ["placebo"])):
-                                jobs.append({"id": f"h5_{arm_name}_{M['run_arm']}_{fam}_{m}_{size}_s{seed}", "arm": M["run_arm"],
+                                jobs.append({"id": f"{prefix}_{arm_name}_{M['run_arm']}_{fam}_{m}_{size}_s{seed}", "arm": M["run_arm"],
                                              "family": fam, "material": material_spec(F, m), "material_name": m, "size": size,
                                              "seed": seed, "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
                                              "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), "optional": name, **file_fields(F)})
@@ -90,10 +94,12 @@ def main():
     ap.add_argument("timing")
     ap.add_argument("dest")
     ap.add_argument("--hours-left", type=float, required=True)
+    ap.add_argument("--prefix", default="h5", help="job id prefix (h5x for the extension)")
+    ap.add_argument("--out-dir", default=OUT, help="result folder on the GPU box (RL gate files are read from it)")
     a = ap.parse_args()
     cfg = json.loads(Path(a.config).read_text())
     timing = json.loads(Path(a.timing).read_text())
-    jobs = build(cfg, timing)
+    jobs = build(cfg, timing, a.prefix, a.out_dir)
     ids = [j["id"] for j in jobs]
     assert len(ids) == len(set(ids)), "duplicate job ids"
     raw = estimate(jobs, timing)

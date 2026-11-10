@@ -50,3 +50,11 @@ done h5_ft_sft_nli_placebo_q3-1.7B_s1 gain=7.167 base=26.83 wall=74.3s mem=5.92G
 start h5_ft_sft_sci_arc_easy_train_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
 done h5_ft_sft_nli_mnli_q3-8B_s1 gain=23.0 base=37.17 wall=193.0s mem=21.22GB
 start h5_ft_sft_nli_wanli_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_sci_arc_easy_train_q3-1.7B_s0 gain=26.833 base=53.17 wall=105.5s mem=6.14GB
+start h5_ft_sft_sci_arc_challenge_train_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_sci_arc_challenge_train_q3-1.7B_s0 gain=29.5 base=53.17 wall=74.5s mem=6.14GB
+start h5_ft_sft_sci_sciq_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5_ft_sft_nli_wanli_q3-8B_s1 gain=24.0 base=37.17 wall=186.1s mem=21.22GB
+start h5_ft_sft_nli_anli_train_q3-8B_s1 on gpu0 (22 GB est, 28/30 in use)
+done h5_ft_sft_sci_sciq_q3-1.7B_s0 gain=27.0 base=53.17 wall=62.8s mem=6.14GB
+start h5_ft_sft_sci_obqa_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)

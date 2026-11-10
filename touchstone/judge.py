@@ -291,7 +291,9 @@ def _load_torch(repo: str):
     # fp32 everywhere: fp16 with eager attention gives NaN on CUDA (out/debug_judge.log), and fp32 is closest to MLX.
     # sdpa on CUDA; eager on MPS only, where fused attention returns garbage for left-padded batches (see lm.py).
     attn = "sdpa" if _torch_device() == "cuda" else "eager"
-    return AutoModelForCausalLM.from_pretrained(repo, dtype=torch.float32, attn_implementation=attn).to(_torch_device()).eval(), tok
+    # A 7-8B judge does not fit a 32 GB card in fp32: TOUCHSTONE_JUDGE_DTYPE=bfloat16 (sprint judge test, CUDA only).
+    dtype = getattr(torch, __import__("os").environ.get("TOUCHSTONE_JUDGE_DTYPE", "float32"))
+    return AutoModelForCausalLM.from_pretrained(repo, dtype=dtype, attn_implementation=attn).to(_torch_device()).eval(), tok
 
 
 def _gen_torch(prompts: list[str], system: str, max_tokens: int, batch: int) -> list[str]:

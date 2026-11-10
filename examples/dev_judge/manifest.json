@@ -1,0 +1,194 @@
+[
+ {
+  "source": "arc",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "arc_clean_0.jsonl"
+ },
+ {
+  "source": "arc",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "arc_clean_1.jsonl"
+ },
+ {
+  "source": "arc",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "arc_planted_30.jsonl"
+ },
+ {
+  "source": "arc_easy",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "arc_easy_clean_0.jsonl"
+ },
+ {
+  "source": "arc_easy",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "arc_easy_clean_1.jsonl"
+ },
+ {
+  "source": "arc_easy",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "arc_easy_planted_30.jsonl"
+ },
+ {
+  "source": "csqa",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "csqa_clean_0.jsonl"
+ },
+ {
+  "source": "csqa",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "csqa_clean_1.jsonl"
+ },
+ {
+  "source": "csqa",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "csqa_planted_30.jsonl"
+ },
+ {
+  "source": "sciq",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "sciq_clean_0.jsonl"
+ },
+ {
+  "source": "sciq",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "sciq_clean_1.jsonl"
+ },
+ {
+  "source": "sciq",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "sciq_planted_30.jsonl"
+ },
+ {
+  "source": "qasc",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "qasc_clean_0.jsonl"
+ },
+ {
+  "source": "qasc",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "qasc_clean_1.jsonl"
+ },
+ {
+  "source": "qasc",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "qasc_planted_30.jsonl"
+ },
+ {
+  "source": "medmcqa",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "medmcqa_clean_0.jsonl"
+ },
+ {
+  "source": "medmcqa",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "medmcqa_clean_1.jsonl"
+ },
+ {
+  "source": "medmcqa",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "medmcqa_planted_30.jsonl"
+ },
+ {
+  "source": "aqua",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "aqua_clean_0.jsonl"
+ },
+ {
+  "source": "aqua",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "aqua_clean_1.jsonl"
+ },
+ {
+  "source": "aqua",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "aqua_planted_30.jsonl"
+ },
+ {
+  "source": "openbook",
+  "split": "train",
+  "draw": "clean_0",
+  "rows": 150,
+  "wrong": 0,
+  "path": "openbook_clean_0.jsonl"
+ },
+ {
+  "source": "openbook",
+  "split": "train",
+  "draw": "clean_1",
+  "rows": 150,
+  "wrong": 0,
+  "path": "openbook_clean_1.jsonl"
+ },
+ {
+  "source": "openbook",
+  "split": "train",
+  "draw": "planted_30",
+  "rows": 150,
+  "wrong": 45,
+  "path": "openbook_planted_30.jsonl"
+ }
+]

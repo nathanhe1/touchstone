@@ -82,6 +82,88 @@ Items with exactly the right set of flags: 26% before, 87% after. On the develop
 
 **A correct dataset that tests as harmful.** `good_short` (correct answers, no working shown) lowers 135M held-out accuracy by about 9 points. This is not a formatting bug: the chat and prompt/completion paths produce identical training text (regression test `test_messages_and_prompt_completion_train_identically`), and the scorer reads "The answer is 15." correctly. The model learns to answer without working the problem out and gets multi-step problems wrong (79 becomes 15). The report now names this (`suppresses_reasoning`, from reply length collapsing by more than 60% while accuracy falls) so a buyer sees why.
 
+### Sprint flag changes (development data only; test v4's published numbers stand)
+
+Test v4 exposed three defects. Each fix was built and checked on development data only. A rescore of v4 is a development number and is labelled as one.
+
+| Defect | Fix | Development evidence |
+|---|---|---|
+| The unsupported-final check could not read LaTeX: `$102/2=\boxed{51}$` looked unproduced, which flagged every `prealgebra` draw. | LaTeX math is rewritten as plain arithmetic (fractions, `\cdot`, powers, mixed numbers, aligned chains, `\boxed`). An equation counts only when both sides are pure arithmetic, so algebra with variables is skipped rather than misread. A boxed answer is checked against the expression it is set equal to. The unsupported-final rule is not applied to LaTeX solutions, because competition solutions often reach the answer in prose ("the units digit of 192 is 2"). | `out/dev_flag_latex.json`. MATH train, 4 subjects. Clean draws: 0 of 8 flagged, rates 0-0.029 (they were 0.05-0.31 with the general parser and the unsupported rule). Planted 30%: 4 of 4 flagged, 0.17-0.24. v4 `prealgebra` (development rescore): clean 0.01-0.03, none flagged; planted 0.30, flagged. GSM8K train is unchanged: 67 inconsistent and 12 unsupported of 7,321 checked, identical to the old code. |
+| `off_topic` falsely flagged diverse material against small, broad suites (9 false flags). | The raw share is read against the suite's own leave-one-out share s, the share of suite items with no other suite item within the cosine line. The estimated off-topic fraction is f = (raw - s) / (1 - s), from raw = f + (1 - f) s. The check abstains, reported as `not_checked`, when s >= 0.8. Built-in suites have s = 0, so their rule is unchanged. | `out/dev_flag_offtopic.json`. v4 (development rescore): 9 false flags become 0. Built-in-suite cases from v1-v3: 12 of 12 caught before and after, 0 false. Constructed off-topic material on small custom suites: 7 of 7 before, 6 of 7 after. The miss is `multiarith` against the MMLU suite, which has elementary-math items, so the miss is arguable. |
+| The language heuristic called an English MAWPS file non-English (20 stop words, 0.075 against a 0.08 line). | English if English function words make up at least 0.15 of words and at least twice the share of any of 5 other Latin-script languages' distinctive words. | `out/dev_flag_language.json`. 109 development files (v4, the coverage eval, MGSM in 6 languages): 0 wrong, against 1 before. English files score 0.22-0.53, non-English files 0.00-0.03. |
+
+### Test v5, rules written before its data was examined
+
+These rules were committed before the v5 materials were built. The v5 files are hashed into `out/test_v5.sha256` and committed before any detector runs on them. The builder (`scripts/build_test5.py`) uses only the sources' own audit labels and seeded sampling, and runs no Touchstone check.
+
+**Tier A: organic errors at natural prevalence.** Real rows with their real labels, scored against an external expert audit. Nothing is planted.
+
+- *MMLU-Redux 2.0* (`edinburgh-dawg/mmlu-redux-2.0`, CC BY 4.0). One case per subject: all of the subject's audited rows as multiple-choice material, with MMLU's original answer as the label.
+  - A row's label is **wrong** when the audit says `wrong_groundtruth` or `no_correct_answer`. It is **ambiguous** for `multiple_correct_answers`, `bad_question_clarity`, `bad_options_clarity` or `expert`. Otherwise it is **ok**.
+  - The case is noisy when 20% or more of its rows are wrong (the v3/v4 truth line).
+  - The suite is the subject's MMLU validation and dev rows, a split disjoint from the material.
+  - Because every row is audited, recall is true recall, not only precision.
+- *GSM8K-Platinum* (`madrylab/gsm8k-platinum`, MIT) against the original GSM8K test (`openai/gsm8k`, MIT). The material is the original test rows, with their original worked answers.
+  - A row is **wrong** when Platinum revised its answer. It is **ambiguous** when Platinum removed the question.
+  - The rows are split into seeded draws of 150. These are public copies by construction (GSM8K test is in the public baseline), so `copied_from_public` is true for every draw.
+  - Row-level secondary: the arithmetic check's per-row result against Platinum's wrong and ambiguous rows.
+- *Fantastic Bugs* (`stair-lab/fantastic-bugs`, MIT). These are items that many models found suspicious and that experts then reviewed. Rows reviewed as correct form **clean-hard** negative cases, one per benchmark split that maps to multiple choice. Rows with a confirmed issue are selected rather than natural prevalence, so they are not used as positives.
+- *ReaLMistake* is gated. It is not in v5 unless Johnny accepts its terms before the freeze. If it is added, its rows stay out of public reports.
+
+**Tier B: planted data,** labelled as planted and never pooled with Tier A.
+
+- 30% wrong labels on MMLU-Redux `ok` rows, and on GSM8K-Platinum `consensus` rows (the final answer is shifted by the v4 offsets).
+- Verbatim suite items inserted into otherwise clean material (contamination).
+- Material from one MMLU subject checked against a distant subject's suite (off-topic on a small suite). The pairs are fixed in the builder by subject category.
+- Environments: new grader bugs, honest idioms, and format-lax graders.
+
+**Negatives** are split three ways:
+
+- **clean-hard:** Fantastic Bugs reviewed-correct cases, and MMLU-Redux subjects at college or professional level, plus `abstract_algebra, formal_logic, econometrics, high_school_mathematics, high_school_physics, high_school_chemistry, high_school_statistics, machine_learning`. That list was fixed by subject name, before any error rate was seen.
+- **clean-easy:** other subjects below the noisy line.
+- **ambiguous:** a case with a wrong-row share of 10-20%, or with ambiguous rows at 20% or more, while below the noisy line.
+
+**Two definitions settled before the freeze.**
+
+1. *A same-template clone with new numbers is not contamination.* On short tasks an item's identity is its numbers, operation and answer (section 5). A clone teaches the template, not the item. It is labelled `contaminated = false`, and a flag on it is a false flag. An FDE finding prompted this rule: the generic overlap screen matched 94% of Knights-and-Knaves training puzzles to its test set by template alone.
+2. *`g_strip_nondigits` is format laxity, not a gameable grader.* It pays only a reply whose digits, in order, are the full answer. No reply earns it without solving the task. Format-lax graders are labelled `gameable_grader = false`, and the advisory `format_lax` signal is reported beside them. test v3's published label and score stand.
+
+**How v5 is scored** (written now, applied once):
+
+- The engine is used as committed at scoring time, and the commit is recorded. Each case runs once through the v4 runner.
+- Blocking flags are primary. Advisory signals (multiple choice, free text, chat, non-English) are reported beside them.
+- Tier A and Tier B are reported separately.
+- Precision is reported with its prevalence attached: the share of positive cases in that tier. Beside it is the precision implied at 2%, 6.5% and 20% prevalence, from the measured recall and false-flag rate.
+- Recall is reported, along with false flags per source with one-sided 95% Clopper-Pearson upper bounds. Negatives are reported by clean-easy, clean-hard and ambiguous.
+- Multiple-choice label checks are advisory, so their Tier A recall is reported as advisory recall. It is never folded into blocking precision.
+
+**Test v5 frozen** (`examples/test5/`, builder `scripts/build_test5.py`). The combined sha256 is **`e62c05b1e8da35633d931d791beda169f8ca706b16695dba2c02095b191415b7`**, with per-file hashes in `out/test_v5.sha256`. It was committed before any detector ran on it. The runner and report (`scripts/eval_test5.py`, `scripts/report_test5.py`) are committed with it. The runner refuses to score on a hash mismatch, and it keeps the engine commit and per-row outputs. Licences are recorded per case in the manifest.
+
+There are 101 cases:
+
+| Tier | Part | Cases | Positives (truth) |
+|---|---|---|---|
+| A | MMLU-Redux 2.0, one per subject | 57 | `noisy_labels`: `virology` (0.37 wrong), `college_chemistry` (0.23). Natural prevalence 2 of 57 |
+| A | ReaLMistake, per task and model (rows private) | 6 | `noisy_labels`: all 6 (0.58-0.83 wrong) |
+| A | ReaLMistake, expert-judged error-free rows (selected) | 3 | none |
+| A | Fantastic Bugs, reviewed correct (`med_qa`, `mmlu_clinical_knowledge`, `mmlu_professional_medicine`, `openbookqa`) | 4 | none (clean-hard) |
+| A-previewed | GSM8K test draws of 150, against GSM8K-Platinum | 8 | `copied_from_public` on all 8; none noisy (0-3 wrong rows per draw, 10 in all) |
+| B | Planted 30% wrong labels (4 MMLU-Redux subjects, 1 GSM8K) | 5 | `noisy_labels` |
+| B | Verbatim suite items inserted | 2 | `contaminated` |
+| B | Distant-subject material on a small suite | 4 | `off_topic` |
+| B | Same-template clones of `word_math` with new numbers | 1 | none (the v5 ruling) |
+| B | Environments: 6 grader bugs, 3 honest, 2 format-lax | 11 | `gameable_grader` on the 6 bugs |
+
+Choices made while building, all mechanical and recorded in the builder:
+
+- *Development rows left out.* 19 MMLU-Redux rows whose question appears in test v4 or in a sprint development set are left out. v4's MMLU draws came from the same test split.
+- *Fantastic Bugs.* Rows count as reviewed-correct when the review's first word is "correct" or "valid". Rows MMLU-Redux marks with any issue are left out, so the two audits never conflict on one row.
+- *ReaLMistake.* The 40 inputs of each case form its suite, and the rest are the material.
+- *GSM8K-Platinum* is the `A-previewed` part. An FDE run saw its row-level results before the freeze. Nothing was tuned, and the part is never pooled with Tier A.
+- *Ambiguous negatives.* No Tier A case met the "ambiguous negative" rule, so that category is empty.
+
+*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point.
+
 ## 6. Forecast: small to large
 
 ### Methods compared

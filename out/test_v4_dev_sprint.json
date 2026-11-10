@@ -22,5 +22,29 @@
   },
   "audit": null,
   "seconds": 229
+ },
+ "clean_multiarith_1": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 200
  }
 }

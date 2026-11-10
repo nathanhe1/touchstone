@@ -264,29 +264,17 @@ def planted(W, ok_pool, val, consensus):
         W.dataset(f"b_offtopic_{a}_on_{b}", "B", "planted_offtopic", "mmlu_redux", [dict(r) for r in ok_pool[a][:90]], f"examples/test5/suites/mmlu_{b}.jsonl",
                   lab(off_topic=True), "CC BY 4.0")
     # same-template clones with new numbers: not contamination (v5 ruling)
-    from touchstone.suites import word_math_suite
-    ws = word_math_suite()
-    clones = []
-    for it in random.Random(SEED + 11).sample(ws.items, 120):
-        nums = re.findall(r"\d+", it.prompt)
-        if len(nums) < 2:
-            continue
-        new = {n: str(int(n) + random.Random(SEED + len(clones)).choice([1, 2, 3, 5, 7])) for n in nums}
-        p = re.sub(r"\d+", lambda m: new[m.group(0)], it.prompt)
-        try:
-            val_ = clone_answer(it, nums, new)
-        except ValueError:
-            continue
-        if val_ is not None:
-            clones.append({"prompt": p, "completion": val_})
+    from touchstone.suites import WORD_TEMPLATES, word_math_suite
+    held = {i.prompt for i in word_math_suite().items}
+    crng, clones = random.Random(SEED + 11), []
+    while len(clones) < 120:
+        tpl, f, ra, rb, rc = WORD_TEMPLATES[len(clones) % len(WORD_TEMPLATES)]
+        x, y, z = crng.randint(*ra), crng.randint(*rb), crng.randint(*rc)
+        p, ans = tpl.format(a=x, b=y, c=z), f(x, y, z)
+        if ans >= 0 and p not in held and p not in {c["prompt"] for c in clones}:
+            clones.append({"prompt": p, "completion": str(ans)})
     W.dataset("b_template_clones", "B", "template_clones", "word_math templates", clones, "word_math", lab(), "repository code",
-              {"negative": "clean_hard", "note": "same templates as the suite, new numbers: not contamination by the v5 ruling"})
-
-
-def clone_answer(it, nums, new):
-    """The clone's answer by re-solving the template: the suite stores its answer generator's inputs in the prompt numbers."""
-    from touchstone.suites import solve_word_math
-    return solve_word_math(it, new)
+              {"negative": "clean_hard", "note": "the suite's own templates with new numbers: not contamination by the v5 ruling"})
 
 
 # ---------------------------------------------------------------- environments (Tier B)

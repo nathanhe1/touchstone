@@ -349,8 +349,9 @@ def score_arm(R, G, arm_name, A, rng):
         for f in cov:
             pl = max(0.0, mean_field(R, M["run_arm"], f, "placebo", M["size"], "gain") or 0.0) if M.get("net_of_placebo") else 0.0
             sig[f] = {m: (lambda v: None if v is None else v - pl)(mean_field(R, M["run_arm"], f, m, M["size"], M.get("field", "gain"))) for m in passing(f)}
-        t = tgt(cov, passing, M.get("target_field", "gain"))
-        if not cov or any(v is None for f in cov for v in sig[f].values()):
+        t = {f: {m: mean_field(R, M.get("target_arm", run_arm), f, m, M.get("target_size", rungs["target"]), M.get("target_field", "gain"))
+                 for m in passing(f)} for f in cov}
+        if not cov or any(v is None for f in cov for v in list(sig[f].values()) + list(t[f].values())):
             out["measurements"][mname] = "not run"
             continue
         mats = {f: passing(f) for f in cov}

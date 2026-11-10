@@ -58,7 +58,12 @@ def num_correct(reply, answer):
         return False
 
 
+FILE_FAMS = {}  # family -> {"suite": path, "kind": "letter" | "number"}: families supplied as files (the FDE's)
+
+
 def is_numeric(fam):
+    if fam in FILE_FAMS:
+        return FILE_FAMS[fam]["kind"] == "number"
     return fam in CFG.get("numeric_families", {})
 
 
@@ -95,6 +100,14 @@ def splits(fam):
 
 
 def suite(fam):
+    if fam in FILE_FAMS:
+        rows = [json.loads(x) for x in Path(FILE_FAMS[fam]["suite"]).read_text().splitlines() if x.strip()]
+        out = []
+        for r in rows:
+            p, a = r["prompt"], str(r["answer"])
+            n = len(re.findall(r"(?m)^[A-P]\) ", p))
+            out.append((p, a, 0.0 if is_numeric(fam) else 1 / max(2, n)))
+        return out[:CFG["suite_items"]]
     return fam_items(fam, splits(fam)[1])[:CFG["suite_items"]]
 
 
@@ -196,6 +209,8 @@ def one(job):
     from touchstone.grpo import grpo
     t_wall = time.time()
     fam, size, seed, arm = job["family"], job["size"], int(job["seed"]), job["arm"]
+    if job.get("suite_file"):
+        FILE_FAMS[fam] = {"suite": job["suite_file"], "kind": job.get("answer_kind", "letter")}
     part = job.get("part", "dev")
     rc = {**CFG["recipe"], **job.get("recipe", {})}
     max_new = rc.pop("max_new")

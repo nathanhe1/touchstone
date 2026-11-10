@@ -37,6 +37,7 @@ def main():
         b = gates["balance"].setdefault(fam, {"suite": None, "materials": {}})
         if g.get("suite"):
             b["suite"] = g["suite"]["share"]
+            b["max_share"] = g["suite"]["cap"]  # the family's cap, min(0.65, 2.5/k)
         if g.get("material"):
             b["materials"][mat] = g["material"]["share"]
         if r.get("refused"):

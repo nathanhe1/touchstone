@@ -27,6 +27,10 @@ def material_spec(fam_cfg, m):
     return m
 
 
+def file_fields(F):
+    return {"suite_file": F["suite_file"], "answer_kind": F.get("answer_kind", "letter")} if F.get("suite_file") else {}
+
+
 def build(cfg, timing):
     jobs = []
     seeds = cfg.get("seeds", 2)
@@ -40,13 +44,13 @@ def build(cfg, timing):
                 if run_arm == "rl":
                     jobs.append({"id": f"h5_{arm_name}_rlgate_{fam}_{size}", "arm": "rlgate", "family": fam, "material": "clean",
                                  "size": size, "seed": 0, "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
-                                 "mem_gb": timing["mem"].get(f"base|{size}", 20)})
+                                 "mem_gb": timing["mem"].get(f"base|{size}", 20), **file_fields(F)})
                 for seed in range(seeds):
                     for m in mats:
                         jobs.append({"id": f"h5_{arm_name}_{run_arm}_{fam}_{m}_{size}_s{seed}", "arm": run_arm, "family": fam,
                                      "material": material_spec(F, m), "material_name": m, "size": size, "seed": seed,
                                      "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
-                                     "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20)})
+                                     "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), **file_fields(F)})
             for name, M in A.get("measurements", {}).items():
                 if M.get("size") == size and M.get("run_arm"):
                     for fam, F in A["families"].items():
@@ -55,7 +59,7 @@ def build(cfg, timing):
                                 jobs.append({"id": f"h5_{arm_name}_{M['run_arm']}_{fam}_{m}_{size}_s{seed}", "arm": M["run_arm"],
                                              "family": fam, "material": material_spec(F, m), "material_name": m, "size": size,
                                              "seed": seed, "part": cfg.get("part", "final"), "recipe": F.get("recipe", {}),
-                                             "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), "optional": name})
+                                             "mem_gb": timing["mem"].get(f"{run_arm}|{size}", 20), "optional": name, **file_fields(F)})
     return jobs
 
 

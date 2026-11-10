@@ -538,6 +538,17 @@ So there is no consistent order between 4.7x and 12.6x, and that is why Q3 is as
 
 **Budget.** The matrix is sized from the lead's timing table at 70% of measured throughput, with a 15% reserve. If it does not fit, families are cut first, then the SmolLM2 continuity arm and the truncated measurement. The family cut order is fixed by rule, not by seen headroom. First comes `gsm`, the most expensive per run and untimed at 8B with long sequences. Next is the reused-from-h4 stratum. Then the new classification families go in reverse alphabetical order. Real families nli and sci are cut last. If `gsm` is cut, the real stratum is nli + sci (25 pairs), under 30, and is inconclusive on its own. Seeds never go below 2. The placebo arms, the largest target, and the RL arm are never cut. If the FT arm cannot keep 5 families, Q3 is reported as underpowered. The comparison is not run on fewer families with a claim attached.
 
+**h5 frozen** (written before any h5 final run). The combined sha256 is **`e431c55c18fbfd5e8f698c154cd02cae8cccb90734e913cde15b64613db3a49a`**, covering 27 files listed in `out/h5_final.sha256`: the scorer (`scripts/h5_score.py`, sha256 `c89f20ef713b0e676b07380f8be57efeacce94ab3ca431deef11b25b8ae5181a`), `scripts/h5_soft.py`, `scripts/h5_config.json` and every file under `examples/h5/`. The dry run (`out/forecast_h5_dry.json`) was rerun on this scorer.
+
+- *Ladder.* Qwen3-Base: `q3-0.6B` (p12), `q3-1.7B` (p4) and `q3-8B` (target), in both arms. 8B fits both arms on the 32 GB card, per the lead's timing. Seeds 2.
+- *FT families.* `nli` and `sci` (real competing, 5 and 6 materials) and `yelp`, `csqa`, `boolq` (classification, new). The lead's fit check cut `gsm` and `sst5`, by the fixed cut order: about 7-8 GPU-h of measured run time were available against about 17 GPU-h for the full matrix.
+- *RL families.* `kk` (reply limit 64 tokens; the FDE manifest p95 is 43), `yelp` and `csqa` (32 tokens).
+- *Consequences, stated before any run.*
+  - The real-competing stratum is nli + sci, 10 + 15 = 25 screen-passing pairs. That is under the 30-pair line, so **that stratum is inconclusive on its own whatever it scores**. Q1 on real competing materials can only be reported as a measurement with its interval.
+  - FT keeps 5 families, so Q3 can be tested, but "C1 beats B" needs every shared family to favour C1.
+  - In RL, B and C2 (0.6B) are expected to abstain on every family, and C2 abstains on `kk` (no soft score for free-form answers).
+
+
 ## 7. Grade and fair value
 
 `touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.

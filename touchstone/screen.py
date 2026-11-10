@@ -44,6 +44,11 @@ def _safe_eval(expr: str):
             return ev(n.body)
         if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)):
             return n.value
+        if isinstance(n, ast.BinOp) and isinstance(n.op, ast.Pow):  # LaTeX powers (2^{10}); bounded so nothing explodes
+            b, e = ev(n.left), ev(n.right)
+            if abs(e) > 12 or abs(b) > 1e6:
+                raise ValueError
+            return b ** e
         if isinstance(n, ast.BinOp) and type(n.op) in ops:
             return ops[type(n.op)](ev(n.left), ev(n.right))
         if isinstance(n, ast.UnaryOp) and type(n.op) in ops:
@@ -52,14 +57,58 @@ def _safe_eval(expr: str):
     return ev(ast.parse(expr, mode="eval"))
 
 
+_MATH = re.compile(r"\\begin\{(?:align|equation|eqnarray|gather|multline)\*?\}(.+?)\\end\{(?:align|equation|eqnarray|gather|multline)\*?\}"
+                   r"|\$\$(.+?)\$\$|\$(.+?)\$|\\\[(.+?)\\\]|\\\((.+?)\\\)", re.S)
+_FRAC = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")
+_BOXED = re.compile(r"\\(?:boxed|fbox)\s*\{([^{}]*)\}")
+
+
+def _latex_math(m: str) -> str:
+    """One LaTeX math segment as plain arithmetic: fractions, products, powers, implicit products, decimals."""
+    m = re.sub(r"\\\\\s*&?\s*=", "=", m)  # aligned chains: 'a &= b \\\\ &= c' reads as 'a = b = c'
+    m = m.replace("&", " ").replace("\\\\", " ; ")
+    m = re.sub(r"(\d)\s*\\[dt]?frac\s*\{(\d+)\}\s*\{(\d+)\}", r"(\1+(\2)/(\3))", m)  # mixed number: 5\frac{1}{2} is 5.5
+    for _ in range(4):
+        m2 = _FRAC.sub(r"((\1)/(\2))", m)
+        m2 = _BOXED.sub(r"\1", m2)
+        if m2 == m:
+            break
+        m = m2
+    m = re.sub(r"\^\s*\{?\\circ\}?", "", m)  # degrees
+    m = re.sub(r"\\(?:cdot|times|ast)", "*", m).replace("\\div", "/")
+    m = re.sub(r"\\(?:left|right|[,;!:]|quad|qquad|text\{[^{}]*\}|mbox\{[^{}]*\}|mathrm\{[^{}]*\})", " ", m)
+    m = m.replace("{,}", "").replace("\\%", "%").replace("\\$", "")
+    m = re.sub(r"\^\s*\{([^{}]*)\}", r"**(\1)", m)
+    m = re.sub(r"\^\s*(\d+)", r"**\1", m)
+    m = m.replace("{", "(").replace("}", ")")
+    m = re.sub(r"(?<![\d.])\.(\d)", r"0.\1", m)
+    m = re.sub(r"\)\s*\(", ")*(", m)
+    m = re.sub(r"(\d)\s*\(", r"\1*(", m)
+    m = re.sub(r"\)\s*(\d)", r")*\1", m)
+    return m
+
+
+def latex_plain(text: str) -> str:
+    """Rewrite LaTeX math ($...$, \\[...\\], \\(...\\), \\boxed{...}) as plain arithmetic; prose outside math is unchanged.
+
+    Round 4 found that the unsupported-final check could not read LaTeX: in '$102/2=\\boxed{51}$' the answer looked
+    unproduced, which falsely flagged every MATH prealgebra draw in test v4.
+    """
+    if "\\" not in text:  # no LaTeX command: plain text, where '$' is a currency sign (GSM8K), is left alone
+        return text
+    text = text.replace("\\$", " ")  # an escaped dollar is a currency sign, not a math delimiter
+    text = _MATH.sub(lambda g: " " + _latex_math(next(x for x in g.groups() if x is not None)) + " ", text)
+    return _BOXED.sub(r"\1", text)
+
+
 def equations(text: str) -> list[tuple[str, float, float]]:
     """(expression, its value, the stated result) for every 'expression = number' in the text.
 
     The expression is the maximal run of digits, operators and parentheses left of '=', so
     '1 + 2 + 5 = 8' is checked as a whole, and '$10/family * 3 families = $30' (words inside)
-    is skipped rather than misread.
+    is skipped rather than misread. LaTeX math is rewritten as plain arithmetic first (latex_plain).
     """
-    text = text.replace(",", "")
+    text = latex_plain(text).replace(",", "")
     out = []
     for m in _RHS.finditer(text):
         i = m.start()
@@ -71,8 +120,10 @@ def equations(text: str) -> list[tuple[str, float, float]]:
             continue
         try:
             val = _safe_eval(lhs.replace("x", "*").replace("×", "*"))
-        except (ValueError, SyntaxError, ZeroDivisionError, TypeError):
+        except (ValueError, SyntaxError, ZeroDivisionError, TypeError, OverflowError):
             continue
+        if re.match(r"\s*(?:%|percent)", text[m.end():m.end() + 9]) and "%" not in lhs and abs(float(val)) <= 1:
+            val = 100 * val  # '15/25 = 60 percent' states a share as a percentage
         out.append((lhs, float(val), float(m.group(1))))
     return out
 
@@ -96,8 +147,9 @@ def unsupported_final(text: str) -> bool:
     flagged, and those are genuine GSM8K label errors).
     """
     from .judge import label_of
-    eqs = equations(text)
     lab = label_of(text)
+    text = latex_plain(text).replace(",", "")
+    eqs = equations(text)
     if not eqs or lab is None:
         return False
     try:

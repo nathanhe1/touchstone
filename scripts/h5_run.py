@@ -5,7 +5,8 @@
 A job is {"id", "arm", "family", "material", "size", "seed", "part", "recipe": {...}}:
 
   arm       sft (LoRA fine-tuning), sfttr (sft cut to `trunc_steps`), rl (GRPO), rltr (GRPO cut short), base (no training),
-            rlgate (no training: reward rate at temperature 1 on 64 clean-material prompts, chance, truncation)
+            rlgate (no training: reward rate at temperature 1, a group of rollouts on each of 64 clean-material
+            prompts, under the training reply limit; chance and truncation beside it)
   family    a family in scripts/h4_common.py (letter answers) or in NUMERIC below (number answers)
   material  a condition name built from the family's own rows (clean, placebo, wrong100, pool100, off25, drop, ...)
             or "file:<path>" for a supplied JSONL of {"prompt", "answer"} rows (the FDE's real materials)
@@ -15,6 +16,7 @@ Every result records the job, its config, seed, wall time, training time, peak G
 The class-balance gate (h4_common.gate_balance) is applied to every suite and to every clean or supplied material
 before training; a refusal is recorded as a result with "refused" set, never silently skipped.
 """
+import hashlib
 import json
 import os
 import random
@@ -213,13 +215,14 @@ def one(job):
         lm = L.LM(size)
         rng = random.Random(zlib.crc32(f"rlgate|{fam}|{part}".encode()))
         rs = material(fam, "clean", part)
-        pick = [rs[rng.randrange(len(rs))] for _ in range(CFG.get("rl_gate_prompts", 64))]
+        prompts = [rs[rng.randrange(len(rs))] for _ in range(CFG.get("rl_gate_prompts", 64))]
+        pick = [x for x in prompts for _ in range(rc["rl_group"])]  # a group of rollouts per prompt, as in training
         outs = lm.generate([p for p, _ in pick], max_new=max_new, temperature=1.0, batch=64)
         r = sum(correct(fam, o, a) for o, (_, a) in zip(outs, pick)) / len(pick)
         ch = 0.0 if is_numeric(fam) else sum(1 / max(2, len(re.findall(r"(?m)^[A-P]\) ", p))) for p, _ in pick) / len(pick)
         cut = sum(len(lm.tok(o, add_special_tokens=False).input_ids) >= max_new - 1 for o in outs) / len(pick)
         out.update({"reward_rate": round(r, 4), "chance": round(ch, 4), "kappa": round((r - ch) / (1 - ch), 4) if ch < 1 else None,
-                    "truncated": round(cut, 4), "n": len(pick), "sample": outs[:3], "wall_s": round(time.time() - t_wall, 1),
+                    "truncated": round(cut, 4), "n": len(pick), "prompts": len(prompts), "sample": outs[:3], "wall_s": round(time.time() - t_wall, 1),
                     "model": L.LADDER[size]})
         print("RESULT " + json.dumps(out), flush=True)
         return
@@ -227,12 +230,26 @@ def one(job):
     lm = L.LM(size)
     load_s = time.time() - t_load
     t = time.time()
-    outs_b = lm.generate([x[0] for x in it], max_new=max_new, batch=eval_batch)
+    import h5_soft
+    # The untrained model's evaluation is the same for every run of a family at a rung (greedy, same items, same batches),
+    # so it is computed once and reused. The cache key covers everything it depends on.
+    ck = hashlib.sha256(json.dumps([L.LADDER[size], str(L.dtype_for(size)), max_new, eval_batch, rc_soft, [x[:2] for x in it]]).encode()).hexdigest()[:16]
+    cdir = Path(os.environ.get("H5_BASE_CACHE", ROOT / "out" / "h5_basecache"))
+    cf = cdir / f"{fam}|{size}|{ck}.json"
+    if cf.exists():
+        c = json.loads(cf.read_text())
+        outs_b, soft_b = c["outs"], c["soft"]
+    else:
+        outs_b = lm.generate([x[0] for x in it], max_new=max_new, batch=eval_batch)
+        soft_b = h5_soft.mean_soft(h5_soft.soft_scores(lm, it, outs_b)) if rc_soft else None
+        cdir.mkdir(parents=True, exist_ok=True)
+        tmp = cdir / f".{os.getpid()}.tmp"
+        tmp.write_text(json.dumps({"outs": outs_b, "soft": soft_b, "model": L.LADDER[size], "family": fam, "max_new": max_new}))
+        tmp.replace(cf)
+    out["base_cached"] = cf.name
     b = "".join("1" if correct(fam, o, x[1]) else "0" for o, x in zip(outs_b, it))
     eval_s = time.time() - t
     cut_b = sum(len(lm.tok(o, add_special_tokens=False).input_ids) >= max_new - 1 for o in outs_b) / len(it)
-    import h5_soft
-    soft_b = h5_soft.mean_soft(h5_soft.soft_scores(lm, it, outs_b)) if rc_soft else None
     out.update({"soft_base": None if soft_b is None else round(soft_b, 6)})
     out.update({"base": b, "base_acc": round(100 * b.count("1") / len(it), 2), "base_truncated": round(cut_b, 4),
                 "base_sample": outs_b[:3], "chance": round(100 * sum(x[2] for x in it) / len(it), 2), "suite_n": len(it)})

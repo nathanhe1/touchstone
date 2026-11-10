@@ -552,6 +552,41 @@ So there is no consistent order between 4.7x and 12.6x, and that is why Q3 is as
   - FT keeps 5 families, so Q3 can be tested, but "C1 beats B" needs every shared family to favour C1.
   - In RL, B and C2 (0.6B) are expected to abstain on every family, and C2 abstains on `kk` (no soft score for free-form answers).
 
+### h5x, an extension of h5's real-material stratum, pre-registered before h5 was scored
+
+**What it is and why.** h5x was added after h5 launched (21:51 UTC, 2026-11-10) and before h5 was scored. The reason was known before any h5 run and is written in the h5 freeze above: h5's real-competing stratum is nli + sci, 25 pairs, under the 30-pair rule, so it is inconclusive on its own whatever it scores. Johnny approved three more families of real competing public datasets to give that stratum enough pairs. Nothing about h5 changes: its config, hash, scorer, rules and verdicts stand as frozen, and h5 is scored exactly as written.
+
+**Disclosure.** At about 23:45 UTC the coordinator read interim raw per-material gains from 105 finished h5 runs (nli and sci at 8B and 1.7B, partial yelp, csqa and boolq at 1.7B) and showed them to Johnny. No forecast score, pair agreement or candidate statistic was computed, and nothing frozen changed. I wrote these rules without reading those numbers. The h5x families are chosen by the FDE by task type and public availability only, without reference to them. A reader who wants a result untouched by any interim look should use h5 alone.
+
+**Design.** Everything is h5's, unchanged:
+
+- Fine-tuning arm only. Qwen3-Base `q3-0.6B` (p12), `q3-1.7B` (p4), `q3-8B` (target). 2 seeds. Reply limit 32 tokens. The h5 recipe.
+- The same three candidates (B, C1, C2), gates, bars, inconclusive rules and stop rule. The scorer is the byte-identical `scripts/h5_score.py` and `scripts/h5_soft.py` hashed for h5.
+- Each family is one held-out suite and 4-6 real public materials in letter or label format, sampled to the same size by the FDE's h5 procedure (fixed seed, overlap-screened against the suite, class balance checked). The gate reference is the first material listed in the manifest. Each family also runs `wrong_<reference>` and `placebo` at every rung.
+
+**Family selection, fixed before any h5x data exists.**
+
+- The FDE posts four candidate families under `examples/h5x/`. Sorted by family name, the first three are primary and the last is the spare.
+- *Headroom rule.* A no-training pre-flight measures Qwen3-8B base accuracy on each of the four suites. A family is dropped when that accuracy is 90% or more (the same line as h5's headroom gate), or when its suite fails the class-balance check.
+- *Substitution.* If one primary is dropped, the spare takes its place. If the spare is itself dropped, or two primaries are dropped, the remaining families run with no further substitute. If no primary is dropped, the spare does not run.
+- *Budget.* If the lead's fit check does not fit, the last family by name among those selected is cut. Seeds stay at 2.
+- No other reason removes a family. The pre-flight numbers and the selection are recorded at the freeze.
+
+**Reporting, fixed now.** Three results, each from one run of the frozen scorer, each scored once:
+
+1. *h5 alone,* as frozen (`out/forecast_h5.json`). Its verdicts are the verdicts of record for the candidates in each arm.
+2. *h5x alone* (`scripts/h5x_config.json`, `out/forecast_h5x.json`), under the same rules, with its own noise ceiling, coverage and abstentions.
+3. *The pooled real stratum,* a pre-declared secondary analysis (`scripts/h5x_pooled_config.json`, `out/forecast_h5_real_pooled.json`): h5's nli and sci plus the h5x families, real materials only. It carries its own noise ceiling, and the 30-pair and 3-family rules apply to it.
+
+How they are read:
+
+- Q1 on real competing materials is quoted from the pooled real stratum. A candidate is said to rank real competing materials only if it meets the full h5 bar there: decision accuracy of at least 0.80, permutation p below 0.0167, the family clause, a noise ceiling of at least 0.75 and at least 30 pairs.
+- A candidate that misses that bar on the pooled stratum is reported as failing on real materials, whatever h5's pooled FT number says.
+- h5x and the pooled analysis never overturn an h5 verdict. If they disagree with h5, both are reported.
+- The pooled analysis is not independent of h5: it reuses h5's nli and sci runs. It is labelled secondary for that reason.
+- The comparisons (C1 against B, C2 against B) are reported on the pooled stratum by the same family-level rule: fewer than 5 shared families is underpowered.
+
+**Freeze.** When the FDE's manifest, the 8B pre-flight and the fit check are posted, the two configs, the scorer, the soft helper and every file under `examples/h5x/` are hashed into `out/h5x_final.sha256`, and the hash is written here. h5 is not scored until that line exists.
 
 ## 7. Grade and fair value
 

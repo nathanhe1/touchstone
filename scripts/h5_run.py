@@ -172,6 +172,8 @@ class Env5:
 
 
 def commit():
+    if os.environ.get("TS_COMMIT"):  # the GPU copy has no .git; the runner passes the commit it was synced from
+        return os.environ["TS_COMMIT"]
     try:
         return subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip() or None
     except Exception:

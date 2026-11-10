@@ -1,0 +1,17 @@
+{
+  "note": "Sprint h5 recipe. Copied from h4 (scripts/h4_config.json) so every arm starts from the h4 recipe; anything that could move a result is frozen in the pre-registration before final runs.",
+  "suite_items": 600,
+  "material_items": 800,
+  "recipe": {
+    "lora_r": 16, "lora_alpha": 32,
+    "sft_lr": 2e-4, "sft_batch": 16, "sft_steps": 60, "sft_max_len": 256,
+    "rl_lr": 5e-5, "rl_steps": 30, "rl_prompts": 8, "rl_group": 4, "rl_kl": 0.04,
+    "trunc_steps": 10, "rl_trunc_steps": 10,
+    "max_new": 32, "eval_batch": 32
+  },
+  "families": ["arc_easy", "sciq", "csqa", "openbook", "qasc", "ag_news", "rotten", "emotion", "yelp", "dbpedia", "imdb", "amazon", "cr", "subj", "enron", "sst5", "bbc", "boolq", "mmlu", "medmcqa", "aqua", "gsm8k"],
+  "numeric_families": {
+    "gsm8k": {"q": "question", "a": "answer", "splits": ["train", "test"],
+              "instruction": "Solve the problem step by step, then end with \"The answer is N.\" where N is the final number."}
+  }
+}

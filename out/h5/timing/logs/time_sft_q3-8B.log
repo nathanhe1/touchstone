@@ -1,0 +1,2 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  60%|██████    | 3/5 [00:00<00:00,  7.73it/s]Fetching 5 files: 100%|██████████| 5/5 [00:01<00:00,  2.71it/s]
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00, 21.85it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 23.66it/s]

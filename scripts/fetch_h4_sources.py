@@ -4,9 +4,14 @@
 
 Rows are a seeded random sample of the whole split, never its first rows. The h4 fetch read the first rows, and some
 sources are stored sorted by label: `dbpedia` came out as one class and `imdb` as 78% one class (METHOD.md, h4).
-A split no larger than the number of rows wanted is fetched whole. A larger one is read in short blocks at seeded
-random offsets (blocks of 40, so a label-sorted source still yields every class), then shuffled with the same seed.
-The sample's provenance (dataset, config, split, split size, offsets' seed, block size) is written beside it.
+
+Two routes, both seeded:
+  --via parquet (default; needs pyarrow==21.0.0): download the split's parquet export from the Hub and draw a uniform
+      random sample of row indices. A split exported as more than 2 files uses its first 2 (amazon_polarity's 3.6M-row
+      train), which the provenance records.
+  --via rows: the dataset viewer rows API (rate-limited) in blocks of 40 at seeded random offsets.
+A split no larger than the number of rows wanted is taken whole, then shuffled with the same seed. The sample's
+provenance (dataset, config, split, split size, route, seed) is written beside it.
 
 Saved to $H4_DATA or ~/.cache/touchstone/h5/<name>.<split>.json. Nothing fetched is executed.
 """
@@ -42,6 +47,7 @@ S = {  # name: (dataset, config, material split, suite split)
     "enron": ("SetFit/enron_spam", "default", "train", "test"),
     "sst5": ("SetFit/sst5", "default", "train", "test"),
     "bbc": ("SetFit/bbc-news", "default", "train", "test"),
+    "gsm8k": ("openai/gsm8k", "main", "train", "test"),  # number answers (scripts/h5_run.py NUMERIC)
 }
 WANT = {"material": 3200, "suite": 1200}
 BLOCK = 40
@@ -93,11 +99,43 @@ def sample(ds, cfg, split, n, seed):
                  "method": "whole split" if offsets is None else f"{len(offsets)} blocks of {BLOCK} at seeded random offsets"}
 
 
+def sample_parquet(ds, cfg, split, n, seed, max_files=2):
+    import pyarrow.parquet as pq
+    import numpy as np
+    files = [f for f in _get("parquet", dataset=ds)["parquet_files"] if f["config"] == cfg and f["split"] == split]
+    if not files:
+        raise KeyError(f"{ds}/{cfg}/{split}: no parquet export")
+    files = sorted(files, key=lambda f: f["filename"])
+    used = files[:max_files]
+    tables = []
+    for f in used:
+        local = Path(os.environ.get("TMPDIR", "/tmp")) / f"ts_fetch_{abs(hash(f['url']))}.parquet"
+        if not local.exists():
+            urllib.request.urlretrieve(f["url"], local)
+        tables.append(pq.read_table(local))
+        local.unlink()
+    rows_all = [r for t in tables for r in t.to_pylist()]
+    total = len(rows_all)
+    rng = np.random.default_rng(abs(hash_seed(seed, ds, cfg, split)))
+    idx = rng.permutation(total)[:min(n, total)]
+    out = [rows_all[i] for i in idx]
+    out = json.loads(json.dumps(out, default=str))
+    return out, {"dataset": ds, "config": cfg, "split": split, "split_rows_read": total, "parquet_files_used": len(used),
+                 "parquet_files_total": len(files), "fetched": len(out), "seed": seed,
+                 "method": "whole split, shuffled" if total <= n else "uniform random sample of row indices (numpy default_rng)"}
+
+
+def hash_seed(seed, *parts):
+    import zlib
+    return zlib.crc32("|".join([str(seed), *parts]).encode())
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=os.environ.get("H4_DATA", str(Path.home() / ".cache" / "touchstone" / "h5")))
     ap.add_argument("--only", default="")
     ap.add_argument("--seed", type=int, default=20261110)
+    ap.add_argument("--via", choices=["parquet", "rows"], default="parquet")
     a = ap.parse_args()
     d = Path(a.out)
     d.mkdir(parents=True, exist_ok=True)
@@ -109,7 +147,7 @@ def main():
             if f.exists():
                 continue
             try:
-                r, prov = sample(ds, cfg, split, n, a.seed)
+                r, prov = (sample_parquet if a.via == "parquet" else sample)(ds, cfg, split, n, a.seed)
                 f.write_text(json.dumps(r))
                 (d / f"{name}.{split}.prov.json").write_text(json.dumps(prov))
                 print(name, split, len(r), prov["method"], flush=True)

@@ -3,7 +3,8 @@
 Definition, fixed in METHOD.md (h5) before any final run:
 
 - Letter items (classification, multiple choice): the candidates are the option letters shown in the prompt. The score is
-  P(correct letter) / P(any option letter), each letter scored as the whole reply (letter + end of turn).
+  P(correct letter) / P(any option letter), each letter scored alone as the first token of the reply, with no end-of-reply
+  token: base-model ladders never trained an end token, so its probability before training is noise.
 - Numeric items: the candidates are the answer and 4 near misses from `suites.numeric_distractors` (seed fixed per item),
   each scored in the answer slot of the model's own greedy reply, exactly as the product's smooth score does.
 - Chance correction: s = (p - c) / (1 - c), where c = 1 / (number of candidates). s is 0 at chance and 1 when all
@@ -30,7 +31,7 @@ def candidates(prompt, answer, reply=None):
     """(answer, distractors, slot) for one item, or None if the item has no usable candidates."""
     opts = _letters(prompt)
     if opts and answer in opts:
-        return answer, [x for x in opts if x != answer], None
+        return answer, [x for x in opts if x != answer], ("", "")  # the letter alone, no end token
     if re.fullmatch(r"-?\d+", str(answer).strip()):
         from touchstone.measure import answer_slot
         from touchstone.suites import numeric_distractors

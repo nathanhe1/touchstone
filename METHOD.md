@@ -394,7 +394,7 @@ With Qwen3-Base these are 8B, 1.7B (4.7x) and 0.6B (13.3x) for fine-tuning. With
 | **C1** `acc_final` 4x | The same signal | `p4` | Q3: B against C1 |
 | **C2** soft 12x | Chance-corrected soft-score gain at the proxy (`scripts/h5_soft.py`) | `p12` | Whether a smooth signal beats accuracy at the same proxy |
 
-The soft score of an item is P(correct) / P(any candidate), where the candidates are the option letters for choice items, or the answer and 4 near misses scored in the answer slot of the model's own reply for numeric items. It is chance-corrected as (p - c) / (1 - c), with c = 1 / number of candidates. Within a family where every item has the same number of options, the correction does not change any ranking. It puts soft gains on a common scale (0 = chance) and handles families whose option counts differ.
+The soft score of an item is P(correct) / P(any candidate), where the candidates are the option letters for choice items (each letter scored alone as the first token of the reply, with no end token, because base-model ladders never trained one), or the answer and 4 near misses scored in the answer slot of the model's own reply for numeric items. It is chance-corrected as (p - c) / (1 - c), with c = 1 / number of candidates. Within a family where every item has the same number of options, the correction does not change any ranking. It puts soft gains on a common scale (0 = chance) and handles families whose option counts differ.
 
 *Why these candidates, and their lineage.* The three were not chosen by searching development data. Q3 needs C1. C2 is the report's other recommended option. Both are fixed rules with no fitted parameters. Their lineage is stated so that nothing returns under a new name:
 

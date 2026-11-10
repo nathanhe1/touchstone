@@ -12,3 +12,4 @@ out/jobs/
 out/*.db
 out/.heavy.lock
 out/.heavy_queue/
+out/fde_jobs/

@@ -334,8 +334,9 @@ def audit_mcq2(examples, n: int = 60, seed: int = 0) -> dict:
     """Two routes, as for numeric labels: a direct answer and a reasoned one. Only items where they agree count,
     so the judge's own difficulty with the questions cancels out, which a raw disagreement rate does not do."""
     from .coverage import mcq_label, mcq_options
-    pool = [e for e in examples if len(mcq_options(e.last_user)) >= 2 and mcq_label(e.completion)]
-    sample = random.Random(seed).sample(pool, min(n, len(pool)))
+    pool = [i for i, e in enumerate(examples) if len(mcq_options(e.last_user)) >= 2 and mcq_label(e.completion)]
+    idx = random.Random(seed).sample(pool, min(n, len(pool)))
+    sample = [examples[i] for i in idx]
     q = [e.last_user for e in sample]
     d = [mcq_label(o) or (o.strip()[:1].upper() if o.strip() else None) for o in _gen(q, MCQ_SYS, 6)]
     c = [_BOX.findall(o) for o in _gen(q, MCQ_COT, 240)]
@@ -343,7 +344,8 @@ def audit_mcq2(examples, n: int = 60, seed: int = 0) -> dict:
     rows = [(a, b, mcq_label(e.completion)) for a, b, e in zip(d, c, sample)]
     conf = [r for r in rows if r[0] and r[0] == r[1]]
     dis = sum(r[0] != r[2] for r in conf)
-    return {"sampled": len(sample), "confident": len(conf), "disagree_n": dis, "disagree": round(dis / len(conf), 4) if len(conf) >= 10 else None}
+    return {"sampled": len(sample), "confident": len(conf), "disagree_n": dis, "disagree": round(dis / len(conf), 4) if len(conf) >= 10 else None,
+            "rows": [{"i": i, "direct": a, "cot": b, "label": c} for i, (a, b, c) in zip(idx, rows)]}  # per row, for row-level scoring
 
 
 def _yes(prompts: list[str], replies: list[str]) -> float:

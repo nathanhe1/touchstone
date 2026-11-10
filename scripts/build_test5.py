@@ -37,6 +37,31 @@ HARD = {"abstract_algebra", "formal_logic", "econometrics", "high_school_mathema
 OFFSETS = [-9, -4, -2, 2, 3, 7, 12]
 
 
+def _stem(prompt):
+    return re.sub(r"\s+", " ", prompt.split("\nA) ")[0]).strip().lower()
+
+
+def seen_stems():
+    """Question stems of every row in test v4 and in this sprint's development sets. v5 Tier A leaves them out, so no
+    development choice was made on a row v5 scores (v4's MMLU draws came from the MMLU test split, as MMLU-Redux does)."""
+    out = set()
+    for d in ["test4", "coverage_eval", "dev_judge", "redflags_test", "redflags_test2", "redflags_test3"]:
+        for f in (ROOT / "examples" / d).rglob("*.jsonl"):
+            for line in f.read_text().splitlines():
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                p = r.get("prompt") or r.get("question") or ""
+                if isinstance(p, str) and p:
+                    out.add(_stem(p))
+    return out
+
+
+EXCLUDE = set()
+REDUX_NONOK = set()  # MMLU-Redux rows with any issue: kept out of Fantastic Bugs' clean-hard cases so truths never conflict
+
+
 def lab(**k):
     return {f: bool(k.get(f)) for f in FLAGS}
 
@@ -90,10 +115,15 @@ def mmlu_redux(W):
         val.setdefault(r["subject"], []).append((mc_prompt(r["question"], r["choices"]), LETTERS[int(r["answer"])]))
     ok_pool = {}
     for subj in sorted(R):
-        rows = []
+        rows, dropped = [], 0
         for x in R[subj]:
             t = "wrong" if x["error_type"] in WRONG else "ambiguous" if x["error_type"] in AMBIG else "ok"
-            rows.append({"prompt": mc_prompt(x["question"], x["choices"]), "completion": LETTERS[int(x["answer"])], "_truth": t})
+            p = mc_prompt(x["question"], x["choices"])
+            if _stem(p) in EXCLUDE:
+                dropped += 1
+                continue
+            rows.append({"prompt": p, "completion": LETTERS[int(x["answer"])], "_truth": t})
+        REDUX_NONOK.update(_stem(mc_prompt(x["question"], x["choices"])) for x in R[subj] if x["error_type"] != "ok")
         ok_pool[subj] = [r for r in rows if r["_truth"] == "ok"]
         n = len(rows)
         w, a = sum(r["_truth"] == "wrong" for r in rows) / n, sum(r["_truth"] == "ambiguous" for r in rows) / n
@@ -101,7 +131,7 @@ def mmlu_redux(W):
         suite = W.suite(f"mmlu_{subj}", val.get(subj, []))
         W.dataset(f"a_mmlu_{subj}", "A", "mmlu_redux", "mmlu_redux", rows, suite, lab(noisy_labels=noisy), "CC BY 4.0",
                   {"wrong_share": round(w, 3), "ambiguous_share": round(a, 3), "negative": None if noisy else negative_kind(w, a, hard_subject(subj)),
-                   "subject": subj})
+                   "subject": subj, "dropped_seen_in_development": dropped})
     return ok_pool, val
 
 
@@ -135,7 +165,7 @@ def gsm_platinum(W):
         w = sum(r["_truth"] == "wrong" for r in part) / per
         a = sum(r["_truth"] == "ambiguous" for r in part) / per
         noisy = w >= 0.20
-        W.dataset(f"a_gsm8k_test_{d}", "A", "gsm_platinum", "gsm8k_test", part, "word_math", lab(noisy_labels=noisy, copied_from_public=True),
+        W.dataset(f"a_gsm8k_test_{d}", "A-previewed", "gsm_platinum", "gsm8k_test", part, "word_math", lab(noisy_labels=noisy, copied_from_public=True),
                   "MIT", {"wrong_share": round(w, 3), "ambiguous_share": round(a, 3), "negative": None if noisy else negative_kind(w, a, False)})
     consensus = [r for r in rows[(len(rows) // per) * per:] if r["_truth"] == "ok"]
     return consensus, rows
@@ -149,7 +179,8 @@ def fantastic_bugs(W):
         out = []
         for r in rows:
             x = fb_row(split, r)
-            if x is not None and str(r.get("review", "")).strip().lower() == "correct":
+            first = re.split(r"[\s.,:;]+", str(r.get("review", "")).strip().lower(), maxsplit=1)[0]
+            if x is not None and first in ("correct", "valid") and _stem(x["prompt"]) not in EXCLUDE | REDUX_NONOK:
                 out.append(x)
         if len(out) < 10:
             continue
@@ -199,35 +230,38 @@ def fb_suite(split, exclude, rng):
 
 
 def realmistake(W):
-    """ReaLMistake (Kamoi et al. 2024): LLM responses with expert error labels. Private: rows never enter the repository."""
+    """ReaLMistake (Kamoi et al. 2024): LLM responses with expert error labels. Private: rows never enter the repository.
+
+    Per task and model: 40 inputs form the suite, the other rows are the material at natural prevalence. Per task, the
+    rows experts judged error-free (both models, outside that task's suites) form a selected clean negative."""
     f = SRC / "realmistake.json"
     if not f.exists():
         return []
     R = js(f)
     made = []
     rng = random.Random(SEED + 3)
-    for task, rows in sorted(R.items()):
-        rows = [r for r in rows if r.get("input") and r.get("llm_response")]
-        err = [r for r in rows if str(r.get("label")).lower() in ("error", "1", "true")]
-        ok = [r for r in rows if str(r.get("label")).lower() in ("no_error", "0", "false")]
-        if len(rows) < 40:
-            continue
+    conv = lambda r: {"prompt": r["input"], "completion": r["llm_response"], "_truth": "wrong" if r["error_label"] == "error" else "ok"}  # noqa: E731
+    for key in sorted(R):
+        task, model = key.split(":")
+        rows = [r for r in R[key] if r.get("input") and r.get("llm_response") and r.get("error_label") in ("error", "no_error")]
         rng.shuffle(rows)
-        conv = lambda r: {"prompt": r["input"], "completion": r["llm_response"],  # noqa: E731
-                          "_truth": "wrong" if str(r.get("label")).lower() in ("error", "1", "true") else "ok"}
-        half = len(rows) // 2
-        suite_rows = rows[half:half + 60]
-        suite = W.suite(f"realmistake_{task}", [(r["input"], r["llm_response"][:200]) for r in suite_rows], private=True)
-        mat = [conv(r) for r in rows[:half]]
+        suite_rows, mat_rows = rows[:40], rows[40:]
+        suite = W.suite(f"realmistake_{task}_{model}", [(r["input"], r["llm_response"][:200]) for r in suite_rows], private=True)
+        mat = [conv(r) for r in mat_rows]
         w = sum(m["_truth"] == "wrong" for m in mat) / len(mat)
-        W.dataset(f"a_realmistake_{task}", "A", "realmistake", f"realmistake:{task}", mat, suite, lab(noisy_labels=w >= 0.20), "CC BY-SA 4.0",
-                  {"wrong_share": round(w, 3), "negative": None if w >= 0.20 else negative_kind(w, 0, True)}, private=True)
-        used = {r["input"] for r in rows[:half + 60]}
-        okr = [r for r in ok if r["input"] not in used]
-        if len(okr) >= 40:
-            W.dataset(f"a_realmistake_{task}_reviewed_ok", "A", "realmistake", f"realmistake:{task}", [conv(r) for r in okr[:150]], suite, lab(),
+        W.dataset(f"a_realmistake_{task}_{model}", "A", "realmistake", f"realmistake:{task}:{model}", mat, suite, lab(noisy_labels=w >= 0.20),
+                  "CC BY-SA 4.0", {"wrong_share": round(w, 3), "negative": None if w >= 0.20 else negative_kind(w, 0, True)}, private=True)
+        made.append(key)
+    for task in sorted({k.split(":")[0] for k in R}):
+        ok = [r for key in sorted(R) if key.startswith(task + ":") for r in R[key] if r.get("error_label") == "no_error" and r.get("llm_response")]
+        rng.shuffle(ok)
+        suite_rows, mat_rows = ok[:30], ok[30:]
+        held = {r["input"] for r in suite_rows}
+        mat_rows = [r for r in mat_rows if r["input"] not in held]
+        if len(mat_rows) >= 30:
+            suite = W.suite(f"realmistake_{task}_reviewed_ok", [(r["input"], r["llm_response"][:200]) for r in suite_rows], private=True)
+            W.dataset(f"a_realmistake_{task}_reviewed_ok", "A", "realmistake", f"realmistake:{task}", [conv(r) for r in mat_rows], suite, lab(),
                       "CC BY-SA 4.0", {"wrong_share": 0.0, "negative": "clean_hard", "selected": "rows experts judged error-free"}, private=True)
-        made.append(task)
     return made
 
 
@@ -317,6 +351,7 @@ def main():
     if OUT.exists():
         raise SystemExit(f"{OUT} exists: frozen.")
     W = W_GLOBAL = Writer()
+    EXCLUDE.update(seen_stems())
     ok_pool, val = mmlu_redux(W)
     consensus, _ = gsm_platinum(W)
     fb = fantastic_bugs(W)

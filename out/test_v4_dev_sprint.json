@@ -46,5 +46,57 @@
   },
   "audit": null,
   "seconds": 200
+ },
+ "clean_multiarith_2": {
+  "part": "clean_real",
+  "source": "multiarith",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 52,
+   "disagree_n": 0,
+   "disagree": 0.0
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1111,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 163
+ },
+ "planted_multiarith_30": {
+  "part": "planted",
+  "source": "multiarith",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 53,
+   "disagree_n": 18,
+   "disagree": 0.3396
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.1333,
+   "dup_rate": 0.011111111111111072,
+   "off_topic_share": 0.0222
+  },
+  "audit": null,
+  "seconds": 202
  }
 }

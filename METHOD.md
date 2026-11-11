@@ -682,6 +682,56 @@ Value is split evenly across items. Per-item value (LESS, Xia et al. 2024; Data 
 - Vendor environment code runs in-process. Production needs a sandbox with no network.
 - Laptop compute: few seeds, 120-200 suite items, so intervals are wide. That is the honest price of a laptop.
 
+## 9. What Touchstone can honestly claim after the GPU sprint (2026-11-11)
+
+Every number names its file. Result files written by the lead's scoring runs are under the lead's `out/`; the rest are under `out/` here.
+
+**What was frozen and scored, once each.**
+
+| Test | Hash | What it scored | Result file |
+|---|---|---|---|
+| h5 | `e431c55c…` (`out/h5_final.sha256`) | Three forecast candidates, fine-tuning and RL, Qwen3-Base 0.6B / 1.7B to 8B, 363 runs | `out/forecast_h5.json` |
+| h5x | `b2c54061…` (`out/h5x_final.sha256`) | The same candidates on 3 more families of real competing datasets, 126 runs | `out/forecast_h5x.json` |
+| Pooled real stratum (secondary) | same as h5x | h5's nli and sci plus h5x's cs, para, sent | `out/forecast_h5_real_pooled.json` |
+| Test v5 | `62752d6a…` (`out/test_v5.sha256`) | The flags on 101 cases: organic errors, planted errors, environments | `out/test_v5_report.json` |
+
+**Forecast numbers** (decision accuracy on screen-passing pairs within family; chance is 0.5; the bar is 0.80).
+
+| Where | Noise ceiling | B: accuracy gain at 0.6B | C1: accuracy gain at 1.7B | C2: soft score at 0.6B | Verdict |
+|---|---|---|---|---|---|
+| h5, fine-tuning, 5 families | 0.67 | 0.56 (54 pairs, p 0.27) | 0.70 (64 pairs, p 0.011) | 0.41 (54 pairs, p 0.86) | Inconclusive: ceiling under 0.75 |
+| h5x, 3 real families | 0.78 | 0.67 (30 pairs, p 0.07) | 0.70 (30 pairs, p 0.06) | 0.60 (30 pairs, p 0.25) | All three miss the bar |
+| Pooled real stratum, 5 real families | 0.78 | 0.64 (45 pairs, p 0.05) | **0.69** [0.49, 0.88] (55 pairs, p 0.022) | 0.64 (45 pairs, p 0.09) | All three miss the bar |
+| h5, RL, 3 families | none | no coverage | no coverage | no coverage | Untested |
+
+- *4x against 12x.* C1 minus B is +0.11 on h5 (4 shared families, p 0.19) and 0.00 on the pooled real stratum (4 shared families, p 0.63). Both comparisons are underpowered by rule, so no claim is made.
+- *RL.* Every pre-training RL gate failed, at every rung including the 8B target on two of three families: base models sampled at temperature 1 earn reward at or below guessing. 104 of 108 RL trainings were skipped by rule.
+- *Soft target.* Predicting the 8B's soft-score gain from the 0.6B's reads 0.69 (65 pairs, p 0.012) in h5. It is a different target from accuracy and is not a candidate.
+
+**Flag numbers** (`out/test_v5_report.json`).
+
+| Tier | Precision | Recall | Notes |
+|---|---|---|---|
+| A, organic errors, 70 cases, 8 positive | 0.13 (2 of 15) | 0.25 (2 of 8) | 10 of 62 negatives falsely flagged [upper 95% bound 0.26] |
+| A-previewed, GSM8K test, 8 cases | 1.00 | 1.00 | Public copy caught 8 of 8; no label error seen |
+| B, planted and environments, 23 cases | 0.55 (12 of 22) | 0.67 (12 of 18) | Grader bugs 6 of 6; planted contamination 2 of 2 |
+
+Row level, on expert-audited rows: the multiple-choice judge flagged 9 of 73 wrong MMLU-Redux rows, at precision 0.06. The arithmetic check flagged 0 of 10 answers GSM8K-Platinum corrected.
+
+**Fixed defects, development evidence only.** LaTeX reading (`out/dev_flag_latex.json`), off-topic on small suites (`out/dev_flag_offtopic.json`), the language check (`out/dev_flag_language.json`). On v5 the off-topic fix raised no false flag and caught 2 of 4 planted cases.
+
+**Retired.**
+
+- As forecasts of real competing fine-tuning materials for an 8B target, on the pooled real stratum: `acc_final` at 0.6B, `acc_final` at 1.7B, and the soft score at 0.6B. Each missed 0.80 on a conclusive test and is not retuned.
+- Still retired from earlier rounds: the 10x lower learning rate, the truncated target run as a forecast, `hand_pool`, `hand_pool_clean`, `reach_clean`, `probe_rank`, `reward_gain`, ridge fits, gradient similarity.
+- The claim that the label checks detect wrong labels in real data. Planted-error results do not carry over to organic errors.
+
+**Not run or not finished.** The stronger-judge test (7B judge on the two-route check) had not reported when this was written. The full v4 development rescore stopped at 8 of 70 cases when the Mac was needed for v5. The SmolLM2 continuity arm, the truncated-target measurement, the `gsm` family and the `sst5` family were cut for budget. RL forecasting on non-arithmetic tasks remains untested.
+
+**The paragraph for the pitch.**
+
+Touchstone reliably catches broken graders and copied or leaked material: on a frozen test it caught 6 of 6 new grader bugs, 2 of 2 planted suite leaks and 8 of 8 public copies of GSM8K test. It measures what a material teaches a model it actually trains, net of a placebo, up to 8B on one 32 GB card. A 1.7B run ranks real competing fine-tuning datasets for an 8B model better than chance: it picked the better of two datasets 69% of the time across 55 pairs in 5 task families (90% interval 49-88%, against a ceiling of 78% set by the 8B's own run-to-run noise). That is a useful prior and not a decision rule. It missed the 80% bar we set in advance, a 0.6B run did no better than about 64%, and we could not show that the larger proxy beats the smaller one. Touchstone cannot yet forecast RL environments on non-arithmetic tasks: small base models earn no reward to learn from, so the test could not be run. Touchstone does not detect wrong labels in real data. On expert-audited benchmarks at natural error rates it found 2 of 8 noisy sets with 13% precision, and it falsely flagged 1 clean set in 6, mostly by mistaking shared passages for leaked test items. Its label and contamination flags on real multiple-choice and free-text data should be presented as advisory until that is fixed.
+
 ## References
 
 - Allal et al. 2025, SmolLM2. arXiv:2502.02737

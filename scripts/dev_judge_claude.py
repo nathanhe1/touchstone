@@ -4,7 +4,8 @@ Same rows, same statistic and same tuning as `scripts/dev_judge_mcq.py` (8 sourc
 labels per source, 150 rows each), so the result sits beside the Qwen2.5 1.5B and 7B judges in `out/dev_judge_mcq_tune.json`.
 The judge is called through the `claude` command line in print mode, with no tools, from an empty directory.
 
-    python scripts/dev_judge_claude.py run claude-fable-5-2     # writes out/dev_judge_mcq_claude-fable-5-2.json
+    python scripts/dev_judge_claude.py run claude-haiku-5-5     # writes out/dev_judge_mcq_claude-haiku-5-5.json
+    python scripts/dev_judge_claude.py run claude-fable-5-2 60  # first 60 rows of each draw only: ..._first60.json
     python scripts/dev_judge_mcq.py tune                        # adds it to out/dev_judge_mcq_tune.json
 
 Development data only. The rows are public train splits, which a large model may have seen in training, so its accuracy
@@ -60,8 +61,9 @@ def route(model, system, questions):
     return out, sum(cost for _, cost in res)
 
 
-def run(model):
-    out_f = ROOT / "out" / f"dev_judge_mcq_{model}.json"
+def run(model, per=None):
+    """per: use only the first `per` rows of each draw (a cheaper first look); the file name says so."""
+    out_f = ROOT / "out" / f"dev_judge_mcq_{model}{'' if per is None else f'_first{per}'}.json"
     res = json.loads(out_f.read_text()) if out_f.exists() else {}
     cost = res.pop("_meta", {}).get("cost_usd", 0.0)
     t0 = time.time()
@@ -69,7 +71,7 @@ def run(model):
         key = f"{m['source']}_{m['draw']}"
         if key in res:
             continue
-        rows = [json.loads(x) for x in (D / m["path"]).read_text().splitlines()]
+        rows = [json.loads(x) for x in (D / m["path"]).read_text().splitlines()][:per]
         q = [r["prompt"] for r in rows]
         d, c1 = route(model, DIRECT, q)
         c, c2 = route(model, COT, q)
@@ -85,4 +87,4 @@ def run(model):
 
 
 if __name__ == "__main__":
-    {"run": lambda: run(sys.argv[2])}[sys.argv[1]]()
+    {"run": lambda: run(sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else None)}[sys.argv[1]]()

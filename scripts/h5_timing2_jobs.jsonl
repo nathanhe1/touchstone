@@ -1,0 +1,12 @@
+{"id": "time2_sft_q3-8B_ag_news", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time2_rl_q3-8B_ag_news", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time2_sft_q25-7B_ag_news", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time2_rl_q25-7B_ag_news", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q25-7B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time2_sft_q3-4B_ag_news", "arm": "sft", "family": "ag_news", "material": "clean", "size": "q3-4B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time2_rl_q3-4B_ag_news", "arm": "rl", "family": "ag_news", "material": "clean", "size": "q3-4B", "seed": 0, "part": "dev", "mem_gb": 29}
+{"id": "time2_rl_q3-8B_gsm8k256", "arm": "rl", "family": "gsm8k", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 29, "recipe": {"max_new": 256, "eval_batch": 64}}
+{"id": "time2_sft_q3-8B_gsm8k512", "arm": "sft", "family": "gsm8k", "material": "clean", "size": "q3-8B", "seed": 0, "part": "dev", "mem_gb": 29, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}
+{"id": "time2_rl_q3-4B_gsm8k256", "arm": "rl", "family": "gsm8k", "material": "clean", "size": "q3-4B", "seed": 0, "part": "dev", "mem_gb": 29, "recipe": {"max_new": 256, "eval_batch": 64}}
+{"id": "time2_sft_q3-4B_gsm8k512", "arm": "sft", "family": "gsm8k", "material": "clean", "size": "q3-4B", "seed": 0, "part": "dev", "mem_gb": 29, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}
+{"id": "time2_rl_q3-1.7B_gsm8k256", "arm": "rl", "family": "gsm8k", "material": "clean", "size": "q3-1.7B", "seed": 0, "part": "dev", "mem_gb": 29, "recipe": {"max_new": 256, "eval_batch": 64}}
+{"id": "time2_sft_q3-1.7B_gsm8k512", "arm": "sft", "family": "gsm8k", "material": "clean", "size": "q3-1.7B", "seed": 0, "part": "dev", "mem_gb": 29, "recipe": {"max_new": 256, "sft_max_len": 512, "eval_batch": 64}}

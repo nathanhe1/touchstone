@@ -1,0 +1,5 @@
+[16:04:22] Appraising dataset math_train.jsonl: 7500 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[16:05:55]   overlap: 5.0% of held-out items appear in the material (0.1% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 4%
+[16:05:58]   labels: a judge model is checking the answers (the slowest screening step)
+[16:06:00]   labels: arithmetic errors in 0.708636836628512 of worked solutions
+[16:06:00]   blocking problem found in screening; quick mode skips training

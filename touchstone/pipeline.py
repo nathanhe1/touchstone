@@ -278,6 +278,12 @@ def _measurable_and_harmful(rungs: dict, plan: Plan) -> tuple[bool, bool, str]:
     return measurable, harmful, largest
 
 
+def skipped_info(examples) -> dict:
+    """Rows the loader skipped, for the report (empty when nothing was skipped)."""
+    n = getattr(examples, "skipped", 0)
+    return {"skipped_rows": n, "rows_read": examples.total, "skip_reasons": examples.skip_reasons} if n else {}
+
+
 # ---------------------------------------------------------------- static screening (no training)
 
 def screen_material(kind: str, prompts: list[str], suite, public: str | None, log=print, examples=None, env=None,
@@ -373,7 +379,7 @@ def blocking_static_flags(sc: dict) -> list[dict]:
     return [f for f in valuation.flags_for(dict(sc["meas"], measurable=True)) if f["severity"] == "block"]
 
 
-def screened_only(kind, path, name, n_items, sc, suite, plan, dollars_per_point, t0, extra=None) -> dict:
+def screened_only(kind, path, name, n_items, sc, suite, plan, dollars_per_point, t0, extra=None, skipped=None) -> dict:
     """Quick mode stops after screening when a blocking problem already makes the material unpriceable:
     no training result could change the verdict. Full mode always trains."""
     flags = valuation.flags_for(dict(sc["meas"], measurable=True))
@@ -387,7 +393,7 @@ def screened_only(kind, path, name, n_items, sc, suite, plan, dollars_per_point,
     r = {
         "touchstone_version": "0.2", "kind": kind, "mode": plan.mode,
         "material": {"path": str(path), "name": name, "sha256": sha256_path(path), "n_items": n_items,
-                     "unique_items": sc["dups"]["unique"]},
+                     "unique_items": sc["dups"]["unique"], **(skipped or {})},
         "heldout": _suite_info(suite, len(sc["clean_idx"])),
         "overlap": {"heldout": _strip(sc["contam"]), "public": {**_strip(sc["pub"]), "baseline": sc["pub_label"]},
                     "duplicates": sc["dups"]},
@@ -409,6 +415,9 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
     path = Path(path)
     stage(log, "validate", 0.01)
     examples = datamod.load_dataset(path)
+    if getattr(examples, "skipped", 0):
+        log(f"  skipped {examples.skipped} of {examples.total} rows that could not be read (limit "
+            f"{datamod.SKIP_LIMIT:.0%}); first: {examples.skip_reasons[0]}")
     suite = suites.get_suite(suite_spec).subset(plan.suite_items)
     log(f"Appraising dataset {path.name}: {len(examples)} examples; held-out suite '{suite.name}' "
         f"({len(suite.items)} items: {suite.domain}); mode {plan.mode}")
@@ -422,7 +431,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         log("  blocking problem found in screening; quick mode skips training")
         stage(log, "price", 0.95)
         return screened_only("dataset", path, path.stem, len(examples), sc, suite, plan, dollars_per_point, t0,
-                             {"label_quality": sc["label_quality"], "checks": sc["checks"]})
+                             {"label_quality": sc["label_quality"], "checks": sc["checks"]}, skipped=skipped_info(examples))
 
     plac = datamod.placebo(examples, seed=0)
 
@@ -451,7 +460,7 @@ def appraise_dataset(path: str | Path, suite_spec: str, plan: Plan, public: str 
         "touchstone_version": "0.2",
         "kind": "dataset", "mode": plan.mode,
         "material": {"path": str(path), "name": path.stem, "sha256": sha256_path(path), "n_items": len(examples),
-                     "unique_items": dups["unique"]},
+                     "unique_items": dups["unique"], **skipped_info(examples)},
         "heldout": _suite_info(suite, len(clean_idx)),
         "overlap": {"heldout": _strip(contam), "public": {**_strip(pub), "baseline": pub_label},
                     "duplicates": dups},

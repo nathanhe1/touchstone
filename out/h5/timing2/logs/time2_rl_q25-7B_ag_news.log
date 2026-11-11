@@ -1,0 +1,9 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 50.01it/s]
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Traceback (most recent call last):
+  File "/workspace/ts/scripts/h5_run.py", line 419, in <module>
+    one(json.loads(sys.argv[2]))
+  File "/workspace/ts/scripts/h5_run.py", line 409, in one
+    "material_n": len(rows), "sample": outs_a[:3], **extra})
+                  ^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()

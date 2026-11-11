@@ -1,0 +1,975 @@
+{
+ "seed": 20261110,
+ "rows_per_material": 1000,
+ "built_by": "scripts/h5_materials.py",
+ "tokenizer": "Qwen/Qwen2.5-1.5B-Instruct",
+ "overlap_screen": "touchstone.overlap.match (exact; character 5-gram Jaccard >= 0.6 with the same numbers; MiniLM cosine >= 0.85 with the same numbers, or >= 0.92 for text without numbers) of the material's question text against every suite question; gated_suite_match reported beside it",
+ "families": {
+  "sent": {
+   "kind": "binary sentiment as a letter choice",
+   "suite": {
+    "file": "examples/h5x/sent/suite.jsonl",
+    "sha256": "e0cb12d83a17108b2014c3e244fa68e9497ca39a7126e99395d34123f3875c53",
+    "rows": 2730,
+    "source": "SetFit/CR",
+    "split": "test + train",
+    "revision": "01e427e689e9d3a9097f85eab7a91ce937cf5f98",
+    "licence": "untagged on the Hub (Hu and Liu 2004 customer reviews)",
+    "class_balance": {
+     "majority_share": 0.5,
+     "classes": 2,
+     "counts": {
+      "negative": 1365,
+      "positive": 1365
+     }
+    },
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "sst2": {
+     "file": "examples/h5x/sent/sst2.jsonl",
+     "sha256": "8baf416ba5b66cf9cdec9f8e28fb905c0d0554eb75009263ef3b05dc579ac5bd",
+     "rows": 1000,
+     "source": "stanfordnlp/sst2",
+     "revision": "8d51e7e4887a4caaa95b3fbebbf53c0490b58bbb",
+     "licence": "unknown on the Hub (Stanford Sentiment Treebank; research use)",
+     "eligible_rows": 67349,
+     "sampling": "uniform without replacement, random.Random('20261110|sent|sst2'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "negative": 500,
+       "positive": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 29,
+      "prompt_p95": 51,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "SST-2: the standard sentiment training set (movie-review phrases)."
+    },
+    "imdb": {
+     "file": "examples/h5x/sent/imdb.jsonl",
+     "sha256": "a91bb2c303a9f078c79b119a08355c8f21f18d512b5956f85c3b82e9c1ca53f8",
+     "rows": 1000,
+     "source": "stanfordnlp/imdb",
+     "revision": "e6281661ce1c48d982bc483cf8a173c1bbeb5d31",
+     "licence": "other (Maas et al. 2011; research use)",
+     "eligible_rows": 25000,
+     "sampling": "uniform without replacement, random.Random('20261110|sent|imdb'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "negative": 500,
+       "positive": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 152,
+      "prompt_p95": 167,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "IMDB: long movie reviews, the other default sentiment set."
+    },
+    "amazon": {
+     "file": "examples/h5x/sent/amazon.jsonl",
+     "sha256": "13795da16a1957f5e1b133295e02a25b5e1bd5bc39fa3022df75b32a9d6d9474",
+     "rows": 1000,
+     "source": "fancyzhx/amazon_polarity",
+     "revision": "9d9c45c18f8c3cf1b23a3c27917b60cbf28f3289",
+     "licence": "Apache-2.0",
+     "eligible_rows": 3600000,
+     "sampling": "uniform without replacement, random.Random('20261110|sent|amazon'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "negative": 500,
+       "positive": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 107,
+      "prompt_p95": 162,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Amazon polarity: product reviews, the largest and the closest in domain to a product-review suite."
+    },
+    "rotten": {
+     "file": "examples/h5x/sent/rotten.jsonl",
+     "sha256": "dcb932f1185802f39954c1573c3d74321c7df3b4a0ca99c93e1637ba5f75fb66",
+     "rows": 1000,
+     "source": "cornell-movie-review-data/rotten_tomatoes",
+     "revision": "aa13bc287fa6fcab6daf52f0dfb9994269ffea28",
+     "licence": "unknown on the Hub (Pang and Lee 2005)",
+     "eligible_rows": 8530,
+     "sampling": "uniform without replacement, random.Random('20261110|sent|rotten'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "negative": 500,
+       "positive": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 43,
+      "prompt_p95": 64,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Rotten Tomatoes: one-sentence movie reviews, small and clean."
+    },
+    "tweets": {
+     "file": "examples/h5x/sent/tweets.jsonl",
+     "sha256": "48a521793eaef61d70ad053c691feddef81d12ca1ffe73fd274fa4d8ef32dede",
+     "rows": 1000,
+     "source": "cardiffnlp/tweet_eval",
+     "revision": "b3a375baf0f409c77e6bc7aa35102b7b3534f8be",
+     "licence": "unknown on the Hub (SemEval tasks; research use)",
+     "eligible_rows": 24942,
+     "sampling": "uniform without replacement, random.Random('20261110|sent|tweets'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "negative": 500,
+       "positive": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 49,
+      "prompt_p95": 62,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "TweetEval sentiment (SemEval-2017), neutral tweets dropped: social-media text."
+    }
+   }
+  },
+  "para": {
+   "kind": "paraphrase / duplicate detection as a letter choice",
+   "suite": {
+    "file": "examples/h5x/para/suite.jsonl",
+    "sha256": "1ceb438c553183000ddea347069f6e83d6879556dd888695aa25bc252b3b93c4",
+    "rows": 1156,
+    "source": "nyu-mll/glue",
+    "split": "mrpc/test",
+    "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+    "licence": "other (MRPC: Microsoft Research licence; QQP: Quora terms)",
+    "class_balance": {
+     "majority_share": 0.5,
+     "classes": 2,
+     "counts": {
+      "no": 578,
+      "yes": 578
+     }
+    },
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "qqp": {
+     "file": "examples/h5x/para/qqp.jsonl",
+     "sha256": "ad6e967cc71362f245d214157b5659738e40cadd34c0cf6f9f77017e8f816721",
+     "rows": 1000,
+     "source": "nyu-mll/glue",
+     "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+     "licence": "other (MRPC: Microsoft Research licence; QQP: Quora terms)",
+     "eligible_rows": 363846,
+     "sampling": "uniform without replacement, random.Random('20261110|para|qqp'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "no": 500,
+       "yes": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 54,
+      "prompt_p95": 82,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Quora Question Pairs: the largest duplicate-question set."
+    },
+    "mrpc_train": {
+     "file": "examples/h5x/para/mrpc_train.jsonl",
+     "sha256": "caff39a26c7b80f271cba12b7bddb4fc7e7c9db3ef7dbd8c6a9e289f406e5ae6",
+     "rows": 1000,
+     "source": "nyu-mll/glue",
+     "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+     "licence": "other (MRPC: Microsoft Research licence; QQP: Quora terms)",
+     "eligible_rows": 3668,
+     "sampling": "uniform without replacement, random.Random('20261110|para|mrpc_train'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 24,
+      "suite_overlap_rate_raw": 0.024,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 4,
+       "near": 18,
+       "paraphrase": 34
+      },
+      "examples": [
+       {
+        "item": "State health officials said Monday a young northeast Kansas woman likely has the state 's first case of monkeypox among humans or animals . Health officials con",
+        "matches": "State health officials said today a young northeast Kansas woman likely has the state 's first case of monkeypox among humans or animals . Health officials conf",
+        "kind": "paraphrase"
+       },
+       {
+        "item": "On Monday , one American soldier was killed and another was wounded when their convoy was ambushed in northern Iraq . On Sunday , a U.S. soldier was killed and ",
+        "matches": "A soldier was killed Monday and another wounded when their convoy was ambushed in northern Iraq . On Sunday , a U.S. soldier was killed and another injured when",
+        "kind": "paraphrase"
+       }
+      ],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "suite_overlap": 24
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "no": 500,
+       "yes": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 83,
+      "prompt_p95": 112,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "MRPC's own training split: in-distribution for the suite, and small."
+    },
+    "paws": {
+     "file": "examples/h5x/para/paws.jsonl",
+     "sha256": "fbd2aa4473bf3fd74b7ed52a12f9d08b7702d3ee2ed39a1ccd82263862bcdee8",
+     "rows": 1000,
+     "source": "google-research-datasets/paws",
+     "revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09",
+     "licence": "other (free use with attribution to Google)",
+     "eligible_rows": 49401,
+     "sampling": "uniform without replacement, random.Random('20261110|para|paws'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "no": 500,
+       "yes": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 84,
+      "prompt_p95": 114,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "PAWS: human-labelled adversarial pairs with high word overlap."
+    },
+    "paws_silver": {
+     "file": "examples/h5x/para/paws_silver.jsonl",
+     "sha256": "6dcceb45cc41bb48bd788ddc2315c787c3cf1c3d3f348713cc5409672e4ff9ce",
+     "rows": 1000,
+     "source": "google-research-datasets/paws",
+     "revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09",
+     "licence": "other (free use with attribution to Google)",
+     "eligible_rows": 645652,
+     "sampling": "uniform without replacement, random.Random('20261110|para|paws_silver'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "no": 500,
+       "yes": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 83,
+      "prompt_p95": 112,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "PAWS unlabeled_final: the same kind of pairs with model-assigned (silver) labels, far larger and noisier."
+    },
+    "medqp": {
+     "file": "examples/h5x/para/medqp.jsonl",
+     "sha256": "5dc7e4a3adecc2761968a1518639d12a66e4c2c9c37eb10b0aeb74d1789f362b",
+     "rows": 1000,
+     "source": "curaihealth/medical_questions_pairs",
+     "revision": "d91d9da9b2a843fc09ab9d48568d2a93bf58bd0d",
+     "licence": "unknown on the Hub",
+     "eligible_rows": 3048,
+     "sampling": "uniform without replacement, random.Random('20261110|para|medqp'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "no": 500,
+       "yes": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 79,
+      "prompt_p95": 123,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Medical question pairs written by doctors: a small specialist set."
+    }
+   }
+  },
+  "cs": {
+   "kind": "commonsense multiple choice, letter answer",
+   "suite": {
+    "file": "examples/h5x/cs/suite.jsonl",
+    "sha256": "7f07a6666c60f7a237fc8412dc156625b9572741010b1c193e3cc55cebcf3cb8",
+    "rows": 2773,
+    "source": "jaredfern/codah",
+    "split": "codah/train (the full set)",
+    "revision": "4b0e0e7f33b3ae8cd8e69bcdfa09af9611d8f3bd",
+    "licence": "ODC-BY",
+    "class_balance": {
+     "majority_share": 0.259,
+     "classes": 4,
+     "counts": {
+      "A": 717,
+      "B": 711,
+      "C": 689,
+      "D": 656
+     }
+    },
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "swag": {
+     "file": "examples/h5x/cs/swag.jsonl",
+     "sha256": "f7673d994813274e921c3d9e878badec4bc2847289388fdb4b00331f81ae543c",
+     "rows": 1000,
+     "source": "allenai/swag",
+     "revision": "dc48148372b3853a9c7bae7bb06c161b46d8364a",
+     "licence": "unknown on the Hub (MIT in the authors' repository)",
+     "eligible_rows": 73546,
+     "sampling": "uniform without replacement, random.Random('20261110|cs|swag'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 5
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.26,
+      "classes": 4,
+      "counts": {
+       "A": 260,
+       "B": 228,
+       "C": 256,
+       "D": 256
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 74,
+      "prompt_p95": 105,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "SWAG: pick the plausible next event, from video captions."
+    },
+    "hellaswag": {
+     "file": "examples/h5x/cs/hellaswag.jsonl",
+     "sha256": "429bc22d6e573ae03f8b4db25ab3fc866d5ae702ac6a93b573cb6170edafc02a",
+     "rows": 1000,
+     "source": "Rowan/hellaswag",
+     "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+     "licence": "untagged on the Hub (MIT in the authors' repository)",
+     "eligible_rows": 39905,
+     "sampling": "uniform without replacement, random.Random('20261110|cs|hellaswag'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.264,
+      "classes": 4,
+      "counts": {
+       "A": 264,
+       "B": 250,
+       "C": 243,
+       "D": 243
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 219,
+      "prompt_p95": 276,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.169,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "HellaSwag: SWAG's harder, adversarially filtered successor."
+    },
+    "cosmos": {
+     "file": "examples/h5x/cs/cosmos.jsonl",
+     "sha256": "0568845c171132a9f030c157e2e8edb39d448645f39dc64b64cee9784636c03e",
+     "rows": 1000,
+     "source": "allenai/cosmos_qa",
+     "revision": "ed50fe83db62b355759053b1cd5eef344ee371e0",
+     "licence": "CC-BY-4.0",
+     "eligible_rows": 25252,
+     "sampling": "uniform without replacement, random.Random('20261110|cs|cosmos'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 14
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.276,
+      "classes": 4,
+      "counts": {
+       "A": 235,
+       "B": 240,
+       "C": 249,
+       "D": 276
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 128,
+      "prompt_p95": 183,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "CosmosQA: commonsense reading of short personal narratives."
+    },
+    "socialiqa": {
+     "file": "examples/h5x/cs/socialiqa.jsonl",
+     "sha256": "d53581c4c1f419d862fca48a33b0cd70096c70e49721034aa07efb285961cdff",
+     "rows": 1000,
+     "source": "allenai/social_i_qa",
+     "revision": "537a2ec8ec565adc0b70b70752893e59e024df26",
+     "licence": "untagged on the Hub",
+     "eligible_rows": 33377,
+     "sampling": "uniform without replacement, random.Random('20261110|cs|socialiqa'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.342,
+      "classes": 3,
+      "counts": {
+       "A": 342,
+       "B": 325,
+       "C": 333
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 50,
+      "prompt_p95": 63,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Social IQa: social and emotional commonsense, 3 options."
+    },
+    "piqa": {
+     "file": "examples/h5x/cs/piqa.jsonl",
+     "sha256": "81d811ca2389c732cc12b97bfcee1847c7673958bcab928c16a19956f72c3ac4",
+     "rows": 1000,
+     "source": "ybisk/piqa",
+     "revision": "142c51238b3ca2bc61e9a075913871b8b600e8e1",
+     "licence": "unknown on the Hub (AFL-3.0 in the authors' repository)",
+     "eligible_rows": 16113,
+     "sampling": "uniform without replacement, random.Random('20261110|cs|piqa'), options shuffled per row with the same generator",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 16
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.523,
+      "classes": 2,
+      "counts": {
+       "A": 477,
+       "B": 523
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 56,
+      "prompt_p95": 158,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.008,
+      "share_prompt_plus_completion_over_512": 0.001
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "PIQA: physical commonsense, 2 options."
+    }
+   }
+  },
+  "tox": {
+   "kind": "toxicity as a letter choice (spare family)",
+   "suite": {
+    "file": "examples/h5x/tox/suite.jsonl",
+    "sha256": "d2c7080d6aced9096307ec4fd0c02c63886d806d27b2a4ad58df1f1739c0ce75",
+    "rows": 1492,
+    "source": "lmsys/toxic-chat",
+    "split": "0124 test + train",
+    "revision": "29df8e4dba60e1f4af4b4075c0705c5b313548a8",
+    "licence": "CC-BY-NC-4.0 (non-commercial)",
+    "class_balance": {
+     "majority_share": 0.5,
+     "classes": 2,
+     "counts": {
+      "not toxic": 746,
+      "toxic": 746
+     }
+    },
+    "note": "rows in a fixed random order (seeded); classes interleaved so any prefix is balanced"
+   },
+   "materials": {
+    "wiki_toxic": {
+     "file": "examples/h5x/tox/wiki_toxic.jsonl",
+     "sha256": "15cc7d9404a0734223d9853c6f0a20c7b51c6fab87337653d2748a799c52feb3",
+     "rows": 1000,
+     "source": "OxAISH-AL-LLM/wiki_toxic",
+     "revision": "872656a156f32e4058307e50e234a44a727a9503",
+     "licence": "CC0-1.0",
+     "eligible_rows": 127656,
+     "sampling": "uniform without replacement, random.Random('20261110|tox|wiki_toxic'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "not toxic": 500,
+       "toxic": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 63,
+      "prompt_p95": 162,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.006,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Jigsaw Wikipedia talk-page comments: the standard toxicity training set."
+    },
+    "civil": {
+     "file": "examples/h5x/tox/civil.jsonl",
+     "sha256": "d844fe63dbf86fc5c5253e4e4320b541da9dacb55ff6e7f7bc2dfdb7b0278e88",
+     "rows": 1000,
+     "source": "google/civil_comments",
+     "revision": "f2970eb3a55777454c94069077cc8d9b5866312d",
+     "licence": "CC0-1.0",
+     "eligible_rows": 1804874,
+     "sampling": "uniform without replacement, random.Random('20261110|tox|civil'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "not toxic": 500,
+       "toxic": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 64,
+      "prompt_p95": 154,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Civil Comments: news-site comments with crowd toxicity scores (toxic at 0.5 or more)."
+    },
+    "tweet_offensive": {
+     "file": "examples/h5x/tox/tweet_offensive.jsonl",
+     "sha256": "cd44c590678a81dfe1acd62dfa9fc60662c7f4107fba49548cc43fa1690f0b81",
+     "rows": 1000,
+     "source": "cardiffnlp/tweet_eval",
+     "revision": "b3a375baf0f409c77e6bc7aa35102b7b3534f8be",
+     "licence": "unknown on the Hub (SemEval tasks; research use)",
+     "eligible_rows": 11916,
+     "sampling": "uniform without replacement, random.Random('20261110|tox|tweet_offensive'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "not toxic": 500,
+       "toxic": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 47,
+      "prompt_p95": 91,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "TweetEval offensive (OLID): offensive tweets."
+    },
+    "tweet_hate": {
+     "file": "examples/h5x/tox/tweet_hate.jsonl",
+     "sha256": "a99b5f5a47b643014b7f40d0dab39e023c8706e93aecf72f32a4185ba911d6ca",
+     "rows": 1000,
+     "source": "cardiffnlp/tweet_eval",
+     "revision": "b3a375baf0f409c77e6bc7aa35102b7b3534f8be",
+     "licence": "unknown on the Hub (SemEval tasks; research use)",
+     "eligible_rows": 8993,
+     "sampling": "uniform without replacement, random.Random('20261110|tox|tweet_hate'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {
+       "duplicate": 1
+      }
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "not toxic": 500,
+       "toxic": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 49,
+      "prompt_p95": 86,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "TweetEval hate (HatEval): hate speech against women and immigrants."
+    },
+    "davidson": {
+     "file": "examples/h5x/tox/davidson.jsonl",
+     "sha256": "5328a412bac037ecc53177836dfc9fafcb7442cfabba44f9227ceec7bf1ee954",
+     "rows": 1000,
+     "source": "tdavidson/hate_speech_offensive",
+     "revision": "adc5fb774614827695774f2dbe0ea8122f6a92b4",
+     "licence": "unknown on the Hub (MIT in the authors' repository)",
+     "eligible_rows": 24783,
+     "sampling": "uniform without replacement, random.Random('20261110|tox|davidson'), stratified by label",
+     "screen": {
+      "suite_overlap_in_first_1000_candidates": 0,
+      "suite_overlap_rate_raw": 0.0,
+      "suite_overlap_kinds_all_candidates": {
+       "exact": 0,
+       "near": 0,
+       "paraphrase": 0
+      },
+      "examples": [],
+      "generic_screen_template_matches": null,
+      "gated_suite_match_rate": null,
+      "dropped": {}
+     },
+     "class_balance": {
+      "majority_share": 0.5,
+      "classes": 2,
+      "counts": {
+       "not toxic": 500,
+       "toxic": 500
+      }
+     },
+     "tokens_qwen2.5": {
+      "prompt_p50": 48,
+      "prompt_p95": 77,
+      "completion_p50": 1,
+      "completion_p95": 1,
+      "completion_max": 1,
+      "share_prompt_plus_completion_over_256": 0.0,
+      "share_prompt_plus_completion_over_512": 0.0
+     },
+     "answer_extracted": 1.0,
+     "why_compare": "Davidson et al. hate and offensive tweets (hate or offensive counted as toxic)."
+    }
+   }
+  }
+ }
+}

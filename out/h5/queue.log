@@ -1,0 +1,7 @@
+fde cases start 03:55:01
+fde cases end 04:05:24
+judge Qwen/Qwen2.5-7B-Instruct start 04:05:24
+judge Qwen/Qwen2.5-7B-Instruct exit=0 end 04:19:03
+judge Qwen/Qwen2.5-1.5B-Instruct start 04:19:03
+judge Qwen/Qwen2.5-1.5B-Instruct exit=0 end 04:26:38
+QUEUE_EXITED

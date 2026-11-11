@@ -1,0 +1,13 @@
+[04:02:58] @stage validate 0.010
+[04:02:58] Appraising dataset orca_math.jsonl: 1000 examples; held-out suite 'suite' (150 items: suite); mode quick
+[04:02:58] @stage seal 0.040
+[04:02:58] @stage overlap 0.060
+[04:03:01]   overlap: 0.7% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 7%
+[04:03:01]   labels: a judge model is checking the answers (the slowest screening step)
+[04:03:01]   labels: arithmetic errors in 0.18181818181818182 of worked solutions
+[04:03:01]   blocking problem found in screening; quick mode skips training
+[04:03:01] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: noisy_labels, screen_only
+Report: out/case_studies/h5_orca_quick/report.md

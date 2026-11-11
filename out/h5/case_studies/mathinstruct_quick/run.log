@@ -1,0 +1,6 @@
+[03:57:52]   skipped 1 of 262039 rows that could not be read (limit 10%); first: mathinstruct.jsonl:18866: empty 'prompt' or 'completion'
+[03:57:52] Appraising dataset mathinstruct.jsonl: 262038 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[04:01:37]   overlap: 2.7% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 6.5%, off-topic 13%
+[04:01:45]   labels: a judge model is checking the answers (the slowest screening step)
+[04:01:46]   labels: arithmetic errors in 0.14896434313818216 of worked solutions
+[04:01:46]   blocking problem found in screening; quick mode skips training

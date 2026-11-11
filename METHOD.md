@@ -137,7 +137,11 @@ These rules were committed before the v5 materials were built. The v5 files are 
 - Recall is reported, along with false flags per source with one-sided 95% Clopper-Pearson upper bounds. Negatives are reported by clean-easy, clean-hard and ambiguous.
 - Multiple-choice label checks are advisory, so their Tier A recall is reported as advisory recall. It is never folded into blocking precision.
 
-**Test v5 frozen** (`examples/test5/`, builder `scripts/build_test5.py`). The combined sha256 is **`e62c05b1e8da35633d931d791beda169f8ca706b16695dba2c02095b191415b7`**, with per-file hashes in `out/test_v5.sha256`. It was committed before any detector ran on it. The runner and report (`scripts/eval_test5.py`, `scripts/report_test5.py`) are committed with it. The runner refuses to score on a hash mismatch, and it keeps the engine commit and per-row outputs. Licences are recorded per case in the manifest.
+**Test v5 re-frozen before any detector ran.** The first scoring attempt stopped on case 1, while loading the suite and before any check ran (`out/test_v5_eval.log`). The product refuses a suite under 30 items, and most MMLU validation splits hold 5-30. The MMLU suites are now topped up to 40 items. The top-up comes first from the subject's MMLU test rows that are not in MMLU-Redux 2.0 and not in any development set. When MMLU-Redux took every test row of a subject (17 subjects, recorded per case), it comes from other subjects' validation rows. Only suites and the manifest changed; every material file is byte-identical. The new combined sha256 is **`62752d6ab078f879adae3e2213269b6200da5f0efdc2e8b311a8521061c8d919`**. The first freeze, below, is superseded.
+
+**Test v5 crash and resume.** The Mac ran out of memory and rebooted at about 22:15 UTC on 2026-11-10, with 5 of 101 cases scored (`a_mmlu_abstract_algebra` to `a_mmlu_clinical_knowledge`). Those 5 results parse cleanly and are kept without a rerun (`out/test_v5_results.first5.json`). Scoring resumed from case 6 under the same hash (`62752d6a…`) and the same engine commit (024a6f7d). No threshold or code changed.
+
+**Test v5 frozen, first freeze, superseded** (`examples/test5/`, builder `scripts/build_test5.py`). The combined sha256 was **`e62c05b1e8da35633d931d791beda169f8ca706b16695dba2c02095b191415b7`**, with per-file hashes in `out/test_v5.sha256`. It was committed before any detector ran on it. The runner and report (`scripts/eval_test5.py`, `scripts/report_test5.py`) are committed with it. The runner refuses to score on a hash mismatch, and it keeps the engine commit and per-row outputs. Licences are recorded per case in the manifest.
 
 There are 101 cases:
 
@@ -162,7 +166,45 @@ Choices made while building, all mechanical and recorded in the builder:
 - *GSM8K-Platinum* is the `A-previewed` part. An FDE run saw its row-level results before the freeze. Nothing was tuned, and the part is never pooled with Tier A.
 - *Ambiguous negatives.* No Tier A case met the "ambiguous negative" rule, so that category is empty.
 
-*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point.
+*When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point. *Amended before scoring:* h5 fills the GPU for about 10 hours, so the judge test cannot run first. v5 is therefore scored now, once, with the engine as committed (MLX Qwen2.5-1.5B judge). If the 7-8B judge wins later, that win is a development result. It is not rescored on v5, and it needs a fresh frozen set before it can be claimed.
+
+**Test v5 result** (`out/test_v5_results.json`, `out/test_v5_report.json`, `scripts/report_test5.py`; scored once, hash `62752d6a…` verified, engine 024a6f7d, MLX Qwen2.5-1.5B judge, all 101 cases, none rejected). Blocking flags only. The tiers are never pooled.
+
+| Tier | Cases | Positive cases (prevalence) | Precision | Recall | Exactly right | Negatives with a false flag |
+|---|---|---|---|---|---|---|
+| **A, organic errors** | 70 | 8 (0.11) | **0.13** (2 of 15 flags) | **0.25** (2 of 8) | 52 | 10 of 62 [upper 95% bound 0.26] |
+| A-previewed, GSM8K test | 8 | 8, all `copied_from_public` | 1.00 (8 of 8) | 1.00 | 8 | none to flag |
+| **B, planted and environments** | 23 | 17 (0.74) | 0.55 (12 of 22 flags) | 0.67 (12 of 18) | 9 | 4 of 6 |
+
+At Tier A's measured recall and false-flag rate, the implied precision is 0.03 at 2% prevalence, 0.10 at 6.5% and 0.28 at 20%.
+
+*Tier A in detail.*
+
+- **Organic wrong labels are not caught.** MMLU-Redux has 2 naturally noisy subjects of 57. `virology` (0.37 wrong) drew the advisory signal (0.44) but no blocking flag, because multiple choice is advisory. `college_chemistry` (0.23 wrong) drew nothing: the judge was confident on too few rows. Five of the 55 clean subjects also drew the advisory.
+- **Row level, the judge's confident disagreement against the audit:** it flagged 9 of 73 sampled wrong rows (recall 0.12) and 144 of 3,212 correct rows, so precision is 0.06. It also flagged 11 of 135 ambiguous rows.
+- **ReaLMistake** (free text, 6 noisy sets). The 4 answerability and fact-verification sets drew no flag and no advisory. Both math-generation sets were flagged `noisy_labels` by the arithmetic check, but so was the math set that experts judged error-free. Those 2 true flags therefore do not show detection.
+- **False `contaminated` flags: 12.** Nine are MMLU-Redux subjects (`moral_scenarios` 1.00, `high_school_european_history` 0.73, `high_school_us_history` 0.50, `formal_logic` 0.45, `high_school_world_history` 0.43, and four at 0.08-0.13). Three are the ReaLMistake math sets.
+- **Fantastic Bugs** reviewed-correct sets: 0 of 4 flagged. With one case per source, each bound is 0.95.
+- **By kind of negative:** clean-easy 6 of 38 flagged [0.29], clean-hard 4 of 24 [0.34].
+
+*A-previewed (GSM8K test against GSM8K-Platinum).* `copied_from_public` fired on 8 of 8 draws, and no draw was flagged noisy, which is correct at 0-3 wrong rows per draw. Row level, the arithmetic check flagged 0 of 10 corrected answers, 1 of 99 removed rows and 8 of 1,091 kept rows. It does not see these label errors, as the FDE's earlier run also found.
+
+*Tier B in detail.*
+
+- Planted 30% wrong labels: 1 of 5 blocked (GSM8K). Three of the 4 MMLU sets drew the advisory (0.32-0.42). The fourth was flagged `contaminated` instead.
+- Planted contamination: 2 of 2.
+- Off-topic on small suites: 2 of 4. The new estimate read 0.66 and 1.00 on the two caught, and 0.24 and 0.00 on the two missed.
+- Same-template clones: not flagged (0.04), as the ruling requires.
+- Environments: 6 of 6 grader bugs caught. Both format-lax graders were flagged `gameable_grader`, which the v5 ruling counts as 2 false flags.
+- **A mistake in the test, not the detector:** 7 of the 8 multiplication environments were flagged `duplicated`. The builder draws 2,000 tasks from 616 possible ones, so about 70% really are repeats. The frozen labels stand, as with OASST in v4. Without those 7, Tier B's precision would read 12 of 15; that is a post hoc figure.
+
+*Causes, found after scoring and not acted on.*
+
+- The false `contaminated` flags come from text that suite and material share without sharing an item: MMLU history questions reuse the same source passage across splits, `moral_scenarios` uses one fixed question frame, and ReaLMistake math prompts share one long instruction. The screen reads shared context as overlap. This is the same weakness the FDE found on Knights and Knaves.
+- The off-topic misses are material that the 40-item suite's own spread absorbs. The fix that removed v4's false flags costs recall on small suites.
+- The label checks are bound by the judge and by design. A 1.5B judge agrees with experts on about 1 wrong row in 8, and a consistency check cannot see a wrong answer that follows from sound arithmetic on a misread question.
+
+Reports must not imply that Touchstone detects organic label errors. On this evidence it does not.
 
 ## 6. Forecast: small to large
 
@@ -566,6 +608,132 @@ So there is no consistent order between 4.7x and 12.6x, and that is why Q3 is as
   - FT keeps 5 families, so Q3 can be tested, but "C1 beats B" needs every shared family to favour C1.
   - In RL, B and C2 (0.6B) are expected to abstain on every family, and C2 abstains on `kk` (no soft score for free-form answers).
 
+### h5x, an extension of h5's real-material stratum, pre-registered before h5 was scored
+
+**What it is and why.** h5x was added after h5 launched (21:51 UTC, 2026-11-10) and before h5 was scored. The reason was known before any h5 run and is written in the h5 freeze above: h5's real-competing stratum is nli + sci, 25 pairs, under the 30-pair rule, so it is inconclusive on its own whatever it scores. Johnny approved three more families of real competing public datasets to give that stratum enough pairs. Nothing about h5 changes: its config, hash, scorer, rules and verdicts stand as frozen, and h5 is scored exactly as written.
+
+**Disclosure.** At about 23:45 UTC the coordinator read interim raw per-material gains from 105 finished h5 runs (nli and sci at 8B and 1.7B, partial yelp, csqa and boolq at 1.7B) and showed them to Johnny. No forecast score, pair agreement or candidate statistic was computed, and nothing frozen changed. I wrote these rules without reading those numbers. The h5x families are chosen by the FDE by task type and public availability only, without reference to them. A reader who wants a result untouched by any interim look should use h5 alone.
+
+**Design.** Everything is h5's, unchanged:
+
+- Fine-tuning arm only. Qwen3-Base `q3-0.6B` (p12), `q3-1.7B` (p4), `q3-8B` (target). 2 seeds. Reply limit 32 tokens. The h5 recipe.
+- The same three candidates (B, C1, C2), gates, bars, inconclusive rules and stop rule. The scorer is the byte-identical `scripts/h5_score.py` and `scripts/h5_soft.py` hashed for h5.
+- Each family is one held-out suite and 4-6 real public materials in letter or label format, sampled to the same size by the FDE's h5 procedure (fixed seed, overlap-screened against the suite, class balance checked). The gate reference is the first material listed in the manifest. Each family also runs `wrong_<reference>` and `placebo` at every rung.
+
+**Family selection, fixed before any h5x data exists.**
+
+- The FDE posts four candidate families under `examples/h5x/`. Sorted by family name, the first three are primary and the last is the spare.
+- *Headroom rule.* A no-training pre-flight measures Qwen3-8B base accuracy on each of the four suites. A family is dropped when that accuracy is 90% or more (the same line as h5's headroom gate), or when its suite fails the class-balance check.
+- *Substitution.* If one primary is dropped, the spare takes its place. If the spare is itself dropped, or two primaries are dropped, the remaining families run with no further substitute. If no primary is dropped, the spare does not run.
+- *Budget.* If the lead's fit check does not fit, the last family by name among those selected is cut. Seeds stay at 2.
+- No other reason removes a family. The pre-flight numbers and the selection are recorded at the freeze.
+
+**Reporting, fixed now.** Three results, each from one run of the frozen scorer, each scored once:
+
+1. *h5 alone,* as frozen (`out/forecast_h5.json`). Its verdicts are the verdicts of record for the candidates in each arm.
+2. *h5x alone* (`scripts/h5x_config.json`, `out/forecast_h5x.json`), under the same rules, with its own noise ceiling, coverage and abstentions.
+3. *The pooled real stratum,* a pre-declared secondary analysis (`scripts/h5x_pooled_config.json`, `out/forecast_h5_real_pooled.json`): h5's nli and sci plus the h5x families, real materials only. It carries its own noise ceiling, and the 30-pair and 3-family rules apply to it.
+
+How they are read:
+
+- Q1 on real competing materials is quoted from the pooled real stratum. A candidate is said to rank real competing materials only if it meets the full h5 bar there: decision accuracy of at least 0.80, permutation p below 0.0167, the family clause, a noise ceiling of at least 0.75 and at least 30 pairs.
+- A candidate that misses that bar on the pooled stratum is reported as failing on real materials, whatever h5's pooled FT number says.
+- h5x and the pooled analysis never overturn an h5 verdict. If they disagree with h5, both are reported.
+- The pooled analysis is not independent of h5: it reuses h5's nli and sci runs. It is labelled secondary for that reason.
+- The comparisons (C1 against B, C2 against B) are reported on the pooled stratum by the same family-level rule: fewer than 5 shared families is underpowered.
+
+**Candidate families as delivered** (`examples/h5x/manifest.json`, merged before any pre-flight). Sorted by name: `cs` (commonsense multiple choice; suite CODAH), `para` (paraphrase; suite MRPC test), `sent` (binary sentiment; suite Hu & Liu customer reviews) are primary, and `tox` (toxicity; suite ToxicChat) is the spare. Each has 5 materials, so 10 pairs per family and 30 for three families; the pooled real stratum would hold 55. *Stated before any run:* `sent` reuses sources this project has trained on before. Its suite is h4's `cr` family, and `imdb`, `amazon` and `rotten` appear as materials (`rotten` was an h4 development family). No h5 suite or h5 material is reused. The rule gives no ground to drop a family for this, so `sent` stays. As h5 does for families reused from h4, `sent` carries its own stratum label, so the scorer prints its result separately beside the other h5x families. The h5x and pooled headlines include it, and the reader can see both with and without it. The lead's earlier ladder pre-flight holds Qwen3-8B numbers on `cr` rows in another prompt form; the headroom rule uses only the fresh measurement on the FDE's suite file.
+
+**h5x frozen** (before h5 was scored and before any h5x run). The combined sha256 is **`b2c540619924742ffc853badefff5bf0b7f37a53c49d877eaa5d9a305fa6c179`**, covering 44 files listed in `out/h5x_final.sha256`: `scripts/h5_score.py` and `scripts/h5_soft.py` (byte-identical to h5's), `scripts/h5x_config.json`, `scripts/h5x_pooled_config.json`, every file under `examples/h5x/`, and h5's nli and sci files. Written by `scripts/h5x_freeze.py`.
+
+- *Pre-flight* (`out/h5/h5x_preflight/q3-8B.json`, Qwen3-8B-Base, no training, 600 suite items): base accuracy cs 86.0, para 53.33, sent 40.33, tox 40.17. No family is at or above 90, and every suite passes class balance (majority share 0.25, 0.50, 0.50, 0.50).
+- *Selection by the rule:* cs, para and sent run. The spare, tox, does not. The lead's fit check passes with no budget cut (3.1-4.2 h at 70% against 7.4 h after the reserve).
+- *Gate arms:* `wrong_swag`, `wrong_qqp`, `wrong_sst2`.
+- *Pairs:* h5x holds 30 screen-passing pairs, and the pooled real stratum (nli, sci, cs, para, sent) holds 55 across 5 families.
+- *Noted before any run:* cs sits at 86.0, close to the headroom line, so its 8B gains may be small and noisy. Its noise is reported through the stratum ceiling; nothing is changed for it.
+
+*The rule this freeze followed.* When the FDE's manifest, the 8B pre-flight and the fit check are posted, the two configs, the scorer, the soft helper and every file under `examples/h5x/` are hashed into `out/h5x_final.sha256`, and the hash is written here. h5 is not scored until that line exists.
+
+### h5 result (scored once, after h5x was frozen)
+
+`out/forecast_h5.json`, from `out/h5/h5_final.json` and `out/h5/h5_gates.json`; raw runs in `out/h5/h5final/` (363 result files, none missing against `scripts/h5_final_jobs.jsonl`, 0 failed, 0 rerun; `cuda`, torch 2.14.1, RTX 5090; runner commit 7b460e1b). Scored at about 02:25 UTC on 2026-11-11 by the frozen scorer (sha256 `c89f20ef...`), all 27 hashes verified, after the "h5x frozen" line above existed. The runs were 246 fine-tuning runs, 9 RL gate checks, 12 RL trainings, and 96 RL trainings skipped because their rung failed the pre-training gate.
+
+**Both arms are inconclusive by the frozen rules. No candidate passes and none is retired. h5 answers none of its three questions.**
+
+**Fine-tuning arm: inconclusive, because the target is too noisy.** The 8B noise ceiling on screen-passing pairs is **0.667**, under the 0.75 line (all pairs 0.769). One 8B seed agrees with the other on only two pairs in three, so no proxy can be held to 0.80 against that target. The numbers below are measurements with no verdict attached.
+
+| Candidate | Screen-passing [90%], p | Pairs, families | Families above 0.5 | All pairs | Verdict |
+|---|---|---|---|---|---|
+| **B** `acc_final` 12x (0.6B) | 0.556 [0.353, 0.761], 0.27 | 54, 4 of 5 | 2 of 4 | 0.688 (77), p 0.009 | Inconclusive: ceiling |
+| **C1** `acc_final` 4x (1.7B) | 0.703 [0.528, 0.867], 0.0106 | 64, 5 of 5 | 5 of 5 | 0.793 (92), p 0.0001 | Inconclusive: ceiling |
+| **C2** soft 12x (0.6B) | 0.407 [0.190, 0.642], 0.86 | 54, 4 of 5 | 1 of 4 | 0.584 (77), p 0.18 | Inconclusive: ceiling |
+
+Per family, screen-passing (B / C1 / C2): `nli` abstained / 0.90 / abstained; `sci` 0.60 / 0.53 / 0.73; `yelp` 0.50 / 0.79 / 0.29; `csqa` 0.60 / 0.67 / 0.33; `boolq` 0.50 / 0.70 / 0.20. Mean within-family Spearman 0.13 / 0.58 / -0.31. One target tie was dropped.
+
+| Stratum | Noise ceiling | Pairs | B | C1 | C2 | Reading |
+|---|---|---|---|---|---|---|
+| Real competing (`nli`, `sci`) | 0.776 (C1's two families); 0.69 (`sci` alone) | 25 (C1); 15 (B, C2: `sci` only) | 0.60 [0.23, 1.0], p 0.29 | 0.68 [0.375, 1.0], p 0.12 | 0.73 [0.44, 1.0], p 0.14 | Inconclusive: under 30 pairs, as stated before any run |
+| Classification, new (`yelp`, `csqa`, `boolq`) | 0.598 | 39 | 0.538 [0.31, 0.79], p 0.41 | 0.718 [0.52, 0.89], p 0.027 | 0.282 [0.10, 0.48], p 0.98 | Inconclusive: ceiling under 0.75 |
+
+- *Gates.* Every family passed class balance and headroom (8B base accuracy: `nli` 37.2, `sci` 87.0, `yelp` 22.8, `csqa` 77.0, `boolq` 73.8). The fine-tuning gate, reference minus all-wrong in points at 0.6B / 1.7B: `nli` 2.75 / 16.92, `sci` 41.33 / 56.83, `yelp` 35.08 / 42.67, `csqa` 44.42 / 57.33, `boolq` 38.42 / 45.75. So `nli` fails it at 0.6B, and B and C2 abstain there.
+- *Materials dropped by the class-balance rule,* as the lead's dry build said before any run: `yelp drop` (majority share 0.502, cap 0.50), `csqa drop` (0.509, cap 0.50), `boolq pool200` (0.685, cap 0.65). That leaves 15 + 15 + 10 pairs in the classification families and 65 in all, 64 after the tie.
+- *Q1, real competing materials:* not answered. C1 reads 0.68 on 25 pairs with an interval from 0.375 to 1.0. The pooled real stratum with h5x is where Q1 is quoted.
+- *Q3, 4x against 12x:* no claim. C1 minus B is +0.111 [0.0, 0.25], one-sided p 0.19, on the 4 families both cover. Four families is underpowered by rule, and the arm is inconclusive. C2 minus B is -0.148 [-0.273, 0.033], p 0.94, the same way.
+- *Reported measurement, not a candidate:* the soft signal at 0.6B against the 8B soft-score gain, a different target from the one sold: 0.692 [0.527, 0.833], p 0.012, 65 pairs.
+- *What can be said.* The 4x proxy's point estimate sits above the measured ceiling of the target it is compared with, which means the two are indistinguishable at this noise level, not that the proxy is good. The 12x soft signal is below a coin flip on the three classification families. Neither statement is a verdict.
+
+**RL arm: inconclusive on coverage. Q2 is not answered.** The pre-training gate needs a chance-corrected reward rate of at least 0.10 at temperature 1 (256 rollouts per family and rung):
+
+| Family | 0.6B | 1.7B | 8B (target) | Rollouts with no answer, 0.6B / 1.7B / 8B |
+|---|---|---|---|---|
+| `kk` | -0.09 | -0.08 | -0.06 | 98% / 93% / 80% |
+| `yelp` | -0.21 | -0.18 | -0.03 | 100% / 92% / 78% |
+| `csqa` | -0.12 | -0.18 | **0.28**, passes | 98% / 89% / 57% |
+
+One family passes the target's gate, and the rule needs three. No proxy rung passes on any family, so B, C1 and C2 each cover 0 families and 0 pairs. The cause is visible in the last column: untrained base models sampled at temperature 1 seldom reply in the asked format, so reward starts below guessing and GRPO has nothing to rank. The expectation written before the run (B and C2 abstain everywhere) held, and C1 abstained as well. The scorer prints "target noise ceiling below 0.75" for this arm because the ceiling is empty; the reason of record is coverage. For `kk` and `yelp` it also prints "no target base accuracy", which only reflects that their 8B trainings were skipped.
+
+**What failed, and what was found after scoring.** Nothing here was acted on, and nothing was rescored.
+
+- *The target noise is the result.* Two seeds of a 60-step LoRA run at 8B, scored on 600 items, do not separate materials that differ by a few points. The fix for a later test has to be on the target side (more seeds, more suite items or longer runs), and it needs a fresh pre-registration.
+- *A collector defect, found minutes after scoring.* `scripts/h5_collect.py` (the lead's, not hashed) left out any run with a truthy `skipped` field. A gate skip stores a string there, but a trained GRPO run stores the number of its steps that had no reward signal. So 8 of the 12 trained `csqa` 8B RL runs (`clean`, `pool50`, `pool200`, `off25`, both seeds) were not in `h5_final.json` and were listed as skipped in `h5_gates.json`. The effect on the scored file is one field: the RL arm's noise ceiling reads empty where it would have been a number over one family. Coverage, abstentions and verdicts come from the gate records, which were collected correctly, and no proxy passes anywhere, so they cannot change. No fine-tuning run carries that field (246 of 246 collected). The 8 raw files are in `out/h5/h5final/` and nothing was computed on them. The collector is fixed with a test (`tests/test_h5_infra.py`); `out/forecast_h5.json` stands as scored.
+- *Scheduler change during the run.* After the first three results, the previous lead restarted the runner with memory estimates taken from those runs, so that a small-rung run could share the card with an 8B run. The job list in use (`scripts/h5_final_jobs.jsonl`, sha256 `9b3e232a...`) differs from the launch list (`f70bc1a0...`) only in the `mem_gb` scheduling field. Finished runs were kept.
+- *Looks at raw numbers before scoring.* The coordinator's interim look is disclosed in the h5x section. The lead's monitoring also printed the runner's log lines for 3 finished runs, each with one run's gain. No pair agreement or candidate statistic was computed outside the frozen scorer.
+- *Limits.* One ladder (Qwen3-Base), one recipe (60 steps, LoRA rank 16), 600-item suites, 2 seeds, 5 fine-tuning families. `gsm` and `sst5` were cut for budget before the freeze.
+
+### h5x result and the pooled real stratum (each scored once)
+
+`out/forecast_h5x.json` (from `out/h5x/h5_x_final.json`, `out/h5x/h5_gates.json`) and `out/forecast_h5_real_pooled.json` (from `out/h5_real_pooled/`: byte copies of the two collected files and the union of the two gate files). Raw runs in `out/h5/h5x/`: 126 of 126, 0 failed, 0 rerun, launched 02:23 UTC and finished 03:54 UTC on 2026-11-11, same runner code and settings as h5 (commit 7b460e1b), job list `scripts/h5x_final_jobs.jsonl`. Scored at about 04:00 UTC with the researcher's frozen commands, all 44 hashes verified. Fine-tuning only; Qwen3-Base 0.6B, 1.7B, 8B; 2 seeds.
+
+**h5x alone: conclusive, and all three candidates miss the bar.** The 8B noise ceiling on screen-passing pairs is 0.78 (all pairs 0.854), above the 0.75 line. All three families passed every gate, with no abstention, no dropped material and no target tie.
+
+| Candidate | Screen-passing (30 pairs) [90%], p | Families above 0.5 | All pairs (45) | Bar met? |
+|---|---|---|---|---|
+| **B** `acc_final` 12x (0.6B) | **0.667** [0.374, 0.885], 0.072 | 2 of 3 | 0.778, p 0.003 | No: retired |
+| **C1** `acc_final` 4x (1.7B) | **0.700** [0.435, 0.917], 0.058 | 3 of 3 | 0.800, p 0.002 | No: retired |
+| **C2** soft 12x (0.6B) | **0.600** [0.363, 0.818], 0.25 | 2 of 3 | 0.733, p 0.016 | No: retired |
+
+Per family (B / C1 / C2): `cs` 0.50 / 0.70 / 0.50; `para` 0.70 / 0.80 / 0.70; `sent` 0.80 / 0.60 / 0.60. Mean within-family Spearman 0.50 / 0.53 / 0.33. Gates: 8B base accuracy `cs` 85.8, `para` 53.5, `sent` 40.2; reference minus all-wrong at 0.6B / 1.7B: `cs` 30.92 / 46.58, `para` 19.25 / 28.0, `sent` 55.25 / 46.67. Strata as labelled at the freeze, each inconclusive on its own for pairs: `cs` + `para` (20 pairs, ceiling 0.821) B 0.60, C1 0.75, C2 0.60; `sent`, whose suite is reused from h4 (10 pairs, ceiling 0.70) B 0.80, C1 0.60, C2 0.60. C1 minus B is +0.033 [-0.10, 0.167], p 0.50; C2 minus B is -0.067 [-0.133, 0.0], p 1.0; three shared families is underpowered, so no claim.
+
+Every candidate misses on the point estimate (0.80 needed) and on p (0.0167 needed). Each 90% interval reaches above 0.80, so by the pre-registered wording these are misses whose interval covers the bar, still retired.
+
+**Pooled real stratum (h5's `nli`, `sci` plus `cs`, `para`, `sent`): conclusive, and all three candidates fail on real competing materials.** This is the pre-declared secondary analysis on which Q1 is quoted; it reuses h5's `nli` and `sci` runs and is not independent of h5. Noise ceiling 0.778 (all pairs 0.85).
+
+| Candidate | Screen-passing [90%], p | Pairs, families | Families above 0.5 | All pairs | Bar met? |
+|---|---|---|---|---|---|
+| **B** `acc_final` 12x | **0.644** [0.438, 0.848], 0.053 | 45, 4 of 5 (`nli` abstains: gate 2.8 < 5 at 0.6B) | 3 of 4 | 0.758 (66), p 0.0004 | No |
+| **C1** `acc_final` 4x | **0.691** [0.491, 0.878], 0.022 | 55, 5 of 5 | 5 of 5 | 0.790 (81), p 0.0001 | No |
+| **C2** soft 12x | **0.644** [0.444, 0.816], 0.087 | 45, 4 of 5 | 3 of 4 | 0.758 (66), p 0.002 | No |
+
+Per family (B / C1 / C2): `nli` abstained / 0.90 / abstained; `sci` 0.60 / 0.53 / 0.73; `cs` 0.50 / 0.70 / 0.50; `para` 0.70 / 0.80 / 0.70; `sent` 0.80 / 0.60 / 0.60. C1 minus B on the 4 shared families is 0.0 [-0.12, 0.112], p 0.63; C2 minus B is 0.0 [-0.10, 0.08], p 0.75; underpowered below 5 families, no claim.
+
+**How the three results read together.**
+
+- *h5 alone* is the verdict of record for h5: both arms inconclusive, nothing passed, nothing retired. h5x and the pooled analysis do not overturn it.
+- *Q1, do small runs rank real competing, screen-passing materials for an 8B target: not at the bar.* On the pooled real stratum the best candidate, the 1.7B proxy, calls 0.69 of 55 pairs [0.49, 0.88], with p 0.022 against 0.0167 needed. By the rule written before scoring, all three candidates are reported as failing on real materials, and h5x alone retires all three in the fine-tuning arm. They are not retuned.
+- *Q3, 4x against 12x: no claim anywhere.* The differences are +0.111 (h5, 4 families), +0.033 (h5x, 3) and 0.0 (pooled, 4), all underpowered by the 5-family rule.
+- *Q2, RL: unanswered* (h5: one family passes the target gate).
+- *How strong the negative is.* The proxies do carry signal: on all pairs, which include the all-wrong arm, they score 0.73 to 0.80 with p from 0.016 down to 0.0001. Among materials a buyer would actually compare, they score 0.60 to 0.70. The target's own seed-to-seed agreement is 0.78, under the 0.80 bar and only just over the 0.75 line, so a pass was barely reachable with 2 seeds and 60-step runs, and intervals are wide at 30 to 55 pairs. The honest reading is the same as h4's, now at 8B on real competing datasets: small runs beat chance and separate disasters from sound material, and they do not rank sound competing materials reliably enough to sell as a forecast.
+- *Not independent of earlier looks.* h5x was added after h5 launched, and the coordinator saw interim raw gains from h5 (disclosed above). Its families were chosen by task type, and its rules and selection were frozen before h5 was scored.
 
 ## 7. Grade and fair value
 
@@ -594,6 +762,65 @@ Value is split evenly across items. Per-item value (LESS, Xia et al. 2024; Data 
 - The built-in suites are generated by code in this repo. They are held out from the sample vendors, but a real vendor with repo access could target them. Production suites must be private.
 - Vendor environment code runs in-process. Production needs a sandbox with no network.
 - Laptop compute: few seeds, 120-200 suite items, so intervals are wide. That is the honest price of a laptop.
+
+## 9. What Touchstone can honestly claim after the GPU sprint (2026-11-11)
+
+Every number names its file. Result files written by the lead's scoring runs are under the lead's `out/`; the rest are under `out/` here.
+
+**What was frozen and scored, once each.**
+
+| Test | Hash | What it scored | Result file |
+|---|---|---|---|
+| h5 | `e431c55c…` (`out/h5_final.sha256`) | Three forecast candidates, fine-tuning and RL, Qwen3-Base 0.6B / 1.7B to 8B, 363 runs | `out/forecast_h5.json` |
+| h5x | `b2c54061…` (`out/h5x_final.sha256`) | The same candidates on 3 more families of real competing datasets, 126 runs | `out/forecast_h5x.json` |
+| Pooled real stratum (secondary) | same as h5x | h5's nli and sci plus h5x's cs, para, sent | `out/forecast_h5_real_pooled.json` |
+| Test v5 | `62752d6a…` (`out/test_v5.sha256`) | The flags on 101 cases: organic errors, planted errors, environments | `out/test_v5_report.json` |
+
+**Forecast numbers** (decision accuracy on screen-passing pairs within family; chance is 0.5; the bar is 0.80).
+
+| Where | Noise ceiling | B: accuracy gain at 0.6B | C1: accuracy gain at 1.7B | C2: soft score at 0.6B | Verdict |
+|---|---|---|---|---|---|
+| h5, fine-tuning, 5 families | 0.67 | 0.56 (54 pairs, p 0.27) | 0.70 (64 pairs, p 0.011) | 0.41 (54 pairs, p 0.86) | Inconclusive: ceiling under 0.75 |
+| h5x, 3 real families | 0.78 | 0.67 (30 pairs, p 0.07) | 0.70 (30 pairs, p 0.06) | 0.60 (30 pairs, p 0.25) | All three miss the bar |
+| Pooled real stratum, 5 real families | 0.78 | 0.64 (45 pairs, p 0.05) | **0.69** [0.49, 0.88] (55 pairs, p 0.022) | 0.64 (45 pairs, p 0.09) | All three miss the bar |
+| h5, RL, 3 families | none | no coverage | no coverage | no coverage | Untested |
+
+- *4x against 12x.* C1 minus B is +0.11 on h5 (4 shared families, p 0.19) and 0.00 on the pooled real stratum (4 shared families, p 0.63). Both comparisons are underpowered by rule, so no claim is made.
+- *RL.* Every pre-training RL gate failed, at every rung including the 8B target on two of three families: base models sampled at temperature 1 earn reward at or below guessing. 104 of 108 RL trainings were skipped by rule.
+- *Soft target.* Predicting the 8B's soft-score gain from the 0.6B's reads 0.69 (65 pairs, p 0.012) in h5. It is a different target from accuracy and is not a candidate.
+
+**Flag numbers** (`out/test_v5_report.json`).
+
+| Tier | Precision | Recall | Notes |
+|---|---|---|---|
+| A, organic errors, 70 cases, 8 positive | 0.13 (2 of 15) | 0.25 (2 of 8) | 10 of 62 negatives falsely flagged [upper 95% bound 0.26] |
+| A-previewed, GSM8K test, 8 cases | 1.00 | 1.00 | Public copy caught 8 of 8; no label error seen |
+| B, planted and environments, 23 cases | 0.55 (12 of 22) | 0.67 (12 of 18) | Grader bugs 6 of 6; planted contamination 2 of 2 |
+
+Row level, on expert-audited rows: the multiple-choice judge flagged 9 of 73 wrong MMLU-Redux rows, at precision 0.06. The arithmetic check flagged 0 of 10 answers GSM8K-Platinum corrected.
+
+**Fixed defects, development evidence only.** LaTeX reading (`out/dev_flag_latex.json`), off-topic on small suites (`out/dev_flag_offtopic.json`), the language check (`out/dev_flag_language.json`). On v5 the off-topic fix raised no false flag and caught 2 of 4 planted cases.
+
+**Retired.**
+
+- As forecasts of real competing fine-tuning materials for an 8B target, on the pooled real stratum: `acc_final` at 0.6B, `acc_final` at 1.7B, and the soft score at 0.6B. Each missed 0.80 on a conclusive test and is not retuned.
+- Still retired from earlier rounds: the 10x lower learning rate, the truncated target run as a forecast, `hand_pool`, `hand_pool_clean`, `reach_clean`, `probe_rank`, `reward_gain`, ridge fits, gradient similarity.
+- The claim that the label checks detect wrong labels in real data. Planted-error results do not carry over to organic errors.
+
+**Stronger-judge test: it helps, but it does not make the threshold travel** (development data only; `out/dev_judge_mcq_tune.json`, raw rows in `out/dev_judge_mcq_Qwen2.5-7B-Instruct.json` and `…-1.5B-Instruct.json`; torch, bf16, 8 multiple-choice sources from train splits, 2 clean draws and 1 draw with 30% wrong labels per source, 150 rows each; 0.38 GPU-h).
+
+| Judge | Clean disagreement on confident rows, by source | At the current 0.30 line: clean reads flagged | 30%-wrong reads flagged | Leave-one-source-out |
+|---|---|---|---|---|
+| Qwen2.5-1.5B | sciq 0.03, arc_easy 0.02, arc 0.13, openbook 0.17, csqa 0.24, qasc 0.29, medmcqa 0.32 | 11 of 66 | 29 of 34 | 1 of 66 clean, 13 of 34 wrong |
+| Qwen2.5-7B | sciq 0.01, arc_easy 0.00, openbook 0.03, arc 0.04, csqa 0.11, medmcqa 0.22, qasc 0.29 | 4 of 63 | 24 of 30 | 2 of 63 clean, 0 of 30 wrong |
+
+A read is one sample of 60 rows, as the product takes it; each draw is read 5 times. The 7B judge cuts clean disagreement on five sources and is confident on more rows. It does not reach the goal of a clean rate near zero everywhere: `medmcqa` and `qasc` stay at 0.22 and 0.29, as high as a 30%-wrong draw reads on easier sources. Clean and wrong reads therefore overlap across sources, so no single threshold chosen on seven sources separates the eighth (the leave-one-source-out rule ends above every clean read and catches no wrong draw). `aqua` gave almost no confident rows with either judge. **Decision:** the multiple-choice label check stays advisory, the product keeps the 1.5B judge, and no GPU is required for label checks. A 7B judge would cut false advisories at the 0.30 line from about 1 in 6 clean reads to about 1 in 16, at the price of needing a GPU. That option is recorded and not adopted. These are development numbers on a torch backend. They were not rescored on v5.
+
+**Not run or not finished.** The full v4 development rescore stopped at 8 of 70 cases when the Mac was needed for v5. The SmolLM2 continuity arm, the truncated-target measurement, the `gsm` family and the `sst5` family were cut for budget. RL forecasting on non-arithmetic tasks remains untested.
+
+**The paragraph for the pitch.**
+
+Touchstone reliably catches broken graders and copied or leaked material: on a frozen test it caught 6 of 6 new grader bugs, 2 of 2 planted suite leaks and 8 of 8 public copies of GSM8K test. It measures what a material teaches a model it actually trains, net of a placebo, up to 8B on one 32 GB card. A 1.7B run ranks real competing fine-tuning datasets for an 8B model better than chance: it picked the better of two datasets 69% of the time across 55 pairs in 5 task families (90% interval 49-88%, against a ceiling of 78% set by the 8B's own run-to-run noise). That is a useful prior and not a decision rule. It missed the 80% bar we set in advance, a 0.6B run did no better than about 64%, and we could not show that the larger proxy beats the smaller one. Touchstone cannot yet forecast RL environments on non-arithmetic tasks: small base models earn no reward to learn from, so the test could not be run. Touchstone does not detect wrong labels in real data. On expert-audited benchmarks at natural error rates it found 2 of 8 noisy sets with 13% precision, and it falsely flagged 1 clean set in 6, mostly by mistaking shared passages for leaked test items. Its label and contamination flags on real multiple-choice and free-text data should be presented as advisory until that is fixed.
 
 ## References
 

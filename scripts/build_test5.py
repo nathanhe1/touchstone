@@ -112,6 +112,28 @@ class Writer:
 
 
 # ---------------------------------------------------------------- Tier A
+SUITE_N = 40  # the product refuses a suite under 30 items (suites.load_jsonl_suite)
+TOPPED = {}
+
+
+def mmlu_suite(subj, val, R):
+    """The subject's MMLU validation rows, topped up to SUITE_N with its MMLU test rows that are not in MMLU-Redux 2.0 and
+    not in any development set. Added after the first scoring attempt stopped on case 1, before any check ran: most
+    validation splits hold 5-30 items, under the product's 30-item minimum (METHOD.md, test v5)."""
+    items = list(val.get(subj, []))
+    redux = {_stem(mc_prompt(x["question"], x["choices"])) for v in R.values() for x in v}
+    for r in js(SRC / "mmlu_test_head.json").get(subj, []):
+        if len(items) >= SUITE_N:
+            break
+        p = mc_prompt(r["question"], r["choices"])
+        if _stem(p) not in redux and _stem(p) not in EXCLUDE and p not in {i[0] for i in items}:
+            items.append((p, LETTERS[int(r["answer"])]))
+    if len(items) < SUITE_N:  # MMLU-Redux took every test row of this subject: top up with other subjects' validation rows
+        others = sorted(x for k, v in val.items() if k != subj for x in v)
+        random.Random(f"{SEED}|{subj}").shuffle(others)
+        TOPPED[subj] = SUITE_N - len(items)
+        items += others[:SUITE_N - len(items)]
+    return items
 def mmlu_redux(W):
     R = js(SRC / "mmlu_redux2.json")
     val = {}
@@ -132,10 +154,10 @@ def mmlu_redux(W):
         n = len(rows)
         w, a = sum(r["_truth"] == "wrong" for r in rows) / n, sum(r["_truth"] == "ambiguous" for r in rows) / n
         noisy = w >= 0.20
-        suite = W.suite(f"mmlu_{subj}", val.get(subj, []))
+        suite = W.suite(f"mmlu_{subj}", mmlu_suite(subj, val, R))
         W.dataset(f"a_mmlu_{subj}", "A", "mmlu_redux", "mmlu_redux", rows, suite, lab(noisy_labels=noisy), "CC BY 4.0",
                   {"wrong_share": round(w, 3), "ambiguous_share": round(a, 3), "negative": None if noisy else negative_kind(w, a, hard_subject(subj)),
-                   "subject": subj, "dropped_seen_in_development": dropped})
+                   "subject": subj, "dropped_seen_in_development": dropped, "suite_items_from_other_subjects": TOPPED.get(subj, 0)})
     return ok_pool, val
 
 
@@ -224,7 +246,8 @@ def fb_suite(split, exclude, rng):
     name, sp = spec
     if name.startswith("mmlu:"):
         subj = name.split(":")[1]
-        items = [(mc_prompt(r["question"], r["choices"]), LETTERS[int(r["answer"])]) for r in js(H4 / "mmlu.validation.json") if r["subject"] == subj]
+        val = {subj: [(mc_prompt(r["question"], r["choices"]), LETTERS[int(r["answer"])]) for r in js(H4 / "mmlu.validation.json") if r["subject"] == subj]}
+        items = mmlu_suite(subj, val, js(SRC / "mmlu_redux2.json"))
     else:
         Hc.D = H4
         items = [(p.replace("\nReply with the letter only.", ""), a) for p, a, _ in Hc.items(name, sp)]

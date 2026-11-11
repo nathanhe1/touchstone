@@ -1,0 +1,47 @@
+{
+ "balance": {
+  "max_share": "min(0.65, 2.5/k)",
+  "cs": {
+   "suite": 0.25,
+   "materials": {
+    "cosmos": 0.276,
+    "hellaswag": 0.264,
+    "piqa": 0.523,
+    "placebo": 0.26,
+    "socialiqa": 0.342,
+    "swag": 0.26,
+    "wrong_swag": 0.265
+   },
+   "max_share": 0.625
+  },
+  "para": {
+   "suite": 0.5,
+   "materials": {
+    "medqp": 0.5,
+    "mrpc_train": 0.5,
+    "paws": 0.5,
+    "paws_silver": 0.5,
+    "placebo": 0.5,
+    "qqp": 0.5,
+    "wrong_qqp": 0.5
+   },
+   "max_share": 0.65
+  },
+  "sent": {
+   "suite": 0.5,
+   "materials": {
+    "amazon": 0.5,
+    "imdb": 0.5,
+    "placebo": 0.5,
+    "rotten": 0.5,
+    "sst2": 0.5,
+    "tweets": 0.5,
+    "wrong_sst2": 0.5
+   },
+   "max_share": 0.65
+  }
+ },
+ "rl": {},
+ "refused": [],
+ "skipped": []
+}

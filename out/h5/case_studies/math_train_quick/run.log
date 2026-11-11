@@ -1,0 +1,7 @@
+[03:55:02] Appraising dataset math_train.jsonl: 7500 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[03:55:08]   overlap: 5.0% of held-out items appear in the material (0.1% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 2%
+[03:55:09]   labels: a judge model is checking the answers (the slowest screening step)
+[03:56:03]   labels: arithmetic errors in 0.02148664343786295 of worked solutions
+[03:56:04]   135M: base accuracy 2.0%  candidate prob 47.7%
+[03:56:23]   135M seed 0 material: accuracy 1.3%  candidate prob 48.9%  (5s train)
+[03:56:43]   135M seed 0 placebo : accuracy 2.0%  candidate prob 51.0%  (5s train)

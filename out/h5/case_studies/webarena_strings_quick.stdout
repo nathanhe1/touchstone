@@ -1,0 +1,13 @@
+[16:07:18] @stage validate 0.010
+[16:07:18] Appraising environment WebArena string-match tasks: 212 tasks; held-out suite 'webarena_fuzzy_suite' (82 items: webarena_fuzzy_suite); mode quick
+[16:07:18] @stage seal 0.040
+[16:07:18] @stage overlap 0.060
+[16:07:18] @stage probe 0.110
+[16:07:26]   overlap: 3.7% of held-out items appear in the material (1.4% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 1.4%, off-topic 31%
+[16:08:21]   grader check: worst exploit 'wrong: fraction appended' earns 84% reward; answer in prompt for 2% of tasks
+[16:08:21]   blocking problem found in screening; quick mode skips training
+[16:08:21] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: gameable_grader, screen_only
+Report: out/case_studies/webarena_strings_quick/report.md

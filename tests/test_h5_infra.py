@@ -79,3 +79,22 @@ def test_placebo_and_all_wrong_differ(tmp_path):
     same = lambda a, b: sum(x[1] == y[1] for x, y in zip(a, b)) / len(a)
     assert same(placebo, shuffled) < 0.6  # seeded by the arm's name: not the same rows
     assert same(wrong, clean) == 0.0  # every completion wrong
+
+
+def test_collector_keeps_trained_rl_runs_with_no_signal_steps(tmp_path):
+    """A trained GRPO run records `skipped` = steps without reward signal (a number). Only a gate skip (a string) is left out.
+    The h5 collection dropped 8 trained csqa runs this way; found after h5 was scored (METHOD.md)."""
+    import json, subprocess, sys
+    from pathlib import Path
+    src = tmp_path / "runs"
+    src.mkdir()
+    def job(i, **k):
+        return {"job": {"id": i, "arm": "rl", "family": "fam", "material": "clean", "material_name": i, "size": "q3-8B", "seed": 0}, **k}
+    (src / "a.json").write_text(json.dumps(job("a", gain=1.0, skipped=3)))
+    (src / "b.json").write_text(json.dumps(job("b", gain=2.0, skipped=0)))
+    (src / "c.json").write_text(json.dumps(job("c", skipped="rl gate failed before training")))
+    root = Path(__file__).resolve().parents[1]
+    subprocess.run([sys.executable, str(root / "scripts" / "h5_collect.py"), str(src), str(tmp_path / "h5_x.json"), "--gates", str(tmp_path / "g.json")], check=True)
+    runs = json.loads((tmp_path / "h5_x.json").read_text())
+    assert sorted(runs) == ["rl|fam|a|q3-8B|0", "rl|fam|b|q3-8B|0"]
+    assert json.loads((tmp_path / "g.json").read_text())["skipped"] == ["c"]

@@ -1,0 +1,70 @@
+{
+ "seconds": {
+  "rl|q3-4B": 136.0,
+  "sft|1.7B": 62.9,
+  "sft|q3-8B": 186.8,
+  "sft|135M": 23.4,
+  "rl|360M": 44.5,
+  "rl|q3-0.6B": 70.2,
+  "sft|q3-0.6B": 40.1,
+  "rl|135M": 44.0,
+  "rl|1.7B": 59.5,
+  "sft|360M": 36.8,
+  "sft|q3-4B": 116.8,
+  "rl|q3-8B": 189.9,
+  "sft|q3-1.7B": 78.5,
+  "rl|q3-1.7B": 61.2,
+  "sft|q25-7B": 140.6,
+  "rl|q3-4B|long": 752.2,
+  "sft|q3-4B|long": 231.1,
+  "sft|q3-8B|long": 675.9
+ },
+ "mem": {
+  "rl|q3-4B": 12.13,
+  "sft|1.7B": 7.38,
+  "sft|q3-8B": 22.5,
+  "sft|135M": 6.06,
+  "rl|360M": 14.06,
+  "rl|q3-0.6B": 12.9,
+  "sft|q3-0.6B": 7,
+  "rl|135M": 8.59,
+  "rl|1.7B": 14.79,
+  "sft|360M": 9.59,
+  "sft|q3-4B": 16.2,
+  "rl|q3-8B": 20.82,
+  "sft|q3-1.7B": 6,
+  "rl|q3-1.7B": 6.83,
+  "sft|q25-7B": 24.02,
+  "rl|q3-4B|long": 15.15,
+  "sft|q3-4B|long": 14.81,
+  "sft|q3-8B|long": 23.02
+ },
+ "packing": {
+  "q3-0.6B": 1.2,
+  "q3-1.7B": 2.4,
+  "q3-4B": 1.0,
+  "q3-8B": 1.0,
+  "q25-0.5B": 1.0,
+  "q25-1.5B": 1.0,
+  "q25-7B": 1.0,
+  "135M": 1.7999999999999998,
+  "360M": 1.2,
+  "1.7B": 1.2
+ },
+ "params": {
+  "q3-0.6B": 600000000.0,
+  "q3-1.7B": 1700000000.0,
+  "q3-4B": 4000000000.0,
+  "q3-8B": 8200000000.0,
+  "q25-0.5B": 500000000.0,
+  "q25-1.5B": 1500000000.0,
+  "q25-7B": 7600000000.0,
+  "135M": 135000000.0,
+  "360M": 360000000.0,
+  "1.7B": 1700000000.0
+ },
+ "sources": [
+  "out/h5/h5final (fine-tuning runs of nli and sci, mean wall with one small-rung run sharing the card; 30/30/14 runs)"
+ ],
+ "note": "h5x plan: seconds are means of measured h5 final runs on the real letter families; mem is the scheduler estimate h5 ran with"
+}

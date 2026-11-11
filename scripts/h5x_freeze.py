@@ -41,7 +41,8 @@ def main():
     x = {"status": "FROZEN before h5 was scored and before any h5x run; hashes in out/h5x_final.sha256; rules in scripts/h5_score.py",
          "selection": note, "part": "final", "seeds": 2,
          "arms": {"ft": {"kind": "ft", "run_arm": "sft", "rungs": R,
-                         "families": {f: family("examples/h5x", f, mats[f], "real competing (h5x)") for f in sel}}}}
+                         "families": {f: family("examples/h5x", f, mats[f], "real competing (h5x), suite reused from h4" if f == "sent" else "real competing (h5x)")
+                                      for f in sel}}}}
     h5 = json.loads((ROOT / "scripts" / "h5_config.json").read_text())["arms"]["ft"]["families"]
     pooled = json.loads(json.dumps(x))
     pooled["status"] = "FROZEN: pooled real stratum, pre-declared secondary analysis (h5 nli + sci, plus the h5x families)"

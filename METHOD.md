@@ -700,6 +700,41 @@ One family passes the target's gate, and the rule needs three. No proxy rung pas
 - *Looks at raw numbers before scoring.* The coordinator's interim look is disclosed in the h5x section. The lead's monitoring also printed the runner's log lines for 3 finished runs, each with one run's gain. No pair agreement or candidate statistic was computed outside the frozen scorer.
 - *Limits.* One ladder (Qwen3-Base), one recipe (60 steps, LoRA rank 16), 600-item suites, 2 seeds, 5 fine-tuning families. `gsm` and `sst5` were cut for budget before the freeze.
 
+### h5x result and the pooled real stratum (each scored once)
+
+`out/forecast_h5x.json` (from `out/h5x/h5_x_final.json`, `out/h5x/h5_gates.json`) and `out/forecast_h5_real_pooled.json` (from `out/h5_real_pooled/`: byte copies of the two collected files and the union of the two gate files). Raw runs in `out/h5/h5x/`: 126 of 126, 0 failed, 0 rerun, launched 02:23 UTC and finished 03:54 UTC on 2026-11-11, same runner code and settings as h5 (commit 7b460e1b), job list `scripts/h5x_final_jobs.jsonl`. Scored at about 04:00 UTC with the researcher's frozen commands, all 44 hashes verified. Fine-tuning only; Qwen3-Base 0.6B, 1.7B, 8B; 2 seeds.
+
+**h5x alone: conclusive, and all three candidates miss the bar.** The 8B noise ceiling on screen-passing pairs is 0.78 (all pairs 0.854), above the 0.75 line. All three families passed every gate, with no abstention, no dropped material and no target tie.
+
+| Candidate | Screen-passing (30 pairs) [90%], p | Families above 0.5 | All pairs (45) | Bar met? |
+|---|---|---|---|---|
+| **B** `acc_final` 12x (0.6B) | **0.667** [0.374, 0.885], 0.072 | 2 of 3 | 0.778, p 0.003 | No: retired |
+| **C1** `acc_final` 4x (1.7B) | **0.700** [0.435, 0.917], 0.058 | 3 of 3 | 0.800, p 0.002 | No: retired |
+| **C2** soft 12x (0.6B) | **0.600** [0.363, 0.818], 0.25 | 2 of 3 | 0.733, p 0.016 | No: retired |
+
+Per family (B / C1 / C2): `cs` 0.50 / 0.70 / 0.50; `para` 0.70 / 0.80 / 0.70; `sent` 0.80 / 0.60 / 0.60. Mean within-family Spearman 0.50 / 0.53 / 0.33. Gates: 8B base accuracy `cs` 85.8, `para` 53.5, `sent` 40.2; reference minus all-wrong at 0.6B / 1.7B: `cs` 30.92 / 46.58, `para` 19.25 / 28.0, `sent` 55.25 / 46.67. Strata as labelled at the freeze, each inconclusive on its own for pairs: `cs` + `para` (20 pairs, ceiling 0.821) B 0.60, C1 0.75, C2 0.60; `sent`, whose suite is reused from h4 (10 pairs, ceiling 0.70) B 0.80, C1 0.60, C2 0.60. C1 minus B is +0.033 [-0.10, 0.167], p 0.50; C2 minus B is -0.067 [-0.133, 0.0], p 1.0; three shared families is underpowered, so no claim.
+
+Every candidate misses on the point estimate (0.80 needed) and on p (0.0167 needed). Each 90% interval reaches above 0.80, so by the pre-registered wording these are misses whose interval covers the bar, still retired.
+
+**Pooled real stratum (h5's `nli`, `sci` plus `cs`, `para`, `sent`): conclusive, and all three candidates fail on real competing materials.** This is the pre-declared secondary analysis on which Q1 is quoted; it reuses h5's `nli` and `sci` runs and is not independent of h5. Noise ceiling 0.778 (all pairs 0.85).
+
+| Candidate | Screen-passing [90%], p | Pairs, families | Families above 0.5 | All pairs | Bar met? |
+|---|---|---|---|---|---|
+| **B** `acc_final` 12x | **0.644** [0.438, 0.848], 0.053 | 45, 4 of 5 (`nli` abstains: gate 2.8 < 5 at 0.6B) | 3 of 4 | 0.758 (66), p 0.0004 | No |
+| **C1** `acc_final` 4x | **0.691** [0.491, 0.878], 0.022 | 55, 5 of 5 | 5 of 5 | 0.790 (81), p 0.0001 | No |
+| **C2** soft 12x | **0.644** [0.444, 0.816], 0.087 | 45, 4 of 5 | 3 of 4 | 0.758 (66), p 0.002 | No |
+
+Per family (B / C1 / C2): `nli` abstained / 0.90 / abstained; `sci` 0.60 / 0.53 / 0.73; `cs` 0.50 / 0.70 / 0.50; `para` 0.70 / 0.80 / 0.70; `sent` 0.80 / 0.60 / 0.60. C1 minus B on the 4 shared families is 0.0 [-0.12, 0.112], p 0.63; C2 minus B is 0.0 [-0.10, 0.08], p 0.75; underpowered below 5 families, no claim.
+
+**How the three results read together.**
+
+- *h5 alone* is the verdict of record for h5: both arms inconclusive, nothing passed, nothing retired. h5x and the pooled analysis do not overturn it.
+- *Q1, do small runs rank real competing, screen-passing materials for an 8B target: not at the bar.* On the pooled real stratum the best candidate, the 1.7B proxy, calls 0.69 of 55 pairs [0.49, 0.88], with p 0.022 against 0.0167 needed. By the rule written before scoring, all three candidates are reported as failing on real materials, and h5x alone retires all three in the fine-tuning arm. They are not retuned.
+- *Q3, 4x against 12x: no claim anywhere.* The differences are +0.111 (h5, 4 families), +0.033 (h5x, 3) and 0.0 (pooled, 4), all underpowered by the 5-family rule.
+- *Q2, RL: unanswered* (h5: one family passes the target gate).
+- *How strong the negative is.* The proxies do carry signal: on all pairs, which include the all-wrong arm, they score 0.73 to 0.80 with p from 0.016 down to 0.0001. Among materials a buyer would actually compare, they score 0.60 to 0.70. The target's own seed-to-seed agreement is 0.78, under the 0.80 bar and only just over the 0.75 line, so a pass was barely reachable with 2 seeds and 60-step runs, and intervals are wide at 30 to 55 pairs. The honest reading is the same as h4's, now at 8B on real competing datasets: small runs beat chance and separate disasters from sound material, and they do not rank sound competing materials reliably enough to sell as a forecast.
+- *Not independent of earlier looks.* h5x was added after h5 launched, and the coordinator saw interim raw gains from h5 (disclosed above). Its families were chosen by task type, and its rules and selection were frozen before h5 was scored.
+
 ## 7. Grade and fair value
 
 `touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.

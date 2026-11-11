@@ -178,9 +178,10 @@ a { color: inherit; text-decoration: none; }
 
 /* Proof */
 .proof > .in:first-child { padding-top: var(--gap); }
+.proof > .in.next { padding-top: var(--gap); border-top: 1px solid var(--line); }
 .proof { background: linear-gradient(120deg, #edd9a6, var(--gold) 45%, var(--gold-deep)); --line: #2b2b2b33; }
 .proof .split-head h2 { font-size: var(--title); letter-spacing: -.04em; }
-.figs { display: grid; grid-template-columns: repeat(4, 1fr); padding-inline: 0; border-top: 1px solid var(--line); }
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: 0; border-top: 1px solid var(--line); }
 .fig { padding: 22px var(--pad) clamp(40px, 5vw, 72px); display: grid; gap: 10px; align-content: start; }
 .fig + .fig { border-left: 1px solid var(--line); }
 .fig b { font-size: clamp(34px, 3.9vw, 62px); font-weight: 400; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -224,7 +225,7 @@ a { color: inherit; text-decoration: none; }
   .why-text { border-right: 0; border-bottom: 1px solid var(--line); padding-block: var(--gap) 48px; }
   .checks-in > div:first-child { border-right: 0; padding-block: var(--gap) 36px; }
   .check-list { padding-block: 0; }
-  .figs { grid-template-columns: 1fr 1fr; }
+  .figs { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .fig:nth-child(3) { border-left: 0; }
   .fig:nth-child(n+3) { border-top: 1px solid var(--line); }
 }

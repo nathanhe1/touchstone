@@ -9,7 +9,7 @@ const ease = [.16, 1, .3, 1] as const
 const RESULTS: [value: string, label: string, scope: string][] = [
   ['21 of 21', 'RL environment cases exactly right', 'Locked test on test cases'],
   ['12 of 12', 'gameable graders caught', 'Locked test on test cases'],
-  ['3 of 3', 'reworded test leaks caught', 'Locked test on test cases'],
+  ['6 of 6', 'new grader bugs caught', 'Second locked test'],
 ]
 
 export function Results() {

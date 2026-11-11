@@ -3,7 +3,8 @@ import raw from '../../out/appraisals.json'
 // Edit these as things happen; the whole site reads them.
 export const REQUEST_FORM_URL = ''
 export const ROADMAP: [stage: 'Done' | 'Now' | 'Next' | 'Later', title: string, detail: string][] = [
-  ['Done', 'Working appraisal pipeline', 'Seals an environment, probes the grader, trains four model sizes, measures transfer, then grades and prices at the size it measured.'],
+  ['Done', 'Working appraisal pipeline', 'Seals an environment, probes the grader, trains three model sizes, measures transfer, then grades and prices at the size it measured.'],
+  ['Done', 'Run on real public material, up to 8B', 'Appraised public datasets on models up to 8 billion parameters, and found test questions inside widely used training sets.'],
   ['Now', 'Pilot appraisals', 'Opening first appraisals to environment vendors and RL post-training teams.'],
   ['Next', 'Touchstone Report #1', 'The first public appraisal of open RL environments, run on real open models.'],
   ['Later', 'Every kind of training material', 'Side-by-side comparison, ratings that update as environments change, and post-training datasets beyond RL.'],

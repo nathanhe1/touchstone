@@ -1,0 +1,21 @@
+[21:09:23] @stage validate 0.010
+[21:09:24]   skipped 6 of 20022 rows that could not be read (limit 10%); first: code_alpaca_20k.json:record 7955: empty 'instruction' or 'output'
+[21:09:24] Appraising dataset code_alpaca_20k.json: 20016 examples; held-out suite 'humaneval_suite' (150 items: humaneval_suite); mode quick
+[21:09:24] @stage seal 0.040
+[21:09:24] @stage overlap 0.060
+[21:13:44]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 39%
+[21:13:46]   labels: a judge model is checking the answers (the slowest screening step)
+[21:13:47]   labels: arithmetic errors in 0.25 of worked solutions
+[21:17:17]   135M: base accuracy 0.0%  candidate prob 99.8%
+[21:17:17] @stage train 0.150
+[21:19:41] @stage measure 0.375
+[21:23:42]   135M seed 0 material: accuracy 0.0%  candidate prob 99.9%  (144s train)
+[21:23:42] @stage train 0.525
+[21:26:14] @stage measure 0.750
+[21:30:25]   135M seed 0 placebo : accuracy 0.0%  candidate prob 99.9%  (151s train)
+[21:30:26] @stage forecast 0.910
+[21:30:26] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: +0.0 pts [+0.0, +0.0] | value $0.00/item | flags: no_measurable_gain
+Report: out/case_studies/code_alpaca_quick/report.md

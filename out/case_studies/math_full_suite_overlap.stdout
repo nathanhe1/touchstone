@@ -1,0 +1,4 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+math_train {"suite_items": 5000, "material_rows": 7500, "suite_items_matched": 114, "rate": 0.0228, "exact": 0.002, "near": 0.013, "paraphrase": 0.0078, "gated_rate": 0.0288, "material_matches_by_source": {}, "seconds": 119}
+mathinstruct {"suite_items": 5000, "material_rows": 262038, "suite_items_matched": 118, "rate": 0.0236, "exact": 0.002, "near": 0.0096, "paraphrase": 0.012, "gated_rate": 0.0448, "material_matches_by_source": {"data/PoT/MATH_train.json": 127, "data/CoT/MATH_train.json": 186, "data/CoT/math50k_camel.json": 33}, "seconds": 1845}

@@ -1,0 +1,64 @@
+{
+ "math_train": {
+  "suite_items": 5000,
+  "material_rows": 7500,
+  "suite_items_matched": 114,
+  "rate": 0.0228,
+  "exact": 0.002,
+  "near": 0.013,
+  "paraphrase": 0.0078,
+  "gated_rate": 0.0288,
+  "examples": [
+   {
+    "item": "Evaluate the expression $a^3\\cdot a^2$ if $a= 5$.",
+    "matches": "Evaluate the expression $a^2\\cdot a^5$ if $a= 3$.",
+    "kind": "paraphrase"
+   },
+   {
+    "item": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the maximum value of $y$?",
+    "matches": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the minimum value of $y$?",
+    "kind": "near"
+   },
+   {
+    "item": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$  and $y$-intercept $(0,-p)$, where $p\\neq\n0$. What is $b$?",
+    "matches": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$ and $y$-intercept $(0,-p)$, where $p\\ne 0$. What is $b$?",
+    "kind": "near"
+   }
+  ],
+  "material_matches_by_source": {},
+  "seconds": 6
+ },
+ "mathinstruct": {
+  "suite_items": 5000,
+  "material_rows": 262038,
+  "suite_items_matched": 118,
+  "rate": 0.0236,
+  "exact": 0.002,
+  "near": 0.0096,
+  "paraphrase": 0.012,
+  "gated_rate": 0.0448,
+  "examples": [
+   {
+    "item": "Evaluate the expression $a^3\\cdot a^2$ if $a= 5$.",
+    "matches": "Evaluate the expression $a^2\\cdot a^5$ if $a= 3$.",
+    "kind": "paraphrase"
+   },
+   {
+    "item": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the maximum value of $y$?",
+    "matches": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the minimum value of $y$?",
+    "kind": "near"
+   },
+   {
+    "item": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$  and $y$-intercept $(0,-p)$, where $p\\neq\n0$. What is $b$?",
+    "matches": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$ and $y$-intercept $(0,-p)$, where $p\\ne 0$. What is $b$?",
+    "kind": "near"
+   }
+  ],
+  "material_matches_by_source": {
+   "data/PoT/MATH_train.json": 127,
+   "data/CoT/MATH_train.json": 186,
+   "data/CoT/math50k_camel.json": 33
+  },
+  "seconds": 136
+ }
+}

@@ -1,0 +1,168 @@
+{
+ "no_robots_train.parquet": {
+  "shape": "parquet, chat messages with system turns, multi-turn",
+  "source": "HuggingFaceH4/no_robots @ e6f9a4ac5c train (CC-BY-NC-4.0), as published",
+  "bytes": 10474682,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "513da8a61eb7",
+  "wall_s": 1493,
+  "grade": "D",
+  "flags": [
+   "off_topic",
+   "no_measurable_gain"
+  ],
+  "n_items": 9500,
+  "skipped_rows": 0,
+  "runtime_s": 1491
+ },
+ "aya_test.parquet": {
+  "shape": "parquet, non-English rows (70+ languages), inputs/targets columns",
+  "source": "CohereForAI/aya_dataset @ f9ea04583f test (Apache-2.0), as published",
+  "bytes": 977517,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "10642a170c58",
+  "wall_s": 828,
+  "grade": "D",
+  "flags": [
+   "off_topic",
+   "no_measurable_gain"
+  ],
+  "n_items": 1750,
+  "skipped_rows": 0,
+  "runtime_s": 821
+ },
+ "TruthfulQA.csv": {
+  "shape": "CSV with capitalised headers and no prompt/answer pair",
+  "source": "github.com/sylinrl/TruthfulQA @ d71c110897 (Apache-2.0), as published",
+  "bytes": 503550,
+  "http": 202,
+  "mode": "quick",
+  "status": "error",
+  "error": "TruthfulQA.csv: no row has a prompt and a reply Touchstone recognises. unrecognised format; expected 'prompt'+'completion' or 'messages' (got keys ['best answer', 'best incorrect answer', 'category', 'correct answers', 'incorrect answers', 'question', 'source', 'type']). Rename two columns to one of these pairs: prompt/completion, prompt/response, question/answer, instruction/output, instruction/response, query/response, problem/solution, input/output, question/response, inputs/targets, prompt/chosen; or give 'messages'",
+  "job_id": "c825eead6f47",
+  "wall_s": 5
+ },
+ "slimorca_2000.jsonl": {
+  "shape": "ShareGPT 'conversations' with from/value and system prompts",
+  "source": "Open-Orca/SlimOrca-Dedup @ bd7d445aa1 (MIT), first 2,000 rows of shard 1",
+  "bytes": 3325614,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "4b2ff78bda62",
+  "wall_s": 185,
+  "grade": "D",
+  "flags": [
+   "off_topic",
+   "no_measurable_gain"
+  ],
+  "n_items": 2000,
+  "skipped_rows": 0,
+  "runtime_s": 180
+ },
+ "openr1_math_300.jsonl": {
+  "shape": "very long replies (reasoning traces), LaTeX, 'messages' column",
+  "source": "open-r1/OpenR1-Math-220k @ e4e141ec9d (Apache-2.0), first 300 rows of default shard 0, columns as published",
+  "bytes": 5732247,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "20f6f2693594",
+  "wall_s": 3840,
+  "grade": "D",
+  "flags": [
+   "off_topic",
+   "no_measurable_gain"
+  ],
+  "n_items": 300,
+  "skipped_rows": 0,
+  "runtime_s": 3834
+ },
+ "mathinstruct_20000.jsonl": {
+  "shape": "one empty reply at row 18,866, program-of-thought code replies",
+  "source": "TIGER-Lab/MathInstruct @ b4fdc323a7 (MIT), first 20,000 rows",
+  "bytes": 15603030,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "384e9b592c82",
+  "wall_s": 7106,
+  "grade": "D",
+  "flags": [
+   "noisy_labels",
+   "screen_only"
+  ],
+  "n_items": 19999,
+  "skipped_rows": 1,
+  "runtime_s": 7104
+ },
+ "code_alpaca_20k.json": {
+  "shape": "Hugging Face JSON-array export (not JSON lines), empty 'input' fields",
+  "source": "sahil2801/CodeAlpaca-20k @ 152bb5e9a2 (CC-BY-4.0), as published",
+  "bytes": 8057896,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "a5f635c31abe",
+  "wall_s": 225,
+  "grade": "D",
+  "flags": [
+   "off_topic",
+   "no_measurable_gain"
+  ],
+  "n_items": 20016,
+  "skipped_rows": 6,
+  "runtime_s": 222
+ },
+ "numina_cot_1000.jsonl": {
+  "shape": "LaTeX math with \\boxed answers, long worked solutions",
+  "source": "examples/h5/gsm/numina_cot.jsonl (AI-MO/NuminaMath-CoT, Apache-2.0)",
+  "bytes": 1650145,
+  "http": 202,
+  "mode": "quick",
+  "status": "done",
+  "error": null,
+  "job_id": "ef593abbc997",
+  "wall_s": 281,
+  "grade": "D",
+  "flags": [
+   "off_topic",
+   "no_measurable_gain"
+  ],
+  "n_items": 1000,
+  "skipped_rows": 0,
+  "runtime_s": 275
+ },
+ "env_with_deps.zip": {
+  "shape": "environment folder importing a local helper module and an uninstalled package",
+  "source": "built here: a K&K environment (examples/h5/kk) whose env.py imports helpers.py and reasoning_gym",
+  "bytes": 288337,
+  "http": 202,
+  "mode": "quick",
+  "status": "error",
+  "error": "6dad3f8b9739/input/unpacked/kk_env/env.py: imports 'reasoning_gym', which is not installed here; its requirements.txt lists: reasoning-gym==0.1.19. Touchstone does not install an environment's dependencies; include the package in the folder or install it where the appraisal runs",
+  "job_id": "6dad3f8b9739",
+  "wall_s": 5
+ },
+ "env_local_helper.zip": {
+  "shape": "environment folder importing a local helper module and listing requirements.txt",
+  "source": "built here: the same environment without the uninstalled package",
+  "bytes": 288255,
+  "http": 202,
+  "mode": "quick",
+  "status": "error",
+  "error": "72df6fb39f55/input/unpacked/kk_env: no held-out suite given; pass --suite or set ENV.domain",
+  "job_id": "72df6fb39f55",
+  "wall_s": 5
+ }
+}

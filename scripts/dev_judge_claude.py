@@ -1,0 +1,88 @@
+"""Development test: a Claude model as the judge for the two-route multiple-choice label check.
+
+Same rows, same statistic and same tuning as `scripts/dev_judge_mcq.py` (8 sources, 2 clean draws and 1 draw with 30% wrong
+labels per source, 150 rows each), so the result sits beside the Qwen2.5 1.5B and 7B judges in `out/dev_judge_mcq_tune.json`.
+The judge is called through the `claude` command line in print mode, with no tools, from an empty directory.
+
+    python scripts/dev_judge_claude.py run claude-fable-5-2     # writes out/dev_judge_mcq_claude-fable-5-2.json
+    python scripts/dev_judge_mcq.py tune                        # adds it to out/dev_judge_mcq_tune.json
+
+Development data only. The rows are public train splits, which a large model may have seen in training, so its accuracy
+here can be higher than on a vendor's private material. The model never sees the label.
+"""
+import json
+import re
+import subprocess
+import sys
+import tempfile
+import time
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+D = ROOT / "examples" / "dev_judge"
+BATCH, WORKERS = 25, 6
+DIRECT = ('Answer each multiple-choice question. Reply with exactly one line per question in the form "Q<number>: <letter>" '
+          "and nothing else.")
+COT = ("Answer each multiple-choice question. For each question, reason step by step in a few sentences, then end that "
+       'question\'s answer with a line in the form "Q<number>: <letter>".')
+LINE = re.compile(r"^\s*\**Q(\d+)\**\s*[:.]\s*\**\(?([A-J])\)?\**\s*$", re.M)
+CWD = tempfile.mkdtemp(prefix="judge_cwd_")
+
+
+def ask(model, system, questions):
+    """One call for a batch. Returns ({question number: letter}, cost in dollars)."""
+    prompt = "\n\n".join(f"Q{i + 1}.\n{q}" for i, q in enumerate(questions))
+    for attempt in range(3):
+        p = subprocess.run(["claude", "-p", "--model", model, "--system-prompt", system, "--tools", "", "--strict-mcp-config",
+                            "--no-session-persistence", "--disable-slash-commands", "--output-format", "json"],
+                           input=prompt, capture_output=True, text=True, cwd=CWD, timeout=900)
+        try:
+            j = json.loads(p.stdout[p.stdout.index("{"):])
+            if not j.get("is_error") and j.get("result"):
+                got = {}
+                for n, letter in LINE.findall(j["result"]):
+                    got[int(n)] = letter  # the last line for a question wins
+                return got, j.get("total_cost_usd") or 0.0
+        except (ValueError, json.JSONDecodeError):
+            pass
+        time.sleep(5 * (attempt + 1))
+    return {}, 0.0
+
+
+def route(model, system, questions):
+    chunks = [questions[s:s + BATCH] for s in range(0, len(questions), BATCH)]
+    with ThreadPoolExecutor(WORKERS) as ex:
+        res = list(ex.map(lambda c: ask(model, system, c), chunks))
+    out = []
+    for c, (got, _) in zip(chunks, res):
+        out += [got.get(i + 1) for i in range(len(c))]
+    return out, sum(cost for _, cost in res)
+
+
+def run(model):
+    out_f = ROOT / "out" / f"dev_judge_mcq_{model}.json"
+    res = json.loads(out_f.read_text()) if out_f.exists() else {}
+    cost = res.pop("_meta", {}).get("cost_usd", 0.0)
+    t0 = time.time()
+    for m in json.loads((D / "manifest.json").read_text()):
+        key = f"{m['source']}_{m['draw']}"
+        if key in res:
+            continue
+        rows = [json.loads(x) for x in (D / m["path"]).read_text().splitlines()]
+        q = [r["prompt"] for r in rows]
+        d, c1 = route(model, DIRECT, q)
+        c, c2 = route(model, COT, q)
+        cost += c1 + c2
+        res[key] = {"source": m["source"], "draw": m["draw"],
+                    "rows": [{"direct": a, "cot": b, "label": r["completion"], "wrong": r["wrong"]} for a, b, r in zip(d, c, rows)]}
+        conf = [x for x in res[key]["rows"] if x["direct"] and x["direct"] == x["cot"]]
+        print(key, f"confident {len(conf)}/{len(rows)}", f"disagree {sum(x['direct'] != x['label'] for x in conf) / max(1, len(conf)):.3f}",
+              f"missing {sum(x['direct'] is None for x in res[key]['rows'])}+{sum(x['cot'] is None for x in res[key]['rows'])}",
+              f"${cost:.2f}", f"{time.time() - t0:.0f}s", flush=True)
+        out_f.write_text(json.dumps({**res, "_meta": {"model": model, "backend": "claude command line, print mode, no tools",
+                                                      "batch": BATCH, "cost_usd": round(cost, 4)}}))
+
+
+if __name__ == "__main__":
+    {"run": lambda: run(sys.argv[2])}[sys.argv[1]]()

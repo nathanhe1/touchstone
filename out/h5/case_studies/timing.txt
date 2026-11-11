@@ -1,0 +1,7 @@
+math_train_quick exit=0 103s
+code_alpaca_quick exit=0 65s
+mathinstruct_quick exit=0 238s
+demo_good_quick exit=0 61s
+demo_env_quick exit=0 9s
+h5_orca_quick exit=0 4s
+full_suite_overlap exit=0

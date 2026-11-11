@@ -1,0 +1,189 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/workspace/case_inputs/mathinstruct.jsonl",
+    "name": "mathinstruct",
+    "sha256": "50a0b2f46dbc1891f60169dc76166eee2e14767d95b190e3d17d61ba5549808b",
+    "n_items": 262038,
+    "unique_items": 245043,
+    "skipped_rows": 1,
+    "rows_read": 262039,
+    "skip_reasons": [
+      "mathinstruct.jsonl:18866: empty 'prompt' or 'completion'"
+    ]
+  },
+  "heldout": {
+    "name": "math_test_suite",
+    "domain": "math_test_suite",
+    "description": "user-supplied suite from math_test_suite.jsonl",
+    "n_items": 149,
+    "source": "/workspace/case_inputs/math_test_suite.jsonl (subset of 149)",
+    "parts": {
+      "algebra": 36,
+      "counting_and_probability": 14,
+      "geometry": 14,
+      "intermediate_algebra": 27,
+      "number_theory": 16,
+      "prealgebra": 26,
+      "precalculus": 16
+    },
+    "n_items_untouched_by_material": 147
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.4517,
+    "raw_off_topic_share": 0.155,
+    "suite_self_share": 0.0268,
+    "off_topic_share": 0.1317,
+    "off_topic_status": "checked"
+  },
+  "rungs": {},
+  "measurable_at": null,
+  "flags": [
+    {
+      "code": "noisy_labels",
+      "severity": "block",
+      "text": "Many labels look wrong: 15% of worked solutions contain an arithmetic error."
+    },
+    {
+      "code": "screen_only",
+      "severity": "info",
+      "text": "Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "noisy_labels"
+    ],
+    "novel_share": 1.0,
+    "dollars_per_point": 5000.0,
+    "basis": "not priced"
+  },
+  "models": {},
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 30,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 64,
+    "eval_max_new": 96
+  },
+  "runtime_s": 236,
+  "label_quality": {
+    "arithmetic": {
+      "checked": 84584,
+      "inconsistent": 12600,
+      "unsupported_final": 2738,
+      "rate": 0.14896434313818216
+    },
+    "audit": {
+      "status": "checked",
+      "method": "arithmetic of worked solutions",
+      "reason": "already condemned; judge not needed"
+    }
+  },
+  "checks": {
+    "data_type": "numeric",
+    "language": "en",
+    "labels": {
+      "status": "checked",
+      "method": "arithmetic of worked solutions",
+      "reason": "already condemned; judge not needed"
+    },
+    "public_copy": {
+      "status": "not_checked",
+      "reason": "no public baseline for this data type; pass --public"
+    },
+    "off_topic": {
+      "status": "checked",
+      "method": "share unrelated to the suite, net of the suite's own spread"
+    }
+  },
+  "device": "cuda",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 262038,
+      "examples": [
+        {
+          "item": "Determine the number of ways to arrange the letters of the word RADII.",
+          "matches": "Determine the number of ways to arrange the letters of the word NINE.",
+          "kind": "near"
+        },
+        {
+          "item": "Determine the number of ways to arrange the letters of the word PROOF.",
+          "matches": "Determine the number of ways to arrange the letters of the word NINE.",
+          "kind": "near"
+        },
+        {
+          "item": "Determine the number of ways to arrange the letters of the word PROOF.",
+          "matches": "Determine the number of ways to arrange the letters of the word NINE.",
+          "kind": "near"
+        }
+      ],
+      "suite_share": 0.0268
+    },
+    "public": {
+      "rate": 0.0,
+      "examples": [],
+      "baseline": "none (no public baseline for this domain; pass --public)"
+    },
+    "duplicates": {
+      "n": 262038,
+      "unique": 245043,
+      "dup_rate": 0.06485700547248874
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "method": "skipped",
+    "method_note": "Not forecast: training was skipped because a blocking flag fired during screening.",
+    "net": {
+      "point": null,
+      "lo": null,
+      "hi": null
+    },
+    "headline": {
+      "point": null,
+      "lo": null,
+      "hi": null,
+      "source": "skipped"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0268,
+    "public": 0.0,
+    "duplicates": 0.0649
+  },
+  "probes": {},
+  "gains_by_size": {},
+  "forecast": {
+    "value": null,
+    "lo": null,
+    "hi": null,
+    "target": "1.7B",
+    "method": "skipped",
+    "source": "skipped",
+    "smooth_value": null,
+    "smooth_lo": null,
+    "smooth_hi": null
+  },
+  "summary": "mathinstruct (dataset, 262,038 items) earns grade D. Screening found a blocking problem, so quick mode did not train a model. Not priced because of: noisy labels."
+}

@@ -1,0 +1,49 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 37.48it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 37.44it/s]
+arc_clean_0 confident 53/150 disagree 0.019 50s
+arc_clean_1 confident 52/150 disagree 0.058 85s
+arc_planted_30 confident 61/150 disagree 0.328 120s
+arc_easy_clean_0 confident 80/150 disagree 0.000 154s
+arc_easy_clean_1 confident 63/150 disagree 0.000 187s
+arc_easy_planted_30 confident 73/150 disagree 0.342 221s
+csqa_clean_0 confident 89/150 disagree 0.112 253s
+csqa_clean_1 confident 94/150 disagree 0.106 284s
+csqa_planted_30 confident 80/150 disagree 0.388 316s
+sciq_clean_0 confident 110/150 disagree 0.000 348s
+sciq_clean_1 confident 103/150 disagree 0.019 379s
+sciq_planted_30 confident 96/150 disagree 0.312 412s
+qasc_clean_0 confident 21/150 disagree 0.238 444s
+qasc_clean_1 confident 21/150 disagree 0.333 476s
+qasc_planted_30 confident 13/150 disagree 0.385 509s
+medmcqa_clean_0 confident 45/150 disagree 0.200 543s
+medmcqa_clean_1 confident 42/150 disagree 0.238 577s
+medmcqa_planted_30 confident 37/150 disagree 0.324 613s
+aqua_clean_0 confident 5/150 disagree 0.000 648s
+aqua_clean_1 confident 6/150 disagree 0.000 685s
+aqua_planted_30 confident 9/150 disagree 0.556 722s
+openbook_clean_0 confident 95/150 disagree 0.032 754s
+openbook_clean_1 confident 97/150 disagree 0.021 787s
+openbook_planted_30 confident 97/150 disagree 0.361 819s
+arc_clean_0 confident 52/150 disagree 0.135 25s
+arc_clean_1 confident 52/150 disagree 0.115 44s
+arc_planted_30 confident 60/150 disagree 0.350 63s
+arc_easy_clean_0 confident 64/150 disagree 0.031 82s
+arc_easy_clean_1 confident 60/150 disagree 0.000 100s
+arc_easy_planted_30 confident 71/150 disagree 0.366 119s
+csqa_clean_0 confident 61/150 disagree 0.262 137s
+csqa_clean_1 confident 53/150 disagree 0.208 156s
+csqa_planted_30 confident 55/150 disagree 0.527 174s
+sciq_clean_0 confident 67/150 disagree 0.030 193s
+sciq_clean_1 confident 65/150 disagree 0.031 211s
+sciq_planted_30 confident 67/150 disagree 0.284 230s
+qasc_clean_0 confident 24/150 disagree 0.333 248s
+qasc_clean_1 confident 34/150 disagree 0.265 267s
+qasc_planted_30 confident 26/150 disagree 0.615 285s
+medmcqa_clean_0 confident 40/150 disagree 0.300 304s
+medmcqa_clean_1 confident 41/150 disagree 0.341 323s
+medmcqa_planted_30 confident 41/150 disagree 0.585 341s
+aqua_clean_0 confident 4/150 disagree 0.000 360s
+aqua_clean_1 confident 1/150 disagree 0.000 379s
+aqua_planted_30 confident 2/150 disagree 0.500 398s
+openbook_clean_0 confident 63/150 disagree 0.206 417s
+openbook_clean_1 confident 58/150 disagree 0.138 435s
+openbook_planted_30 confident 61/150 disagree 0.311 454s

@@ -1,0 +1,8 @@
+[03:56:44]   skipped 6 of 20022 rows that could not be read (limit 10%); first: code_alpaca_20k.json:record 7955: empty 'instruction' or 'output'
+[03:56:44] Appraising dataset code_alpaca_20k.json: 20016 examples; held-out suite 'humaneval_suite' (150 items: humaneval_suite); mode quick
+[03:56:56]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 39%
+[03:56:56]   labels: a judge model is checking the answers (the slowest screening step)
+[03:56:57]   labels: arithmetic errors in 0.25 of worked solutions
+[03:57:08]   135M: base accuracy 0.0%  candidate prob 99.8%
+[03:57:28]   135M seed 0 material: accuracy 0.0%  candidate prob 99.9%  (5s train)
+[03:57:48]   135M seed 0 placebo : accuracy 0.0%  candidate prob 99.9%  (5s train)

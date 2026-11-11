@@ -1,0 +1,14 @@
+[15:51:02] @stage validate 0.010
+[15:51:02] Appraising dataset gsm8k_test_original.jsonl: 1319 examples; held-out suite 'word_math' (150 items: grade-school arithmetic word problems (one or two steps, whole numbers)); mode quick
+[15:51:02] @stage seal 0.040
+[15:51:02] @stage overlap 0.060
+[15:51:21]   overlap: 0.7% of held-out items appear in the material (0.0% of material), public (GSM8K train+test, SVAMP, ASDiv (12,097 public problems)) 93.5%, duplicates 0.0%, off-topic 4%
+[15:51:22]   labels: a judge model is checking the answers (the slowest screening step)
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3116.79it/s]
+[15:56:39]   labels: arithmetic errors in 0.008487654320987654 of worked solutions
+[15:56:39]   blocking problem found in screening; quick mode skips training
+[15:56:39] @stage price 0.950
+@stage report 0.98
+
+Grade F | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: copied_from_public, screen_only
+Report: out/case_studies/gsm8k_test_quick/report.md

@@ -346,3 +346,174 @@ done h5_ft_sft_yelp_off25_q3-0.6B_s1 gain=56.833 base=0.83 wall=43.7s mem=7.39GB
 start h5_ft_sft_yelp_drop_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
 done h5_ft_sft_yelp_drop_q3-0.6B_s1 gain=29.333 base=0.83 wall=49.4s mem=6.64GB
 start h5_ft_sft_yelp_wrong100_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_wrong100_q3-0.6B_s1 gain=20.5 base=0.83 wall=49.3s mem=7.39GB
+start h5_ft_sft_yelp_placebo_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_placebo_q3-0.6B_s1 gain=20.833 base=0.83 wall=49.9s mem=7.39GB
+start h5_ft_sft_csqa_clean_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_clean_q3-0.6B_s0 gain=45.833 base=17.83 wall=50.3s mem=4.41GB
+start h5_ft_sft_csqa_pool100_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_wrong10_q3-8B_s1 gain=39.667 base=22.83 wall=258.3s mem=21.22GB
+start h5_ft_sft_yelp_off25_q3-8B_s1 on gpu0 (22 GB est, 30/30 in use)
+done h5_ft_sft_csqa_pool100_q3-0.6B_s0 gain=43.0 base=17.83 wall=24.7s mem=3.66GB
+start h5_ft_sft_csqa_pool200_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_pool200_q3-0.6B_s0 gain=43.167 base=17.83 wall=28.8s mem=3.66GB
+start h5_ft_sft_csqa_pool300_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_pool300_q3-0.6B_s0 gain=44.333 base=17.83 wall=28.3s mem=3.66GB
+start h5_ft_sft_csqa_wrong10_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_wrong10_q3-0.6B_s0 gain=44.0 base=17.83 wall=28.6s mem=4.41GB
+start h5_ft_sft_csqa_off25_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_off25_q3-0.6B_s0 gain=46.167 base=17.83 wall=28.7s mem=4.41GB
+start h5_ft_sft_csqa_drop_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_drop_q3-0.6B_s0 gain=18.0 base=17.83 wall=29.1s mem=4.41GB
+start h5_ft_sft_csqa_wrong100_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_wrong100_q3-0.6B_s0 gain=2.333 base=17.83 wall=28.8s mem=3.66GB
+start h5_ft_sft_csqa_placebo_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_placebo_q3-0.6B_s0 gain=2.667 base=17.83 wall=29.0s mem=4.41GB
+start h5_ft_sft_csqa_clean_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_off25_q3-8B_s1 gain=42.167 base=22.83 wall=243.9s mem=21.22GB
+start h5_ft_sft_yelp_drop_q3-8B_s1 on gpu0 (22 GB est, 30/30 in use)
+done h5_ft_sft_csqa_clean_q3-0.6B_s1 gain=46.833 base=17.83 wall=24.3s mem=4.41GB
+start h5_ft_sft_csqa_pool100_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_pool100_q3-0.6B_s1 gain=41.667 base=17.83 wall=28.6s mem=3.66GB
+start h5_ft_sft_csqa_pool200_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_pool200_q3-0.6B_s1 gain=42.667 base=17.83 wall=28.8s mem=3.66GB
+start h5_ft_sft_csqa_pool300_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_pool300_q3-0.6B_s1 gain=42.167 base=17.83 wall=28.5s mem=3.66GB
+start h5_ft_sft_csqa_wrong10_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_wrong10_q3-0.6B_s1 gain=46.833 base=17.83 wall=28.7s mem=4.41GB
+start h5_ft_sft_csqa_off25_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_off25_q3-0.6B_s1 gain=45.833 base=17.83 wall=29.0s mem=4.41GB
+start h5_ft_sft_csqa_drop_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_drop_q3-0.6B_s1 gain=16.5 base=17.83 wall=29.1s mem=4.41GB
+start h5_ft_sft_csqa_wrong100_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_wrong100_q3-0.6B_s1 gain=1.5 base=17.83 wall=29.0s mem=3.66GB
+start h5_ft_sft_csqa_placebo_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_drop_q3-8B_s1 gain=15.0 base=22.83 wall=238.9s mem=21.22GB
+start h5_ft_sft_yelp_wrong100_q3-8B_s1 on gpu0 (22 GB est, 30/30 in use)
+done h5_ft_sft_csqa_placebo_q3-0.6B_s1 gain=3.167 base=17.83 wall=23.4s mem=4.41GB
+start h5_ft_sft_boolq_clean_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_clean_q3-0.6B_s0 gain=63.833 base=13.83 wall=62.2s mem=7.39GB
+start h5_ft_sft_boolq_pool100_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_pool100_q3-0.6B_s0 gain=62.333 base=13.83 wall=37.6s mem=6.64GB
+start h5_ft_sft_boolq_pool200_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_pool200_q3-0.6B_s0 gain=58.5 base=13.83 wall=37.3s mem=6.64GB
+start h5_ft_sft_boolq_pool300_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_pool300_q3-0.6B_s0 gain=61.0 base=13.83 wall=38.7s mem=7.39GB
+start h5_ft_sft_boolq_wrong10_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_wrong10_q3-0.6B_s0 gain=60.0 base=13.83 wall=38.6s mem=7.39GB
+start h5_ft_sft_boolq_off25_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_wrong100_q3-8B_s1 gain=-0.833 base=22.83 wall=257.2s mem=21.22GB
+start h5_ft_sft_yelp_placebo_q3-8B_s1 on gpu0 (22 GB est, 30/30 in use)
+done h5_ft_sft_boolq_off25_q3-0.6B_s0 gain=63.5 base=13.83 wall=33.6s mem=7.39GB
+start h5_ft_sft_boolq_wrong100_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_wrong100_q3-0.6B_s0 gain=23.5 base=13.83 wall=38.1s mem=7.39GB
+start h5_ft_sft_boolq_placebo_q3-0.6B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_placebo_q3-0.6B_s0 gain=48.833 base=13.83 wall=37.7s mem=7.39GB
+start h5_ft_sft_boolq_clean_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_clean_q3-0.6B_s1 gain=60.0 base=13.83 wall=37.7s mem=7.39GB
+start h5_ft_sft_boolq_pool100_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_pool100_q3-0.6B_s1 gain=62.0 base=13.83 wall=37.5s mem=6.64GB
+start h5_ft_sft_boolq_pool200_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_pool200_q3-0.6B_s1 gain=60.5 base=13.83 wall=38.3s mem=6.64GB
+start h5_ft_sft_boolq_pool300_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_pool300_q3-0.6B_s1 gain=60.833 base=13.83 wall=38.9s mem=7.39GB
+start h5_ft_sft_boolq_wrong10_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_yelp_placebo_q3-8B_s1 gain=-3.667 base=22.83 wall=254.9s mem=21.22GB
+start h5_ft_sft_csqa_clean_q3-8B_s0 on gpu0 (22 GB est, 30/30 in use)
+done h5_ft_sft_boolq_wrong10_q3-0.6B_s1 gain=61.333 base=13.83 wall=30.3s mem=7.39GB
+start h5_ft_sft_boolq_off25_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_off25_q3-0.6B_s1 gain=61.5 base=13.83 wall=38.3s mem=7.39GB
+start h5_ft_sft_boolq_wrong100_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_wrong100_q3-0.6B_s1 gain=23.5 base=13.83 wall=36.5s mem=7.39GB
+start h5_ft_sft_boolq_placebo_q3-0.6B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_boolq_placebo_q3-0.6B_s1 gain=48.833 base=13.83 wall=36.1s mem=7.39GB
+start h5_rl_rlgate_kk_q3-1.7B on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rlgate_kk_q3-1.7B gain=None base=None wall=14.8s mem=NoneGB
+start h5_rl_rl_kk_clean_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_clean_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_pool50_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_pool50_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_pool200_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_pool200_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_noise10_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_noise10_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_off25_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_off25_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_placebo_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_placebo_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_clean_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_clean_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_pool50_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_pool50_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_pool200_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_pool200_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_noise10_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_noise10_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_off25_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_off25_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_kk_placebo_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_kk_placebo_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rlgate_yelp_q3-1.7B on gpu0 (7 GB est, 30/30 in use)
+done h5_ft_sft_csqa_clean_q3-8B_s0 gain=7.167 base=77.0 wall=178.2s mem=21.5GB
+start h5_ft_sft_csqa_pool100_q3-8B_s0 on gpu0 (22 GB est, 30/30 in use)
+done h5_rl_rlgate_yelp_q3-1.7B gain=None base=None wall=6.5s mem=NoneGB
+start h5_rl_rl_yelp_clean_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_clean_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_pool50_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_pool50_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_pool200_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_pool200_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_noise10_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_noise10_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_off25_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_off25_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_placebo_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_placebo_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_clean_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_clean_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_pool50_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_pool50_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_pool200_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_pool200_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_noise10_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_noise10_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_off25_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_off25_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_yelp_placebo_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_yelp_placebo_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rlgate_csqa_q3-1.7B on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rlgate_csqa_q3-1.7B gain=None base=None wall=7.4s mem=NoneGB
+start h5_rl_rl_csqa_clean_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_clean_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_pool50_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_pool50_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_pool200_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_pool200_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_noise10_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_noise10_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_off25_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_off25_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_placebo_q3-1.7B_s0 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_placebo_q3-1.7B_s0 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_clean_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_clean_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_pool50_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_pool50_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_pool200_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_pool200_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_noise10_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_noise10_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_off25_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_off25_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+start h5_rl_rl_csqa_placebo_q3-1.7B_s1 on gpu0 (7 GB est, 30/30 in use)
+done h5_rl_rl_csqa_placebo_q3-1.7B_s1 gain=None base=None wall=Nones mem=NoneGB
+done h5_ft_sft_csqa_pool100_q3-8B_s0 gain=3.333 base=77.0 wall=87.6s mem=21.5GB
+start h5_ft_sft_csqa_pool200_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_pool200_q3-8B_s0 gain=6.833 base=77.0 wall=84.4s mem=21.5GB
+start h5_ft_sft_csqa_pool300_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_pool300_q3-8B_s0 gain=2.833 base=77.0 wall=84.9s mem=21.5GB
+start h5_ft_sft_csqa_wrong10_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_wrong10_q3-8B_s0 gain=6.0 base=77.0 wall=84.8s mem=21.5GB
+start h5_ft_sft_csqa_off25_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_off25_q3-8B_s0 gain=7.167 base=77.0 wall=85.1s mem=21.5GB
+start h5_ft_sft_csqa_drop_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)

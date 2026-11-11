@@ -807,7 +807,16 @@ Row level, on expert-audited rows: the multiple-choice judge flagged 9 of 73 wro
 - Still retired from earlier rounds: the 10x lower learning rate, the truncated target run as a forecast, `hand_pool`, `hand_pool_clean`, `reach_clean`, `probe_rank`, `reward_gain`, ridge fits, gradient similarity.
 - The claim that the label checks detect wrong labels in real data. Planted-error results do not carry over to organic errors.
 
-**Not run or not finished.** The stronger-judge test (7B judge on the two-route check) had not reported when this was written. The full v4 development rescore stopped at 8 of 70 cases when the Mac was needed for v5. The SmolLM2 continuity arm, the truncated-target measurement, the `gsm` family and the `sst5` family were cut for budget. RL forecasting on non-arithmetic tasks remains untested.
+**Stronger-judge test: it helps, but it does not make the threshold travel** (development data only; `out/dev_judge_mcq_tune.json`, raw rows in `out/dev_judge_mcq_Qwen2.5-7B-Instruct.json` and `…-1.5B-Instruct.json`; torch, bf16, 8 multiple-choice sources from train splits, 2 clean draws and 1 draw with 30% wrong labels per source, 150 rows each; 0.38 GPU-h).
+
+| Judge | Clean disagreement on confident rows, by source | At the current 0.30 line: clean reads flagged | 30%-wrong reads flagged | Leave-one-source-out |
+|---|---|---|---|---|
+| Qwen2.5-1.5B | sciq 0.03, arc_easy 0.02, arc 0.13, openbook 0.17, csqa 0.24, qasc 0.29, medmcqa 0.32 | 11 of 66 | 29 of 34 | 1 of 66 clean, 13 of 34 wrong |
+| Qwen2.5-7B | sciq 0.01, arc_easy 0.00, openbook 0.03, arc 0.04, csqa 0.11, medmcqa 0.22, qasc 0.29 | 4 of 63 | 24 of 30 | 2 of 63 clean, 0 of 30 wrong |
+
+A read is one sample of 60 rows, as the product takes it; each draw is read 5 times. The 7B judge cuts clean disagreement on five sources and is confident on more rows. It does not reach the goal of a clean rate near zero everywhere: `medmcqa` and `qasc` stay at 0.22 and 0.29, as high as a 30%-wrong draw reads on easier sources. Clean and wrong reads therefore overlap across sources, so no single threshold chosen on seven sources separates the eighth (the leave-one-source-out rule ends above every clean read and catches no wrong draw). `aqua` gave almost no confident rows with either judge. **Decision:** the multiple-choice label check stays advisory, the product keeps the 1.5B judge, and no GPU is required for label checks. A 7B judge would cut false advisories at the 0.30 line from about 1 in 6 clean reads to about 1 in 16, at the price of needing a GPU. That option is recorded and not adopted. These are development numbers on a torch backend. They were not rescored on v5.
+
+**Not run or not finished.** The full v4 development rescore stopped at 8 of 70 cases when the Mac was needed for v5. The SmolLM2 continuity arm, the truncated-target measurement, the `gsm` family and the `sst5` family were cut for budget. RL forecasting on non-arithmetic tasks remains untested.
 
 **The paragraph for the pitch.**
 

@@ -98,5 +98,175 @@
   },
   "audit": null,
   "seconds": 202
+ },
+ "clean_mawps_0": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 50,
+   "disagree_n": 1,
+   "disagree": 0.02
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0133,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 217
+ },
+ "clean_mawps_1": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 2,
+   "disagree": 0.0364
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0133
+  },
+  "audit": null,
+  "seconds": 253
+ },
+ "clean_mawps_2": {
+  "part": "clean_real",
+  "source": "mawps",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 57,
+   "disagree_n": 1,
+   "disagree": 0.0175
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 228
+ },
+ "planted_mawps_30": {
+  "part": "planted",
+  "source": "mawps",
+  "truth": [
+   "noisy_labels"
+  ],
+  "flags": [
+   "noisy_labels"
+  ],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge re-solves two ways",
+   "sampled": 60,
+   "route": "both",
+   "confident": 55,
+   "disagree_n": 15,
+   "disagree": 0.2727
+  },
+  "meas": {
+   "contamination": 0.0,
+   "public_overlap": 0.0133,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0067
+  },
+  "audit": null,
+  "seconds": 201
+ },
+ "clean_mmlu_0": {
+  "part": "clean_real",
+  "source": "mmlu",
+  "truth": [],
+  "flags": [],
+  "advisory": "possible label problems; this check is not reliable enough to block",
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 13,
+   "disagree_n": 4,
+   "disagree": 0.3077,
+   "advisory": "possible label problems; this check is not reliable enough to block"
+  },
+  "meas": {
+   "contamination": 0.05,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 260
+ },
+ "clean_mmlu_1": {
+  "part": "clean_real",
+  "source": "mmlu",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 14,
+   "disagree_n": 1,
+   "disagree": 0.0714
+  },
+  "meas": {
+   "contamination": 0.03333333333333333,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 224
+ },
+ "clean_mmlu_2": {
+  "part": "clean_real",
+  "source": "mmlu",
+  "truth": [],
+  "flags": [],
+  "advisory": null,
+  "checks": {
+   "status": "checked",
+   "method": "judge answers two ways",
+   "sampled": 60,
+   "confident": 14,
+   "disagree_n": 2,
+   "disagree": 0.1429
+  },
+  "meas": {
+   "contamination": 0.05,
+   "public_overlap": 0.0,
+   "dup_rate": 0.0,
+   "off_topic_share": 0.0
+  },
+  "audit": null,
+  "seconds": 193
  }
 }

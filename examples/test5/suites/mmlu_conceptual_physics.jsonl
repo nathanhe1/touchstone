@@ -24,3 +24,17 @@
 {"prompt": "Planck\u2019s constant can be found by dividing the energy of a photon by its\nA) wavelength\nB) frequency\nC) amplitude\nD) None of these", "answer": "B", "match": "exact"}
 {"prompt": "A magnetic force can act on an electron even when it\nA) is at rest\nB) moves parallel to magnetic field lines\nC) Both of these\nD) Neither of these", "answer": "D", "match": "exact"}
 {"prompt": "Standing waves are the result of\nA) interference\nB) waves overlapping in phase and out of phase\nC) waves reflecting upon themselves\nD) All of these", "answer": "D", "match": "exact"}
+{"prompt": "A 10-N force at an angle 45\u00b0 above the horizontal has a horizontal component of about\nA) 7 N\nB) 5 N\nC) 10 N\nD) 12 N", "answer": "A", "match": "exact"}
+{"prompt": "A completely submerged object always displaces its own\nA) weight of fluid.\nB) volume of fluid.\nC) density of fluid.\nD) All of these.", "answer": "B", "match": "exact"}
+{"prompt": "When a diver points a flashlight upward toward the surface of the water at an angle 20\u00b0 from the normal, the beam of light\nA) totally internally reflects\nB) passes into the air above\nC) is absorbed\nD) None of these", "answer": "B", "match": "exact"}
+{"prompt": "Among these colors, the one that has the most energy per photon is\nA) red\nB) yellow-green\nC) blue\nD) violet", "answer": "D", "match": "exact"}
+{"prompt": "A wave transfers\nA) amplitude\nB) wavelength\nC) frequency\nD) energy", "answer": "D", "match": "exact"}
+{"prompt": "Immediately after two separated charged particles are released from rest, both increase in acceleration. The sign of charge of the particles is therefore\nA) the same\nB) opposite\nC) Either of these\nD) Need more information", "answer": "B", "match": "exact"}
+{"prompt": "The surface of planet Earth loses energy to outer space due mostly to\nA) conduction\nB) convection\nC) radiation\nD) radioactivity", "answer": "C", "match": "exact"}
+{"prompt": "In a series circuit, if the current in one lamp is 2 A, the current in the lamp next to it is\nA) half, 1 A\nB) 2 A\nC) Depends on which lamp is closer to the battery\nD) Not enough information to say", "answer": "B", "match": "exact"}
+{"prompt": "As a blinking light source approaching you gains speed, you see the frequency of flashes\nA) increase.\nB) decrease.\nC) remain unchanged.\nD) None of these.", "answer": "A", "match": "exact"}
+{"prompt": "In the absence of air resistance a ball of mass m is tossed upward to reach a height of 20 m. At the 10-m position half way up the net force on the ball is\nA) 2mg\nB) mg\nC) mg/2\nD) mg/4", "answer": "B", "match": "exact"}
+{"prompt": "Pumice is a volcanic rock that floats in water. The density of pumice compared with that of water is\nA) less.\nB) equal.\nC) greater.\nD) none because it sinks.", "answer": "A", "match": "exact"}
+{"prompt": "Compared with the sound you hear from the siren of a stationary fire engine the sound you hear when it approaches you has an increased\nA) speed\nB) frequency\nC) wavelength\nD) All of these", "answer": "B", "match": "exact"}
+{"prompt": "When you squeeze an air-filled party balloon, you increase its\nA) volume\nB) mass\nC) weight\nD) density", "answer": "D", "match": "exact"}
+{"prompt": "Temperature is generally proportional to a substance\u2019s\nA) thermal energy.\nB) vibrational kinetic energy.\nC) average translational kinetic energy.\nD) rotational kinetic energy.", "answer": "C", "match": "exact"}

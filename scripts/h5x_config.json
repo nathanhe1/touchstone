@@ -1,0 +1,120 @@
+{
+ "status": "FROZEN before h5 was scored and before any h5x run; hashes in out/h5x_final.sha256; rules in scripts/h5_score.py",
+ "selection": {
+  "base_accuracy_8B": {
+   "cs": 86.0,
+   "para": 53.33,
+   "sent": 40.33,
+   "tox": 40.17
+  },
+  "primary": [
+   "cs",
+   "para",
+   "sent"
+  ],
+  "spare": "tox",
+  "dropped_for_headroom": [],
+  "selected": [
+   "cs",
+   "para",
+   "sent"
+  ],
+  "budget_cut": false
+ },
+ "part": "final",
+ "seeds": 2,
+ "arms": {
+  "ft": {
+   "kind": "ft",
+   "run_arm": "sft",
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "families": {
+    "cs": {
+     "stratum": "real competing (h5x)",
+     "files": {
+      "swag": "examples/h5x/cs/swag.jsonl",
+      "hellaswag": "examples/h5x/cs/hellaswag.jsonl",
+      "cosmos": "examples/h5x/cs/cosmos.jsonl",
+      "socialiqa": "examples/h5x/cs/socialiqa.jsonl",
+      "piqa": "examples/h5x/cs/piqa.jsonl"
+     },
+     "suite_file": "examples/h5x/cs/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "swag",
+      "hellaswag",
+      "cosmos",
+      "socialiqa",
+      "piqa"
+     ],
+     "failing": [
+      "wrong_swag"
+     ],
+     "gate_ref": "swag",
+     "gate_wrong": "wrong_swag",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "para": {
+     "stratum": "real competing (h5x)",
+     "files": {
+      "qqp": "examples/h5x/para/qqp.jsonl",
+      "mrpc_train": "examples/h5x/para/mrpc_train.jsonl",
+      "paws": "examples/h5x/para/paws.jsonl",
+      "paws_silver": "examples/h5x/para/paws_silver.jsonl",
+      "medqp": "examples/h5x/para/medqp.jsonl"
+     },
+     "suite_file": "examples/h5x/para/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "qqp",
+      "mrpc_train",
+      "paws",
+      "paws_silver",
+      "medqp"
+     ],
+     "failing": [
+      "wrong_qqp"
+     ],
+     "gate_ref": "qqp",
+     "gate_wrong": "wrong_qqp",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "sent": {
+     "stratum": "real competing (h5x), suite reused from h4",
+     "files": {
+      "sst2": "examples/h5x/sent/sst2.jsonl",
+      "imdb": "examples/h5x/sent/imdb.jsonl",
+      "amazon": "examples/h5x/sent/amazon.jsonl",
+      "rotten": "examples/h5x/sent/rotten.jsonl",
+      "tweets": "examples/h5x/sent/tweets.jsonl"
+     },
+     "suite_file": "examples/h5x/sent/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "sst2",
+      "imdb",
+      "amazon",
+      "rotten",
+      "tweets"
+     ],
+     "failing": [
+      "wrong_sst2"
+     ],
+     "gate_ref": "sst2",
+     "gate_wrong": "wrong_sst2",
+     "recipe": {
+      "max_new": 32
+     }
+    }
+   }
+  }
+ }
+}

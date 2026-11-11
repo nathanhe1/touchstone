@@ -1,0 +1,1504 @@
+{
+ "commits": [
+  "024a6f7d0e87702843a8f93140afb05cd662162b"
+ ],
+ "rejected_by_loader": [],
+ "tiers": {
+  "A": {
+   "cases": 70,
+   "positive_cases": 8,
+   "prevalence": 0.114,
+   "tp": 2,
+   "fp": 13,
+   "fn": 6,
+   "precision": 0.133,
+   "recall": 0.25,
+   "exact": 52,
+   "negatives_flagged": "10 of 62",
+   "negatives_flagged_upper95": 0.258,
+   "implied_precision": {
+    "0.02": 0.031,
+    "0.065": 0.097,
+    "0.2": 0.279
+   },
+   "advisory_label_signal": {
+    "noisy_cases_with_advisory": "1 of 8",
+    "clean_cases_with_advisory": "5 of 62"
+   },
+   "per_flag": {
+    "gameable_grader": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "answer_leakage": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "contaminated": {
+     "tp": 0,
+     "fp": 12,
+     "fn": 0
+    },
+    "copied_from_public": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "duplicated": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "noisy_labels": {
+     "tp": 2,
+     "fp": 1,
+     "fn": 6
+    },
+    "off_topic": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "negatives_by_kind": {
+    "clean_easy": {
+     "cases": 38,
+     "with_false_flag": 6,
+     "upper95": 0.288,
+     "with_advisory": 3
+    },
+    "clean_hard": {
+     "cases": 24,
+     "with_false_flag": 4,
+     "upper95": 0.342,
+     "with_advisory": 2
+    }
+   },
+   "false_flags_by_source": {
+    "fantastic_bugs:med_qa": {
+     "negatives": 1,
+     "with_false_flag": 0,
+     "upper95": 0.95,
+     "which": []
+    },
+    "fantastic_bugs:mmlu_clinical_knowledge": {
+     "negatives": 1,
+     "with_false_flag": 0,
+     "upper95": 0.95,
+     "which": []
+    },
+    "fantastic_bugs:mmlu_professional_medicine": {
+     "negatives": 1,
+     "with_false_flag": 0,
+     "upper95": 0.95,
+     "which": []
+    },
+    "fantastic_bugs:openbookqa": {
+     "negatives": 1,
+     "with_false_flag": 0,
+     "upper95": 0.95,
+     "which": []
+    },
+    "mmlu_redux": {
+     "negatives": 55,
+     "with_false_flag": 9,
+     "upper95": 0.268,
+     "which": [
+      "contaminated"
+     ]
+    },
+    "realmistake": {
+     "negatives": 3,
+     "with_false_flag": 1,
+     "upper95": 0.865,
+     "which": [
+      "contaminated",
+      "noisy_labels"
+     ]
+    }
+   }
+  },
+  "A-previewed": {
+   "cases": 8,
+   "positive_cases": 8,
+   "prevalence": 1.0,
+   "tp": 8,
+   "fp": 0,
+   "fn": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "exact": 8,
+   "negatives_flagged": "0 of 0",
+   "negatives_flagged_upper95": null,
+   "implied_precision": {
+    "0.02": null,
+    "0.065": null,
+    "0.2": null
+   },
+   "advisory_label_signal": {
+    "noisy_cases_with_advisory": "0 of 0",
+    "clean_cases_with_advisory": "0 of 8"
+   },
+   "per_flag": {
+    "gameable_grader": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "answer_leakage": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "contaminated": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "copied_from_public": {
+     "tp": 8,
+     "fp": 0,
+     "fn": 0
+    },
+    "duplicated": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "noisy_labels": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "off_topic": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "negatives_by_kind": {},
+   "false_flags_by_source": {}
+  },
+  "B": {
+   "cases": 23,
+   "positive_cases": 17,
+   "prevalence": 0.739,
+   "tp": 12,
+   "fp": 10,
+   "fn": 6,
+   "precision": 0.545,
+   "recall": 0.667,
+   "exact": 9,
+   "negatives_flagged": "4 of 6",
+   "negatives_flagged_upper95": 0.937,
+   "implied_precision": {
+    "0.02": 0.02,
+    "0.065": 0.065,
+    "0.2": 0.2
+   },
+   "advisory_label_signal": {
+    "noisy_cases_with_advisory": "3 of 5",
+    "clean_cases_with_advisory": "0 of 18"
+   },
+   "per_flag": {
+    "gameable_grader": {
+     "tp": 6,
+     "fp": 2,
+     "fn": 0
+    },
+    "answer_leakage": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "contaminated": {
+     "tp": 2,
+     "fp": 1,
+     "fn": 0
+    },
+    "copied_from_public": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "duplicated": {
+     "tp": 0,
+     "fp": 7,
+     "fn": 0
+    },
+    "noisy_labels": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 4
+    },
+    "off_topic": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 2
+    }
+   },
+   "negatives_by_kind": {
+    "clean_easy": {
+     "cases": 3,
+     "with_false_flag": 2,
+     "upper95": 0.983,
+     "with_advisory": 0
+    },
+    "clean_hard": {
+     "cases": 1,
+     "with_false_flag": 0,
+     "upper95": 0.95,
+     "with_advisory": 0
+    },
+    "format_lax": {
+     "cases": 2,
+     "with_false_flag": 2,
+     "upper95": 1.0,
+     "with_advisory": 0
+    }
+   },
+   "false_flags_by_source": {
+    "new": {
+     "negatives": 5,
+     "with_false_flag": 4,
+     "upper95": 0.99,
+     "which": [
+      "duplicated",
+      "gameable_grader"
+     ]
+    },
+    "word_math templates": {
+     "negatives": 1,
+     "with_false_flag": 0,
+     "upper95": 0.95,
+     "which": []
+    }
+   },
+   "by_part": {
+    "env": {
+     "cases": 11,
+     "positive_cases": 6,
+     "prevalence": 0.545,
+     "tp": 6,
+     "fp": 9,
+     "fn": 0,
+     "precision": 0.4,
+     "recall": 1.0,
+     "exact": 3,
+     "negatives_flagged": "4 of 5",
+     "negatives_flagged_upper95": 0.99,
+     "implied_precision": {
+      "0.02": 0.025,
+      "0.065": 0.08,
+      "0.2": 0.238
+     },
+     "advisory_label_signal": {
+      "noisy_cases_with_advisory": "0 of 0",
+      "clean_cases_with_advisory": "0 of 11"
+     },
+     "per_flag": {
+      "gameable_grader": {
+       "tp": 6,
+       "fp": 2,
+       "fn": 0
+      },
+      "answer_leakage": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "contaminated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "copied_from_public": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "duplicated": {
+       "tp": 0,
+       "fp": 7,
+       "fn": 0
+      },
+      "noisy_labels": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "off_topic": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      }
+     },
+     "negatives_by_kind": {
+      "clean_easy": {
+       "cases": 3,
+       "with_false_flag": 2,
+       "upper95": 0.983,
+       "with_advisory": 0
+      },
+      "format_lax": {
+       "cases": 2,
+       "with_false_flag": 2,
+       "upper95": 1.0,
+       "with_advisory": 0
+      }
+     },
+     "false_flags_by_source": {
+      "new": {
+       "negatives": 5,
+       "with_false_flag": 4,
+       "upper95": 0.99,
+       "which": [
+        "duplicated",
+        "gameable_grader"
+       ]
+      }
+     }
+    },
+    "planted_contamination": {
+     "cases": 2,
+     "positive_cases": 2,
+     "prevalence": 1.0,
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "exact": 2,
+     "negatives_flagged": "0 of 0",
+     "negatives_flagged_upper95": null,
+     "implied_precision": {
+      "0.02": null,
+      "0.065": null,
+      "0.2": null
+     },
+     "advisory_label_signal": {
+      "noisy_cases_with_advisory": "0 of 0",
+      "clean_cases_with_advisory": "0 of 2"
+     },
+     "per_flag": {
+      "gameable_grader": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "answer_leakage": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "contaminated": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0
+      },
+      "copied_from_public": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "duplicated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "noisy_labels": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "off_topic": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      }
+     },
+     "negatives_by_kind": {},
+     "false_flags_by_source": {}
+    },
+    "planted_labels": {
+     "cases": 5,
+     "positive_cases": 5,
+     "prevalence": 1.0,
+     "tp": 2,
+     "fp": 1,
+     "fn": 4,
+     "precision": 0.667,
+     "recall": 0.333,
+     "exact": 1,
+     "negatives_flagged": "0 of 0",
+     "negatives_flagged_upper95": null,
+     "implied_precision": {
+      "0.02": null,
+      "0.065": null,
+      "0.2": null
+     },
+     "advisory_label_signal": {
+      "noisy_cases_with_advisory": "3 of 5",
+      "clean_cases_with_advisory": "0 of 0"
+     },
+     "per_flag": {
+      "gameable_grader": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "answer_leakage": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "contaminated": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0
+      },
+      "copied_from_public": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0
+      },
+      "duplicated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "noisy_labels": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 4
+      },
+      "off_topic": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      }
+     },
+     "negatives_by_kind": {},
+     "false_flags_by_source": {}
+    },
+    "planted_offtopic": {
+     "cases": 4,
+     "positive_cases": 4,
+     "prevalence": 1.0,
+     "tp": 2,
+     "fp": 0,
+     "fn": 2,
+     "precision": 1.0,
+     "recall": 0.5,
+     "exact": 2,
+     "negatives_flagged": "0 of 0",
+     "negatives_flagged_upper95": null,
+     "implied_precision": {
+      "0.02": null,
+      "0.065": null,
+      "0.2": null
+     },
+     "advisory_label_signal": {
+      "noisy_cases_with_advisory": "0 of 0",
+      "clean_cases_with_advisory": "0 of 4"
+     },
+     "per_flag": {
+      "gameable_grader": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "answer_leakage": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "contaminated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "copied_from_public": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "duplicated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "noisy_labels": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "off_topic": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 2
+      }
+     },
+     "negatives_by_kind": {},
+     "false_flags_by_source": {}
+    },
+    "template_clones": {
+     "cases": 1,
+     "positive_cases": 0,
+     "prevalence": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "precision": null,
+     "recall": null,
+     "exact": 1,
+     "negatives_flagged": "0 of 1",
+     "negatives_flagged_upper95": 0.95,
+     "implied_precision": {
+      "0.02": null,
+      "0.065": null,
+      "0.2": null
+     },
+     "advisory_label_signal": {
+      "noisy_cases_with_advisory": "0 of 0",
+      "clean_cases_with_advisory": "0 of 1"
+     },
+     "per_flag": {
+      "gameable_grader": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "answer_leakage": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "contaminated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "copied_from_public": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "duplicated": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "noisy_labels": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      },
+      "off_topic": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0
+      }
+     },
+     "negatives_by_kind": {
+      "clean_hard": {
+       "cases": 1,
+       "with_false_flag": 0,
+       "upper95": 0.95,
+       "with_advisory": 0
+      }
+     },
+     "false_flags_by_source": {
+      "word_math templates": {
+       "negatives": 1,
+       "with_false_flag": 0,
+       "upper95": 0.95,
+       "which": []
+      }
+     }
+    }
+   }
+  }
+ },
+ "row_level": {
+  "mmlu_redux_judge": {
+   "wrong_rows_sampled": 73,
+   "recall": 0.123,
+   "precision": 0.059,
+   "ok_rows_flagged": "144 of 3212",
+   "ambiguous_rows_flagged": "11 of 135"
+  },
+  "gsm_platinum_arithmetic (A-previewed)": {
+   "wrong": "0 of 10 flagged",
+   "ambiguous": "1 of 99 flagged",
+   "ok": "8 of 1091 flagged"
+  }
+ },
+ "cases": {
+  "a_mmlu_abstract_algebra": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_anatomy": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2273
+  },
+  "a_mmlu_astronomy": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0
+  },
+  "a_mmlu_business_ethics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.25
+  },
+  "a_mmlu_clinical_knowledge": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.08
+  },
+  "a_mmlu_college_biology": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": 0.2778
+  },
+  "a_mmlu_college_chemistry": {
+   "tier": "A",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "a_mmlu_college_computer_science": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_college_mathematics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_college_medicine": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": 0.0714
+  },
+  "a_mmlu_college_physics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_computer_security": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.08
+  },
+  "a_mmlu_conceptual_physics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2692
+  },
+  "a_mmlu_econometrics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": true,
+   "negative": "clean_hard",
+   "signal": 0.5
+  },
+  "a_mmlu_electrical_engineering": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0526
+  },
+  "a_mmlu_elementary_mathematics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0714
+  },
+  "a_mmlu_formal_logic": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_global_facts": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": true,
+   "negative": "clean_easy",
+   "signal": 0.6154
+  },
+  "a_mmlu_high_school_biology": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.1667
+  },
+  "a_mmlu_high_school_chemistry": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_high_school_computer_science": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0
+  },
+  "a_mmlu_high_school_european_history": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_high_school_geography": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2069
+  },
+  "a_mmlu_high_school_government_and_politics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.1579
+  },
+  "a_mmlu_high_school_macroeconomics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2727
+  },
+  "a_mmlu_high_school_mathematics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_high_school_microeconomics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_high_school_physics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_high_school_psychology": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0741
+  },
+  "a_mmlu_high_school_statistics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_high_school_us_history": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_high_school_world_history": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_human_aging": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2069
+  },
+  "a_mmlu_human_sexuality": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2083
+  },
+  "a_mmlu_international_law": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_jurisprudence": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.1333
+  },
+  "a_mmlu_logical_fallacies": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0714
+  },
+  "a_mmlu_machine_learning": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_management": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2857
+  },
+  "a_mmlu_marketing": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.05
+  },
+  "a_mmlu_medical_genetics": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2174
+  },
+  "a_mmlu_miscellaneous": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.129
+  },
+  "a_mmlu_moral_disputes": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": true,
+   "negative": "clean_easy",
+   "signal": 0.4737
+  },
+  "a_mmlu_moral_scenarios": {
+   "tier": "A",
+   "truth": [],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_nutrition": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": true,
+   "negative": "clean_easy",
+   "signal": 0.3529
+  },
+  "a_mmlu_philosophy": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.2778
+  },
+  "a_mmlu_prehistory": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.1739
+  },
+  "a_mmlu_professional_accounting": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_professional_law": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_professional_medicine": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_mmlu_professional_psychology": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": 0.1875
+  },
+  "a_mmlu_public_relations": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.1923
+  },
+  "a_mmlu_security_studies": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "a_mmlu_sociology": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.28
+  },
+  "a_mmlu_us_foreign_policy": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0714
+  },
+  "a_mmlu_virology": {
+   "tier": "A",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "negative": null,
+   "signal": 0.44
+  },
+  "a_mmlu_world_religions": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.1143
+  },
+  "a_gsm8k_test_0": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0
+  },
+  "a_gsm8k_test_1": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0
+  },
+  "a_gsm8k_test_2": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0526
+  },
+  "a_gsm8k_test_3": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0714
+  },
+  "a_gsm8k_test_4": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0435
+  },
+  "a_gsm8k_test_5": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0
+  },
+  "a_gsm8k_test_6": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0
+  },
+  "a_gsm8k_test_7": {
+   "tier": "A-previewed",
+   "truth": [
+    "copied_from_public"
+   ],
+   "flags": [
+    "copied_from_public"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": 0.0556
+  },
+  "a_fbugs_med_qa": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_fbugs_mmlu_clinical_knowledge": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": 0.0
+  },
+  "a_fbugs_mmlu_professional_medicine": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": null
+  },
+  "a_fbugs_openbookqa": {
+   "tier": "A",
+   "truth": [],
+   "flags": [],
+   "advisory": true,
+   "negative": "clean_hard",
+   "signal": 0.55
+  },
+  "b_planted_mmlu_high_school_macroeconomics_30": {
+   "tier": "B",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "negative": null,
+   "signal": 0.4
+  },
+  "b_planted_mmlu_high_school_world_history_30": {
+   "tier": "B",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "b_planted_mmlu_us_foreign_policy_30": {
+   "tier": "B",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "negative": null,
+   "signal": 0.32
+  },
+  "b_planted_mmlu_miscellaneous_30": {
+   "tier": "B",
+   "truth": [
+    "noisy_labels"
+   ],
+   "flags": [],
+   "advisory": true,
+   "negative": null,
+   "signal": 0.4242
+  },
+  "b_planted_gsm8k_30": {
+   "tier": "B",
+   "truth": [
+    "copied_from_public",
+    "noisy_labels"
+   ],
+   "flags": [
+    "copied_from_public",
+    "noisy_labels"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "b_contam_mmlu_high_school_us_history": {
+   "tier": "B",
+   "truth": [
+    "contaminated"
+   ],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "b_contam_mmlu_high_school_european_history": {
+   "tier": "B",
+   "truth": [
+    "contaminated"
+   ],
+   "flags": [
+    "contaminated"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "b_offtopic_high_school_us_history_on_college_physics": {
+   "tier": "B",
+   "truth": [
+    "off_topic"
+   ],
+   "flags": [],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "b_offtopic_virology_on_high_school_computer_science": {
+   "tier": "B",
+   "truth": [
+    "off_topic"
+   ],
+   "flags": [
+    "off_topic"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": 0.2083
+  },
+  "b_offtopic_moral_scenarios_on_abstract_algebra": {
+   "tier": "B",
+   "truth": [
+    "off_topic"
+   ],
+   "flags": [],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "b_offtopic_electrical_engineering_on_world_religions": {
+   "tier": "B",
+   "truth": [
+    "off_topic"
+   ],
+   "flags": [
+    "off_topic"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": 0.087
+  },
+  "b_template_clones": {
+   "tier": "B",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_hard",
+   "signal": 0.0
+  },
+  "g5_answer_anywhere": {
+   "tier": "B",
+   "truth": [
+    "gameable_grader"
+   ],
+   "flags": [
+    "duplicated",
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "g5_first_digit": {
+   "tier": "B",
+   "truth": [
+    "gameable_grader"
+   ],
+   "flags": [
+    "duplicated",
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "g5_int_truncate_tol": {
+   "tier": "B",
+   "truth": [
+    "gameable_grader"
+   ],
+   "flags": [
+    "duplicated",
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "g5_exception_pays": {
+   "tier": "B",
+   "truth": [
+    "gameable_grader"
+   ],
+   "flags": [
+    "duplicated",
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "g5_upper_any_caps": {
+   "tier": "B",
+   "truth": [
+    "gameable_grader"
+   ],
+   "flags": [
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "g5_upper_same_length": {
+   "tier": "B",
+   "truth": [
+    "gameable_grader"
+   ],
+   "flags": [
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": null,
+   "signal": null
+  },
+  "h5_exact": {
+   "tier": "B",
+   "truth": [],
+   "flags": [
+    "duplicated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "h5_commas": {
+   "tier": "B",
+   "truth": [],
+   "flags": [
+    "duplicated"
+   ],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "h5_upper_exact": {
+   "tier": "B",
+   "truth": [],
+   "flags": [],
+   "advisory": false,
+   "negative": "clean_easy",
+   "signal": null
+  },
+  "f5_strip_nondigits": {
+   "tier": "B",
+   "truth": [],
+   "flags": [
+    "duplicated",
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": "format_lax",
+   "signal": null
+  },
+  "f5_strings_alnum": {
+   "tier": "B",
+   "truth": [],
+   "flags": [
+    "gameable_grader"
+   ],
+   "advisory": false,
+   "negative": "format_lax",
+   "signal": null
+  }
+ }
+}

@@ -1,3 +1,5 @@
 code_alpaca_quick exit=0 1269s peak_rss=4266MB
 math_train_quick exit=0 2244s peak_rss=4688MB
 math_full_suite_overlap exit=0 1968s peak_rss=4714MB
+mathinstruct_quick exit=0 3154s peak_rss=2589MB
+ALLDONE

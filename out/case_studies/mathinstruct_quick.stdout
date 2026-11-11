@@ -1,3 +1,14 @@
-[16:06:08] @stage validate 0.010
-error: invalid dataset:
-  mathinstruct.jsonl:18866: empty 'prompt' or 'completion'
+[22:40:44] @stage validate 0.010
+[22:40:47]   skipped 1 of 262039 rows that could not be read (limit 10%); first: mathinstruct.jsonl:18866: empty 'prompt' or 'completion'
+[22:40:47] Appraising dataset mathinstruct.jsonl: 262038 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[22:40:47] @stage seal 0.040
+[22:40:47] @stage overlap 0.060
+[23:32:55]   overlap: 2.7% of held-out items appear in the material (0.0% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 6.5%, off-topic 13%
+[23:33:11]   labels: a judge model is checking the answers (the slowest screening step)
+[23:33:12]   labels: arithmetic errors in 0.14896434313818216 of worked solutions
+[23:33:12]   blocking problem found in screening; quick mode skips training
+[23:33:12] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: noisy_labels, screen_only
+Report: out/case_studies/mathinstruct_quick/report.md

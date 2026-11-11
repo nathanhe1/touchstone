@@ -1,0 +1,86 @@
+{
+ "data/CoT/aqua_rat.json": {
+  "checked": 37122,
+  "inconsistent": 7803,
+  "rate": 0.21,
+  "not_checkable": 52221
+ },
+ "data/PoT/aqua_rat_filtered.json": {
+  "checked": 745,
+  "inconsistent": 92,
+  "rate": 0.123,
+  "not_checkable": 9027
+ },
+ "data/CoT/gsm_rft.json": {
+  "checked": 22784,
+  "inconsistent": 631,
+  "rate": 0.028,
+  "not_checkable": 5431
+ },
+ "data/CoT/college_math.json": {
+  "checked": 539,
+  "inconsistent": 105,
+  "rate": 0.195,
+  "not_checkable": 1301
+ },
+ "data/PoT/gsm_gpt4.json": {
+  "checked": 159,
+  "inconsistent": 14,
+  "rate": 0.088,
+  "not_checkable": 14432
+ },
+ "data/PoT/mathqa.json": {
+  "checked": 0,
+  "inconsistent": 0,
+  "rate": null,
+  "not_checkable": 24382
+ },
+ "data/PoT/numglue.json": {
+  "checked": 2,
+  "inconsistent": 1,
+  "rate": 0.5,
+  "not_checkable": 13471
+ },
+ "data/CoT/math50k_camel.json": {
+  "checked": 11812,
+  "inconsistent": 3599,
+  "rate": 0.305,
+  "not_checkable": 37672
+ },
+ "data/CoT/MATH_train.json": {
+  "checked": 5166,
+  "inconsistent": 115,
+  "rate": 0.022,
+  "not_checkable": 6073
+ },
+ "data/PoT/TheoremQA.json": {
+  "checked": 15,
+  "inconsistent": 1,
+  "rate": 0.067,
+  "not_checkable": 687
+ },
+ "data/PoT/MATH_train.json": {
+  "checked": 239,
+  "inconsistent": 43,
+  "rate": 0.18,
+  "not_checkable": 10393
+ },
+ "data/CoT/gsm_train.json": {
+  "checked": 5895,
+  "inconsistent": 162,
+  "rate": 0.027,
+  "not_checkable": 1578
+ },
+ "data/CoT/number_comparison.json": {
+  "checked": 0,
+  "inconsistent": 0,
+  "rate": null,
+  "not_checkable": 300
+ },
+ "data/CoT/TheoremQA.json": {
+  "checked": 106,
+  "inconsistent": 34,
+  "rate": 0.321,
+  "not_checkable": 486
+ }
+}

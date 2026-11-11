@@ -1,0 +1,94 @@
+{
+ "claude-fable-5-2": {
+  "rows": 1440,
+  "confident_share": 0.975,
+  "planted_wrong_contradicted": "135 of 143",
+  "clean_rows_contradicted": "67 of 1297",
+  "draws_at_0.30": {
+   "clean_flagged": "0 of 16",
+   "planted_flagged": "7 of 8"
+  },
+  "by_source": {
+   "aqua": {
+    "clean_disagree": 0.078,
+    "planted_draw_disagree": 0.339
+   },
+   "arc": {
+    "clean_disagree": 0.008,
+    "planted_draw_disagree": 0.317
+   },
+   "arc_easy": {
+    "clean_disagree": 0.008,
+    "planted_draw_disagree": 0.333
+   },
+   "csqa": {
+    "clean_disagree": 0.129,
+    "planted_draw_disagree": 0.241
+   },
+   "medmcqa": {
+    "clean_disagree": 0.044,
+    "planted_draw_disagree": 0.35
+   },
+   "openbook": {
+    "clean_disagree": 0.025,
+    "planted_draw_disagree": 0.333
+   },
+   "qasc": {
+    "clean_disagree": 0.104,
+    "planted_draw_disagree": 0.455
+   },
+   "sciq": {
+    "clean_disagree": 0.0,
+    "planted_draw_disagree": 0.305
+   }
+  }
+ },
+ "claude-haiku-5-5 (same rows)": {
+  "rows": 1440,
+  "confident_share": 0.91,
+  "planted_wrong_contradicted": "130 of 143",
+  "clean_rows_contradicted": "89 of 1297",
+  "draws_at_0.30": {
+   "clean_flagged": "0 of 16",
+   "planted_flagged": "8 of 8"
+  },
+  "by_source": {
+   "aqua": {
+    "clean_disagree": 0.058,
+    "planted_draw_disagree": 0.328
+   },
+   "arc": {
+    "clean_disagree": 0.0,
+    "planted_draw_disagree": 0.345
+   },
+   "arc_easy": {
+    "clean_disagree": 0.018,
+    "planted_draw_disagree": 0.357
+   },
+   "csqa": {
+    "clean_disagree": 0.14,
+    "planted_draw_disagree": 0.309
+   },
+   "medmcqa": {
+    "clean_disagree": 0.084,
+    "planted_draw_disagree": 0.393
+   },
+   "openbook": {
+    "clean_disagree": 0.061,
+    "planted_draw_disagree": 0.362
+   },
+   "qasc": {
+    "clean_disagree": 0.188,
+    "planted_draw_disagree": 0.48
+   },
+   "sciq": {
+    "clean_disagree": 0.017,
+    "planted_draw_disagree": 0.321
+   }
+  }
+ },
+ "_meta": {
+  "rows": "first 60 rows of each of the 24 development draws",
+  "fable_cost_usd": 11.4377
+ }
+}

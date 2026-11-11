@@ -223,7 +223,7 @@ Reports must not imply that Touchstone detects organic label errors. On this evi
 
 | Judge | Rows with a confident answer | Wrong rows contradicted (recall) | Precision | Share of rows listed | Lift | Ok rows contradicted | Ambiguous rows contradicted |
 |---|---|---|---|---|---|---|---|
-| Qwen2.5-1.5B (v5 as scored, 60-row samples) | about 40% | 9 of 73 (0.12) | 0.06 | 4.8% | 2.7 | 144 of 3,212 | 11 of 135 |
+| Qwen2.5-1.5B (v5 as scored, 60-row samples) | 25% | 9 of 73 (0.12) | 0.06 | 4.8% | 2.7 | 144 of 3,212 | 11 of 135 |
 | Claude Haiku 5.5 | 93% | 87 of 142 (0.61) | 0.26 | 6.6% | 10.1 | 245 of 5,311 | 44 of 228 |
 | Claude Fable 5.2 | 99% | 86 of 142 (0.61) | **0.51** | 3.4% | 19.5 | 83 of 5,311 | 24 of 228 |
 

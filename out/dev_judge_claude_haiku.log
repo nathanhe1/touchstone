@@ -4,3 +4,83 @@ arc_easy_clean_0 confident 145/150 disagree 0.000 missing 0+0 $2.53 63s
 arc_easy_clean_1 confident 143/150 disagree 0.028 missing 0+0 $2.89 80s
   retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** The outer planets are very far from the Sun, so they receive little energy and their surfaces are extremely cold'
   retry 1 is_error=False stop=end_turn parsed=0/25 text="**Q1:** Ocean phytoplankton are microscopic algae that perform photosynthesis at a huge scale and produce most of Earth'"
+arc_easy_planted_30 confident 143/150 disagree 0.308 missing 0+0 $3.56 121s
+csqa_clean_0 confident 135/150 disagree 0.126 missing 0+0 $4.12 141s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Foot traffic from food kiosks would flow through a shopping mall, where the electronics store would benefit. **Q'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Medical instruments are used mainly during surgery, which takes place in an operating room. **Q1: D**\n\n**Q2:** D'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** The teacher explains how to find surface area for each shape, so the general word for the shapes is "object." **'
+  retry 2 is_error=False stop=end_turn parsed=0/25 text='**Q1:** The shapes are objects, and the teacher is explaining how to find the surface area of each object. **Q1: C**\n\n**'
+csqa_clean_1 confident 139/150 disagree 0.144 missing 0+0 $4.84 225s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Someone who wants a lot of money for its own sake is described as greedy. **Q1: C**\n\n**Q2:** She wants the shake'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** The bus is public transportation to school, so the stop where the narrator waits is the bus station. **Q1: C**\n\n'
+csqa_planted_30 confident 136/150 disagree 0.390 missing 0+0 $5.49 271s
+sciq_clean_0 confident 145/150 disagree 0.007 missing 0+0 $5.94 286s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Tundra is the biome found near the poles and at high mountain elevations, where cold temperatures and short grow'
+sciq_clean_1 confident 147/150 disagree 0.020 missing 0+0 $6.47 328s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** A desert is a large region defined by its climate, plants, and animals, which is the definition of a biome. **Q1'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Fungal bodies are made of hyphae, the threadlike filaments that form the mycelium. **Q1: A**\n\n**Q2:** Difference'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** The halogens span three physical states at room temperature: fluorine and chlorine are gases, bromine is a liqui'
+sciq_planted_30 confident 143/150 disagree 0.315 missing 0+0 $7.10 369s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** Cells that divide uncontrollably are the defining feature of cancer. **Q1: H**\n\n**Q2.** Loud noises commonly sur'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Replenishing lost body water addresses a water deficit, which is the definition of dehydration. **Q1: D**\n\n**Q2:'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** Animals with external skeletons and jointed legs are arthropods, and most arthropods are insects. **Q1: G**\n\n**Q'
+qasc_clean_0 confident 129/150 disagree 0.264 missing 0+0 $7.95 423s
+qasc_clean_1 confident 124/150 disagree 0.258 missing 0+0 $8.60 446s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text="**Q1:** Body fluid balance depends on water intake, so hydration is key to the body's internal equilibrium. **Q1: C**\n\n*"
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Evaporation lets water escape as vapor, leaving the salt behind. **Q1: C**\n\n**Q2:** Sweating and panting cool an'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Allergies are immune responses triggered by antigens, which are foreign substances the immune system overreacts '
+qasc_planted_30 confident 132/150 disagree 0.500 missing 0+0 $9.40 495s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1.** The interdental gingival col is non-keratinized epithelium, unlike the keratinized free and attached gingiva. **'
+  retry 2 is_error=False stop=end_turn parsed=0/25 text='**Q1.** The gingival col is the interdental area between adjacent teeth. Its epithelium is non-keratinized. **Q1: D**\n\n*'
+medmcqa_clean_0 confident 139/150 disagree 0.108 missing 0+0 $10.66 608s
+  retry 1 is_error=False stop=end_turn parsed=24/25 text='**Q1:** G-banding (Giemsa staining) is the standard karyotyping method and is performed under light microscopy. C-bandin'
+  retry 2 is_error=False stop=end_turn parsed=24/25 text='**Q1.** G-banding (Giemsa staining) is the standard chromosome banding technique and is viewed under a light microscope.'
+  retry 3 is_error=False stop=end_turn parsed=24/25 text="Each answer is from standard textbook knowledge. I can't see the image for Q6, so I've marked it unresolved.\n\n**Q1.** G-"
+  retry 4 is_error=False stop=end_turn parsed=0/25 text='Q1: G-banding (Giemsa staining) is the standard karyotyping method and is read under light microscopy. C-banding is also'
+medmcqa_clean_1 confident 140/150 disagree 0.100 missing 0+0 $12.03 859s
+medmcqa_planted_30 confident 142/150 disagree 0.373 missing 0+0 $13.14 902s
+  retry 1 is_error=False stop=end_turn parsed=23/25 text='**Q1:** Let d and e be the numbers of daytime and evening staff. Then 80d + 60e = 64(d + e), so 16d = 4e and d:e = 1:4. '
+  retry 1 is_error=False stop=end_turn parsed=24/25 text='**Q1.** Work is proportional to volume × time. Original: 100×50×10 = 50,000 m³ in 10 days. New: 25×15×L in 30 days. So 3'
+  retry 1 is_error=False stop=end_turn parsed=23/25 text="**Q1:** Speed = length/time. Let Q's length be L, so P's length is 3L/4. Speed P = (3L/4)/30 = L/40 and speed Q = L/75. "
+  retry 1 is_error=False stop=end_turn parsed=22/25 text='**Q1.** Let the distance be d km. Then d/60 + d/90 = 2, so 5d/180 = 2 and d = 72 km. Driving to work takes 72/60 = 1.2 h'
+  retry 1 is_error=False stop=end_turn parsed=23/25 text='**Q1.** Choose 2 of 7 employees. Pairs of women: C(4,2) = 6. Total pairs: C(7,2) = 21. P = 6/21 = 2/7.\nQ1: B\n\n**Q2.** St'
+  retry 1 is_error=False stop=end_turn parsed=17/25 text="**Q1:** The ratio 18000 : 22500 : 27000 simplifies to 4 : 5 : 6, so there are 15 parts. C's share is 6/15 × 18750 = 7500"
+  retry 2 is_error=False stop=end_turn parsed=23/25 text="**Q1:** Let Q's length be L, so P's length is 3L/4. Speed P = (3L/4)/30 = L/40 and speed Q = L/75. The ratio is 75:40 = "
+  retry 2 is_error=False stop=end_turn parsed=22/25 text='**Q1.** Work scales with volume divided by time. The first trench is 100 × 50 × 10 = 50,000 m³ in 10 days, so the crew m'
+  retry 2 is_error=False stop=end_turn parsed=23/25 text='**Q1.** Of 7 employees, 4 are women. P(both female) = C(4,2)/C(7,2) = 6/21 = 2/7.\nQ1: B\n\n**Q2.** Still-water speed = (27'
+  retry 2 is_error=False stop=end_turn parsed=22/25 text='**Q1:** Let the distance be d. Then d/60 + d/90 = 2, so 5d/180 = 2 and d = 72 km. Time to work is 72/60 = 1.2 h = 72 min'
+  retry 2 is_error=False stop=end_turn parsed=18/25 text="**Q1.** The ratio 18000 : 22500 : 27000 simplifies to 4 : 5 : 6, so C's share is 6/15 of the profit: 6/15 × 18750 = 7500"
+  retry 3 is_error=False stop=end_turn parsed=24/25 text='**Q1:** Men and rate are constant. The first trench has volume 100×50×10 = 50,000 m³ over 10 days, so the rate is 5,000 '
+  retry 3 is_error=False stop=end_turn parsed=23/25 text="**Q1:** Speed P = L/30 and speed Q = (4L/3)/75 = 4L/225. The ratio is (1/30) : (4/225) = 15 : 8, which doesn't match any"
+  retry 3 is_error=False stop=end_turn parsed=24/25 text='**Q1:** Seven employees, four women. P(both female) = C(4,2)/C(7,2) = 6/21 = 2/7.\nQ1: B\n\n**Q2:** Still-water speed = (27'
+  retry 3 is_error=False stop=end_turn parsed=22/25 text='**Q1:** Let the distance be d. Then d/60 + d/90 = 2, so 5d/180 = 2 and d = 72 km. The trip to work takes 72/60 = 1.2 h ='
+  retry 3 is_error=False stop=end_turn parsed=18/25 text="**Q1:** The ratio 18000 : 22500 : 27000 simplifies to 4 : 5 : 6, so there are 15 parts. C's share is 6/15 × 18750 = 7500"
+  retry 4 is_error=False stop=end_turn parsed=22/25 text="**Q1.** Speed is length/time. Let Q's length be L, so P's length is 3L/4. Speed P = (3L/4)/30 = L/40 and speed Q = L/75."
+  retry 4 is_error=False stop=end_turn parsed=22/25 text='**Q1.** Let the distance be d. Then d/60 + d/90 = 2, so 5d/180 = 2 and d = 72 km. The trip to work takes 72/60 = 1.2 h ='
+  retry 4 is_error=False stop=end_turn parsed=17/25 text="**Q1:** The ratio 18000 : 22500 : 27000 simplifies to 4 : 5 : 6, which sums to 15 parts. C's share is 6/15 × 18750 = **7"
+  retry 5 is_error=False stop=end_turn parsed=23/25 text="**Q1:** P's speed is (3L/4)/30 = L/40 and Q's speed is L/75, so the ratio is 75:40 = 15:8. That isn't listed. A (5:8) is"
+  retry 5 is_error=False stop=end_turn parsed=22/25 text='**Q1:** With distance d, d/60 + d/90 = 2 gives d/36 = 2, so d = 72 km. The trip to work takes 72/60 h = 1.2 h = 72 minut'
+  retry 5 is_error=False stop=end_turn parsed=16/25 text="**Q1:** The ratio 18000 : 22500 : 27000 simplifies to 4 : 5 : 6, which is 15 parts. C's share is 6/15 × 18750 = 7500.\nQ1"
+aqua_clean_0 confident 133/150 disagree 0.060 missing 0+12 $18.10 1410s
+  retry 1 is_error=False stop=end_turn parsed=22/25 text='**Q1:** From x/y = 3, x = 3y. Substituting: (2a − 3y)/(5b − y) = 3, so 2a − 3y = 15b − 3y, giving 2a = 15b and a/b = 15/'
+  retry 1 is_error=False stop=end_turn parsed=22/25 text='**Q1:** Total rocks = 25. P(both slate) = (10/25)(9/24) = 90/600 = 3/20. **A**\nQ1: A\n\n**Q2:** Area = 105 × 40 = 4200. Ne'
+  retry 1 is_error=False stop=end_turn parsed=19/25 text='**Q1:** A fills 1/4 per hour from 1 AM, B adds 1/5 from 2 AM, and C drains 1/2 from 3 AM. By 3 AM the cistern holds 1/4 '
+  retry 2 is_error=False stop=end_turn parsed=23/25 text='**Q1.** Since x = 3y, substituting gives (2a − 3y)/(5b − y) = 3, so 2a − 3y = 15b − 3y, which means 2a = 15b and a/b = 1'
+  retry 2 is_error=False stop=end_turn parsed=23/25 text='**Q1:** P = (10/25)(9/24) = 90/600 = 3/20.\nQ1: A\n\n**Q2:** Area = 105 × 40 = 4200. New length = 131.25, so new breadth = '
+  retry 3 is_error=False stop=end_turn parsed=23/25 text='**Q1:** From x/y = 3, x = 3y. Then (2a − 3y)/(5b − y) = 3 gives 2a − 3y = 15b − 3y, so 2a = 15b and a/b = 15/2. **Answer'
+  retry 2 is_error=False stop=end_turn parsed=19/25 text='**Q1:** From 1 to 2 AM only A fills, adding 1/4. From 2 to 3 AM A and B fill, adding 9/20. The level at 3 AM is 7/10. Af'
+  retry 3 is_error=False stop=end_turn parsed=0/25 text='**Q1:** P = (10/25)(9/24) = 90/600 = 3/20. **Q1: A**\n\n**Q2:** Area = 105 × 40 = 4200. New length = 131.25, so new width '
+aqua_clean_1 confident 141/150 disagree 0.064 missing 0+0 $21.70 1709s
+  retry 1 is_error=False stop=end_turn parsed=21/25 text='**Q1:** The numbers must end in 13. The smallest in range is 265,213 and the largest is 758,713. The count is (758,713 −'
+  retry 1 is_error=False stop=end_turn parsed=21/25 text='**Q1:** 0.4x = (2/3)y, so x/y = (2/3)/(2/5) = 5/3.\nQ1: A\n\n**Q2:** 560/8 = 70 paperclips per machine per minute. 15 × 6 ×'
+  retry 2 is_error=False stop=end_turn parsed=23/25 text='**Q1:** The numbers must end in 13. The first one at or above 265,205 is 265,213, and the last one at or below 758,805 i'
+aqua_planted_30 confident 143/150 disagree 0.343 missing 0+0 $23.55 1851s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text="Q1: A dog can breathe in a church, since it's the only option where a dog could breathe normally. Q1: C\n\nQ2: With a clou"
+openbook_clean_0 confident 141/150 disagree 0.071 missing 0+0 $24.26 1904s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='Each answer follows from basic everyday or scientific reasoning, applied to the most sensible option.\n\nQ1: Producers suc'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** More frequent wildfires destroy habitat, which reduces food and shelter, so animal groups decline. **Q1: A**\n\n**'
+  retry 2 is_error=False stop=end_turn parsed=0/25 text='**Q1:** In ecology, a producer (like a plant) makes its own food, so the answer is nourishment. **Q1: A**\n\n**Q2:** A mic'
+openbook_clean_1 confident 139/150 disagree 0.050 missing 0+0 $24.97 1996s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** Strawberries are fruits, and their seeds are part of that food, so the seed carries food. **Q1: B**\n\n**Q2:** A m'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='Q1: Stags are deer, and hunted deer typically live in forests and wooded areas where they can hide and find cover, so ti'
+openbook_planted_30 confident 132/150 disagree 0.326 missing 0+0 $25.64 2041s

@@ -206,6 +206,46 @@ At Tier A's measured recall and false-flag rate, the implied precision is 0.03 a
 
 Reports must not imply that Touchstone detects organic label errors. On this evidence it does not.
 
+**Test v5 rescored with a Claude judge, rules written before any Claude model read a v5 row** (2026-11-11; `scripts/eval_test5_claude.py`). This is a second scoring of the frozen v5 files with one named change. It does not replace the v5 result above.
+
+- *What is scored.* The frozen multiple-choice label cases, hashes verified first: the 57 MMLU-Redux subjects (5,681 rows; the audit marks 142 wrong and 228 ambiguous), the 4 MMLU sets with 30% planted wrong labels (114 planted rows), and the 4 Fantastic Bugs reviewed-correct sets. GSM8K and ReaLMistake are not multiple choice and are left out.
+- *The one change.* The judge is a Claude model, called through the `claude` command line with no tools, and it reads every row of a case instead of a 60-row sample. The two routes, the prompts (`DIRECT` and `COT` in `scripts/dev_judge_claude.py`, as used on development data) and the statistic are unchanged: a row is contradicted when both routes give the same letter and that letter is not the label. A row with no parsed answer counts as not confident.
+- *Judges.* Claude Haiku 5.5 is primary, because it is the model the development test ran in full. Claude Fable 5.2 is run on the same rows and reported beside it. Each is scored once. No prompt, threshold or rule changes after a v5 row is read.
+- *Primary measure, row level on MMLU-Redux.* Recall is the share of the 142 audited-wrong rows that are contradicted. Precision is wrong rows over wrong plus ok rows among the contradicted (ambiguous rows are counted separately, as in v5). Also reported: the share of all rows listed, and the lift, which is precision over the 2.6% base rate of wrong rows.
+- *Bars, fixed now.* "Detects organic wrong labels row by row" needs recall of at least 0.50 and precision of at least 0.50. "Gives a useful review list" needs recall of at least 0.50 and lift of at least 5. If a judge meets neither, the retired claim stays retired for that judge.
+- *Secondary, case level.* The disagreement rate on confident rows against the product's unchanged 0.30 line, for the 2 noisy subjects, the 55 clean subjects, the 4 planted sets and the 4 Fantastic Bugs sets. With 2 organic positives this cannot carry a claim. The count at 0.20, the truth line for a noisy case, is reported as a description only.
+- *Disclosure.* v5's result with the Qwen judge is known, including which subjects are noisy. While checking the file format, one virology row, one planted macroeconomics row and virology's list of row verdicts were printed. No v5 row had been sent to a Claude model when this was committed.
+- *What it cannot show.* MMLU is public and is very likely in a Claude model's training data, so the model may repeat MMLU's own wrong label (lower recall) or know the published corrections (higher recall). The two cannot be separated here. The result is evidence about real errors that experts confirmed, not about a vendor's private material.
+
+**Test v5 with a Claude judge: result** (`out/test_v5_claude_report.json`, raw rows in `out/test_v5_claude_claude-haiku-5-5.json` and `out/test_v5_claude_claude-fable-5-2.json`; rules at commit 59ebbec7; hashes verified; each judge scored once; all 65 cases and 6,234 rows answered on both routes, none missing).
+
+*Row level on MMLU-Redux, 5,681 rows, 142 wrong by the expert audit (base rate 2.6%).*
+
+| Judge | Rows with a confident answer | Wrong rows contradicted (recall) | Precision | Share of rows listed | Lift | Ok rows contradicted | Ambiguous rows contradicted |
+|---|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B (v5 as scored, 60-row samples) | 25% | 9 of 73 (0.12) | 0.06 | 4.8% | 2.7 | 144 of 3,212 | 11 of 135 |
+| Claude Haiku 5.5 | 93% | 87 of 142 (0.61) | 0.26 | 6.6% | 10.1 | 245 of 5,311 | 44 of 228 |
+| Claude Fable 5.2 | 99% | 86 of 142 (0.61) | **0.51** | 3.4% | 19.5 | 83 of 5,311 | 24 of 228 |
+
+- **Fable 5.2 meets both bars** (recall 0.61 against 0.50; precision 0.509 against 0.50). The precision margin is 3 rows in 169, so read it as "about half", not as a comfortable pass. **Haiku 5.5 meets the review-list bar only** (lift 10.1 against 5); its precision of 0.26 fails the row-by-row bar.
+- Both judges find the same share of the wrong rows. The stronger model's gain is in false alarms: it contradicts 1.6% of expert-confirmed labels, against Haiku's 4.6%.
+- *Planted rows* (4 MMLU sets, 114 planted wrong labels): Haiku contradicts 107, Fable 112.
+
+*Case level (secondary; 2 organic positives).*
+
+| Judge | Line | Noisy subjects flagged | Clean subjects flagged | Planted 30% sets flagged | Fantastic Bugs clean sets flagged |
+|---|---|---|---|---|---|
+| Haiku 5.5 | 0.30 (product) | 1 of 2 | 0 of 55 | 4 of 4 | 1 of 4 |
+| Fable 5.2 | 0.30 (product) | 1 of 2 | 0 of 55 | 2 of 4 | 0 of 4 |
+| Haiku 5.5 | 0.20 (description) | 1 of 2 | 1 of 55 | 4 of 4 | 1 of 4 |
+| Fable 5.2 | 0.20 (description) | 2 of 2 | 0 of 55 | 4 of 4 | 0 of 4 |
+
+- Fable's reading tracks the audit: `virology` 0.41 (audit 0.37 wrong), `college_chemistry` 0.20 (0.23), the four planted sets 0.30, 0.30, 0.30 and 0.31, and no clean subject above 0.10. The 0.30 line was set for a judge with a high baseline of its own; with a judge this close to the truth it sits exactly on a 30% set and misses a 23% one. A new line would need a new frozen test. None is adopted here.
+- Haiku's false flag is `a_fbugs_med_qa` (0.45 on 26 rows).
+- *Cost at list price through the command line:* Haiku $48.92, Fable $59.18, for 6,234 rows on both routes (about 0.8 and 0.9 cents a row).
+- *What this changes.* With the Qwen judge, the statement above stands: Touchstone does not detect organic label errors. With a Claude Fable 5.2 judge, on multiple-choice material, a list of 3.4% of the rows held 61% of the labels experts found wrong, and half the list was wrong by the audit (58% if ambiguous rows are counted as defects). That is one public benchmark, which the model has very likely seen, and one scoring.
+- *Not done.* The Claude judge is not wired into the product; `touchstone/judge.py` still uses the local model. Free-text labels (ReaLMistake, GSM8K) were not tested with a Claude judge.
+
 ## 6. Forecast: small to large
 
 ### Methods compared
@@ -829,14 +869,15 @@ A read is one sample of 60 rows, as the product takes it; each draw is read 5 ti
 - *Clean disagreement by source:* `sciq` 0.014, `arc_easy` 0.014, `arc` 0.028, `openbook` 0.061, `aqua` 0.062, `medmcqa` 0.104, `csqa` 0.135, `qasc` 0.261. A draw with 30% wrong labels reads 0.24 to 0.30 above its source's clean rate on every source.
 - *A stronger model does not remove the baseline.* Claude Opus 5.5 on the first 60 rows of one clean draw: `qasc` 0.169 (Haiku 0.212 on the same rows), `csqa` 0.085 (0.104), `medmcqa` 0.05 (0.075). Rows where both models agree with each other against the label look like real defects in the source, for example a `qasc` row labelled "Human mating may lead to: aggressive behavior". So part of the "clean" rate is the public source's own noise, and a single threshold still does not hold across sources (the leave-one-source-out column).
 - *Cost.* 7,200 answers cost $25.64 at list price through the command line, about 0.7 cents per row for both routes, or about $0.43 for the product's 60-row sample.
-- *Limits.* Development data; public train splits a large model may have seen; nothing frozen. Claude Fable 5.2 was not run: the installed command line (2.1.286) does not support it. A vendor's material would leave the machine, so this judge has to be opt-in.
-- **Decision:** nothing changes in the product yet. The next step is a frozen test of a Claude judge that reports each source's disagreement against a same-source reference, and lists the contradicted rows, instead of applying one threshold.
+- *Claude Fable 5.2 on the first 60 rows of every draw* (`out/dev_judge_claude_fable_first60.json`, run with the newer command-line build, $11.44): confident on 97.5% of rows (Haiku 91% on the same rows); contradicts 135 of 143 planted wrong labels (Haiku 130) and 67 of 1,297 clean rows (Haiku 89). Clean disagreement falls on `qasc` (0.10 from 0.19), `medmcqa` (0.04 from 0.08) and `openbook` (0.03 from 0.06), and stays at 0.13 on `csqa`.
+- *Limits.* Development data; public train splits a large model may have seen. A vendor's material would leave the machine, so this judge has to be opt-in.
+- **Decision and follow-up:** the Claude judge was then scored on frozen test v5's expert-audited rows, with rules written first (section 5, "Test v5 with a Claude judge: result"). Fable 5.2 found 61% of the audited wrong labels at 51% precision; Haiku 5.5 found 61% at 26%. The judge is not yet wired into the product.
 
 **Not run or not finished.** The full v4 development rescore stopped at 8 of 70 cases when the Mac was needed for v5. The SmolLM2 continuity arm, the truncated-target measurement, the `gsm` family and the `sst5` family were cut for budget. RL forecasting on non-arithmetic tasks remains untested.
 
 **The paragraph for the pitch.**
 
-Touchstone reliably catches broken graders and copied or leaked material: on a frozen test it caught 6 of 6 new grader bugs, 2 of 2 planted suite leaks and 8 of 8 public copies of GSM8K test. It measures what a material teaches a model it actually trains, net of a placebo, up to 8B on one 32 GB card. A 1.7B run ranks real competing fine-tuning datasets for an 8B model better than chance: it picked the better of two datasets 69% of the time across 55 pairs in 5 task families (90% interval 49-88%, against a ceiling of 78% set by the 8B's own run-to-run noise). That is a useful prior and not a decision rule. It missed the 80% bar we set in advance, a 0.6B run did no better than about 64%, and we could not show that the larger proxy beats the smaller one. Touchstone cannot yet forecast RL environments on non-arithmetic tasks: small base models earn no reward to learn from, so the test could not be run. Touchstone does not detect wrong labels in real data. On expert-audited benchmarks at natural error rates it found 2 of 8 noisy sets with 13% precision, and it falsely flagged 1 clean set in 6, mostly by mistaking shared passages for leaked test items. Its label and contamination flags on real multiple-choice and free-text data should be presented as advisory until that is fixed.
+Touchstone reliably catches broken graders and copied or leaked material: on a frozen test it caught 6 of 6 new grader bugs, 2 of 2 planted suite leaks and 8 of 8 public copies of GSM8K test. It measures what a material teaches a model it actually trains, net of a placebo, up to 8B on one 32 GB card. A 1.7B run ranks real competing fine-tuning datasets for an 8B model better than chance: it picked the better of two datasets 69% of the time across 55 pairs in 5 task families (90% interval 49-88%, against a ceiling of 78% set by the 8B's own run-to-run noise). That is a useful prior and not a decision rule. It missed the 80% bar we set in advance, a 0.6B run did no better than about 64%, and we could not show that the larger proxy beats the smaller one. Touchstone cannot yet forecast RL environments on non-arithmetic tasks: small base models earn no reward to learn from, so the test could not be run. With its local judge, Touchstone does not detect wrong labels in real data. On expert-audited benchmarks at natural error rates it found 2 of 8 noisy sets with 13% precision, and it falsely flagged 1 clean set in 6, mostly by mistaking shared passages for leaked test items. Its label and contamination flags on real multiple-choice and free-text data should be presented as advisory until that is fixed. With a Claude Fable 5.2 judge, scored once on the same frozen test under rules written first, a list of 3.4% of MMLU's rows held 61% of the labels experts had marked wrong, and about half of the list was wrong by the audit, against 12% and 6% for the local judge. That judge is not yet part of the product, and the benchmark is public.
 
 ## References
 

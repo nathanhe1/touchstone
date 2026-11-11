@@ -12,6 +12,7 @@ Development data only. The rows are public train splits, which a large model may
 here can be higher than on a vendor's private material. The model never sees the label.
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -29,6 +30,7 @@ COT = ("Answer each multiple-choice question. For each question, reason step by 
        'question\'s answer with a line in the form "Q<number>: <letter>".')
 LINE = re.compile(r"^\s*\**Q(\d+)\**\s*[:.]\s*\**\(?([A-J])\)?\**\s*$", re.M)
 CWD = tempfile.mkdtemp(prefix="judge_cwd_")
+CLAUDE = os.environ.get("CLAUDE_BIN", "claude")  # a newer build than the one on PATH, for models the installed one lacks
 
 
 def ask(model, system, questions):
@@ -38,7 +40,7 @@ def ask(model, system, questions):
     for attempt in range(5):
         why = ""
         try:
-            p = subprocess.run(["claude", "-p", "--model", model, "--system-prompt", system, "--tools", "", "--strict-mcp-config",
+            p = subprocess.run([CLAUDE, "-p", "--model", model, "--system-prompt", system, "--tools", "", "--strict-mcp-config",
                                 "--no-session-persistence", "--disable-slash-commands", "--output-format", "json"],
                                input=prompt, capture_output=True, text=True, cwd=CWD, timeout=600)
             # the result is the last JSON line; the command line can print a warning line before it

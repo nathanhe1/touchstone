@@ -527,3 +527,11 @@ done h5_ft_sft_csqa_clean_q3-8B_s1 gain=-4.5 base=77.0 wall=84.6s mem=21.5GB
 start h5_ft_sft_csqa_pool100_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
 done h5_ft_sft_csqa_pool100_q3-8B_s1 gain=1.667 base=77.0 wall=84.9s mem=21.5GB
 start h5_ft_sft_csqa_pool200_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_pool200_q3-8B_s1 gain=6.167 base=77.0 wall=84.5s mem=21.5GB
+start h5_ft_sft_csqa_pool300_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_pool300_q3-8B_s1 gain=5.167 base=77.0 wall=84.6s mem=21.5GB
+start h5_ft_sft_csqa_wrong10_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_wrong10_q3-8B_s1 gain=7.167 base=77.0 wall=85.1s mem=21.5GB
+start h5_ft_sft_csqa_off25_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_csqa_off25_q3-8B_s1 gain=6.5 base=77.0 wall=84.4s mem=21.5GB
+start h5_ft_sft_csqa_drop_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)

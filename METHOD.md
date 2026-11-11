@@ -206,6 +206,17 @@ At Tier A's measured recall and false-flag rate, the implied precision is 0.03 a
 
 Reports must not imply that Touchstone detects organic label errors. On this evidence it does not.
 
+**Test v5 rescored with a Claude judge, rules written before any Claude model read a v5 row** (2026-11-11; `scripts/eval_test5_claude.py`). This is a second scoring of the frozen v5 files with one named change. It does not replace the v5 result above.
+
+- *What is scored.* The frozen multiple-choice label cases, hashes verified first: the 57 MMLU-Redux subjects (5,681 rows; the audit marks 142 wrong and 228 ambiguous), the 4 MMLU sets with 30% planted wrong labels (114 planted rows), and the 4 Fantastic Bugs reviewed-correct sets. GSM8K and ReaLMistake are not multiple choice and are left out.
+- *The one change.* The judge is a Claude model, called through the `claude` command line with no tools, and it reads every row of a case instead of a 60-row sample. The two routes, the prompts (`DIRECT` and `COT` in `scripts/dev_judge_claude.py`, as used on development data) and the statistic are unchanged: a row is contradicted when both routes give the same letter and that letter is not the label. A row with no parsed answer counts as not confident.
+- *Judges.* Claude Haiku 5.5 is primary, because it is the model the development test ran in full. Claude Fable 5.2 is run on the same rows and reported beside it. Each is scored once. No prompt, threshold or rule changes after a v5 row is read.
+- *Primary measure, row level on MMLU-Redux.* Recall is the share of the 142 audited-wrong rows that are contradicted. Precision is wrong rows over wrong plus ok rows among the contradicted (ambiguous rows are counted separately, as in v5). Also reported: the share of all rows listed, and the lift, which is precision over the 2.6% base rate of wrong rows.
+- *Bars, fixed now.* "Detects organic wrong labels row by row" needs recall of at least 0.50 and precision of at least 0.50. "Gives a useful review list" needs recall of at least 0.50 and lift of at least 5. If a judge meets neither, the retired claim stays retired for that judge.
+- *Secondary, case level.* The disagreement rate on confident rows against the product's unchanged 0.30 line, for the 2 noisy subjects, the 55 clean subjects, the 4 planted sets and the 4 Fantastic Bugs sets. With 2 organic positives this cannot carry a claim. The count at 0.20, the truth line for a noisy case, is reported as a description only.
+- *Disclosure.* v5's result with the Qwen judge is known, including which subjects are noisy. While checking the file format, one virology row, one planted macroeconomics row and virology's list of row verdicts were printed. No v5 row had been sent to a Claude model when this was committed.
+- *What it cannot show.* MMLU is public and is very likely in a Claude model's training data, so the model may repeat MMLU's own wrong label (lower recall) or know the published corrections (higher recall). The two cannot be separated here. The result is evidence about real errors that experts confirmed, not about a vendor's private material.
+
 ## 6. Forecast: small to large
 
 ### Methods compared

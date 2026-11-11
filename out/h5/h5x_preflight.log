@@ -1,0 +1,7 @@
+Wed Nov 11 02:16:50 UTC 2026
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 320.14it/s]
+cs|q3-8B {'soft': 45.83, 'soft_s': 22.8, 'acc': 86.0, 'chance': 25.0, 'truncated': 3.83, 'n': 600, 'max_new': 32, 'has_letter': 97.5, 's': 35.4, 'model': 'Qwen/Qwen3-8B-Base'}
+para|q3-8B {'soft': 15.71, 'soft_s': 14.4, 'acc': 53.33, 'chance': 50.0, 'truncated': 62.5, 'n': 600, 'max_new': 32, 'has_letter': 90.83, 's': 30.3, 'model': 'Qwen/Qwen3-8B-Base'}
+sent|q3-8B {'soft': 42.15, 'soft_s': 10.4, 'acc': 40.33, 'chance': 50.0, 'truncated': 77.33, 'n': 600, 'max_new': 32, 'has_letter': 22.0, 's': 21.2, 'model': 'Qwen/Qwen3-8B-Base'}
+tox|q3-8B {'soft': 20.14, 'soft_s': 19.4, 'acc': 40.17, 'chance': 50.0, 'truncated': 75.5, 'n': 600, 'max_new': 32, 'has_letter': 21.17, 's': 33.0, 'model': 'Qwen/Qwen3-8B-Base'}
+H5X_PREFLIGHT_EXITED

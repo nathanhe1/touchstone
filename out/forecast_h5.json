@@ -1,0 +1,711 @@
+{
+ "mode": "final",
+ "runs": 250,
+ "rules": {
+  "candidates": {
+   "B acc_final 12x": [
+    "gain",
+    "p12"
+   ],
+   "C1 acc_final 4x": [
+    "gain",
+    "p4"
+   ],
+   "C2 soft 12x": [
+    "soft_gain",
+    "p12"
+   ]
+  },
+  "bar": 0.8,
+  "alpha": 0.016666666666666666,
+  "family_share": 0.6,
+  "min_families": 3,
+  "min_pairs": 30,
+  "ceiling_min": 0.75,
+  "ft_gate": 5.0,
+  "headroom": 90.0,
+  "rl_kappa": 0.1,
+  "rl_reward_max": 0.9
+ },
+ "scorer_sha256": "c89f20ef713b0e676b07380f8be57efeacce94ab3ca431deef11b25b8ae5181a",
+ "arms": {
+  "ft": {
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "gates": {
+    "nli": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": false,
+       "ref_minus_wrong": 2.75,
+       "why": "reference minus all-wrong 2.8 < 5.0"
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 16.92,
+       "why": ""
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 37.2,
+     "family_pass": true
+    },
+    "sci": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 41.33,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 56.83,
+       "why": ""
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 87.0,
+     "family_pass": true
+    },
+    "yelp": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 35.08,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 42.67,
+       "why": ""
+      }
+     },
+     "excluded_materials": {
+      "drop": "majority share 0.50 > 0.5"
+     },
+     "target_base": 22.8,
+     "family_pass": true
+    },
+    "csqa": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 44.42,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 57.33,
+       "why": ""
+      }
+     },
+     "excluded_materials": {
+      "drop": "majority share 0.51 > 0.5"
+     },
+     "target_base": 77.0,
+     "family_pass": true
+    },
+    "boolq": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 38.42,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 45.75,
+       "why": ""
+      }
+     },
+     "excluded_materials": {
+      "pool200": "majority share 0.69 > 0.65"
+     },
+     "target_base": 73.8,
+     "family_pass": true
+    }
+   },
+   "families_gated_in": [
+    "nli",
+    "sci",
+    "yelp",
+    "csqa",
+    "boolq"
+   ],
+   "abstained_families": {},
+   "noise_ceiling": {
+    "screen_passing": 0.667,
+    "all": 0.769
+   },
+   "candidates": {
+    "B acc_final 12x": {
+     "signal": "gain",
+     "proxy": "q3-0.6B",
+     "covered": [
+      "sci",
+      "yelp",
+      "csqa",
+      "boolq"
+     ],
+     "abstained": {
+      "nli": [
+       "reference minus all-wrong 2.8 < 5.0"
+      ]
+     },
+     "screen_passing": {
+      "decision": 0.556,
+      "pairs": 54,
+      "target_ties_dropped": 1,
+      "by_family": {
+       "sci": 0.6,
+       "yelp": 0.5,
+       "csqa": 0.6,
+       "boolq": 0.5
+      },
+      "ci90": [
+       0.353,
+       0.761
+      ],
+      "perm_p": 0.27337,
+      "spearman_mean": 0.132
+     },
+     "all": {
+      "decision": 0.688,
+      "pairs": 77,
+      "target_ties_dropped": 1,
+      "by_family": {
+       "sci": 0.714,
+       "yelp": 0.65,
+       "csqa": 0.714,
+       "boolq": 0.667
+      },
+      "ci90": [
+       0.527,
+       0.836
+      ],
+      "perm_p": 0.0091,
+      "spearman_mean": 0.47
+     },
+     "families_above_half": "2 of 4",
+     "verdict": "inconclusive: target noise ceiling below 0.75",
+     "by_stratum": {
+      "classification, new": {
+       "decision": 0.538,
+       "pairs": 39,
+       "by_family": {
+        "yelp": 0.5,
+        "csqa": 0.6,
+        "boolq": 0.5
+       },
+       "noise_ceiling": 0.598,
+       "ci90": [
+        0.305,
+        0.786
+       ],
+       "perm_p": 0.41176,
+       "inconclusive": true
+      },
+      "real competing (FDE)": {
+       "decision": 0.6,
+       "pairs": 15,
+       "by_family": {
+        "sci": 0.6
+       },
+       "noise_ceiling": 0.69,
+       "ci90": [
+        0.231,
+        1.0
+       ],
+       "perm_p": 0.28807,
+       "inconclusive": true
+      }
+     }
+    },
+    "C1 acc_final 4x": {
+     "signal": "gain",
+     "proxy": "q3-1.7B",
+     "covered": [
+      "nli",
+      "sci",
+      "yelp",
+      "csqa",
+      "boolq"
+     ],
+     "abstained": {},
+     "screen_passing": {
+      "decision": 0.703,
+      "pairs": 64,
+      "target_ties_dropped": 1,
+      "by_family": {
+       "nli": 0.9,
+       "sci": 0.533,
+       "yelp": 0.786,
+       "csqa": 0.667,
+       "boolq": 0.7
+      },
+      "ci90": [
+       0.528,
+       0.867
+      ],
+      "perm_p": 0.0106,
+      "spearman_mean": 0.58
+     },
+     "all": {
+      "decision": 0.793,
+      "pairs": 92,
+      "target_ties_dropped": 1,
+      "by_family": {
+       "nli": 0.933,
+       "sci": 0.667,
+       "yelp": 0.85,
+       "csqa": 0.762,
+       "boolq": 0.8
+      },
+      "ci90": [
+       0.659,
+       0.914
+      ],
+      "perm_p": 0.0001,
+      "spearman_mean": 0.743
+     },
+     "families_above_half": "5 of 5",
+     "verdict": "inconclusive: target noise ceiling below 0.75",
+     "by_stratum": {
+      "classification, new": {
+       "decision": 0.718,
+       "pairs": 39,
+       "by_family": {
+        "yelp": 0.786,
+        "csqa": 0.667,
+        "boolq": 0.7
+       },
+       "noise_ceiling": 0.598,
+       "ci90": [
+        0.515,
+        0.885
+       ],
+       "perm_p": 0.0272,
+       "inconclusive": true
+      },
+      "real competing (FDE)": {
+       "decision": 0.68,
+       "pairs": 25,
+       "by_family": {
+        "nli": 0.9,
+        "sci": 0.533
+       },
+       "noise_ceiling": 0.776,
+       "ci90": [
+        0.375,
+        1.0
+       ],
+       "perm_p": 0.12139,
+       "inconclusive": true
+      }
+     }
+    },
+    "C2 soft 12x": {
+     "signal": "soft_gain",
+     "proxy": "q3-0.6B",
+     "covered": [
+      "sci",
+      "yelp",
+      "csqa",
+      "boolq"
+     ],
+     "abstained": {
+      "nli": [
+       "reference minus all-wrong 2.8 < 5.0"
+      ]
+     },
+     "screen_passing": {
+      "decision": 0.407,
+      "pairs": 54,
+      "target_ties_dropped": 1,
+      "by_family": {
+       "sci": 0.733,
+       "yelp": 0.286,
+       "csqa": 0.333,
+       "boolq": 0.2
+      },
+      "ci90": [
+       0.19,
+       0.642
+      ],
+      "perm_p": 0.85761,
+      "spearman_mean": -0.311
+     },
+     "all": {
+      "decision": 0.584,
+      "pairs": 77,
+      "target_ties_dropped": 1,
+      "by_family": {
+       "sci": 0.81,
+       "yelp": 0.5,
+       "csqa": 0.524,
+       "boolq": 0.467
+      },
+      "ci90": [
+       0.375,
+       0.776
+      ],
+      "perm_p": 0.17738,
+      "spearman_mean": 0.204
+     },
+     "families_above_half": "1 of 4",
+     "verdict": "inconclusive: target noise ceiling below 0.75",
+     "by_stratum": {
+      "classification, new": {
+       "decision": 0.282,
+       "pairs": 39,
+       "by_family": {
+        "yelp": 0.286,
+        "csqa": 0.333,
+        "boolq": 0.2
+       },
+       "noise_ceiling": 0.598,
+       "ci90": [
+        0.103,
+        0.481
+       ],
+       "perm_p": 0.9845,
+       "inconclusive": true
+      },
+      "real competing (FDE)": {
+       "decision": 0.733,
+       "pairs": 15,
+       "by_family": {
+        "sci": 0.733
+       },
+       "noise_ceiling": 0.69,
+       "ci90": [
+        0.444,
+        1.0
+       ],
+       "perm_p": 0.13909,
+       "inconclusive": true
+      }
+     }
+    }
+   },
+   "comparisons": {
+    "C1 acc_final 4x vs B acc_final 12x": {
+     "families": [
+      "boolq",
+      "csqa",
+      "sci",
+      "yelp"
+     ],
+     "difference": 0.111,
+     "ci90": [
+      0.0,
+      0.25
+     ],
+     "p_one_sided": 0.18708,
+     "beats_baseline": false,
+     "underpowered": true
+    },
+    "C2 soft 12x vs B acc_final 12x": {
+     "families": [
+      "boolq",
+      "csqa",
+      "sci",
+      "yelp"
+     ],
+     "difference": -0.148,
+     "ci90": [
+      -0.273,
+      0.033
+     ],
+     "p_one_sided": 0.93841,
+     "beats_baseline": false,
+     "underpowered": true
+    }
+   },
+   "measurements": {
+    "soft target (different target, not a candidate)": {
+     "decision": 0.692,
+     "pairs": 65,
+     "by_family": {
+      "nli": 0.5,
+      "sci": 0.667,
+      "yelp": 0.733,
+      "csqa": 0.733,
+      "boolq": 0.8
+     },
+     "ci90": [
+      0.527,
+      0.833
+     ],
+     "perm_p": 0.012
+    }
+   },
+   "arm_inconclusive": true
+  },
+  "rl": {
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "gates": {
+    "kk": {
+     "reasons": [
+      "no target base accuracy",
+      "RL gate fails at the target: chance-corrected reward -0.06 < 0.1"
+     ],
+     "rung": {
+      "p12": {
+       "pass": false,
+       "kappa": -0.088,
+       "reward_rate": 0.0,
+       "no_answer": 0.9844,
+       "truncated": 0.8945,
+       "why": "chance-corrected reward -0.09 < 0.1"
+      },
+      "p4": {
+       "pass": false,
+       "kappa": -0.076,
+       "reward_rate": 0.0117,
+       "no_answer": 0.9258,
+       "truncated": 0.7969,
+       "why": "chance-corrected reward -0.08 < 0.1"
+      }
+     },
+     "excluded_materials": {},
+     "target_base": null,
+     "target_rl_gate": {
+      "pass": false,
+      "kappa": -0.059,
+      "reward_rate": 0.0273,
+      "no_answer": 0.8047,
+      "truncated": 0.8789,
+      "why": "chance-corrected reward -0.06 < 0.1"
+     },
+     "family_pass": false
+    },
+    "yelp": {
+     "reasons": [
+      "no target base accuracy",
+      "RL gate fails at the target: chance-corrected reward -0.03 < 0.1"
+     ],
+     "rung": {
+      "p12": {
+       "pass": false,
+       "kappa": -0.206,
+       "reward_rate": 0.0352,
+       "no_answer": 0.9961,
+       "truncated": 0.9688,
+       "why": "chance-corrected reward -0.21 < 0.1"
+      },
+      "p4": {
+       "pass": false,
+       "kappa": -0.177,
+       "reward_rate": 0.0586,
+       "no_answer": 0.9219,
+       "truncated": 0.6367,
+       "why": "chance-corrected reward -0.18 < 0.1"
+      }
+     },
+     "excluded_materials": {
+      "drop": "majority share 0.50 > 0.5"
+     },
+     "target_base": null,
+     "target_rl_gate": {
+      "pass": false,
+      "kappa": -0.025,
+      "reward_rate": 0.1797,
+      "no_answer": 0.7812,
+      "truncated": 0.7539,
+      "why": "chance-corrected reward -0.03 < 0.1"
+     },
+     "family_pass": false
+    },
+    "csqa": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": false,
+       "kappa": -0.123,
+       "reward_rate": 0.1016,
+       "no_answer": 0.9805,
+       "truncated": 0.9258,
+       "why": "chance-corrected reward -0.12 < 0.1"
+      },
+      "p4": {
+       "pass": false,
+       "kappa": -0.177,
+       "reward_rate": 0.0586,
+       "no_answer": 0.8945,
+       "truncated": 0.7305,
+       "why": "chance-corrected reward -0.18 < 0.1"
+      }
+     },
+     "excluded_materials": {
+      "drop": "majority share 0.51 > 0.5"
+     },
+     "target_base": 77.0,
+     "target_rl_gate": {
+      "pass": true,
+      "kappa": 0.277,
+      "reward_rate": 0.4219,
+      "no_answer": 0.5742,
+      "truncated": 0.6016,
+      "why": ""
+     },
+     "family_pass": true
+    }
+   },
+   "families_gated_in": [
+    "csqa"
+   ],
+   "abstained_families": {
+    "kk": [
+     "no target base accuracy",
+     "RL gate fails at the target: chance-corrected reward -0.06 < 0.1"
+    ],
+    "yelp": [
+     "no target base accuracy",
+     "RL gate fails at the target: chance-corrected reward -0.03 < 0.1"
+    ]
+   },
+   "noise_ceiling": {
+    "screen_passing": null,
+    "all": null
+   },
+   "candidates": {
+    "B acc_final 12x": {
+     "signal": "gain",
+     "proxy": "q3-0.6B",
+     "covered": [],
+     "abstained": {
+      "kk": [
+       "no target base accuracy",
+       "RL gate fails at the target: chance-corrected reward -0.06 < 0.1"
+      ],
+      "yelp": [
+       "no target base accuracy",
+       "RL gate fails at the target: chance-corrected reward -0.03 < 0.1"
+      ],
+      "csqa": [
+       "chance-corrected reward -0.12 < 0.1"
+      ]
+     },
+     "screen_passing": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {},
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "all": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {},
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "families_above_half": "0 of 0",
+     "verdict": "inconclusive: target noise ceiling below 0.75",
+     "by_stratum": {}
+    },
+    "C1 acc_final 4x": {
+     "signal": "gain",
+     "proxy": "q3-1.7B",
+     "covered": [],
+     "abstained": {
+      "kk": [
+       "no target base accuracy",
+       "RL gate fails at the target: chance-corrected reward -0.06 < 0.1"
+      ],
+      "yelp": [
+       "no target base accuracy",
+       "RL gate fails at the target: chance-corrected reward -0.03 < 0.1"
+      ],
+      "csqa": [
+       "chance-corrected reward -0.18 < 0.1"
+      ]
+     },
+     "screen_passing": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {},
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "all": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {},
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "families_above_half": "0 of 0",
+     "verdict": "inconclusive: target noise ceiling below 0.75",
+     "by_stratum": {}
+    },
+    "C2 soft 12x": {
+     "signal": "soft_gain",
+     "proxy": "q3-0.6B",
+     "covered": [],
+     "abstained": {
+      "kk": [
+       "no target base accuracy",
+       "RL gate fails at the target: chance-corrected reward -0.06 < 0.1"
+      ],
+      "yelp": [
+       "no target base accuracy",
+       "RL gate fails at the target: chance-corrected reward -0.03 < 0.1"
+      ],
+      "csqa": [
+       "chance-corrected reward -0.12 < 0.1"
+      ]
+     },
+     "screen_passing": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {},
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "all": {
+      "decision": null,
+      "pairs": 0,
+      "target_ties_dropped": 0,
+      "by_family": {},
+      "ci90": null,
+      "perm_p": null,
+      "spearman_mean": null
+     },
+     "families_above_half": "0 of 0",
+     "verdict": "inconclusive: target noise ceiling below 0.75",
+     "by_stratum": {}
+    }
+   },
+   "comparisons": {
+    "C1 acc_final 4x vs B acc_final 12x": null,
+    "C2 soft 12x vs B acc_final 12x": null
+   },
+   "measurements": {},
+   "arm_inconclusive": true
+  }
+ }
+}

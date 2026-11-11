@@ -1,0 +1,367 @@
+{
+ "mode": "final",
+ "runs": 126,
+ "rules": {
+  "candidates": {
+   "B acc_final 12x": [
+    "gain",
+    "p12"
+   ],
+   "C1 acc_final 4x": [
+    "gain",
+    "p4"
+   ],
+   "C2 soft 12x": [
+    "soft_gain",
+    "p12"
+   ]
+  },
+  "bar": 0.8,
+  "alpha": 0.016666666666666666,
+  "family_share": 0.6,
+  "min_families": 3,
+  "min_pairs": 30,
+  "ceiling_min": 0.75,
+  "ft_gate": 5.0,
+  "headroom": 90.0,
+  "rl_kappa": 0.1,
+  "rl_reward_max": 0.9
+ },
+ "scorer_sha256": "c89f20ef713b0e676b07380f8be57efeacce94ab3ca431deef11b25b8ae5181a",
+ "arms": {
+  "ft": {
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "gates": {
+    "cs": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 30.92,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 46.58,
+       "why": ""
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 85.8,
+     "family_pass": true
+    },
+    "para": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 19.25,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 28.0,
+       "why": ""
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 53.5,
+     "family_pass": true
+    },
+    "sent": {
+     "reasons": [],
+     "rung": {
+      "p12": {
+       "pass": true,
+       "ref_minus_wrong": 55.25,
+       "why": ""
+      },
+      "p4": {
+       "pass": true,
+       "ref_minus_wrong": 46.67,
+       "why": ""
+      }
+     },
+     "excluded_materials": {},
+     "target_base": 40.2,
+     "family_pass": true
+    }
+   },
+   "families_gated_in": [
+    "cs",
+    "para",
+    "sent"
+   ],
+   "abstained_families": {},
+   "noise_ceiling": {
+    "screen_passing": 0.78,
+    "all": 0.854
+   },
+   "candidates": {
+    "B acc_final 12x": {
+     "signal": "gain",
+     "proxy": "q3-0.6B",
+     "covered": [
+      "cs",
+      "para",
+      "sent"
+     ],
+     "abstained": {},
+     "screen_passing": {
+      "decision": 0.667,
+      "pairs": 30,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "cs": 0.5,
+       "para": 0.7,
+       "sent": 0.8
+      },
+      "ci90": [
+       0.374,
+       0.885
+      ],
+      "perm_p": 0.07229,
+      "spearman_mean": 0.5
+     },
+     "all": {
+      "decision": 0.778,
+      "pairs": 45,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "cs": 0.667,
+       "para": 0.8,
+       "sent": 0.867
+      },
+      "ci90": [
+       0.553,
+       0.944
+      ],
+      "perm_p": 0.003,
+      "spearman_mean": 0.714
+     },
+     "families_above_half": "2 of 3",
+     "verdict": "fail: retired",
+     "by_stratum": {
+      "real competing (h5x)": {
+       "decision": 0.6,
+       "pairs": 20,
+       "by_family": {
+        "cs": 0.5,
+        "para": 0.7
+       },
+       "noise_ceiling": 0.821,
+       "ci90": [
+        0.25,
+        0.909
+       ],
+       "perm_p": 0.24818,
+       "inconclusive": true
+      },
+      "real competing (h5x), suite reused from h4": {
+       "decision": 0.8,
+       "pairs": 10,
+       "by_family": {
+        "sent": 0.8
+       },
+       "noise_ceiling": 0.7,
+       "ci90": [
+        0.5,
+        1.0
+       ],
+       "perm_p": 0.11369,
+       "inconclusive": true
+      }
+     }
+    },
+    "C1 acc_final 4x": {
+     "signal": "gain",
+     "proxy": "q3-1.7B",
+     "covered": [
+      "cs",
+      "para",
+      "sent"
+     ],
+     "abstained": {},
+     "screen_passing": {
+      "decision": 0.7,
+      "pairs": 30,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "cs": 0.7,
+       "para": 0.8,
+       "sent": 0.6
+      },
+      "ci90": [
+       0.435,
+       0.917
+      ],
+      "perm_p": 0.05799,
+      "spearman_mean": 0.533
+     },
+     "all": {
+      "decision": 0.8,
+      "pairs": 45,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "cs": 0.8,
+       "para": 0.867,
+       "sent": 0.733
+      },
+      "ci90": [
+       0.6,
+       0.949
+      ],
+      "perm_p": 0.0021,
+      "spearman_mean": 0.733
+     },
+     "families_above_half": "3 of 3",
+     "verdict": "fail: retired",
+     "by_stratum": {
+      "real competing (h5x)": {
+       "decision": 0.75,
+       "pairs": 20,
+       "by_family": {
+        "cs": 0.7,
+        "para": 0.8
+       },
+       "noise_ceiling": 0.821,
+       "ci90": [
+        0.438,
+        1.0
+       ],
+       "perm_p": 0.05899,
+       "inconclusive": true
+      },
+      "real competing (h5x), suite reused from h4": {
+       "decision": 0.6,
+       "pairs": 10,
+       "by_family": {
+        "sent": 0.6
+       },
+       "noise_ceiling": 0.7,
+       "ci90": [
+        0.0,
+        1.0
+       ],
+       "perm_p": 0.40316,
+       "inconclusive": true
+      }
+     }
+    },
+    "C2 soft 12x": {
+     "signal": "soft_gain",
+     "proxy": "q3-0.6B",
+     "covered": [
+      "cs",
+      "para",
+      "sent"
+     ],
+     "abstained": {},
+     "screen_passing": {
+      "decision": 0.6,
+      "pairs": 30,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "cs": 0.5,
+       "para": 0.7,
+       "sent": 0.6
+      },
+      "ci90": [
+       0.363,
+       0.818
+      ],
+      "perm_p": 0.25217,
+      "spearman_mean": 0.333
+     },
+     "all": {
+      "decision": 0.733,
+      "pairs": 45,
+      "target_ties_dropped": 0,
+      "by_family": {
+       "cs": 0.667,
+       "para": 0.8,
+       "sent": 0.733
+      },
+      "ci90": [
+       0.533,
+       0.897
+      ],
+      "perm_p": 0.0156,
+      "spearman_mean": 0.619
+     },
+     "families_above_half": "2 of 3",
+     "verdict": "fail: retired",
+     "by_stratum": {
+      "real competing (h5x)": {
+       "decision": 0.6,
+       "pairs": 20,
+       "by_family": {
+        "cs": 0.5,
+        "para": 0.7
+       },
+       "noise_ceiling": 0.821,
+       "ci90": [
+        0.267,
+        0.889
+       ],
+       "perm_p": 0.29897,
+       "inconclusive": true
+      },
+      "real competing (h5x), suite reused from h4": {
+       "decision": 0.6,
+       "pairs": 10,
+       "by_family": {
+        "sent": 0.6
+       },
+       "noise_ceiling": 0.7,
+       "ci90": [
+        0.0,
+        1.0
+       ],
+       "perm_p": 0.41196,
+       "inconclusive": true
+      }
+     }
+    }
+   },
+   "comparisons": {
+    "C1 acc_final 4x vs B acc_final 12x": {
+     "families": [
+      "cs",
+      "para",
+      "sent"
+     ],
+     "difference": 0.033,
+     "ci90": [
+      -0.1,
+      0.167
+     ],
+     "p_one_sided": 0.50315,
+     "beats_baseline": false,
+     "underpowered": true
+    },
+    "C2 soft 12x vs B acc_final 12x": {
+     "families": [
+      "cs",
+      "para",
+      "sent"
+     ],
+     "difference": -0.067,
+     "ci90": [
+      -0.133,
+      0.0
+     ],
+     "p_one_sided": 1.0,
+     "beats_baseline": false,
+     "underpowered": true
+    }
+   },
+   "measurements": {},
+   "arm_inconclusive": false
+  }
+ }
+}

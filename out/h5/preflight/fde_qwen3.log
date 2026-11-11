@@ -1,0 +1,8 @@
+gsm|q3-0.6B {'soft': 21.07, 'soft_s': 13.5, 'acc': 10.0, 'chance': 0.0, 'truncated': 84.0, 'n': 300, 'max_new': 320, 'has_letter': 2.67, 's': 74.2, 'model': 'Qwen/Qwen3-0.6B-Base'}
+nli|q3-0.6B {'soft': -0.01, 'soft_s': 4.0, 'acc': 0.67, 'chance': 33.33, 'truncated': 100.0, 'n': 300, 'max_new': 32, 'has_letter': 0.0, 's': 10.3, 'model': 'Qwen/Qwen3-0.6B-Base'}
+sci|q3-0.6B {'soft': -0.02, 'soft_s': 3.8, 'acc': 20.0, 'chance': 25.01, 'truncated': 100.0, 'n': 300, 'max_new': 32, 'has_letter': 11.33, 's': 8.9, 'model': 'Qwen/Qwen3-0.6B-Base'}
+kk|q3-0.6B {'soft': None, 'soft_s': 0.0, 'acc': 12.33, 'chance': 11.59, 'truncated': 94.0, 'n': 300, 'max_new': 320, 'has_letter': 99.67, 's': 66.9, 'model': 'Qwen/Qwen3-0.6B-Base'}
+gsm|q3-1.7B {'soft': 62.84, 'soft_s': 27.9, 'acc': 52.0, 'chance': 0.0, 'truncated': 34.33, 'n': 300, 'max_new': 320, 'has_letter': 4.0, 's': 90.9, 'model': 'Qwen/Qwen3-1.7B-Base'}
+nli|q3-1.7B {'soft': 2.67, 'soft_s': 8.0, 'acc': 27.67, 'chance': 33.33, 'truncated': 88.67, 'n': 300, 'max_new': 32, 'has_letter': 74.0, 's': 16.2, 'model': 'Qwen/Qwen3-1.7B-Base'}
+sci|q3-1.7B {'soft': 22.69, 'soft_s': 7.8, 'acc': 52.67, 'chance': 25.01, 'truncated': 49.0, 'n': 300, 'max_new': 32, 'has_letter': 26.33, 's': 14.4, 'model': 'Qwen/Qwen3-1.7B-Base'}
+kk|q3-1.7B {'soft': None, 'soft_s': 0.0, 'acc': 14.33, 'chance': 11.59, 'truncated': 55.0, 'n': 300, 'max_new': 320, 'has_letter': 91.67, 's': 75.8, 'model': 'Qwen/Qwen3-1.7B-Base'}

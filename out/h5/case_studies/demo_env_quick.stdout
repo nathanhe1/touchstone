@@ -1,0 +1,13 @@
+[04:02:49] @stage validate 0.010
+[04:02:49] Appraising environment QuickGrade Math Pack: 5000 tasks; held-out suite 'arithmetic' (150 items: multi-digit addition stated in words (2-digit and 3-digit operands)); mode quick
+[04:02:49] @stage seal 0.040
+[04:02:49] @stage overlap 0.060
+[04:02:49] @stage probe 0.110
+[04:02:52]   overlap: 0.0% of held-out items appear in the material (0.0% of material), public (Public Addition (free) environment) 3.2%, duplicates 29.9%, off-topic 0%
+[04:02:57]   grader check: worst exploit 'hedge: right then wrong' earns 100% reward; answer in prompt for 0% of tasks
+[04:02:57]   blocking problem found in screening; quick mode skips training
+[04:02:57] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: not measured (screening only) | value $0.00/item | flags: gameable_grader, screen_only
+Report: out/case_studies/demo_env_quick/report.md

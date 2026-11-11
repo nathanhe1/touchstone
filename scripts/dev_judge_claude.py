@@ -32,23 +32,29 @@ CWD = tempfile.mkdtemp(prefix="judge_cwd_")
 
 
 def ask(model, system, questions):
-    """One call for a batch. Returns ({question number: letter}, cost in dollars)."""
+    """One call for a batch. Returns ({question number: letter}, cost in dollars). Retries until every question has a letter."""
     prompt = "\n\n".join(f"Q{i + 1}.\n{q}" for i, q in enumerate(questions))
-    for attempt in range(3):
-        p = subprocess.run(["claude", "-p", "--model", model, "--system-prompt", system, "--tools", "", "--strict-mcp-config",
-                            "--no-session-persistence", "--disable-slash-commands", "--output-format", "json"],
-                           input=prompt, capture_output=True, text=True, cwd=CWD, timeout=900)
+    best, cost = {}, 0.0
+    for attempt in range(5):
+        why = ""
         try:
-            j = json.loads(p.stdout[p.stdout.index("{"):])
-            if not j.get("is_error") and j.get("result"):
-                got = {}
-                for n, letter in LINE.findall(j["result"]):
-                    got[int(n)] = letter  # the last line for a question wins
-                return got, j.get("total_cost_usd") or 0.0
-        except (ValueError, json.JSONDecodeError):
-            pass
-        time.sleep(5 * (attempt + 1))
-    return {}, 0.0
+            p = subprocess.run(["claude", "-p", "--model", model, "--system-prompt", system, "--tools", "", "--strict-mcp-config",
+                                "--no-session-persistence", "--disable-slash-commands", "--output-format", "json"],
+                               input=prompt, capture_output=True, text=True, cwd=CWD, timeout=600)
+            # the result is the last JSON line; the command line can print a warning line before it
+            j = next(json.loads(x) for x in reversed(p.stdout.splitlines()) if x.startswith("{") and '"result"' in x)
+            cost += j.get("total_cost_usd") or 0.0
+            got = {int(n): letter for n, letter in LINE.findall(j.get("result") or "")}  # the last line for a question wins
+            if len(got) > len(best):
+                best = got
+            if not j.get("is_error") and len(got) == len(questions):
+                return got, cost
+            why = f"is_error={j.get('is_error')} stop={j.get('stop_reason')} parsed={len(got)}/{len(questions)} text={(j.get('result') or '')[:120]!r}"
+        except (ValueError, StopIteration, subprocess.TimeoutExpired) as e:
+            why = f"{type(e).__name__}: {str(e)[:200]} stdout={p.stdout[-200:] if 'p' in dir() else ''!r}"
+        print("  retry", attempt + 1, why, file=sys.stderr, flush=True)
+        time.sleep(15 * (attempt + 1))
+    return best, cost
 
 
 def route(model, system, questions):
@@ -69,7 +75,7 @@ def run(model, per=None):
     t0 = time.time()
     for m in json.loads((D / "manifest.json").read_text()):
         key = f"{m['source']}_{m['draw']}"
-        if key in res:
+        if key in res and not any(x["direct"] is None or x["cot"] is None for x in res[key]["rows"]):
             continue
         rows = [json.loads(x) for x in (D / m["path"]).read_text().splitlines()][:per]
         q = [r["prompt"] for r in rows]

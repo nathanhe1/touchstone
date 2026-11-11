@@ -1,0 +1,6 @@
+  retry 1 is_error=False stop=end_turn parsed=0/25 text="**Q1:** The Sun is the energy source for Earth, supplying both light and heat. Earth doesn't send energy back to the Sun"
+arc_planted_30 confident 147/150 disagree 0.327 missing 0+0 $2.17 47s
+arc_easy_clean_0 confident 145/150 disagree 0.000 missing 0+0 $2.53 63s
+arc_easy_clean_1 confident 143/150 disagree 0.028 missing 0+0 $2.89 80s
+  retry 1 is_error=False stop=end_turn parsed=0/25 text='**Q1:** The outer planets are very far from the Sun, so they receive little energy and their surfaces are extremely cold'
+  retry 1 is_error=False stop=end_turn parsed=0/25 text="**Q1:** Ocean phytoplankton are microscopic algae that perform photosynthesis at a huge scale and produce most of Earth'"

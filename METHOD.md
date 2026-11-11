@@ -816,6 +816,22 @@ Row level, on expert-audited rows: the multiple-choice judge flagged 9 of 73 wro
 
 A read is one sample of 60 rows, as the product takes it; each draw is read 5 times. The 7B judge cuts clean disagreement on five sources and is confident on more rows. It does not reach the goal of a clean rate near zero everywhere: `medmcqa` and `qasc` stay at 0.22 and 0.29, as high as a 30%-wrong draw reads on easier sources. Clean and wrong reads therefore overlap across sources, so no single threshold chosen on seven sources separates the eighth (the leave-one-source-out rule ends above every clean read and catches no wrong draw). `aqua` gave almost no confident rows with either judge. **Decision:** the multiple-choice label check stays advisory, the product keeps the 1.5B judge, and no GPU is required for label checks. A 7B judge would cut false advisories at the 0.30 line from about 1 in 6 clean reads to about 1 in 16, at the price of needing a GPU. That option is recorded and not adopted. These are development numbers on a torch backend. They were not rescored on v5.
 
+**A Claude model as the judge: a large step up, and the per-source baseline remains** (development data only, run 2026-11-11 after the sprint; `scripts/dev_judge_claude.py`, `out/dev_judge_mcq_claude-haiku-5-5.json`, `out/dev_judge_claude_opus_subset.json`, tuned in `out/dev_judge_mcq_tune.json`). Same rows and statistic as the test above. The judge is called through the `claude` command line with no tools and never sees the label.
+
+| Judge | Rows where both routes agree | At the 0.30 line: clean reads flagged | 30%-wrong reads flagged | Leave-one-source-out |
+|---|---|---|---|---|
+| Qwen2.5-1.5B | about 31% | 11 of 66 | 29 of 34 | 1 of 66 clean, 13 of 34 wrong |
+| Qwen2.5-7B | about 40% | 4 of 63 | 24 of 30 | 2 of 63 clean, 0 of 30 wrong |
+| Claude Haiku 5.5 | about 93% | 4 of 80 | 35 of 40 | 8 of 80 clean, 9 of 40 wrong |
+
+- *Coverage.* Haiku gives a confident answer on about 93% of rows on every source, including `aqua` (worked math), where neither Qwen judge reached the 10 confident rows a read needs.
+- *Row level.* Of 360 planted wrong labels Haiku contradicts 324 (90%). It also contradicts 259 of 3,240 clean rows (8%).
+- *Clean disagreement by source:* `sciq` 0.014, `arc_easy` 0.014, `arc` 0.028, `openbook` 0.061, `aqua` 0.062, `medmcqa` 0.104, `csqa` 0.135, `qasc` 0.261. A draw with 30% wrong labels reads 0.24 to 0.30 above its source's clean rate on every source.
+- *A stronger model does not remove the baseline.* Claude Opus 5.5 on the first 60 rows of one clean draw: `qasc` 0.169 (Haiku 0.212 on the same rows), `csqa` 0.085 (0.104), `medmcqa` 0.05 (0.075). Rows where both models agree with each other against the label look like real defects in the source, for example a `qasc` row labelled "Human mating may lead to: aggressive behavior". So part of the "clean" rate is the public source's own noise, and a single threshold still does not hold across sources (the leave-one-source-out column).
+- *Cost.* 7,200 answers cost $25.64 at list price through the command line, about 0.7 cents per row for both routes, or about $0.43 for the product's 60-row sample.
+- *Limits.* Development data; public train splits a large model may have seen; nothing frozen. Claude Fable 5.2 was not run: the installed command line (2.1.286) does not support it. A vendor's material would leave the machine, so this judge has to be opt-in.
+- **Decision:** nothing changes in the product yet. The next step is a frozen test of a Claude judge that reports each source's disagreement against a same-source reference, and lists the contradicted rows, instead of applying one threshold.
+
 **Not run or not finished.** The full v4 development rescore stopped at 8 of 70 cases when the Mac was needed for v5. The SmolLM2 continuity arm, the truncated-target measurement, the `gsm` family and the `sst5` family were cut for budget. RL forecasting on non-arithmetic tasks remains untested.
 
 **The paragraph for the pitch.**

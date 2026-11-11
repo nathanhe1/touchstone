@@ -198,6 +198,10 @@ def load_dataset(path: str | Path) -> Rows:
         except DatasetError as e:
             errors.append(str(e))
     out.total, out.skipped, out.skip_reasons = total, len(errors), errors[:5]
+    if errors and not out and all("unrecognised format" in e for e in errors):  # wrong columns, not bad rows: say it once
+        pairs = ", ".join(f"{p}/{c}" for p, c in FIELD_PAIRS)
+        raise DatasetError(f"{path.name}: no row has a prompt and a reply Touchstone recognises. {errors[0].split(': ', 1)[-1]}. "
+                           f"Rename two columns to one of these pairs: {pairs}; or give 'messages'")
     if errors and (len(errors) > SKIP_LIMIT * total or not out):
         raise DatasetError(f"invalid dataset: {len(errors)} of {total} rows unreadable (at most {SKIP_LIMIT:.0%} can be skipped):\n  "
                            + "\n  ".join(errors[:5]))

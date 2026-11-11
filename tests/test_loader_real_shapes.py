@@ -141,3 +141,12 @@ def test_env_with_uninstalled_dependency_names_it_and_its_requirements(tmp_path)
     from touchstone import env
     with pytest.raises(env.EnvError, match="imports 'reasoning_gym_not_here', which is not installed.*reasoning-gym==0.1.19"):
         env.load(_env_folder(tmp_path, "import reasoning_gym_not_here\n"))
+
+
+def test_unknown_columns_get_one_error_that_says_what_to_rename(tmp_path):
+    t = tmp_path / "TruthfulQA.csv"  # the real file's header
+    t.write_text("Type,Category,Question,Best Answer,Source\n" + "a,b,q,ans,s\n" * 30)
+    with pytest.raises(data.DatasetError) as e:
+        data.load_dataset(t)
+    msg = str(e.value)
+    assert msg.count("unrecognised format") == 1 and "best answer" in msg and "question/answer" in msg

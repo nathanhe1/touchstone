@@ -46,3 +46,17 @@ def test_kk_grader():
     assert M.kk_correct("Zoey is a knave? No.\n(1) Zoey is a knight\n(2) Oliver is a knave", names, sol)
     assert not M.kk_correct("(1) Zoey is a knight", names, sol)
     assert not M.kk_correct("(1) Zoey is a knight\n(2) Oliver is a knight", names, sol)
+
+
+def test_h5x_files_match_manifest_and_pass_the_balance_cap():
+    hx = ROOT / "examples" / "h5x"
+    m = json.loads((hx / "manifest.json").read_text())
+    assert set(m["families"]) == {"sent", "para", "cs", "tox"}
+    for fam, F in m["families"].items():
+        assert F["suite"]["rows"] >= 600 and len(F["materials"]) == 5
+        for f in [F["suite"]] + list(F["materials"].values()):
+            assert hashlib.sha256((ROOT / f["file"]).read_bytes()).hexdigest() == f["sha256"]
+            k = f["class_balance"]["classes"]
+            assert f["class_balance"]["majority_share"] <= min(0.65, 2.5 / k)
+        for v in F["materials"].values():
+            assert v["rows"] == 1000 and v["tokens_qwen2.5"]["completion_max"] == 1

@@ -1,0 +1,85 @@
+{
+ "math_train": {
+  "material_rows": 7500,
+  "skipped_rows": 0,
+  "suite_items": 5000,
+  "material_rows_matching_suite": 75,
+  "material_rows_exact": 9,
+  "material_rows_near": 66,
+  "suite_items_found": 63,
+  "suite_share_found": 0.0126,
+  "suite_items_exact": 10,
+  "suite_items_near": 53,
+  "matching_rows_by_source": {
+   "all": 75
+  },
+  "examples": [
+   {
+    "item": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the maximum value of $y$?",
+    "matches": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the minimum value of $y$?",
+    "kind": "near"
+   },
+   {
+    "item": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$  and $y$-intercept $(0,-p)$, where $p\\neq\n0$. What is $b$?",
+    "matches": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$ and $y$-intercept $(0,-p)$, where $p\\ne 0$. What is $b$?",
+    "kind": "near"
+   },
+   {
+    "item": "The quadratic $x^2-4x-14=3x+16$ has two solutions.  What is the positive difference between these solutions?",
+    "matches": "The quadratic $x^2-4x-14=3x+16$ has two solutions.  What is the sum of these solutions?",
+    "kind": "near"
+   }
+  ],
+  "seconds": 2
+ },
+ "mathinstruct": {
+  "material_rows": 262038,
+  "skipped_rows": 1,
+  "suite_items": 5000,
+  "material_rows_matching_suite": 178,
+  "material_rows_exact": 15,
+  "material_rows_near": 163,
+  "suite_items_found": 64,
+  "suite_share_found": 0.0128,
+  "suite_items_exact": 10,
+  "suite_items_near": 54,
+  "matching_rows_by_source": {
+   "data/PoT/MATH_train.json": 64,
+   "data/CoT/MATH_train.json": 113,
+   "data/CoT/math50k_camel.json": 1
+  },
+  "examples": [
+   {
+    "item": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the maximum value of $y$?",
+    "matches": "Let $(x,y)$ be an ordered pair of real numbers that satisfies the equation $x^2+y^2=14x+48y$. What is the minimum value of $y$?",
+    "kind": "near"
+   },
+   {
+    "item": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$  and $y$-intercept $(0,-p)$, where $p\\neq\n0$. What is $b$?",
+    "matches": "The parabola $y=ax^2+bx+c$ has vertex $(p,p)$ and $y$-intercept $(0,-p)$, where $p\\ne 0$. What is $b$?",
+    "kind": "near"
+   },
+   {
+    "item": "The quadratic $x^2-4x-14=3x+16$ has two solutions.  What is the positive difference between these solutions?",
+    "matches": "The quadratic $x^2-4x-14=3x+16$ has two solutions.  What is the sum of these solutions?",
+    "kind": "near"
+   }
+  ],
+  "seconds": 37
+ },
+ "code_alpaca": {
+  "material_rows": 20016,
+  "skipped_rows": 6,
+  "suite_items": 164,
+  "material_rows_matching_suite": 0,
+  "material_rows_exact": 0,
+  "material_rows_near": 0,
+  "suite_items_found": 0,
+  "suite_share_found": 0.0,
+  "suite_items_exact": 0,
+  "suite_items_near": 0,
+  "matching_rows_by_source": {},
+  "examples": [],
+  "seconds": 1
+ }
+}

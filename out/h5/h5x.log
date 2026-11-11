@@ -1,0 +1,7 @@
+126 jobs, 0 done or given up, 126 to run on GPUs [0]
+start h5x_ft_sft_cs_swag_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+start h5x_ft_sft_cs_swag_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5x_ft_sft_cs_swag_q3-1.7B_s0 gain=41.667 base=32.0 wall=96.2s mem=6.14GB
+start h5x_ft_sft_cs_hellaswag_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)
+done h5x_ft_sft_cs_hellaswag_q3-1.7B_s0 gain=45.167 base=32.0 wall=86.2s mem=6.14GB
+start h5x_ft_sft_cs_cosmos_q3-1.7B_s0 on gpu0 (6 GB est, 28/30 in use)

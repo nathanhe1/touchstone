@@ -45,7 +45,8 @@ def main():
         if r.get("refused"):
             gates["refused"].append(j["id"])
             continue
-        if r.get("skipped"):
+        if isinstance(r.get("skipped"), str):  # skipped by the RL gate (a reason string); a trained GRPO run also stores
+            # `skipped` = how many of its steps had no reward signal, a number, and is a run like any other
             gates.setdefault("skipped", []).append(j["id"])
             continue
         if j["arm"] == "rlgate":

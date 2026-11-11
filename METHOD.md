@@ -654,6 +654,52 @@ How they are read:
 
 *The rule this freeze followed.* When the FDE's manifest, the 8B pre-flight and the fit check are posted, the two configs, the scorer, the soft helper and every file under `examples/h5x/` are hashed into `out/h5x_final.sha256`, and the hash is written here. h5 is not scored until that line exists.
 
+### h5 result (scored once, after h5x was frozen)
+
+`out/forecast_h5.json`, from `out/h5/h5_final.json` and `out/h5/h5_gates.json`; raw runs in `out/h5/h5final/` (363 result files, none missing against `scripts/h5_final_jobs.jsonl`, 0 failed, 0 rerun; `cuda`, torch 2.14.1, RTX 5090; runner commit 7b460e1b). Scored at about 02:25 UTC on 2026-11-11 by the frozen scorer (sha256 `c89f20ef...`), all 27 hashes verified, after the "h5x frozen" line above existed. The runs were 246 fine-tuning runs, 9 RL gate checks, 12 RL trainings, and 96 RL trainings skipped because their rung failed the pre-training gate.
+
+**Both arms are inconclusive by the frozen rules. No candidate passes and none is retired. h5 answers none of its three questions.**
+
+**Fine-tuning arm: inconclusive, because the target is too noisy.** The 8B noise ceiling on screen-passing pairs is **0.667**, under the 0.75 line (all pairs 0.769). One 8B seed agrees with the other on only two pairs in three, so no proxy can be held to 0.80 against that target. The numbers below are measurements with no verdict attached.
+
+| Candidate | Screen-passing [90%], p | Pairs, families | Families above 0.5 | All pairs | Verdict |
+|---|---|---|---|---|---|
+| **B** `acc_final` 12x (0.6B) | 0.556 [0.353, 0.761], 0.27 | 54, 4 of 5 | 2 of 4 | 0.688 (77), p 0.009 | Inconclusive: ceiling |
+| **C1** `acc_final` 4x (1.7B) | 0.703 [0.528, 0.867], 0.0106 | 64, 5 of 5 | 5 of 5 | 0.793 (92), p 0.0001 | Inconclusive: ceiling |
+| **C2** soft 12x (0.6B) | 0.407 [0.190, 0.642], 0.86 | 54, 4 of 5 | 1 of 4 | 0.584 (77), p 0.18 | Inconclusive: ceiling |
+
+Per family, screen-passing (B / C1 / C2): `nli` abstained / 0.90 / abstained; `sci` 0.60 / 0.53 / 0.73; `yelp` 0.50 / 0.79 / 0.29; `csqa` 0.60 / 0.67 / 0.33; `boolq` 0.50 / 0.70 / 0.20. Mean within-family Spearman 0.13 / 0.58 / -0.31. One target tie was dropped.
+
+| Stratum | Noise ceiling | Pairs | B | C1 | C2 | Reading |
+|---|---|---|---|---|---|---|
+| Real competing (`nli`, `sci`) | 0.776 (C1's two families); 0.69 (`sci` alone) | 25 (C1); 15 (B, C2: `sci` only) | 0.60 [0.23, 1.0], p 0.29 | 0.68 [0.375, 1.0], p 0.12 | 0.73 [0.44, 1.0], p 0.14 | Inconclusive: under 30 pairs, as stated before any run |
+| Classification, new (`yelp`, `csqa`, `boolq`) | 0.598 | 39 | 0.538 [0.31, 0.79], p 0.41 | 0.718 [0.52, 0.89], p 0.027 | 0.282 [0.10, 0.48], p 0.98 | Inconclusive: ceiling under 0.75 |
+
+- *Gates.* Every family passed class balance and headroom (8B base accuracy: `nli` 37.2, `sci` 87.0, `yelp` 22.8, `csqa` 77.0, `boolq` 73.8). The fine-tuning gate, reference minus all-wrong in points at 0.6B / 1.7B: `nli` 2.75 / 16.92, `sci` 41.33 / 56.83, `yelp` 35.08 / 42.67, `csqa` 44.42 / 57.33, `boolq` 38.42 / 45.75. So `nli` fails it at 0.6B, and B and C2 abstain there.
+- *Materials dropped by the class-balance rule,* as the lead's dry build said before any run: `yelp drop` (majority share 0.502, cap 0.50), `csqa drop` (0.509, cap 0.50), `boolq pool200` (0.685, cap 0.65). That leaves 15 + 15 + 10 pairs in the classification families and 65 in all, 64 after the tie.
+- *Q1, real competing materials:* not answered. C1 reads 0.68 on 25 pairs with an interval from 0.375 to 1.0. The pooled real stratum with h5x is where Q1 is quoted.
+- *Q3, 4x against 12x:* no claim. C1 minus B is +0.111 [0.0, 0.25], one-sided p 0.19, on the 4 families both cover. Four families is underpowered by rule, and the arm is inconclusive. C2 minus B is -0.148 [-0.273, 0.033], p 0.94, the same way.
+- *Reported measurement, not a candidate:* the soft signal at 0.6B against the 8B soft-score gain, a different target from the one sold: 0.692 [0.527, 0.833], p 0.012, 65 pairs.
+- *What can be said.* The 4x proxy's point estimate sits above the measured ceiling of the target it is compared with, which means the two are indistinguishable at this noise level, not that the proxy is good. The 12x soft signal is below a coin flip on the three classification families. Neither statement is a verdict.
+
+**RL arm: inconclusive on coverage. Q2 is not answered.** The pre-training gate needs a chance-corrected reward rate of at least 0.10 at temperature 1 (256 rollouts per family and rung):
+
+| Family | 0.6B | 1.7B | 8B (target) | Rollouts with no answer, 0.6B / 1.7B / 8B |
+|---|---|---|---|---|
+| `kk` | -0.09 | -0.08 | -0.06 | 98% / 93% / 80% |
+| `yelp` | -0.21 | -0.18 | -0.03 | 100% / 92% / 78% |
+| `csqa` | -0.12 | -0.18 | **0.28**, passes | 98% / 89% / 57% |
+
+One family passes the target's gate, and the rule needs three. No proxy rung passes on any family, so B, C1 and C2 each cover 0 families and 0 pairs. The cause is visible in the last column: untrained base models sampled at temperature 1 seldom reply in the asked format, so reward starts below guessing and GRPO has nothing to rank. The expectation written before the run (B and C2 abstain everywhere) held, and C1 abstained as well. The scorer prints "target noise ceiling below 0.75" for this arm because the ceiling is empty; the reason of record is coverage. For `kk` and `yelp` it also prints "no target base accuracy", which only reflects that their 8B trainings were skipped.
+
+**What failed, and what was found after scoring.** Nothing here was acted on, and nothing was rescored.
+
+- *The target noise is the result.* Two seeds of a 60-step LoRA run at 8B, scored on 600 items, do not separate materials that differ by a few points. The fix for a later test has to be on the target side (more seeds, more suite items or longer runs), and it needs a fresh pre-registration.
+- *A collector defect, found minutes after scoring.* `scripts/h5_collect.py` (the lead's, not hashed) left out any run with a truthy `skipped` field. A gate skip stores a string there, but a trained GRPO run stores the number of its steps that had no reward signal. So 8 of the 12 trained `csqa` 8B RL runs (`clean`, `pool50`, `pool200`, `off25`, both seeds) were not in `h5_final.json` and were listed as skipped in `h5_gates.json`. The effect on the scored file is one field: the RL arm's noise ceiling reads empty where it would have been a number over one family. Coverage, abstentions and verdicts come from the gate records, which were collected correctly, and no proxy passes anywhere, so they cannot change. No fine-tuning run carries that field (246 of 246 collected). The 8 raw files are in `out/h5/h5final/` and nothing was computed on them. The collector is fixed with a test (`tests/test_h5_infra.py`); `out/forecast_h5.json` stands as scored.
+- *Scheduler change during the run.* After the first three results, the previous lead restarted the runner with memory estimates taken from those runs, so that a small-rung run could share the card with an 8B run. The job list in use (`scripts/h5_final_jobs.jsonl`, sha256 `9b3e232a...`) differs from the launch list (`f70bc1a0...`) only in the `mem_gb` scheduling field. Finished runs were kept.
+- *Looks at raw numbers before scoring.* The coordinator's interim look is disclosed in the h5x section. The lead's monitoring also printed the runner's log lines for 3 finished runs, each with one run's gain. No pair agreement or candidate statistic was computed outside the frozen scorer.
+- *Limits.* One ladder (Qwen3-Base), one recipe (60 steps, LoRA rank 16), 600-item suites, 2 seeds, 5 fine-tuning families. `gsm` and `sst5` were cut for budget before the freeze.
+
 ## 7. Grade and fair value
 
 `touchstone/valuation.py`. The rules are printed in every report. The grade has to agree with the measurements: nothing that is mostly public, contaminated or gameable can grade above D.

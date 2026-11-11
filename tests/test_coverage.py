@@ -121,6 +121,7 @@ def test_two_route_multiple_choice_runs_end_to_end(monkeypatch):
     """A cleanup once deleted a constant only this path uses, and only a frozen test run found out."""
     rows = [ex(f"Q{i}\nA) yes\nB) no", "A") for i in range(30)]
     monkeypatch.setattr(judge, "_gen", lambda q, system, n, batch=8: ["A" if n < 20 else "so \\boxed{A}" for _ in q])
+    monkeypatch.setattr(judge, "available", lambda: True)  # the path under test must not depend on this machine having a judge
     r = judge.audit_mcq2(rows)
     assert r["confident"] == 30 and r["disagree"] == 0
     r = coverage.label_checks("multiple_choice", rows, use_judge=True)

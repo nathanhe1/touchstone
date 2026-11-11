@@ -1,0 +1,203 @@
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 759.29it/s]
+ERR a_mmlu_abstract_algebra [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 469.16it/s]
+ok  a_mmlu_anatomy [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 85.46it/s]
+ok  a_mmlu_astronomy [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 515.80it/s]
+ok  a_mmlu_business_ethics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 763.02it/s]
+ok  a_mmlu_clinical_knowledge [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 109.20it/s]
+--- resumed after Mac crash, Tue Nov 10 22:19:35 UTC 2026 ---
+/Users/nathanhe/Downloads/touchstone/.claude/worktrees/agent-a733cb471ee107784/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2025.53it/s]
+ok  a_mmlu_college_biology [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3059.62it/s]
+ERR a_mmlu_college_chemistry ['noisy_labels'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1833.40it/s]
+ok  a_mmlu_college_computer_science [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3769.92it/s]
+ok  a_mmlu_college_mathematics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3324.29it/s]
+ok  a_mmlu_college_medicine [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3475.39it/s]
+ERR a_mmlu_college_physics [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3443.20it/s]
+ERR a_mmlu_computer_security [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3144.83it/s]
+ok  a_mmlu_conceptual_physics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3504.85it/s]
+ok  a_mmlu_econometrics [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3537.36it/s]
+ok  a_mmlu_electrical_engineering [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3139.11it/s]
+ok  a_mmlu_elementary_mathematics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3463.50it/s]
+ERR a_mmlu_formal_logic [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3202.11it/s]
+ERR a_mmlu_global_facts [] ['contaminated'] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3613.55it/s]
+ok  a_mmlu_high_school_biology [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3126.41it/s]
+ok  a_mmlu_high_school_chemistry [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3697.75it/s]
+ok  a_mmlu_high_school_computer_science [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3689.85it/s]
+ERR a_mmlu_high_school_european_history [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3681.98it/s]
+ok  a_mmlu_high_school_geography [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3584.00it/s]
+ok  a_mmlu_high_school_government_and_politics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3519.13it/s]
+ok  a_mmlu_high_school_macroeconomics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3234.56it/s]
+ok  a_mmlu_high_school_mathematics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1710.66it/s]
+ok  a_mmlu_high_school_microeconomics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3505.27it/s]
+ok  a_mmlu_high_school_physics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3801.65it/s]
+ok  a_mmlu_high_school_psychology [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3649.49it/s]
+ok  a_mmlu_high_school_statistics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3177.16it/s]
+ERR a_mmlu_high_school_us_history [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3519.56it/s]
+ERR a_mmlu_high_school_world_history [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3666.81it/s]
+ok  a_mmlu_human_aging [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3061.86it/s]
+ok  a_mmlu_human_sexuality [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3493.17it/s]
+ok  a_mmlu_international_law [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3625.15it/s]
+ok  a_mmlu_jurisprudence [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3456.57it/s]
+ok  a_mmlu_logical_fallacies [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3366.99it/s]
+ok  a_mmlu_machine_learning [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3701.95it/s]
+ok  a_mmlu_management [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3052.62it/s]
+ok  a_mmlu_marketing [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3176.13it/s]
+ok  a_mmlu_medical_genetics [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2926.36it/s]
+ok  a_mmlu_miscellaneous [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3434.33it/s]
+ok  a_mmlu_moral_disputes [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3459.83it/s]
+ERR a_mmlu_moral_scenarios [] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3267.68it/s]
+ok  a_mmlu_nutrition [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3237.77it/s]
+ok  a_mmlu_philosophy [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2347.50it/s]
+ok  a_mmlu_prehistory [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3090.87it/s]
+ok  a_mmlu_professional_accounting [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2868.60it/s]
+ok  a_mmlu_professional_law [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3477.45it/s]
+ok  a_mmlu_professional_medicine [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2894.62it/s]
+ok  a_mmlu_professional_psychology [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3619.35it/s]
+ok  a_mmlu_public_relations [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3593.65it/s]
+ok  a_mmlu_security_studies [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3775.25it/s]
+ok  a_mmlu_sociology [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3741.10it/s]
+ok  a_mmlu_us_foreign_policy [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3094.45it/s]
+ERR a_mmlu_virology ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3814.49it/s]
+ok  a_mmlu_world_religions [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4156.89it/s]
+ok  a_gsm8k_test_0 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2841.94it/s]
+ok  a_gsm8k_test_1 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3749.70it/s]
+ok  a_gsm8k_test_2 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3164.49it/s]
+ok  a_gsm8k_test_3 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2995.32it/s]
+ok  a_gsm8k_test_4 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3100.33it/s]
+ok  a_gsm8k_test_5 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3721.18it/s]
+ok  a_gsm8k_test_6 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3545.91it/s]
+ok  a_gsm8k_test_7 ['copied_from_public'] ['copied_from_public'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3389.53it/s]
+ok  a_fbugs_med_qa [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3228.87it/s]
+ok  a_fbugs_mmlu_clinical_knowledge [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3653.57it/s]
+ok  a_fbugs_mmlu_professional_medicine [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3212.27it/s]
+ok  a_fbugs_openbookqa [] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3888.24it/s]
+ERR a_realmistake_answerability_classification_gpt4 ['noisy_labels'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3643.60it/s]
+ERR a_realmistake_answerability_classification_llama2 ['noisy_labels'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3818.96it/s]
+ERR a_realmistake_finegrained_fact_verification_gpt4 ['noisy_labels'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3404.47it/s]
+ERR a_realmistake_finegrained_fact_verification_llama2 ['noisy_labels'] [] 
+ERR a_realmistake_math_word_problem_generation_gpt4 ['noisy_labels'] ['contaminated', 'noisy_labels'] 
+ERR a_realmistake_math_word_problem_generation_llama2 ['noisy_labels'] ['contaminated', 'noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3328.81it/s]
+ok  a_realmistake_answerability_classification_reviewed_ok [] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3346.26it/s]
+ok  a_realmistake_finegrained_fact_verification_reviewed_ok [] [] 
+ERR a_realmistake_math_word_problem_generation_reviewed_ok [] ['contaminated', 'noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3465.14it/s]
+ERR b_planted_mmlu_high_school_macroeconomics_30 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2458.77it/s]
+ERR b_planted_mmlu_high_school_world_history_30 ['noisy_labels'] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3882.59it/s]
+ERR b_planted_mmlu_us_foreign_policy_30 ['noisy_labels'] [] ADV
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3260.43it/s]
+ERR b_planted_mmlu_miscellaneous_30 ['noisy_labels'] [] ADV
+ok  b_planted_gsm8k_30 ['copied_from_public', 'noisy_labels'] ['copied_from_public', 'noisy_labels'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 4085.74it/s]
+ok  b_contam_mmlu_high_school_us_history ['contaminated'] ['contaminated'] 
+ok  b_contam_mmlu_high_school_european_history ['contaminated'] ['contaminated'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2870.28it/s]
+ERR b_offtopic_high_school_us_history_on_college_physics ['off_topic'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 2464.96it/s]
+ok  b_offtopic_virology_on_high_school_computer_science ['off_topic'] ['off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3396.59it/s]
+ERR b_offtopic_moral_scenarios_on_abstract_algebra ['off_topic'] [] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3475.81it/s]
+ok  b_offtopic_electrical_engineering_on_world_religions ['off_topic'] ['off_topic'] 
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3419.54it/s]
+ok  b_template_clones [] [] 
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 2488da34-6be8-4d33-bd85-a4c0b84c3345)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 1s [Retry 1/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: 66734f23-6e19-4426-b3d5-3f0bf629652d)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 2s [Retry 2/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: 1642e292-2de3-4fb1-bd31-8e1d47f0e9ad)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 4s [Retry 3/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: e6be6168-3b98-4542-86f5-1154b9845163)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 8s [Retry 4/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: 056de648-a8d7-4332-9953-189dc0b230cf)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+Retrying in 8s [Retry 5/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 8] nodename nor servname provided, or not known)"))'), '(Request ID: ac917f97-af9d-4640-85e6-4ce8484905d4)')' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/main/custom_generate/generate.py
+ERR g5_answer_anywhere ['gameable_grader'] ['duplicated', 'gameable_grader'] 
+ERR g5_first_digit ['gameable_grader'] ['duplicated', 'gameable_grader'] 
+ERR g5_int_truncate_tol ['gameable_grader'] ['duplicated', 'gameable_grader'] 
+ERR g5_exception_pays ['gameable_grader'] ['duplicated', 'gameable_grader'] 
+ok  g5_upper_any_caps ['gameable_grader'] ['gameable_grader'] 
+ok  g5_upper_same_length ['gameable_grader'] ['gameable_grader'] 
+ERR h5_exact [] ['duplicated'] 
+ERR h5_commas [] ['duplicated'] 
+ok  h5_upper_exact [] [] 
+ERR f5_strip_nondigits [] ['duplicated', 'gameable_grader'] 
+ERR f5_strings_alnum [] ['gameable_grader'] 

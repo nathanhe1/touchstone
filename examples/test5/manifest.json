@@ -127,7 +127,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_hard",
   "subject": "abstract_algebra",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_anatomy",
@@ -257,7 +258,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "anatomy",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_astronomy",
@@ -387,7 +389,8 @@
   "ambiguous_share": 0.04,
   "negative": "clean_easy",
   "subject": "astronomy",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_business_ethics",
@@ -516,7 +519,8 @@
   "ambiguous_share": 0.152,
   "negative": "clean_easy",
   "subject": "business_ethics",
-  "dropped_seen_in_development": 1
+  "dropped_seen_in_development": 1,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_clinical_knowledge",
@@ -644,7 +648,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "clinical_knowledge",
-  "dropped_seen_in_development": 2
+  "dropped_seen_in_development": 2,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_college_biology",
@@ -774,7 +779,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_hard",
   "subject": "college_biology",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_college_chemistry",
@@ -904,7 +910,8 @@
   "ambiguous_share": 0.02,
   "negative": null,
   "subject": "college_chemistry",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 32
  },
  {
   "id": "a_mmlu_college_computer_science",
@@ -1034,7 +1041,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_hard",
   "subject": "college_computer_science",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_college_mathematics",
@@ -1163,7 +1171,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_hard",
   "subject": "college_mathematics",
-  "dropped_seen_in_development": 1
+  "dropped_seen_in_development": 1,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_college_medicine",
@@ -1290,7 +1299,8 @@
   "ambiguous_share": 0.113,
   "negative": "clean_hard",
   "subject": "college_medicine",
-  "dropped_seen_in_development": 3
+  "dropped_seen_in_development": 3,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_college_physics",
@@ -1417,7 +1427,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_hard",
   "subject": "college_physics",
-  "dropped_seen_in_development": 3
+  "dropped_seen_in_development": 3,
+  "suite_items_from_other_subjects": 28
  },
  {
   "id": "a_mmlu_computer_security",
@@ -1547,7 +1558,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "computer_security",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_conceptual_physics",
@@ -1677,7 +1689,8 @@
   "ambiguous_share": 0.04,
   "negative": "clean_easy",
   "subject": "conceptual_physics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_econometrics",
@@ -1807,7 +1820,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_hard",
   "subject": "econometrics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 14
  },
  {
   "id": "a_mmlu_electrical_engineering",
@@ -1937,7 +1951,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "electrical_engineering",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_elementary_mathematics",
@@ -2067,7 +2082,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "elementary_mathematics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_formal_logic",
@@ -2197,7 +2213,8 @@
   "ambiguous_share": 0.1,
   "negative": "clean_hard",
   "subject": "formal_logic",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_global_facts",
@@ -2327,7 +2344,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_easy",
   "subject": "global_facts",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 26
  },
  {
   "id": "a_mmlu_high_school_biology",
@@ -2457,7 +2475,8 @@
   "ambiguous_share": 0.02,
   "negative": "clean_easy",
   "subject": "high_school_biology",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_chemistry",
@@ -2587,7 +2606,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_hard",
   "subject": "high_school_chemistry",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_computer_science",
@@ -2716,7 +2736,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "high_school_computer_science",
-  "dropped_seen_in_development": 1
+  "dropped_seen_in_development": 1,
+  "suite_items_from_other_subjects": 31
  },
  {
   "id": "a_mmlu_high_school_european_history",
@@ -2846,7 +2867,8 @@
   "ambiguous_share": 0.08,
   "negative": "clean_easy",
   "subject": "high_school_european_history",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_geography",
@@ -2976,7 +2998,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "high_school_geography",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_government_and_politics",
@@ -3106,7 +3129,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "high_school_government_and_politics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_macroeconomics",
@@ -3236,7 +3260,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_easy",
   "subject": "high_school_macroeconomics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_mathematics",
@@ -3363,7 +3388,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_hard",
   "subject": "high_school_mathematics",
-  "dropped_seen_in_development": 3
+  "dropped_seen_in_development": 3,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_microeconomics",
@@ -3491,7 +3517,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "high_school_microeconomics",
-  "dropped_seen_in_development": 2
+  "dropped_seen_in_development": 2,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_physics",
@@ -3621,7 +3648,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_hard",
   "subject": "high_school_physics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_psychology",
@@ -3751,7 +3779,8 @@
   "ambiguous_share": 0.04,
   "negative": "clean_easy",
   "subject": "high_school_psychology",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_statistics",
@@ -3881,7 +3910,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_hard",
   "subject": "high_school_statistics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_us_history",
@@ -4011,7 +4041,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "high_school_us_history",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_high_school_world_history",
@@ -4141,7 +4172,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "high_school_world_history",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_human_aging",
@@ -4271,7 +4303,8 @@
   "ambiguous_share": 0.13,
   "negative": "clean_easy",
   "subject": "human_aging",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_human_sexuality",
@@ -4401,7 +4434,8 @@
   "ambiguous_share": 0.15,
   "negative": "clean_easy",
   "subject": "human_sexuality",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_international_law",
@@ -4531,7 +4565,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_easy",
   "subject": "international_law",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 8
  },
  {
   "id": "a_mmlu_jurisprudence",
@@ -4661,7 +4696,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "jurisprudence",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 21
  },
  {
   "id": "a_mmlu_logical_fallacies",
@@ -4791,7 +4827,8 @@
   "ambiguous_share": 0.19,
   "negative": "clean_easy",
   "subject": "logical_fallacies",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_machine_learning",
@@ -4921,7 +4958,8 @@
   "ambiguous_share": 0.09,
   "negative": "clean_hard",
   "subject": "machine_learning",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 18
  },
  {
   "id": "a_mmlu_management",
@@ -5051,7 +5089,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "management",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 26
  },
  {
   "id": "a_mmlu_marketing",
@@ -5180,7 +5219,8 @@
   "ambiguous_share": 0.04,
   "negative": "clean_easy",
   "subject": "marketing",
-  "dropped_seen_in_development": 1
+  "dropped_seen_in_development": 1,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_medical_genetics",
@@ -5310,7 +5350,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "medical_genetics",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_miscellaneous",
@@ -5440,7 +5481,8 @@
   "ambiguous_share": 0.06,
   "negative": "clean_easy",
   "subject": "miscellaneous",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_moral_disputes",
@@ -5570,7 +5612,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_easy",
   "subject": "moral_disputes",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_moral_scenarios",
@@ -5700,7 +5743,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_easy",
   "subject": "moral_scenarios",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_nutrition",
@@ -5829,7 +5873,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_easy",
   "subject": "nutrition",
-  "dropped_seen_in_development": 1
+  "dropped_seen_in_development": 1,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_philosophy",
@@ -5959,7 +6004,8 @@
   "ambiguous_share": 0.11,
   "negative": "clean_easy",
   "subject": "philosophy",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_prehistory",
@@ -6089,7 +6135,8 @@
   "ambiguous_share": 0.0,
   "negative": "clean_easy",
   "subject": "prehistory",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_professional_accounting",
@@ -6219,7 +6266,8 @@
   "ambiguous_share": 0.03,
   "negative": "clean_hard",
   "subject": "professional_accounting",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_professional_law",
@@ -6349,7 +6397,8 @@
   "ambiguous_share": 0.16,
   "negative": "clean_hard",
   "subject": "professional_law",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_professional_medicine",
@@ -6479,7 +6528,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_hard",
   "subject": "professional_medicine",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_professional_psychology",
@@ -6609,7 +6659,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_hard",
   "subject": "professional_psychology",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_public_relations",
@@ -6738,7 +6789,8 @@
   "ambiguous_share": 0.061,
   "negative": "clean_easy",
   "subject": "public_relations",
-  "dropped_seen_in_development": 1
+  "dropped_seen_in_development": 1,
+  "suite_items_from_other_subjects": 18
  },
  {
   "id": "a_mmlu_security_studies",
@@ -6868,7 +6920,8 @@
   "ambiguous_share": 0.06,
   "negative": "clean_easy",
   "subject": "security_studies",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_sociology",
@@ -6998,7 +7051,8 @@
   "ambiguous_share": 0.02,
   "negative": "clean_easy",
   "subject": "sociology",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_us_foreign_policy",
@@ -7128,7 +7182,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "us_foreign_policy",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 29
  },
  {
   "id": "a_mmlu_virology",
@@ -7258,7 +7313,8 @@
   "ambiguous_share": 0.2,
   "negative": null,
   "subject": "virology",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_mmlu_world_religions",
@@ -7388,7 +7444,8 @@
   "ambiguous_share": 0.01,
   "negative": "clean_easy",
   "subject": "world_religions",
-  "dropped_seen_in_development": 0
+  "dropped_seen_in_development": 0,
+  "suite_items_from_other_subjects": 0
  },
  {
   "id": "a_gsm8k_test_0",

@@ -168,6 +168,44 @@ Choices made while building, all mechanical and recorded in the builder:
 
 *When v5 is scored.* v5 is scored once, after the stronger-judge test (sprint priority 4) decides whether the multiple-choice judge changes, with the engine as committed at that point. *Amended before scoring:* h5 fills the GPU for about 10 hours, so the judge test cannot run first. v5 is therefore scored now, once, with the engine as committed (MLX Qwen2.5-1.5B judge). If the 7-8B judge wins later, that win is a development result. It is not rescored on v5, and it needs a fresh frozen set before it can be claimed.
 
+**Test v5 result** (`out/test_v5_results.json`, `out/test_v5_report.json`, `scripts/report_test5.py`; scored once, hash `62752d6a…` verified, engine 024a6f7d, MLX Qwen2.5-1.5B judge, all 101 cases, none rejected). Blocking flags only. The tiers are never pooled.
+
+| Tier | Cases | Positive cases (prevalence) | Precision | Recall | Exactly right | Negatives with a false flag |
+|---|---|---|---|---|---|---|
+| **A, organic errors** | 70 | 8 (0.11) | **0.13** (2 of 15 flags) | **0.25** (2 of 8) | 52 | 10 of 62 [upper 95% bound 0.26] |
+| A-previewed, GSM8K test | 8 | 8, all `copied_from_public` | 1.00 (8 of 8) | 1.00 | 8 | none to flag |
+| **B, planted and environments** | 23 | 17 (0.74) | 0.55 (12 of 22 flags) | 0.67 (12 of 18) | 9 | 4 of 6 |
+
+At Tier A's measured recall and false-flag rate, the implied precision is 0.03 at 2% prevalence, 0.10 at 6.5% and 0.28 at 20%.
+
+*Tier A in detail.*
+
+- **Organic wrong labels are not caught.** MMLU-Redux has 2 naturally noisy subjects of 57. `virology` (0.37 wrong) drew the advisory signal (0.44) but no blocking flag, because multiple choice is advisory. `college_chemistry` (0.23 wrong) drew nothing: the judge was confident on too few rows. Five of the 55 clean subjects also drew the advisory.
+- **Row level, the judge's confident disagreement against the audit:** it flagged 9 of 73 sampled wrong rows (recall 0.12) and 144 of 3,212 correct rows, so precision is 0.06. It also flagged 11 of 135 ambiguous rows.
+- **ReaLMistake** (free text, 6 noisy sets). The 4 answerability and fact-verification sets drew no flag and no advisory. Both math-generation sets were flagged `noisy_labels` by the arithmetic check, but so was the math set that experts judged error-free. Those 2 true flags therefore do not show detection.
+- **False `contaminated` flags: 12.** Nine are MMLU-Redux subjects (`moral_scenarios` 1.00, `high_school_european_history` 0.73, `high_school_us_history` 0.50, `formal_logic` 0.45, `high_school_world_history` 0.43, and four at 0.08-0.13). Three are the ReaLMistake math sets.
+- **Fantastic Bugs** reviewed-correct sets: 0 of 4 flagged. With one case per source, each bound is 0.95.
+- **By kind of negative:** clean-easy 6 of 38 flagged [0.29], clean-hard 4 of 24 [0.34].
+
+*A-previewed (GSM8K test against GSM8K-Platinum).* `copied_from_public` fired on 8 of 8 draws, and no draw was flagged noisy, which is correct at 0-3 wrong rows per draw. Row level, the arithmetic check flagged 0 of 10 corrected answers, 1 of 99 removed rows and 8 of 1,091 kept rows. It does not see these label errors, as the FDE's earlier run also found.
+
+*Tier B in detail.*
+
+- Planted 30% wrong labels: 1 of 5 blocked (GSM8K). Three of the 4 MMLU sets drew the advisory (0.32-0.42). The fourth was flagged `contaminated` instead.
+- Planted contamination: 2 of 2.
+- Off-topic on small suites: 2 of 4. The new estimate read 0.66 and 1.00 on the two caught, and 0.24 and 0.00 on the two missed.
+- Same-template clones: not flagged (0.04), as the ruling requires.
+- Environments: 6 of 6 grader bugs caught. Both format-lax graders were flagged `gameable_grader`, which the v5 ruling counts as 2 false flags.
+- **A mistake in the test, not the detector:** 7 of the 8 multiplication environments were flagged `duplicated`. The builder draws 2,000 tasks from 616 possible ones, so about 70% really are repeats. The frozen labels stand, as with OASST in v4. Without those 7, Tier B's precision would read 12 of 15; that is a post hoc figure.
+
+*Causes, found after scoring and not acted on.*
+
+- The false `contaminated` flags come from text that suite and material share without sharing an item: MMLU history questions reuse the same source passage across splits, `moral_scenarios` uses one fixed question frame, and ReaLMistake math prompts share one long instruction. The screen reads shared context as overlap. This is the same weakness the FDE found on Knights and Knaves.
+- The off-topic misses are material that the 40-item suite's own spread absorbs. The fix that removed v4's false flags costs recall on small suites.
+- The label checks are bound by the judge and by design. A 1.5B judge agrees with experts on about 1 wrong row in 8, and a consistency check cannot see a wrong answer that follows from sound arithmetic on a misread question.
+
+Reports must not imply that Touchstone detects organic label errors. On this evidence it does not.
+
 ## 6. Forecast: small to large
 
 ### Methods compared

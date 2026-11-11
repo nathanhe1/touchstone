@@ -644,7 +644,15 @@ How they are read:
 
 **Candidate families as delivered** (`examples/h5x/manifest.json`, merged before any pre-flight). Sorted by name: `cs` (commonsense multiple choice; suite CODAH), `para` (paraphrase; suite MRPC test), `sent` (binary sentiment; suite Hu & Liu customer reviews) are primary, and `tox` (toxicity; suite ToxicChat) is the spare. Each has 5 materials, so 10 pairs per family and 30 for three families; the pooled real stratum would hold 55. *Stated before any run:* `sent` reuses sources this project has trained on before. Its suite is h4's `cr` family, and `imdb`, `amazon` and `rotten` appear as materials (`rotten` was an h4 development family). No h5 suite or h5 material is reused. The rule gives no ground to drop a family for this, so `sent` stays. As h5 does for families reused from h4, `sent` carries its own stratum label, so the scorer prints its result separately beside the other h5x families. The h5x and pooled headlines include it, and the reader can see both with and without it. The lead's earlier ladder pre-flight holds Qwen3-8B numbers on `cr` rows in another prompt form; the headroom rule uses only the fresh measurement on the FDE's suite file.
 
-**Freeze.** When the FDE's manifest, the 8B pre-flight and the fit check are posted, the two configs, the scorer, the soft helper and every file under `examples/h5x/` are hashed into `out/h5x_final.sha256`, and the hash is written here. h5 is not scored until that line exists.
+**h5x frozen** (before h5 was scored and before any h5x run). The combined sha256 is **`b2c540619924742ffc853badefff5bf0b7f37a53c49d877eaa5d9a305fa6c179`**, covering 44 files listed in `out/h5x_final.sha256`: `scripts/h5_score.py` and `scripts/h5_soft.py` (byte-identical to h5's), `scripts/h5x_config.json`, `scripts/h5x_pooled_config.json`, every file under `examples/h5x/`, and h5's nli and sci files. Written by `scripts/h5x_freeze.py`.
+
+- *Pre-flight* (`out/h5/h5x_preflight/q3-8B.json`, Qwen3-8B-Base, no training, 600 suite items): base accuracy cs 86.0, para 53.33, sent 40.33, tox 40.17. No family is at or above 90, and every suite passes class balance (majority share 0.25, 0.50, 0.50, 0.50).
+- *Selection by the rule:* cs, para and sent run. The spare, tox, does not. The lead's fit check passes with no budget cut (3.1-4.2 h at 70% against 7.4 h after the reserve).
+- *Gate arms:* `wrong_swag`, `wrong_qqp`, `wrong_sst2`.
+- *Pairs:* h5x holds 30 screen-passing pairs, and the pooled real stratum (nli, sci, cs, para, sent) holds 55 across 5 families.
+- *Noted before any run:* cs sits at 86.0, close to the headroom line, so its 8B gains may be small and noisy. Its noise is reported through the stratum ceiling; nothing is changed for it.
+
+*The rule this freeze followed.* When the FDE's manifest, the 8B pre-flight and the fit check are posted, the two configs, the scorer, the soft helper and every file under `examples/h5x/` are hashed into `out/h5x_final.sha256`, and the hash is written here. h5 is not scored until that line exists.
 
 ## 7. Grade and fair value
 

@@ -35,7 +35,7 @@ def main():
     sel = sorted(sel)
     if "--cut-last" in sys.argv:
         sel = sel[:-1]
-    mats = {f: [m["name"] for m in man[f]["materials"]] for f in names}
+    mats = {f: list(man[f]["materials"]) for f in names}  # manifest order; the first is the gate reference
     note = {"base_accuracy_8B": base, "primary": primary, "spare": spare, "dropped_for_headroom": dropped, "selected": sel,
             "budget_cut": "--cut-last" in sys.argv}
     x = {"status": "FROZEN before h5 was scored and before any h5x run; hashes in out/h5x_final.sha256; rules in scripts/h5_score.py",

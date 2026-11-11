@@ -1,0 +1,176 @@
+{
+ "status": "FROZEN: pooled real stratum, pre-declared secondary analysis (h5 nli + sci, plus the h5x families)",
+ "selection": {
+  "base_accuracy_8B": {
+   "cs": 86.0,
+   "para": 53.33,
+   "sent": 40.33,
+   "tox": 40.17
+  },
+  "primary": [
+   "cs",
+   "para",
+   "sent"
+  ],
+  "spare": "tox",
+  "dropped_for_headroom": [],
+  "selected": [
+   "cs",
+   "para",
+   "sent"
+  ],
+  "budget_cut": false
+ },
+ "part": "final",
+ "seeds": 2,
+ "arms": {
+  "ft": {
+   "kind": "ft",
+   "run_arm": "sft",
+   "rungs": {
+    "p12": "q3-0.6B",
+    "p4": "q3-1.7B",
+    "target": "q3-8B"
+   },
+   "families": {
+    "nli": {
+     "stratum": "real competing (h5)",
+     "files": {
+      "snli": "examples/h5/nli/snli.jsonl",
+      "mnli": "examples/h5/nli/mnli.jsonl",
+      "wanli": "examples/h5/nli/wanli.jsonl",
+      "anli_train": "examples/h5/nli/anli_train.jsonl",
+      "fever_nli": "examples/h5/nli/fever_nli.jsonl"
+     },
+     "suite_file": "examples/h5/nli/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "snli",
+      "mnli",
+      "wanli",
+      "anli_train",
+      "fever_nli"
+     ],
+     "failing": [
+      "wrong_snli"
+     ],
+     "gate_ref": "snli",
+     "gate_wrong": "wrong_snli",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "sci": {
+     "stratum": "real competing (h5)",
+     "files": {
+      "arc_easy_train": "examples/h5/sci/arc_easy_train.jsonl",
+      "arc_challenge_train": "examples/h5/sci/arc_challenge_train.jsonl",
+      "sciq": "examples/h5/sci/sciq.jsonl",
+      "obqa": "examples/h5/sci/obqa.jsonl",
+      "qasc": "examples/h5/sci/qasc.jsonl",
+      "mmlu_aux": "examples/h5/sci/mmlu_aux.jsonl"
+     },
+     "suite_file": "examples/h5/sci/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "arc_easy_train",
+      "arc_challenge_train",
+      "sciq",
+      "obqa",
+      "qasc",
+      "mmlu_aux"
+     ],
+     "failing": [
+      "wrong_arc_easy_train"
+     ],
+     "gate_ref": "arc_easy_train",
+     "gate_wrong": "wrong_arc_easy_train",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "cs": {
+     "stratum": "real competing (h5x)",
+     "files": {
+      "swag": "examples/h5x/cs/swag.jsonl",
+      "hellaswag": "examples/h5x/cs/hellaswag.jsonl",
+      "cosmos": "examples/h5x/cs/cosmos.jsonl",
+      "socialiqa": "examples/h5x/cs/socialiqa.jsonl",
+      "piqa": "examples/h5x/cs/piqa.jsonl"
+     },
+     "suite_file": "examples/h5x/cs/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "swag",
+      "hellaswag",
+      "cosmos",
+      "socialiqa",
+      "piqa"
+     ],
+     "failing": [
+      "wrong_swag"
+     ],
+     "gate_ref": "swag",
+     "gate_wrong": "wrong_swag",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "para": {
+     "stratum": "real competing (h5x)",
+     "files": {
+      "qqp": "examples/h5x/para/qqp.jsonl",
+      "mrpc_train": "examples/h5x/para/mrpc_train.jsonl",
+      "paws": "examples/h5x/para/paws.jsonl",
+      "paws_silver": "examples/h5x/para/paws_silver.jsonl",
+      "medqp": "examples/h5x/para/medqp.jsonl"
+     },
+     "suite_file": "examples/h5x/para/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "qqp",
+      "mrpc_train",
+      "paws",
+      "paws_silver",
+      "medqp"
+     ],
+     "failing": [
+      "wrong_qqp"
+     ],
+     "gate_ref": "qqp",
+     "gate_wrong": "wrong_qqp",
+     "recipe": {
+      "max_new": 32
+     }
+    },
+    "sent": {
+     "stratum": "real competing (h5x), suite reused from h4",
+     "files": {
+      "sst2": "examples/h5x/sent/sst2.jsonl",
+      "imdb": "examples/h5x/sent/imdb.jsonl",
+      "amazon": "examples/h5x/sent/amazon.jsonl",
+      "rotten": "examples/h5x/sent/rotten.jsonl",
+      "tweets": "examples/h5x/sent/tweets.jsonl"
+     },
+     "suite_file": "examples/h5x/sent/suite.jsonl",
+     "answer_kind": "letter",
+     "passing": [
+      "sst2",
+      "imdb",
+      "amazon",
+      "rotten",
+      "tweets"
+     ],
+     "failing": [
+      "wrong_sst2"
+     ],
+     "gate_ref": "sst2",
+     "gate_wrong": "wrong_sst2",
+     "recipe": {
+      "max_new": 32
+     }
+    }
+   }
+  }
+ }
+}

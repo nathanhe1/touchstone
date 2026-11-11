@@ -1,19 +1,18 @@
 # Touchstone appraisal: math_train
 
-**Grade D** · fair value **$0.00 per example** · forecast net gain at 1.7B: not measured (quick mode stopped after screening)
+**Grade D** · fair value **$0.00 per example** · forecast net gain at 1.7B: **-0.7 pts** (range -3.2 to +1.9) on the held-out suite
 
 **Flags**
 
-- **noisy_labels** (block): Many labels look wrong: 71% of worked solutions contain an arithmetic error.
-- **screen_only** (info): Quick mode stopped after screening: the problems above already rule out a price, so no model was trained. Run the full mode for training measurements.
+- **no_measurable_gain** (block): No measurable gain above placebo on the held-out suite at the largest trained size.
 
 ## What was appraised
 
 - Dataset: `/Users/nathanhe/.cache/touchstone/case_studies/inputs/math_train.jsonl`
 - SHA-256: `e89f10bac98d166688b13b70d035968b69cc10d044749b6f627255756303745e`
 - Items: 7,500 (7,500 unique)
-- Mode: quick · runtime 1 min 39 s
-- Models (real open weights, LoRA rank 16): 
+- Mode: quick · runtime 37 min 21 s
+- Models (real open weights, LoRA rank 16): 135M = `HuggingFaceTB/SmolLM2-135M-Instruct`
 
 ## Held-out suite
 
@@ -28,8 +27,7 @@ Accuracy points gained after training, with 90% bootstrap intervals over suite i
 
 | Size | Seeds | Base acc | After acc | Gain (pts) | Placebo gain | Net gain | Gain, untouched items | Prob. gain (pts) |
 |---|---|---|---|---|---|---|---|---|
-No model was trained in this run: quick mode stopped after screening (see flags).
-
+| 135M | 1 | 2.0% | 1.3% | -0.7 [-3.4, +2.0] | +0.0 [-2.7, +2.7] | -0.7 [-3.4, +2.0] | -0.7 [-3.4, +2.0] | +1.2 [-2.0, +4.8] |
 
 *Prob. gain* is the change in the model's probability on the right answer versus four plausible wrong ones: a smooth score that moves even when small models are rarely fully right.
 
@@ -43,17 +41,22 @@ No model was trained in this run: quick mode stopped after screening (see flags)
 
 ## Forecast at 1.7B
 
-Method: **skipped**. Not forecast: training was skipped because a blocking flag fired during screening.
+Method: **rank_largest**. No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.
 
 | | Point | Range |
 |---|---|---|
+| material | -0.7 pts | -3.2 to +1.9 |
+| placebo | +0.0 pts | -2.8 to +2.8 |
+| net | -0.7 pts | -3.2 to +1.9 |
+
+Smooth score (probability on the right answer against near misses), ranked at 135M: -2.1 pts (-4.6 to +0.6). This is a secondary signal: it predicts the larger model's smooth score well, but neither it nor accuracy at the small size reliably predicts the larger model's accuracy (see METHOD.md for the measured decision accuracies).
 
 Buyer models larger than 1.7B are not forecast: we have not validated the method beyond the largest size we can train, and RL/SFT gains often shrink as base models get stronger.
 
 ## Grade and fair value
 
-- Grade **D** from the screening flags alone (rubric in METHOD.md).
-- Not priced: blocked by noisy_labels.
+- Grade **D** from net gain -0.7 pts (A >= 5, B >= 2, C >= 0.5, else D; F if training measurably hurts), capped by the flags above.
+- Not priced: blocked by no_measurable_gain.
 - $ per point is an assumption (set with --dollars-per-point), not a measurement.
 
 ## Limits of this appraisal

@@ -1,0 +1,485 @@
+{
+  "touchstone_version": "0.2",
+  "kind": "dataset",
+  "mode": "quick",
+  "material": {
+    "path": "/Users/nathanhe/.cache/touchstone/case_studies/inputs/code_alpaca_20k.json",
+    "name": "code_alpaca_20k",
+    "sha256": "2cabb4ceaf69871633e0a5eab7cdb547863f3a6b5bd7b9a712981fb856610a0f",
+    "n_items": 20016,
+    "unique_items": 20016,
+    "skipped_rows": 6,
+    "rows_read": 20022,
+    "skip_reasons": [
+      "code_alpaca_20k.json:record 7955: empty 'instruction' or 'output'",
+      "code_alpaca_20k.json:record 9030: empty 'instruction' or 'output'",
+      "code_alpaca_20k.json:record 13138: empty 'instruction' or 'output'",
+      "code_alpaca_20k.json:record 13841: empty 'instruction' or 'output'",
+      "code_alpaca_20k.json:record 16248: empty 'instruction' or 'output'"
+    ]
+  },
+  "heldout": {
+    "name": "humaneval_suite",
+    "domain": "humaneval_suite",
+    "description": "user-supplied suite from humaneval_suite.jsonl",
+    "n_items": 150,
+    "source": "/Users/nathanhe/.cache/touchstone/case_studies/inputs/humaneval_suite.jsonl (subset of 150)",
+    "parts": {
+      "all": 150
+    },
+    "n_items_untouched_by_material": 150
+  },
+  "relevance": {
+    "mean_nearest_cos": 0.3937,
+    "raw_off_topic_share": 0.4025,
+    "suite_self_share": 0.0133,
+    "off_topic_share": 0.3944,
+    "off_topic_status": "checked"
+  },
+  "label_quality": {
+    "arithmetic": {
+      "checked": 32,
+      "inconsistent": 8,
+      "unsupported_final": 0,
+      "rate": 0.25
+    },
+    "audit": {
+      "status": "partial",
+      "method": "syntax only",
+      "reason": "no tests supplied, so behaviour is unchecked",
+      "tried": 74,
+      "invalid": 5,
+      "rate": 0.0676
+    }
+  },
+  "checks": {
+    "data_type": "code",
+    "language": "en",
+    "labels": {
+      "status": "partial",
+      "method": "syntax only",
+      "reason": "no tests supplied, so behaviour is unchecked",
+      "tried": 74,
+      "invalid": 5,
+      "rate": 0.0676
+    },
+    "public_copy": {
+      "status": "not_checked",
+      "reason": "no public baseline for this data type; pass --public"
+    },
+    "off_topic": {
+      "status": "checked",
+      "method": "share unrelated to the suite, net of the suite's own spread"
+    }
+  },
+  "rungs": {
+    "135M": {
+      "params": 134515008,
+      "seeds": 1,
+      "before": {
+        "accuracy": 0.0,
+        "candidate_prob": 99.85
+      },
+      "sample_outputs_before": [
+        {
+          "prompt": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n",
+          "output": "from typing import List\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8,"
+        },
+        {
+          "prompt": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n",
+          "output": "from typing import List\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\"Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('("
+        }
+      ],
+      "reply_chars_before": 340.9,
+      "material": {
+        "after": {
+          "accuracy": 0.0,
+          "candidate_prob": 99.86
+        },
+        "acc_gain": {
+          "gain": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "se": 0.0
+        },
+        "cand_gain": {
+          "gain": 0.013,
+          "lo": -0.025,
+          "hi": 0.068,
+          "se": 0.03
+        },
+        "acc_gain_clean": {
+          "gain": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "se": 0.0
+        },
+        "acc_gain_by_seed": [
+          0.0
+        ],
+        "per_part": {
+          "all": 0.0
+        },
+        "train": [
+          {
+            "steps": 30,
+            "examples_seen": 480,
+            "unique_examples_used": 480,
+            "epochs": 0.02,
+            "loss_first": 0.7834,
+            "loss_last": 0.8875,
+            "seconds": 143.6,
+            "device": "cpu",
+            "dtype": "float32",
+            "step_seconds": [
+              6.276,
+              5.04,
+              4.998,
+              4.153,
+              4.149,
+              4.499,
+              5.504,
+              5.036,
+              3.372,
+              5.185,
+              4.647,
+              5.583,
+              5.057,
+              4.84,
+              4.819,
+              4.937,
+              3.437,
+              2.857,
+              5.523,
+              3.431,
+              6.773,
+              6.929,
+              4.097,
+              4.903,
+              4.074,
+              5.137,
+              4.027,
+              5.002,
+              4.638,
+              4.657
+            ],
+            "step_tokens": [
+              2251,
+              1885,
+              1857,
+              1698,
+              1837,
+              1869,
+              2097,
+              1779,
+              1505,
+              2139,
+              1773,
+              1890,
+              1891,
+              2054,
+              1708,
+              2034,
+              1639,
+              1486,
+              2046,
+              1821,
+              2105,
+              2161,
+              1840,
+              1909,
+              1948,
+              2103,
+              1869,
+              2308,
+              1969,
+              1601
+            ],
+            "peak_memory_gb": 4.84
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n",
+            "output": "from typing import List\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8,"
+          },
+          {
+            "prompt": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n",
+            "output": "def separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )("
+          }
+        ],
+        "reply_chars": 308.0
+      },
+      "placebo": {
+        "after": {
+          "accuracy": 0.0,
+          "candidate_prob": 99.88
+        },
+        "acc_gain": {
+          "gain": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "se": 0.0
+        },
+        "cand_gain": {
+          "gain": 0.034,
+          "lo": -0.017,
+          "hi": 0.105,
+          "se": 0.038
+        },
+        "acc_gain_clean": {
+          "gain": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "se": 0.0
+        },
+        "acc_gain_by_seed": [
+          0.0
+        ],
+        "per_part": {
+          "all": 0.0
+        },
+        "train": [
+          {
+            "steps": 30,
+            "examples_seen": 480,
+            "unique_examples_used": 480,
+            "epochs": 0.02,
+            "loss_first": 1.4087,
+            "loss_last": 1.1275,
+            "seconds": 151.3,
+            "device": "cpu",
+            "dtype": "float32",
+            "step_seconds": [
+              3.966,
+              4.904,
+              4.809,
+              4.76,
+              4.936,
+              3.994,
+              3.428,
+              4.894,
+              3.971,
+              4.807,
+              4.716,
+              4.0,
+              6.273,
+              6.083,
+              4.946,
+              6.051,
+              3.515,
+              4.113,
+              5.836,
+              6.135,
+              6.274,
+              6.55,
+              6.135,
+              5.024,
+              4.994,
+              4.948,
+              5.501,
+              5.251,
+              5.604,
+              4.831
+            ],
+            "step_tokens": [
+              1675,
+              2347,
+              1964,
+              1738,
+              2033,
+              1764,
+              1677,
+              1954,
+              1769,
+              1845,
+              2136,
+              1816,
+              2166,
+              2197,
+              1608,
+              2281,
+              1924,
+              1614,
+              1829,
+              1985,
+              1909,
+              1850,
+              1938,
+              1849,
+              1988,
+              2110,
+              1794,
+              1708,
+              2257,
+              2101
+            ],
+            "peak_memory_gb": 5.09
+          }
+        ],
+        "sample_outputs": [
+          {
+            "prompt": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n",
+            "output": "import numpy as np\nimport matplotlib.pyplot as plt\nimport matplotlib.patches as patches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as mpatches\nimport matplotlib.patches as"
+          },
+          {
+            "prompt": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n",
+            "output": "import re\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (("
+          }
+        ],
+        "reply_chars": 313.1
+      },
+      "net": {
+        "acc": {
+          "gain": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "se": 0.0
+        },
+        "cand": {
+          "gain": -0.02,
+          "lo": -0.047,
+          "hi": -0.001,
+          "se": 0.014
+        }
+      },
+      "seconds": 999
+    }
+  },
+  "measurable_at": "135M",
+  "flags": [
+    {
+      "code": "no_measurable_gain",
+      "severity": "block",
+      "text": "No measurable gain above placebo on the held-out suite at the largest trained size."
+    }
+  ],
+  "grade": "D",
+  "fair_value": {
+    "per_item": 0.0,
+    "total": 0.0,
+    "blocked_by": [
+      "no_measurable_gain"
+    ],
+    "novel_share": 1.0,
+    "dollars_per_point": 5000.0,
+    "basis": "net gain measured at 135M"
+  },
+  "models": {
+    "135M": "HuggingFaceTB/SmolLM2-135M-Instruct"
+  },
+  "recipe": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "sft_lr": 0.0002,
+    "sft_batch": 16,
+    "sft_steps": 30,
+    "sft_max_len": 256,
+    "rl_lr": 5e-05,
+    "rl_steps": 40,
+    "rl_prompts": 8,
+    "rl_group": 8,
+    "rl_kl": 0.04,
+    "rl_max_new": 64,
+    "eval_max_new": 96
+  },
+  "runtime_s": 1263,
+  "device": "cpu",
+  "overlap_detail": {
+    "heldout": {
+      "rate": 0.0,
+      "exact": 0.0,
+      "near": 0.0,
+      "paraphrase": 0.0,
+      "n": 20016,
+      "examples": [],
+      "suite_share": 0.0
+    },
+    "public": {
+      "rate": 0.0,
+      "examples": [],
+      "baseline": "none (no public baseline for this domain; pass --public)"
+    },
+    "duplicates": {
+      "n": 20016,
+      "unique": 20016,
+      "dup_rate": 0.0
+    }
+  },
+  "forecast_detail": {
+    "target": "1.7B",
+    "target_params": 1711376384,
+    "material": {
+      "method": "rank_largest",
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "placebo": {
+      "method": "rank_largest",
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "coverage": 0.9,
+      "calibrated_on": 0
+    },
+    "method": "rank_largest",
+    "method_note": "No calibration sweep exists for this suite, so the forecast is the gain measured at 135M (the DataDecide default: rank at the largest affordable size). Treat it as a ranking signal; its scale at 1.7B is not validated.",
+    "net": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+    },
+    "headline": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "source": "forecast"
+    },
+    "smooth": {
+      "point": -0.02,
+      "lo": -0.047,
+      "hi": -0.001,
+      "method": "rank_largest",
+      "rung": "135M",
+      "metric": "probability on the correct answer vs 4 near misses (points)"
+    }
+  },
+  "schema_version": "1.0",
+  "fair_value_per_item": 0.0,
+  "overlap": {
+    "suite": 0.0,
+    "public": 0.0,
+    "duplicates": 0.0
+  },
+  "probes": {},
+  "gains_by_size": {
+    "135M": {
+      "net": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "raw": 0.0,
+      "placebo": 0.0
+    }
+  },
+  "forecast": {
+    "value": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "target": "1.7B",
+    "method": "rank_largest",
+    "source": "forecast",
+    "smooth_value": -0.02,
+    "smooth_lo": -0.047,
+    "smooth_hi": -0.001
+  },
+  "fair_value_range": {
+    "per_item_low": 0.0,
+    "per_item_high": 0.0,
+    "grade_low": "D",
+    "grade_high": "D"
+  },
+  "summary": "code_alpaca_20k (dataset, 20,016 items) earns grade D. Net gain on the held-out humaneval_suite suite (humaneval_suite): +0.0 points (range +0.0 to +0.0, measured at 135M). Not priced because of: no measurable gain."
+}

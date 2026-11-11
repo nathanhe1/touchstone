@@ -1,7 +1,21 @@
-[16:08:28] @stage validate 0.010
-[16:08:28] Appraising dataset math_train.jsonl: 7500 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
-[16:08:28] @stage seal 0.040
-[16:08:28] @stage overlap 0.060
-[16:10:00]   overlap: 5.0% of held-out items appear in the material (0.1% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 2%
-[16:10:10]   labels: a judge model is checking the answers (the slowest screening step)
-Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 517.36it/s]
+[21:30:32] @stage validate 0.010
+[21:30:32] Appraising dataset math_train.jsonl: 7500 examples; held-out suite 'math_test_suite' (149 items: math_test_suite); mode quick
+[21:30:32] @stage seal 0.040
+[21:30:32] @stage overlap 0.060
+[21:32:15]   overlap: 5.0% of held-out items appear in the material (0.1% of material), public (none (no public baseline for this domain; pass --public)) 0.0%, duplicates 0.0%, off-topic 2%
+[21:32:20]   labels: a judge model is checking the answers (the slowest screening step)
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1740.89it/s]
+[21:35:51]   labels: arithmetic errors in 0.02148664343786295 of worked solutions
+[21:35:52]   135M: base accuracy 2.0%  candidate prob 47.7%
+[21:35:52] @stage train 0.150
+[21:38:56] @stage measure 0.375
+[21:45:58]   135M seed 0 material: accuracy 1.3%  candidate prob 48.9%  (184s train)
+[21:45:58] @stage train 0.525
+[21:54:38] @stage measure 0.750
+[22:07:52]   135M seed 0 placebo : accuracy 2.0%  candidate prob 51.0%  (520s train)
+[22:07:53] @stage forecast 0.910
+[22:07:53] @stage price 0.950
+@stage report 0.98
+
+Grade D | net gain at 1.7B: -0.7 pts [-3.2, +1.9] | value $0.00/item | flags: no_measurable_gain
+Report: out/case_studies/math_train_quick/report.md

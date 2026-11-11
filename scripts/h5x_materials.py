@@ -280,11 +280,25 @@ def suite_tox():
                 yield x
 
 
+def balanced(fn, fam):
+    """The suite cut to equal class sizes with a seeded sample, so it passes the class-balance cap."""
+    def go():
+        rows = list(fn())
+        by = {}
+        for r in rows:
+            by.setdefault(r["label"], []).append(r)
+        n = min(len(v) for v in by.values())
+        rng = random.Random(f"{M.SEED}|{fam}|suite-balance")
+        for k in sorted(by):
+            yield from rng.sample(by[k], n)
+    return go
+
+
 M.FAMILIES = {
-    "sent": {"suite": suite_sent, "suite_source": ("cr", "test + train"), "kind": "binary sentiment as a letter choice", "stratify": True,
+    "sent": {"suite": balanced(suite_sent, "sent"), "suite_source": ("cr", "test + train"), "kind": "binary sentiment as a letter choice", "stratify": True,
              "materials": {"sst2": ("sst2", src_sst2), "imdb": ("imdb", src_imdb), "amazon": ("amazon", src_amazon),
                            "rotten": ("rotten", src_rotten), "tweets": ("tweet_eval", src_tweets)}},
-    "para": {"suite": suite_para, "suite_source": ("glue", "mrpc/test"), "kind": "paraphrase / duplicate detection as a letter choice",
+    "para": {"suite": balanced(suite_para, "para"), "suite_source": ("glue", "mrpc/test"), "kind": "paraphrase / duplicate detection as a letter choice",
              "stratify": True,
              "materials": {"qqp": ("glue", src_qqp), "mrpc_train": ("glue", src_mrpc_train), "paws": ("paws", src_paws),
                            "paws_silver": ("paws", src_paws_silver), "medqp": ("medqp", src_medqp)}},
@@ -292,7 +306,7 @@ M.FAMILIES = {
            "mc": True,
            "materials": {"swag": ("swag", src_swag), "hellaswag": ("hellaswag", src_hellaswag), "cosmos": ("cosmos", src_cosmos),
                          "socialiqa": ("socialiqa", src_socialiqa), "piqa": ("piqa", src_piqa)}},
-    "tox": {"suite": suite_tox, "suite_source": ("toxicchat", "0124 test + train"), "kind": "toxicity as a letter choice (spare family)",
+    "tox": {"suite": balanced(suite_tox, "tox"), "suite_source": ("toxicchat", "0124 test + train"), "kind": "toxicity as a letter choice (spare family)",
             "stratify": True,
             "materials": {"wiki_toxic": ("wiki_toxic", src_wiki_toxic), "civil": ("civil", src_civil),
                           "tweet_offensive": ("tweet_eval", src_tweet_offensive), "tweet_hate": ("tweet_eval", src_tweet_hate),
@@ -304,8 +318,13 @@ if __name__ == "__main__":
     if cmd == "fetch":
         M.fetch()
         import json
-        (M.POOLS / "eligible_override.json").write_text(json.dumps(ELIGIBLE))
+        for k, n in ELIGIBLE.items():  # pre-sampled sources: record the true number of eligible rows
+            f = M.POOLS / f"{k}.json"
+            d = json.loads(f.read_text())
+            d["eligible"] = n
+            f.write_text(json.dumps(d))
     elif cmd == "build":
         M.build()
+        (M.OUT / "h5_materials.sha256").rename(M.OUT / "h5x_materials.sha256")
     else:
         M.table()

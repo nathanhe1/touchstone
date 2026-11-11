@@ -161,13 +161,16 @@ function Verdict({ env }: { env: Env }) {
 /* ---------- How it works: scroll drives the steps; each stage has its own motion ---------- */
 const STEPS = [
   ['Seal', 'The vendor uploads the dataset or environment to a sealed sandbox. You never see their tasks, only the results.'],
-  ['Train small', 'Small open models train on it at four sizes with one fixed recipe. Cheap, fast and repeatable.'],
+  ['Train small', 'Open models train on it at three sizes with one fixed recipe. Cheap, fast and repeatable.'],
   ['Measure', 'The models face private problems they never trained on, and we try to fool the grader.'],
   ['Grade and price', 'We report the gain we measured on small models, with its range, and put a fair price on each task.'],
 ] as const
 
+/* The sizes we train: three open models from one family, the largest at 8 billion parameters. */
+const LADDER: [name: string, billions: number][] = [['0.6B', .6], ['1.7B', 1.7], ['8B', 8]]
+
 function Spheres() {
-  const sizes = Object.entries(data.ladder)
+  const sizes = LADDER
   const biggest = Math.max(...sizes.map(([, v]) => v))
   const [springs, api] = useSprings(sizes.length, i => ({ from: { scale: 0, y: 30 }, to: { scale: 1, y: 0 }, delay: 120 * i, config: { tension: 210, friction: 12 } }))
   return (
@@ -179,7 +182,7 @@ function Spheres() {
             <animated.div className="sphere" style={{ width: `min(${d}px, ${d / 150 * 21}vw)`, height: `min(${d}px, ${d / 150 * 21}vw)`, ...s }}
               onPointerEnter={() => api.start(j => (j === i ? { scale: 1.12, config: { tension: 320, friction: 10 } } : {}))}
               onPointerLeave={() => api.start(j => (j === i ? { scale: 1 } : {}))} />
-            <b>{sizes[i][0]}</b><small>{params(sizes[i][1])}</small>
+            <b>{sizes[i][0]}</b><small>parameters</small>
           </div>
         )
       })}

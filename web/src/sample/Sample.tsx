@@ -226,7 +226,7 @@ function How() {
   return (
     <section className="how">
       <div className="in">
-        <Rise className="split-head"><h2>Small experiments, before the big spend.</h2><p>Screening takes under a minute. Small models take minutes. Larger ones, up to 1.7B parameters, take hours and only run when the decision needs them.</p></Rise>
+        <Rise className="split-head"><h2>Small experiments, before the big spend.</h2><p>Screening takes about a minute. Each training run takes minutes, on open models up to 8 billion parameters, and only runs when the decision needs it.</p></Rise>
         <div className="legacy how-story"><HowItWorks /></div>
         <Rise className="how-more"><Pill href="#demo">Open the live demo</Pill><Pill href="#product" tone="line">Read how the product works</Pill></Rise>
       </div>
@@ -236,8 +236,8 @@ function How() {
 
 const CHECKS: [string, string, boolean][] = [
   ['Can a model cheat for reward?', 'Known-wrong answers, hedges and junk go to the grader. Anything that pays gets flagged.', true],
-  ['Are the labels right?', 'We recompute the worked answers and have a reference model re-solve a sample two ways. Confident disagreements count as wrong labels.', false],
-  ['Did the test leak into training?', 'We compare the material with a private test suite, reworded copies included.', true],
+  ['Are the labels right?', 'We recompute the worked answers and have a reference model re-solve a sample two ways. Every confident disagreement is listed in the report.', false],
+  ['Did the test leak into training?', 'We compare the material with a private test suite and flag copies and near-copies.', true],
   ['Does the gain beat a placebo?', 'Small open models train on the real answers or rewards, and on shuffled ones. Only the difference counts.', false],
   ['Is it already public?', 'We measure overlap with free public material.', false],
 ]
@@ -265,17 +265,33 @@ function Checks() {
   )
 }
 
-const TILES: [number, string][] = [[21, 'RL environment cases exactly right'], [12, 'gameable graders caught'], [3, 'reworded test leaks caught'], [6, 'clean controls left unflagged']]
+const TILES: [number, string][] = [[21, 'RL environment cases exactly right'], [12, 'gameable graders caught'], [6, 'new grader bugs caught in a second locked test'], [6, 'clean controls left unflagged']]
+
+/* Found on public material that anyone can download. Sources: the engine's METHOD.md and case studies. */
+const FOUND: [string, string][] = [
+  ['14.6%', "of rows sampled from ANLI's training set share a passage with its own test set"],
+  ['63 s', "to flag a grader flaw in WebArena's string matching that researchers documented in 2025"],
+  ['8 of 8', "samples of GSM8K's test set identified as copies of public material"],
+  ['8B', 'parameters in the largest model we have trained on appraised material'],
+]
 
 function Proof() {
   return (
     <section className="proof">
       <div className="in">
-        <Rise className="split-head"><h2>A locked test.</h2><p>Frozen before scoring, run on RL environment test cases.</p></Rise>
+        <Rise className="split-head"><h2>Locked tests.</h2><p>Each one frozen before scoring, run on RL environment test cases.</p></Rise>
       </div>
       <div className="in figs">
         {TILES.map(([n, label], i) => (
           <Rise className="fig" delay={.05 + i * .07} key={label}><b><Rolling value={n} format={v => `${Math.round(v)} of ${n}`} /></b><p>{label}</p></Rise>
+        ))}
+      </div>
+      <div className="in next">
+        <Rise className="split-head"><h2>Real public material.</h2><p>What the same checks found in datasets and benchmarks anyone can download.</p></Rise>
+      </div>
+      <div className="in figs">
+        {FOUND.map(([value, label], i) => (
+          <Rise className="fig" delay={.05 + i * .07} key={label}><b>{value}</b><p>{label}</p></Rise>
         ))}
       </div>
     </section>

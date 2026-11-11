@@ -569,3 +569,5 @@ done h5_ft_sft_boolq_wrong10_q3-8B_s1 gain=13.333 base=73.83 wall=120.1s mem=20.
 start h5_ft_sft_boolq_off25_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
 done h5_ft_sft_boolq_off25_q3-8B_s1 gain=14.333 base=73.83 wall=127.0s mem=20.98GB
 start h5_ft_sft_boolq_wrong100_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_wrong100_q3-8B_s1 gain=-36.333 base=73.83 wall=121.9s mem=20.98GB
+start h5_ft_sft_boolq_placebo_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)

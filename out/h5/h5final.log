@@ -541,3 +541,27 @@ done h5_ft_sft_csqa_wrong100_q3-8B_s1 gain=-57.167 base=77.0 wall=85.2s mem=21.5
 start h5_ft_sft_csqa_placebo_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
 done h5_ft_sft_csqa_placebo_q3-8B_s1 gain=-56.5 base=77.0 wall=84.7s mem=21.5GB
 start h5_ft_sft_boolq_clean_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_clean_q3-8B_s0 gain=15.333 base=73.83 wall=166.5s mem=20.98GB
+start h5_ft_sft_boolq_pool100_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_pool100_q3-8B_s0 gain=13.667 base=73.83 wall=118.6s mem=20.98GB
+start h5_ft_sft_boolq_pool200_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_pool200_q3-8B_s0 gain=13.833 base=73.83 wall=118.1s mem=20.98GB
+start h5_ft_sft_boolq_pool300_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_pool300_q3-8B_s0 gain=14.0 base=73.83 wall=121.5s mem=20.98GB
+start h5_ft_sft_boolq_wrong10_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_wrong10_q3-8B_s0 gain=14.833 base=73.83 wall=120.3s mem=20.98GB
+start h5_ft_sft_boolq_off25_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_off25_q3-8B_s0 gain=14.833 base=73.83 wall=127.1s mem=20.98GB
+start h5_ft_sft_boolq_wrong100_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_wrong100_q3-8B_s0 gain=-36.5 base=73.83 wall=121.0s mem=20.98GB
+start h5_ft_sft_boolq_placebo_q3-8B_s0 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_placebo_q3-8B_s0 gain=-11.167 base=73.83 wall=120.0s mem=20.98GB
+start h5_ft_sft_boolq_clean_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_clean_q3-8B_s1 gain=14.333 base=73.83 wall=120.3s mem=20.98GB
+start h5_ft_sft_boolq_pool100_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_pool100_q3-8B_s1 gain=11.333 base=73.83 wall=118.3s mem=20.98GB
+start h5_ft_sft_boolq_pool200_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_pool200_q3-8B_s1 gain=12.833 base=73.83 wall=118.1s mem=20.98GB
+start h5_ft_sft_boolq_pool300_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)
+done h5_ft_sft_boolq_pool300_q3-8B_s1 gain=13.5 base=73.83 wall=122.7s mem=20.98GB
+start h5_ft_sft_boolq_wrong10_q3-8B_s1 on gpu0 (22 GB est, 22/30 in use)

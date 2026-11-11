@@ -61,8 +61,11 @@ def test_dataset_formats_and_errors(tmp_path):
     f.write_text("\n".join(json.dumps(r) for r in rows))
     ex = data.load_dataset(f)
     assert len(ex) == 25 and ex[-1].completion == "a9" and ex[0].prompt_text == "p0"
-    f.write_text("\n".join(json.dumps(r) for r in rows) + "\n{bad json\n")
-    with pytest.raises(data.DatasetError, match=":26: not valid JSON"):
+    f.write_text("\n".join(json.dumps(r) for r in rows) + "\n{bad json\n")  # one bad row is skipped and reported
+    ex = data.load_dataset(f)
+    assert len(ex) == 25 and ex.skipped == 1 and ":26: not valid JSON" in ex.skip_reasons[0]
+    f.write_text("\n".join(json.dumps(r) for r in rows[:20]) + "\n{bad json\n" * 5)  # past the limit: refused
+    with pytest.raises(data.DatasetError, match=":21: not valid JSON"):
         data.load_dataset(f)
     f.write_text(json.dumps({"text": "x"}) + "\n")
     with pytest.raises(data.DatasetError, match="unrecognised format"):

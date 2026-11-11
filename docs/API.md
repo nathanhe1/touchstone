@@ -12,7 +12,7 @@ Multipart form:
 
 | field | required | values |
 |---|---|---|
-| `file` | yes | a `.jsonl` dataset, or a `.zip` / `.tar.gz` / `.tgz` environment folder containing `env.py` |
+| `file` | yes | a dataset (`.jsonl`, `.json`, `.csv`, `.tsv`, `.parquet`, optionally `.gz`), or a `.zip` / `.tar.gz` / `.tgz` environment folder containing `env.py` (it may import other modules in the same folder; packages it needs must already be installed) |
 | `kind` | no | `dataset` or `env` (auto-detected from the file type) |
 | `mode` | no | `quick` (default) or `full` |
 
@@ -75,7 +75,7 @@ The top-level fields below are the stable contract. Everything else in the file 
 | `gains_by_size` | object | `{"135M": {"net", "lo", "hi", "raw", "placebo"}, ...}`: held-out accuracy points; `net` = material minus placebo (only a helpful placebo is subtracted), `lo`/`hi` its 90% interval |
 | `forecast` | object | `{"value", "lo", "hi", "method", "target", "source", "smooth_value", "smooth_lo", "smooth_hi"}`: net accuracy gain at `target` (1.7B). `source` is `measured` in full mode (1.7B was trained), `forecast`, or `skipped` (quick mode stopped after screening; values are `null`); `method` is e.g. `calibrated from 135M`, `rank_largest`, `measured` or `skipped`. `smooth_*` is the net gain in probability on the correct answer at the largest trained size, the better ranking signal across scale (see METHOD.md) |
 | `summary` | str | one paragraph in plain English |
-| `material` | object | `{path, name, sha256, n_items, unique_items}` |
+| `material` | object | `{path, name, sha256, n_items, unique_items}`, plus `skipped_rows`, `rows_read` and `skip_reasons` when unreadable rows were left out (at most 10% of the file) |
 | `heldout` | object | `{name, domain, description, n_items, source, ...}` |
 | `device` | str | backend the run used |
 

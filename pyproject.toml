@@ -21,6 +21,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest==8.3.5", "httpx==0.28.1"]
 mlx = ["mlx==0.29.3", "mlx-lm==0.28.3"]
+parquet = ["pyarrow==17.0.0"]  # reading .parquet uploads; without it the loader asks for JSONL
 
 [project.scripts]
 touchstone = "touchstone.cli:main"

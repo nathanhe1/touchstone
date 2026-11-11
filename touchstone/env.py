@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import re
 import importlib.util
+import sys
 import json
 import shutil
 from dataclasses import dataclass, field
@@ -129,10 +130,30 @@ def load(path: str | Path) -> Environment:
     name = path.name if path.is_dir() else path.stem
     spec = importlib.util.spec_from_file_location(f"env_{name}", file)
     mod = importlib.util.module_from_spec(spec)
+    folder = str(file.parent.resolve())
+    if folder not in sys.path:  # real environments split code across files: env.py imports helpers.py beside it
+        sys.path.insert(0, folder)
     try:
         spec.loader.exec_module(mod)
+    except ModuleNotFoundError as e:
+        local = (file.parent / f"{(e.name or '').split('.')[0]}.py").exists() or (file.parent / (e.name or "")).is_dir()
+        req = file.parent / "requirements.txt"
+        listed = ""
+        if req.exists():
+            lines = [x.strip() for x in req.read_text(errors="replace").splitlines() if x.strip() and not x.startswith("#")]
+            listed = f"; its requirements.txt lists: {', '.join(lines[:8])}"
+        if local:
+            raise EnvError(f"{file}: failed to import ({type(e).__name__}: {e})") from None
+        raise EnvError(f"{file}: imports '{e.name}', which is not installed here{listed}. Touchstone does not install an "
+                       "environment's dependencies; include the package in the folder or install it where the appraisal runs") from None
     except Exception as e:
         raise EnvError(f"{file}: failed to import ({type(e).__name__}: {e})") from None
+    finally:  # forget this folder's helper modules, so the next environment's helpers.py is not mistaken for them
+        for k, m in list(sys.modules.items()):
+            if str(getattr(m, "__file__", "") or "").startswith(folder + "/"):
+                del sys.modules[k]
+        if folder in sys.path:
+            sys.path.remove(folder)
     if not hasattr(mod, "ENV"):
         raise EnvError(f"{file}: must define a module-level ENV object (see touchstone/env.py)")
     return mod.ENV

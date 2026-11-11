@@ -604,6 +604,8 @@ How they are read:
 - The pooled analysis is not independent of h5: it reuses h5's nli and sci runs. It is labelled secondary for that reason.
 - The comparisons (C1 against B, C2 against B) are reported on the pooled stratum by the same family-level rule: fewer than 5 shared families is underpowered.
 
+**Candidate families as delivered** (`examples/h5x/manifest.json`, merged before any pre-flight). Sorted by name: `cs` (commonsense multiple choice; suite CODAH), `para` (paraphrase; suite MRPC test), `sent` (binary sentiment; suite Hu & Liu customer reviews) are primary, and `tox` (toxicity; suite ToxicChat) is the spare. Each has 5 materials, so 10 pairs per family and 30 for three families; the pooled real stratum would hold 55. *Stated before any run:* `sent` reuses sources this project has trained on before. Its suite is h4's `cr` family, and `imdb`, `amazon` and `rotten` appear as materials (`rotten` was an h4 development family). No h5 suite or h5 material is reused. The rule gives no ground to drop a family for this, so `sent` stays and the overlap is reported with its result.
+
 **Freeze.** When the FDE's manifest, the 8B pre-flight and the fit check are posted, the two configs, the scorer, the soft helper and every file under `examples/h5x/` are hashed into `out/h5x_final.sha256`, and the hash is written here. h5 is not scored until that line exists.
 
 ## 7. Grade and fair value
